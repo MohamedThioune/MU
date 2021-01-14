@@ -11,8 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/menu', [App\Http\Controllers\ManueController::class, 'index'])->name('manue');
-Callme2020
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::get('/', [App\Http\Controllers\ManueController::class, 'index'])->name('manue');
