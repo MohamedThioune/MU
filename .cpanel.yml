@@ -1,0 +1,3 @@
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/faseya/public_html/faseya/mu_code
