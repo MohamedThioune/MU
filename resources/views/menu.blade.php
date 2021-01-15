@@ -149,7 +149,7 @@
                     -->                    </div>
                 <div class="categorie row">
                     <div class="contentButtonCategorie">
-                        <button class="btn btnCategorie">Flow</button>
+                        <button class="btn btnCategorie">Flow ''S</button>
                         <button class="btn btnCategorie">Kids</button>
                         <button class="btn btnCategorie">Sista’s</button>
                     </div>
