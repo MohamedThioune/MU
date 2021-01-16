@@ -3,7 +3,7 @@
 */
 
 body {
-background: #f7f7f7;
+    background: #f7f7f7;
 }
 .col-md-9 {
     -ms-flex: 0 0 68.5% !important;
@@ -59,9 +59,9 @@ background: #f7f7f7;
     border-radius: 50px;
     width: 302px;
     border: 1px solid #707070;
-    background: #707070;
+    background: #383838;
     height: 33px;
-    margin-top: 20px;
+    margin-top: 50px;
     margin-bottom: 5px;
 }
 .nav-link {
@@ -187,6 +187,11 @@ button:focus {
     display: block;
     opacity: 1;
     position: fixed !important;
+    z-index: 111;
+}
+.visibleBtn{
+    display: block;
+    opacity: 1;
 }
 .iconeMenue{
     width: 41px;
@@ -240,7 +245,6 @@ button:focus {
 }
 .setting2 {
     height: 29px;
-    margin-right: 74px;
 }
 
 .btnheader2 {
@@ -263,7 +267,7 @@ button:focus {
     width: 100%;
 }
 .contentParDefaut {
-   background: url("../img/grille.png") space;
+    background: url("../img/grille.png") space;
     background-size: contain;
     position: relative;
 }
@@ -344,7 +348,7 @@ button:focus {
     border-bottom-right-radius: 9px;
     background-image: linear-gradient(0deg, #000000 23%, rgba(0, 0, 0, 0.5) 100%);
 }
- .text-liberty{
+.text-liberty{
     font-size: 13px;
     margin-bottom: 2px;
     font-weight: bold;
@@ -519,6 +523,8 @@ button:focus {
     justify-content: center;
     width: 100%;
     margin-top: 40px;
+    position: absolute;
+    bottom: 10px;
 }
 .blockAuteur{
     background: #ffffff;
@@ -657,7 +663,7 @@ button:focus {
 .searchButtonMenue {
     position: absolute;
     right: 9px;
-    top: 19px;
+    top: 51px;
 }
 .btnMenue {
     margin-left: 66px;
@@ -667,7 +673,7 @@ button:focus {
     display: inline-grid;
 }
 .contentSousMenueCategorie{
-    display: inline-grid;
+    display: none;
     margin-left: 50px;
 }
 .textSousCategorie {
@@ -677,4 +683,396 @@ button:focus {
     text-align: center;
     margin-bottom: 3px;
     padding-bottom: 4px;
+}
+.visibleSousCategorie{
+    display: inline-grid;
+    opacity: 1;
+}
+.btnCategorie:hover {
+    color: #ffffff !important;
+    text-decoration: none;
+}
+.btn.focus, .btn:focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25) !important;
+}
+.muuText {
+    color: #FFFFFF;
+    font-size: 14.5px;
+}
+.flecheMuu {
+    height: 20px;
+    width: 17px !important;
+    transform: rotate(90deg);
+    margin-right: 13px;
+}
+.muu {
+    margin-left: 103px;
+    margin-top: 12px;
+}
+.commentTitle {
+    display: flex;
+    background: #CECECE 0% 0% no-repeat padding-box;
+    width: 300px;
+    padding: 10px 0;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+.commentBlock {
+    background: #E4F3B046 0% 0% no-repeat padding-box;
+    border: 1px solid #FFFFFF;
+    opacity: 1;
+    display: flex;
+}
+.commentOne {
+    display: block;
+}
+.nombreComment{
+    color: #FFFFFF;
+    font-weight: 700;
+    padding-right: 20px;
+    margin-bottom: 0;
+}.commentText{
+     color: #FFFFFF;
+     font-weight: 700;
+     padding-right: 25px;
+     margin-bottom: 0;
+ }
+.commentImg {
+    width: 22px;
+    height: 18px;
+    margin-top: 5px;
+}
+.elementAuteurComment {
+    width: 46px;
+    height: 46px;
+    border-radius: 100%;
+    overflow: hidden;
+    margin-right: 20px;
+}
+.elementAuteurComment img{
+    width: 100%;
+    height: auto;
+}
+.imgReponseBlock {
+    width: 42px;
+    height: 42px;
+    border-radius: 100%;
+    overflow: hidden;
+}
+.imgReponseBlock img {
+    width: 100%;
+}
+.elementAuteurComment img{
+    width: 100%;
+    height: auto;
+}
+.checkBlock {
+    display: flex;
+}
+.blockReponse {
+    margin-left: 22px;
+}
+.commentaireAuteurTitle{
+    font-size: 17px;
+    letter-spacing: 0px;
+    color: #605C5C;
+    font-weight: bolder;
+    margin-bottom: 7px;
+}
+.commentaireText{
+    font-size: 15px;
+    letter-spacing: 0px;
+    color: #605C5C;
+}
+.numberLike{
+    font-size: 15px;
+    letter-spacing: 0px;
+    color: #605C5C;
+    font-weight: bolder;
+}
+.timeCommentaire{
+    font-size: 15px;
+    color: #605C5C;
+    float: right;
+}
+.reponse{
+    display: flex;
+}
+.auteurCommentBlock{
+    display: flex;
+}
+.reponseText{
+    font-size: 17px;
+    letter-spacing: 0px;
+    color: #605C5C;
+    opacity: 1;
+    font-weight: bolder;
+    margin-bottom: 0;
+}
+.timeReponse{
+    font-size: 15px;
+    letter-spacing: 0px;
+    color: #605C5C;
+    margin-bottom: 8px;
+}
+.textReponse{
+    font-size: 15px;
+    color: #605C5C;
+}
+.textReponse{
+    font-size: 14px;
+    color: #9C9999;
+    font-weight: bolder;
+}
+.textCommentBleu{
+    font-size: 14px;
+    color: #34C1F5;
+    font-weight: bolder;
+}
+.textBlock {
+    width: 90%;
+}
+.readMore {
+    float: right;
+    color: #34C1F5;
+}
+.blockLick {
+    display: flex;
+    margin-left: 40px;
+}
+.blockMoreAnswer {
+    display: flex;
+    justify-content: space-between;
+    max-width: 500px;
+    margin-top: 30px;
+}
+.textComment {
+    color: #9C9999;
+    font-weight: bold;
+    font-size: 15px;
+}
+.contentSwipeToday {
+    display: flex;
+}
+.barreLatraleNoir{
+    width: 46px;
+    font-size: 18px;
+    font-weight: bolder;
+    text-align: center;
+    align-content: center;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    background: #020202 0% 0% no-repeat padding-box;
+    writing-mode: vertical-rl;
+    text-orientation: inherit;
+    padding-right: 7px;
+}
+.contentSwipeToday{
+    padding: 35px 0;
+}
+
+.swiper-container {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+.swiper-container {
+    padding: 15px 0 !important;
+    margin-left: 10px !important;
+}
+.elementCardSuggestionDay {
+    height: 139px;
+    position: relative;
+    overflow-y: hidden;
+}
+.elementCardSuggestionDay img{
+    width: 100%;
+}
+.flyText{
+    color: #F7F7F7;
+    font-size: 35px;
+    margin-bottom: 0;
+    font-weight: bold;
+}
+.heureFly{
+    background: #000000;
+    font-size: 11px;
+    color: #FFFFFF;
+    margin-bottom: 0px;
+    padding: 5px 20px;
+    z-index: 111111;
+    font-weight: 900;
+}
+.contentFlyHeure{
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    left: 0;
+    right: 0;
+    background: transparent linear-gradient(180deg, #00000000 0%, #080707 100%) 0% 0% no-repeat padding-box;
+    opacity: 0.69;
+    align-items: flex-end;
+    padding-left: 10px;
+}
+.libertiText{
+    font-size: 17px;
+    color: #5E5E5E;
+    font-weight: bolder;
+    margin-bottom: 8px;
+}
+.imgLiberti{
+    width: 20px;
+    height: 20px;
+}
+.mindCard{
+    display: flex;
+}
+.card-suggestionDay {
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 0px 0px 5px 5px;
+    display: block !important;
+    text-align: unset !important;
+    font-size: unset !important;
+    height: unset !important;
+}
+.swiper-wrapper {
+    height: auto !important;
+}
+.swiper-container {
+    height: auto !important;
+}
+.blockImgMind{
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    overflow: hidden;
+    margin-bottom: 13px;
+}
+.blockImgMind img{
+    width: 100%;
+}
+.oeil-1{
+    width: 16px;
+    margin-left: -45px;
+    height: 16px;
+}
+.day{
+    float: right;
+    font-size: 12px;
+    letter-spacing: 0px;
+    color: #605C5C;
+    margin-bottom: 0;
+    font-weight: 900;
+}
+
+.contentCardSuggestionDay {
+    padding: 10px 13px;
+}
+.mindText {
+    color: #000000;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+.numberviewsSuggestion {
+    font-size: 12px;
+    letter-spacing: 0px;
+    color: #605C5C;
+    margin-bottom: 0;
+    font-weight: 900;
+}
+.block3 {
+    width: 100%;
+    text-align: -webkit-left;
+    padding-left: 14px;
+    display: block;
+}
+.content-Haltcare .container-fluid .contentSwipeToday {
+    padding: 35px 0;
+    background: rgba(205, 229, 117, 0.1);
+    border: 1px solid #FFFFFF;
+}
+.vertBarre{
+    color: #242323;
+    background: rgba(205, 229, 117, 0.33);
+    opacity: 1;
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+}
+.life{
+    background: rgba(250, 159, 159, 0.33) 0% 0% no-repeat padding-box;
+    color: #242323;
+}
+.content-life{
+    background: hsla(0, 78%, 87%, 0.1) 0% 0% no-repeat padding-box;
+    border: 1px solid #FFFFFF;
+}
+
+.Health{
+    background: rgba(52, 193, 245, 0.33) 0% 0% no-repeat padding-box;
+    color: #242323;
+}
+.content-Health{
+    background: rgba(52, 193, 245, 0.1) 0% 0% no-repeat padding-box ;
+    border: 1px solid #FFFFFF;
+
+}
+.content-Business{
+    background: rgba(2, 2, 2, 0.1) 0% 0% no-repeat padding-box;
+    border: 1px solid #FFFFFF;
+}
+.Business{
+    background: rgba(2, 2, 2, 0.33) 0% 0% no-repeat padding-box;
+}
+.content-Education{
+    background: rgba(255, 247, 149, 0.1) 0% 0% no-repeat padding-box;
+    border: 1px solid #FFFFFF;
+    /* opacity: 0.1; */
+}
+.Education{
+    background: rgba(244, 137, 47, 0.33) 0% 0% no-repeat padding-box;
+    color: #242323;
+}
+.content-Evironnement{
+    background: rgba(244, 137, 47, 0.1) 0% 0% no-repeat padding-box;
+    border: 1px solid #FFFFFF;
+}
+.Evironnement{
+    background: #F4A82F 0% 0% no-repeat padding-box;
+    color: #242323;
+}
+.groupButtonHeader2 {
+    width: 50%;
+}
+.iconeMenue2{
+    width: 25px;
+    height: 25px;
+}
+.iconeMenue2 img{
+    width: 100%;
+}
+.textHeure{
+    display: flex;
+    justify-content: space-between;
 }

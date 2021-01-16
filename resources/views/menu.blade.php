@@ -10,6 +10,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="node_modules/swiper/swiper.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
@@ -20,6 +22,10 @@
         <nav class="navbar navbar-expand-lg navModife">
             <button class="groupPointNav pointsRose btnMenue1">
                 <img class="pointsRose" src="{{ asset('img/icones/troispoints.svg') }}" alt="">
+                <div class="muu d-flex">
+                    <img class="flecheMuu" src="{{ asset('img/icones/fleche.svg') }}" alt="">
+                    <p class="muuText">mmmuuu</p>
+                </div>
             </button>
             <a class="navbar-brand elementLogo" href="#">
                 <img src="{{ asset('img/logo-MU.png') }}" alt="">
@@ -27,7 +33,7 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <button class="groupPointNav btnMenue visible">
+            <button class="groupPointNav btnMenue visibleBtn">
                 <div class="d-flex">
                     <div class="PointMenu ">
                         <div class="onePoint"></div>
@@ -56,7 +62,7 @@
                             <img src="{{ asset('img/icones/fleche.svg') }}" alt="" class="iconeFleche">
                         </div>
                         <div class="blockItem">
-                            <img class="iconeMenue" src="{{ asset('img/icones/settings.svg') }}" alt="">
+                           <div class="iconeMenue2"><img src="{{ asset('img/icones/time-shahid.png') }}" alt=""></div>
                             <p class="NameElementMenue">Time shahid</p>
                             <img src="{{ asset('img/icones/fleche.svg') }}" alt="" class="iconeFleche">
                         </div>
@@ -149,11 +155,11 @@
                     -->                    </div>
                 <div class="categorie row">
                     <div class="contentButtonCategorie">
-                        <button class="btn btnCategorie">Flow ''S</button>
-                        <button class="btn btnCategorie">Kids</button>
-                        <button class="btn btnCategorie">Sista’s</button>
+                        <button class="btn btnCategorie flow">Flow</button>
+                        <button class="btn btnCategorie kids">Kids</button>
+                        <button class="btn btnCategorie sista">Sista’s</button>
                     </div>
-                    <div class="contentSousMenueCategorie">
+                    <div class="contentSousMenueCategorie sousCategorieFlow">
                         <p class="textSousCategorie">Life / Art</p>
                         <p class="textSousCategorie">Business</p>
                         <p class="textSousCategorie">Education</p>
@@ -188,8 +194,8 @@
         <div class="header2">
             <div class="container-modife">
                 <div class="block2">
-                    <p class="textHeader2">mmmuuu - done by Git Version control on CPANEL</p>
-                    <div class="d-flex">
+                    <p class="textHeader2">mmmuuu--- done by Git Version control on CPANEL</p>
+                    <div class="d-flex groupButtonHeader2">
                         <button class="btn btnheader2">Flow</button>
                         <button class="btn btnheader2">Sista’s</button>
                         <button class="btn btnheader2">Kids</button>
@@ -373,32 +379,1295 @@
         </div>
     </div>
 </div>
+<div class="content-commentaire">
+    <div class="container-fluid">
+        <div class="row commentBlock">
+            <div class="col-md-6">
+                <div class="commentOne">
+                    <div class="commentTitle">
+                        <p class="nombreComment">14</p>
+                        <p class="commentText">Comments</p>
+                        <img class="commentImg" src="{{ asset('img/icones/commet.svg') }}" alt="">
+                    </div>
+                    <div class="auteurCommentBlock">
+                        <div class="elementAuteurComment">
+                            <img class="commentImg" src="{{ asset('img/auteur-commentaire.png') }}" alt="">
+                        </div>
+                        <div class="textBlock">
+                            <div>
+                                <p class="commentaireAuteurTitle">Morning Mum <span class="timeCommentaire">2 h ago</span></p>
+                                <p class="commentaireText">50% down payment at confirmation of order and rest … <span class="readMore">Read more</span></p>
+                                <div class="checkBlock">
+                                    <div class="blockLick">
+                                        <p class="numberLike">19</p>
+                                        <img src="{{ asset('img/') }}" alt="">
+                                    </div>
+                                    <div class="d-flex">
+                                        <img src="" alt="">
+                                        <p></p>
+                                    </div>
+                                </div>
+                                <div class="reponse">
+                                    <div class="imgReponseBlock">
+                                        <img src="{{ asset('img/femme.png') }}" alt="">
+                                    </div>
+                                    <div class="blockReponse">
+                                        <div class="textHeure">
+                                            <p class="reponseText">Coucou girls</p>
+                                            <p class="timeReponse">15 mn ago</p>
+                                        </div>
+                                        <p class="textReponse">Everyone can do this and do that…</p>
+                                    </div>
+                                </div>
+                                <div class="blockMoreAnswer">
+                                    <div class="d-flex">
+                                        <p class="textComment">More comments</p>
+                                        <img src="" alt="">
+                                    </div>
+                                    <div class="d-flex">
+                                        <p class="textCommentBleu">Dad Men answer</p>
+                                        <img src="" alt="">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="contentSwipeToday">
+                    <div class="barreLatraleNoir">To day</div>
+                    <div class="swiper-container swipeContainermodife1">
+                        <div class="swiper-wrapper">
+                            <div class=" swiper-slide card-suggestionDay">
+                                <div class="elementCardSuggestionDay">
+                                    <img class="imgElementCardSuggestionDay" src="{{ asset('img/card1.png') }}" alt="">
+                                    <div class="contentFlyHeure">
+                                        <p class="flyText">Fly</p>
+                                        <p class="heureFly">17:25</p>
+                                    </div>
+                                </div>
+                                <div class="contentCardSuggestionDay">
+                                    <div class="d-flex justify-content-between">
+                                        <p class="libertiText">Liberty in the words</p>
+                                        <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
+                                    </div>
+                                    <div class="mindCard">
+                                        <div class="blockImgMind">
+                                            <img class="" src="{{ asset('img/mid1.png') }}" alt="">
+                                        </div>
+                                        <div class="block3">
+                                            <p class="mindText">Mind</p>
+                                            <div class="d-flex justify-content-between">
+                                                <p class="numberviewsSuggestion">1230</p>
+                                                <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+                                                <p class="day">4 days ago</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" swiper-slide card-suggestionDay">
+                                <div class="elementCardSuggestionDay">
+                                    <img class="imgElementCardSuggestionDay" src="{{ asset('img/card2.png') }}" alt="">
+                                    <div class="contentFlyHeure">
+                                        <p class="flyText">Fly</p>
+                                        <p class="heureFly">17:25</p>
+                                    </div>
+                                </div>
+                                <div class="contentCardSuggestionDay">
+                                    <div class="d-flex justify-content-between">
+                                        <p class="libertiText">Liberty in the words</p>
+                                        <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
+                                    </div>
+                                    <div class="mindCard">
+                                        <div class="blockImgMind">
+                                            <img class="" src="{{ asset('img/auteurCard2.png') }}" alt="">
+                                        </div>
+                                        <div class="block3">
+                                            <p class="mindText">Mind</p>
+                                            <div class="d-flex justify-content-between">
+                                                <p class="numberviewsSuggestion">1230</p>
+                                                <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+                                                <p class="day">4 days ago</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" swiper-slide card-suggestionDay">
+                                <div class="elementCardSuggestionDay">
+                                    <img class="imgElementCardSuggestionDay" src="{{ asset('img/card3.png') }}" alt="">
+                                    <div class="contentFlyHeure">
+                                        <p class="flyText">Fly</p>
+                                        <p class="heureFly">17:25</p>
+                                    </div>
+                                </div>
+                                <div class="contentCardSuggestionDay">
+                                    <div class="d-flex justify-content-between">
+                                        <p class="libertiText">Liberty in the words</p>
+                                        <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
+                                    </div>
+                                    <div class="mindCard">
+                                        <div class="blockImgMind">
+                                            <img class="" src="{{ asset('img/auteurCard3.png') }}" alt="">
+                                        </div>
+                                        <div class="block3">
+                                            <p class="mindText">Mind</p>
+                                            <div class="d-flex justify-content-between">
+                                                <p class="numberviewsSuggestion">1230</p>
+                                                <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+                                                <p class="day">4 days ago</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class=" swiper-slide card-suggestionDay">
+                                <div class="elementCardSuggestionDay">
+                                    <img class="imgElementCardSuggestionDay" src="{{ asset('img/card4.png') }}" alt="">
+                                    <div class="contentFlyHeure">
+                                        <p class="flyText">Fly</p>
+                                        <p class="heureFly">17:25</p>
+                                    </div>
+                                </div>
+                                <div class="contentCardSuggestionDay">
+                                    <div class="d-flex justify-content-between">
+                                        <p class="libertiText">Liberty in the words</p>
+                                        <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
+                                    </div>
+                                    <div class="mindCard">
+                                        <div class="blockImgMind">
+                                            <img class="" src="{{ asset('img/auteurCard4.png') }}" alt="">
+                                        </div>
+                                        <div class="block3">
+                                            <p class="mindText">Mind</p>
+                                            <div class="d-flex justify-content-between">
+                                                <p class="numberviewsSuggestion">1230</p>
+                                                <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+                                                <p class="day">4 days ago</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content-Haltcare">
+    <div class="container-fluid">
+        <div class="contentSwipeToday">
+            <div class="barreLatraleNoir vertBarre">Healthcares</div>
+            <div class="swiper-container swiper-helatcare">
+                <div class="swiper-wrapper">
+                    <div class=" swiper-slide card-suggestionDay">
+                        <div class="elementCardSuggestionDay">
+                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/card-conte.png') }}" alt="">
+                            <div class="contentFlyHeure">
+                                <p class="flyText">Fly</p>
+                                <p class="heureFly">17:25</p>
+                            </div>
+                        </div>
+                        <div class="contentCardSuggestionDay">
+                            <div class="d-flex justify-content-between">
+                                <p class="libertiText">Liberty in the words</p>
+                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
+                            </div>
+                            <div class="mindCard">
+                                <div class="blockImgMind">
+                                    <img class="" src="{{ asset('img/sokhe.png') }}" alt="">
+                                </div>
+                                <div class="block3">
+                                    <p class="mindText">Mind</p>
+                                    <div class="d-flex justify-content-between">
+                                        <p class="numberviewsSuggestion">1230</p>
+                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+                                        <p class="day">4 days ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" swiper-slide card-suggestionDay">
+                        <div class="elementCardSuggestionDay">
+                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/fitness-plus-trainers-1.jpg') }}" alt="">
+                            <div class="contentFlyHeure">
+                                <p class="flyText">Fit</p>
+                                <p class="heureFly">17:25</p>
+                            </div>
+                        </div>
+                        <div class="contentCardSuggestionDay">
+                            <div class="d-flex justify-content-between">
+                                <p class="libertiText">Liberty in the words</p>
+                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
+                            </div>
+                            <div class="mindCard">
+                                <div class="blockImgMind">
+                                    <img class="" src="{{ asset('img/femme.png') }}" alt="">
+                                </div>
+                                <div class="block3">
+                                    <p class="mindText">Mind</p>
+                                    <div class="d-flex justify-content-between">
+                                        <p class="numberviewsSuggestion">1230</p>
+                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+                                        <p class="day">4 days ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" swiper-slide card-suggestionDay">
+                        <div class="elementCardSuggestionDay">
+                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/good.png') }}" alt="">
+                            <div class="contentFlyHeure">
+                                <p class="flyText">Good</p>
+                                <p class="heureFly">17:25</p>
+                            </div>
+                        </div>
+                        <div class="contentCardSuggestionDay">
+                            <div class="d-flex justify-content-between">
+                                <p class="libertiText">Liberty in the words</p>
+                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
+                            </div>
+                            <div class="mindCard">
+                                <div class="blockImgMind">
+                                    <img class="" src="{{ asset('img/auteur-commentaire.png') }}" alt="">
+                                </div>
+                                <div class="block3">
+                                    <p class="mindText">Mind</p>
+                                    <div class="d-flex justify-content-between">
+                                        <p class="numberviewsSuggestion">1230</p>
+                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+                                        <p class="day">4 days ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" swiper-slide card-suggestionDay">
+                        <div class="elementCardSuggestionDay">
+                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/card4.png') }}" alt="">
+                            <div class="contentFlyHeure">
+                                <p class="flyText">Zen</p>
+                                <p class="heureFly">17:25</p>
+                            </div>
+                        </div>
+                        <div class="contentCardSuggestionDay">
+                            <div class="d-flex justify-content-between">
+                                <p class="libertiText">Liberty in the words</p>
+                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
+                            </div>
+                            <div class="mindCard">
+                                <div class="blockImgMind">
+                                    <img class="" src="{{ asset('img/beg.png') }}" alt="">
+                                </div>
+                                <div class="block3">
+                                    <p class="mindText">Mind</p>
+                                    <div class="d-flex justify-content-between">
+                                        <p class="numberviewsSuggestion">1230</p>
+                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+                                        <p class="day">4 days ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" swiper-slide card-suggestionDay">
+                        <div class="elementCardSuggestionDay">
+                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/nab.png') }}" alt="">
+                            <div class="contentFlyHeure">
+                                <p class="flyText">Nabi</p>
+                                <p class="heureFly">17:25</p>
+                            </div>
+                        </div>
+                        <div class="contentCardSuggestionDay">
+                            <div class="d-flex justify-content-between">
+                                <p class="libertiText">Liberty in the words</p>
+                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
+                            </div>
+                            <div class="mindCard">
+                                <div class="blockImgMind">
+                                    <img class="" src="{{ asset('img/auteurCard4.png') }}" alt="">
+                                </div>
+                                <div class="block3">
+                                    <p class="mindText">Mind</p>
+                                    <div class="d-flex justify-content-between">
+                                        <p class="numberviewsSuggestion">1230</p>
+                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+                                        <p class="day">4 days ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" swiper-slide card-suggestionDay">
+                        <div class="elementCardSuggestionDay">
+                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/card4.png') }}" alt="">
+                            <div class="contentFlyHeure">
+                                <p class="flyText">Fly</p>
+                                <p class="heureFly">17:25</p>
+                            </div>
+                        </div>
+                        <div class="contentCardSuggestionDay">
+                            <div class="d-flex justify-content-between">
+                                <p class="libertiText">Liberty in the words</p>
+                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
+                            </div>
+                            <div class="mindCard">
+                                <div class="blockImgMind">
+                                    <img class="" src="{{ asset('img/auteurCard4.png') }}" alt="">
+                                </div>
+                                <div class="block3">
+                                    <p class="mindText">Mind</p>
+                                    <div class="d-flex justify-content-between">
+                                        <p class="numberviewsSuggestion">1230</p>
+                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+                                        <p class="day">4 days ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content-life">
+    <div class="container-fluid">
+        <div class="contentSwipeToday">
+            <div class="barreLatraleNoir life">Life</div>
+            <div class="swiper-container swiper-helatcare">
+                <div class="swiper-wrapper">
+                    <div class=" swiper-slide card-suggestionDay">
+                        <div class="elementCardSuggestionDay">
+                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/card-conte.png') }}" alt="">
+                            <div class="contentFlyHeure">
+                                <p class="flyText">Fly</p>
+                                <p class="heureFly">17:25</p>
+                            </div>
+                        </div>
+                        <div class="contentCardSuggestionDay">
+                            <div class="d-flex justify-content-between">
+                                <p class="libertiText">Liberty in the words</p>
+                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
+                            </div>
+                            <div class="mindCard">
+                                <div class="blockImgMind">
+                                    <img class="" src="{{ asset('img/sokhe.png') }}" alt="">
+                                </div>
+                                <div class="block3">
+                                    <p class="mindText">Mind</p>
+                                    <div class="d-flex justify-content-between">
+                                        <p class="numberviewsSuggestion">1230</p>
+                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+                                        <p class="day">4 days ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" swiper-slide card-suggestionDay">
+                        <div class="elementCardSuggestionDay">
+                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/fitness-plus-trainers-1.jpg') }}" alt="">
+                            <div class="contentFlyHeure">
+                                <p class="flyText">Fit</p>
+                                <p class="heureFly">17:25</p>
+                            </div>
+                        </div>
+                        <div class="contentCardSuggestionDay">
+                            <div class="d-flex justify-content-between">
+                                <p class="libertiText">Liberty in the words</p>
+                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
+                            </div>
+                            <div class="mindCard">
+                                <div class="blockImgMind">
+                                    <img class="" src="{{ asset('img/femme.png') }}" alt="">
+                                </div>
+                                <div class="block3">
+                                    <p class="mindText">Mind</p>
+                                    <div class="d-flex justify-content-between">
+                                        <p class="numberviewsSuggestion">1230</p>
+                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+                                        <p class="day">4 days ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" swiper-slide card-suggestionDay">
+                        <div class="elementCardSuggestionDay">
+                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/good.png') }}" alt="">
+                            <div class="contentFlyHeure">
+                                <p class="flyText">Good</p>
+                                <p class="heureFly">17:25</p>
+                            </div>
+                        </div>
+                        <div class="contentCardSuggestionDay">
+                            <div class="d-flex justify-content-between">
+                                <p class="libertiText">Liberty in the words</p>
+                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
+                            </div>
+                            <div class="mindCard">
+                                <div class="blockImgMind">
+                                    <img class="" src="{{ asset('img/auteur-commentaire.png') }}" alt="">
+                                </div>
+                                <div class="block3">
+                                    <p class="mindText">Mind</p>
+                                    <div class="d-flex justify-content-between">
+                                        <p class="numberviewsSuggestion">1230</p>
+                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+                                        <p class="day">4 days ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" swiper-slide card-suggestionDay">
+                        <div class="elementCardSuggestionDay">
+                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/card4.png') }}" alt="">
+                            <div class="contentFlyHeure">
+                                <p class="flyText">Zen</p>
+                                <p class="heureFly">17:25</p>
+                            </div>
+                        </div>
+                        <div class="contentCardSuggestionDay">
+                            <div class="d-flex justify-content-between">
+                                <p class="libertiText">Liberty in the words</p>
+                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
+                            </div>
+                            <div class="mindCard">
+                                <div class="blockImgMind">
+                                    <img class="" src="{{ asset('img/beg.png') }}" alt="">
+                                </div>
+                                <div class="block3">
+                                    <p class="mindText">Mind</p>
+                                    <div class="d-flex justify-content-between">
+                                        <p class="numberviewsSuggestion">1230</p>
+                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+                                        <p class="day">4 days ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" swiper-slide card-suggestionDay">
+                        <div class="elementCardSuggestionDay">
+                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/nab.png') }}" alt="">
+                            <div class="contentFlyHeure">
+                                <p class="flyText">Nabi</p>
+                                <p class="heureFly">17:25</p>
+                            </div>
+                        </div>
+                        <div class="contentCardSuggestionDay">
+                            <div class="d-flex justify-content-between">
+                                <p class="libertiText">Liberty in the words</p>
+                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
+                            </div>
+                            <div class="mindCard">
+                                <div class="blockImgMind">
+                                    <img class="" src="{{ asset('img/auteurCard4.png') }}" alt="">
+                                </div>
+                                <div class="block3">
+                                    <p class="mindText">Mind</p>
+                                    <div class="d-flex justify-content-between">
+                                        <p class="numberviewsSuggestion">1230</p>
+                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+                                        <p class="day">4 days ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" swiper-slide card-suggestionDay">
+                        <div class="elementCardSuggestionDay">
+                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/card4.png') }}" alt="">
+                            <div class="contentFlyHeure">
+                                <p class="flyText">Fly</p>
+                                <p class="heureFly">17:25</p>
+                            </div>
+                        </div>
+                        <div class="contentCardSuggestionDay">
+                            <div class="d-flex justify-content-between">
+                                <p class="libertiText">Liberty in the words</p>
+                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
+                            </div>
+                            <div class="mindCard">
+                                <div class="blockImgMind">
+                                    <img class="" src="{{ asset('img/auteurCard4.png') }}" alt="">
+                                </div>
+                                <div class="block3">
+                                    <p class="mindText">Mind</p>
+                                    <div class="d-flex justify-content-between">
+                                        <p class="numberviewsSuggestion">1230</p>
+                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+                                        <p class="day">4 days ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content-Health">
+    <div class="container-fluid">
+        <div class="contentSwipeToday">
+            <div class="barreLatraleNoir Health">Health</div>
+            <div class="swiper-container swiper-helatcare">
+                <div class="swiper-wrapper">
+                    <div class=" swiper-slide card-suggestionDay">
+                        <div class="elementCardSuggestionDay">
+                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/card-conte.png') }}" alt="">
+                            <div class="contentFlyHeure">
+                                <p class="flyText">Fly</p>
+                                <p class="heureFly">17:25</p>
+                            </div>
+                        </div>
+                        <div class="contentCardSuggestionDay">
+                            <div class="d-flex justify-content-between">
+                                <p class="libertiText">Liberty in the words</p>
+                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
+                            </div>
+                            <div class="mindCard">
+                                <div class="blockImgMind">
+                                    <img class="" src="{{ asset('img/sokhe.png') }}" alt="">
+                                </div>
+                                <div class="block3">
+                                    <p class="mindText">Mind</p>
+                                    <div class="d-flex justify-content-between">
+                                        <p class="numberviewsSuggestion">1230</p>
+                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+                                        <p class="day">4 days ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" swiper-slide card-suggestionDay">
+                        <div class="elementCardSuggestionDay">
+                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/fitness-plus-trainers-1.jpg') }}" alt="">
+                            <div class="contentFlyHeure">
+                                <p class="flyText">Fit</p>
+                                <p class="heureFly">17:25</p>
+                            </div>
+                        </div>
+                        <div class="contentCardSuggestionDay">
+                            <div class="d-flex justify-content-between">
+                                <p class="libertiText">Liberty in the words</p>
+                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
+                            </div>
+                            <div class="mindCard">
+                                <div class="blockImgMind">
+                                    <img class="" src="{{ asset('img/femme.png') }}" alt="">
+                                </div>
+                                <div class="block3">
+                                    <p class="mindText">Mind</p>
+                                    <div class="d-flex justify-content-between">
+                                        <p class="numberviewsSuggestion">1230</p>
+                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+                                        <p class="day">4 days ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" swiper-slide card-suggestionDay">
+                        <div class="elementCardSuggestionDay">
+                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/good.png') }}" alt="">
+                            <div class="contentFlyHeure">
+                                <p class="flyText">Good</p>
+                                <p class="heureFly">17:25</p>
+                            </div>
+                        </div>
+                        <div class="contentCardSuggestionDay">
+                            <div class="d-flex justify-content-between">
+                                <p class="libertiText">Liberty in the words</p>
+                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
+                            </div>
+                            <div class="mindCard">
+                                <div class="blockImgMind">
+                                    <img class="" src="{{ asset('img/auteur-commentaire.png') }}" alt="">
+                                </div>
+                                <div class="block3">
+                                    <p class="mindText">Mind</p>
+                                    <div class="d-flex justify-content-between">
+                                        <p class="numberviewsSuggestion">1230</p>
+                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+                                        <p class="day">4 days ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" swiper-slide card-suggestionDay">
+                        <div class="elementCardSuggestionDay">
+                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/card4.png') }}" alt="">
+                            <div class="contentFlyHeure">
+                                <p class="flyText">Zen</p>
+                                <p class="heureFly">17:25</p>
+                            </div>
+                        </div>
+                        <div class="contentCardSuggestionDay">
+                            <div class="d-flex justify-content-between">
+                                <p class="libertiText">Liberty in the words</p>
+                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
+                            </div>
+                            <div class="mindCard">
+                                <div class="blockImgMind">
+                                    <img class="" src="{{ asset('img/beg.png') }}" alt="">
+                                </div>
+                                <div class="block3">
+                                    <p class="mindText">Mind</p>
+                                    <div class="d-flex justify-content-between">
+                                        <p class="numberviewsSuggestion">1230</p>
+                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+                                        <p class="day">4 days ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" swiper-slide card-suggestionDay">
+                        <div class="elementCardSuggestionDay">
+                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/nab.png') }}" alt="">
+                            <div class="contentFlyHeure">
+                                <p class="flyText">Nabi</p>
+                                <p class="heureFly">17:25</p>
+                            </div>
+                        </div>
+                        <div class="contentCardSuggestionDay">
+                            <div class="d-flex justify-content-between">
+                                <p class="libertiText">Liberty in the words</p>
+                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
+                            </div>
+                            <div class="mindCard">
+                                <div class="blockImgMind">
+                                    <img class="" src="{{ asset('img/auteurCard4.png') }}" alt="">
+                                </div>
+                                <div class="block3">
+                                    <p class="mindText">Mind</p>
+                                    <div class="d-flex justify-content-between">
+                                        <p class="numberviewsSuggestion">1230</p>
+                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+                                        <p class="day">4 days ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" swiper-slide card-suggestionDay">
+                        <div class="elementCardSuggestionDay">
+                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/card4.png') }}" alt="">
+                            <div class="contentFlyHeure">
+                                <p class="flyText">Fly</p>
+                                <p class="heureFly">17:25</p>
+                            </div>
+                        </div>
+                        <div class="contentCardSuggestionDay">
+                            <div class="d-flex justify-content-between">
+                                <p class="libertiText">Liberty in the words</p>
+                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
+                            </div>
+                            <div class="mindCard">
+                                <div class="blockImgMind">
+                                    <img class="" src="{{ asset('img/auteurCard4.png') }}" alt="">
+                                </div>
+                                <div class="block3">
+                                    <p class="mindText">Mind</p>
+                                    <div class="d-flex justify-content-between">
+                                        <p class="numberviewsSuggestion">1230</p>
+                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+                                        <p class="day">4 days ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content-Business">
+    <div class="container-fluid">
+        <div class="contentSwipeToday">
+            <div class="barreLatraleNoir Business">Business</div>
+            <div class="swiper-container swiper-helatcare">
+                <div class="swiper-wrapper">
+                    <div class=" swiper-slide card-suggestionDay">
+                        <div class="elementCardSuggestionDay">
+                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/card-conte.png') }}" alt="">
+                            <div class="contentFlyHeure">
+                                <p class="flyText">Fly</p>
+                                <p class="heureFly">17:25</p>
+                            </div>
+                        </div>
+                        <div class="contentCardSuggestionDay">
+                            <div class="d-flex justify-content-between">
+                                <p class="libertiText">Liberty in the words</p>
+                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
+                            </div>
+                            <div class="mindCard">
+                                <div class="blockImgMind">
+                                    <img class="" src="{{ asset('img/sokhe.png') }}" alt="">
+                                </div>
+                                <div class="block3">
+                                    <p class="mindText">Mind</p>
+                                    <div class="d-flex justify-content-between">
+                                        <p class="numberviewsSuggestion">1230</p>
+                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+                                        <p class="day">4 days ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" swiper-slide card-suggestionDay">
+                        <div class="elementCardSuggestionDay">
+                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/fitness-plus-trainers-1.jpg') }}" alt="">
+                            <div class="contentFlyHeure">
+                                <p class="flyText">Fit</p>
+                                <p class="heureFly">17:25</p>
+                            </div>
+                        </div>
+                        <div class="contentCardSuggestionDay">
+                            <div class="d-flex justify-content-between">
+                                <p class="libertiText">Liberty in the words</p>
+                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
+                            </div>
+                            <div class="mindCard">
+                                <div class="blockImgMind">
+                                    <img class="" src="{{ asset('img/femme.png') }}" alt="">
+                                </div>
+                                <div class="block3">
+                                    <p class="mindText">Mind</p>
+                                    <div class="d-flex justify-content-between">
+                                        <p class="numberviewsSuggestion">1230</p>
+                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+                                        <p class="day">4 days ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" swiper-slide card-suggestionDay">
+                        <div class="elementCardSuggestionDay">
+                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/good.png') }}" alt="">
+                            <div class="contentFlyHeure">
+                                <p class="flyText">Good</p>
+                                <p class="heureFly">17:25</p>
+                            </div>
+                        </div>
+                        <div class="contentCardSuggestionDay">
+                            <div class="d-flex justify-content-between">
+                                <p class="libertiText">Liberty in the words</p>
+                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
+                            </div>
+                            <div class="mindCard">
+                                <div class="blockImgMind">
+                                    <img class="" src="{{ asset('img/auteur-commentaire.png') }}" alt="">
+                                </div>
+                                <div class="block3">
+                                    <p class="mindText">Mind</p>
+                                    <div class="d-flex justify-content-between">
+                                        <p class="numberviewsSuggestion">1230</p>
+                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+                                        <p class="day">4 days ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" swiper-slide card-suggestionDay">
+                        <div class="elementCardSuggestionDay">
+                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/card4.png') }}" alt="">
+                            <div class="contentFlyHeure">
+                                <p class="flyText">Zen</p>
+                                <p class="heureFly">17:25</p>
+                            </div>
+                        </div>
+                        <div class="contentCardSuggestionDay">
+                            <div class="d-flex justify-content-between">
+                                <p class="libertiText">Liberty in the words</p>
+                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
+                            </div>
+                            <div class="mindCard">
+                                <div class="blockImgMind">
+                                    <img class="" src="{{ asset('img/beg.png') }}" alt="">
+                                </div>
+                                <div class="block3">
+                                    <p class="mindText">Mind</p>
+                                    <div class="d-flex justify-content-between">
+                                        <p class="numberviewsSuggestion">1230</p>
+                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+                                        <p class="day">4 days ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" swiper-slide card-suggestionDay">
+                        <div class="elementCardSuggestionDay">
+                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/nab.png') }}" alt="">
+                            <div class="contentFlyHeure">
+                                <p class="flyText">Nabi</p>
+                                <p class="heureFly">17:25</p>
+                            </div>
+                        </div>
+                        <div class="contentCardSuggestionDay">
+                            <div class="d-flex justify-content-between">
+                                <p class="libertiText">Liberty in the words</p>
+                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
+                            </div>
+                            <div class="mindCard">
+                                <div class="blockImgMind">
+                                    <img class="" src="{{ asset('img/auteurCard4.png') }}" alt="">
+                                </div>
+                                <div class="block3">
+                                    <p class="mindText">Mind</p>
+                                    <div class="d-flex justify-content-between">
+                                        <p class="numberviewsSuggestion">1230</p>
+                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+                                        <p class="day">4 days ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" swiper-slide card-suggestionDay">
+                        <div class="elementCardSuggestionDay">
+                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/card4.png') }}" alt="">
+                            <div class="contentFlyHeure">
+                                <p class="flyText">Fly</p>
+                                <p class="heureFly">17:25</p>
+                            </div>
+                        </div>
+                        <div class="contentCardSuggestionDay">
+                            <div class="d-flex justify-content-between">
+                                <p class="libertiText">Liberty in the words</p>
+                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
+                            </div>
+                            <div class="mindCard">
+                                <div class="blockImgMind">
+                                    <img class="" src="{{ asset('img/auteurCard4.png') }}" alt="">
+                                </div>
+                                <div class="block3">
+                                    <p class="mindText">Mind</p>
+                                    <div class="d-flex justify-content-between">
+                                        <p class="numberviewsSuggestion">1230</p>
+                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+                                        <p class="day">4 days ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content-Education">
+    <div class="container-fluid">
+        <div class="contentSwipeToday">
+            <div class="barreLatraleNoir Education">Education</div>
+            <div class="swiper-container swiper-helatcare">
+                <div class="swiper-wrapper">
+                    <div class=" swiper-slide card-suggestionDay">
+                        <div class="elementCardSuggestionDay">
+                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/card-conte.png') }}" alt="">
+                            <div class="contentFlyHeure">
+                                <p class="flyText">Fly</p>
+                                <p class="heureFly">17:25</p>
+                            </div>
+                        </div>
+                        <div class="contentCardSuggestionDay">
+                            <div class="d-flex justify-content-between">
+                                <p class="libertiText">Liberty in the words</p>
+                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
+                            </div>
+                            <div class="mindCard">
+                                <div class="blockImgMind">
+                                    <img class="" src="{{ asset('img/sokhe.png') }}" alt="">
+                                </div>
+                                <div class="block3">
+                                    <p class="mindText">Mind</p>
+                                    <div class="d-flex justify-content-between">
+                                        <p class="numberviewsSuggestion">1230</p>
+                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+                                        <p class="day">4 days ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" swiper-slide card-suggestionDay">
+                        <div class="elementCardSuggestionDay">
+                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/fitness-plus-trainers-1.jpg') }}" alt="">
+                            <div class="contentFlyHeure">
+                                <p class="flyText">Fit</p>
+                                <p class="heureFly">17:25</p>
+                            </div>
+                        </div>
+                        <div class="contentCardSuggestionDay">
+                            <div class="d-flex justify-content-between">
+                                <p class="libertiText">Liberty in the words</p>
+                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
+                            </div>
+                            <div class="mindCard">
+                                <div class="blockImgMind">
+                                    <img class="" src="{{ asset('img/femme.png') }}" alt="">
+                                </div>
+                                <div class="block3">
+                                    <p class="mindText">Mind</p>
+                                    <div class="d-flex justify-content-between">
+                                        <p class="numberviewsSuggestion">1230</p>
+                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+                                        <p class="day">4 days ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" swiper-slide card-suggestionDay">
+                        <div class="elementCardSuggestionDay">
+                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/good.png') }}" alt="">
+                            <div class="contentFlyHeure">
+                                <p class="flyText">Good</p>
+                                <p class="heureFly">17:25</p>
+                            </div>
+                        </div>
+                        <div class="contentCardSuggestionDay">
+                            <div class="d-flex justify-content-between">
+                                <p class="libertiText">Liberty in the words</p>
+                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
+                            </div>
+                            <div class="mindCard">
+                                <div class="blockImgMind">
+                                    <img class="" src="{{ asset('img/auteur-commentaire.png') }}" alt="">
+                                </div>
+                                <div class="block3">
+                                    <p class="mindText">Mind</p>
+                                    <div class="d-flex justify-content-between">
+                                        <p class="numberviewsSuggestion">1230</p>
+                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+                                        <p class="day">4 days ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" swiper-slide card-suggestionDay">
+                        <div class="elementCardSuggestionDay">
+                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/card4.png') }}" alt="">
+                            <div class="contentFlyHeure">
+                                <p class="flyText">Zen</p>
+                                <p class="heureFly">17:25</p>
+                            </div>
+                        </div>
+                        <div class="contentCardSuggestionDay">
+                            <div class="d-flex justify-content-between">
+                                <p class="libertiText">Liberty in the words</p>
+                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
+                            </div>
+                            <div class="mindCard">
+                                <div class="blockImgMind">
+                                    <img class="" src="{{ asset('img/beg.png') }}" alt="">
+                                </div>
+                                <div class="block3">
+                                    <p class="mindText">Mind</p>
+                                    <div class="d-flex justify-content-between">
+                                        <p class="numberviewsSuggestion">1230</p>
+                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+                                        <p class="day">4 days ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" swiper-slide card-suggestionDay">
+                        <div class="elementCardSuggestionDay">
+                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/nab.png') }}" alt="">
+                            <div class="contentFlyHeure">
+                                <p class="flyText">Nabi</p>
+                                <p class="heureFly">17:25</p>
+                            </div>
+                        </div>
+                        <div class="contentCardSuggestionDay">
+                            <div class="d-flex justify-content-between">
+                                <p class="libertiText">Liberty in the words</p>
+                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
+                            </div>
+                            <div class="mindCard">
+                                <div class="blockImgMind">
+                                    <img class="" src="{{ asset('img/auteurCard4.png') }}" alt="">
+                                </div>
+                                <div class="block3">
+                                    <p class="mindText">Mind</p>
+                                    <div class="d-flex justify-content-between">
+                                        <p class="numberviewsSuggestion">1230</p>
+                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+                                        <p class="day">4 days ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" swiper-slide card-suggestionDay">
+                        <div class="elementCardSuggestionDay">
+                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/card4.png') }}" alt="">
+                            <div class="contentFlyHeure">
+                                <p class="flyText">Fly</p>
+                                <p class="heureFly">17:25</p>
+                            </div>
+                        </div>
+                        <div class="contentCardSuggestionDay">
+                            <div class="d-flex justify-content-between">
+                                <p class="libertiText">Liberty in the words</p>
+                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
+                            </div>
+                            <div class="mindCard">
+                                <div class="blockImgMind">
+                                    <img class="" src="{{ asset('img/auteurCard4.png') }}" alt="">
+                                </div>
+                                <div class="block3">
+                                    <p class="mindText">Mind</p>
+                                    <div class="d-flex justify-content-between">
+                                        <p class="numberviewsSuggestion">1230</p>
+                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+                                        <p class="day">4 days ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="content-Evironnement">
+    <div class="container-fluid">
+        <div class="contentSwipeToday">
+            <div class="barreLatraleNoir Evironnement">Evironnement</div>
+            <div class="swiper-container swiper-helatcare">
+                <div class="swiper-wrapper">
+                    <div class=" swiper-slide card-suggestionDay">
+                        <div class="elementCardSuggestionDay">
+                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/card-conte.png') }}" alt="">
+                            <div class="contentFlyHeure">
+                                <p class="flyText">Fly</p>
+                                <p class="heureFly">17:25</p>
+                            </div>
+                        </div>
+                        <div class="contentCardSuggestionDay">
+                            <div class="d-flex justify-content-between">
+                                <p class="libertiText">Liberty in the words</p>
+                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
+                            </div>
+                            <div class="mindCard">
+                                <div class="blockImgMind">
+                                    <img class="" src="{{ asset('img/sokhe.png') }}" alt="">
+                                </div>
+                                <div class="block3">
+                                    <p class="mindText">Mind</p>
+                                    <div class="d-flex justify-content-between">
+                                        <p class="numberviewsSuggestion">1230</p>
+                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+                                        <p class="day">4 days ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" swiper-slide card-suggestionDay">
+                        <div class="elementCardSuggestionDay">
+                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/fitness-plus-trainers-1.jpg') }}" alt="">
+                            <div class="contentFlyHeure">
+                                <p class="flyText">Fit</p>
+                                <p class="heureFly">17:25</p>
+                            </div>
+                        </div>
+                        <div class="contentCardSuggestionDay">
+                            <div class="d-flex justify-content-between">
+                                <p class="libertiText">Liberty in the words</p>
+                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
+                            </div>
+                            <div class="mindCard">
+                                <div class="blockImgMind">
+                                    <img class="" src="{{ asset('img/femme.png') }}" alt="">
+                                </div>
+                                <div class="block3">
+                                    <p class="mindText">Mind</p>
+                                    <div class="d-flex justify-content-between">
+                                        <p class="numberviewsSuggestion">1230</p>
+                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+                                        <p class="day">4 days ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" swiper-slide card-suggestionDay">
+                        <div class="elementCardSuggestionDay">
+                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/good.png') }}" alt="">
+                            <div class="contentFlyHeure">
+                                <p class="flyText">Good</p>
+                                <p class="heureFly">17:25</p>
+                            </div>
+                        </div>
+                        <div class="contentCardSuggestionDay">
+                            <div class="d-flex justify-content-between">
+                                <p class="libertiText">Liberty in the words</p>
+                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
+                            </div>
+                            <div class="mindCard">
+                                <div class="blockImgMind">
+                                    <img class="" src="{{ asset('img/auteur-commentaire.png') }}" alt="">
+                                </div>
+                                <div class="block3">
+                                    <p class="mindText">Mind</p>
+                                    <div class="d-flex justify-content-between">
+                                        <p class="numberviewsSuggestion">1230</p>
+                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+                                        <p class="day">4 days ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" swiper-slide card-suggestionDay">
+                        <div class="elementCardSuggestionDay">
+                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/card4.png') }}" alt="">
+                            <div class="contentFlyHeure">
+                                <p class="flyText">Zen</p>
+                                <p class="heureFly">17:25</p>
+                            </div>
+                        </div>
+                        <div class="contentCardSuggestionDay">
+                            <div class="d-flex justify-content-between">
+                                <p class="libertiText">Liberty in the words</p>
+                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
+                            </div>
+                            <div class="mindCard">
+                                <div class="blockImgMind">
+                                    <img class="" src="{{ asset('img/beg.png') }}" alt="">
+                                </div>
+                                <div class="block3">
+                                    <p class="mindText">Mind</p>
+                                    <div class="d-flex justify-content-between">
+                                        <p class="numberviewsSuggestion">1230</p>
+                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+                                        <p class="day">4 days ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" swiper-slide card-suggestionDay">
+                        <div class="elementCardSuggestionDay">
+                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/nab.png') }}" alt="">
+                            <div class="contentFlyHeure">
+                                <p class="flyText">Nabi</p>
+                                <p class="heureFly">17:25</p>
+                            </div>
+                        </div>
+                        <div class="contentCardSuggestionDay">
+                            <div class="d-flex justify-content-between">
+                                <p class="libertiText">Liberty in the words</p>
+                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
+                            </div>
+                            <div class="mindCard">
+                                <div class="blockImgMind">
+                                    <img class="" src="{{ asset('img/auteurCard4.png') }}" alt="">
+                                </div>
+                                <div class="block3">
+                                    <p class="mindText">Mind</p>
+                                    <div class="d-flex justify-content-between">
+                                        <p class="numberviewsSuggestion">1230</p>
+                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+                                        <p class="day">4 days ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" swiper-slide card-suggestionDay">
+                        <div class="elementCardSuggestionDay">
+                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/card4.png') }}" alt="">
+                            <div class="contentFlyHeure">
+                                <p class="flyText">Fly</p>
+                                <p class="heureFly">17:25</p>
+                            </div>
+                        </div>
+                        <div class="contentCardSuggestionDay">
+                            <div class="d-flex justify-content-between">
+                                <p class="libertiText">Liberty in the words</p>
+                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
+                            </div>
+                            <div class="mindCard">
+                                <div class="blockImgMind">
+                                    <img class="" src="{{ asset('img/auteurCard4.png') }}" alt="">
+                                </div>
+                                <div class="block3">
+                                    <p class="mindText">Mind</p>
+                                    <div class="d-flex justify-content-between">
+                                        <p class="numberviewsSuggestion">1230</p>
+                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+                                        <p class="day">4 days ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </div>
 
 </body>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="node_modules/swiper/swiper-bundle.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script>
-    $(document).ready(function() {
-        $( ".btnMenue" ).click(function() {
-            $( ".menue1" ).addClass('visible');
-            $( ".btnMenue" ).removeClass('visible');
-            $( ".btnMenue1" ).addClass('visible');
-        });
-
-        $( ".btnMenue1" ).click(function() {
-            $( ".menue1" ).removeClass('visible');
-            $( ".btnMenue1" ).removeClass('visible');
-            $( ".btnMenue" ).addClass('visible');
-        });
+    var swiper = new Swiper('.swipeContainermodife1', {
+        slidesPerView: 2.2,
+        spaceBetween: 30
     });
 </script>
 <script>
-    $(document).ready(function() {
-        $( ".btnMenue" ).click(function() {
-
-            $( ".btnMenue1" ).addClass('visible');
-        });
+    var swiper = new Swiper('.swiper-helatcare', {
+        slidesPerView: 4.4,
+        spaceBetween: 30,
     });
+    if ($('.swiper-container .swiper-slide').length < 1) {
+        var swiper = new Swiper('.swiper-helatcare', {
+            // Optional parameters
+            direction: 'horizontal',
+            loop: false,
+            //autoplay: 6500,
+            autoplayDisableOnInteraction: false,
 
+            keyboardControl: true,
+            mousewheelControl: true,
+            paginationClickable: true,
+
+        });
+    }
 </script>
+
+
+<script src="{{asset('js/menu.js')}}"></script>
