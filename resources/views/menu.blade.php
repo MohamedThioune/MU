@@ -1540,7 +1540,7 @@
                                     <div class="d-flex justify-content-between">
                                         <p class="numberviewsSuggestion">1230</p>
                                         <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
-                                        <p class="day">4 days ago</p>
+                                        <p class="day">4 days ago </p>
                                     </div>
                                 </div>
                             </div>
