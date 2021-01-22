@@ -11,7 +11,16 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-Route::get('/', [App\Http\Controllers\ManueController::class, 'index'])->name('manue');
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/choose', [App\Http\Controllers\ProfileController::class, 'choose'])->name('choose')->middleware('auth');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');
+Route::get('/', [App\Http\Controllers\GuestController::class, 'index'])->name('guest');
+
+Auth::routes();
+
+Route::resource('users', 'UserController')->middleware('auth');
+
+Route::resource('profiles', 'ProfileController')->middleware('auth');

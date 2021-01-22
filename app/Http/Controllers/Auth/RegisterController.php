@@ -6,6 +6,7 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Carbon\Carbon;
 
 class RegisterController extends Controller
 {
@@ -51,6 +52,7 @@ class RegisterController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+            'sex' => 'required|integer|max:1',
         ]);
     }
 
@@ -66,6 +68,16 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'status' => "contributor",
+            'vids_post' => 0,
+            'vids_approved' => 0,
+            'subscribers' => 0,
+            'last_login' => Carbon::now(),
+            'can_upload' => 1,
+            'is_valid' => 0,
+            'is_confirmed' => 0,
+            'sex' => $data['sex'],
+
         ]);
     }
 }

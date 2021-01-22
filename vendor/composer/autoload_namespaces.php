@@ -9,4 +9,6 @@ return array(
     'UpdateHelper\\' => array($vendorDir . '/kylekatarnls/update-helper/src'),
     'Parsedown' => array($vendorDir . '/erusev/parsedown'),
     'Mockery' => array($vendorDir . '/mockery/mockery/library'),
+    'Laracasts\\Flash' => array($vendorDir . '/laracasts/flash/src'),
+    'Jlapp\\Swaggervel' => array($vendorDir . '/jlapp/swaggervel/src'),
 );
