@@ -1587,7 +1587,7 @@
 <div class="content-Evironnement">
     <div class="container-fluid">
         <div class="contentSwipeToday">
-            <div class="barreLatraleNoir Evironnement">Evironnement</div>
+            <div class="barreLatraleNoir Evironnement">Environnement</div>
             <div class="swiper-container swiper-helatcare">
                 <div class="swiper-wrapper">
                     <div class=" swiper-slide card-suggestionDay">
