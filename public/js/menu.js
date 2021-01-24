@@ -1,14 +1,14 @@
 $(document).ready(function() {
     $( ".btnMenue" ).click(function() {
         $( ".menue1" ).addClass('visible');
-        $( ".btnMenue" ).removeClass('visibleBtn');
+        $( ".btnMenue" ).addClass('invisible');
         $( ".btnMenue1" ).addClass('visibleBtn');
     });
 
     $( ".btnMenue1" ).click(function() {
         $( ".menue1" ).removeClass('visible');
         $( ".btnMenue1" ).removeClass('visibleBtn');
-        $( ".btnMenue" ).addClass('visibleBtn');
+        $( ".btnMenue" ).removeClass('invisible');
     });
 });
 $(document).ready(function() {

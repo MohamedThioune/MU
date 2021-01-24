@@ -681,9 +681,17 @@ button:focus {
 .btnMenue {
     margin-left: 66px;
     margin-top: 2px;
+    background: unset;
+    border: unset;
+    position: relative;
+    z-index: 111111;
+    display: block;
 }
 .contentButtonCategorie{
     display: inline-grid;
+}
+.invisible{
+    display: none;
 }
 .contentSousMenueCategorie{
     display: none;
@@ -1323,8 +1331,11 @@ button:focus {
         display: none;
     }
     .visibleBtn {
-        display: block;
+        display: flex;
         opacity: 1;
+        width: 100%;
+        flex-direction: row-reverse;
+        justify-content: space-between;
     }
     .btnRoseWeb {
         display: none;
@@ -1353,14 +1364,12 @@ button:focus {
         margin-right: 7px;
         margin-left: 7px;
     }
-    .elementFixedMobie {
-        width: 100%;
-        position: sticky;
-        top: 0;
-        z-index: 5;
-    }
     .blockTablettePub {
         display: none;
+    }
+    .pointsRose {
+        position: relative;
+        margin-right: 13px;
     }
 }
 @media all and (min-width: 768px) and (max-width: 1023px){

@@ -24,7 +24,7 @@
     <div class="content-home">
         <div class="content-naveBar">
             <nav class="navbar navbar-expand-lg navModife">
-                <button class="groupPointNav pointsRose btnMenue1">
+                <button class="groupPointNav  btnMenue1">
                     <img class="pointsRose" src="{{ asset('img/icones/troispoints.svg') }}" alt="">
                     <div class="muu d-flex">
                         <img class="flecheMuu" src="{{ asset('img/icones/fleche.svg') }}" alt="">
@@ -37,7 +37,7 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <button class="groupPointNav btnMenue visibleBtn">
+                <button class="btnMenue ">
                     <div class="d-flex">
                         <div class="PointMenu ">
                             <div class="onePoint"></div>
@@ -195,7 +195,7 @@
                                 <button class="nav-link btnLogOut" type="submit" >Log out</button>
                             </form>
                         </li>
-                    </ul>
+                    </ul>œ
                 </div>
             </nav>
             <div class="header2">
