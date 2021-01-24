@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Auth\Events\Registered;
 
+use Flash;
+
+use App\Profile;
+
 trait RegistersUsers
 {
     use RedirectsUsers;
@@ -28,9 +32,26 @@ trait RegistersUsers
      */
     public function register(Request $request)
     {
-        $this->validator($request->all())->validate();
 
+        $this->validator($request->all())->validate();
         event(new Registered($user = $this->create($request->all())));
+
+        Auth::login($user);
+
+        $inputs = array(
+            "name"  => $request->input('name'),
+            "can_stream" => 1,
+            "sex" => $request->input('sex'),
+            "user_id" => Auth::id(),
+        );
+
+        // *inputs* correspond to inputs for registered user that we pass on to the profiles
+        
+        session(['profile' => $inputs]);
+
+        $profile = Profile::create($inputs);
+
+        Flash::success('First profile successfully ☑️ created through your user profile ');
 
         $this->guard()->login($user);
 
