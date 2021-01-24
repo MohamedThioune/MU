@@ -14,24 +14,35 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/2def424b14.js" crossorigin="anonymous"></script>
 </head>
-
-
 
 <body>
 
 <div class="elementFixedMobie">
     <div class="content-home">
         <div class="content-naveBar">
+            <!--responsive element-->
+            <button class="groupPointNav btnRoseMobile btnMenue1 w-100">
+                <div class="d-flex justify-content-between w-100">
+                    <div class="muu d-flex w-100">
+                        <img class="flecheMuu" src="{{ asset('img/icones/fleche.svg') }}" alt="">
+                        <p class="muuText">mmmuuu</p>
+                    </div>
+                    <img class="pointRoseMobile" src="{{ asset('img/icones/troispoints.svg') }}" alt="">
+                </div>
+            </button>
+            <!--           fin  responsive-->
             <nav class="navbar navbar-expand-lg navModife">
-                <button class="groupPointNav pointsRose btnMenue1">
+                <button class="groupPointNav btnRoseWeb btnMenue1">
                     <img class="pointsRose" src="{{ asset('img/icones/troispoints.svg') }}" alt="">
                     <div class="muu d-flex">
                         <img class="flecheMuu" src="{{ asset('img/icones/fleche.svg') }}" alt="">
                         <p class="muuText">mmmuuu</p>
                     </div>
                 </button>
-                <a class="navbar-brand elementLogo" href="#">
+
+                <a class="navbar-brand elementLogo" href="{{route('guest')}}">
                     <img src="{{ asset('img/logo-MU.png') }}" alt="">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -156,7 +167,8 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                        -->                    </div>
+                        -->
+                    </div>
                     <div class="categorie row">
                         <div class="contentButtonCategorie">
                             <button class="btn btnCategorie flow">Flow</button>
@@ -174,41 +186,52 @@
 
                     </div>
                 </div>
-
-
                 <form class="form-inline position-relative">
                     <input class="form-control mr-sm-2 searchNav" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn searchButton" type="submit">
                         <img src="{{ asset('img/icones/search.png') }}" alt="">
                     </button>
                 </form>
+
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item nav-modife">
-                            <!-- User connected with his name -->
-                            <span class="btnCommunaute" style="background:none; box-shadow: 4px 4px 15px #d14f94;font-weight:bold"><i class="fas fa-stroopwafel fa-spin"></i> {{session('profile')["name"]}} </span>
+                            <a href="{{ route('register') }}" class="btnCommunaute">Rejoindre la communauté</a>
                         </li>
                         <li class="nav-item nav-modife">
                             <img src="{{ asset('img/icones/login.svg') }}" alt="">
-                            <form action="{{ route('logout') }}" class="nav-modife formModife" method="POST">
-                                @csrf
-                                <button class="nav-link btnLogOut" type="submit" >Log out</button>
-                            </form>
+                            <a class="nav-link" href="{{ route('login') }}">Log in</a>
                         </li>
                     </ul>
-
                 </div>
             </nav>
-            <div class="header2">
+            <div class="header2 header2Web">
                 <div class="container-modife">
                     <div class="block2">
                         <p class="textHeader2">mmmuuu</p>
                         <div class="d-flex groupButtonHeader2">
-                            <button class="btn btnheader2">Flow</button>
-                            <button class="btn btnheader2">Sista’s</button>
-                            <button class="btn btnheader2">Kids</button>
+                            <div>
+                                <button class="btn btnheader2">Flow</button>
+                            </div>
+                            <div>
+                                <button class="btn btnheader2">Sista’s</button>
+                            </div>
+                            <div>
+                                <button class="btn btnheader2">Kids</button>
+                            </div>
                         </div>
                         <img class="setting2" src="{{ asset('img/icones/settings.svg') }}" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="header2 header2Mobile">
+                <div class="container-modife">
+                    <div class="block2">
+                        <p class="textHeader2">mmmuuu</p>
+                        <div class="blockTimeMob">
+                            <img class="setting2" src="{{ asset('img/icones/time-shahid.png') }}" alt="">
+                            <p class="timeHeader">2h 25mn</p>
+                        </div>
                     </div>
                 </div>
             </div>
