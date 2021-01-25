@@ -197,7 +197,6 @@
                                                 </div>
                         -->
                     </div>
-<<<<<<< HEAD
                     <div class="categorie row">
                         <div class="contentButtonCategorie">
                             <button class="btn btnCategorie flow">Flow</button>
@@ -281,8 +280,6 @@
                                                     </div>
                                                 </div>
                         -->                    </div>
-=======
->>>>>>> mohamed
                     <div class="categorie row">
                         <div class="contentButtonCategorie">
                             <button class="btn btnCategorie flow">Flow</button>
@@ -322,7 +319,7 @@
             <div class="header2 header2Web">
                 <div class="container-modife">
                     <div class="block2">
-                        <p class="textHeader2">mmmuuu--- done byyyy Git Version control on CPANEL</p>
+                        <p class="textHeader2">mmmuuu</p>
                         <div class="d-flex groupButtonHeader2">
                             <div>
                                 <button class="btn btnheader2">Flow</button>
