@@ -344,7 +344,6 @@
                             <p class="timeHeader">2h 25mn</p>
                         </div>
                     </div>
-<<<<<<< HEAD
                 </div>
             </div>
         </div>
@@ -467,8 +466,6 @@
                         </div>
                         <img class="setting2" src="{{ asset('img/icones/settings.svg') }}" alt="">
                     </div>
-=======
->>>>>>> mohamed
                 </div>
             </div>
         </div>
