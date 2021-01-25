@@ -25,7 +25,11 @@
     <div class="content-home">
         <div class="content-naveBar">
             <nav class="navbar navbar-expand-lg navModife">
+<<<<<<< HEAD
                 <button class="groupPointNav  btnMenue1">
+=======
+                <button class="groupPointNav pointsRose btnMenue1">
+>>>>>>> mohamed
                     <img class="pointsRose" src="{{ asset('img/icones/troispoints.svg') }}" alt="">
                     <div class="muu d-flex">
                         <img class="flecheMuu" src="{{ asset('img/icones/fleche.svg') }}" alt="">

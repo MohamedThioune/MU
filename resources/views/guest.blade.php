@@ -16,8 +16,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
-
-
 <body>
 
 <div class="elementFixedMobie">
@@ -199,6 +197,7 @@
                                                 </div>
                         -->
                     </div>
+<<<<<<< HEAD
                     <div class="categorie row">
                         <div class="contentButtonCategorie">
                             <button class="btn btnCategorie flow">Flow</button>
@@ -282,6 +281,8 @@
                                                     </div>
                                                 </div>
                         -->                    </div>
+=======
+>>>>>>> mohamed
                     <div class="categorie row">
                         <div class="contentButtonCategorie">
                             <button class="btn btnCategorie flow">Flow</button>
@@ -346,6 +347,7 @@
                             <p class="timeHeader">2h 25mn</p>
                         </div>
                     </div>
+<<<<<<< HEAD
                 </div>
             </div>
         </div>
@@ -468,6 +470,8 @@
                         </div>
                         <img class="setting2" src="{{ asset('img/icones/settings.svg') }}" alt="">
                     </div>
+=======
+>>>>>>> mohamed
                 </div>
             </div>
         </div>
