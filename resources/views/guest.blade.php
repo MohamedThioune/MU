@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://kit.fontawesome.com/2def424b14.js" crossorigin="anonymous"></script>
 </head>
 
 
@@ -24,8 +23,49 @@
 <div class="elementFixedMobie">
     <div class="content-home">
         <div class="content-naveBar">
+            <!--responsive element-->
+            <button class="groupPointNav btnRoseMobile btnMenue1 w-100">
+                <div class="d-flex justify-content-between w-100">
+                    <div class="muu d-flex w-100">
+                        <img class="flecheMuu" src="{{ asset('img/icones/fleche.svg') }}" alt="">
+                        <p class="muuText">mmmuuu</p>
+                    </div>
+                    <img class="pointRoseMobile" src="{{ asset('img/icones/troispoints.svg') }}" alt="">
+                </div>
+            </button>
+            <!--           fin  responsive-->
             <nav class="navbar navbar-expand-lg navModife">
-                <button class="groupPointNav  btnMenue1">
+                <button class="groupPointNav btnRoseWeb btnMenue1">
+                    <img class="pointsRose" src="{{ asset('img/icones/troispoints.svg') }}" alt="">
+                    <div class="muu d-flex">
+                        <img class="flecheMuu" src="{{ asset('img/icones/fleche.svg') }}" alt="">
+                        <p class="muuText">mmmuuu</p>
+                    </div>
+                </button>
+
+                <a class="navbar-brand elementLogo" href="{{route('guest')}}">
+                    <img src="{{ asset('img/logo-MU.png') }}" alt="">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <button class="groupPointNav btnMenue visibleBtn">
+                    <div class="d-flex">
+                        <div class="PointMenu ">
+                            <div class="onePoint"></div>
+                            <div class="onePoint"></div>
+                        </div>
+                        <div class="PointMenu">
+                            <div class="onePoint"></div>
+                            <div class="onePoint"></div>
+                        </div>
+                    </div>
+
+<div class="elementFixedMobie">
+    <div class="content-home">
+        <div class="content-naveBar">
+            <nav class="navbar navbar-expand-lg navModife">
+                <button class="groupPointNav pointsRose btnMenue1">
                     <img class="pointsRose" src="{{ asset('img/icones/troispoints.svg') }}" alt="">
                     <div class="muu d-flex">
                         <img class="flecheMuu" src="{{ asset('img/icones/fleche.svg') }}" alt="">
@@ -38,7 +78,7 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <button class="btnMenue ">
+                <button class="groupPointNav btnMenue visibleBtn">
                     <div class="d-flex">
                         <div class="PointMenu ">
                             <div class="onePoint"></div>
@@ -157,7 +197,8 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                        -->                    </div>
+                        -->
+                    </div>
                     <div class="categorie row">
                         <div class="contentButtonCategorie">
                             <button class="btn btnCategorie flow">Flow</button>
@@ -240,8 +281,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                        -->
-                    </div>
+                        -->                    </div>
                     <div class="categorie row">
                         <div class="contentButtonCategorie">
                             <button class="btn btnCategorie flow">Flow</button>
@@ -257,6 +297,139 @@
                             <p class="textSousCategorie">Sport / Gaming</p>
                         </div>
 
+                    </div>
+                </div>
+                <form class="form-inline position-relative">
+                    <input class="form-control mr-sm-2 searchNav" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn searchButton" type="submit">
+                        <img src="{{ asset('img/icones/search.png') }}" alt="">
+                    </button>
+                </form>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item nav-modife">
+                            <a href="{{route('register')}}" class="btnCommunaute">Rejoindre la communauté</a>
+                        </li>
+                        <li class="nav-item nav-modife">
+                            <img src="{{ asset('img/icones/login.svg') }}" alt="">
+                            <a class="nav-link" href="{{route('login')}}">Log in</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="header2 header2Web">
+                <div class="container-modife">
+                    <div class="block2">
+                        <p class="textHeader2">mmmuuu--- done byyyy Git Version control on CPANEL</p>
+                        <div class="d-flex groupButtonHeader2">
+                            <div>
+                                <button class="btn btnheader2">Flow</button>
+                            </div>
+                            <div>
+                                <button class="btn btnheader2">Sista’s</button>
+                            </div>
+                            <div>
+                                <button class="btn btnheader2">Kids</button>
+                            </div>
+                        </div>
+                        <img class="setting2" src="{{ asset('img/icones/settings.svg') }}" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="header2 header2Mobile">
+                <div class="container-modife">
+                    <div class="block2">
+                        <p class="textHeader2">mmmuuu</p>
+                        <div class="blockTimeMob">
+                            <img class="setting2" src="{{ asset('img/icones/time-shahid.png') }}" alt="">
+                            <p class="timeHeader">2h 25mn</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="content-contenue1">
+        <div class="contentParDefaut">
+            <div class="linearColor"></div>
+            <div class="container-fluid position-relative">
+                <div class="row">
+                    <div class="col-sm-12  col-md-12 col-lg-9 col-modife">
+                        <div class="videoParDefaut">
+                            <video class="elementVideoParDefaut"  controls>
+                                <source src="{{ asset('videos/video-principale.mp4') }}" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-12 col-lg-3 colMobe">
+                        <div class="content2">
+                            <div class="bannierAlerte">
+                                <img class="alertMissing" src="{{ asset('img/icones/alerte.svg') }}" alt="">
+                                <p class="doNotMissing">Do not miss</p>
+                            </div>
+                            <div class="contentSuggestion1">
+                                <div class="publicite">
+                                    <img src="{{ asset('img/publicite.png') }}" alt="">
+                                </div>
+                                <div class="suggestion">
+                                    <div class="cardSuggestion2">
+                                        <div class="img-video-suggestion">
+                                            <img class="w-100" src="{{ asset('img/fitness.png') }}" alt="">
+                                            <div class="detailElement">
+                                                <p class="heure">17:25</p>
+                                                <div class="group2">
+                                                    <div class="d-flex">
+                                                        <p class="text-liberty">Liberty in the words</p>
+                                                        <img src="" alt="">
+                                                    </div>
+                                                    <div class="d-flex">
+                                                        <div class="imgMind"><img  src="{{ asset('img/main.jpeg') }}" alt=""></div>
+                                                        <div class="text-img">
+                                                            <div>
+                                                                <p class="textMind">Mind</p>
+                                                                <p class="numberviews">1230</p>
+                                                            </div>
+                                                            <div class="imgViews"><img  src="{{ asset('img/icones/eye-4-xxl.png') }}" alt=""></div>
+                                                        </div>
+                                                        <p class="text-days">4 days ago</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cardSuggestion2">
+                                        <div class="img-video-suggestion">
+                                            <img class="w-100" src="{{ asset('img/fitness.png') }}" alt="">
+                                            <div class="detailElement">
+                                                <p class="heure">17:25</p>
+                                                <div class="group2">
+                                                    <div class="d-flex">
+                                                        <p class="text-liberty">Liberty in the words</p>
+                                                        <img src="" alt="">
+                                                    </div>
+                                                    <div class="d-flex">
+                                                        <div class="imgMind"><img  src="{{ asset('img/main.jpeg') }}" alt=""></div>
+                                                        <div class="text-img">
+                                                            <div>
+                                                                <p class="textMind">Mind</p>
+                                                                <p class="numberviews">1230</p>
+                                                            </div>
+                                                            <div class="imgViews"><img  src="{{ asset('img/icones/eye-4-xxl.png') }}" alt=""></div>
+                                                        </div>
+                                                        <p class="text-days">4 days ago</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
                     </div>
                 </div>
 
@@ -280,7 +453,8 @@
                                 <button class="nav-link btnLogOut" type="submit" >Log out</button>
                             </form>
                         </li>
-                    </ul>œ
+                    </ul>
+
                 </div>
             </nav>
             <div class="header2">
@@ -594,7 +768,7 @@
 <div class="content-commentaire">
     <div class="container-fluid">
         <div class="row commentBlock">
-            <div class="col-md-12 col-lg-6 col-modife col-sm-12">
+            <div class="col-md-6">
                 <div class="commentOne">
                     <div class="commentTitle">
                         <p class="nombreComment">14</p>
