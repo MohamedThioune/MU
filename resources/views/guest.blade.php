@@ -18,27 +18,19 @@
 </head>
 
 
-
 <body>
 
 <div class="elementFixedMobie">
     <div class="content-home">
         <div class="content-naveBar">
             <nav class="navbar navbar-expand-lg navModife">
-                <button class="groupPointNav  btnMenue1">
-                    <img class="pointsRose" src="{{ asset('img/icones/troispoints.svg') }}" alt="">
-                    <div class="muu d-flex">
-                        <img class="flecheMuu" src="{{ asset('img/icones/fleche.svg') }}" alt="">
-                        <p class="muuText">mmmuuu</p>
-                    </div>
-                </button>
                 <a class="navbar-brand elementLogo" href="#">
                     <img src="{{ asset('img/logo-MU.png') }}" alt="">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <button class="btnMenue ">
+                <button class="groupPointNav btnMenue visibleBtn">
                     <div class="d-flex">
                         <div class="PointMenu ">
                             <div class="onePoint"></div>
@@ -52,247 +44,184 @@
 
                 </button>
 
-                <div class="content-Menu menue1">
-                    <form class="form-inline2 d-flex position-relative">
-                        <input class="form-control mr-sm-2 searchNav2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn searchButtonMenue" type="submit">
-                            <img src="{{ asset('img/icones/search.png') }}" alt="">
-                        </button>
-                    </form>
-                    <div class="sousMenuGlobale1">
-                        <div class="contentElementLeft">
-                            <div class="blockItem">
-                                <img class="iconeMenue" src="{{ asset('img/icones/login.svg') }}" alt="">
-                                <p class="NameElementMenue">Profil</p>
-                                <img src="{{ asset('img/icones/fleche.svg') }}" alt="" class="iconeFleche">
-                            </div>
-                            <div class="blockItem">
-                                <div class="iconeMenue2"><img src="{{ asset('img/icones/time-shahid.png') }}" alt=""></div>
-                                <p class="NameElementMenue">Time shahid</p>
-                                <img src="{{ asset('img/icones/fleche.svg') }}" alt="" class="iconeFleche">
-                            </div>
-                            <div class="blockItem">
-                                <img class="iconeMenue" src="{{ asset('img/icones/settings.svg') }}" alt="">
-                                <p class="NameElementMenue">Setting</p>
-                                <img src="{{ asset('img/icones/fleche.svg') }}" alt="" class="iconeFleche">
-                            </div>
-                            <div class="blockItem">
-                                <img class="iconeMenue" src="{{ asset('img/icones/published.svg') }}" alt="">
-                                <p class="NameElementMenue">Published</p>
-                                <img src="{{ asset('img/icones/fleche.svg') }}" alt="" class="iconeFleche">
-                            </div>
-                            <div class="blockItem">
-                                <img class="iconeMenue" src="{{ asset('img/icones/alerte.svg') }}" alt="">
-                                <p class="NameElementMenue">Alerte</p>
-                                <img src="{{ asset('img/icones/fleche.svg') }}" alt="" class="iconeFleche">
-                            </div>
-
-                        </div>
-
-                        <!--                        <div class="contentElementRight">
-                                                    <div class="categorieProfil">
-                                                        <div class="block1">
-                                                            <button class="btn btnCat colorElement">Cat1</button>
-                                                            <p class="sousCategorie colorElement">Cat 1.1</p>
-                                                            <p class="sousCategorie colorElement">Cat 1.2</p>
-                                                            <p class="sousCategorie colorElement">Cat 1.3</p>
-                                                            <p class="sousCategorie colorElement">Cat 1.4</p>
-                                                            <p class="sousCategorie colorElement">Cat 1.5</p>
-                                                            <p class="sousCategorie colorElement">Cat 1.6</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="categorieProfil">
-                                                        <div class="block1">
-                                                            <button class="btn btnCat">Cat2</button>
-                                                            <p class="sousCategorie">Cat 2.1</p>
-                                                            <p class="sousCategorie">Cat 2.2</p>
-                                                            <p class="sousCategorie">Cat 2.3</p>
-                                                            <p class="sousCategorie">Cat 2.4</p>
-                                                            <p class="sousCategorie">Cat 2.5</p>
-                                                            <p class="sousCategorie">Cat 2.6</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="categorieProfil">
-                                                        <div class="block1">
-                                                            <button class="btn btnCat">Cat3</button>
-                                                            <p class="sousCategorie">Cat 3.1</p>
-                                                            <p class="sousCategorie">Cat 3.2</p>
-                                                            <p class="sousCategorie">Cat 3.3</p>
-                                                            <p class="sousCategorie">Cat 3.4</p>
-                                                            <p class="sousCategorie">Cat 3.5</p>
-                                                            <p class="sousCategorie">Cat 3.6</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="categorieProfil">
-                                                        <div class="block1">
-                                                            <button class="btn btnCat">Cat4</button>
-                                                            <p class="sousCategorie">Cat 4.1</p>
-                                                            <p class="sousCategorie">Cat 4.2</p>
-                                                            <p class="sousCategorie">Cat 4.3</p>
-                                                            <p class="sousCategorie">Cat 4.4</p>
-                                                            <p class="sousCategorie">Cat 4.5</p>
-                                                            <p class="sousCategorie">Cat 4.6</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="categorieProfil">
-                                                        <div class="block1">
-                                                            <button class="btn btnCat">Cat5</button>
-                                                            <p class="sousCategorie">Cat 5.1</p>
-                                                            <p class="sousCategorie">Cat 5.2</p>
-                                                            <p class="sousCategorie">Cat 5.3</p>
-                                                            <p class="sousCategorie">Cat 5.4</p>
-                                                            <p class="sousCategorie">Cat 5.5</p>
-                                                            <p class="sousCategorie">Cat 5.6</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="categorieProfil">
-                                                        <div class="block1">
-                                                            <button class="btn btnCat">Cat6</button>
-                                                            <p class="sousCategorie">Cat 6.1</p>
-                                                            <p class="sousCategorie">Cat 6.2</p>
-                                                            <p class="sousCategorie">Cat 6.3</p>
-                                                            <p class="sousCategorie">Cat 6.4</p>
-                                                            <p class="sousCategorie">Cat 6.5</p>
-                                                            <p class="sousCategorie">Cat 6.6</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                        -->                    </div>
-                    <div class="categorie row">
-                        <div class="contentButtonCategorie">
-                            <button class="btn btnCategorie flow">Flow</button>
-                            <button class="btn btnCategorie kids">Kids</button>
-                            <button class="btn btnCategorie sista">Sista’s</button>
-                        </div>
-                        <div class="contentSousMenueCategorie sousCategorieFlow">
-                            <p class="textSousCategorie">Life / Art</p>
-                            <p class="textSousCategorie">Business</p>
-                            <p class="textSousCategorie">Education</p>
-                            <p class="textSousCategorie">Health / Wellness</p>
-                            <p class="textSousCategorie">Food</p>
-                            <p class="textSousCategorie">Sport / Gaming</p>
-                        </div>
-                        <!--                        <div class="contentElementRight">
-                                                    <div class="categorieProfil">
-                                                        <div class="block1">
-                                                            <button class="btn btnCat colorElement">Cat1</button>
-                                                            <p class="sousCategorie colorElement">Cat 1.1</p>
-                                                            <p class="sousCategorie colorElement">Cat 1.2</p>
-                                                            <p class="sousCategorie colorElement">Cat 1.3</p>
-                                                            <p class="sousCategorie colorElement">Cat 1.4</p>
-                                                            <p class="sousCategorie colorElement">Cat 1.5</p>
-                                                            <p class="sousCategorie colorElement">Cat 1.6</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="categorieProfil">
-                                                        <div class="block1">
-                                                            <button class="btn btnCat">Cat2</button>
-                                                            <p class="sousCategorie">Cat 2.1</p>
-                                                            <p class="sousCategorie">Cat 2.2</p>
-                                                            <p class="sousCategorie">Cat 2.3</p>
-                                                            <p class="sousCategorie">Cat 2.4</p>
-                                                            <p class="sousCategorie">Cat 2.5</p>
-                                                            <p class="sousCategorie">Cat 2.6</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="categorieProfil">
-                                                        <div class="block1">
-                                                            <button class="btn btnCat">Cat3</button>
-                                                            <p class="sousCategorie">Cat 3.1</p>
-                                                            <p class="sousCategorie">Cat 3.2</p>
-                                                            <p class="sousCategorie">Cat 3.3</p>
-                                                            <p class="sousCategorie">Cat 3.4</p>
-                                                            <p class="sousCategorie">Cat 3.5</p>
-                                                            <p class="sousCategorie">Cat 3.6</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="categorieProfil">
-                                                        <div class="block1">
-                                                            <button class="btn btnCat">Cat4</button>
-                                                            <p class="sousCategorie">Cat 4.1</p>
-                                                            <p class="sousCategorie">Cat 4.2</p>
-                                                            <p class="sousCategorie">Cat 4.3</p>
-                                                            <p class="sousCategorie">Cat 4.4</p>
-                                                            <p class="sousCategorie">Cat 4.5</p>
-                                                            <p class="sousCategorie">Cat 4.6</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="categorieProfil">
-                                                        <div class="block1">
-                                                            <button class="btn btnCat">Cat5</button>
-                                                            <p class="sousCategorie">Cat 5.1</p>
-                                                            <p class="sousCategorie">Cat 5.2</p>
-                                                            <p class="sousCategorie">Cat 5.3</p>
-                                                            <p class="sousCategorie">Cat 5.4</p>
-                                                            <p class="sousCategorie">Cat 5.5</p>
-                                                            <p class="sousCategorie">Cat 5.6</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="categorieProfil">
-                                                        <div class="block1">
-                                                            <button class="btn btnCat">Cat6</button>
-                                                            <p class="sousCategorie">Cat 6.1</p>
-                                                            <p class="sousCategorie">Cat 6.2</p>
-                                                            <p class="sousCategorie">Cat 6.3</p>
-                                                            <p class="sousCategorie">Cat 6.4</p>
-                                                            <p class="sousCategorie">Cat 6.5</p>
-                                                            <p class="sousCategorie">Cat 6.6</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                        -->
-                    </div>
-                    <div class="categorie row">
-                        <div class="contentButtonCategorie">
-                            <button class="btn btnCategorie flow">Flow</button>
-                            <button class="btn btnCategorie kids">Kids</button>
-                            <button class="btn btnCategorie sista">Sista’s</button>
-                        </div>
-                        <div class="contentSousMenueCategorie sousCategorieFlow">
-                            <p class="textSousCategorie">Life / Art</p>
-                            <p class="textSousCategorie">Business</p>
-                            <p class="textSousCategorie">Education</p>
-                            <p class="textSousCategorie">Health / Wellness</p>
-                            <p class="textSousCategorie">Food</p>
-                            <p class="textSousCategorie">Sport / Gaming</p>
-                        </div>
-
-                    </div>
-                </div>
-
-
                 <form class="form-inline position-relative">
                     <input class="form-control mr-sm-2 searchNav" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn searchButton" type="submit">
                         <img src="{{ asset('img/icones/search.png') }}" alt="">
                     </button>
                 </form>
+
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item nav-modife">
-                            <!-- User connected with his name -->
-                            <span class="btnCommunaute" style="background:none; box-shadow: 4px 4px 15px #d14f94;font-weight:bold"><i class="fas fa-stroopwafel fa-spin"></i> {{session('profile')["name"]}} </span>
+                            <a href="{{route('register')}}" class="btnCommunaute">Rejoindre la communauté</a>
                         </li>
                         <li class="nav-item nav-modife">
                             <img src="{{ asset('img/icones/login.svg') }}" alt="">
-                            <form action="{{ route('logout') }}" class="nav-modife formModife" method="POST">
-                                @csrf
-                                <button class="nav-link btnLogOut" type="submit" >Log out</button>
-                            </form>
+                            <a class="nav-link" href="{{route('login')}}">Log in</a>
                         </li>
-                    </ul>œ
+                    </ul>
                 </div>
             </nav>
-            <div class="header2">
+            <div class="header2 header2Web">
+                <div class="container-modife">
+                    <div class="block2">
+                        <p class="textHeader2">mmmuuu--- done byyyy Git Version control on CPANEL</p>
+                        <div class="d-flex groupButtonHeader2">
+                            <div>
+                                <button class="btn btnheader2">Flow</button>
+                            </div>
+                            <div>
+                                <button class="btn btnheader2">Sista’s</button>
+                            </div>
+                            <div>
+                                <button class="btn btnheader2">Kids</button>
+                            </div>
+                        </div>
+                        <img class="setting2" src="{{ asset('img/icones/settings.svg') }}" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="content-Menu menue1">
+                <button class="groupPointNav pointsRose btnMenue1">
+                    <img class="pointsRose" src="{{ asset('img/icones/troispoints.svg') }}" alt="">
+                    <div class="muu d-flex">
+                        <img class="flecheMuu" src="{{ asset('img/icones/fleche.svg') }}" alt="">
+                        <p class="muuText">mmmuuu</p>
+                    </div>
+                </button>
+                <form class="form-inline2 d-flex position-relative">
+                    <input class="form-control mr-sm-2 searchNav2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn searchButtonMenue" type="submit">
+                        <img src="{{ asset('img/icones/search.png') }}" alt="">
+                    </button>
+                </form>
+                <div class="sousMenuGlobale1">
+                    <div class="contentElementLeft">
+                        <div class="blockItem">
+                            <img class="iconeMenue" src="{{ asset('img/icones/login.svg') }}" alt="">
+                            <p class="NameElementMenue">Profil</p>
+                            <img src="{{ asset('img/icones/fleche.svg') }}" alt="" class="iconeFleche">
+                        </div>
+                        <div class="blockItem">
+                            <div class="iconeMenue2"><img src="{{ asset('img/icones/time-shahid.png') }}" alt=""></div>
+                            <p class="NameElementMenue">Time shahid</p>
+                            <img src="{{ asset('img/icones/fleche.svg') }}" alt="" class="iconeFleche">
+                        </div>
+                        <div class="blockItem">
+                            <img class="iconeMenue" src="{{ asset('img/icones/settings.svg') }}" alt="">
+                            <p class="NameElementMenue">Setting</p>
+                            <img src="{{ asset('img/icones/fleche.svg') }}" alt="" class="iconeFleche">
+                        </div>
+                        <div class="blockItem">
+                            <img class="iconeMenue" src="{{ asset('img/icones/published.svg') }}" alt="">
+                            <p class="NameElementMenue">Published</p>
+                            <img src="{{ asset('img/icones/fleche.svg') }}" alt="" class="iconeFleche">
+                        </div>
+                        <div class="blockItem">
+                            <img class="iconeMenue" src="{{ asset('img/icones/alerte.svg') }}" alt="">
+                            <p class="NameElementMenue">Alerte</p>
+                            <img src="{{ asset('img/icones/fleche.svg') }}" alt="" class="iconeFleche">
+                        </div>
+
+                    </div>
+
+                    <!--                        <div class="contentElementRight">
+                                                <div class="categorieProfil">
+                                                    <div class="block1">
+                                                        <button class="btn btnCat colorElement">Cat1</button>
+                                                        <p class="sousCategorie colorElement">Cat 1.1</p>
+                                                        <p class="sousCategorie colorElement">Cat 1.2</p>
+                                                        <p class="sousCategorie colorElement">Cat 1.3</p>
+                                                        <p class="sousCategorie colorElement">Cat 1.4</p>
+                                                        <p class="sousCategorie colorElement">Cat 1.5</p>
+                                                        <p class="sousCategorie colorElement">Cat 1.6</p>
+                                                    </div>
+                                                </div>
+                                                <div class="categorieProfil">
+                                                    <div class="block1">
+                                                        <button class="btn btnCat">Cat2</button>
+                                                        <p class="sousCategorie">Cat 2.1</p>
+                                                        <p class="sousCategorie">Cat 2.2</p>
+                                                        <p class="sousCategorie">Cat 2.3</p>
+                                                        <p class="sousCategorie">Cat 2.4</p>
+                                                        <p class="sousCategorie">Cat 2.5</p>
+                                                        <p class="sousCategorie">Cat 2.6</p>
+                                                    </div>
+                                                </div>
+                                                <div class="categorieProfil">
+                                                    <div class="block1">
+                                                        <button class="btn btnCat">Cat3</button>
+                                                        <p class="sousCategorie">Cat 3.1</p>
+                                                        <p class="sousCategorie">Cat 3.2</p>
+                                                        <p class="sousCategorie">Cat 3.3</p>
+                                                        <p class="sousCategorie">Cat 3.4</p>
+                                                        <p class="sousCategorie">Cat 3.5</p>
+                                                        <p class="sousCategorie">Cat 3.6</p>
+                                                    </div>
+                                                </div>
+                                                <div class="categorieProfil">
+                                                    <div class="block1">
+                                                        <button class="btn btnCat">Cat4</button>
+                                                        <p class="sousCategorie">Cat 4.1</p>
+                                                        <p class="sousCategorie">Cat 4.2</p>
+                                                        <p class="sousCategorie">Cat 4.3</p>
+                                                        <p class="sousCategorie">Cat 4.4</p>
+                                                        <p class="sousCategorie">Cat 4.5</p>
+                                                        <p class="sousCategorie">Cat 4.6</p>
+                                                    </div>
+                                                </div>
+                                                <div class="categorieProfil">
+                                                    <div class="block1">
+                                                        <button class="btn btnCat">Cat5</button>
+                                                        <p class="sousCategorie">Cat 5.1</p>
+                                                        <p class="sousCategorie">Cat 5.2</p>
+                                                        <p class="sousCategorie">Cat 5.3</p>
+                                                        <p class="sousCategorie">Cat 5.4</p>
+                                                        <p class="sousCategorie">Cat 5.5</p>
+                                                        <p class="sousCategorie">Cat 5.6</p>
+                                                    </div>
+                                                </div>
+                                                <div class="categorieProfil">
+                                                    <div class="block1">
+                                                        <button class="btn btnCat">Cat6</button>
+                                                        <p class="sousCategorie">Cat 6.1</p>
+                                                        <p class="sousCategorie">Cat 6.2</p>
+                                                        <p class="sousCategorie">Cat 6.3</p>
+                                                        <p class="sousCategorie">Cat 6.4</p>
+                                                        <p class="sousCategorie">Cat 6.5</p>
+                                                        <p class="sousCategorie">Cat 6.6</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                    -->
+                </div>
+                <div class="categorie row">
+                    <div class="contentButtonCategorie">
+                        <button class="btn btnCategorie flow">Flow</button>
+                        <button class="btn btnCategorie kids">Kids</button>
+                        <button class="btn btnCategorie sista">Sista’s</button>
+                    </div>
+                    <div class="contentSousMenueCategorie sousCategorieFlow">
+                        <p class="textSousCategorie">Life / Art</p>
+                        <p class="textSousCategorie">Business</p>
+                        <p class="textSousCategorie">Education</p>
+                        <p class="textSousCategorie">Health / Wellness</p>
+                        <p class="textSousCategorie">Food</p>
+                        <p class="textSousCategorie">Sport / Gaming</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="header2 header2Mobile">
                 <div class="container-modife">
                     <div class="block2">
                         <p class="textHeader2">mmmuuu</p>
-                        <div class="d-flex groupButtonHeader2">
-                            <button class="btn btnheader2">Flow</button>
-                            <button class="btn btnheader2">Sista’s</button>
-                            <button class="btn btnheader2">Kids</button>
+                        <div class="blockTimeMob">
+                            <img class="setting2" src="{{ asset('img/icones/time-shahid.png') }}" alt="">
+                            <p class="timeHeader">2h 25mn</p>
                         </div>
-                        <img class="setting2" src="{{ asset('img/icones/settings.svg') }}" alt="">
                     </div>
                 </div>
             </div>
@@ -378,7 +307,6 @@
                 </div>
             </div>
         </div>
-
     </div>
     <div class="content-contenue2">
         <div class="container-modife container-modife-mobile">
@@ -594,7 +522,7 @@
 <div class="content-commentaire">
     <div class="container-fluid">
         <div class="row commentBlock">
-            <div class="col-md-12 col-lg-6 col-modife col-sm-12">
+            <div class="col-md-6">
                 <div class="commentOne">
                     <div class="commentTitle">
                         <p class="nombreComment">14</p>
@@ -1850,6 +1778,7 @@
 </div>
 
 </body>
+
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="node_modules/swiper/swiper-bundle.js"></script>

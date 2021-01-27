@@ -266,7 +266,7 @@ button:focus {
     border-radius: 14px;
     font-size: 13px;
     font-weight: 500;
-    padding: 0px 35px;
+    padding: 4px 35px;
     margin-bottom: 0;
     /* opacity: 0.6; */
     margin-left: 13px;
@@ -1087,8 +1087,11 @@ button:focus {
     width: 50%;
 }
 .iconeMenue2{
-    width: 25px;
+    width: 29px;
     height: 25px;
+    margin-left: 5px;
+    margin-right: 5px;
+
 }
 .iconeMenue2 img{
     width: 100%;
@@ -1129,6 +1132,9 @@ button:focus {
 .btnLogOut {
     background: none;
     border: none;
+}
+.visiblelement{
+    display: block;
 }
 
 
@@ -1333,7 +1339,6 @@ button:focus {
     .visibleBtn {
         display: flex;
         opacity: 1;
-        width: 100%;
         flex-direction: row-reverse;
         justify-content: space-between;
     }
@@ -1370,6 +1375,15 @@ button:focus {
     .pointsRose {
         position: relative;
         right: 15px;
+    }
+    .visiblelement{
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        flex-direction: row-reverse;
+        margin-top: -50px;
+        padding-right: 0px;
+        margin-left: -30px;
     }
 }
 @media all and (min-width: 768px) and (max-width: 1023px){
