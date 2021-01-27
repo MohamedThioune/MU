@@ -277,7 +277,7 @@
                                 <button class="nav-link btnLogOut" type="submit" >Log out</button>
                             </form>
                         </li>
-                    </ul>œ
+                    </ul>
                 </div>
             </nav>
             <div class="header2">
@@ -1847,8 +1847,6 @@
 </div>
 
 </body>
-
-
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="node_modules/swiper/swiper-bundle.js"></script>
