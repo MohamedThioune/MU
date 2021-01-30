@@ -10,6 +10,9 @@ use Flash;
 use Response;
 use Hash;
 use App\User;
+use Illuminate\Support\Str;
+use App\Http\Controllers\UserController\upload;
+
 class UserController extends AppBaseController
 {
     /**
@@ -112,23 +115,78 @@ class UserController extends AppBaseController
         /** @var User $user */
         $user = User::find($id);
 
+        //define type uploaded
+        $type = "image";
+        //.jpg, jpeg, .png, .webP : allowed
+        $allowed = ["1" => "jpeg", "2" => "jpg", "3" => "png", "4" => "webp"];
+        //maximum size authorized
+        $maxsize = 8 * 1024 * 1024;
+
         if (empty($user)) {
             Flash::error('User not found');
 
             return redirect(route('users.index'));
         }
-        $input =  $request->all();
-        if (!empty($input['password'])) {
-            $input['password'] = Hash::make($input['password']);
-        } else {
-            unset($input['password']);
-        }
+        $input = $request->all();
+        $file = $request->file('photo');
+        if($file){
+            //Call to anonnymous function to upload image
+            $input['photo'] = (function() use ($file,$allowed, $maxsize, $type, $id){  
+                
+                //check if the file has been uploaded without error.
+                if($file->isValid()) {
+                    $path = config($type.'.path');
+        
+                    $extension = $file->getClientOriginalExtension();
+                    $filesize = $file->getSize();
+        
+                    //check if the file type is allowed
+                    if(!in_array($extension,$allowed)){ 
+                        //redirection to the form with information "incorrect format of the file".
+                        Flash::error('Incorrect format of the file.');
+                        return redirect(route('users.edit',[$id]));
+                    }
+        
+                    //check size of the file - 8Mo maximum
+                    $maxsize = 8 * 1024 * 1024;
+                    if($filesize > $maxsize){
+                        //redirection to the form with information "the size of this image exceeds the maximum size".
+                        Flash::error('The size of this image exceeds the maximum size authorized.');
+                        return redirect(route('users.edit',[$id]));
+                    }
+        
+                    //download the file
+                    do{
+                        $nom = Str::random(25). '.' . $extension;
+                    }
+                    while(file_exists($path ."/". $nom));
+                    
+                    if($file->move($path, $nom)){
+                        //redirection with success
+                        return $nom;
+                    }
+                } 
+                else{
+                    Flash::error('Your file is corrupted, please choose another one or try again later.');
+                    return redirect(route('users.edit',[$id]));
+                }
+            })();
+        } 
+        // ** 
+        // Script for upload photos ** 
+        // Instructions 👇🏾  here
+
+        // if (!empty($input['password'])) {
+        //     $input['password'] = Hash::make($input['password']);
+        // } else {
+        //     unset($input['password']);
+        // }
         $user->fill($input);
         $user->save();
 
         Flash::success('User updated successfully.');
 
-        return redirect(route('users.index'));
+        return redirect(route('profiles.index'));
     }
 
     /**

@@ -9,6 +9,7 @@ use Illuminate\Auth\Events\Registered;
 use Flash;
 
 use App\Profile;
+use App\Models\Channel;
 
 trait RegistersUsers
 {
@@ -38,20 +39,35 @@ trait RegistersUsers
 
         Auth::login($user);
 
-        $inputs = array(
+        $inputs_profile = array(
             "name"  => $request->input('name'),
             "can_stream" => 1,
             "sex" => $request->input('sex'),
+            "age" => $request->input('age'),
             "user_id" => Auth::id(),
         );
 
-        // *inputs* correspond to inputs for registered user that we pass on to the profiles
-        
-        session(['profile' => $inputs]);
+        $inputs_channel = array(
+            "name"  => $request->input('name'),
+            "user_id" => Auth::id(),
+        );
 
-        $profile = Profile::create($inputs);
+        Auth::logout();
+
+        // *inputs_profile* correspond to inputs for registered user that we pass on to the profiles
+        
+        session(['profile' => $inputs_profile]);
+
+        Profile::create($inputs_profile);
+
+        // *inputs_channel* correspond to inputs for registered user that we pass on to the channels
+
+        Channel::create($inputs_channel);
+
 
         Flash::success('First profile successfully ☑️ created through your user profile ');
+
+        Flash::success('Channel successfully ☑️ created through your user property ');
 
         $this->guard()->login($user);
 
