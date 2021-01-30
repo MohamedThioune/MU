@@ -84,18 +84,18 @@
 
 
 @foreach($profiles as $profile)
-<div class="col-md-4 ">
+<div class="col-md-3 ">
 <div class="form-group">
-    <div class="panel panel-default">
+    <a href="{{ route('connected', [$profile->id])}}" style="border:none" class="panel panel-default">
         <div class="panel-heading">{{$profile->name}}</div>
         <div class="panel-body">
             <i class="fa fa-user" style="font-size:40px"></i>
         </div>
-    </div>
+    </a>
 </div>
 </div>
 @endforeach
 </div>
-<h3><a href="{{route('profiles.index')}}"><i class="fa fa-edit"></i>Gérer les profils</a></h3>
+<h3><a href="{{route('profiles.index')}}"><i class="fa fa-edit"></i>Gérer</a></h3>
 </center>
 </body>

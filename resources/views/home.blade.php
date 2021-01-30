@@ -266,9 +266,24 @@
                 </form>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto">
+                    @if(Auth::guest())
+                         <li class="nav-item nav-modife">
+                            <a href="{{route('register')}}" class="btnCommunaute">Rejoindre la communauté</a>
+                        </li>
+                        <li class="nav-item nav-modife">
+                            <img src="{{ asset('img/icones/login.svg') }}" alt="">
+                            <a class="nav-link" href="{{route('login')}}">Log in</a>
+                        </li>
+                    @else
                         <li class="nav-item nav-modife">
                             <!-- User connected with his name -->
-                            <span class="btnCommunaute" style="background:none; box-shadow: 4px 4px 15px #d14f94;font-weight:bold"><i class="fas fa-stroopwafel fa-spin"></i> {{session('profile')["name"]}} </span>
+                            @if(session('profile')["age"] <= 15)
+                            <span class="btnCommunaute" style="background:none; box-shadow: 4px 4px 15px #e9d22e;font-weight:bold"> {{session('profile')["name"]}} &nbsp;&nbsp;<a style="color:#e9d22e;font-size:19px;" href="{{route('choose')}}"><i class="fas fa-caret-down"></i></a></span>
+                            @elseif(session('profile')["age"] > 15 && session('profile')["sex"] == '1')
+                            <span class="btnCommunaute" style="background:none; box-shadow: 4px 4px 15px #3eacec;font-weight:bold"> {{session('profile')["name"]}} &nbsp;&nbsp;<a href="{{route('choose')}}"><i class="fas fa-caret-down"></i></a></span>
+                            @elseif(session('profile')["age"] > 15 && session('profile')["sex"] == '0')
+                            <span class="btnCommunaute" style="background:none; box-shadow: 4px 4px 15px #d14f94;font-weight:bold"> {{session('profile')["name"]}} &nbsp;&nbsp;<a style="color:#d14f94;font-size:19px;" href="{{route('choose')}}"><i class="fas fa-caret-down"></i></a><span>
+                            @endif
                         </li>
                         <li class="nav-item nav-modife">
                             <img src="{{ asset('img/icones/login.svg') }}" alt="">
@@ -277,7 +292,8 @@
                                 <button class="nav-link btnLogOut" type="submit" >Log out</button>
                             </form>
                         </li>
-                    </ul>œ
+                    @endif
+                    </ul>
                 </div>
             </nav>
             <div class="header2">

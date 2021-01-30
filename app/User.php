@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Models\channel;
 
 class User extends Authenticatable
 {
@@ -17,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','status','vids_post','vids_approved','subscribers','last_login', 'can_upload','address','country','is_valid','is_confirmed','sex',
+        'name', 'email','sex','age','photo', 'password','status','vids_post','vids_approved','subscribers','last_login', 'can_upload','address','country','is_valid','is_confirmed',
     ];
 
     /**
@@ -33,5 +34,11 @@ class User extends Authenticatable
     {
         return $this->hasMany(Profile::class);
     }
+
+    public function channels()
+    {
+        return $this->hasMany(Channel::class);
+    }
+
 
 }

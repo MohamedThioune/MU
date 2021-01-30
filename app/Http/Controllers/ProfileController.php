@@ -23,6 +23,12 @@ class ProfileController extends AppBaseController
      */
     public function index(Request $request)
     {
+        /** @var profil $profile */
+        // $profiles = Profile::all();
+
+        // return view('profiles.index')
+        //     ->with('profiles', $profiles);
+
         $id = Auth::id();
         $profiles = DB::Table('users')->select('profile.*')
                                       ->join('profile', 'users.id', 'profile.user_id')
@@ -169,4 +175,6 @@ class ProfileController extends AppBaseController
 
         return view('choose_profile',compact('profiles'));
     }
+
+    
 }

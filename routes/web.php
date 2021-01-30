@@ -12,15 +12,21 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Route::get('/choose', [App\Http\Controllers\ProfileController::class, 'choose'])->name('choose')->middleware('auth');
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');
-Route::get('/', [App\Http\Controllers\GuestController::class, 'index'])->name('guest');
+
+Route::get('/connected/{n}', [App\Http\Controllers\HomeController::class, 'connected'])->where('n','[0-9]+')->name('connected')->middleware('auth');
 
 Auth::routes();
 
 Route::resource('users', 'UserController')->middleware('auth');
 
 Route::resource('profiles', 'ProfileController')->middleware('auth');
+
+Route::resource('channels', 'channelController');
+
+Route::resource('categorySecondaries', 'CategorySecondaryController');
+
+Route::resource('categoryPrimaries', 'CategoryPrimaryController');

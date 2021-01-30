@@ -58,6 +58,23 @@
                             </div>
                         </div>
 
+
+                        <div class="form-group row">
+                            <label for="age" class="col-md-4 col-form-label text-md-right">Age</label>
+
+                            <div class="col-md-6">
+                                
+                                <input id="age" name="age" type="number" class="form-control{{ $errors->has('age') ? ' is-invalid' : '' }}"  required >
+                                
+                                @if ($errors->has('age'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('age') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
