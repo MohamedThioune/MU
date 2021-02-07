@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreatechannelRequest;
 use App\Http\Requests\UpdatechannelRequest;
 use App\Http\Controllers\AppBaseController;
-use App\Models\channel;
+use App\Models\Channel;
 use App\Models\CategoryPrimary;
 use App\Models\CategorySecondary;
 use Illuminate\Http\Request;
