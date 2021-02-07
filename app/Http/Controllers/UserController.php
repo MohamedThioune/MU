@@ -119,8 +119,8 @@ class UserController extends AppBaseController
         $type = "image";
         //.jpg, jpeg, .png, .webP : allowed
         $allowed = ["1" => "jpeg", "2" => "jpg", "3" => "png", "4" => "webp"];
-        //maximum size authorized
-        $maxsize = 8 * 1024 * 1024;
+        //maximum size authorized 2 mo
+        $maxsize = 1024 * 1024;
 
         if (empty($user)) {
             Flash::error('User not found');
@@ -172,15 +172,13 @@ class UserController extends AppBaseController
                 }
             })();
         } 
-        // ** 
-        // Script for upload photos ** 
-        // Instructions 👇🏾  here
 
         // if (!empty($input['password'])) {
         //     $input['password'] = Hash::make($input['password']);
         // } else {
         //     unset($input['password']);
         // }
+        
         $user->fill($input);
         $user->save();
 

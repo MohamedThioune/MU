@@ -43,7 +43,7 @@ class ValidatePostSize
 
         switch ($metric) {
             case 'K':
-                return $postMaxSize * 1024;
+                return $postMaxSize * 1024 ;
             case 'M':
                 return $postMaxSize * 1048576;
             case 'G':

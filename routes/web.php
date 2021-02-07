@@ -12,8 +12,27 @@
 */
 
 Route::get('/', function () {
+    // $id = Auth::id();
+    $videos = DB::Table('videos')->select('*')
+                                // ->join('videos', 'users.id', 'videos.user_id')
+                                // ->where('users.id', $id)
+                                ->get();
+    session(['videos' => $videos]);
     return view('home');
 });
+
+Route::get('vids/uploads/^[a-zA-Z0-9_]*$');
+
+Route::get('vids/thumbnails/^[a-zA-Z0-9_]*$');
+
+// play page : Play the current video [Online]
+Route::get('/play', function () {
+    return view('play');
+});
+Route::get('/play/{n}', [App\Http\Controllers\HomeController::class, 'play'])->name('play');
+
+// home page : list all videos [Online]
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'choose'])->name('choose');
 
 Route::get('/choose', [App\Http\Controllers\ProfileController::class, 'choose'])->name('choose')->middleware('auth');
 
@@ -30,3 +49,15 @@ Route::resource('channels', 'channelController');
 Route::resource('categorySecondaries', 'CategorySecondaryController');
 
 Route::resource('categoryPrimaries', 'CategoryPrimaryController');
+
+Route::resource('subTopics', 'SubTopicController');
+
+Route::resource('mainTopics', 'MainTopicController');
+
+Route::resource('videos', 'VideoController');
+
+Route::resource('reports', 'ReportController');
+
+Route::resource('shares', 'ShareController');
+
+Route::resource('reads', 'ReadController');
