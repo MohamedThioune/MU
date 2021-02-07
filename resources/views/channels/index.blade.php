@@ -6,8 +6,17 @@
     <section class="content-header">
         <div class="user-panel">
             <div class="image">
-                <img src="{{asset('img/auteur.png')}}" class="img-circle" alt="User Image"/>
-                <h1 class="">Channels</h1>
+                <!-- Load images and if this load preloader image correspond to this user  -->
+                @if(Auth::user()->photo)
+                    <img src="{{asset('images/uploads')}}/{{Auth::user()->photo}}" class="img-circle" alt="User Image"/>
+                @elseif(Auth::user()->age <= 15)
+                    <img src="{{asset('images/kids_preloader.png')}}" width="300" class="img-circle" alt="User Image"/>
+                @elseif(Auth::user()->age > 15 && Auth::user()->sex == '1')
+                    <img src="{{asset('images/flow_preloader.png')}}"  class="img-circle" alt="User Image"/>
+                @elseif(Auth::user()->age > 15 && Auth::user()->sex == '0') 
+                    <img src="{{asset('images/sista_preloader.png')}}"  class="img-circle" alt="User Image"/>
+                @endif
+                <h2 class="">Channels</h2>
             </div>
         </div>
         <!-- <h1 class="pull-right">
@@ -23,8 +32,8 @@
         <div class="clearfix"></div>
         @if(count($channel) > 0)
         <center>
-            <a href="{{ route('channels.edit', [$channel[0]->id]) }}" class="btn btn-default"><i class="fa fa-user-edit"></i> Personnaliser la chaine</a>
-            <a href="#" class="btn btn-danger"><i class="fa fa"></i> Gérer les vidéos</a> 
+            <a href="{{ route('channels.edit', [$channel[0]->id]) }}" class="btn btn-default"><i class="fa fa-wrench"></i> Personnaliser la chaine</a>
+            <a href="{{ route('videos.index')}}" class="btn btn-danger"><i class="fa fa-tv"></i> Gérer ses vidéos</a> 
         </center>
         <div class="text-center">
         @else 
