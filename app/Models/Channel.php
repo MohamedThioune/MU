@@ -67,11 +67,11 @@ class Channel extends Model
 
     public function category_primary()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(CategoryPrimary::class);
     }
 
     public function category_secondary()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(CategorySecondary::class);
     }
 }

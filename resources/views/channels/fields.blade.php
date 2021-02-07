@@ -12,8 +12,6 @@
 </div>
 
 
-
-
 <!-- Category First Field -->
 <div class="form-group col-sm-6">
     
@@ -21,7 +19,7 @@
     <select name="categoryprimary_id" class="form-control">
         <option value="none" selected="" disabled="">Select the main category</option>
         @foreach($category_primaries as $category) 
-            <option value="{{$category->id}}"> {{$category->libelle}}</option>
+        <option value="{{$category->id}}"> {{$category->libelle}}</option>
         @endforeach
     </select>
 </div>
@@ -32,12 +30,10 @@
     <select name="categorysecondary_id" class="form-control">
         <option value="none" selected="" disabled="">Select the secondary category</option>
         @foreach($category_secondaries as $category) 
-          <option value="{{$category->id}}"> {{$category->libelle}}</option>
+        <option value="{{$category->id}}"> {{$category->libelle}}</option>
         @endforeach
     </select>
 </div>
-
-
 
 <!-- User_id Field -->
 {!! Form::hidden('user_id', Auth::id())!!}

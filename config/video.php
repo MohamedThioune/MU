@@ -1,2 +1,2 @@
 <?php
-return ['path' => 'videos'];
+return ['path' => 'vids/uploads', 'second_path' => 'vids/thumbnails'];

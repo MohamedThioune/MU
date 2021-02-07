@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Profile;
+use App\Models\Video;
+use App\User;
 
 class HomeController extends Controller
 {
@@ -22,10 +24,10 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        return view('home');
-    }
+    // public function index()
+    // {
+    //     return view('home');
+    // }
 
     public function connected($id){
         $profile = Profile::find($id);
@@ -33,4 +35,11 @@ class HomeController extends Controller
         return redirect('/');
     }
 
+    public function play($id){
+        $video = Video::find($id);
+        $user = User::find($video->user_id);
+
+        session(['video' => $video, 'user' => $user]);
+        return redirect('/play');
+    }
 }

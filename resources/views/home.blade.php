@@ -280,7 +280,20 @@
                     @else
                         <li class="nav-item nav-modife">
                             <!-- User connected with his name -->
-                            @if(session('profile')["age"] <= 15)
+                            @if(!session('profile'))
+                            <span class="btnCommunaute" style="background:none; box-shadow: 4px 4px 15px white;font-weight:bold"> 
+                                 @php
+                                    $profile = DB::Table('users')->select('profile.*')
+                                                                 ->join('profile', 'users.id', 'profile.user_id')
+                                                                 ->where('users.id', Auth::id())
+                                                                 ->first();
+
+                                    echo $profile->name;
+                                 @endphp
+                                 &nbsp;&nbsp;
+                                <a style="color:white;font-size:19px;" href="{{route('choose')}}"><i class="fas fa-caret-down"></i></a>
+                            </span>
+                            @elseif(session('profile')["age"] <= 15)
                             <span class="btnCommunaute" style="background:none; box-shadow: 4px 4px 15px #e9d22e;font-weight:bold"> {{session('profile')["name"]}} &nbsp;&nbsp;<a style="color:#e9d22e;font-size:19px;" href="{{route('choose')}}"><i class="fas fa-caret-down"></i></a></span>
                             @elseif(session('profile')["age"] > 15 && session('profile')["sex"] == '1')
                             <span class="btnCommunaute" style="background:none; box-shadow: 4px 4px 15px #3eacec;font-weight:bold"> {{session('profile')["name"]}} &nbsp;&nbsp;<a href="{{route('choose')}}"><i class="fas fa-caret-down"></i></a></span>
@@ -303,18 +316,20 @@
                 <div class="container-modife">
                     <div class="block2">
                         <p class="textHeader2">mmmuuu</p>
+                        <center>
                         <div class="d-flex groupButtonHeader2">
                             <button class="btn btnheader2">Flow</button>
                             <button class="btn btnheader2">Sista’s</button>
                             <button class="btn btnheader2">Kids</button>
                         </div>
+                        </center>
                         <img class="setting2" src="{{ asset('img/icones/settings.svg') }}" alt="">
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="content-contenue1">
+    <!-- <div class="content-contenue1">
         <div class="contentParDefaut">
             <div class="linearColor"></div>
             <div class="container-fluid position-relative">
@@ -604,10 +619,10 @@
             </div>
 
         </div>
-    </div>
+    </div> -->
 </div>
 
-<div class="content-commentaire">
+<!-- <div class="content-commentaire">
     <div class="container-fluid">
         <div class="row commentBlock">
             <div class="col-md-12 col-lg-6 col-modife col-sm-12">
@@ -788,32 +803,44 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 <div class="content-Haltcare">
     <div class="container-fluid">
         <div class="contentSwipeToday">
             <div class="barreLatraleNoir vertBarre">Healthcares</div>
             <div class="swiper-container swiper-helatcare">
                 <div class="swiper-wrapper">
+                    @foreach(session('videos') as $video)
                     <div class=" swiper-slide card-suggestionDay">
                         <div class="elementCardSuggestionDay">
-                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/card-conte.png') }}" alt="">
-                            <div class="contentFlyHeure">
-                                <p class="flyText">Fly</p>
+                            <img class="imgElementCardSuggestionDay" src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" alt="">
+                            <a href="{{route('play',[$video->id])}}" target="blank" class="contentFlyHeure">
+                                <p class="flyText">{{$video->title}}</p>
                                 <p class="heureFly">17:25</p>
-                            </div>
+                            </a>
                         </div>
                         <div class="contentCardSuggestionDay">
                             <div class="d-flex justify-content-between">
-                                <p class="libertiText">Liberty in the words</p>
+                                <p class="libertiText">{{$video->main_title}}</p>
                                 <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
                             </div>
                             <div class="mindCard">
+                                    @php 
+                                        $user = App\User::find($video->user_id);
+                                    @endphp
                                 <div class="blockImgMind">
-                                    <img class="" src="{{ asset('img/sokhe.png') }}" alt="">
+                                @if($user->photo)
+                                    <img class="" src="{{ asset('/images/uploads') }}/{{$user->photo}}" alt="">
+                                @elseif($user->age <= 15)
+                                    <img class="" src="{{asset('images/kids_preloader.png')}}" alt="">
+                                @elseif($user->age > 15 && $user->sex == '1')
+                                    <img class="img-circle" src="{{asset('images/flow_preloader.png')}}" alt=""/>
+                                @elseif($user->age > 15 && $user->sex == '0')
+                                    <img class="" src="{{asset('images/sista_preloader.png')}} /{{$user->photo}}" alt="">
+                                @endif
                                 </div>
                                 <div class="block3">
-                                    <p class="mindText">Mind</p>
+                                    <p class="mindText">{{$user->name}}</p>
                                     <div class="d-flex justify-content-between">
                                         <p class="numberviewsSuggestion">1230</p>
                                         <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
@@ -823,7 +850,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class=" swiper-slide card-suggestionDay">
+                    @endforeach
+                    <!-- <div class=" swiper-slide card-suggestionDay">
                         <div class="elementCardSuggestionDay">
                             <img class="imgElementCardSuggestionDay" src="{{ asset('img/fitness-plus-trainers-1.jpg') }}" alt="">
                             <div class="contentFlyHeure">
@@ -962,7 +990,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
