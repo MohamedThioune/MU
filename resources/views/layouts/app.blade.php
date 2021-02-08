@@ -20,6 +20,7 @@
 </head>
 
 <body>
+    @include('layouts.sidebar')
 <div>
     @yield('content')
 </div>

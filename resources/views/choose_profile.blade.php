@@ -42,15 +42,15 @@
             <div class="div-block-20">
                 <div class="big-bull">
                     @php
-                    $profile = DB::Table('users')->select('profile.*')
+                    $profil = DB::Table('users')->select('profile.*')
                     ->join('profile', 'users.id', 'profile.user_id')
                     ->where('users.id', Auth::id())
                     ->first();
                     @endphp
-                    <a href="{{ route('connected', [$profile->id])}}" class="link-block-2 w-inline-block">
+                    <a href="{{ route('connected', [$profil->id])}}" class="link-block-2 w-inline-block">
                         <img src="{{ asset('img/pexels-anni-roenkae-2156883.jpg') }}" alt="">
                     </a>
-                    <div class="text-block-218"> {{$profile->name}} </div>
+                    <div class="text-block-218"> {{$profil->name}} </div>
                     <div class="text-block-219">
                         <a href="{{route('profiles.index')}}" class="link-4">Gérer les profils</a>
                     </div>
@@ -60,13 +60,17 @@
 
                     <div class="div-block-23">
                         @foreach($profiles as $profile)
+                        @php
+                        if($profile->id == $profil->id)
+                            continue;
+                        @endphp
                         <div class="div-block-22">
                             <div class="@php if($profile->age <= 15) echo 'div-block-24'; else if($profile->age > 15 && $profile->sex == 0) echo 'div-block-21'; else if($profile->age > 15 && $profile->sex == 1) echo 'div-block-28'; @endphp" >
                                 <img src="{{ asset('img/pexels-anna-shvets-5217954.jpg') }}" alt="">
                             </div>
                             <p class="text-block-218">{{$profile->name}}</p>
                         </div>
-                    @endforeach
+                        @endforeach
                 </div>
             </div>
 
