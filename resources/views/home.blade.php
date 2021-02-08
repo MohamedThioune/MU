@@ -841,7 +841,20 @@
                                     <div class="d-flex justify-content-between">
                                         <p class="numberviewsSuggestion">1230</p>
                                         <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
-                                        <p class="day">4 days ago</p>
+                                         <!-- Date creation relative -->
+                                         @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
+                                                  @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
+                                                  <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/3600)}} hours</p>
+                                                  @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) == 0)
+                                                  <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/60)}} minutes</p>
+                                                  @endif
+                                                @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 1)
+                                                <p class="day">Yesterday at {{strftime("%H:%M", strtotime($video->created_at))}}</p>
+                                                @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) >= 2 && intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) <= 27)
+                                                <p class="day"> {{intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400)}} days ago </p>
+                                                @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) > 27)
+                                                <p class="day">On {{strftime("%d/%m/%Y", strtotime($video->created_at))}}</p>
+                                                @endif
                                     </div>
                                 </div>
                             </div>
