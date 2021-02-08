@@ -66,7 +66,7 @@
                         @endphp
                         <div class="div-block-22">
                             <div class="@php if($profile->age <= 15) echo 'div-block-24'; else if($profile->age > 15 && $profile->sex == 0) echo 'div-block-21'; else if($profile->age > 15 && $profile->sex == 1) echo 'div-block-28'; @endphp" >
-                                <img src="{{ asset('img/pexels-anna-shvets-5217954.jpg') }}" alt="">
+                                <a href="{{route('connected',[$profile->id])}}"><img src="{{ asset('img/pexels-anna-shvets-5217954.jpg') }}" alt=""></a>
                             </div>
                             <p class="text-block-218">{{$profile->name}}</p>
                         </div>
