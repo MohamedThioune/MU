@@ -278,7 +278,7 @@
                         <li class="nav-item nav-modife">
                             <!-- User connected with his name -->
                             @if(!session('profile'))
-                            <span class="btnCommunaute" style="background:none; box-shadow: 4px 4px 15px white;font-weight:bold"> 
+                            <a href="{{route('choose')}}" class="btnCommunaute" style="cursor:pointer; text-decoration:none; color:white; background:none; box-shadow: 4px 4px 15px white;font-weight:bold"> 
                                  @php
                                     $profile = DB::Table('users')->select('profile.*')
                                                                  ->join('profile', 'users.id', 'profile.user_id')
@@ -288,14 +288,14 @@
                                     echo $profile->name;
                                  @endphp
                                  &nbsp;&nbsp;
-                                <a style="color:white;font-size:19px;" href="{{route('choose')}}"><i class="fas fa-caret-down"></i></a>
-                            </span>
+                                <i class="fas fa-caret-down"></i>
+                            </a>
                             @elseif(session('profile')["age"] <= 15)
-                            <span class="btnCommunaute" style="background:none; box-shadow: 4px 4px 15px #e9d22e;font-weight:bold"> {{session('profile')["name"]}} &nbsp;&nbsp;<a style="color:#e9d22e;font-size:19px;" href="{{route('choose')}}"><i class="fas fa-caret-down"></i></a></span>
+                            <a href="{{route('choose')}}" class="btnCommunaute" style="cursor:pointer; text-decoration:none; color:white; background:none; box-shadow: 4px 4px 15px #e9d22e;font-weight:bold"> {{session('profile')["name"]}} &nbsp;&nbsp;<i class="fas fa-caret-down"></i></a>
                             @elseif(session('profile')["age"] > 15 && session('profile')["sex"] == '1')
-                            <span class="btnCommunaute" style="background:none; box-shadow: 4px 4px 15px #3eacec;font-weight:bold"> {{session('profile')["name"]}} &nbsp;&nbsp;<a href="{{route('choose')}}"><i class="fas fa-caret-down"></i></a></span>
+                            <a href="{{route('choose')}}" class="btnCommunaute" style="cursor:pointer; text-decoration:none; color:white; background:none; box-shadow: 4px 4px 15px #3eacec;font-weight:bold"> {{session('profile')["name"]}} &nbsp;&nbsp;<i class="fas fa-caret-down"></i></a>
                             @elseif(session('profile')["age"] > 15 && session('profile')["sex"] == '0')
-                            <span class="btnCommunaute" style="background:none; box-shadow: 4px 4px 15px #d14f94;font-weight:bold"> {{session('profile')["name"]}} &nbsp;&nbsp;<a style="color:#d14f94;font-size:19px;" href="{{route('choose')}}"><i class="fas fa-caret-down"></i></a><span>
+                            <a href="{{route('choose')}}" class="btnCommunaute" style="cursor:pointer; text-decoration:none; color:white; background:none; box-shadow: 4px 4px 15px #d14f94;font-weight:bold"> {{session('profile')["name"]}} &nbsp;&nbsp;<i class="fas fa-caret-down"></i><a>
                             @endif
                         </li>
                         <li class="nav-item nav-modife">
