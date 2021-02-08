@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Foundation\Console\Presets\None;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Carbon\Carbon;
+use phpDocumentor\Reflection\Types\Null_;
 
 class RegisterController extends Controller
 {
@@ -70,6 +72,7 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'sex' => $data['sex'],
             'age' => $data['age'],
+            'photo' => "None",
             'password' => bcrypt($data['password']),
             'status' => "contributor",
             'vids_post' => 0,
