@@ -70,6 +70,7 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'sex' => $data['sex'],
             'age' => $data['age'],
+            'photo' => "NONE",
             'password' => bcrypt($data['password']),
             'status' => "contributor",
             'vids_post' => 0,
