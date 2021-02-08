@@ -166,7 +166,7 @@
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="{{if($profile->age <= 15) echo 'div-block-kids'; else if($profile->age > 15 && $profile->sex == 0) echo 'div-block-men'; else if($profile->age > 15 && $profile->sex == 1) echo 'div-block-men';}}form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
 
                                 @if ($errors->has('password'))
                                     <span class="invalid-feedback" role="alert">
