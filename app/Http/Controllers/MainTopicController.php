@@ -23,10 +23,9 @@ class MainTopicController extends AppBaseController
     public function index(Request $request)
     {
         /** @var MainTopic $mainTopics */
-        $mainTopics = MainTopic::all();
         $subTopics = SubTopic::all();
 
-        return view('main_topics.index', compact('mainTopics', 'subTopics'));
+        return view('main_topics.index', compact('mainTopics'));
     }
 
     /**
@@ -36,10 +35,7 @@ class MainTopicController extends AppBaseController
      */
     public function create()
     {
-        /** @var SubTopic $subTopics */
-        $subTopics = SubTopic::all();
-
-        return view('main_topics.create', compact('subTopics'));
+        return view('main_topics.create');
     }
 
     /**

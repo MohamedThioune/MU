@@ -807,7 +807,7 @@
             <div class="barreLatraleNoir vertBarre">Healthcares</div>
             <div class="swiper-container swiper-helatcare">
                 <div class="swiper-wrapper">
-                    @foreach(session('videos') as $video)
+                    @foreach(session('videos_haltcare') as $video)
                     <div class=" swiper-slide card-suggestionDay">
                         <div class="elementCardSuggestionDay">
                             <img class="imgElementCardSuggestionDay" src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" alt="">
@@ -861,146 +861,6 @@
                         </div>
                     </div>
                     @endforeach
-                    <!-- <div class=" swiper-slide card-suggestionDay">
-                        <div class="elementCardSuggestionDay">
-                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/fitness-plus-trainers-1.jpg') }}" alt="">
-                            <div class="contentFlyHeure">
-                                <p class="flyText">Fit</p>
-                                <p class="heureFly">17:25</p>
-                            </div>
-                        </div>
-                        <div class="contentCardSuggestionDay">
-                            <div class="d-flex justify-content-between">
-                                <p class="libertiText">Liberty in the words</p>
-                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
-                            </div>
-                            <div class="mindCard">
-                                <div class="blockImgMind">
-                                    <img class="" src="{{ asset('img/femme.png') }}" alt="">
-                                </div>
-                                <div class="block3">
-                                    <p class="mindText">Mind</p>
-                                    <div class="d-flex justify-content-between">
-                                        <p class="numberviewsSuggestion">1230</p>
-                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
-                                        <p class="day">4 days ago</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class=" swiper-slide card-suggestionDay">
-                        <div class="elementCardSuggestionDay">
-                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/good.png') }}" alt="">
-                            <div class="contentFlyHeure">
-                                <p class="flyText">Good</p>
-                                <p class="heureFly">17:25</p>
-                            </div>
-                        </div>
-                        <div class="contentCardSuggestionDay">
-                            <div class="d-flex justify-content-between">
-                                <p class="libertiText">Liberty in the words</p>
-                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
-                            </div>
-                            <div class="mindCard">
-                                <div class="blockImgMind">
-                                    <img class="" src="{{ asset('img/auteur-commentaire.png') }}" alt="">
-                                </div>
-                                <div class="block3">
-                                    <p class="mindText">Mind</p>
-                                    <div class="d-flex justify-content-between">
-                                        <p class="numberviewsSuggestion">1230</p>
-                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
-                                        <p class="day">4 days ago</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class=" swiper-slide card-suggestionDay">
-                        <div class="elementCardSuggestionDay">
-                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/card4.png') }}" alt="">
-                            <div class="contentFlyHeure">
-                                <p class="flyText">Zen</p>
-                                <p class="heureFly">17:25</p>
-                            </div>
-                        </div>
-                        <div class="contentCardSuggestionDay">
-                            <div class="d-flex justify-content-between">
-                                <p class="libertiText">Liberty in the words</p>
-                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
-                            </div>
-                            <div class="mindCard">
-                                <div class="blockImgMind">
-                                    <img class="" src="{{ asset('img/beg.png') }}" alt="">
-                                </div>
-                                <div class="block3">
-                                    <p class="mindText">Mind</p>
-                                    <div class="d-flex justify-content-between">
-                                        <p class="numberviewsSuggestion">1230</p>
-                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
-                                        <p class="day">4 days ago</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class=" swiper-slide card-suggestionDay">
-                        <div class="elementCardSuggestionDay">
-                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/nab.png') }}" alt="">
-                            <div class="contentFlyHeure">
-                                <p class="flyText">Nabi</p>
-                                <p class="heureFly">17:25</p>
-                            </div>
-                        </div>
-                        <div class="contentCardSuggestionDay">
-                            <div class="d-flex justify-content-between">
-                                <p class="libertiText">Liberty in the words</p>
-                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
-                            </div>
-                            <div class="mindCard">
-                                <div class="blockImgMind">
-                                    <img class="" src="{{ asset('img/auteurCard4.png') }}" alt="">
-                                </div>
-                                <div class="block3">
-                                    <p class="mindText">Mind</p>
-                                    <div class="d-flex justify-content-between">
-                                        <p class="numberviewsSuggestion">1230</p>
-                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
-                                        <p class="day">4 days ago</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class=" swiper-slide card-suggestionDay">
-                        <div class="elementCardSuggestionDay">
-                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/card4.png') }}" alt="">
-                            <div class="contentFlyHeure">
-                                <p class="flyText">Fly</p>
-                                <p class="heureFly">17:25</p>
-                            </div>
-                        </div>
-                        <div class="contentCardSuggestionDay">
-                            <div class="d-flex justify-content-between">
-                                <p class="libertiText">Liberty in the words</p>
-                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
-                            </div>
-                            <div class="mindCard">
-                                <div class="blockImgMind">
-                                    <img class="" src="{{ asset('img/auteurCard4.png') }}" alt="">
-                                </div>
-                                <div class="block3">
-                                    <p class="mindText">Mind</p>
-                                    <div class="d-flex justify-content-between">
-                                        <p class="numberviewsSuggestion">1230</p>
-                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
-                                        <p class="day">4 days ago</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
                 </div>
             </div>
         </div>
@@ -1010,176 +870,63 @@
     <div class="container-fluid">
         <div class="contentSwipeToday">
             <div class="barreLatraleNoir life">Life</div>
-            <div class="swiper-container swiper-helatcare">
+                <div class="swiper-container swiper-helatcare">
                 <div class="swiper-wrapper">
+                    @foreach(session('videos_life') as $video)
                     <div class=" swiper-slide card-suggestionDay">
                         <div class="elementCardSuggestionDay">
-                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/card-conte.png') }}" alt="">
-                            <div class="contentFlyHeure">
-                                <p class="flyText">Fly</p>
+                            <img class="imgElementCardSuggestionDay" src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" alt="">
+                            <a href="{{route('play',[$video->id])}}" target="blank" class="contentFlyHeure">
+                                <p class="flyText">{{$video->title}}</p>
                                 <p class="heureFly">17:25</p>
-                            </div>
+                            </a>
                         </div>
                         <div class="contentCardSuggestionDay">
                             <div class="d-flex justify-content-between">
-                                <p class="libertiText">Liberty in the words</p>
+                                <p class="libertiText">{{$video->main_title}}</p>
                                 <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
                             </div>
                             <div class="mindCard">
+                                    @php 
+                                        $user = App\User::find($video->user_id);
+                                    @endphp
                                 <div class="blockImgMind">
-                                    <img class="" src="{{ asset('img/sokhe.png') }}" alt="">
+                                @if($user->photo)
+                                    <img class="" src="{{ asset('/images/uploads') }}/{{$user->photo}}" alt="">
+                                @elseif($user->age <= 15)
+                                    <img class="" src="{{asset('images/kids_preloader.png')}}" alt="">
+                                @elseif($user->age > 15 && $user->sex == '1')
+                                    <img class="img-circle" src="{{asset('images/flow_preloader.png')}}" alt=""/>
+                                @elseif($user->age > 15 && $user->sex == '0')
+                                    <img class="" src="{{asset('images/sista_preloader.png')}} /{{$user->photo}}" alt="">
+                                @endif
                                 </div>
                                 <div class="block3">
-                                    <p class="mindText">Mind</p>
+                                    <p class="mindText">{{$user->name}}</p>
                                     <div class="d-flex justify-content-between">
                                         <p class="numberviewsSuggestion">1230</p>
                                         <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
-                                        <p class="day">4 days ago</p>
+                                         <!-- Date creation relative -->
+                                         @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
+                                                  @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
+                                                  <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/3600)}} hours</p>
+                                                  @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) == 0)
+                                                  <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/60)}} minutes</p>
+                                                  @endif
+                                                @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 1)
+                                                <p class="day">Yesterday at {{strftime("%H:%M", strtotime($video->created_at))}}</p>
+                                                @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) >= 2 && intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) <= 27)
+                                                <p class="day"> {{intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400)}} days ago </p>
+                                                @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) > 27)
+                                                <p class="day">On {{strftime("%d/%m/%Y", strtotime($video->created_at))}}</p>
+                                                @endif
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class=" swiper-slide card-suggestionDay">
-                        <div class="elementCardSuggestionDay">
-                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/fitness-plus-trainers-1.jpg') }}" alt="">
-                            <div class="contentFlyHeure">
-                                <p class="flyText">Fit</p>
-                                <p class="heureFly">17:25</p>
-                            </div>
-                        </div>
-                        <div class="contentCardSuggestionDay">
-                            <div class="d-flex justify-content-between">
-                                <p class="libertiText">Liberty in the words</p>
-                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
-                            </div>
-                            <div class="mindCard">
-                                <div class="blockImgMind">
-                                    <img class="" src="{{ asset('img/femme.png') }}" alt="">
-                                </div>
-                                <div class="block3">
-                                    <p class="mindText">Mind</p>
-                                    <div class="d-flex justify-content-between">
-                                        <p class="numberviewsSuggestion">1230</p>
-                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
-                                        <p class="day">4 days ago</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class=" swiper-slide card-suggestionDay">
-                        <div class="elementCardSuggestionDay">
-                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/good.png') }}" alt="">
-                            <div class="contentFlyHeure">
-                                <p class="flyText">Good</p>
-                                <p class="heureFly">17:25</p>
-                            </div>
-                        </div>
-                        <div class="contentCardSuggestionDay">
-                            <div class="d-flex justify-content-between">
-                                <p class="libertiText">Liberty in the words</p>
-                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
-                            </div>
-                            <div class="mindCard">
-                                <div class="blockImgMind">
-                                    <img class="" src="{{ asset('img/auteur-commentaire.png') }}" alt="">
-                                </div>
-                                <div class="block3">
-                                    <p class="mindText">Mind</p>
-                                    <div class="d-flex justify-content-between">
-                                        <p class="numberviewsSuggestion">1230</p>
-                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
-                                        <p class="day">4 days ago</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class=" swiper-slide card-suggestionDay">
-                        <div class="elementCardSuggestionDay">
-                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/card4.png') }}" alt="">
-                            <div class="contentFlyHeure">
-                                <p class="flyText">Zen</p>
-                                <p class="heureFly">17:25</p>
-                            </div>
-                        </div>
-                        <div class="contentCardSuggestionDay">
-                            <div class="d-flex justify-content-between">
-                                <p class="libertiText">Liberty in the words</p>
-                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
-                            </div>
-                            <div class="mindCard">
-                                <div class="blockImgMind">
-                                    <img class="" src="{{ asset('img/beg.png') }}" alt="">
-                                </div>
-                                <div class="block3">
-                                    <p class="mindText">Mind</p>
-                                    <div class="d-flex justify-content-between">
-                                        <p class="numberviewsSuggestion">1230</p>
-                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
-                                        <p class="day">4 days ago</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class=" swiper-slide card-suggestionDay">
-                        <div class="elementCardSuggestionDay">
-                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/nab.png') }}" alt="">
-                            <div class="contentFlyHeure">
-                                <p class="flyText">Nabi</p>
-                                <p class="heureFly">17:25</p>
-                            </div>
-                        </div>
-                        <div class="contentCardSuggestionDay">
-                            <div class="d-flex justify-content-between">
-                                <p class="libertiText">Liberty in the words</p>
-                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
-                            </div>
-                            <div class="mindCard">
-                                <div class="blockImgMind">
-                                    <img class="" src="{{ asset('img/auteurCard4.png') }}" alt="">
-                                </div>
-                                <div class="block3">
-                                    <p class="mindText">Mind</p>
-                                    <div class="d-flex justify-content-between">
-                                        <p class="numberviewsSuggestion">1230</p>
-                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
-                                        <p class="day">4 days ago</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class=" swiper-slide card-suggestionDay">
-                        <div class="elementCardSuggestionDay">
-                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/card4.png') }}" alt="">
-                            <div class="contentFlyHeure">
-                                <p class="flyText">Fly</p>
-                                <p class="heureFly">17:25</p>
-                            </div>
-                        </div>
-                        <div class="contentCardSuggestionDay">
-                            <div class="d-flex justify-content-between">
-                                <p class="libertiText">Liberty in the words</p>
-                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
-                            </div>
-                            <div class="mindCard">
-                                <div class="blockImgMind">
-                                    <img class="" src="{{ asset('img/auteurCard4.png') }}" alt="">
-                                </div>
-                                <div class="block3">
-                                    <p class="mindText">Mind</p>
-                                    <div class="d-flex justify-content-between">
-                                        <p class="numberviewsSuggestion">1230</p>
-                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
-                                        <p class="day">4 days ago</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
+                </div>
                 </div>
             </div>
         </div>
@@ -1189,176 +936,63 @@
     <div class="container-fluid">
         <div class="contentSwipeToday">
             <div class="barreLatraleNoir Health">Health</div>
-            <div class="swiper-container swiper-helatcare">
+                <div class="swiper-container swiper-helatcare">
                 <div class="swiper-wrapper">
+                    @foreach(session('videos_health') as $video)
                     <div class=" swiper-slide card-suggestionDay">
                         <div class="elementCardSuggestionDay">
-                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/card-conte.png') }}" alt="">
-                            <div class="contentFlyHeure">
-                                <p class="flyText">Fly</p>
+                            <img class="imgElementCardSuggestionDay" src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" alt="">
+                            <a href="{{route('play',[$video->id])}}" target="blank" class="contentFlyHeure">
+                                <p class="flyText">{{$video->title}}</p>
                                 <p class="heureFly">17:25</p>
-                            </div>
+                            </a>
                         </div>
                         <div class="contentCardSuggestionDay">
                             <div class="d-flex justify-content-between">
-                                <p class="libertiText">Liberty in the words</p>
+                                <p class="libertiText">{{$video->main_title}}</p>
                                 <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
                             </div>
                             <div class="mindCard">
+                                    @php 
+                                        $user = App\User::find($video->user_id);
+                                    @endphp
                                 <div class="blockImgMind">
-                                    <img class="" src="{{ asset('img/sokhe.png') }}" alt="">
+                                @if($user->photo)
+                                    <img class="" src="{{ asset('/images/uploads') }}/{{$user->photo}}" alt="">
+                                @elseif($user->age <= 15)
+                                    <img class="" src="{{asset('images/kids_preloader.png')}}" alt="">
+                                @elseif($user->age > 15 && $user->sex == '1')
+                                    <img class="img-circle" src="{{asset('images/flow_preloader.png')}}" alt=""/>
+                                @elseif($user->age > 15 && $user->sex == '0')
+                                    <img class="" src="{{asset('images/sista_preloader.png')}} /{{$user->photo}}" alt="">
+                                @endif
                                 </div>
                                 <div class="block3">
-                                    <p class="mindText">Mind</p>
+                                    <p class="mindText">{{$user->name}}</p>
                                     <div class="d-flex justify-content-between">
                                         <p class="numberviewsSuggestion">1230</p>
                                         <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
-                                        <p class="day">4 days ago</p>
+                                         <!-- Date creation relative -->
+                                         @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
+                                                  @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
+                                                  <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/3600)}} hours</p>
+                                                  @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) == 0)
+                                                  <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/60)}} minutes</p>
+                                                  @endif
+                                                @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 1)
+                                                <p class="day">Yesterday at {{strftime("%H:%M", strtotime($video->created_at))}}</p>
+                                                @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) >= 2 && intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) <= 27)
+                                                <p class="day"> {{intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400)}} days ago </p>
+                                                @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) > 27)
+                                                <p class="day">On {{strftime("%d/%m/%Y", strtotime($video->created_at))}}</p>
+                                                @endif
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class=" swiper-slide card-suggestionDay">
-                        <div class="elementCardSuggestionDay">
-                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/fitness-plus-trainers-1.jpg') }}" alt="">
-                            <div class="contentFlyHeure">
-                                <p class="flyText">Fit</p>
-                                <p class="heureFly">17:25</p>
-                            </div>
-                        </div>
-                        <div class="contentCardSuggestionDay">
-                            <div class="d-flex justify-content-between">
-                                <p class="libertiText">Liberty in the words</p>
-                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
-                            </div>
-                            <div class="mindCard">
-                                <div class="blockImgMind">
-                                    <img class="" src="{{ asset('img/femme.png') }}" alt="">
-                                </div>
-                                <div class="block3">
-                                    <p class="mindText">Mind</p>
-                                    <div class="d-flex justify-content-between">
-                                        <p class="numberviewsSuggestion">1230</p>
-                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
-                                        <p class="day">4 days ago</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class=" swiper-slide card-suggestionDay">
-                        <div class="elementCardSuggestionDay">
-                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/good.png') }}" alt="">
-                            <div class="contentFlyHeure">
-                                <p class="flyText">Good</p>
-                                <p class="heureFly">17:25</p>
-                            </div>
-                        </div>
-                        <div class="contentCardSuggestionDay">
-                            <div class="d-flex justify-content-between">
-                                <p class="libertiText">Liberty in the words</p>
-                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
-                            </div>
-                            <div class="mindCard">
-                                <div class="blockImgMind">
-                                    <img class="" src="{{ asset('img/auteur-commentaire.png') }}" alt="">
-                                </div>
-                                <div class="block3">
-                                    <p class="mindText">Mind</p>
-                                    <div class="d-flex justify-content-between">
-                                        <p class="numberviewsSuggestion">1230</p>
-                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
-                                        <p class="day">4 days ago</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class=" swiper-slide card-suggestionDay">
-                        <div class="elementCardSuggestionDay">
-                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/card4.png') }}" alt="">
-                            <div class="contentFlyHeure">
-                                <p class="flyText">Zen</p>
-                                <p class="heureFly">17:25</p>
-                            </div>
-                        </div>
-                        <div class="contentCardSuggestionDay">
-                            <div class="d-flex justify-content-between">
-                                <p class="libertiText">Liberty in the words</p>
-                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
-                            </div>
-                            <div class="mindCard">
-                                <div class="blockImgMind">
-                                    <img class="" src="{{ asset('img/beg.png') }}" alt="">
-                                </div>
-                                <div class="block3">
-                                    <p class="mindText">Mind</p>
-                                    <div class="d-flex justify-content-between">
-                                        <p class="numberviewsSuggestion">1230</p>
-                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
-                                        <p class="day">4 days ago</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class=" swiper-slide card-suggestionDay">
-                        <div class="elementCardSuggestionDay">
-                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/nab.png') }}" alt="">
-                            <div class="contentFlyHeure">
-                                <p class="flyText">Nabi</p>
-                                <p class="heureFly">17:25</p>
-                            </div>
-                        </div>
-                        <div class="contentCardSuggestionDay">
-                            <div class="d-flex justify-content-between">
-                                <p class="libertiText">Liberty in the words</p>
-                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
-                            </div>
-                            <div class="mindCard">
-                                <div class="blockImgMind">
-                                    <img class="" src="{{ asset('img/auteurCard4.png') }}" alt="">
-                                </div>
-                                <div class="block3">
-                                    <p class="mindText">Mind</p>
-                                    <div class="d-flex justify-content-between">
-                                        <p class="numberviewsSuggestion">1230</p>
-                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
-                                        <p class="day">4 days ago</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class=" swiper-slide card-suggestionDay">
-                        <div class="elementCardSuggestionDay">
-                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/card4.png') }}" alt="">
-                            <div class="contentFlyHeure">
-                                <p class="flyText">Fly</p>
-                                <p class="heureFly">17:25</p>
-                            </div>
-                        </div>
-                        <div class="contentCardSuggestionDay">
-                            <div class="d-flex justify-content-between">
-                                <p class="libertiText">Liberty in the words</p>
-                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
-                            </div>
-                            <div class="mindCard">
-                                <div class="blockImgMind">
-                                    <img class="" src="{{ asset('img/auteurCard4.png') }}" alt="">
-                                </div>
-                                <div class="block3">
-                                    <p class="mindText">Mind</p>
-                                    <div class="d-flex justify-content-between">
-                                        <p class="numberviewsSuggestion">1230</p>
-                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
-                                        <p class="day">4 days ago</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
+                </div>
                 </div>
             </div>
         </div>
@@ -1368,176 +1002,63 @@
     <div class="container-fluid">
         <div class="contentSwipeToday">
             <div class="barreLatraleNoir Business">Business</div>
-            <div class="swiper-container swiper-helatcare">
+                <div class="swiper-container swiper-helatcare">
                 <div class="swiper-wrapper">
+                    @foreach(session('videos_business') as $video)
                     <div class=" swiper-slide card-suggestionDay">
                         <div class="elementCardSuggestionDay">
-                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/card-conte.png') }}" alt="">
-                            <div class="contentFlyHeure">
-                                <p class="flyText">Fly</p>
+                            <img class="imgElementCardSuggestionDay" src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" alt="">
+                            <a href="{{route('play',[$video->id])}}" target="blank" class="contentFlyHeure">
+                                <p class="flyText">{{$video->title}}</p>
                                 <p class="heureFly">17:25</p>
-                            </div>
+                            </a>
                         </div>
                         <div class="contentCardSuggestionDay">
                             <div class="d-flex justify-content-between">
-                                <p class="libertiText">Liberty in the words</p>
+                                <p class="libertiText">{{$video->main_title}}</p>
                                 <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
                             </div>
                             <div class="mindCard">
+                                    @php 
+                                        $user = App\User::find($video->user_id);
+                                    @endphp
                                 <div class="blockImgMind">
-                                    <img class="" src="{{ asset('img/sokhe.png') }}" alt="">
+                                @if($user->photo)
+                                    <img class="" src="{{ asset('/images/uploads') }}/{{$user->photo}}" alt="">
+                                @elseif($user->age <= 15)
+                                    <img class="" src="{{asset('images/kids_preloader.png')}}" alt="">
+                                @elseif($user->age > 15 && $user->sex == '1')
+                                    <img class="img-circle" src="{{asset('images/flow_preloader.png')}}" alt=""/>
+                                @elseif($user->age > 15 && $user->sex == '0')
+                                    <img class="" src="{{asset('images/sista_preloader.png')}} /{{$user->photo}}" alt="">
+                                @endif
                                 </div>
                                 <div class="block3">
-                                    <p class="mindText">Mind</p>
+                                    <p class="mindText">{{$user->name}}</p>
                                     <div class="d-flex justify-content-between">
                                         <p class="numberviewsSuggestion">1230</p>
                                         <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
-                                        <p class="day">4 days ago</p>
+                                         <!-- Date creation relative -->
+                                         @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
+                                                  @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
+                                                  <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/3600)}} hours</p>
+                                                  @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) == 0)
+                                                  <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/60)}} minutes</p>
+                                                  @endif
+                                                @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 1)
+                                                <p class="day">Yesterday at {{strftime("%H:%M", strtotime($video->created_at))}}</p>
+                                                @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) >= 2 && intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) <= 27)
+                                                <p class="day"> {{intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400)}} days ago </p>
+                                                @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) > 27)
+                                                <p class="day">On {{strftime("%d/%m/%Y", strtotime($video->created_at))}}</p>
+                                                @endif
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class=" swiper-slide card-suggestionDay">
-                        <div class="elementCardSuggestionDay">
-                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/fitness-plus-trainers-1.jpg') }}" alt="">
-                            <div class="contentFlyHeure">
-                                <p class="flyText">Fit</p>
-                                <p class="heureFly">17:25</p>
-                            </div>
-                        </div>
-                        <div class="contentCardSuggestionDay">
-                            <div class="d-flex justify-content-between">
-                                <p class="libertiText">Liberty in the words</p>
-                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
-                            </div>
-                            <div class="mindCard">
-                                <div class="blockImgMind">
-                                    <img class="" src="{{ asset('img/femme.png') }}" alt="">
-                                </div>
-                                <div class="block3">
-                                    <p class="mindText">Mind</p>
-                                    <div class="d-flex justify-content-between">
-                                        <p class="numberviewsSuggestion">1230</p>
-                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
-                                        <p class="day">4 days ago</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class=" swiper-slide card-suggestionDay">
-                        <div class="elementCardSuggestionDay">
-                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/good.png') }}" alt="">
-                            <div class="contentFlyHeure">
-                                <p class="flyText">Good</p>
-                                <p class="heureFly">17:25</p>
-                            </div>
-                        </div>
-                        <div class="contentCardSuggestionDay">
-                            <div class="d-flex justify-content-between">
-                                <p class="libertiText">Liberty in the words</p>
-                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
-                            </div>
-                            <div class="mindCard">
-                                <div class="blockImgMind">
-                                    <img class="" src="{{ asset('img/auteur-commentaire.png') }}" alt="">
-                                </div>
-                                <div class="block3">
-                                    <p class="mindText">Mind</p>
-                                    <div class="d-flex justify-content-between">
-                                        <p class="numberviewsSuggestion">1230</p>
-                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
-                                        <p class="day">4 days ago</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class=" swiper-slide card-suggestionDay">
-                        <div class="elementCardSuggestionDay">
-                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/card4.png') }}" alt="">
-                            <div class="contentFlyHeure">
-                                <p class="flyText">Zen</p>
-                                <p class="heureFly">17:25</p>
-                            </div>
-                        </div>
-                        <div class="contentCardSuggestionDay">
-                            <div class="d-flex justify-content-between">
-                                <p class="libertiText">Liberty in the words</p>
-                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
-                            </div>
-                            <div class="mindCard">
-                                <div class="blockImgMind">
-                                    <img class="" src="{{ asset('img/beg.png') }}" alt="">
-                                </div>
-                                <div class="block3">
-                                    <p class="mindText">Mind</p>
-                                    <div class="d-flex justify-content-between">
-                                        <p class="numberviewsSuggestion">1230</p>
-                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
-                                        <p class="day">4 days ago</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class=" swiper-slide card-suggestionDay">
-                        <div class="elementCardSuggestionDay">
-                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/nab.png') }}" alt="">
-                            <div class="contentFlyHeure">
-                                <p class="flyText">Nabi</p>
-                                <p class="heureFly">17:25</p>
-                            </div>
-                        </div>
-                        <div class="contentCardSuggestionDay">
-                            <div class="d-flex justify-content-between">
-                                <p class="libertiText">Liberty in the words</p>
-                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
-                            </div>
-                            <div class="mindCard">
-                                <div class="blockImgMind">
-                                    <img class="" src="{{ asset('img/auteurCard4.png') }}" alt="">
-                                </div>
-                                <div class="block3">
-                                    <p class="mindText">Mind</p>
-                                    <div class="d-flex justify-content-between">
-                                        <p class="numberviewsSuggestion">1230</p>
-                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
-                                        <p class="day">4 days ago</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class=" swiper-slide card-suggestionDay">
-                        <div class="elementCardSuggestionDay">
-                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/card4.png') }}" alt="">
-                            <div class="contentFlyHeure">
-                                <p class="flyText">Fly</p>
-                                <p class="heureFly">17:25</p>
-                            </div>
-                        </div>
-                        <div class="contentCardSuggestionDay">
-                            <div class="d-flex justify-content-between">
-                                <p class="libertiText">Liberty in the words</p>
-                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
-                            </div>
-                            <div class="mindCard">
-                                <div class="blockImgMind">
-                                    <img class="" src="{{ asset('img/auteurCard4.png') }}" alt="">
-                                </div>
-                                <div class="block3">
-                                    <p class="mindText">Mind</p>
-                                    <div class="d-flex justify-content-between">
-                                        <p class="numberviewsSuggestion">1230</p>
-                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
-                                        <p class="day">4 days ago</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
+                </div>
                 </div>
             </div>
         </div>
@@ -1547,176 +1068,63 @@
     <div class="container-fluid">
         <div class="contentSwipeToday">
             <div class="barreLatraleNoir Education">Education</div>
-            <div class="swiper-container swiper-helatcare">
+                <div class="swiper-container swiper-helatcare">
                 <div class="swiper-wrapper">
+                    @foreach(session('videos_environnement') as $video)
                     <div class=" swiper-slide card-suggestionDay">
                         <div class="elementCardSuggestionDay">
-                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/card-conte.png') }}" alt="">
-                            <div class="contentFlyHeure">
-                                <p class="flyText">Fly</p>
+                            <img class="imgElementCardSuggestionDay" src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" alt="">
+                            <a href="{{route('play',[$video->id])}}" target="blank" class="contentFlyHeure">
+                                <p class="flyText">{{$video->title}}</p>
                                 <p class="heureFly">17:25</p>
-                            </div>
+                            </a>
                         </div>
                         <div class="contentCardSuggestionDay">
                             <div class="d-flex justify-content-between">
-                                <p class="libertiText">Liberty in the words</p>
+                                <p class="libertiText">{{$video->main_title}}</p>
                                 <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
                             </div>
                             <div class="mindCard">
+                                    @php 
+                                        $user = App\User::find($video->user_id);
+                                    @endphp
                                 <div class="blockImgMind">
-                                    <img class="" src="{{ asset('img/sokhe.png') }}" alt="">
+                                @if($user->photo)
+                                    <img class="" src="{{ asset('/images/uploads') }}/{{$user->photo}}" alt="">
+                                @elseif($user->age <= 15)
+                                    <img class="" src="{{asset('images/kids_preloader.png')}}" alt="">
+                                @elseif($user->age > 15 && $user->sex == '1')
+                                    <img class="img-circle" src="{{asset('images/flow_preloader.png')}}" alt=""/>
+                                @elseif($user->age > 15 && $user->sex == '0')
+                                    <img class="" src="{{asset('images/sista_preloader.png')}} /{{$user->photo}}" alt="">
+                                @endif
                                 </div>
                                 <div class="block3">
-                                    <p class="mindText">Mind</p>
+                                    <p class="mindText">{{$user->name}}</p>
                                     <div class="d-flex justify-content-between">
                                         <p class="numberviewsSuggestion">1230</p>
                                         <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
-                                        <p class="day">4 days ago</p>
+                                         <!-- Date creation relative -->
+                                         @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
+                                                  @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
+                                                  <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/3600)}} hours</p>
+                                                  @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) == 0)
+                                                  <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/60)}} minutes</p>
+                                                  @endif
+                                                @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 1)
+                                                <p class="day">Yesterday at {{strftime("%H:%M", strtotime($video->created_at))}}</p>
+                                                @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) >= 2 && intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) <= 27)
+                                                <p class="day"> {{intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400)}} days ago </p>
+                                                @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) > 27)
+                                                <p class="day">On {{strftime("%d/%m/%Y", strtotime($video->created_at))}}</p>
+                                                @endif
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class=" swiper-slide card-suggestionDay">
-                        <div class="elementCardSuggestionDay">
-                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/fitness-plus-trainers-1.jpg') }}" alt="">
-                            <div class="contentFlyHeure">
-                                <p class="flyText">Fit</p>
-                                <p class="heureFly">17:25</p>
-                            </div>
-                        </div>
-                        <div class="contentCardSuggestionDay">
-                            <div class="d-flex justify-content-between">
-                                <p class="libertiText">Liberty in the words</p>
-                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
-                            </div>
-                            <div class="mindCard">
-                                <div class="blockImgMind">
-                                    <img class="" src="{{ asset('img/femme.png') }}" alt="">
-                                </div>
-                                <div class="block3">
-                                    <p class="mindText">Mind</p>
-                                    <div class="d-flex justify-content-between">
-                                        <p class="numberviewsSuggestion">1230</p>
-                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
-                                        <p class="day">4 days ago</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class=" swiper-slide card-suggestionDay">
-                        <div class="elementCardSuggestionDay">
-                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/good.png') }}" alt="">
-                            <div class="contentFlyHeure">
-                                <p class="flyText">Good</p>
-                                <p class="heureFly">17:25</p>
-                            </div>
-                        </div>
-                        <div class="contentCardSuggestionDay">
-                            <div class="d-flex justify-content-between">
-                                <p class="libertiText">Liberty in the words</p>
-                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
-                            </div>
-                            <div class="mindCard">
-                                <div class="blockImgMind">
-                                    <img class="" src="{{ asset('img/auteur-commentaire.png') }}" alt="">
-                                </div>
-                                <div class="block3">
-                                    <p class="mindText">Mind</p>
-                                    <div class="d-flex justify-content-between">
-                                        <p class="numberviewsSuggestion">1230</p>
-                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
-                                        <p class="day">4 days ago</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class=" swiper-slide card-suggestionDay">
-                        <div class="elementCardSuggestionDay">
-                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/card4.png') }}" alt="">
-                            <div class="contentFlyHeure">
-                                <p class="flyText">Zen</p>
-                                <p class="heureFly">17:25</p>
-                            </div>
-                        </div>
-                        <div class="contentCardSuggestionDay">
-                            <div class="d-flex justify-content-between">
-                                <p class="libertiText">Liberty in the words</p>
-                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
-                            </div>
-                            <div class="mindCard">
-                                <div class="blockImgMind">
-                                    <img class="" src="{{ asset('img/beg.png') }}" alt="">
-                                </div>
-                                <div class="block3">
-                                    <p class="mindText">Mind</p>
-                                    <div class="d-flex justify-content-between">
-                                        <p class="numberviewsSuggestion">1230</p>
-                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
-                                        <p class="day">4 days ago</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class=" swiper-slide card-suggestionDay">
-                        <div class="elementCardSuggestionDay">
-                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/nab.png') }}" alt="">
-                            <div class="contentFlyHeure">
-                                <p class="flyText">Nabi</p>
-                                <p class="heureFly">17:25</p>
-                            </div>
-                        </div>
-                        <div class="contentCardSuggestionDay">
-                            <div class="d-flex justify-content-between">
-                                <p class="libertiText">Liberty in the words</p>
-                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
-                            </div>
-                            <div class="mindCard">
-                                <div class="blockImgMind">
-                                    <img class="" src="{{ asset('img/auteurCard4.png') }}" alt="">
-                                </div>
-                                <div class="block3">
-                                    <p class="mindText">Mind</p>
-                                    <div class="d-flex justify-content-between">
-                                        <p class="numberviewsSuggestion">1230</p>
-                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
-                                        <p class="day">4 days ago</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class=" swiper-slide card-suggestionDay">
-                        <div class="elementCardSuggestionDay">
-                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/card4.png') }}" alt="">
-                            <div class="contentFlyHeure">
-                                <p class="flyText">Fly</p>
-                                <p class="heureFly">17:25</p>
-                            </div>
-                        </div>
-                        <div class="contentCardSuggestionDay">
-                            <div class="d-flex justify-content-between">
-                                <p class="libertiText">Liberty in the words</p>
-                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
-                            </div>
-                            <div class="mindCard">
-                                <div class="blockImgMind">
-                                    <img class="" src="{{ asset('img/auteurCard4.png') }}" alt="">
-                                </div>
-                                <div class="block3">
-                                    <p class="mindText">Mind</p>
-                                    <div class="d-flex justify-content-between">
-                                        <p class="numberviewsSuggestion">1230</p>
-                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
-                                        <p class="day">4 days ago</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
+                </div>
                 </div>
             </div>
         </div>
@@ -1726,176 +1134,63 @@
     <div class="container-fluid">
         <div class="contentSwipeToday">
             <div class="barreLatraleNoir Evironnement">Environnement</div>
-            <div class="swiper-container swiper-helatcare">
+                <div class="swiper-container swiper-helatcare">
                 <div class="swiper-wrapper">
+                    @foreach(session('videos_environnement') as $video)
                     <div class=" swiper-slide card-suggestionDay">
                         <div class="elementCardSuggestionDay">
-                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/card-conte.png') }}" alt="">
-                            <div class="contentFlyHeure">
-                                <p class="flyText">Fly</p>
+                            <img class="imgElementCardSuggestionDay" src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" alt="">
+                            <a href="{{route('play',[$video->id])}}" target="blank" class="contentFlyHeure">
+                                <p class="flyText">{{$video->title}}</p>
                                 <p class="heureFly">17:25</p>
-                            </div>
+                            </a>
                         </div>
                         <div class="contentCardSuggestionDay">
                             <div class="d-flex justify-content-between">
-                                <p class="libertiText">Liberty in the words</p>
+                                <p class="libertiText">{{$video->main_title}}</p>
                                 <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
                             </div>
                             <div class="mindCard">
+                                    @php 
+                                        $user = App\User::find($video->user_id);
+                                    @endphp
                                 <div class="blockImgMind">
-                                    <img class="" src="{{ asset('img/sokhe.png') }}" alt="">
+                                @if($user->photo)
+                                    <img class="" src="{{ asset('/images/uploads') }}/{{$user->photo}}" alt="">
+                                @elseif($user->age <= 15)
+                                    <img class="" src="{{asset('images/kids_preloader.png')}}" alt="">
+                                @elseif($user->age > 15 && $user->sex == '1')
+                                    <img class="img-circle" src="{{asset('images/flow_preloader.png')}}" alt=""/>
+                                @elseif($user->age > 15 && $user->sex == '0')
+                                    <img class="" src="{{asset('images/sista_preloader.png')}} /{{$user->photo}}" alt="">
+                                @endif
                                 </div>
                                 <div class="block3">
-                                    <p class="mindText">Mind</p>
+                                    <p class="mindText">{{$user->name}}</p>
                                     <div class="d-flex justify-content-between">
                                         <p class="numberviewsSuggestion">1230</p>
                                         <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
-                                        <p class="day">4 days ago</p>
+                                         <!-- Date creation relative -->
+                                         @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
+                                                  @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
+                                                  <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/3600)}} hours</p>
+                                                  @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) == 0)
+                                                  <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/60)}} minutes</p>
+                                                  @endif
+                                                @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 1)
+                                                <p class="day">Yesterday at {{strftime("%H:%M", strtotime($video->created_at))}}</p>
+                                                @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) >= 2 && intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) <= 27)
+                                                <p class="day"> {{intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400)}} days ago </p>
+                                                @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) > 27)
+                                                <p class="day">On {{strftime("%d/%m/%Y", strtotime($video->created_at))}}</p>
+                                                @endif
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class=" swiper-slide card-suggestionDay">
-                        <div class="elementCardSuggestionDay">
-                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/fitness-plus-trainers-1.jpg') }}" alt="">
-                            <div class="contentFlyHeure">
-                                <p class="flyText">Fit</p>
-                                <p class="heureFly">17:25</p>
-                            </div>
-                        </div>
-                        <div class="contentCardSuggestionDay">
-                            <div class="d-flex justify-content-between">
-                                <p class="libertiText">Liberty in the words</p>
-                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
-                            </div>
-                            <div class="mindCard">
-                                <div class="blockImgMind">
-                                    <img class="" src="{{ asset('img/femme.png') }}" alt="">
-                                </div>
-                                <div class="block3">
-                                    <p class="mindText">Mind</p>
-                                    <div class="d-flex justify-content-between">
-                                        <p class="numberviewsSuggestion">1230</p>
-                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
-                                        <p class="day">4 days ago</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class=" swiper-slide card-suggestionDay">
-                        <div class="elementCardSuggestionDay">
-                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/good.png') }}" alt="">
-                            <div class="contentFlyHeure">
-                                <p class="flyText">Good</p>
-                                <p class="heureFly">17:25</p>
-                            </div>
-                        </div>
-                        <div class="contentCardSuggestionDay">
-                            <div class="d-flex justify-content-between">
-                                <p class="libertiText">Liberty in the words</p>
-                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
-                            </div>
-                            <div class="mindCard">
-                                <div class="blockImgMind">
-                                    <img class="" src="{{ asset('img/auteur-commentaire.png') }}" alt="">
-                                </div>
-                                <div class="block3">
-                                    <p class="mindText">Mind</p>
-                                    <div class="d-flex justify-content-between">
-                                        <p class="numberviewsSuggestion">1230</p>
-                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
-                                        <p class="day">4 days ago </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class=" swiper-slide card-suggestionDay">
-                        <div class="elementCardSuggestionDay">
-                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/card4.png') }}" alt="">
-                            <div class="contentFlyHeure">
-                                <p class="flyText">Zen</p>
-                                <p class="heureFly">17:25</p>
-                            </div>
-                        </div>
-                        <div class="contentCardSuggestionDay">
-                            <div class="d-flex justify-content-between">
-                                <p class="libertiText">Liberty in the words</p>
-                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
-                            </div>
-                            <div class="mindCard">
-                                <div class="blockImgMind">
-                                    <img class="" src="{{ asset('img/beg.png') }}" alt="">
-                                </div>
-                                <div class="block3">
-                                    <p class="mindText">Mind</p>
-                                    <div class="d-flex justify-content-between">
-                                        <p class="numberviewsSuggestion">1230</p>
-                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
-                                        <p class="day">4 days ago</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class=" swiper-slide card-suggestionDay">
-                        <div class="elementCardSuggestionDay">
-                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/nab.png') }}" alt="">
-                            <div class="contentFlyHeure">
-                                <p class="flyText">Nabi</p>
-                                <p class="heureFly">17:25</p>
-                            </div>
-                        </div>
-                        <div class="contentCardSuggestionDay">
-                            <div class="d-flex justify-content-between">
-                                <p class="libertiText">Liberty in the words</p>
-                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
-                            </div>
-                            <div class="mindCard">
-                                <div class="blockImgMind">
-                                    <img class="" src="{{ asset('img/auteurCard4.png') }}" alt="">
-                                </div>
-                                <div class="block3">
-                                    <p class="mindText">Mind</p>
-                                    <div class="d-flex justify-content-between">
-                                        <p class="numberviewsSuggestion">1230</p>
-                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
-                                        <p class="day">4 days ago</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class=" swiper-slide card-suggestionDay">
-                        <div class="elementCardSuggestionDay">
-                            <img class="imgElementCardSuggestionDay" src="{{ asset('img/card4.png') }}" alt="">
-                            <div class="contentFlyHeure">
-                                <p class="flyText">Fly</p>
-                                <p class="heureFly">17:25</p>
-                            </div>
-                        </div>
-                        <div class="contentCardSuggestionDay">
-                            <div class="d-flex justify-content-between">
-                                <p class="libertiText">Liberty in the words</p>
-                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
-                            </div>
-                            <div class="mindCard">
-                                <div class="blockImgMind">
-                                    <img class="" src="{{ asset('img/auteurCard4.png') }}" alt="">
-                                </div>
-                                <div class="block3">
-                                    <p class="mindText">Mind</p>
-                                    <div class="d-flex justify-content-between">
-                                        <p class="numberviewsSuggestion">1230</p>
-                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
-                                        <p class="day">4 days ago</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
+                </div>
                 </div>
             </div>
         </div>

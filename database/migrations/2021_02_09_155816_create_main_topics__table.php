@@ -1,11 +1,11 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 class CreateMainTopicsTable extends Migration
 {
-
     /**
      * Run the migrations.
      *
@@ -17,14 +17,7 @@ class CreateMainTopicsTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('libelle');
-            
-            $table->unsignedInteger('subTopic_id');
-            $table->foreign('subTopic_id')
-                  ->references('id')
-                  ->on('sub_topics'); 
-
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
@@ -35,6 +28,6 @@ class CreateMainTopicsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('main_topics');
+        Schema::dropIfExists('main_topics_');
     }
 }

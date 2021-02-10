@@ -8,7 +8,7 @@
                 <th>Motivation</th>
                 <th>Vid</th>
                 <th>Thumbnail</th>
-                <th>Topic Id</th>
+                <th>Topic</th>
                 <th>Request Monetize</th>
                 <th>Is Monetize</th>
                 <th>Online</th>
@@ -24,7 +24,17 @@
                 <td>{{ $video->motivation }}</td>
                 <td><a href="{{asset('vids/uploads/')}}/{{$video->vid}}" target="blank">Your video 👉🏽 </a></td>
                 <td><a href="{{asset('vids/thumbnails')}}/{{$video->thumbnail}}" target="blank">🌉 Picture </a></td>
-                <td>{{ $video->mainTopic_id }}</td>
+
+                @foreach($subtopics as $subtopic)
+                    @if($subtopic->id == $video->subtopic_id)
+                        <td>{{ $subtopic->libelle }}</td>
+                    @endif
+                @endforeach 
+
+                @if(!$video->subtopic_id)
+                    <td>None</td>
+                @endif
+
                 <td>{{ $video->request_monetize }}</td>
                 <td>{{ $video->is_monetize }}</td>
                 <td>{{ $video->online }}</td>

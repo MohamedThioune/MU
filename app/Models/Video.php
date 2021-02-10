@@ -44,7 +44,7 @@ class Video extends Model
         'request_monetize',
         'is_monetize',
         'user_id',
-        'mainTopic_id'
+        'subtopic_id'
     ];
 
     /**
@@ -65,7 +65,7 @@ class Video extends Model
         'request_monetize' => 'integer',
         'is_monetize' => 'integer',
         'user_id' => 'integer',
-        'mainTopic_id' => 'integer',
+        'subtopic_id' => 'integer',
     ];
 
     /**
@@ -80,7 +80,7 @@ class Video extends Model
         'thumbnail' => 'required|mimes:jpg,jpeg,png|max:2028',
         'description' => 'required',
         'user_id' => 'required',
-        'mainTopic_id' => 'required'
+        'subtopic_id' => 'required'
     ];
 
     public static $rules_updated = [

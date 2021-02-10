@@ -6,6 +6,7 @@ use App\Http\Requests\CreateSubTopicRequest;
 use App\Http\Requests\UpdateSubTopicRequest;
 use App\Http\Controllers\AppBaseController;
 use App\Models\SubTopic;
+use App\Models\MainTopic;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
@@ -19,13 +20,16 @@ class SubTopicController extends AppBaseController
      * @param Request $request
      *
      * @return Response
-     */
+     */ 
     public function index(Request $request)
     {
         /** @var SubTopic $subTopics */
         $subTopics = SubTopic::all();
 
-        return view('sub_topics.index',compact('subTopics'));
+        /** @var SubTopic $subTopics */
+        $maintopics = MainTopic::all();
+
+        return view('sub_topics.index',compact('subTopics','maintopics'));
     }
 
     /**
@@ -34,8 +38,9 @@ class SubTopicController extends AppBaseController
      * @return Response
      */
     public function create()
-    {
-        return view('sub_topics.create');
+    {   /** @var MainTopic $maintopics */
+        $maintopics = MainTopic::all();
+        return view('sub_topics.create', compact('maintopics'));
     }
 
     /**
@@ -90,13 +95,16 @@ class SubTopicController extends AppBaseController
         /** @var SubTopic $subTopic */
         $subTopic = SubTopic::find($id);
 
+        /** @var MainTopic $mainTopics */
+        $maintopics = MainTopic::all();
+
         if (empty($subTopic)) {
             Flash::error('Sub Topic not found');
 
             return redirect(route('subTopics.index'));
         }
 
-        return view('sub_topics.edit')->with('subTopic', $subTopic);
+        return view('sub_topics.edit',compact('maintopics'));
     }
 
     /**

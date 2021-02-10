@@ -6,6 +6,7 @@ use App\Http\Requests\CreateVideoRequest;
 use App\Http\Requests\UpdateVideoRequest;
 use App\Http\Controllers\AppBaseController;
 use App\Models\Video;
+use App\Models\SubTopic;
 use App\Models\MainTopic;
 use Illuminate\Http\Request;
 use Flash;
@@ -29,7 +30,7 @@ class VideoController extends AppBaseController
         // $videos = Video::all();
 
         /** @var MainTopic $maintopics */
-        $maintopics = MainTopic::all();
+        $subtopics = SubTopic::all();
 
         $id = Auth::id();
         $videos = DB::Table('users')->select('videos.*')
@@ -37,7 +38,7 @@ class VideoController extends AppBaseController
                                       ->where('users.id', $id)
                                       ->get();
 
-        return view('videos.index', compact('videos', 'maintopics'));
+        return view('videos.index', compact('videos', 'subtopics'));
     }
 
     /**
@@ -48,8 +49,8 @@ class VideoController extends AppBaseController
     public function create()
     {
         /** @var MainTopic $maintopics */
-        $maintopics = MainTopic::all();
-        return view('videos.create',compact('maintopics'));
+        $subtopics = SubTopic::all();
+        return view('videos.create',compact('subtopics'));
     }
 
     /**
@@ -167,7 +168,7 @@ class VideoController extends AppBaseController
         $video = Video::find($id);
 
         /** @var MainTopic $maintopics */
-        $maintopics = MainTopic::all();
+        $subtopics = SubTopic::all();
 
         if (empty($video)) {
             Flash::error('Video not found');
@@ -175,7 +176,7 @@ class VideoController extends AppBaseController
             return redirect(route('videos.index'));
         }
 
-        return view('videos.edit',compact('video','maintopics'));
+        return view('videos.edit',compact('video','subtopics'));
     }
 
     /**

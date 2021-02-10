@@ -12,12 +12,39 @@
 */
 
 Route::get('/', function () {
-    // $id = Auth::id();
-    $videos = DB::Table('videos')->select('*')
-                                // ->join('videos', 'users.id', 'videos.user_id')
-                                // ->where('users.id', $id)
-                                ->get();
-    session(['videos' => $videos]);
+
+    $videos_haltcare = DB::Table('videos')->select('videos.*')
+                                 ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
+                                 ->where('mainTopic_id', 1)
+                                 ->get();
+
+    $videos_life = DB::Table('videos')->select('videos.*')
+    ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
+    ->where('mainTopic_id', 2)
+    ->get();
+
+    $videos_health = DB::Table('videos')->select('videos.*')
+    ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
+    ->where('mainTopic_id', 3)
+    ->get();
+
+
+    $videos_business = DB::Table('videos')->select('videos.*')
+    ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
+    ->where('mainTopic_id', 4)
+    ->get();
+
+    $videos_environnement = DB::Table('videos')->select('videos.*')
+    ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
+    ->where('mainTopic_id', 5)
+    ->get();
+
+    $videos_education = DB::Table('videos')->select('videos.*')
+    ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
+    ->where('mainTopic_id', 6)
+    ->get();
+
+    session(['videos_haltcare' => $videos_haltcare, 'videos_life' => $videos_life, 'videos_health' => $videos_health, 'videos_business' => $videos_business, 'videos_environnement' => $videos_environnement, 'videos_education' => $videos_education,]);
     return view('home');
 });
 

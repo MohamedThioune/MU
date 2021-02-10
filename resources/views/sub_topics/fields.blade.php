@@ -2,6 +2,15 @@
 <div class="form-group col-sm-6">
     {!! Form::label('libelle', 'Libelle:') !!}
     {!! Form::text('libelle', null, ['class' => 'form-control']) !!}
+
+    <!-- Sub Topic id Field -->
+    {!! Form::label('subTopic_id', 'Catégorie fille :') !!}
+    <select name="mainTopic_id" class="form-control">
+        <option value="none" selected="" disabled="">Select the Main Category</option>
+        @foreach($maintopics as $maintopic) 
+        <option value="{{$maintopic->id}}"> {{$maintopic->libelle}}</option>
+        @endforeach
+    </select> 
 </div>
 
 <!-- Submit Field -->
