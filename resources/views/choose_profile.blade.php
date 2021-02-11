@@ -78,6 +78,8 @@
 
     </div>
 
-
+    <script src="js/menu.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/webflow.js"></script>
 
 </body>
