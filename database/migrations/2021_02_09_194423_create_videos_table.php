@@ -26,17 +26,19 @@ class CreateVideosTable extends Migration
             $table->integer('request_monetize'); //request for monetization
             $table->string('is_monetize'); //is it monetizing ?
             $table->unsignedInteger('user_id');
-            $table->unsignedInteger('mainTopic_id');
-            
+            $table->unsignedInteger('subtopic_id');
+
+            $table->foreign('subtopic_id')
+                  ->references('id')
+                  ->on('sub_topics');
+
             $table->foreign('user_id')
                   ->references('id')
                   ->on('users');
-            $table->foreign('mainTopic_id')
-                  ->references('id')
-                  ->on('main_topics');
-
             $table->timestamps();
             $table->softDeletes();
+
+            
         });
     }
 

@@ -3,6 +3,7 @@
         <thead>
             <tr>
                 <th>Libelle</th>
+                <th>Main Topic</th>
                 <th colspan="3">Action</th>
             </tr>
         </thead>
@@ -10,6 +11,13 @@
         @foreach($subTopics as $subTopic)
             <tr>
                 <td>{{ $subTopic->libelle }}</td>
+                
+                @foreach($maintopics as $maintopic)
+                    @if($maintopic->id == $subTopic->maintopic_id)
+                        <td>{{ $maintopic->libelle }}</td>
+                    @endif
+                @endforeach
+                
                 <td>
                     {!! Form::open(['route' => ['subTopics.destroy', $subTopic->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>

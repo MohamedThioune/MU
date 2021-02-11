@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Eloquent as Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\SubTopic;
 
 /**
@@ -16,17 +15,10 @@ use App\Models\SubTopic;
  */
 class MainTopic extends Model
 {
-    use SoftDeletes;
-
     public $table = 'main_topics';
-    
-
-    protected $dates = ['deleted_at'];
-    
 
     public $fillable = [
         'libelle',
-        'subTopic_id'
     ];
 
     /**
@@ -36,8 +28,7 @@ class MainTopic extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'libelle' => 'string',
-        'subTopic_id' => 'integer'
+        'libelle' => 'string'
     ];
 
     /**

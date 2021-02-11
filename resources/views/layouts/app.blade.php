@@ -20,6 +20,7 @@
 </head>
 
 <body>
+  
 <div>
     @yield('content')
 </div>

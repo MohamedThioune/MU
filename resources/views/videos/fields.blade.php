@@ -32,11 +32,11 @@
 
 <!-- Sub Topic id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('mainTopic', 'De quoi parle votre video ? ') !!}
-    <select name="mainTopic_id" class="form-control">
+    {!! Form::label('subtopic_id', 'De quoi parle votre video ? ') !!}
+    <select name="subtopic_id" class="form-control">
         <option value="none" selected="" disabled="">Select the topic</option>
-        @foreach($maintopics as $maintopic) 
-        <option value="{{$maintopic->id}}"> {{$maintopic->libelle}}</option>
+        @foreach($subtopics as $subtopic) 
+            <option value="{{$subtopic->id}}"> {{$subtopic->libelle}}</option>
         @endforeach
     </select>
 </div>
