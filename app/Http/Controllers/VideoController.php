@@ -14,6 +14,9 @@ use Response;
 use Illuminate\Support\Str;
 use Auth;
 use DB;
+use getID3;
+use Math;
+use Carbon\Carbon;
 
 class VideoController extends AppBaseController
 {
@@ -32,12 +35,23 @@ class VideoController extends AppBaseController
         /** @var MainTopic $maintopics */
         $subtopics = SubTopic::all();
 
+        $duration = null;
         $id = Auth::id();
         $videos = DB::Table('users')->select('videos.*')
                                       ->join('videos', 'users.id', 'videos.user_id')
                                       ->where('users.id', $id)
                                       ->get();
+        foreach ($videos as $video) {
+            if ($video->duration){
+                $durations = explode(':', $video->duration);
 
+                if($durations[0] == "00")
+                    $duration = $durations[1]. ':' .$durations[2];
+                else
+                    $duration = $durations[0]. ':' .$durations[1]. ':' .$durations[2];
+            }
+        }
+        
         return view('videos.index', compact('videos', 'subtopics'));
     }
 
@@ -72,6 +86,7 @@ class VideoController extends AppBaseController
         $thumbnail = $request->file('thumbnail');
 
         if($video){
+            
             //Call to anonnymous function to upload image
             $input['vid'] = (function() use ($video, $video_type){  
                
@@ -91,12 +106,20 @@ class VideoController extends AppBaseController
                        //redirection with success
                        return $nom;
                    }
+                   
                } 
                else{
                    Flash::error('Your file is corrupted, please choose another one or try again later.');
                    return redirect(route('videos.index'));
                 }
            })();
+           $path = config($video_type.'.path');
+           $getID3 = new getID3;
+           $data = $getID3->analyze($path."/".$input['vid']); 
+           $duration_hours =  floor($data['playtime_seconds'] / 360) ;
+           $duration_minutes = floor($data['playtime_seconds'] / 60) ;
+           $duration_seconds = floor($data['playtime_seconds'] - $duration_minutes * 60);
+           $input['duration'] = Carbon::createFromTime($duration_hours, $duration_minutes, $duration_seconds);
        }
 
        if($thumbnail){
@@ -125,7 +148,7 @@ class VideoController extends AppBaseController
             }
        })();
    }
-
+        $input['online'] = 1;
         /** @var Video $video */
         $video = Video::create($input);
 
@@ -209,6 +232,7 @@ class VideoController extends AppBaseController
         $input['mainTopic'] = $request->mainTopic_id;
 
         if($video){
+                $getID3 = new getID3;
                 //Call to anonnymous function to upload image
                 $input['vid'] = (function() use ($video, $video_type){  
                
@@ -225,9 +249,10 @@ class VideoController extends AppBaseController
                    while(file_exists($path ."/". $nom));
                    
                    if($video->move($path, $nom)){
-                       //redirection with success
+                       //retrieve name video
                        return $nom;
                    }
+                   
                } 
                else{
                    Flash::error('Your file is corrupted, please choose another one or try again later.');
@@ -263,7 +288,7 @@ class VideoController extends AppBaseController
                 return redirect(route('videos.index'));
                 }
             })();
-       }
+       }else
 
         $vid->fill($input);
         $vid->save();

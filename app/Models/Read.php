@@ -6,6 +6,7 @@ use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\Video;
 use App\User;
+use App\Models\Profile;
 
 /**
  * Class Read
@@ -25,12 +26,12 @@ class Read extends Model
 
     protected $dates = ['deleted_at'];
 
-
-
+    
     public $fillable = [
         'time_read',
         'video_id',
-        'user_id'
+        'user_id',
+        'profile_id'
     ];
 
     /**
@@ -42,24 +43,19 @@ class Read extends Model
         'id' => 'integer'
     ];
 
-    /**
-     * Validation rules
-     *
-     * @var array
-     */
-    public static $rules = [
-        'time_read' => 'required',
-        'video_id' => 'required',
-        'user_id' => 'required'
-    ];
-
     public function video()
     {
         return $this->belongsTo(Video::class);
     }
+
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function profile()
+    {
+        return $this->belongsTo(Profile::class);
     }
     
 }

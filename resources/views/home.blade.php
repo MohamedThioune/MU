@@ -801,6 +801,7 @@
         </div>
     </div>
 </div> -->
+@if(count(session('videos_haltcare')) > 0)
 <div class="content-Haltcare">
     <div class="container-fluid">
         <div class="contentSwipeToday">
@@ -813,7 +814,17 @@
                             <img class="imgElementCardSuggestionDay" src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" alt="">
                             <a href="{{route('play',[$video->id])}}" target="blank" class="contentFlyHeure">
                                 <p class="flyText">{{$video->title}}</p>
-                                <p class="heureFly">17:25</p>
+                                <p class="heureFly">
+                                    @php  
+                                        if ($video->duration){
+                                            $durations = explode(':', $video->duration);
+                                            if($durations[0] == "00")
+                                                echo $durations[1]. ':' .$durations[2];
+                                            else
+                                                echo $durations[0]. ':' .$durations[1]. ':' .$durations[2];
+                                        }
+                                    @endphp
+                                </p>
                             </a>
                         </div>
                         <div class="contentCardSuggestionDay">
@@ -844,9 +855,9 @@
                                          <!-- Date creation relative -->
                                          @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
                                                   @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
-                                                  <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/3600)}} hours</p>
+                                                  <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/3600)}} hours ago </p>
                                                   @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) == 0)
-                                                  <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/60)}} minutes</p>
+                                                  <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/60)}} minutes ago </p>
                                                   @endif
                                                 @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 1)
                                                 <p class="day">Yesterday at {{strftime("%H:%M", strtotime($video->created_at))}}</p>
@@ -866,6 +877,9 @@
         </div>
     </div>
 </div>
+@endif
+
+@if(count(session('videos_life')) > 0)
 <div class="content-life">
     <div class="container-fluid">
         <div class="contentSwipeToday">
@@ -878,7 +892,17 @@
                             <img class="imgElementCardSuggestionDay" src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" alt="">
                             <a href="{{route('play',[$video->id])}}" target="blank" class="contentFlyHeure">
                                 <p class="flyText">{{$video->title}}</p>
-                                <p class="heureFly">17:25</p>
+                                <p class="heureFly">
+                                    @php  
+                                        if ($video->duration){
+                                            $durations = explode(':', $video->duration);
+                                            if($durations[0] == "00")
+                                                echo $durations[1]. ':' .$durations[2];
+                                            else
+                                                echo $durations[0]. ':' .$durations[1]. ':' .$durations[2];
+                                        }
+                                    @endphp
+                                </p>
                             </a>
                         </div>
                         <div class="contentCardSuggestionDay">
@@ -909,9 +933,9 @@
                                          <!-- Date creation relative -->
                                          @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
                                                   @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
-                                                  <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/3600)}} hours</p>
+                                                  <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/3600)}} hours ago </p>
                                                   @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) == 0)
-                                                  <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/60)}} minutes</p>
+                                                  <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/60)}} minutes ago </p>
                                                   @endif
                                                 @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 1)
                                                 <p class="day">Yesterday at {{strftime("%H:%M", strtotime($video->created_at))}}</p>
@@ -932,6 +956,9 @@
         </div>
     </div>
 </div>
+@endif
+
+@if(count(session('videos_health')) > 0)
 <div class="content-Health">
     <div class="container-fluid">
         <div class="contentSwipeToday">
@@ -944,7 +971,17 @@
                             <img class="imgElementCardSuggestionDay" src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" alt="">
                             <a href="{{route('play',[$video->id])}}" target="blank" class="contentFlyHeure">
                                 <p class="flyText">{{$video->title}}</p>
-                                <p class="heureFly">17:25</p>
+                                <p class="heureFly">
+                                    @php  
+                                        if ($video->duration){
+                                            $durations = explode(':', $video->duration);
+                                            if($durations[0] == "00")
+                                                echo $durations[1]. ':' .$durations[2];
+                                            else
+                                                echo $durations[0]. ':' .$durations[1]. ':' .$durations[2];
+                                        }
+                                    @endphp
+                                    </p>
                             </a>
                         </div>
                         <div class="contentCardSuggestionDay">
@@ -975,9 +1012,9 @@
                                          <!-- Date creation relative -->
                                          @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
                                                   @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
-                                                  <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/3600)}} hours</p>
+                                                  <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/3600)}} hours ago </p>
                                                   @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) == 0)
-                                                  <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/60)}} minutes</p>
+                                                  <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/60)}} minutes ago </p>
                                                   @endif
                                                 @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 1)
                                                 <p class="day">Yesterday at {{strftime("%H:%M", strtotime($video->created_at))}}</p>
@@ -998,6 +1035,9 @@
         </div>
     </div>
 </div>
+@endif
+
+@if(count(session('videos_business')) > 0)
 <div class="content-Business">
     <div class="container-fluid">
         <div class="contentSwipeToday">
@@ -1010,7 +1050,17 @@
                             <img class="imgElementCardSuggestionDay" src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" alt="">
                             <a href="{{route('play',[$video->id])}}" target="blank" class="contentFlyHeure">
                                 <p class="flyText">{{$video->title}}</p>
-                                <p class="heureFly">17:25</p>
+                                <p class="heureFly">
+                                    @php  
+                                        if ($video->duration){
+                                            $durations = explode(':', $video->duration);
+                                            if($durations[0] == "00")
+                                                echo $durations[1]. ':' .$durations[2];
+                                            else
+                                                echo $durations[0]. ':' .$durations[1]. ':' .$durations[2];
+                                        }
+                                    @endphp
+                                </p>
                             </a>
                         </div>
                         <div class="contentCardSuggestionDay">
@@ -1041,9 +1091,9 @@
                                          <!-- Date creation relative -->
                                          @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
                                                   @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
-                                                  <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/3600)}} hours</p>
+                                                  <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/3600)}} hours ago </p>
                                                   @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) == 0)
-                                                  <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/60)}} minutes</p>
+                                                  <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/60)}} minutes ago </p>
                                                   @endif
                                                 @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 1)
                                                 <p class="day">Yesterday at {{strftime("%H:%M", strtotime($video->created_at))}}</p>
@@ -1064,19 +1114,32 @@
         </div>
     </div>
 </div>
+@endif
+
+@if(count(session('videos_education')) > 0)
 <div class="content-Education">
     <div class="container-fluid">
         <div class="contentSwipeToday">
             <div class="barreLatraleNoir Education">Education</div>
                 <div class="swiper-container swiper-helatcare">
                 <div class="swiper-wrapper">
-                    @foreach(session('videos_environnement') as $video)
+                    @foreach(session('videos_education') as $video)
                     <div class=" swiper-slide card-suggestionDay">
                         <div class="elementCardSuggestionDay">
                             <img class="imgElementCardSuggestionDay" src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" alt="">
                             <a href="{{route('play',[$video->id])}}" target="blank" class="contentFlyHeure">
                                 <p class="flyText">{{$video->title}}</p>
-                                <p class="heureFly">17:25</p>
+                                <p class="heureFly">
+                                    @php  
+                                        if ($video->duration){
+                                            $durations = explode(':', $video->duration);
+                                            if($durations[0] == "00")
+                                                echo $durations[1]. ':' .$durations[2];
+                                            else
+                                                echo $durations[0]. ':' .$durations[1]. ':' .$durations[2];
+                                        }
+                                    @endphp
+                                </p>
                             </a>
                         </div>
                         <div class="contentCardSuggestionDay">
@@ -1107,9 +1170,9 @@
                                          <!-- Date creation relative -->
                                          @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
                                                   @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
-                                                  <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/3600)}} hours</p>
+                                                  <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/3600)}} hours ago </p>
                                                   @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) == 0)
-                                                  <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/60)}} minutes</p>
+                                                  <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/60)}} minutes ago </p>
                                                   @endif
                                                 @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 1)
                                                 <p class="day">Yesterday at {{strftime("%H:%M", strtotime($video->created_at))}}</p>
@@ -1130,6 +1193,9 @@
         </div>
     </div>
 </div>
+@endif
+
+@if(count(session('videos_environnement')) > 0)
 <div class="content-Evironnement">
     <div class="container-fluid">
         <div class="contentSwipeToday">
@@ -1142,7 +1208,17 @@
                             <img class="imgElementCardSuggestionDay" src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" alt="">
                             <a href="{{route('play',[$video->id])}}" target="blank" class="contentFlyHeure">
                                 <p class="flyText">{{$video->title}}</p>
-                                <p class="heureFly">17:25</p>
+                                <p class="heureFly">
+                                    @php  
+                                        if ($video->duration){
+                                            $durations = explode(':', $video->duration);
+                                            if($durations[0] == "00")
+                                                echo $durations[1]. ':' .$durations[2];
+                                            else
+                                                echo $durations[0]. ':' .$durations[1]. ':' .$durations[2];
+                                        }
+                                    @endphp
+                                </p>
                             </a>
                         </div>
                         <div class="contentCardSuggestionDay">
@@ -1173,9 +1249,9 @@
                                          <!-- Date creation relative -->
                                          @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
                                                   @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
-                                                  <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/3600)}} hours</p>
+                                                  <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/3600)}} hours ago </p>
                                                   @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) == 0)
-                                                  <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/60)}} minutes</p>
+                                                  <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/60)}} minutes ago </p>
                                                   @endif
                                                 @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 1)
                                                 <p class="day">Yesterday at {{strftime("%H:%M", strtotime($video->created_at))}}</p>
@@ -1196,6 +1272,7 @@
         </div>
     </div>
 </div>
+@endif
 </div>
 
 </body>

@@ -44,7 +44,7 @@ Route::get('/', function () {
     ->where('mainTopic_id', 6)
     ->get();
 
-    session(['videos_haltcare' => $videos_haltcare, 'videos_life' => $videos_life, 'videos_health' => $videos_health, 'videos_business' => $videos_business, 'videos_environnement' => $videos_environnement, 'videos_education' => $videos_education,]);
+    session(['videos_haltcare' => $videos_haltcare, 'videos_life' => $videos_life, 'videos_health' => $videos_health, 'videos_business' => $videos_business, 'videos_environnement' => $videos_environnement, 'videos_education' => $videos_education]);
     return view('home');
 });
 
@@ -56,6 +56,7 @@ Route::get('vids/thumbnails/^[a-zA-Z0-9_]*$');
 Route::get('/play', function () {
     return view('play');
 });
+
 Route::get('/play/{n}', [App\Http\Controllers\HomeController::class, 'play'])->name('play');
 
 // home page : list all videos [Online]

@@ -54,6 +54,8 @@
 </div>
 
 {{ Form::hidden('user_id', Auth::id()) }}
+<!-- Temporarily done, yes I know I'm weak 😅 -->
+{{ Form::hidden('duration') }}
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
     {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}

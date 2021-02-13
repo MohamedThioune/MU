@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use App\Profile;
 use App\Models\Video;
 use App\User;
+use App\Models\Read;
+
+use Carbon\Carbon;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -36,8 +40,15 @@ class HomeController extends Controller
     }
 
     public function play($id){
+
         $video = Video::find($id);
-        $user = User::find($video->user_id);
+        $user = User::find($video->user_id); 
+
+        $dt = Carbon::now();
+        $time = $dt->format('h:i:s');
+        $inputs_read = ['time_read' => $time, 'video_id' => $id, 'user_id' => Auth::id()];
+
+        Read::create($inputs_read);
 
         session(['video' => $video, 'user' => $user]);
         return redirect('/play');
