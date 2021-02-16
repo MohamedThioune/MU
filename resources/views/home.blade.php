@@ -276,6 +276,21 @@
                         </li>
                     @else
                         <li class="nav-item nav-modife">
+                            @if(intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/ 86400) == 0)
+                                @if(intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/ 3600) > 0)
+                                <p class="day" style="font-size:18px; color:white">Last login - <span style="color:#c22d84">{{intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/3600)}} hours ago</span></p>
+                                @else(intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/ 3600) == 0)
+                                <p class="day"style="font-size:18px; color:white">Last login - <span style="color:#c22d84">{{intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/60)}} minutes ago</span></p>
+                                @endif
+                            @elseif(intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/ 86400) == 1)
+                            <p class="day" style="font-size:18px; color:white">Last login - <span style="color:#c22d84">Yesterday at {{strftime("%H:%M", strtotime(Auth::user()->timeout))}}</span></p>
+                            @elseif(intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/ 86400) >= 2 && intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/ 86400) <= 27)
+                            <p class="day"style="font-size:18px; color:white">Last login - <span style="color:#c22d84">{{intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/ 86400)}} days ago</span></p>
+                            @else(intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/ 86400) > 27)
+                            <p class="day" style="font-size:18px; color:white">Last login - <span style="color:#c22d84">On {{strftime("%d/%m/%Y", strtotime(Auth::user()->timeout))}}</span></p>
+                            @endif
+                        </li>
+                        <li class="nav-item nav-modife">
                             <!-- User connected with his name -->
                             @if(!session('profile'))
                             <a href="{{route('choose')}}" class="btnCommunaute" style="cursor:pointer; text-decoration:none; color:white; background:none; box-shadow: 4px 4px 15px white;font-weight:bold"> 
@@ -853,19 +868,19 @@
                                         <p class="numberviewsSuggestion">1230</p>
                                         <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
                                          <!-- Date creation relative -->
-                                         @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
-                                                  @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
-                                                  <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/3600)}} hours ago </p>
-                                                  @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) == 0)
-                                                  <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/60)}} minutes ago </p>
-                                                  @endif
-                                                @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 1)
-                                                <p class="day">Yesterday at {{strftime("%H:%M", strtotime($video->created_at))}}</p>
-                                                @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) >= 2 && intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) <= 27)
-                                                <p class="day"> {{intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400)}} days ago </p>
-                                                @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) > 27)
-                                                <p class="day">On {{strftime("%d/%m/%Y", strtotime($video->created_at))}}</p>
-                                                @endif
+                                        @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
+                                            @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
+                                            <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/3600)}} hours ago </p>
+                                            @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) == 0)
+                                            <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/60)}} minutes ago </p>
+                                            @endif
+                                        @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 1)
+                                        <p class="day">Yesterday at {{strftime("%H:%M", strtotime($video->created_at))}}</p>
+                                        @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) >= 2 && intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) <= 27)
+                                        <p class="day"> {{intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400)}} days ago </p>
+                                        @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) > 27)
+                                        <p class="day">On {{strftime("%d/%m/%Y", strtotime($video->created_at))}}</p>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -879,7 +894,7 @@
 </div>
 @endif
 
-@if(count(session('videos_life')) > 0)
+@if(count(session('videos_life')) > 0) 
 <div class="content-life">
     <div class="container-fluid">
         <div class="contentSwipeToday">

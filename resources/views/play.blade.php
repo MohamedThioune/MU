@@ -279,6 +279,21 @@
                         </li>
                     @else
                         <li class="nav-item nav-modife">
+                            @if(intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/ 86400) == 0)
+                                @if(intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/ 3600) > 0)
+                                <p class="day" style="font-size:18px; color:white">Last login - <span style="color:#c22d84">{{intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/3600)}} hours ago</span></p>
+                                @else(intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/ 3600) == 0)
+                                <p class="day"style="font-size:18px; color:white">Last login - <span style="color:#c22d84">{{intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/60)}} minutes ago</span></p>
+                                @endif
+                            @elseif(intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/ 86400) == 1)
+                            <p class="day" style="font-size:18px; color:white">Last login - <span style="color:#c22d84">Yesterday at {{strftime("%H:%M", strtotime(Auth::user()->timeout))}}</span></p>
+                            @elseif(intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/ 86400) >= 2 && intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/ 86400) <= 27)
+                            <p class="day"style="font-size:18px; color:white">Last login - <span style="color:#c22d84">{{intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/ 86400)}} days ago</span></p>
+                            @else(intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/ 86400) > 27)
+                            <p class="day" style="font-size:18px; color:white">Last login - <span style="color:#c22d84">On {{strftime("%d/%m/%Y", strtotime(Auth::user()->timeout))}}</span></p>
+                            @endif
+                        </li>
+                        <li class="nav-item nav-modife">
                             <!-- User connected with his name -->
                             @if(!session('profile'))
                             <span class="btnCommunaute" style="background:none; box-shadow: 4px 4px 15px white;font-weight:bold"> 
@@ -809,7 +824,9 @@
         </div>
     </div>
 </div>
-@if(count(session('videos_haltcare')) > 0)
+
+@if(session('videos_haltcare'))
+@if(count(session('videos_haltcare')) > 0) 
 <div class="content-Haltcare">
     <div class="container-fluid">
         <div class="contentSwipeToday">
@@ -886,7 +903,9 @@
     </div>
 </div>
 @endif
+@endif
 
+@if(session('videos_life'))
 @if(count(session('videos_life')) > 0)
 <div class="content-life">
     <div class="container-fluid">
@@ -965,7 +984,9 @@
     </div>
 </div>
 @endif
+@endif
 
+@if(session('videos_health'))
 @if(count(session('videos_health')) > 0)
 <div class="content-Health">
     <div class="container-fluid">
@@ -1044,7 +1065,9 @@
     </div>
 </div>
 @endif
+@endif
 
+@if(session('videos_business'))
 @if(count(session('videos_business')) > 0)
 <div class="content-Business">
     <div class="container-fluid">
@@ -1123,7 +1146,9 @@
     </div>
 </div>
 @endif
+@endif
 
+@if(session('videos_education'))
 @if(count(session('videos_education')) > 0)
 <div class="content-Education">
     <div class="container-fluid">
@@ -1202,7 +1227,9 @@
     </div>
 </div>
 @endif
+@endif
 
+@if(session('videos_environnement'))
 @if(count(session('videos_environnement')) > 0)
 <div class="content-Evironnement">
     <div class="container-fluid">
@@ -1280,6 +1307,7 @@
         </div>
     </div>
 </div>
+@endif
 @endif
 </div>
 
