@@ -78,7 +78,6 @@ class RegisterController extends Controller
             'vids_post' => 0,
             'vids_approved' => 0,
             'subscribers' => 0,
-            'last_login' => Carbon::now(),
             'can_upload' => 1,
             'is_valid' => 0,
             'is_confirmed' => 0,
