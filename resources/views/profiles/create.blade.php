@@ -31,8 +31,6 @@
                             {!! Form::label('age', 'Age:') !!}
                             {!! Form::number('age', null, ['class' => 'form-control']) !!}
                         </div>
-
-                        {!! Form::hidden('can_stream', 1) !!}
                         {!! Form::hidden('user_id', Auth::id()) !!}
                         @include('profiles.fields')
 

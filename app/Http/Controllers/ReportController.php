@@ -7,8 +7,11 @@ use App\Http\Requests\UpdateReportRequest;
 use App\Http\Controllers\AppBaseController;
 use App\Models\Report;
 use Illuminate\Http\Request;
+use App\Models\Video;
+use App\User;
 use Flash;
 use Response;
+use Auth;
 
 class ReportController extends AppBaseController
 {
@@ -19,6 +22,30 @@ class ReportController extends AppBaseController
      *
      * @return Response
      */
+
+
+    public function report($id){
+        /**
+         * For report we need the user and this video
+         */
+
+        $user = Auth::id();
+
+        $input = ['user_id' => $user,'video_id' => $id];
+
+        $reports = Report::all();
+
+        /** Check redondance report */
+        foreach($reports as $report)
+            if($report->user_id == $user && $report->video_id == $id)
+                return redirect('/');
+        
+        $report = Report::create($input);
+
+        return redirect('/');
+
+    }
+
     public function index(Request $request)
     {
         /** @var Report $reports */

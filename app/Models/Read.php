@@ -28,7 +28,6 @@ class Read extends Model
 
     
     public $fillable = [
-        'time_read',
         'video_id',
         'user_id',
         'profile_id'

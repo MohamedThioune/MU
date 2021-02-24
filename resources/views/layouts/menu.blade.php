@@ -36,3 +36,12 @@
     <a href="{{ route('reads.index') }}"><i class="fa fa-edit"></i><span>Reads</span></a>
 </li>
 
+
+<li class="{{ Request::is('comments*') ? 'active' : '' }}">
+    <a href="{{ route('comments.index') }}"><i class="fa fa-edit"></i><span>Comments</span></a>
+</li>
+
+<li class="{{ Request::is('responseComments*') ? 'active' : '' }}">
+    <a href="{{ route('responseComments.index') }}"><i class="fa fa-edit"></i><span>Response Comments</span></a>
+</li>
+

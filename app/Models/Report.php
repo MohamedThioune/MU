@@ -54,7 +54,6 @@ class Report extends Model
      */
     public static $rules = [
         'reason' => 'required',
-        'photo' => 'required',
         'video_id' => 'required',
         'user_id' => 'required'
     ];

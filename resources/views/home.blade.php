@@ -711,7 +711,7 @@
                                 <div class="contentCardSuggestionDay">
                                     <div class="d-flex justify-content-between">
                                         <p class="libertiText">Liberty in the words</p>
-                                        <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
+                                        <img class="imgLiberti" src="{{ asset('img/icones/Badge.png') }}" alt="">
                                     </div>
                                     <div class="mindCard">
                                         <div class="blockImgMind">
@@ -739,7 +739,7 @@
                                 <div class="contentCardSuggestionDay">
                                     <div class="d-flex justify-content-between">
                                         <p class="libertiText">Liberty in the words</p>
-                                        <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
+                                        <img class="imgLiberti" src="{{ asset('img/icones/Badge.png') }}" alt="">
                                     </div>
                                     <div class="mindCard">
                                         <div class="blockImgMind">
@@ -767,7 +767,7 @@
                                 <div class="contentCardSuggestionDay">
                                     <div class="d-flex justify-content-between">
                                         <p class="libertiText">Liberty in the words</p>
-                                        <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
+                                        <img class="imgLiberti" src="{{ asset('img/icones/Badge.png') }}" alt="">
                                     </div>
                                     <div class="mindCard">
                                         <div class="blockImgMind">
@@ -795,7 +795,7 @@
                                 <div class="contentCardSuggestionDay">
                                     <div class="d-flex justify-content-between">
                                         <p class="libertiText">Liberty in the words</p>
-                                        <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
+                                        <img class="imgLiberti" src="{{ asset('img/icones/Badge.png') }}" alt="">
                                     </div>
                                     <div class="mindCard">
                                         <div class="blockImgMind">
@@ -819,6 +819,12 @@
         </div>
     </div>
 </div> -->
+@php 
+    $signals = DB::Table('reports')->select('*')
+                               ->where('reports.user_id', Auth::id()) 
+                               ->get();
+@endphp                          
+
 @if(count(session('videos_haltcare')) > 0)
 <div class="content-Haltcare">
     <div class="container-fluid">
@@ -826,14 +832,18 @@
             <div class="barreLatraleNoir vertBarre">Healthcares</div>
             <div class="swiper-container swiper-helatcare">
                 <div class="swiper-wrapper">
-                    @foreach(session('videos_haltcare') as $video)
-                    <div class=" swiper-slide card-suggestionDay">
+                @foreach(session('videos_haltcare') as $video)
+                    <div class="swiper-slide card-suggestionDay">
                         <div class="elementCardSuggestionDay">
                             <img class="imgElementCardSuggestionDay" src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" alt="">
                             <a href="{{route('play',[$video->id])}}" target="blank" class="contentFlyHeure">
-                                <p class="flyText">{{$video->title}}</p>
+                                <p class="flyText">{{$video->title}} </p>
                                 <p class="heureFly">
-                                    @php  
+                                    @php 
+                                        $reports = DB::Table('reports')
+                                                ->where('video_id', $video->id)
+                                                ->count();
+
                                         if ($video->duration){
                                             $durations = explode(':', $video->duration);
                                             if($durations[0] == "00")
@@ -848,7 +858,14 @@
                         <div class="contentCardSuggestionDay">
                             <div class="d-flex justify-content-between">
                                 <p class="libertiText">{{$video->main_title}}</p>
-                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
+
+                                <a href="{!! route('report',[$video->id]) !!}"> 
+                                    @if($reports < 2)
+                                        <img class="imgLiberti" src="{{asset('img/icones/Badge.png')}}" alt="Lune" data-toggle="tooltip" data-placement="top" title="Community-approved video">
+                                    @else
+                                        <img class="imgLiberti" src="{{asset('img/icones/lune-rouge-small.png')}}" alt="Lune"  data-toggle="tooltip" data-placement="top" title="This video has been pointed out by members of the community as being unbearable">
+                                    @endif
+                                </a>
                             </div>
                             <div class="mindCard">
                                     @php 
@@ -870,7 +887,7 @@
                                     <div class="d-flex justify-content-between">
                                         <p class="numberviewsSuggestion">1230</p>
                                         <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
-                                         <!-- Date creation relative -->
+                                        <!-- Date creation relative -->
                                         @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
                                             @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
                                             <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/3600)}} hours ago </p>
@@ -889,7 +906,7 @@
                             </div>
                         </div>
                     </div>
-                    @endforeach
+                @endforeach
                 </div>
             </div>
         </div>
@@ -912,6 +929,10 @@
                                 <p class="flyText">{{$video->title}}</p>
                                 <p class="heureFly">
                                     @php  
+                                        $reports = DB::Table('reports')
+                                                   ->where('video_id', $video->id)
+                                                   ->count();
+
                                         if ($video->duration){
                                             $durations = explode(':', $video->duration);
                                             if($durations[0] == "00")
@@ -926,7 +947,13 @@
                         <div class="contentCardSuggestionDay">
                             <div class="d-flex justify-content-between">
                                 <p class="libertiText">{{$video->main_title}}</p>
-                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
+                                <a href="{!! route('report',[$video->id]) !!}"> 
+                                    @if($reports < 2)
+                                        <img class="imgLiberti" src="{{asset('img/icones/Badge.png')}}" alt="Lune" data-toggle="tooltip" data-placement="top" title="Community-approved video">
+                                    @else
+                                        <img class="imgLiberti" src="{{asset('img/icones/lune-rouge-small.png')}}" alt="Lune"  data-toggle="tooltip" data-placement="top" title="This video has been pointed out by members of the community as being unbearable">
+                                    @endif
+                                </a>
                             </div>
                             <div class="mindCard">
                                     @php 
@@ -990,7 +1017,11 @@
                             <a href="{{route('play',[$video->id])}}" target="blank" class="contentFlyHeure">
                                 <p class="flyText">{{$video->title}}</p>
                                 <p class="heureFly">
-                                    @php  
+                                    @php 
+                                        $reports = DB::Table('reports')
+                                                   ->where('video_id', $video->id)
+                                                   ->count();
+
                                         if ($video->duration){
                                             $durations = explode(':', $video->duration);
                                             if($durations[0] == "00")
@@ -1005,7 +1036,13 @@
                         <div class="contentCardSuggestionDay">
                             <div class="d-flex justify-content-between">
                                 <p class="libertiText">{{$video->main_title}}</p>
-                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
+                                <a href="{!! route('report',[$video->id]) !!}"> 
+                                    @if($reports < 2)
+                                        <img class="imgLiberti" src="{{asset('img/icones/Badge.png')}}" alt="Lune" data-toggle="tooltip" data-placement="top" title="Community-approved video">
+                                    @else
+                                        <img class="imgLiberti" src="{{asset('img/icones/lune-rouge-small.png')}}" alt="Lune"  data-toggle="tooltip" data-placement="top" title="This video has been pointed out by members of the community as being unbearable">
+                                    @endif
+                                </a>
                             </div>
                             <div class="mindCard">
                                     @php 
@@ -1070,6 +1107,10 @@
                                 <p class="flyText">{{$video->title}}</p>
                                 <p class="heureFly">
                                     @php  
+                                        $reports = DB::Table('reports')
+                                                   ->where('video_id', $video->id)
+                                                   ->count();
+
                                         if ($video->duration){
                                             $durations = explode(':', $video->duration);
                                             if($durations[0] == "00")
@@ -1084,7 +1125,13 @@
                         <div class="contentCardSuggestionDay">
                             <div class="d-flex justify-content-between">
                                 <p class="libertiText">{{$video->main_title}}</p>
-                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
+                                <a href="{!! route('report',[$video->id]) !!}"> 
+                                    @if($reports < 2)
+                                        <img class="imgLiberti" src="{{asset('img/icones/Badge.png')}}" alt="Lune" data-toggle="tooltip" data-placement="top" title="Community-approved video">
+                                    @else
+                                        <img class="imgLiberti" src="{{asset('img/icones/lune-rouge-small.png')}}" alt="Lune"  data-toggle="tooltip" data-placement="top" title="This video has been pointed out by members of the community as being unbearable">
+                                    @endif
+                                </a>
                             </div>
                             <div class="mindCard">
                                     @php 
@@ -1149,6 +1196,10 @@
                                 <p class="flyText">{{$video->title}}</p>
                                 <p class="heureFly">
                                     @php  
+                                        $reports = DB::Table('reports')
+                                                   ->where('video_id', $video->id)
+                                                   ->count();
+
                                         if ($video->duration){
                                             $durations = explode(':', $video->duration);
                                             if($durations[0] == "00")
@@ -1163,7 +1214,13 @@
                         <div class="contentCardSuggestionDay">
                             <div class="d-flex justify-content-between">
                                 <p class="libertiText">{{$video->main_title}}</p>
-                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
+                                <a href="{!! route('report',[$video->id]) !!}"> 
+                                    @if($reports < 2)
+                                        <img class="imgLiberti" src="{{asset('img/icones/Badge.png')}}" alt="Lune" data-toggle="tooltip" data-placement="top" title="Community-approved video">
+                                    @else
+                                        <img class="imgLiberti" src="{{asset('img/icones/lune-rouge-small.png')}}" alt="Lune"  data-toggle="tooltip" data-placement="top" title="This video has been pointed out by members of the community as being unbearable">
+                                    @endif
+                                </a>
                             </div>
                             <div class="mindCard">
                                     @php 
@@ -1227,7 +1284,11 @@
                             <a href="{{route('play',[$video->id])}}" target="blank" class="contentFlyHeure">
                                 <p class="flyText">{{$video->title}}</p>
                                 <p class="heureFly">
-                                    @php  
+                                    @php 
+                                        $reports = DB::Table('reports')
+                                                   ->where('video_id', $video->id)
+                                                   ->count();
+
                                         if ($video->duration){
                                             $durations = explode(':', $video->duration);
                                             if($durations[0] == "00")
@@ -1242,7 +1303,13 @@
                         <div class="contentCardSuggestionDay">
                             <div class="d-flex justify-content-between">
                                 <p class="libertiText">{{$video->main_title}}</p>
-                                <img class="imgLiberti" src="{{ asset('img/icones/Lune-bleu-small.png') }}" alt="">
+                                <a href="{!! route('report',[$video->id]) !!}"> 
+                                    @if($reports < 2)
+                                        <img class="imgLiberti" src="{{asset('img/icones/Badge.png')}}" alt="Lune" data-toggle="tooltip" data-placement="top" title="Community-approved video">
+                                    @else
+                                        <img class="imgLiberti" src="{{asset('img/icones/Lune-bleu-rouge.jpg')}}" alt="Lune"  data-toggle="tooltip" data-placement="top" title="This video has been pointed out by members of the community as being unbearable">
+                                    @endif
+                                </a>
                             </div>
                             <div class="mindCard">
                                     @php 

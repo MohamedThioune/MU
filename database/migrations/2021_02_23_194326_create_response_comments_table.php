@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMainTopicsTable extends Migration
+class CreateResponseCommentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,20 @@ class CreateMainTopicsTable extends Migration
      */
     public function up()
     {
-        Schema::create('main_topics', function (Blueprint $table) {
+        Schema::create('response_comments', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->string('libelle');
+
+            $table->String('response_value');
+
+            $table->unsignedInteger('comment_id');
+            
+            $table->foreign('comment_id')
+            ->references('id')
+            ->on('comments');
+
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -28,6 +37,6 @@ class CreateMainTopicsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('main_topics_');
+        Schema::dropIfExists('response_comments');
     }
 }
