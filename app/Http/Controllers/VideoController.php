@@ -13,6 +13,7 @@ use Response;
 use Illuminate\Support\Str;
 use Auth;
 use DB;
+use App\Models\Unlike;
 
 class VideoController extends AppBaseController
 {
@@ -298,4 +299,33 @@ class VideoController extends AppBaseController
 
         return redirect(route('videos.index'));
     }
+
+    public function likeVideo($video_id){
+        $user = Auth::user();
+        $video = Video::find($video_id);
+
+        $user->like($video);
+        $unlike = Unlike::where([
+            ['user_id', '=', $user->id],
+            ['video_id', '=', $video->id],
+        ])->delete();
+        
+        return redirect()->back();
+    }
+
+    public function dislikeVideo($video_id){
+        $user = Auth::user();
+        $video = Video::find($video_id);
+        $unlike = new Unlike();
+
+        $unlike->user_id = Auth::user()->id;
+        $unlike->video_id = $video_id;
+        $unlike->save();
+        $user->unlike($video);
+
+        
+        return redirect()->back();
+    }
+
+    
 }

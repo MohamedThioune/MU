@@ -5,10 +5,12 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Models\channel;
+use Overtrue\LaravelLike\Traits\Liker;
+
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, Liker;
 
   
     protected $table = "users";

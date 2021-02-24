@@ -27,6 +27,7 @@ Route::get('vids/thumbnails/^[a-zA-Z0-9_]*$');
 
 // play page : Play the current video [Online]
 Route::get('/play', function () {
+    
     return view('play');
 });
 Route::get('/play/{n}', [App\Http\Controllers\HomeController::class, 'play'])->name('play');
@@ -55,6 +56,9 @@ Route::resource('subTopics', 'SubTopicController');
 Route::resource('mainTopics', 'MainTopicController');
 
 Route::resource('videos', 'VideoController');
+Route::get('likevideo/{video_id}','VideoController@likeVideo')->name('likevideo');
+Route::get('dislikevideo/{video_id}','VideoController@dislikeVideo')->name('dislikevideo');
+
 
 Route::resource('reports', 'ReportController');
 

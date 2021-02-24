@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\MainTopic;
 use App\Models\Read;
 use App\User;
+use Overtrue\LaravelLike\Traits\Likeable;
+
 
 /**
  * Class Video
@@ -27,7 +29,7 @@ use App\User;
  */
 class Video extends Model
 {
-    use SoftDeletes;
+    use SoftDeletes, Likeable;
 
     public $table = 'videos';
     
@@ -99,8 +101,18 @@ class Video extends Model
         return $this->hasMany(Read::class);
     }
 
+    public function unlikes()
+    {
+        return $this->hasMany(Unlike::class,'video_id');
+    }
+
     public function push()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'user_video')->withTimestamps();
     }
 }

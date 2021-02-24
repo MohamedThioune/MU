@@ -417,17 +417,25 @@
                     <div class="content12">
                         <p class="datePublication">Published : 08 nov. 2020</p>
                         <div class="d-flex textImgView">
-                            <p class="nbrView"> 22 578</p>
+                            <p class="nbrView">{{ session('video')->users()->count() }}</p>
                             <div class="imgOeil"><img  src="{{ asset('img/icones/oeil.png') }}" alt=""></div>
                         </div>
                         <div class="groupLOveUnlove">
                             <div class="blockLoveUnlove">
-                                <p class="nbrLove">122 k</p>
-                                <div class="imgCoeur"><img src="{{ asset('img/icones/coeurRose.svg') }}" alt=""></div>
+                                <p class="nbrLove">{{ session('video')->likers()->count() }}</p>
+                                <div class="imgCoeur">
+                                <a href="{{ route('likevideo',session('video')->id ) }}">
+                                    <img src="{{ asset('img/icones/coeurRose.svg') }}" alt="">  
+                                </a>
+                            </div>
                             </div>
                             <div class="blockLoveUnlove">
-                                <div class="imgCoeur"><img src="{{ asset('img/icones/loveRenverseGris.png') }}" alt=""></div>
-                                <p class="nbrLove">2 078</p>
+                                <div class="imgCoeur">
+                                <a href="{{ route('dislikevideo',session('video')->id )}}">
+                                <img src="{{ asset('img/icones/loveRenverseGris.png') }}" alt="">
+                                </a>
+                            </div>
+                                <p class="nbrLove">{{ session('video')->unlikes()->count() }}</p>
                             </div>
                             <div class="blockImgPuliMobile">
                                 <img src="{{ asset('img/icones/more.png') }}" alt="">

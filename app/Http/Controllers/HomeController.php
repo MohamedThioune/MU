@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Profile;
 use App\Models\Video;
 use App\User;
-
+use Auth;
 class HomeController extends Controller
 {
     /**
@@ -38,7 +38,7 @@ class HomeController extends Controller
     public function play($id){
         $video = Video::find($id);
         $user = User::find($video->user_id);
-
+        $video->users()->attach(Auth::id());
         session(['video' => $video, 'user' => $user]);
         return redirect('/play');
     }
