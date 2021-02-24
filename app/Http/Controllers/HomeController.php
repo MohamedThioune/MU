@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use App\Profile;
 use App\Models\Video;
 use App\User;
+use App\Models\Read;
+
+use Auth;
+use DB;
 
 class HomeController extends Controller
 {
@@ -36,10 +40,22 @@ class HomeController extends Controller
     }
 
     public function play($id){
+
         $video = Video::find($id);
-        $user = User::find($video->user_id);
+        $user = User::find($video->user_id); 
+
+        $comments = DB::Table('comments')->select('users.*','comments.value' ,'comments.id as comment_id' ,'comments.created_at as created_at')
+        ->join('videos', 'videos.id', 'comments.video_id')
+        ->join('users', 'videos.user_id', 'users.id')
+        ->where('comments.video_id', $id)
+        ->get();
+
+        $counts = count($comments);
+        $inputs_read = ['video_id' => $id, 'user_id' => Auth::id()];
+
+        Read::create($inputs_read);
 
         session(['video' => $video, 'user' => $user]);
-        return redirect('/play');
+        return view('play', compact('comments','counts'));
     }
 }

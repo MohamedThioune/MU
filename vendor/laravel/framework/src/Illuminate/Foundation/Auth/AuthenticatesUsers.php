@@ -5,6 +5,8 @@ namespace Illuminate\Foundation\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
+use DB;
+use App\Users;
 
 trait AuthenticatesUsers
 {
@@ -152,9 +154,14 @@ trait AuthenticatesUsers
      */
     public function logout(Request $request)
     {
+        $id = Auth::id(); 
         $this->guard()->logout();
 
         $request->session()->invalidate();
+
+        DB::Table('users')
+        ->where('id', $id)
+        ->update(['timeout' => now()]);
 
         return $this->loggedOut($request) ?: redirect('/');
     }
