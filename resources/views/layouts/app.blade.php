@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>
-        MUt
+        MUtll
     </title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,7 +20,7 @@
 </head>
 
 <body>
-  
+
 <div>
     @yield('content')
 </div>
