@@ -74,7 +74,11 @@ class CommentController extends AppBaseController
         ->where('comments.video_id',  htmlspecialchars($_GET['video_id']))
         ->get();
 
-        return view('play',compact('comments'));
+        $reads = DB::Table('reads')
+        ->where('video_id', $_GET['video_id'])
+        ->count();
+
+        return view('play',compact('comments', 'reads'));
     }
 
 

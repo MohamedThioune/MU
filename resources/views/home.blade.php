@@ -868,6 +868,9 @@
                                 </a>
                             </div>
                             <div class="mindCard">
+                                    <!-- $reads = DB::Table('reads')
+                                                    ->where('video_id', $video->id)
+                                                    ->count(); -->
                                     @php 
                                         $user = App\User::find($video->user_id);
                                     @endphp
@@ -885,8 +888,10 @@
                                 <div class="block3">
                                     <p class="mindText">{{$user->name}}</p>
                                     <div class="d-flex justify-content-between">
-                                        <p class="numberviewsSuggestion">1230</p>
-                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+                                        <!-- <p class="numberviewsSuggestion">
+                                          
+                                        </p>
+                                        <img class="oeil-1" style ="margin-right: 75px;" src="{{ asset('img/icones/oeil-1.png') }}" alt=""> -->
                                         <!-- Date creation relative -->
                                         @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
                                             @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
@@ -904,6 +909,9 @@
                                     </div>
                                 </div>
                             </div>
+                            @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0 && intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
+                                <a href="{{route('play',[$video->id])}}" target="blank" class="numberviewsSuggestion" style="color:red;font-size:10px;">Be the first to enjoy our brother's video</a>
+                            @endif
                         </div>
                     </div>
                 @endforeach
@@ -956,6 +964,9 @@
                                 </a>
                             </div>
                             <div class="mindCard">
+                                    <!-- $reads = DB::Table('reads')
+                                                    ->where('video_id', $video->id)
+                                                    ->count(); -->
                                     @php 
                                         $user = App\User::find($video->user_id);
                                     @endphp
@@ -973,25 +984,31 @@
                                 <div class="block3">
                                     <p class="mindText">{{$user->name}}</p>
                                     <div class="d-flex justify-content-between">
-                                        <p class="numberviewsSuggestion">1230</p>
-                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
-                                         <!-- Date creation relative -->
-                                         @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
-                                                  @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
-                                                  <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/3600)}} hours ago </p>
-                                                  @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) == 0)
-                                                  <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/60)}} minutes ago </p>
-                                                  @endif
-                                                @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 1)
-                                                <p class="day">Yesterday at {{strftime("%H:%M", strtotime($video->created_at))}}</p>
-                                                @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) >= 2 && intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) <= 27)
-                                                <p class="day"> {{intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400)}} days ago </p>
-                                                @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) > 27)
-                                                <p class="day">On {{strftime("%d/%m/%Y", strtotime($video->created_at))}}</p>
-                                                @endif
+                                        <!-- <p class="numberviewsSuggestion">
+                                          
+                                        </p>
+                                        <img class="oeil-1" style ="margin-right: 75px;" src="{{ asset('img/icones/oeil-1.png') }}" alt=""> -->
+                                    
+                                        <!-- Date creation relative -->
+                                        @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
+                                            @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
+                                            <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/3600)}} hours ago </p>
+                                            @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) == 0)
+                                            <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/60)}} minutes ago </p>
+                                            @endif
+                                        @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 1)
+                                        <p class="day">Yesterday at {{strftime("%H:%M", strtotime($video->created_at))}}</p>
+                                        @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) >= 2 && intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) <= 27)
+                                        <p class="day"> {{intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400)}} days ago </p>
+                                        @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) > 27)
+                                        <p class="day">On {{strftime("%d/%m/%Y", strtotime($video->created_at))}}</p>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
+                            @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0 && intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
+                                <a href="{{route('play',[$video->id])}}" target="blank" class="numberviewsSuggestion" style="color:red;font-size:10px;">Be the first to enjoy our brother's video</a>
+                            @endif
                         </div>
                     </div>
                     @endforeach
@@ -1045,6 +1062,9 @@
                                 </a>
                             </div>
                             <div class="mindCard">
+                                    <!-- $reads = DB::Table('reads')
+                                                    ->where('video_id', $video->id)
+                                                    ->count(); -->
                                     @php 
                                         $user = App\User::find($video->user_id);
                                     @endphp
@@ -1062,10 +1082,11 @@
                                 <div class="block3">
                                     <p class="mindText">{{$user->name}}</p>
                                     <div class="d-flex justify-content-between">
-                                        <p class="numberviewsSuggestion">1230</p>
-                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
-                                         <!-- Date creation relative -->
-                                         @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
+                                        <!-- <p class="numberviewsSuggestion">
+                                        </p>
+                                        <img class="oeil-1" style ="margin-right: 75px;" src="{{ asset('img/icones/oeil-1.png') }}" alt=""> -->
+                                        <!-- Date creation relative -->
+                                        @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
                                                   @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
                                                   <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/3600)}} hours ago </p>
                                                   @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) == 0)
@@ -1081,6 +1102,9 @@
                                     </div>
                                 </div>
                             </div>
+                            @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0 && intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
+                                <a href="{{route('play',[$video->id])}}" target="blank" class="numberviewsSuggestion" style="color:red;font-size:10px;">Be the first to enjoy our brother's video</a>
+                            @endif
                         </div>
                     </div>
                     @endforeach
@@ -1134,6 +1158,9 @@
                                 </a>
                             </div>
                             <div class="mindCard">
+                                    <!-- $reads = DB::Table('reads')
+                                                    ->where('video_id', $video->id)
+                                                    ->count(); -->
                                     @php 
                                         $user = App\User::find($video->user_id);
                                     @endphp
@@ -1151,8 +1178,9 @@
                                 <div class="block3">
                                     <p class="mindText">{{$user->name}}</p>
                                     <div class="d-flex justify-content-between">
-                                        <p class="numberviewsSuggestion">1230</p>
-                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+                                        <!-- <p class="numberviewsSuggestion">
+                                        </p>
+                                        <img class="oeil-1" style ="margin-right: 75px;" src="{{ asset('img/icones/oeil-1.png') }}" alt="">                                      -->
                                          <!-- Date creation relative -->
                                          @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
                                                   @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
@@ -1170,6 +1198,9 @@
                                     </div>
                                 </div>
                             </div>
+                            @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0 && intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
+                                <a href="{{route('play',[$video->id])}}" target="blank" class="numberviewsSuggestion" style="color:red;font-size:10px;">Be the first to enjoy our brother's video</a>
+                            @endif
                         </div>
                     </div>
                     @endforeach
@@ -1223,6 +1254,9 @@
                                 </a>
                             </div>
                             <div class="mindCard">
+                                    <!-- $reads = DB::Table('reads')
+                                                    ->where('video_id', $video->id)
+                                                    ->count(); -->
                                     @php 
                                         $user = App\User::find($video->user_id);
                                     @endphp
@@ -1240,9 +1274,10 @@
                                 <div class="block3">
                                     <p class="mindText">{{$user->name}}</p>
                                     <div class="d-flex justify-content-between">
-                                        <p class="numberviewsSuggestion">1230</p>
-                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
-                                         <!-- Date creation relative -->
+                                        <!-- <p class="numberviewsSuggestion">
+                                        </p>
+                                        <img class="oeil-1" style ="margin-right: 75px;" src="{{ asset('img/icones/oeil-1.png') }}" alt="">  -->
+                                        <!-- Date creation relative -->
                                          @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
                                                   @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
                                                   <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/3600)}} hours ago </p>
@@ -1259,6 +1294,9 @@
                                     </div>
                                 </div>
                             </div>
+                            @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0 && intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
+                                <a href="{{route('play',[$video->id])}}" target="blank" class="numberviewsSuggestion" style="color:red;font-size:10px;">Be the first to enjoy our brother's video</a>
+                            @endif
                         </div>
                     </div>
                     @endforeach
@@ -1312,6 +1350,9 @@
                                 </a>
                             </div>
                             <div class="mindCard">
+                                    <!-- $reads = DB::Table('reads')
+                                                    ->where('video_id', $video->id)
+                                                    ->count(); -->
                                     @php 
                                         $user = App\User::find($video->user_id);
                                     @endphp
@@ -1329,8 +1370,10 @@
                                 <div class="block3">
                                     <p class="mindText">{{$user->name}}</p>
                                     <div class="d-flex justify-content-between">
-                                        <p class="numberviewsSuggestion">1230</p>
-                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+                                        <!-- <p class="numberviewsSuggestion">
+                                        </p>
+                                        <img class="oeil-1" style ="margin-right: 75px;" src="{{ asset('img/icones/oeil-1.png') }}" alt=""> -->
+                                
                                          <!-- Date creation relative -->
                                          @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
                                                   @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
@@ -1348,6 +1391,9 @@
                                     </div>
                                 </div>
                             </div>
+                            @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0 )
+                                <a href="{{route('play',[$video->id])}}" target="blank" class="numberviewsSuggestion" style="color:red;font-size:10px;">Be one the first to enjoy our brother's video</a>
+                            @endif
                         </div>
                     </div>
                     @endforeach
