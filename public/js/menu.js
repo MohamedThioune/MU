@@ -19,3 +19,12 @@ $(document).ready(function() {
         $( ".sousCategorieFlow" ).addClass('visibleSousCategorie');
     });
 });
+$(document).ready(function() {
+    $( ".block-shop" ).hide(0.2);
+    $( ".shopBtn" ).click(function() {
+        $( ".block-shop" ).show();
+    });
+    $( ".cross" ).click(function() {
+        $( ".block-shop" ).hide();
+    });
+});

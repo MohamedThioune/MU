@@ -22,33 +22,34 @@
     <div class="content-home">
         <div class="content-naveBar">
             <nav class="navbar navbar-expand-lg navModife">
-                <button class="groupPointNav  btnMenue1">
-                    <img class="pointsRose" src="{{ asset('img/icones/troispoints.svg') }}" alt="">
-                    <div class="muu d-flex">
-                        <img class="flecheMuu" src="{{ asset('img/icones/fleche.svg') }}" alt="">
-                        <p class="muuText">mmmuuu</p>
-                    </div>
-                </button>
-                <a class="navbar-brand elementLogo" href="#">
-                    <img src="{{ asset('img/logo-MU.png') }}" alt="">
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <button class="btnMenue ">
-                    <div class="d-flex">
-                        <div class="PointMenu ">
-                            <div class="onePoint"></div>
-                            <div class="onePoint"></div>
+                <div class="d-flex">
+                    <button class="btnMenue ">
+                        <div class="d-flex">
+                            <div class="PointMenu ">
+                                <div class="onePoint"></div>
+                                <div class="onePoint"></div>
+                            </div>
+                            <div class="PointMenu">
+                                <div class="onePoint"></div>
+                                <div class="onePoint"></div>
+                            </div>
                         </div>
-                        <div class="PointMenu">
-                            <div class="onePoint"></div>
-                            <div class="onePoint"></div>
+
+                    </button>
+                    <button class="groupPointNav  btnMenue1">
+                        <img class="pointsRose" src="{{ asset('img/icones/troispoints.svg') }}" alt="">
+                        <div class="muu d-flex">
+                            <img class="flecheMuu" src="{{ asset('img/icones/fleche.svg') }}" alt="">
+                            <p class="muuText">mmmuuu</p>
                         </div>
-                    </div>
-
-                </button>
-
+                    </button>
+                    <a class="navbar-brand elementLogo" href="#">
+                        <img src="{{ asset('img/logo-MU.png') }}" alt="">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
                 <div class="content-Menu menue1">
                     <form class="form-inline2 d-flex position-relative">
                         <input class="form-control mr-sm-2 searchNav2" type="search" placeholder="Search" aria-label="Search">
@@ -268,11 +269,11 @@
                     <ul class="navbar-nav ml-auto">
                     @if(Auth::guest())
                          <li class="nav-item nav-modife">
-                            <a href="{{route('register')}}" class="btnCommunaute">Rejoindre la communauté</a>
+                            <a href="{{route('register')}}" class="btnCommunaute">Rejoindre la Oumma</a>
                         </li>
                         <li class="nav-item nav-modife">
                             <img src="{{ asset('img/icones/login.svg') }}" alt="">
-                            <a class="nav-link" href="{{route('login')}}">Log in</a>
+                            <a class="nav-link" href="{{route('login')}}">Connexion</a>
                         </li>
                     @else
                         <li class="nav-item nav-modife">
@@ -296,7 +297,7 @@
                         <li class="nav-item nav-modife">
                             <!-- User connected with his name -->
                             @if(!session('profile'))
-                            <a href="{{route('choose')}}" class="btnCommunaute" style="cursor:pointer; text-decoration:none; color:white; background:none; box-shadow: 4px 4px 15px white;font-weight:bold"> 
+                            <a href="{{route('choose')}}" class="btnCommunaute" style="cursor:pointer; text-decoration:none; color:white; background:none; box-shadow: 4px 4px 15px white;font-weight:bold">
                                  @php
                                     $profile = DB::Table('users')->select('profile.*')
                                                                  ->join('profile', 'users.id', 'profile.user_id')
@@ -330,7 +331,7 @@
             <div class="header2">
                 <div class="container-modife">
                     <div class="block2">
-                        <p class="textHeader2">mmmuuu</p>
+                        <img class="img-logo2" src="{{ asset('img/Smuuse-logo-blanc.png') }}" alt="">
                         <center>
                         <div class="d-flex groupButtonHeader2">
                             <button class="btn btnheader2">Flow</button>
@@ -338,7 +339,6 @@
                             <button class="btn btnheader2">Kids</button>
                         </div>
                         </center>
-                        <img class="setting2" src="{{ asset('img/icones/settings.svg') }}" alt="">
                     </div>
                 </div>
             </div>
@@ -819,11 +819,11 @@
         </div>
     </div>
 </div> -->
-@php 
+@php
     $signals = DB::Table('reports')->select('*')
-                               ->where('reports.user_id', Auth::id()) 
+                               ->where('reports.user_id', Auth::id())
                                ->get();
-@endphp                          
+@endphp
 
 @if(count(session('videos_haltcare')) > 0)
 <div class="content-Haltcare">
@@ -839,7 +839,7 @@
                             <a href="{{route('play',[$video->id])}}" target="blank" class="contentFlyHeure">
                                 <p class="flyText">{{$video->title}} </p>
                                 <p class="heureFly">
-                                    @php 
+                                    @php
                                         $reports = DB::Table('reports')
                                                 ->where('video_id', $video->id)
                                                 ->count();
@@ -859,7 +859,7 @@
                             <div class="d-flex justify-content-between">
                                 <p class="libertiText">{{$video->main_title}}</p>
 
-                                <a href="{!! route('report',[$video->id]) !!}"> 
+                                <a href="{!! route('report',[$video->id]) !!}">
                                     @if($reports < 2)
                                         <img class="imgLiberti" src="{{asset('img/icones/Badge.png')}}" alt="Lune" data-toggle="tooltip" data-placement="top" title="Community-approved video">
                                     @else
@@ -868,7 +868,7 @@
                                 </a>
                             </div>
                             <div class="mindCard">
-                                    @php 
+                                    @php
                                         $user = App\User::find($video->user_id);
                                     @endphp
                                 <div class="blockImgMind">
@@ -914,7 +914,7 @@
 </div>
 @endif
 
-@if(count(session('videos_life')) > 0) 
+@if(count(session('videos_life')) > 0)
 <div class="content-life">
     <div class="container-fluid">
         <div class="contentSwipeToday">
@@ -928,7 +928,7 @@
                             <a href="{{route('play',[$video->id])}}" target="blank" class="contentFlyHeure">
                                 <p class="flyText">{{$video->title}}</p>
                                 <p class="heureFly">
-                                    @php  
+                                    @php
                                         $reports = DB::Table('reports')
                                                    ->where('video_id', $video->id)
                                                    ->count();
@@ -947,7 +947,7 @@
                         <div class="contentCardSuggestionDay">
                             <div class="d-flex justify-content-between">
                                 <p class="libertiText">{{$video->main_title}}</p>
-                                <a href="{!! route('report',[$video->id]) !!}"> 
+                                <a href="{!! route('report',[$video->id]) !!}">
                                     @if($reports < 2)
                                         <img class="imgLiberti" src="{{asset('img/icones/Badge.png')}}" alt="Lune" data-toggle="tooltip" data-placement="top" title="Community-approved video">
                                     @else
@@ -956,7 +956,7 @@
                                 </a>
                             </div>
                             <div class="mindCard">
-                                    @php 
+                                    @php
                                         $user = App\User::find($video->user_id);
                                     @endphp
                                 <div class="blockImgMind">
@@ -1017,7 +1017,7 @@
                             <a href="{{route('play',[$video->id])}}" target="blank" class="contentFlyHeure">
                                 <p class="flyText">{{$video->title}}</p>
                                 <p class="heureFly">
-                                    @php 
+                                    @php
                                         $reports = DB::Table('reports')
                                                    ->where('video_id', $video->id)
                                                    ->count();
@@ -1036,7 +1036,7 @@
                         <div class="contentCardSuggestionDay">
                             <div class="d-flex justify-content-between">
                                 <p class="libertiText">{{$video->main_title}}</p>
-                                <a href="{!! route('report',[$video->id]) !!}"> 
+                                <a href="{!! route('report',[$video->id]) !!}">
                                     @if($reports < 2)
                                         <img class="imgLiberti" src="{{asset('img/icones/Badge.png')}}" alt="Lune" data-toggle="tooltip" data-placement="top" title="Community-approved video">
                                     @else
@@ -1045,7 +1045,7 @@
                                 </a>
                             </div>
                             <div class="mindCard">
-                                    @php 
+                                    @php
                                         $user = App\User::find($video->user_id);
                                     @endphp
                                 <div class="blockImgMind">
@@ -1106,7 +1106,7 @@
                             <a href="{{route('play',[$video->id])}}" target="blank" class="contentFlyHeure">
                                 <p class="flyText">{{$video->title}}</p>
                                 <p class="heureFly">
-                                    @php  
+                                    @php
                                         $reports = DB::Table('reports')
                                                    ->where('video_id', $video->id)
                                                    ->count();
@@ -1125,7 +1125,7 @@
                         <div class="contentCardSuggestionDay">
                             <div class="d-flex justify-content-between">
                                 <p class="libertiText">{{$video->main_title}}</p>
-                                <a href="{!! route('report',[$video->id]) !!}"> 
+                                <a href="{!! route('report',[$video->id]) !!}">
                                     @if($reports < 2)
                                         <img class="imgLiberti" src="{{asset('img/icones/Badge.png')}}" alt="Lune" data-toggle="tooltip" data-placement="top" title="Community-approved video">
                                     @else
@@ -1134,7 +1134,7 @@
                                 </a>
                             </div>
                             <div class="mindCard">
-                                    @php 
+                                    @php
                                         $user = App\User::find($video->user_id);
                                     @endphp
                                 <div class="blockImgMind">
@@ -1195,7 +1195,7 @@
                             <a href="{{route('play',[$video->id])}}" target="blank" class="contentFlyHeure">
                                 <p class="flyText">{{$video->title}}</p>
                                 <p class="heureFly">
-                                    @php  
+                                    @php
                                         $reports = DB::Table('reports')
                                                    ->where('video_id', $video->id)
                                                    ->count();
@@ -1214,7 +1214,7 @@
                         <div class="contentCardSuggestionDay">
                             <div class="d-flex justify-content-between">
                                 <p class="libertiText">{{$video->main_title}}</p>
-                                <a href="{!! route('report',[$video->id]) !!}"> 
+                                <a href="{!! route('report',[$video->id]) !!}">
                                     @if($reports < 2)
                                         <img class="imgLiberti" src="{{asset('img/icones/Badge.png')}}" alt="Lune" data-toggle="tooltip" data-placement="top" title="Community-approved video">
                                     @else
@@ -1223,7 +1223,7 @@
                                 </a>
                             </div>
                             <div class="mindCard">
-                                    @php 
+                                    @php
                                         $user = App\User::find($video->user_id);
                                     @endphp
                                 <div class="blockImgMind">
@@ -1284,7 +1284,7 @@
                             <a href="{{route('play',[$video->id])}}" target="blank" class="contentFlyHeure">
                                 <p class="flyText">{{$video->title}}</p>
                                 <p class="heureFly">
-                                    @php 
+                                    @php
                                         $reports = DB::Table('reports')
                                                    ->where('video_id', $video->id)
                                                    ->count();
@@ -1303,7 +1303,7 @@
                         <div class="contentCardSuggestionDay">
                             <div class="d-flex justify-content-between">
                                 <p class="libertiText">{{$video->main_title}}</p>
-                                <a href="{!! route('report',[$video->id]) !!}"> 
+                                <a href="{!! route('report',[$video->id]) !!}">
                                     @if($reports < 2)
                                         <img class="imgLiberti" src="{{asset('img/icones/Badge.png')}}" alt="Lune" data-toggle="tooltip" data-placement="top" title="Community-approved video">
                                     @else
@@ -1312,7 +1312,7 @@
                                 </a>
                             </div>
                             <div class="mindCard">
-                                    @php 
+                                    @php
                                         $user = App\User::find($video->user_id);
                                     @endphp
                                 <div class="blockImgMind">
