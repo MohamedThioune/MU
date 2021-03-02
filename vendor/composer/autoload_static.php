@@ -19,9 +19,9 @@ class ComposerStaticInit8485fb7189a64a9c5667f31bce03e74b
         'def43f6c87e4f8dfd0c9e1b1bab14fe8' => __DIR__ . '/..' . '/symfony/polyfill-iconv/bootstrap.php',
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
         'e39a8b23c42d4e1452234d762b03835a' => __DIR__ . '/..' . '/ramsey/uuid/src/functions.php',
-        'e23faeee409e941dc9b4c80386209c39' => __DIR__ . '/..' . '/laracasts/flash/src/Laracasts/Flash/functions.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
+        'e23faeee409e941dc9b4c80386209c39' => __DIR__ . '/..' . '/laracasts/flash/src/Laracasts/Flash/functions.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
         '0ccdf99b8f62f02c52cba55802e0c2e7' => __DIR__ . '/..' . '/zircote/swagger-php/src/functions.php',
@@ -95,6 +95,8 @@ class ComposerStaticInit8485fb7189a64a9c5667f31bce03e74b
         ),
         'O' => 
         array (
+            'Overtrue\\LaravelLike\\' => 21,
+            'Overtrue\\LaravelFollow\\' => 23,
             'OpenApi\\' => 8,
         ),
         'N' => 
@@ -145,6 +147,10 @@ class ComposerStaticInit8485fb7189a64a9c5667f31bce03e74b
         array (
             'Cron\\' => 5,
             'Collective\\Html\\' => 16,
+        ),
+        'B' => 
+        array (
+            'BeyondCode\\Comments\\' => 20,
         ),
         'A' => 
         array (
@@ -323,6 +329,14 @@ class ComposerStaticInit8485fb7189a64a9c5667f31bce03e74b
         array (
             0 => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser',
         ),
+        'Overtrue\\LaravelLike\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/overtrue/laravel-like/src',
+        ),
+        'Overtrue\\LaravelFollow\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/overtrue/laravel-follow/src',
+        ),
         'OpenApi\\' => 
         array (
             0 => __DIR__ . '/..' . '/zircote/swagger-php/src',
@@ -414,6 +428,10 @@ class ComposerStaticInit8485fb7189a64a9c5667f31bce03e74b
         'Collective\\Html\\' => 
         array (
             0 => __DIR__ . '/..' . '/laravelcollective/html/src',
+        ),
+        'BeyondCode\\Comments\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/beyondcode/laravel-comments/src',
         ),
         'App\\' => 
         array (
@@ -541,6 +559,11 @@ class ComposerStaticInit8485fb7189a64a9c5667f31bce03e74b
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
+        'BeyondCode\\Comments\\Comment' => __DIR__ . '/..' . '/beyondcode/laravel-comments/src/Comment.php',
+        'BeyondCode\\Comments\\CommentsServiceProvider' => __DIR__ . '/..' . '/beyondcode/laravel-comments/src/CommentsServiceProvider.php',
+        'BeyondCode\\Comments\\Contracts\\Commentator' => __DIR__ . '/..' . '/beyondcode/laravel-comments/src/Contracts/Commentator.php',
+        'BeyondCode\\Comments\\Traits\\CanComment' => __DIR__ . '/..' . '/beyondcode/laravel-comments/src/Traits/CanComment.php',
+        'BeyondCode\\Comments\\Traits\\HasComments' => __DIR__ . '/..' . '/beyondcode/laravel-comments/src/Traits/HasComments.php',
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
         'Carbon\\CarbonInterval' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
         'Carbon\\Exceptions\\InvalidDateException' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Exceptions/InvalidDateException.php',
@@ -2437,6 +2460,19 @@ class ComposerStaticInit8485fb7189a64a9c5667f31bce03e74b
         'OpenApi\\Serializer' => __DIR__ . '/..' . '/zircote/swagger-php/src/Serializer.php',
         'OpenApi\\StaticAnalyser' => __DIR__ . '/..' . '/zircote/swagger-php/src/StaticAnalyser.php',
         'OpenApi\\Util' => __DIR__ . '/..' . '/zircote/swagger-php/src/Util.php',
+        'Overtrue\\LaravelFollow\\Events\\Event' => __DIR__ . '/..' . '/overtrue/laravel-follow/src/Events/Event.php',
+        'Overtrue\\LaravelFollow\\Events\\Followed' => __DIR__ . '/..' . '/overtrue/laravel-follow/src/Events/Followed.php',
+        'Overtrue\\LaravelFollow\\Events\\Unfollowed' => __DIR__ . '/..' . '/overtrue/laravel-follow/src/Events/Unfollowed.php',
+        'Overtrue\\LaravelFollow\\FollowServiceProvider' => __DIR__ . '/..' . '/overtrue/laravel-follow/src/FollowServiceProvider.php',
+        'Overtrue\\LaravelFollow\\Followable' => __DIR__ . '/..' . '/overtrue/laravel-follow/src/Followable.php',
+        'Overtrue\\LaravelFollow\\UserFollower' => __DIR__ . '/..' . '/overtrue/laravel-follow/src/UserFollower.php',
+        'Overtrue\\LaravelLike\\Events\\Event' => __DIR__ . '/..' . '/overtrue/laravel-like/src/Events/Event.php',
+        'Overtrue\\LaravelLike\\Events\\Liked' => __DIR__ . '/..' . '/overtrue/laravel-like/src/Events/Liked.php',
+        'Overtrue\\LaravelLike\\Events\\Unliked' => __DIR__ . '/..' . '/overtrue/laravel-like/src/Events/Unliked.php',
+        'Overtrue\\LaravelLike\\Like' => __DIR__ . '/..' . '/overtrue/laravel-like/src/Like.php',
+        'Overtrue\\LaravelLike\\LikeServiceProvider' => __DIR__ . '/..' . '/overtrue/laravel-like/src/LikeServiceProvider.php',
+        'Overtrue\\LaravelLike\\Traits\\Likeable' => __DIR__ . '/..' . '/overtrue/laravel-like/src/Traits/Likeable.php',
+        'Overtrue\\LaravelLike\\Traits\\Liker' => __DIR__ . '/..' . '/overtrue/laravel-like/src/Traits/Liker.php',
         'PHPUnit\\Exception' => __DIR__ . '/..' . '/phpunit/phpunit/src/Exception.php',
         'PHPUnit\\Framework\\Assert' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Assert.php',
         'PHPUnit\\Framework\\AssertionFailedError' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/AssertionFailedError.php',
