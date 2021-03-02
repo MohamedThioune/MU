@@ -324,4 +324,47 @@ class VideoController extends AppBaseController
 
         return redirect(route('videos.index'));
     }
+
+    public function likeVideo($video_id){
+        $user = Auth::user();
+        $video = Video::find($video_id);
+
+        $user->toggleLike($video);
+        $unlike = Unlike::where([
+            ['user_id', '=', $user->id],
+            ['video_id', '=', $video->id],
+        ])->delete();
+        
+        return redirect()->back();
+    }
+
+    public function dislikeVideo($video_id){
+        $user = Auth::user();
+        $video = Video::find($video_id);
+        $unlikes = Unlike::where([
+            ['user_id', '=', $user->id],
+            ['video_id', '=', $video->id],
+        ])->first();
+        if(empty($unlikes)){
+            $unlike = new Unlike();
+
+            $unlike->user_id = Auth::user()->id;
+            $unlike->video_id = $video_id;
+            $unlike->save();
+            
+        }
+        else{
+            $unlike = Unlike::where([
+                ['user_id', '=', $user->id],
+                ['video_id', '=', $video->id],
+            ])->delete();
+        }
+        $user->unlike($video);
+        
+
+        
+        return redirect()->back();
+    }
+
+    
 }

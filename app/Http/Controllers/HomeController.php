@@ -34,6 +34,10 @@ class HomeController extends Controller
     // }
 
     public function connected($id){
+        //List videos read by a user
+        $user_views =  DB::Table('reads')
+        ->where('user_id', Auth::id());
+
         $profile = Profile::find($id);
         session(['profile' => $profile]);
         return redirect('/');
@@ -43,6 +47,10 @@ class HomeController extends Controller
 
         $video = Video::find($id);
         $user = User::find($video->user_id); 
+
+        $reads = DB::Table('reads')
+        ->where('video_id', $id)
+        ->count();
 
         $comments = DB::Table('comments')->select('users.*','comments.value' ,'comments.id as comment_id' ,'comments.created_at as created_at')
         ->join('videos', 'videos.id', 'comments.video_id')
@@ -56,6 +64,6 @@ class HomeController extends Controller
         Read::create($inputs_read);
 
         session(['video' => $video, 'user' => $user]);
-        return view('play', compact('comments','counts'));
+        return view('play', compact('comments','counts','reads'));
     }
 }
