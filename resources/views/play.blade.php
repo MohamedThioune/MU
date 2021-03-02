@@ -417,7 +417,7 @@
                     <div class="content12">
                         <p class="datePublication">Published : 08 nov. 2020</p>
                         <div class="d-flex textImgView">
-                            <p class="nbrView">{{ session('video')->users()->count() }}</p>
+                            <p class="nbrView">28895</p>
                             <div class="imgOeil"><img  src="{{ asset('img/icones/oeil.png') }}" alt=""></div>
                         </div>
                         <div class="groupLOveUnlove">
