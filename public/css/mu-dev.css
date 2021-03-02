@@ -1,3 +1,43 @@
+@font-face {
+  font-family: "Ubuntu-Bold";
+  src: url("../font/Ubuntu-Bold.woff2") format("woff2"),
+  url("../font/Ubuntu-Bold.woff") format("woff");
+}
+@font-face {
+  font-family: "Ubuntu-BoldItalic";
+  src: url("../font/Ubuntu-BoldItalic.woff2") format("woff2"),
+  url("../font/Ubuntu-BoldItalic.woff") format("woff");
+}
+@font-face {
+  font-family: "Ubuntu-Italic";
+  src: url("../font/Ubuntu-Italic.woff2") format("woff2"),
+  url("../font/Ubuntu-Italic.woff") format("woff");
+}
+@font-face {
+  font-family: "Ubuntu-Light";
+  src: url("../font/Ubuntu-Light.woff2") format("woff2"),
+  url("../font/Ubuntu-Light.woff") format("woff");
+}
+@font-face {
+  font-family: "Ubuntu-LightItalic";
+  src: url("../font/Ubuntu-LightItalic.woff2") format("woff2"),
+  url("../font/Ubuntu-LightItalic.woff") format("woff");
+}
+@font-face {
+  font-family: "Ubuntu-Medium";
+  src: url("../font/Ubuntu-Medium.woff2") format("woff2"),
+  url("../font/Ubuntu-Medium.woff") format("woff");
+}
+@font-face {
+  font-family: "Ubuntu-MediumItalic";
+  src: url("../font/Ubuntu-MediumItalic.woff2") format("woff2"),
+  url("../font/Ubuntu-MediumItalic.woff") format("woff");
+}
+@font-face {
+  font-family: "Ubuntu-Regular";
+  src: url("../font/Ubuntu-Regular.woff2") format("woff2"),
+  url("../font/Ubuntu-Regular.woff") format("woff");
+}
 .body {
   background-color: #f3f370;
 }
@@ -487,6 +527,7 @@
 }
 .section96{
   width: 96px;
+  margin-left: 100px;
 }
 .section96 img{
   width: 100%;
@@ -541,6 +582,38 @@ a:hover {
 }
 .image-3{
   width: 96px;
+}
+.gotoBlock{
+  display: flex;
+  justify-content: space-between;
+  width: 90px;
+  background-color: rgb(51, 51, 51);
+  padding: 10px 15px;
+  height: 48px;
+  border-radius: 7px;
+  align-items: center;
+}
+.gotoBlock img{
+  width: 28px;
+  height: 28px;
+}
+.flecheBlanc {
+  height: 18px !important;
+  margin-left: -10px;
+}
+.gotoText{
+  color: #FFFFFF;
+  font-weight: bold;
+  margin-bottom: 0;
+  padding: 0 15px;
+}
+
+.text-block-emir {
+  /* font-weight: bold; */
+  font-family: Ubuntu, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 15px;
 }
 @media screen and (max-width: 991px) {
   .text-block-3 {

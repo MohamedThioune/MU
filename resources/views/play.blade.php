@@ -1557,3 +1557,5 @@
     }
 </script>
 <script src="{{asset('js/menu.js')}}"></script>
+<script src="js/app.js"></script>
+<script src="js/webflow.js"></script>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>
-        MU
+        MUtll
     </title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,7 +20,7 @@
 </head>
 
 <body>
-  
+
 <div>
     @yield('content')
 </div>
@@ -36,6 +36,9 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.2/icheck.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js"></script>
+<script src="js/menu.js"></script>
+<script src="js/app.js"></script>
+<script src="js/webflow.js"></script>
 
 @stack('scripts')
 </body>
