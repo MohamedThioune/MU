@@ -14,13 +14,9 @@ use Response;
 use Illuminate\Support\Str;
 use Auth;
 use DB;
-<<<<<<< HEAD
 use getID3;
 use Math;
 use Carbon\Carbon;
-=======
-use App\Models\Unlike;
->>>>>>> origin/alisoft
 
 class VideoController extends AppBaseController
 {
