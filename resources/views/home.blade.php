@@ -868,10 +868,7 @@
                                 </a>
                             </div>
                             <div class="mindCard">
-                                    @php
-                                    <!-- $reads = DB::Table('reads')
-                                                    ->where('video_id', $video->id)
-                                                    ->count(); -->
+                                    
                                     @php
                                         $user = App\User::find($video->user_id);
                                     @endphp
@@ -965,10 +962,8 @@
                                 </a>
                             </div>
                             <div class="mindCard">
-                                    @php
-                                    <!-- $reads = DB::Table('reads')
-                                                    ->where('video_id', $video->id)
-                                                    ->count(); -->
+                                
+                                
                                     @php
                                         $user = App\User::find($video->user_id);
                                     @endphp
@@ -1064,10 +1059,7 @@
                                 </a>
                             </div>
                             <div class="mindCard">
-                                    @php
-                                    <!-- $reads = DB::Table('reads')
-                                                    ->where('video_id', $video->id)
-                                                    ->count(); -->
+                                   
                                     @php
                                         $user = App\User::find($video->user_id);
                                     @endphp
@@ -1161,10 +1153,8 @@
                                 </a>
                             </div>
                             <div class="mindCard">
-                                    @php
-                                    <!-- $reads = DB::Table('reads')
-                                                    ->where('video_id', $video->id)
-                                                    ->count(); -->
+                                   
+                                   
                                     @php
                                         $user = App\User::find($video->user_id);
                                     @endphp
@@ -1258,10 +1248,8 @@
                                 </a>
                             </div>
                             <div class="mindCard">
-                                    @php
-                                    <!-- $reads = DB::Table('reads')
-                                                    ->where('video_id', $video->id)
-                                                    ->count(); -->
+                                   
+                                   
                                     @php
                                         $user = App\User::find($video->user_id);
                                     @endphp
@@ -1355,10 +1343,8 @@
                                 </a>
                             </div>
                             <div class="mindCard">
-                                    @php
-                                    <!-- $reads = DB::Table('reads')
-                                                    ->where('video_id', $video->id)
-                                                    ->count(); -->
+                                   
+                                   
                                     @php
                                         $user = App\User::find($video->user_id);
                                     @endphp
