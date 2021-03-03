@@ -368,3 +368,20 @@ class VideoController extends AppBaseController
 
     
 }
+
+<p class="textReponse">{{$response_comments->response_value}}</p>
+</div>
+</div>
+@php
+if($c == 1){
+    break;
+}
+$c++;
+@endphp
+
+@endforeach
+@if(count($responses_comments) > 2)
+<div class="d-flex">
+<a href="#" class="textComment" style="text-decoration:none; color:#e74c3c; margin-left:62px; padding-bottom:10px;"> <i class="fa fa-plus"></i>&nbsp;More answers ( {{count($responses_comments) - 2}} ) </a>
+</div>
+@endif
