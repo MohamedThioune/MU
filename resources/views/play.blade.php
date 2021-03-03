@@ -437,7 +437,7 @@
                         @php 
                         $months = ['01' => 'Jan', '02' => 'Feb', '03' => 'Mar', '04' => 'Apr', '05' => 'May', '06' => 'Jun', '07' => 'Jul', '08' => 'Aug', '09' => 'Sep', '10' => 'Oct', '11' => 'Nov', '12' => 'Dec' ];
                         @endphp
-                        <p class="datePublication">Published :&nbsp;{{session('video')->created_at->format('d')}}&nbsp; {{ $months[session('video')->created_at->format('m')]}} &nbsp;{{session('video')->created_at->format('Y')}} </p>
+                        <p class="datePublication">Published :&nbsp;{{session('video')->created_at->format('d')}}&nbsp; {{ $months[session('video')->created_at->format('m')]}}. &nbsp;{{session('video')->created_at->format('Y')}} </p>
                         <div class="d-flex textImgView">
                             <p class="nbrView"> {{$reads}}</p>
                             <div class="imgOeil"><img  src="{{ asset('img/icones/oeil.png') }}" alt=""></div>
