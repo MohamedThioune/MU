@@ -72,11 +72,10 @@
                             continue;
                         @endphp
                         <div class="div-block-22">
-                            <div class="@php if($profile->age <= 15) echo 'div-block-24'; else if($profile->age > 15 && $profile->sex == 0) echo 'div-block-21'; else if($profile->age > 15 && $profile->sex == 1) echo 'div-block-28'; @endphp" >
-                                <a href="{{route('connected',[$profile->id])}}">
-                                    <img src="" alt="">
-                                </a>
-                            </div>
+                            <a href="{{route('connected',[$profile->id])}}">
+                                <div class="@php if($profile->age <= 15) echo 'div-block-24'; else if($profile->age > 15 && $profile->sex == 0) echo 'div-block-21'; else if($profile->age > 15 && $profile->sex == 1) echo 'div-block-28'; @endphp" >                                    
+                                </div>
+                            </a>
                             <p class="text-block-218">{{$profile->name}}</p>
                         </div>
                         @endforeach

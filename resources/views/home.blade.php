@@ -837,7 +837,13 @@
                         <div class="elementCardSuggestionDay">
                             <img class="imgElementCardSuggestionDay" src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" alt="">
                             <a href="{{route('play',[$video->id])}}" target="blank" class="contentFlyHeure">
-                                <p class="flyText">{{$video->title}} </p>
+                                <p class="flyText">
+                                    @foreach($subtopics as $subtopic)
+                                    @if($video->subtopic_id == $subtopic->id)
+                                        {{ $subtopic->libelle }}
+                                    @endif
+                                    @endforeach 
+                                </p>
                                 <p class="heureFly">
                                     @php
                                         $reports = DB::Table('reports')
@@ -857,7 +863,7 @@
                         </div>
                         <div class="contentCardSuggestionDay">
                             <div class="d-flex justify-content-between">
-                                <p class="libertiText">{{$video->main_title}}</p>
+                                <p class="libertiText">{{ $video->main_title }}</p>
 
                                 <a href="{!! route('report',[$video->id]) !!}">
                                     @if($reports < 2)
@@ -885,8 +891,8 @@
                                 <div class="block3">
                                     <p class="mindText">{{$user->name}}</p>
                                     <div class="d-flex justify-content-between">
-                                        <p class="numberviewsSuggestion">1230</p>
-                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+                                        
+                                          
                                         <!-- Date creation relative -->
                                         @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
                                             @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
@@ -926,7 +932,13 @@
                         <div class="elementCardSuggestionDay">
                             <img class="imgElementCardSuggestionDay" src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" alt="">
                             <a href="{{route('play',[$video->id])}}" target="blank" class="contentFlyHeure">
-                                <p class="flyText">{{$video->title}}</p>
+                            <p class="flyText">
+                                    @foreach($subtopics as $subtopic)
+                                    @if($video->subtopic_id == $subtopic->id)
+                                        {{ $subtopic->libelle }}
+                                    @endif
+                                    @endforeach 
+                                </p>
                                 <p class="heureFly">
                                     @php
                                         $reports = DB::Table('reports')
@@ -973,8 +985,8 @@
                                 <div class="block3">
                                     <p class="mindText">{{$user->name}}</p>
                                     <div class="d-flex justify-content-between">
-                                        <p class="numberviewsSuggestion">1230</p>
-                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+                                        
+                                          
                                          <!-- Date creation relative -->
                                          @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
                                                   @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
@@ -1015,7 +1027,13 @@
                         <div class="elementCardSuggestionDay">
                             <img class="imgElementCardSuggestionDay" src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" alt="">
                             <a href="{{route('play',[$video->id])}}" target="blank" class="contentFlyHeure">
-                                <p class="flyText">{{$video->title}}</p>
+                                <p class="flyText">
+                                    @foreach($subtopics as $subtopic)
+                                    @if($video->subtopic_id == $subtopic->id)
+                                        {{ $subtopic->libelle }}
+                                    @endif
+                                    @endforeach 
+                                </p>
                                 <p class="heureFly">
                                     @php
                                         $reports = DB::Table('reports')
@@ -1062,8 +1080,8 @@
                                 <div class="block3">
                                     <p class="mindText">{{$user->name}}</p>
                                     <div class="d-flex justify-content-between">
-                                        <p class="numberviewsSuggestion">1230</p>
-                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+                                        
+                                          
                                          <!-- Date creation relative -->
                                          @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
                                                   @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
@@ -1104,7 +1122,13 @@
                         <div class="elementCardSuggestionDay">
                             <img class="imgElementCardSuggestionDay" src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" alt="">
                             <a href="{{route('play',[$video->id])}}" target="blank" class="contentFlyHeure">
-                                <p class="flyText">{{$video->title}}</p>
+                                <p class="flyText">
+                                    @foreach($subtopics as $subtopic)
+                                    @if($video->subtopic_id == $subtopic->id)
+                                        {{ $subtopic->libelle }}
+                                    @endif
+                                    @endforeach 
+                                </p>
                                 <p class="heureFly">
                                     @php
                                         $reports = DB::Table('reports')
@@ -1151,8 +1175,8 @@
                                 <div class="block3">
                                     <p class="mindText">{{$user->name}}</p>
                                     <div class="d-flex justify-content-between">
-                                        <p class="numberviewsSuggestion">1230</p>
-                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+                                        
+                                          
                                          <!-- Date creation relative -->
                                          @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
                                                   @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
@@ -1193,7 +1217,13 @@
                         <div class="elementCardSuggestionDay">
                             <img class="imgElementCardSuggestionDay" src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" alt="">
                             <a href="{{route('play',[$video->id])}}" target="blank" class="contentFlyHeure">
-                                <p class="flyText">{{$video->title}}</p>
+                                <p class="flyText">
+                                    @foreach($subtopics as $subtopic)
+                                    @if($video->subtopic_id == $subtopic->id)
+                                        {{ $subtopic->libelle }}
+                                    @endif
+                                    @endforeach 
+                                </p>
                                 <p class="heureFly">
                                     @php
                                         $reports = DB::Table('reports')
@@ -1240,8 +1270,8 @@
                                 <div class="block3">
                                     <p class="mindText">{{$user->name}}</p>
                                     <div class="d-flex justify-content-between">
-                                        <p class="numberviewsSuggestion">1230</p>
-                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+                                        
+                                          
                                          <!-- Date creation relative -->
                                          @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
                                                   @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
@@ -1282,7 +1312,13 @@
                         <div class="elementCardSuggestionDay">
                             <img class="imgElementCardSuggestionDay" src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" alt="">
                             <a href="{{route('play',[$video->id])}}" target="blank" class="contentFlyHeure">
-                                <p class="flyText">{{$video->title}}</p>
+                                <p class="flyText">
+                                    @foreach($subtopics as $subtopic)
+                                    @if($video->subtopic_id == $subtopic->id)
+                                        {{ $subtopic->libelle }}
+                                    @endif
+                                    @endforeach 
+                                </p>
                                 <p class="heureFly">
                                     @php
                                         $reports = DB::Table('reports')
@@ -1329,8 +1365,8 @@
                                 <div class="block3">
                                     <p class="mindText">{{$user->name}}</p>
                                     <div class="d-flex justify-content-between">
-                                        <p class="numberviewsSuggestion">1230</p>
-                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+                                        
+                                          
                                          <!-- Date creation relative -->
                                          @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
                                                   @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
