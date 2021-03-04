@@ -843,7 +843,13 @@
                             <div class="elementCardSuggestionDay">
                                 <img class="imgElementCardSuggestionDay" src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" alt="">
                                 <a href="{{route('play',[$video->id])}}" target="blank" class="contentFlyHeure">
-                                    <p class="flyText">{{$video->title}} </p>
+                                    <p class="flyText"> 
+                                        @foreach($subtopics as $subtopic)
+                                        @if($video->subtopic_id == $subtopic->id)
+                                            {{ $subtopic->libelle }}
+                                        @endif
+                                        @endforeach
+                                    </p>
                                     <p class="heureFly">
                                         @php
                                         $reports = DB::Table('reports')
@@ -940,7 +946,13 @@
                             <div class="elementCardSuggestionDay">
                                 <img class="imgElementCardSuggestionDay" src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" alt="">
                                 <a href="{{route('play',[$video->id])}}" target="blank" class="contentFlyHeure">
-                                    <p class="flyText">{{$video->title}}</p>
+                                    <p class="flyText">
+                                        @foreach($subtopics as $subtopic)
+                                        @if($video->subtopic_id == $subtopic->id)
+                                            {{ $subtopic->libelle }}
+                                        @endif
+                                        @endforeach
+                                    </p>
                                     <p class="heureFly">
                                         @php
                                         $reports = DB::Table('reports')
@@ -1037,7 +1049,13 @@
                             <div class="elementCardSuggestionDay">
                                 <img class="imgElementCardSuggestionDay" src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" alt="">
                                 <a href="{{route('play',[$video->id])}}" target="blank" class="contentFlyHeure">
-                                    <p class="flyText">{{$video->title}}</p>
+                                    <p class="flyText">
+                                        @foreach($subtopics as $subtopic)
+                                        @if($video->subtopic_id == $subtopic->id)
+                                            {{ $subtopic->libelle }}
+                                        @endif
+                                        @endforeach
+                                    </p>
                                     <p class="heureFly">
                                         @php
                                         $reports = DB::Table('reports')
@@ -1135,7 +1153,13 @@
                             <div class="elementCardSuggestionDay">
                                 <img class="imgElementCardSuggestionDay" src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" alt="">
                                 <a href="{{route('play',[$video->id])}}" target="blank" class="contentFlyHeure">
-                                    <p class="flyText">{{$video->title}}</p>
+                                    <p class="flyText">
+                                        @foreach($subtopics as $subtopic)
+                                        @if($video->subtopic_id == $subtopic->id)
+                                            {{ $subtopic->libelle }}
+                                        @endif
+                                        @endforeach
+                                    </p>
                                     <p class="heureFly">
                                         @php
                                         $reports = DB::Table('reports')
@@ -1233,7 +1257,13 @@
                                 <div class="elementCardSuggestionDay">
                                     <img class="imgElementCardSuggestionDay" src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" alt="">
                                     <a href="{{route('play',[$video->id])}}" target="blank" class="contentFlyHeure">
-                                        <p class="flyText">{{$video->title}}</p>
+                                        <p class="flyText">
+                                        @foreach($subtopics as $subtopic)
+                                        @if($video->subtopic_id == $subtopic->id)
+                                            {{ $subtopic->libelle }}
+                                        @endif
+                                        @endforeach
+                                        </p>
                                         <p class="heureFly">
                                             @php
                                             $reports = DB::Table('reports')
@@ -1331,7 +1361,13 @@
                             <div class="elementCardSuggestionDay">
                                 <img class="imgElementCardSuggestionDay" src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" alt="">
                                 <a href="{{route('play',[$video->id])}}" target="blank" class="contentFlyHeure">
-                                    <p class="flyText">{{$video->title}}</p>
+                                    <p class="flyText"> 
+                                        @foreach($subtopics as $subtopic)
+                                        @if($video->subtopic_id == $subtopic->id)
+                                            {{ $subtopic->libelle }}
+                                        @endif
+                                        @endforeach
+                                    </p>
                                     <p class="heureFly">
                                         @php
                                         $reports = DB::Table('reports')
