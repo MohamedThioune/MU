@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>
-        MUttttt
+        MU
     </title>
     <meta charset="utf-8">
      <meta http-equiv="X-UA-Com10.patible" content="IE=edge">

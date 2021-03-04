@@ -62,9 +62,46 @@ class VideoController extends AppBaseController
      */
     public function create()
     {
-        /** @var MainTopic $maintopics */
         $subtopics = SubTopic::all();
-        return view('videos.create',compact('subtopics'));
+
+        /** @var SubTopic $subtopics */
+        $subtopics_health = DB::Table('sub_topics')->select('sub_topics.*')
+        ->join('main_topics', 'main_topics.id', 'sub_topics.maintopic_id')
+        ->where('sub_topics.maintopic_id', 3)
+        ->get();
+
+        $subtopics_life = DB::Table('sub_topics')->select('sub_topics.*')
+        ->join('main_topics', 'main_topics.id', 'sub_topics.maintopic_id')
+        ->where('sub_topics.maintopic_id', 2)
+        ->get();
+
+        $subtopics_healthcare = DB::Table('sub_topics')->select('sub_topics.*')
+        ->join('main_topics', 'main_topics.id', 'sub_topics.maintopic_id')
+        ->where('sub_topics.maintopic_id', 1)
+        ->get();
+
+        $subtopics_education = DB::Table('sub_topics')->select('sub_topics.*')
+        ->join('main_topics', 'main_topics.id', 'sub_topics.maintopic_id')
+        ->where('sub_topics.maintopic_id', 6)
+        ->get();
+
+        $subtopics_business = DB::Table('sub_topics')->select('sub_topics.*')
+        ->join('main_topics', 'main_topics.id', 'sub_topics.maintopic_id')
+        ->where('sub_topics.maintopic_id', 4)
+        ->get();
+
+        $subtopics_new = DB::Table('sub_topics')->select('sub_topics.*')
+        ->join('main_topics', 'main_topics.id', 'sub_topics.maintopic_id')
+        ->where('sub_topics.maintopic_id', 5)
+        ->get();
+
+
+        /** @var Channel $channel */
+        $channel = DB::Table('users')->select('channels.*')
+                                                        ->join('channels', 'users.id', 'channels.user_id')
+                                                        ->where('users.id', Auth::id())
+                                                        ->first();
+        return view('videos.create',compact('subtopics_health', 'subtopics_life', 'subtopics_healthcare', 'subtopics_business', 'subtopics_education', 'subtopics_new', 'subtopics', 'channel'));
     }
 
     /**
@@ -77,7 +114,7 @@ class VideoController extends AppBaseController
     public function store(CreateVideoRequest $request)
     {
         $input = $request->all();
-
+        $input['user_id'] = Auth::id();
         //define type uploaded
         $video_type = "video";
 
@@ -365,6 +402,4 @@ class VideoController extends AppBaseController
         
         return redirect()->back();
     }
-
-    
 }

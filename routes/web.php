@@ -13,6 +13,9 @@
 
 Route::get('/', function () {
 
+    $subtopics = DB::Table('sub_topics')->select('*')
+                                        ->get();
+
     $signals = DB::Table('reports')->select('*')
                                ->where('reports.user_id', Auth::id()) 
                                ->get();
@@ -51,7 +54,7 @@ Route::get('/', function () {
     
     session(['videos_haltcare' => $videos_haltcare, 'videos_life' => $videos_life, 'videos_health' => $videos_health, 'videos_business' => $videos_business, 'videos_environnement' => $videos_environnement, 'videos_education' => $videos_education]);
 
-    return view('home');
+    return view('home', compact('subtopics'));
 });
 
 Route::get('/comment', [App\Http\Controllers\CommentController::class, 'contribute'])->name('comments.contribute');

@@ -5,25 +5,32 @@
 @endsection
 
 @section('content-element-page')
-    <form class="">
+    <form action="/videos" method="POST" enctype="multipart/form-data">
+        @csrf
         <div class="mes-videos">
             <div class="div-block-219">
                 <div class="bandeau-chaine"></div>
                 <div class="nom-de-la-chaine">
-                    <h1 class="text-name-title-creator">Halimatou créatrice de douceurs</h1>
+                    <h1 class="text-name-title-creator">{{$channel->name}}</h1>
                 </div>
+                @php $user = Auth::user(); @endphp
+     
+                @if($user->sex == 0)
                 <div class="div-block-220">
                     <div class="div-block-224">
                         <div class="div-block-222"></div>
+                        
                         <div class="div-block-231">
                             <div class="bouton-activ-on">
                                 <div class="div-block-227"></div>
                             </div>
                         </div>
-                        <p class="text-publier-cette-video">Publier cette vidéo uniquement  sur Sista 2 Sisita</p>
+                     
+                        <p class="text-publier-cette-video">Publier cette vidéo uniquement sur Sista 2 Sista</p>
                     </div>
                 </div>
-            </div>
+                @endif
+            </div> 
             <div class="div-block-235">
                 <p class="text-la-video2">Télécharger ma vidéo</p>
                 <div class="div-block-254">
@@ -36,7 +43,7 @@
                         <div class="data-video">
                             <div class="form-group div-block-238">
                                 <div class="box">
-                                    <input type="file" name="vid[]" id="vid" class="inputfile inputFile1 inputfile-4" data-multiple-caption="{count} files selected" />
+                                    <input type="file" name="vid" id="vid" class="inputfile inputFile1 inputfile-4"/>
                                     <label for="vid">
                                         <figure> <img src="{{ asset('img/outline-cloud_upload-24px.png') }}" class="img-cloud" alt=""></figure>
                                         <span class="text2-telecharger-la-video">Télécharger la vidéo</span>
@@ -45,9 +52,9 @@
 
                                 <div class="div-block-255"></div>
                             </div>
-                            <p class="text-detail-fichier">Nom du fichier<br>Taille<br>Durée<br>Format<br>Date de téléchargement <br></p>
+                            <!-- <p class="text-detail-fichier">Nom du fichier<br>Taille<br>Durée<br>Format<br>Date de téléchargement <br></p> -->
                         </div>
-                        <p class="text-ref-fichier">Ref : mu/…</p>
+                        <!-- <p class="text-ref-fichier">Ref : mu/…</p> -->
                     </div>
                     <div class="div-block-239">
                         <div class="content2">
@@ -89,46 +96,16 @@
                             </div>
                             <p>Santé</p>
                         </div>
+
+                        @foreach($subtopics_health as $subtopic)
                         <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 1</a>
+                            <!-- <div class="div-block-244"></div> -->
+                            <input  class="div-block-244" type="radio" id="link" name="subtopic_id" value="{{$subtopic->id}}">
+                            <label for="link" class="link-20">{{$subtopic->libelle}}</label>
+                            <!-- <a href="#" class="link-20">Topic 1</a> -->
                         </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 2</a>
-                        </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 3</a>
-                        </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 4</a>
-                        </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 5</a>
-                        </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 6</a>
-                        </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 7</a>
-                        </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 8</a>
-                        </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 9</a>
-                        </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 10</a>
-                        </div>
+                        @endforeach
+                        
                     </div>
                     <div class="div-block-246">
                         <div class="div-block-242">
@@ -137,46 +114,16 @@
                             </div>
                             <p>Life</p>
                         </div>
+                       
+                        @foreach($subtopics_life as $subtopic)
                         <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 1</a>
+                            <!-- <div class="div-block-244"></div> -->
+                            <input  class="div-block-244" type="radio" id="link" name="subtopic_id" value="{{$subtopic->id}}">
+                            <label for="link" class="link-20">{{$subtopic->libelle}}</label>
+                            <!-- <a href="#" class="link-20">Topic 1</a> -->
                         </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 2</a>
-                        </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 3</a>
-                        </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 4</a>
-                        </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 5</a>
-                        </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 6</a>
-                        </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 7</a>
-                        </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 8</a>
-                        </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 9</a>
-                        </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 10</a>
-                        </div>
+                        @endforeach
+                        
                     </div>
                     <div class="div-block-246">
                         <div class="div-block-242">
@@ -185,46 +132,16 @@
                             </div>
                             <p>Tuto</p>
                         </div>
+                        
+                        @foreach($subtopics_healthcare as $subtopic)
                         <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 1</a>
+                            <!-- <div class="div-block-244"></div> -->
+                            <input  class="div-block-244" type="radio" id="link" name="subtopic_id" value="{{$subtopic->id}}">
+                            <label for="link" class="link-20">{{$subtopic->libelle}}</label>
+                            <!-- <a href="#" class="link-20">Topic 1</a> -->
                         </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 2</a>
-                        </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 3</a>
-                        </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 4</a>
-                        </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 5</a>
-                        </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 6</a>
-                        </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 7</a>
-                        </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 8</a>
-                        </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 9</a>
-                        </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 10</a>
-                        </div>
+                        @endforeach
+                        
                     </div>
                     <div class="div-block-246">
                         <div class="div-block-242">
@@ -237,42 +154,7 @@
                             <div class="div-block-244"></div>
                             <a href="#" class="link-20">Topic 1</a>
                         </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 2</a>
-                        </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 3</a>
-                        </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 4</a>
-                        </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 5</a>
-                        </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 6</a>
-                        </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 7</a>
-                        </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 8</a>
-                        </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 9</a>
-                        </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 10</a>
-                        </div>
+                        
                     </div>
                 </div>
                 <div class="div-block-247">
@@ -283,46 +165,16 @@
                             </div>
                             <p>Education</p>
                         </div>
+
+                        @foreach($subtopics_education as $subtopic)
                         <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 1</a>
+                            <!-- <div class="div-block-244"></div> -->
+                            <input  class="div-block-244" type="radio" id="link" name="subtopic_id" value="{{$subtopic->id}}">
+                            <label for="link" class="link-20">{{$subtopic->libelle}}</label>
+                            <!-- <a href="#" class="link-20">Topic 1</a> -->
                         </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 2</a>
-                        </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 3</a>
-                        </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 4</a>
-                        </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 5</a>
-                        </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 6</a>
-                        </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 7</a>
-                        </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 8</a>
-                        </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 9</a>
-                        </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 10</a>
-                        </div>
+                        @endforeach
+
                     </div>
                     <div class="div-block-246">
                         <div class="div-block-242">
@@ -330,46 +182,16 @@
                                 <img src="{{ asset('img/Groupe-9302x.png') }}" alt=""></div>
                             <p>Business</p>
                         </div>
+
+                        @foreach($subtopics_business as $subtopic)
                         <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 1</a>
+                            <!-- <div class="div-block-244"></div> -->
+                            <input  class="div-block-244" type="radio" id="link" name="subtopic_id" value="{{$subtopic->id}}">
+                            <label for="link" class="link-20">{{$subtopic->libelle}}</label>
+                            <!-- <a href="#" class="link-20">Topic 1</a> -->
                         </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 2</a>
-                        </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 3</a>
-                        </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 4</a>
-                        </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 5</a>
-                        </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 6</a>
-                        </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 7</a>
-                        </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 8</a>
-                        </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 9</a>
-                        </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 10</a>
-                        </div>
+                        @endforeach
+                        
                     </div>
                     <div class="div-block-246">
                         <div class="div-block-242">
@@ -382,42 +204,7 @@
                             <div class="div-block-244"></div>
                             <a href="#" class="link-20">Topic 1</a>
                         </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 2</a>
-                        </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 3</a>
-                        </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 4</a>
-                        </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 5</a>
-                        </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 6</a>
-                        </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 7</a>
-                        </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 8</a>
-                        </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 9</a>
-                        </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 10</a>
-                        </div>
+                        
                     </div>
                     <div class="div-block-246">
                         <div class="div-block-242">
@@ -426,46 +213,16 @@
                             </div>
                             <p>News</p>
                         </div>
+
+                         @foreach($subtopics_new as $subtopic)
                         <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 1</a>
+                            <!-- <div class="div-block-244"></div> -->
+                            <input  class="div-block-244" type="radio" id="link" name="subtopic_id" value="{{$subtopic->id}}">
+                            <label for="link" class="link-20">{{$subtopic->libelle}}</label>
+                            <!-- <a href="#" class="link-20">Topic 1</a> -->
                         </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 2</a>
-                        </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 3</a>
-                        </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 4</a>
-                        </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 5</a>
-                        </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 6</a>
-                        </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 7</a>
-                        </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 8</a>
-                        </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 9</a>
-                        </div>
-                        <div class="div-block-245">
-                            <div class="div-block-244"></div>
-                            <a href="#" class="link-20">Topic 10</a>
-                        </div>
+                        @endforeach
+                        
                     </div>
                 </div>
             </div>
@@ -496,7 +253,7 @@
                     <a href="#" class="button-14 w-button">Valider</a>
                 </div>
             </div>
-            <div class="div-block-256">
+            <!-- <div class="div-block-256">
                 <p class="text-la-video2">Résumé</p>
                 <div class="div-block-258">
                     <div class="div-block-257">
@@ -515,7 +272,8 @@
                     </div>
                 </div>
                 <a href="#" class="button-14 w-button">Confirmer</a>
-            </div>
+            </div> -->
+            
             <div class="div-block-251">
                 <p class="text-la-video2">Validation Publication</p>
                 <div class="div-block-253">
@@ -527,30 +285,10 @@
                 </div>
             </div>
         </div>
-
-
-
-
-
-
-
-
-
-
+       
         @include('adminlte-templates::common.errors')
-        <div class="box box-primary">
-            <div class="box-body">
-                <div class="row">
-                    {!! Form::open(['route' => 'videos.store', 'files' => true]) !!}
 
-                    @include('videos.fields')
-
-                    {!! Form::close() !!}
-                </div>
-            </div>
-        </div>
-    </form>
-@endsection
+@endsection 
 @section('scripts')
 
 @endsection
