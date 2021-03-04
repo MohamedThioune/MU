@@ -48,7 +48,6 @@ class Comment extends Model
      * @var array
      */
     public static $rules = [
-        'user_id' => 'required',
         'video_id' => 'required',
         'value' => 'required'
     ];

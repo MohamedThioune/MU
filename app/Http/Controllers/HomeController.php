@@ -47,16 +47,20 @@ class HomeController extends Controller
 
         $video = Video::find($id);
         $user = User::find($video->user_id); 
+        $users = array();
 
         $reads = DB::Table('reads')
         ->where('video_id', $id)
         ->count();
 
-        $comments = DB::Table('comments')->select('users.*','comments.value' ,'comments.id as comment_id' ,'comments.created_at as created_at')
-        ->join('videos', 'videos.id', 'comments.video_id')
-        ->join('users', 'videos.user_id', 'users.id')
+        $comments = DB::Table('comments')->select('comments.user_id','comments.value' ,'comments.id as comment_id' ,'comments.created_at as created_at')
         ->where('comments.video_id', $id)
         ->get();
+
+        foreach($comments as $comment){
+            $auth =  User::find($comment->user_id);
+            array_push($users, $auth);
+        };
 
         $counts = count($comments);
         $inputs_read = ['video_id' => $id, 'user_id' => Auth::id()];
@@ -64,6 +68,6 @@ class HomeController extends Controller
         Read::create($inputs_read);
 
         session(['video' => $video, 'user' => $user]);
-        return view('play', compact('comments','counts','reads'));
+        return view('play', compact('comments', 'counts', 'reads', 'users'));
     }
 }

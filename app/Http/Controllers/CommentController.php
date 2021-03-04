@@ -50,13 +50,14 @@ class CommentController extends AppBaseController
     public function store(CreateCommentRequest $request)
     { 
         $input = $request->all();
+        $input['user_id'] =  Auth::id();
 
         /** @var Comment $comment */
         $comment = Comment::create($input);
 
         Flash::success('Comment saved successfully.');
 
-        return redirect('/comments');
+        return redirect('/play'.'/'.$request->video_id);
     }
 
     public function contribute()
@@ -69,8 +70,7 @@ class CommentController extends AppBaseController
         Flash::success('Comment saved successfully.');
 
         $comments = DB::Table('comments')->select('users.*','comments.value' ,'comments.id as comment_id' ,'comments.created_at as created_at')
-        ->join('videos', 'videos.id', 'comments.video_id')
-        ->join('users', 'videos.user_id', 'users.id')
+        ->join('users', 'comments.user_id', 'users.id')
         ->where('comments.video_id',  htmlspecialchars($_GET['video_id']))
         ->get();
 

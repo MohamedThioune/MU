@@ -675,14 +675,24 @@
                         <img class="commentImg" src="{{ asset('img/icones/commet.svg') }}" alt="">
                     </div>
 
+                    @for($i = 0; $i < count($comments); $i++)
                     <div class="coment-1">
                         <div class="div-block-325">
                             <div class="div-block-329">
+                                @php @endphp
                                 <div class="div-block-327">
-                                    <img src="images/Mu-bull-profil-yender-fonseca.jpg" ></div>
-                                <div class="div-block-326">
-                                    <div class="text-block-323">User name</div>
-                                    <div class="text-block-322">Commentaire concernant la vidéos dans la limite de la réserve et du respect des règles d&#x27;utilisation... <a href="#" class="link-24">Lire plus</a>
+                
+                                    @if($users[$i]->age <= 15)
+                                        <img src="{{asset('images/kids_preloader.png')}}" style="width:45px; height:42px"  class="img-circle" alt="User Image"/>
+                                    @elseif($users[$i]->age > 15 && $users[$i]->sex == '1')
+                                        <img src="{{asset('images/flow_preloader.png')}}" style="width:45px; height:42px"  class="img-circle" alt="User Image"/>
+                                    @elseif($users[$i]->age > 15 && users[$i]->sex == '0')
+                                        <img src="{{asset('images/sista_preloader.png')}}" style="width:45px; height:42px"  class="img-circle" alt="User Image"/>
+                                    @endif                                
+                                </div>
+                                <div class="div-block-326" >
+                                    <div class="text-block-323" style="width:200px">{{$users[$i]->name}}</div>
+                                    <div class="text-block-322">{{$comments[$i]->value}}...&nbsp;&nbsp;<a href="#" class="link-24">Lire plus</a>
                                     </div>
                                 </div>
                                 <div class="text-block-324">2h</div>
@@ -705,204 +715,39 @@
                         </div>
                         <div class="div-block-331" id="TestsDiv" style="display:none">
                             <div class="text-block-264">Description de la vidéo</div>
-                            <form class="">
-                                <textarea class="inputCommentaire" name="" id="" rows="5"></textarea>
-                            </form>
-                            <div>
+
+                            @include('adminlte-templates::common.errors')
+                            <form method="POST" action="/comments">
+                                @csrf
+                                <input type="hidden" name="video_id" value="{{session('video')->id}}" id="">
+                                <textarea class="inputCommentaire" name="value" id="" rows="5"></textarea>
+
                                 <div class="div-block-332">
                                     <div data-w-id="4b72083c-6fc6-243d-8a1a-20877dbe9b72" class="text-block-325">Annuler</div>
-                                    <button class="text-block-326 btn">Envoyer</button>
+                                    <button type="submit" class="text-block-326 btn">Envoyer</button>
                                 </div>
+                            </form>
+                            <div>
+                                
                             </div>
                         </div>
                     </div>
+                    @php
+                    if($i == 1)
+                        break;
+                    @endphp
+                    @endfor
 
                     @for($i = 0; $i < count($comments); $i++)
-                    <div class="auteurCommentBlock">
-                        <div class="elementAuteurComment">
-                        @if($comments[$i]->photo)
-                            <img src="{{asset('images/uploads')}}/{{$comments[$i]->photo}}" style="width:45px; height:42px"  class="img-circle" alt="User Image"/>
-                        @elseif($comments[$i]->age <= 15)
-                            <img src="{{asset('images/kids_preloader.png')}}" style="width:45px; height:42px"  class="img-circle" alt="User Image"/>
-                        @elseif($comments[$i]->age > 15 && $comments[$i]->sex == '1')
-                            <img src="{{asset('images/flow_preloader.png')}}" style="width:45px; height:42px"  class="img-circle" alt="User Image"/>
-                        @elseif($comments[$i]->age > 15 && s[$i]->sex == '0')
-                            <img src="{{asset('images/sista_preloader.png')}}" style="width:45px; height:42px"  class="img-circle" alt="User Image"/>
-                        @endif
-                        </div>
-                        <div class="textBlock">
-                            <div>
-                                <p class="commentaireAuteurTitle">{{$comments[$i]->name}}
-                                    <!-- Time comment -->
-                                    <!-- Date creation relative -->
-                                    @if(intval(abs(strtotime("now") - strtotime($comments[$i]->created_at))/ 86400) == 0)
-                                        @if(intval(abs(strtotime("now") - strtotime($comments[$i]->created_at))/ 3600) > 0)
-                                        <span class="timeCommentaire">{{intval(abs(strtotime("now") - strtotime($comments[$i]->created_at))/3600)}} hours ago </span>
-                                        @else(intval(abs(strtotime("now") - strtotime($comments[$i]->created_at))/ 3600) == 0)
-                                        <span class="timeCommentaire">{{intval(abs(strtotime("now") - strtotime($comments[$i]->created_at))/60)}} minutes ago </span>
-                                        @endif
-                                    @elseif(intval(abs(strtotime("now") - strtotime($comments[$i]->created_at))/ 86400) == 1)
-                                    <span class="timeCommentaire">Yesterday at {{strftime("%H:%M", strtotime($comments[$i]->created_at))}}</span>
-                                    @elseif(intval(abs(strtotime("now") - strtotime($comments[$i]->created_at))/ 86400) >= 2 && intval(abs(strtotime("now") - strtotime($comments[$i]->created_at))/ 86400) <= 27)
-                                    <span class="timeCommentaire"> {{intval(abs(strtotime("now") - strtotime($comments[$i]->created_at))/ 86400)}} days ago </span>
-                                    @else(intval(abs(strtotime("now") - strtotime($comments[$i]->created_at))/ 86400) > 27)
-                                    <span class="timeCommentaire">On {{strftime("%d/%m/%Y", strtotime($comments[$i]->created_at))}}</span>
-                                    @endif
-                                </p>
-
-                                <p class="commentaireText">
-                                    <p>{{$comments[$i]->value}}<a href="#" class="" style="font-weight:bold; color:#d63031; text-decoration:none;">Answer <i class="fas fa-reply"></i></a></p>
-                                    <p>
-                                        <span style="font-size:13px;">0&nbsp;<a href="#"><img src="{{ asset('img/icones/Like gris.png') }}" width="15" height="15" alt=""></a></span>
-                                        <span style="font-size:13px;">0&nbsp;<a href="#"><img src="{{ asset('img/icones/loveRenverseGris.png') }}" width="15" height="15"  alt=""></a></span>
-                                    </p>
-                                </p>
-                                @php
-                                    $responses_comments = DB::Table('response_comments')->select('response_comments.*','users.*','comments.value' ,'comments.id as comment_id' ,'comments.created_at as created_at')
-                                    ->join('comments', 'response_comments.comment_id', 'comments.id')
-                                    ->join('users', 'comments.user_id', 'users.id')
-                                    ->where('comments.id', $comments[$i]->id )
-                                    ->get();
-
-                                    $c = 0;
-                                @endphp
-
-                                @foreach($responses_comments as $response_comments )
-                                    <div class="reponse">
-                                        <div class="imgReponseBlock">
-                                            @if($response_comments->photo)
-                                                <img src="{{asset('images/uploads')}}/{{$response_comments->photo}}" alt="">
-                                            @elseif($response_comments->age <= 15)
-                                                <img src="{{asset('images/kids_preloader.png')}}" style="width:45px; height:42px"  class="img-circle" alt="User Image"/>
-                                            @elseif($response_comments->age > 15 && $response_comments->sex == '1')
-                                                <img src="{{asset('images/flow_preloader.png')}}" style="width:45px; height:42px"  class="img-circle" alt="User Image"/>
-                                            @elseif($response_comments->age > 15 && $response_comments->sex == '0')
-                                                <img src="{{asset('images/sista_preloader.png')}}" style="width:45px; height:42px"  class="img-circle" alt="User Image"/>
-                                            @endif
-                                        </div>
-                                        <div class="blockReponse">
-                                            <div class="textHeure">
-                                                <p class="reponseText">{{$response_comments->name}}</p>
-                                                @if(intval(abs(strtotime("now") - strtotime($response_comments->created_at))/ 86400) == 0)
-                                                    @if(intval(abs(strtotime("now") - strtotime($response_comments->created_at))/ 3600) > 0)
-                                                    <span class="timeReponse">{{intval(abs(strtotime("now") - strtotime($response_comments->created_at))/3600)}} hours ago </span>
-                                                    @else(intval(abs(strtotime("now") - strtotime($response_comments->created_at))/ 3600) == 0)
-                                                    <span class="timeReponse">{{intval(abs(strtotime("now") - strtotime($response_comments->created_at))/60)}} minutes ago </span>
-                                                    @endif
-                                                @elseif(intval(abs(strtotime("now") - strtotime($response_comments->created_at))/ 86400) == 1)
-                                                <span style="margin-left:90px;margin-top:3px" class="timeReponse">Yesterday at {{strftime("%H:%M", strtotime($response_comments->created_at))}}</span>
-                                                @elseif(intval(abs(strtotime("now") - strtotime($response_comments->created_at))/ 86400) >= 2 && intval(abs(strtotime("now") - strtotime($response_comments->created_at))/ 86400) <= 27)
-                                                <span class="timeReponse"> {{intval(abs(strtotime("now") - strtotime($response_comments->created_at))/ 86400)}} days ago </span>
-                                                @else(intval(abs(strtotime("now") - strtotime($response_comments->created_at))/ 86400) > 27)
-                                                <span class="timeReponse">On {{strftime("%d/%m/%Y", strtotime($response_comments->created_at))}}</span>
-                                                @endif
-                                            </div>
-                                            <p class="textReponse">{{$response_comments->response_value}}</p>
-                                        </div>
-                                    </div>
-
-                                    @php
-                                        if($c == 1){
-                                            break;
-                                        }
-                                        $c++;
-                                    @endphp
-
-                                @endforeach
-                                
-                                @if(count($responses_comments) > 2)
-                                <div class="d-flex">
-                                <a href="#" class="textComment" style="text-decoration:none; color:#e74c3c; margin-left:62px; padding-bottom:10px;"> <i class="fa fa-plus"></i>&nbsp;More answers ( {{count($responses_comments) - 2}} ) </a>
-                                </div>
-                                @endif
-                                <div class="reponse">
-                                    <div class="imgReponseBlock">
-                                        @if(Auth::user()->photo)
-                                            <img src="{{asset('images/uploads')}}/{{Auth::user()->photo}}" alt="">
-                                        @elseif(Auth::user()->age <= 15)
-                                            <img src="{{asset('images/kids_preloader.png')}}" style="width:45px; height:42px"  class="img-circle" alt="User Image"/>
-                                        @elseif(Auth::user()->age > 15 && Auth::user()->sex == '1')
-                                            <img src="{{asset('images/flow_preloader.png')}}" style="width:45px; height:42px"  class="img-circle" alt="User Image"/>
-                                        @elseif(Auth::user()->age > 15 && Auth::user()->sex == '0')
-                                            <img src="{{asset('images/sista_preloader.png')}}" style="width:45px; height:42px"  class="img-circle" alt="User Image"/>
-                                        @endif
-                                    </div>
-
-
-                                    <div class="blockReponse">
-                                        <div class="textReponse">
-                                            {!! Form::open(array('url' => '/response_comment', 'method' => 'get'))!!}
-                                                <div class="d-flex justify-content-between">
-                                                    {!! Form::text('response_value', null, ['class' => 'form-control', 'placeholder' => 'Reply to your brother...']) !!}
-                                                    &nbsp;
-                                                    {!! Form::hidden('comment_id', $comments[$i]->comment_id ) !!}
-                                                    {!! Form::hidden('video_id', session('video')->id ) !!}
-
-                                                    &nbsp;{!! Form::submit('Save', ['class' => 'btn btn-danger', 'style' => 'height:38px;']) !!}
-                                                </div>
-                                            {!! Form::close() !!}
-                                        </div>
-                                    </div>
-                                </div>
-
-
-
-                        </div>
-                            </div>
-                                <!-- <div class="checkBlock">
-                                    <div class="blockLick">
-                                        <p class="numberLike">19</p>
-                                        <img src="{{ asset('img/') }}" alt="">
-                                     </div>
-                                    <div class="d-flex">
-                                        <img src="" alt="">
-                                        <p></p>
-                                    </div>
-                                </div> -->
-                    </div>
+    
 
                     </div>
 
-                    <div class="auteurCommentBlock">
-                        <div class="elementAuteurComment">
-                        @if(Auth::user()->photo)
-                            <img src="{{asset('images/uploads')}}/{{Auth::user()->photo}}" style="width:45px; height:42px"  class="img-circle" alt="User Image"/>
-                        @elseif(Auth::user()->age <= 15)
-                            <img src="{{asset('images/kids_preloader.png')}}" style="width:45px; height:42px"  class="img-circle" alt="User Image"/>
-                        @elseif(Auth::user()->age > 15 && Auth::user()->sex == '1')
-                            <img src="{{asset('images/flow_preloader.png')}}" style="width:45px; height:42px"  class="img-circle" alt="User Image"/>
-                        @elseif(Auth::user()->age > 15 && Auth::user()->sex == '0')
-                            <img src="{{asset('images/sista_preloader.png')}}" style="width:45px; height:42px"  class="img-circle" alt="User Image"/>
-                        @endif
-                        </div>
-                        <div class="textBlock">
-                            <div>
-                                {!! Form::open(array('url' => '/comment', 'method' => 'get'))!!}
-                                <div class="d-flex justify-content-between">
-                                    {!! Form::text('value', null, ['class' => 'form-control', 'placeholder' => 'Contribute to this video ...']) !!}
-                                    &nbsp;
-                                    {!! Form::hidden('video_id', session('video')->id ) !!}
-
-                                    &nbsp;{!! Form::submit('Save', ['class' => 'btn btn-danger', 'style' => 'height:38px;']) !!}
-                                </div>
-                                {!! Form::close() !!}
-                            </div>
-                        </div>
-                    </div>
                     @php
                         if($i == 0)
                             break;
                     @endphp
                     @endfor
-                    <div class="blockMoreAnswer">
-                        <div class="d-flex">
-                            <a href="#" class="textComment" style="text-decoration:none;"> <i class="fa fa-plus"></i>&nbsp;More comments</a>
-                        </div>
-                        <div class="d-flex">
-                            <a href="#" class="textCommentBleu">{{$channel->name}} answer</a>
-                            <i class="fa fa-message"></i>
-                        </div>
-                    </div>
                     <br>
                 </div>
 
