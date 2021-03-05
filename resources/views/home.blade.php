@@ -841,7 +841,20 @@
                         @foreach(session('videos_haltcare') as $video)
                         <div class="swiper-slide card-suggestionDay">
                             <div class="elementCardSuggestionDay">
-                                <img class="imgElementCardSuggestionDay" src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" alt="">
+                                @php 
+                                    $user = App\User::find($video->user_id);
+                                @endphp
+
+                                @if($video->thumbnail)
+                                    <img class="imgElementCardSuggestionDay" src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" alt="">
+                                @elseif($user->age <= 15)
+                                    <img class="imgElementCardSuggestionDay" src="{{asset('images/kids_preloader.png')}}" alt="">
+                                @elseif($user->age > 15 && $user->sex == '1')
+                                    <img class="imgElementCardSuggestionDay" src="{{asset('images/flow_preloader.png')}}" alt=""/>
+                                @elseif($user->age > 15 && $user->sex == '0')
+                                    <img class="imgElementCardSuggestionDay" src="{{asset('images/sista_preloader.png')}}" alt="">
+                                @endif
+                            
                                 <a href="{{route('play',[$video->id])}}" target="blank" class="contentFlyHeure">
                                     <p class="flyText"> 
                                         @foreach($subtopics as $subtopic)
@@ -880,9 +893,7 @@
                                     </a>
                                 </div>
                                 <div class="mindCard">
-                                    @php
-                                    $user = App\User::find($video->user_id);
-                                    @endphp
+                                   
                                     <div class="blockImgMind">
                                         @if($user->photo)
                                         <img class="" src="{{ asset('/images/uploads') }}/{{$user->photo}}" alt="">
@@ -944,7 +955,19 @@
                         @foreach(session('videos_life') as $video)
                         <div class=" swiper-slide card-suggestionDay">
                             <div class="elementCardSuggestionDay">
-                                <img class="imgElementCardSuggestionDay" src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" alt="">
+                                @php 
+                                    $user = App\User::find($video->user_id);
+                                @endphp
+
+                                @if($video->thumbnail)
+                                    <img class="imgElementCardSuggestionDay" src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" alt="">
+                                @elseif($user->age <= 15)
+                                    <img class="imgElementCardSuggestionDay" src="{{asset('images/kids_preloader.png')}}" alt="">
+                                @elseif($user->age > 15 && $user->sex == '1')
+                                    <img class="imgElementCardSuggestionDay" src="{{asset('images/flow_preloader.png')}}" alt=""/>
+                                @elseif($user->age > 15 && $user->sex == '0')
+                                    <img class="imgElementCardSuggestionDay" src="{{asset('images/sista_preloader.png')}}" alt="">
+                                @endif                                
                                 <a href="{{route('play',[$video->id])}}" target="blank" class="contentFlyHeure">
                                     <p class="flyText">
                                         @foreach($subtopics as $subtopic)
@@ -982,9 +1005,7 @@
                                     </a>
                                 </div>
                                 <div class="mindCard">
-                                    @php
-                                    $user = App\User::find($video->user_id);
-                                    @endphp
+            
                                     <div class="blockImgMind">
                                         @if($user->photo)
                                         <img class="" src="{{ asset('/images/uploads') }}/{{$user->photo}}" alt="">
@@ -1047,7 +1068,19 @@
                         @foreach(session('videos_health') as $video)
                         <div class=" swiper-slide card-suggestionDay">
                             <div class="elementCardSuggestionDay">
-                                <img class="imgElementCardSuggestionDay" src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" alt="">
+                                @php 
+                                    $user = App\User::find($video->user_id);
+                                @endphp
+
+                                @if($video->thumbnail)
+                                    <img class="imgElementCardSuggestionDay" src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" alt="">
+                                @elseif($user->age <= 15)
+                                    <img class="imgElementCardSuggestionDay" src="{{asset('images/kids_preloader.png')}}" alt="">
+                                @elseif($user->age > 15 && $user->sex == '1')
+                                    <img class="imgElementCardSuggestionDay" src="{{asset('images/flow_preloader.png')}}" alt=""/>
+                                @elseif($user->age > 15 && $user->sex == '0')
+                                    <img class="imgElementCardSuggestionDay" src="{{asset('images/sista_preloader.png')}}" alt="">
+                                @endif                                
                                 <a href="{{route('play',[$video->id])}}" target="blank" class="contentFlyHeure">
                                     <p class="flyText">
                                         @foreach($subtopics as $subtopic)
@@ -1085,9 +1118,7 @@
                                     </a>
                                 </div>
                                 <div class="mindCard">
-                                    @php
-                                    $user = App\User::find($video->user_id);
-                                    @endphp
+                                    
                                     <div class="blockImgMind">
                                         @if($user->photo)
                                         <img class="" src="{{ asset('/images/uploads') }}/{{$user->photo}}" alt="">
@@ -1151,7 +1182,19 @@
                         @foreach(session('videos_business') as $video)
                         <div class=" swiper-slide card-suggestionDay">
                             <div class="elementCardSuggestionDay">
-                                <img class="imgElementCardSuggestionDay" src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" alt="">
+                                @php 
+                                    $user = App\User::find($video->user_id);
+                                @endphp
+
+                                @if($video->thumbnail)
+                                    <img class="imgElementCardSuggestionDay" src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" alt="">
+                                @elseif($user->age <= 15)
+                                    <img class="imgElementCardSuggestionDay" src="{{asset('images/kids_preloader.png')}}" alt="">
+                                @elseif($user->age > 15 && $user->sex == '1')
+                                    <img class="imgElementCardSuggestionDay" src="{{asset('images/flow_preloader.png')}}" alt=""/>
+                                @elseif($user->age > 15 && $user->sex == '0')
+                                    <img class="imgElementCardSuggestionDay" src="{{asset('images/sista_preloader.png')}}" alt="">
+                                @endif                                 
                                 <a href="{{route('play',[$video->id])}}" target="blank" class="contentFlyHeure">
                                     <p class="flyText">
                                         @foreach($subtopics as $subtopic)
@@ -1189,9 +1232,7 @@
                                     </a>
                                 </div>
                                 <div class="mindCard">
-                                    @php
-                                    $user = App\User::find($video->user_id);
-                                    @endphp
+                                   
                                     <div class="blockImgMind">
                                         @if($user->photo)
                                         <img class="" src="{{ asset('/images/uploads') }}/{{$user->photo}}" alt="">
@@ -1255,7 +1296,19 @@
                             @foreach(session('videos_education') as $video)
                             <div class=" swiper-slide card-suggestionDay">
                                 <div class="elementCardSuggestionDay">
-                                    <img class="imgElementCardSuggestionDay" src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" alt="">
+                                    @php 
+                                        $user = App\User::find($video->user_id);
+                                    @endphp
+
+                                    @if($video->thumbnail)
+                                        <img class="imgElementCardSuggestionDay" src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" alt="">
+                                    @elseif($user->age <= 15)
+                                        <img class="imgElementCardSuggestionDay" src="{{asset('images/kids_preloader.png')}}" alt="">
+                                    @elseif($user->age > 15 && $user->sex == '1')
+                                        <img class="imgElementCardSuggestionDay" src="{{asset('images/flow_preloader.png')}}" alt=""/>
+                                    @elseif($user->age > 15 && $user->sex == '0')
+                                        <img class="imgElementCardSuggestionDay" src="{{asset('images/sista_preloader.png')}}" alt="">
+                                    @endif                                     
                                     <a href="{{route('play',[$video->id])}}" target="blank" class="contentFlyHeure">
                                         <p class="flyText">
                                         @foreach($subtopics as $subtopic)
@@ -1359,8 +1412,20 @@
                         @foreach(session('videos_environnement') as $video)
                         <div class=" swiper-slide card-suggestionDay">
                             <div class="elementCardSuggestionDay">
-                                <img class="imgElementCardSuggestionDay" src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" alt="">
-                                <a href="{{route('play',[$video->id])}}" target="blank" class="contentFlyHeure">
+                                    @php 
+                                        $user = App\User::find($video->user_id);
+                                    @endphp
+
+                                    @if($video->thumbnail)
+                                        <img class="imgElementCardSuggestionDay" src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" alt="">
+                                    @elseif($user->age <= 15)
+                                        <img class="imgElementCardSuggestionDay" src="{{asset('images/kids_preloader.png')}}" alt="">
+                                    @elseif($user->age > 15 && $user->sex == '1')
+                                        <img class="imgElementCardSuggestionDay" src="{{asset('images/flow_preloader.png')}}" alt=""/>
+                                    @elseif($user->age > 15 && $user->sex == '0')
+                                        <img class="imgElementCardSuggestionDay" src="{{asset('images/sista_preloader.png')}}" alt="">
+                                    @endif                                 
+                                    <a href="{{route('play',[$video->id])}}" target="blank" class="contentFlyHeure">
                                     <p class="flyText"> 
                                         @foreach($subtopics as $subtopic)
                                         @if($video->subtopic_id == $subtopic->id)

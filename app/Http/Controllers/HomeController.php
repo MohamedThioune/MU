@@ -53,7 +53,7 @@ class HomeController extends Controller
         ->where('video_id', $id)
         ->count();
 
-        $comments = DB::Table('comments')->select('comments.user_id','comments.value' ,'comments.id as comment_id' ,'comments.created_at as created_at')
+        $comments = DB::Table('comments')->select('comments.user_id','comments.value' ,'comments.id as comment_id' ,'comments.created_at')
         ->where('comments.video_id', $id)
         ->orderBy('comments.created_at', 'desc')
         ->get();

@@ -666,8 +666,9 @@
     <div class="content-commentaire">
     <div class="container-fluid">
         <div class="row ">
+        @if(count($comments) > 0)
             <div class="col-md-5  col-lg-5 col-sm-12  commentBlock">
-                @if(count($comments) > 0)
+               
                 <div class="commentOne">
                     <div class="commentTitle">
                         <p class="nombreComment">{{count($comments)}}</p>
@@ -679,7 +680,7 @@
                     <div class="coment-1">
                         <div class="div-block-325">
                             <div class="div-block-329">
-                                @php @endphp
+                               
                                 <div class="div-block-327">
                 
                                     @if($users[$i]->age <= 15)
@@ -695,7 +696,21 @@
                                     <div class="text-block-322" style="width:300px">{{$comments[$i]->value}}...&nbsp;&nbsp;<a href="#" class="link-24">Lire plus</a>
                                     </div>
                                 </div>
-                                <div class="text-block-324">2h</div>
+                                <div class="text-block-324">                                
+                                    @if(intval(abs(strtotime("now") - strtotime($comments[$i]->created_at))/ 86400) == 0)
+                                        @if(intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 3600) > 0)
+                                         {{intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/3600)}} hours ago
+                                        @else(intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 3600) == 0)
+                                         {{intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/60)}} minutes ago
+                                        @endif
+                                    @elseif(intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 86400) == 1)
+                                     Yesterday at {{strftime("%H:%M", strtotime( $comments[$i]->created_at))}}
+                                    @elseif(intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 86400) >= 2 && intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 86400) <= 27)
+                                      {{intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 86400)}} days ago
+                                    @else(intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 86400) > 27)
+                                     On {{strftime("%d/%m/%Y", strtotime( $comments[$i]->created_at))}}
+                                    @endif
+                                </div>
                             </div>
                             <div class="div-block-328">
                                 <div>
@@ -714,7 +729,7 @@
                             </div>
                         </div>
                         <div class="div-block-331" id="TestsDiv" style="display:none">
-                            <div class="text-block-264">Description de la vidéo</div>
+                            <div class="text-block-264">Commentaires</div>
 
                             @include('adminlte-templates::common.errors')
                             <form method="POST" action="/comments">
@@ -727,7 +742,7 @@
                                     <button type="submit" class="text-block-326 btn">Envoyer</button>
                                 </div>
                             </form>
-                            <div>
+                        <div>
                                 
                             </div>
                         </div>
@@ -750,8 +765,31 @@
                     @endfor
                     <br>
                 </div>
+                @else
+                <div class="commentOne">
+                    <div class="commentTitle">
+                        <p class="nombreComment"></p>
+                        <p class="commentText">Be the first to comment our brother's video</p>
+                        <img class="commentImg" src="{{ asset('img/icones/commet.svg') }}" alt="">
+                    </div>
+                    <div class="div-block-331" >
+                        <div class="text-block-264">Commentaires</div>
 
-            @endif
+                        @include('adminlte-templates::common.errors')
+                        <form method="POST" action="/comments">
+                            @csrf
+                            <input type="hidden" name="video_id" value="{{session('video')->id}}" id="">
+                            <textarea class="inputCommentaire" name="value" id="" rows="5"></textarea>
+
+                            <div class="div-block-332">
+                                <div data-w-id="4b72083c-6fc6-243d-8a1a-20877dbe9b72" class="text-block-325">Annuler</div>
+                                <button type="submit" class="text-block-326 btn">Envoyer</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                @endif
+           
          <div class="col-md-7 col-lg-7">
                 <div class="contentSwipeToday BlockInshaAlla swiperBlackMob">
                     <div class="barreLatraleNoir">
@@ -936,8 +974,7 @@
                                 <div class="block3">
                                     <p class="mindText">{{$user->name}}</p>
                                     <div class="d-flex justify-content-between">
-                                        <p class="numberviewsSuggestion">1230</p>
-                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+                                         
                                          <!-- Date creation relative -->
                                         @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
                                             @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
@@ -1010,14 +1047,13 @@
                                 @elseif($user->age > 15 && $user->sex == '1')
                                     <img class="img-circle" src="{{asset('images/flow_preloader.png')}}" alt=""/>
                                 @elseif($user->age > 15 && $user->sex == '0')
-                                    <img class="" src="{{asset('images/sista_preloader.png')}} /{{$user->photo}}" alt="">
+                                    <img class="" src="{{asset('images/sista_preloader.png')}}" alt="">
                                 @endif
                                 </div>
                                 <div class="block3">
                                     <p class="mindText">{{$user->name}}</p>
                                     <div class="d-flex justify-content-between">
-                                        <p class="numberviewsSuggestion">1230</p>
-                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+                                         
                                          <!-- Date creation relative -->
                                          @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
                                                   @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
@@ -1097,8 +1133,7 @@
                                 <div class="block3">
                                     <p class="mindText">{{$user->name}}</p>
                                     <div class="d-flex justify-content-between">
-                                        <p class="numberviewsSuggestion">1230</p>
-                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+                                         
                                          <!-- Date creation relative -->
                                          @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
                                                   @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
@@ -1178,8 +1213,7 @@
                                 <div class="block3">
                                     <p class="mindText">{{$user->name}}</p>
                                     <div class="d-flex justify-content-between">
-                                        <p class="numberviewsSuggestion">1230</p>
-                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+                                         
                                          <!-- Date creation relative -->
                                          @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
                                                   @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
@@ -1259,8 +1293,7 @@
                                 <div class="block3">
                                     <p class="mindText">{{$user->name}}</p>
                                     <div class="d-flex justify-content-between">
-                                        <p class="numberviewsSuggestion">1230</p>
-                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+                                         
                                          <!-- Date creation relative -->
                                          @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
                                                   @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
@@ -1340,8 +1373,7 @@
                                 <div class="block3">
                                     <p class="mindText">{{$user->name}}</p>
                                     <div class="d-flex justify-content-between">
-                                        <p class="numberviewsSuggestion">1230</p>
-                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+                                         
                                          <!-- Date creation relative -->
                                          @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
                                                   @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
