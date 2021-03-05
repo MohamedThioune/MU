@@ -60,28 +60,6 @@ class CommentController extends AppBaseController
         return redirect('/play'.'/'.$request->video_id);
     }
 
-    public function contribute()
-    {
-        $input = ['value' => htmlspecialchars($_GET['value']), 'user_id' => Auth::id(), 'video_id' => htmlspecialchars($_GET['video_id'])];
-
-        /** @var Comment $comment */
-        $comment = Comment::create($input);
-
-        Flash::success('Comment saved successfully.');
-
-        $comments = DB::Table('comments')->select('users.*','comments.value' ,'comments.id as comment_id' ,'comments.created_at as created_at')
-        ->join('users', 'comments.user_id', 'users.id')
-        ->where('comments.video_id',  htmlspecialchars($_GET['video_id']))
-        ->get();
-
-        $reads = DB::Table('reads')
-        ->where('video_id', $_GET['video_id'])
-        ->count();
-
-        return view('play',compact('comments', 'reads'));
-    }
-
-
     /**
      * Display the specified Comment.
      *

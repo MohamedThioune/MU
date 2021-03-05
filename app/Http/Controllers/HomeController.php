@@ -55,6 +55,7 @@ class HomeController extends Controller
 
         $comments = DB::Table('comments')->select('comments.user_id','comments.value' ,'comments.id as comment_id' ,'comments.created_at as created_at')
         ->where('comments.video_id', $id)
+        ->orderBy('comments.created_at', 'desc')
         ->get();
 
         foreach($comments as $comment){

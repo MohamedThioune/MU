@@ -691,8 +691,8 @@
                                     @endif                                
                                 </div>
                                 <div class="div-block-326" >
-                                    <div class="text-block-323" style="width:200px">{{$users[$i]->name}}</div>
-                                    <div class="text-block-322">{{$comments[$i]->value}}...&nbsp;&nbsp;<a href="#" class="link-24">Lire plus</a>
+                                    <div class="text-block-323">{{$users[$i]->name}}</div>
+                                    <div class="text-block-322" style="width:300px">{{$comments[$i]->value}}...&nbsp;&nbsp;<a href="#" class="link-24">Lire plus</a>
                                     </div>
                                 </div>
                                 <div class="text-block-324">2h</div>

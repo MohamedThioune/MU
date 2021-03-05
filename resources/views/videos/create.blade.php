@@ -143,7 +143,7 @@
                         @endforeach
                         
                     </div>
-                    <div class="div-block-246">
+                    <!-- <div class="div-block-246">
                         <div class="div-block-242">
                             <div class="div-block-243">
                                 <img src="{{ asset('img/Groupe-928.png') }}" alt="">
@@ -155,7 +155,7 @@
                             <a href="#" class="link-20">Topic 1</a>
                         </div>
                         
-                    </div>
+                    </div> -->
                 </div>
                 <div class="div-block-247">
                     <div class="div-block-246">
@@ -193,7 +193,7 @@
                         @endforeach
                         
                     </div>
-                    <div class="div-block-246">
+                    <!-- <div class="div-block-246">
                         <div class="div-block-242">
                             <div class="div-block-243">
                                 <img src="{{ asset('img/Groupe-1242x.png') }}" alt="">
@@ -205,11 +205,11 @@
                             <a href="#" class="link-20">Topic 1</a>
                         </div>
                         
-                    </div>
+                    </div> -->
                     <div class="div-block-246">
                         <div class="div-block-242">
                             <div class="div-block-243">
-                                <img src="{{ asset('img/Groupe-9262x.png') }}" alt="">
+                                 <img src="{{ asset('img/Groupe-928.png') }}" alt="">
                             </div>
                             <p>News</p>
                         </div>

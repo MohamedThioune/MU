@@ -57,8 +57,6 @@ Route::get('/', function () {
     return view('home', compact('subtopics'));
 });
 
-Route::get('/comment', [App\Http\Controllers\CommentController::class, 'contribute'])->name('comments.contribute');
-Route::get('/response_comment', [App\Http\Controllers\ResponseCommentController::class, 'contribute'])->name('responsecomments.contribute');
 Route::get('vids/uploads/^[a-zA-Z0-9_]*$');
 
 Route::get('vids/thumbnails/^[a-zA-Z0-9_]*$');

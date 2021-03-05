@@ -41,7 +41,7 @@
                     <div class="profil-photo">
                         <img src="{{ asset('img/Mu-bull-profil-daniela-constantin.jpg') }}" alt="" class="image-94">
                     </div>
-                    <p class="text-name-creator">Halimatou Créatrice de douceurs</p>
+                    <p class="text-name-creator">{{$channel->name}}</p>
                 </div>
                 <div class="faq-wrapper">
                     <div class="faq-question">
