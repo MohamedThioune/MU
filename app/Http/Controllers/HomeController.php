@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Profile;
 use App\Models\Video;
+use App\Models\SubTopic;
 use App\User;
+
 use App\Models\Read;
 
 use Auth;
@@ -49,6 +51,8 @@ class HomeController extends Controller
         $user = User::find($video->user_id); 
         $users = array();
 
+        $subtopics = SubTopic::all();
+
         $reads = DB::Table('reads')
         ->where('video_id', $id)
         ->count();
@@ -69,6 +73,6 @@ class HomeController extends Controller
         Read::create($inputs_read);
 
         session(['video' => $video, 'user' => $user]);
-        return view('play', compact('comments', 'counts', 'reads', 'users'));
+        return view('play', compact('comments', 'counts', 'reads', 'users', 'subtopics'));
     }
 }
