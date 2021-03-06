@@ -1073,6 +1073,7 @@ video{
     font-size: 27px;
     margin-bottom: 0;
     font-family: "Ubuntu-Bold";
+    text-shadow: 2px 2px #000;
 }
 .heureFly{
     background: #000000;
@@ -1091,7 +1092,7 @@ video{
     justify-content: space-between;
     left: 0;
     right: 0;
-    background: transparent linear-gradient(180deg, #00000000 0%, #080707 100%) 0% 0% no-repeat padding-box;
+    background: transparent linear-gradient(180deg, #0000 0%, #0807079e 100%) 0% 0% no-repeat padding-box;
     opacity: 0.69;
     align-items: flex-end;
     padding-left: 10px;
