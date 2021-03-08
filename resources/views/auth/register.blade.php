@@ -16,6 +16,7 @@
             <div class="w-form">
 
                 <form method="POST" class="form-2" action="{{ route('register') }}" aria-label="{{ __('Register') }}">
+                    @include('adminlte-templates::common.errors')
                     @csrf
                     <div class="">
                         <input id="email" type="email" placeholder="Adresse e-mail" class="form-control text-field-3 w-input{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
