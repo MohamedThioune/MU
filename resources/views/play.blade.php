@@ -32,7 +32,7 @@
                         <p class="muuText">mmmuuu</p>
                     </div>
                 </button>
-                <a class="navbar-brand elementLogo" href="#">
+                <a class="navbar-brand elementLogo" href="{{route('home')}}">
                     <img src="{{ asset('img/logo-MU.png') }}" alt="">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -353,7 +353,7 @@
                 <div class="row">
                     <div class="col-sm-12  col-md-12 col-lg-9 col-modife">
                         <div class="videoParDefaut">
-                            <video poster="{{ asset('images/sista_preloader.png')}}" class="elementVideoParDefaut" controls>
+                            <video poster="{{ asset('images/sista_preloader.png')}}" class="elementVideoParDefaut" controls autoplay>
                                 <source src="{{ asset('vids/uploads')}}/{{session('video')->vid}}" type="video/mp4;charset=UTF-8">
                             </video>
                         </div>
@@ -463,7 +463,7 @@
                     </div>
                     <div class="block-detail-commentaire">
                         <p class="des-text">Description de la vidéo : <span class="">{{ session('video')->description }}</span>      </p>
-                        <p class="des-text">Objectifs de la vidéo :</p>
+                        <p class="des-text">Objectifs de la vidéo : <span class="">{{ session('video')->motivation }}</span></p>
                     </div>
 
                     <div class="blockshareAndComments">
@@ -536,15 +536,24 @@
                 </div>
                 <div class="blockAuteur webElement">
                     <img class="imgBadge" src="{{ asset('img/icones/Badge.png') }}" alt="">
-                    <div class="elementImgAuteur">
-                        <img src="{{ asset('img/auteur.png') }}" alt="">
-                    </div>
                     @php
                     $channel = DB::Table('users')->select('channels.*')
                     ->join('channels', 'users.id', 'channels.user_id')
                     ->where('users.id', session('user')->id)
                     ->first();
                     @endphp
+                    <div class="elementImgAuteur">
+                        @if($channel->urlPhoto)
+                        <img class="" src="{{ asset('/images/uploads') }}/{{$user->photo}}" alt="">
+                        @elseif(session('user')->age <= 15)
+                        <img class="" src="{{asset('images/kids_preloader.png')}}" alt="">
+                        @elseif(session('user')->age > 15 && session('user')->sex == '1')
+                        <img class="img-circle" src="{{asset('images/flow_preloader.png')}}" alt=""/>
+                        @elseif(session('user')->age > 15 && session('user')->sex == '0')
+                        <img class="" src="{{asset('images/sista_preloader.png')}}" alt="">
+                        @endif
+                        <img src="{{ asset('img/auteur.png') }}" alt="">
+                    </div>
                     <p class="nameAuteur contentweb">{{$channel->name}}</p>
                     <p class="nbreAbonnees contentweb">12,4 k Abonnes</p>
                     <div class="contentMobile">
@@ -730,23 +739,23 @@
                                     @endif
                                 </div>
                                 <div class="div-block-326" >
-                                    <div class="text-block-323">{{$users[$i]->name}}</div>
-                                    <div class="text-block-322" style="width:300px">{{$comments[$i]->value}}...&nbsp;&nbsp;<a href="#" class="link-24">Lire plus</a>
+                                    <div class="text-block-323"><strong> {{$users[$i]->name}} </strong></div>
+                                    <div class="text-block-322" style="width:300px">{{$comments[$i]->value}}...&nbsp;&nbsp;<strong><a href="#" style="color:#2c3e50" class="link-24">Lire plus</a></strong>
                                     </div>
                                 </div>
                                 <div class="text-block-324">
                                     @if(intval(abs(strtotime("now") - strtotime($comments[$i]->created_at))/ 86400) == 0)
                                         @if(intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 3600) > 0)
-                                         {{intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/3600)}} hours ago
+                                        <b><span style="color:#f1c40f">{{intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/3600)}} hours</span></b> ago
                                         @else(intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 3600) == 0)
-                                         {{intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/60)}} minutes ago
+                                        <b><span style="color:#f6acb7"> {{intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/60)}} minutes</span></b> ago
                                         @endif
                                     @elseif(intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 86400) == 1)
-                                     Yesterday at {{strftime("%H:%M", strtotime( $comments[$i]->created_at))}}
+                                    <b><span style="color:#2c3e50">Yesterday at</span></b> {{strftime("%H:%M", strtotime( $comments[$i]->created_at))}}
                                     @elseif(intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 86400) >= 2 && intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 86400) <= 27)
-                                      {{intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 86400)}} days ago
+                                    <b><span style="color:#d35400">{{intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 86400)}} days</span></b> ago
                                     @else(intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 86400) > 27)
-                                     On {{strftime("%d/%m/%Y", strtotime( $comments[$i]->created_at))}}
+                                     On <b><span style="color:#c0392b">{{strftime("%d/%m/%Y", strtotime( $comments[$i]->created_at))}}</span></b>
                                     @endif
                                 </div>
                             </div>
@@ -1673,13 +1682,26 @@
     //My code not persuassive
     var video_play = document.querySelector(".elementVideoParDefaut");
 
-    if(video_play.readyState > video_play.HAVE_METADATA){
-        var min = Math.floor(video_play.duration / 60);
-        var sec = Math.floor(video_play.duration - min * 60);
-        document.getElementById("doNotMissing").innerHTML = min + ":" + sec;
+    function time(){
+        setTimeout(start, 2000);
+    }
+   
+    function start(){
+        
+        if(video_play.readyState > video_play.HAVE_METADATA){
+            <?php
+            // DB::table('reads')
+            //         ->insert(
+            //             ['video_id' => 1, 'user_id' => 1]
+            //         );
+            ?>
+            alert("Playing ...");
+        }
     }
 
+    
 </script>
+
 <script>
     var swiper = new Swiper('.swipeContainermodife1', {
         slidesPerView: 2.5,

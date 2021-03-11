@@ -43,7 +43,7 @@
                             <p class="muuText">mmmuuu</p>
                         </div>
                     </button>
-                    <a class="navbar-brand elementLogo" href="#">
+                    <a class="navbar-brand elementLogo" href="{{route('home')}}">
                         <img src="{{ asset('img/logo-MU.png') }}" alt="">
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

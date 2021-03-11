@@ -55,7 +55,7 @@ Route::get('/', function () {
     session(['videos_haltcare' => $videos_haltcare, 'videos_life' => $videos_life, 'videos_health' => $videos_health, 'videos_business' => $videos_business, 'videos_environnement' => $videos_environnement, 'videos_education' => $videos_education]);
 
     return view('home', compact('subtopics'));
-});
+})->name('home');
 
 Route::get('vids/uploads/^[a-zA-Z0-9_]*$');
 

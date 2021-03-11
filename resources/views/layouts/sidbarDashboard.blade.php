@@ -21,7 +21,7 @@
 <div class="content-section-sibBar">
     <div class="content-naveBar-sidbar">
         <div class="section-12">
-            <a href="#" class="w-inline-block">
+            <a href="{{route('home')}}" class="w-inline-block">
                 <img src="{{ asset('img/Mu-menu-4-balls-blanc2x.png') }}"  class="image-96">
             </a>
             <img src="{{ asset('img/logo-MU.png') }}" class="imgLogo">
