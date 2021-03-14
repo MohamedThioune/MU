@@ -277,7 +277,7 @@
             <div class="div-block-251">
                 <p class="text-la-video2">Validation Publication</p>
                 <div class="div-block-253">
-                    <p class="text-alhamdoulila2">Al hamdulillah ! Tu t&#x27;apprêtes à publier une <strong>vidéo</strong>. <br>Qu&#x27;Allah Le Miséricordieux te fasse profiter de tout le bien qu&#x27;il y a dans ton oeuvre,<br> et qu&#x27;Il te préserve du mal qu&#x27;elle peut réserver. Ici-bas et dans l&#x27;au-delà !</p>
+                    <p class="text-alhamdoulila2">Al hamdulillah ! Tu t&#x27;apprêtes à publier tes vidéos. <br>Qu&#x27;Allah Le Miséricordieux te fasse profiter de tout le bien qu&#x27;il y a dans ton oeuvre,<br> et qu&#x27;Il te préserve du mal qu&#x27;elle peut réserver. Ici-bas et dans l&#x27;au-delà !</p>
                     <button type="submit" value="Save" class="btn div-block-252">
                         <span class="text-bismillah-publication">BISMILLAH</span>
                         <span class="text-publie">Je publie ma vidéo</span>

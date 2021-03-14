@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Overtrue\LaravelLike\Traits\Likeable;
 
 /**
  * Class Comment
@@ -16,7 +17,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class Comment extends Model
 {
-    use SoftDeletes;
+    use SoftDeletes, Likeable;
 
     public $table = 'comments';
     
@@ -52,5 +53,11 @@ class Comment extends Model
         'value' => 'required'
     ];
 
-    
+
+    public function unlikes()
+    {
+        return $this->hasMany(UnlikeComment::class,'comment_id');
+    }
+
+
 }

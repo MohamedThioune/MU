@@ -14,9 +14,8 @@
             </div>
             <div class="text-block-216">Crée ton compte<br>et démultiplie tes hassanates</div>
             <div class="w-form">
-                @include('adminlte-templates::common.errors')
+
                 <form method="POST" class="form-2" action="{{ route('register') }}" aria-label="{{ __('Register') }}">
-                    
                     @csrf
                     <div class="">
                         <input id="email" type="email" placeholder="Adresse e-mail" class="form-control text-field-3 w-input{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>

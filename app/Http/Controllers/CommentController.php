@@ -6,6 +6,9 @@ use App\Http\Requests\CreateCommentRequest;
 use App\Http\Requests\UpdateCommentRequest;
 use App\Http\Controllers\AppBaseController;
 use App\Models\Comment;
+use App\Models\Unlike;
+use App\Models\UnlikeComment;
+use App\Models\Video;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
@@ -154,5 +157,51 @@ class CommentController extends AppBaseController
         Flash::success('Comment deleted successfully.');
 
         return redirect(route('comments.index'));
+    }
+
+
+
+    public function likeComment($comment_id){
+        $user = Auth::user();
+        $comment = Comment::find($comment_id);
+
+        $user->toggleLike($comment);
+
+        $unlike = UnlikeComment::where([
+            ['user_id', '=', $user->id],
+            ['comment_id', '=', $comment->id],
+        ])->delete();
+
+        return redirect()->back();
+    }
+
+    public function dislikeComment($comment_id){
+        $user = Auth::user();
+        $comment = Comment::find($comment_id);
+
+        $unlikes = UnlikeComment::where([
+            ['user_id', '=', $user->id],
+            ['comment_id', '=', $comment->id],
+        ])->first();
+
+        if(empty($unlikes)){
+            $unlike = new UnlikeComment();
+
+            $unlike->user_id = Auth::user()->id;
+            $unlike->comment_id = $comment_id;
+            $unlike->save();
+
+        }
+        else{
+            $unlike = UnlikeComment::where([
+                ['user_id', '=', $user->id],
+                ['comment_id', '=', $comment->id],
+            ])->delete();
+        }
+        $user->unlike($comment);
+
+
+
+        return redirect()->back();
     }
 }

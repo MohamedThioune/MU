@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateUserRequest;
 use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
 use Flash;
+use Illuminate\Support\Facades\Auth;
 use Response;
 use Hash;
 use App\User;
@@ -212,5 +213,14 @@ class UserController extends AppBaseController
         Flash::success('User deleted successfully.');
 
         return redirect(route('users.index'));
+    }
+
+    public function suscribe($channel_id)
+    {
+        $user = Auth::user();
+
+        $user->suscribeChannels()->toggle($channel_id);
+
+        return redirect()->back();
     }
 }

@@ -32,7 +32,7 @@
                         <p class="muuText">mmmuuu</p>
                     </div>
                 </button>
-                <a class="navbar-brand elementLogo" href="{{route('home')}}">
+                <a class="navbar-brand elementLogo" href="#">
                     <img src="{{ asset('img/logo-MU.png') }}" alt="">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -353,7 +353,7 @@
                 <div class="row">
                     <div class="col-sm-12  col-md-12 col-lg-9 col-modife">
                         <div class="videoParDefaut">
-                            <video poster="{{ asset('images/sista_preloader.png')}}" class="elementVideoParDefaut" controls autoplay>
+                            <video poster="{{ asset('images/sista_preloader.png')}}" class="elementVideoParDefaut" controls>
                                 <source src="{{ asset('vids/uploads')}}/{{session('video')->vid}}" type="video/mp4;charset=UTF-8">
                             </video>
                         </div>
@@ -438,12 +438,20 @@
                             <p class="text-title">Titre de la vidéo: {{session('video')->main_title }}</p>
                             <div class="groupLOveUnlove">
                                 <div class="blockLoveUnlove">
-                                    <p class="nbrLove">122 k</p>
-                                    <div class="imgCoeur"><img src="{{ asset('img/icones/coeurRose.svg') }}" alt=""></div>
+                                    <p class="nbrLove">{{ session('video')->likers()->count() }} </p>
+                                    <div class="imgCoeur">
+                                    <a href="{{ route('likevideo',session('video')->id ) }}">
+                                    <img src="{{ asset('img/icones/coeurRose.svg') }}" alt="">
+                                    </a>
+                                    </div>
                                 </div>
                                 <div class="blockLoveUnlove">
-                                    <div class="imgCoeur"><img src="{{ asset('img/icones/loveRenverseGris.png') }}" alt=""></div>
-                                    <p class="nbrLove">2 078</p>
+                                    <div class="imgCoeur">
+                                    <a href="{{ route('dislikevideo',session('video')->id )}}">
+                                    <img src="{{ asset('img/icones/loveRenverseGris.png') }}" alt="">
+                                    </a>
+                                    </div>
+                                    <p class="nbrLove">{{ session('video')->unlikes()->count() }}</p>
                                 </div>
                                 <div class="blockImgPuliMobile">
                                     <img src="{{ asset('img/icones/more.png') }}" alt="">
@@ -463,7 +471,7 @@
                     </div>
                     <div class="block-detail-commentaire">
                         <p class="des-text">Description de la vidéo : <span class="">{{ session('video')->description }}</span>      </p>
-                        <p class="des-text">Objectifs de la vidéo : <span class="">{{ session('video')->motivation }}</span></p>
+                        <p class="des-text">Objectifs de la vidéo :</p>
                     </div>
 
                     <div class="blockshareAndComments">
@@ -536,32 +544,23 @@
                 </div>
                 <div class="blockAuteur webElement">
                     <img class="imgBadge" src="{{ asset('img/icones/Badge.png') }}" alt="">
+                    <div class="elementImgAuteur">
+                        <img src="{{ asset('img/auteur.png') }}" alt="">
+                    </div>
                     @php
                     $channel = DB::Table('users')->select('channels.*')
                     ->join('channels', 'users.id', 'channels.user_id')
                     ->where('users.id', session('user')->id)
                     ->first();
                     @endphp
-                    <div class="elementImgAuteur">
-                        @if($channel->urlPhoto)
-                        <img class="" src="{{ asset('/images/uploads') }}/{{$user->photo}}" alt="">
-                        @elseif(session('user')->age <= 15)
-                        <img class="" src="{{asset('images/kids_preloader.png')}}" alt="">
-                        @elseif(session('user')->age > 15 && session('user')->sex == '1')
-                        <img class="img-circle" src="{{asset('images/flow_preloader.png')}}" alt=""/>
-                        @elseif(session('user')->age > 15 && session('user')->sex == '0')
-                        <img class="" src="{{asset('images/sista_preloader.png')}}" alt="">
-                        @endif
-                        <img src="{{ asset('img/auteur.png') }}" alt="">
-                    </div>
                     <p class="nameAuteur contentweb">{{$channel->name}}</p>
-                    <p class="nbreAbonnees contentweb">12,4 k Abonnes</p>
+                    <p class="nbreAbonnees contentweb">{{ \App\Models\Channel::find($channel->id)->abonnees->count() }} Abonnes</p>
                     <div class="contentMobile">
-                        <p class="nameAuteur">Dad Men</p>
-                        <p class="nbreAbonnees">12,4 k Abonnes</p>
+                        <p class="nameAuteur">{{$channel->name}}</p>
+                        <p class="nbreAbonnees">{{ \App\Models\Channel::find($channel->id)->abonnees->count() }} Abonnes</p>
                     </div>
                     <div class="elementBtnSouscrire">
-                        <button class="btn btnSubscribe">Subscribe</button>
+                        <a href="{{ route('suscribe',$channel->id) }}" class="btn btnSubscribe">Subscribe</a>
                     </div>
                 </div>
                 <div class="mobMobile">
@@ -724,6 +723,8 @@
                     </div>
 
                     @for($i = 0; $i < count($comments); $i++)
+
+
                     <div class="coment-1">
                         <div class="div-block-325">
                             <div class="div-block-329">
@@ -739,35 +740,41 @@
                                     @endif
                                 </div>
                                 <div class="div-block-326" >
-                                    <div class="text-block-323"><strong> {{$users[$i]->name}} </strong></div>
-                                    <div class="text-block-322" style="width:300px">{{$comments[$i]->value}}...&nbsp;&nbsp;<strong><a href="#" style="color:#2c3e50" class="link-24">Lire plus</a></strong>
+                                    <div class="text-block-323">{{$users[$i]->name}}</div>
+                                    <div class="text-block-322" style="width:300px">{{$comments[$i]->value}}...&nbsp;&nbsp;<a href="#" class="link-24">Lire plus</a>
                                     </div>
                                 </div>
                                 <div class="text-block-324">
                                     @if(intval(abs(strtotime("now") - strtotime($comments[$i]->created_at))/ 86400) == 0)
                                         @if(intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 3600) > 0)
-                                        <b><span style="color:#f1c40f">{{intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/3600)}} hours</span></b> ago
+                                         {{intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/3600)}} hours ago
                                         @else(intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 3600) == 0)
-                                        <b><span style="color:#f6acb7"> {{intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/60)}} minutes</span></b> ago
+                                         {{intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/60)}} minutes ago
                                         @endif
                                     @elseif(intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 86400) == 1)
-                                    <b><span style="color:#2c3e50">Yesterday at</span></b> {{strftime("%H:%M", strtotime( $comments[$i]->created_at))}}
+                                     Yesterday at {{strftime("%H:%M", strtotime( $comments[$i]->created_at))}}
                                     @elseif(intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 86400) >= 2 && intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 86400) <= 27)
-                                    <b><span style="color:#d35400">{{intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 86400)}} days</span></b> ago
+                                      {{intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 86400)}} days ago
                                     @else(intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 86400) > 27)
-                                     On <b><span style="color:#c0392b">{{strftime("%d/%m/%Y", strtotime( $comments[$i]->created_at))}}</span></b>
+                                     On {{strftime("%d/%m/%Y", strtotime( $comments[$i]->created_at))}}
                                     @endif
                                 </div>
                             </div>
                             <div class="div-block-328">
                                 <div>
                                     <div class="likes">
-                                        <div class="text-block-292">20</div>
-                                        <div class="imgCoeur2"><img src="{{ asset('img/icones/coeurRose.svg') }}" alt=""></div>
-                                        <div class="disliker">
-                                            <img src="{{ asset('img/icones/loveRenverseGris.png') }}" alt="">
+                                        <div class="text-block-292">{{ \App\Models\Comment::find($comments[$i]->comment_id)->likers()->count() }}</div>
+                                        <div class="imgCoeur2">
+                                            <a href="{{ route('likecomment' , $comments[$i]->comment_id) }}">
+                                                <img src="{{ asset('img/icones/coeurRose.svg') }}" alt="">
+                                            </a>
                                         </div>
-                                        <div class="text-block-292">9</div>
+                                        <div class="disliker">
+                                            <a href="{{ route('dislikecomment' , $comments[$i]->comment_id) }}">
+                                                <img src="{{ asset('img/icones/loveRenverseGris.png') }}" alt="">
+                                            </a>
+                                        </div>
+                                        <div class="text-block-292">{{ \App\Models\Comment::find($comments[$i]->comment_id)->unlikes()->count() }}</div>
                                     </div>
                                 </div>
                                 <button  onclick="TestsFunction()"  class="message-2-messaage w-inline-block btn">
@@ -1682,26 +1689,13 @@
     //My code not persuassive
     var video_play = document.querySelector(".elementVideoParDefaut");
 
-    function time(){
-        setTimeout(start, 2000);
-    }
-   
-    function start(){
-        
-        if(video_play.readyState > video_play.HAVE_METADATA){
-            <?php
-            // DB::table('reads')
-            //         ->insert(
-            //             ['video_id' => 1, 'user_id' => 1]
-            //         );
-            ?>
-            alert("Playing ...");
-        }
+    if(video_play.readyState > video_play.HAVE_METADATA){
+        var min = Math.floor(video_play.duration / 60);
+        var sec = Math.floor(video_play.duration - min * 60);
+        document.getElementById("doNotMissing").innerHTML = min + ":" + sec;
     }
 
-    
 </script>
-
 <script>
     var swiper = new Swiper('.swipeContainermodife1', {
         slidesPerView: 2.5,

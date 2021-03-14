@@ -81,6 +81,7 @@ Route::get('/connected/{n}', [App\Http\Controllers\HomeController::class, 'conne
 Auth::routes();
 
 Route::resource('users', 'UserController')->middleware('auth');
+Route::get('suscribe/{channel_id}','UserController@suscribe')->name('suscribe');
 
 Route::resource('profiles', 'ProfileController')->middleware('auth');
 
@@ -106,5 +107,7 @@ Route::resource('shares', 'ShareController');
 Route::resource('reads', 'ReadController');
 
 Route::resource('comments', 'CommentController');
+Route::get('comment/likecomment/{comment_id}','CommentController@likeComment')->name('likecomment');
+Route::get('comment/dislikecomment/{comment_id}','CommentController@dislikeComment')->name('dislikecomment');
 
 Route::resource('responseComments', 'ResponseCommentController');

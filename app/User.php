@@ -42,5 +42,10 @@ class User extends Authenticatable
         return $this->hasMany(Channel::class);
     }
 
+    public function suscribeChannels()
+    {
+        return $this->belongsToMany(Channel::class, 'abonne_channel')->withTimestamps();
+    }
+
 
 }

@@ -74,4 +74,12 @@ class Channel extends Model
     {
         return $this->belongsTo(CategorySecondary::class);
     }
+
+
+    public function abonnees()
+    {
+        return $this->belongsToMany(User::class, 'abonne_channel')->withTimestamps();
+    }
+
+
 }
