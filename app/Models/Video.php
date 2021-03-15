@@ -107,11 +107,6 @@ class Video extends Model
 
     public function push()
     {
-        return $this->belongsTo(User::class);
-    }
-
-    public function users()
-    {
-        return $this->belongsToMany(User::class, 'user_video')->withTimestamps();
+        return $this->belongsTo(User::class);   
     }
 }
