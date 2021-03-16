@@ -11,14 +11,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/sidbarDasboard.css">
-    <link rel="stylesheet" href="../css/webflow.css">
 
+    <link rel="stylesheet" href="../css/mu-dev.webflow.css">
     @yield('head')
 </head>
 
 <body>
 
 <div class="content-section-sibBar">
+
     <div class="content-naveBar-sidbar">
         <div class="section-12">
             <a href="#" class="w-inline-block">
@@ -41,10 +42,10 @@
                     <div class="profil-photo">
                         <img src="{{ asset('img/Mu-bull-profil-daniela-constantin.jpg') }}" alt="" class="image-94">
                     </div>
-                    <p class="text-name-creator">{{$channel->name}}</p>
+
                 </div>
                 <div class="faq-wrapper">
-                    <div class="faq-question">
+                    <div class="faq-question" id="monFlow">
                         <div class="indentification">
                             <div class="sidebar-icon">
                                 <img src="{{ asset('img/baseline-brightness_2-24px2x.png') }}" alt="">
@@ -52,12 +53,14 @@
                             <p class="faq-q-text"><strong class="bold-text-5">Mon Flow</strong></p>
                         </div>
                     </div>
-                    <div class="faq-answer">
-                        <p class="faq-answer-text">Alerte<br>Playliste<br>Ânonnements <br></p>
+                    <div class="faq-answer" id="sousBlockMonFlow">
+                        <a class="faq-answer-text" href="">Alerte</a>
+                        <a class="faq-answer-text" href="">Playliste</a>
+                        <a class="faq-answer-text" href="">Âbonnements </a>
                     </div>
                 </div>
                 <div class="faq-wrapper">
-                    <div class="faq-question">
+                    <div class="faq-question" id="maChaines">
                         <div class="indentification">
                             <div class="sidebar-icon">
                                 <img class="machaineImg" src="{{ asset('img/Mu-tv-icone2x.png') }}"  alt="">
@@ -65,18 +68,23 @@
                             <p class="faq-q-text"><strong class="bold-text-5">Ma Chaîne</strong></p>
                         </div>
                     </div>
-                    <div class="faq-answer">
+                    <div class="faq-answer" id="sousBlockChaines">
                         <a href="flow-dashboard.html" class="link-block-36 w-inline-block">
                             <div class="text-block-261">Tableau de bord</div>
                         </a>
                         <a href="ma-chaine-publier.html" class="link-block-36 w-inline-block w--current">
                             <p class="text-block-261">Publier</p>
                         </a>
-                        <p class="faq-answer-text">Publier<br>Mes vidéos <br>Commentaires <br>Audiences <br>Abonnés<br>Monétisation<br></p>
+                        <a href="" class="faq-answer-text">Publier</a>
+                        <a href=""  class="faq-answer-text">Mes vidéos </a>
+                        <a href="" class="faq-answer-text">Commentaires</a>
+                        <a href="" class="faq-answer-text">Audiences</a>
+                        <a href="" class="faq-answer-text">Abonnés</a>
+                        <a href="" class="faq-answer-text"> Monétisation</a>
                     </div>
                 </div>
                 <div class="faq-wrapper">
-                    <div class="faq-question">
+                    <div class="faq-question" id="timeChield">
                         <div class="indentification">
                             <div class="sidebar-icon">
                                 <img src="{{ asset('img/baseline-brightness_2-24px2x.png') }}"  alt="">
@@ -84,12 +92,13 @@
                             <p class="faq-q-text"><strong class="bold-text-5">Time Shaid</strong></p>
                         </div>
                     </div>
-                    <div class="faq-answer">
-                        <p class="faq-answer-text">Smuuse option<br>‍<br></p>
+                    <div class="faq-answer" id="sousBlockTimeChield">
+                        <a href="" class="faq-answer-text">Smuuse option</a>
+                        <a href="" class="faq-answer-text">‍</a>
                     </div>
                 </div>
                 <div class="faq-wrapper">
-                    <div class="faq-question">
+                    <div class="faq-question" id="hassanates">
                         <div class="indentification">
                             <div class="sidebar-icon">
                                 <img src="{{ asset('img/baseline-brightness_2-24px2x.png') }}" alt="">
@@ -97,12 +106,14 @@
                             <p class="faq-q-text"><strong class="bold-text-5">Hassanates P.</strong></p>
                         </div>
                     </div>
-                    <div class="faq-answer">
-                        <p class="faq-answer-text">Time Sahid<br>Sadakatiya<br>Hassanates Party<br></p>
+                    <div class="faq-answer"id="sousBlockHassanates">
+                        <a href="" class="faq-answer-text">Time Sahid</a>
+                        <a href="" class="faq-answer-text">Sadakatiya</a>
+                        <a href="" class="faq-answer-text">Hassanates Party</a>
                     </div>
                 </div>
                 <div class="faq-wrapper">
-                    <div class="faq-question">
+                    <div class="faq-question" id="sadaka">
                         <div class="indentification">
                             <div class="sidebar-icon">
                                 <img src="{{ asset('img/Mu-menu-4-balls-blanc2x.png') }}" alt="">
@@ -110,12 +121,13 @@
                             <p class="faq-q-text"><strong class="bold-text-5">Sadakatiya</strong></p>
                         </div>
                     </div>
-                    <div class="faq-answer">
-                        <p class="faq-answer-text">Smuuse option<br>‍<br></p>
+                    <div class="faq-answer" id="sousBlockSadaka">
+                        <a href="" class="faq-answer-text">Smuuse option</a>
+                        <a href="" class="faq-answer-text">‍</a>
                     </div>
                 </div>
                 <div class="faq-wrapper">
-                    <div class="faq-question">
+                    <div class="faq-question" id="compte">
                         <div class="indentification">
                             <div class="sidebar-icon">
                                 <img src="{{ asset('img/Mu-menu-4-balls-blanc2x.png') }}" alt="">
@@ -123,40 +135,30 @@
                             <p class="faq-q-text"><strong class="bold-text-5">MON COMPTE</strong></p>
                         </div>
                     </div>
-                    <div class="faq-answer">
-                        <p class="faq-answer-text">Smuuse option<br>‍<br></p>
+                    <div class="faq-answer" id="sousBlockCompte">
+                        <a href="" class="faq-answer-text">Smuuse option</a>
+                        <a href="" class="faq-answer-text">‍</a>
                     </div>
                 </div>
             </div>
 
         </div>
-        <div class="content-element-page">
-            @yield('content-element-page')
-        </div>
+        @yield ('content-sidbar-element')
     </div>
-
-
-
 </div>
 
-<!-- jQuery 3.1.1 -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
-<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+
 <!-- AdminLTE App -->
-<script src="../js/menu.js"></script>
-<script src="../js/app.js"></script>
-<script src="../js/webflow.js"></script>
-<script src="../js/custom-file-input.js"></script>
-<script >
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="{{asset('js/menu.js')}}"></script>
+<script>
     $(function(){
-        var container = $('.content2'), inputFile = $('#thumbnail'), img, btn, txt = 'Modifier vignette de vidéo', txtAfter = 'Modifier vignette de vidéo';
+        var container = $('.bandeau-chaine1'), inputFile = $('#file2'), img, btn, txt = 'Modifier mon bandeau', txtAfter = 'Modifier mon bandeau';
 
         if(!container.find('#upload').length){
-            container.find('.input').append('<input type="button" value="'+txt+'" id="upload">');
-            btn = $('#upload');
+            container.find('.input1').append('<input type="button" value="'+txt+'" id="upload1">');
+            btn = $('#upload1');
             container.prepend('<img src="" class="hidden" alt="Uploaded file" id="uploadImg" width="100">');
             img = $('#uploadImg');
         }
@@ -182,6 +184,42 @@
             }
 
             btn.val( txtAfter );
+        });
+    });
+</script>
+
+<script>
+    $(function(){
+        var container = $('.div-block-222'), inputFile = $('#file3'), img, btn, txt = 'Changer l image', txtAfter = 'Changer l image';
+        if(!container.find('#upload1').length){
+            container.find('.input3').append('<img src="" class="hidden" alt="" id="uploadImg1" width="100">');
+            img = $('#uploadImg1');
+            container.find('.input3').append('<input type="button" class="12" value="'+txt+'" id="upload3">');
+            btn = $('#upload3');
+        }
+
+        btn.on('click', function(){
+            img.animate({opacity: 0}, 300);
+
+            inputFile.click();
+        });
+
+        inputFile.on('change', function(e){
+            container.find('label').html( inputFile.val() );
+            $( ".div-block-2files" ).addClass('opacityElementFiles') ;
+            var i = 0;
+            for(i; i < e.originalEvent.srcElement.files.length; i++) {
+                var file = e.originalEvent.srcElement.files[i],
+                    reader = new FileReader();
+
+                reader.onloadend = function(){
+                    img.attr('src', reader.result).animate({opacity: 1}, 700);
+                }
+                reader.readAsDataURL(file);
+                img.removeClass('hidden');
+            }
+
+
         });
     });
 </script>

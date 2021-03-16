@@ -4,8 +4,8 @@
 <link rel="stylesheet" type="text/css" href="../css/component.css" />
 @endsection
 
-@section('content-element-page')
-    <form action="/videos" method="POST" enctype="multipart/form-data">
+@section('content-sidbar-element')
+    <form action="/videos" method="POST" class="formpublier" enctype="multipart/form-data">
         @csrf
         <div class="mes-videos">
             <div class="div-block-219">
@@ -14,23 +14,23 @@
                     <h1 class="text-name-title-creator">{{$channel->name}}</h1>
                 </div>
                 @php $user = Auth::user(); @endphp
-     
+
                 @if($user->sex == 0)
                 <div class="div-block-220">
                     <div class="div-block-224">
                         <div class="div-block-222"></div>
-                        
+
                         <div class="div-block-231">
                             <div class="bouton-activ-on">
                                 <div class="div-block-227"></div>
                             </div>
                         </div>
-                     
+
                         <p class="text-publier-cette-video">Publier cette vidéo uniquement sur Sista 2 Sista</p>
                     </div>
                 </div>
                 @endif
-            </div> 
+            </div>
             <div class="div-block-235">
                 <p class="text-la-video2">Télécharger ma vidéo</p>
                 <div class="div-block-254">
@@ -105,7 +105,7 @@
                             <!-- <a href="#" class="link-20">Topic 1</a> -->
                         </div>
                         @endforeach
-                        
+
                     </div>
                     <div class="div-block-246">
                         <div class="div-block-242">
@@ -114,7 +114,7 @@
                             </div>
                             <p>Life</p>
                         </div>
-                       
+
                         @foreach($subtopics_life as $subtopic)
                         <div class="div-block-245">
                             <!-- <div class="div-block-244"></div> -->
@@ -123,7 +123,7 @@
                             <!-- <a href="#" class="link-20">Topic 1</a> -->
                         </div>
                         @endforeach
-                        
+
                     </div>
                     <div class="div-block-246">
                         <div class="div-block-242">
@@ -132,7 +132,7 @@
                             </div>
                             <p>Tuto</p>
                         </div>
-                        
+
                         @foreach($subtopics_healthcare as $subtopic)
                         <div class="div-block-245">
                             <!-- <div class="div-block-244"></div> -->
@@ -141,7 +141,7 @@
                             <!-- <a href="#" class="link-20">Topic 1</a> -->
                         </div>
                         @endforeach
-                        
+
                     </div>
                     <!-- <div class="div-block-246">
                         <div class="div-block-242">
@@ -154,7 +154,7 @@
                             <div class="div-block-244"></div>
                             <a href="#" class="link-20">Topic 1</a>
                         </div>
-                        
+
                     </div> -->
                 </div>
                 <div class="div-block-247">
@@ -191,7 +191,7 @@
                             <!-- <a href="#" class="link-20">Topic 1</a> -->
                         </div>
                         @endforeach
-                        
+
                     </div>
                     <!-- <div class="div-block-246">
                         <div class="div-block-242">
@@ -204,7 +204,7 @@
                             <div class="div-block-244"></div>
                             <a href="#" class="link-20">Topic 1</a>
                         </div>
-                        
+
                     </div> -->
                     <div class="div-block-246">
                         <div class="div-block-242">
@@ -222,7 +222,7 @@
                             <!-- <a href="#" class="link-20">Topic 1</a> -->
                         </div>
                         @endforeach
-                        
+
                     </div>
                 </div>
             </div>
@@ -273,7 +273,7 @@
                 </div>
                 <a href="#" class="button-14 w-button">Confirmer</a>
             </div> -->
-            
+
             <div class="div-block-251">
                 <p class="text-la-video2">Validation Publication</p>
                 <div class="div-block-253">
@@ -285,10 +285,10 @@
                 </div>
             </div>
         </div>
-       
+
         @include('adminlte-templates::common.errors')
 
-@endsection 
+@endsection
 @section('scripts')
 
 @endsection

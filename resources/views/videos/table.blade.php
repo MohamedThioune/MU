@@ -1,3 +1,4 @@
+
 <div class="table-responsive">
     <table class="table" id="videos-table">
         <thead>
@@ -31,7 +32,7 @@
                     @if($subtopic->id == $video->subtopic_id)
                         <td>{{ $subtopic->libelle }}</td>
                     @endif
-                @endforeach 
+                @endforeach
 
                 @if(!$video->subtopic_id)
                     <td>None</td>

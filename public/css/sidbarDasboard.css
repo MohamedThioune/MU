@@ -3646,7 +3646,9 @@
   background: #ebebeb;
   color: #333;
 }
-
+.faq-answer{
+  display: none;
+}
 
 @media screen and (min-width: 1280px) {
   .image-3 {

@@ -39,8 +39,9 @@
     url("../font/Ubuntu-Regular.woff") format("woff");
 }
 body {
-    background: #f7f7f7;
+    background: #FFFFFF;
     overflow-x: hidden !important;
+    font-family: "Ubuntu-Regular";
 }
 .col-md-9 {
     -ms-flex: 0 0 68.5% !important;
@@ -121,9 +122,10 @@ body {
 }
 .nav-link {
     color: #FFFFFF;
-    font-size: 14px;
-    margin-top: 2px;
-    font-family: "Ubuntu-Medium";
+    font-size: 16px;
+    margin-top: 0px;
+    font-family: "Ubuntu-Regular";
+    margin-bottom: 0;
 }
 .btnCommunaute{
     color: #FFFFFF;
@@ -255,6 +257,11 @@ button:focus {
     opacity: 1;
     position: fixed !important;
     z-index: 111;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+}
+.visible::-webkit-scrollbar{
+    display: none !important;
 }
 .visibleBtn{
     display: block;
@@ -344,7 +351,7 @@ button:focus {
 .videoParDefaut{
     position: relative;
     width: 100%;
-    height: 445px;
+    height: 514px;
     display: block;
 }
 .title-groupIcone{
@@ -361,8 +368,10 @@ video{
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: inherit;
     z-index: 3;
+    bottom: 0;
+    right: 0;
 }
 .contentParDefaut {
     background: url("../img/grille.png") space;
@@ -411,13 +420,20 @@ video{
     border-radius: 10px;
     padding-top: 47px;
     margin-bottom: 15px;
+    margin-right: 25px !important;
 }
 .cardSuggestion2 {
     position: relative;
     width: 100%;
     border-radius: 10px;
     margin-bottom: 15px;
-    overflow: hidden;
+    overflow-y: hidden;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+    margin-right: 25px !important;
+}
+.cardSuggestion2::-webkit-scrollbar{
+    display: none !important;
 }
 .img-video-suggestion {
     position: relative;
@@ -491,30 +507,31 @@ video{
     width: 50%;
     margin-left: 10px;
 }
-.content-contenue1{
-    margin-bottom: 30px;
-}
+
 .blockgeneral{
-    margin-bottom: 30px;
+    padding: 20px;
     display: flex;
     justify-content: space-between;
+    background: #f7f7f7;
+    margin-left: -20px;
+    margin-right: -20px;
+    margin-bottom: 20px;
 }
 .blockshareAndComments{
     display: block;
     position: absolute;
-    right: 20px;
-    top: 40px;
-
+    right: 10px;
+    top: 27px;
 }
 .blockcomentaireAndButton{
     display: flex;
 }
 .text-title {
     color: #000000;
-    font-size: 22px;
-    font-weight: 600;
+    font-size: 20px;
     margin-bottom: 15px;
     width: 65%;
+    font-family: "Ubuntu-Medium";
 }
 .datePublication {
     color: rgb(51, 51, 51);
@@ -541,6 +558,8 @@ video{
     margin: 0px -18px;
     padding: 20px 18px 10px;
     min-height: 150px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 .des-text{
     color: #8f8f8f;
@@ -596,7 +615,7 @@ video{
     width: 100%;
 }
 .suggestion{
-    height: 225px;
+    height: 308px;
     overflow-y: auto;
 }
 .suggestion::-webkit-scrollbar{
@@ -622,12 +641,14 @@ video{
 }
 .textShare{
     font-size: 12px;
+    margin-top: 5px;
+    font-family: "Ubuntu-Regular";
 }
 .bottomElement {
-    margin-bottom: 28px;
+    margin-bottom: 30px;
 }
 .bottomElement2 {
-    margin-bottom: 26px;
+    margin-bottom: 60px;
 }
 .bottomElement3 {
     margin-bottom: 11px;
@@ -663,7 +684,8 @@ video{
     width: 16%;
     text-align: center;
     position: relative;
-    height: 273px;
+    height: 287px;;
+    border-radius: 5px;
 }
 .imgBadge {
     right: 12px;
@@ -671,11 +693,11 @@ video{
     position: absolute;
 }
 .elementImgAuteur {
-    margin-top: 42px;
+    margin-top: 49px;
     margin-left: auto;
     margin-right: auto;
-    width: 66px;
-    height: 66px;
+    width: 85px;
+    height: 85px;
     border-radius: 100%;
     overflow: hidden;
 }
@@ -686,20 +708,21 @@ video{
     font-weight: 800;
     font-size: 18px;
     margin-top: 15px;
-    margin-bottom: 4px;
+    margin-bottom: 0px;
+    font-family: "Ubuntu-Medium";
 }
 .nbreAbonnees {
     font-size: 15px;
     font-weight: 600;
     color: #605c5b;
-    margin-bottom: 13px;
+    margin-bottom: 21px;
 }
 .btnSubscribe{
     background: #f27439;
     color: white;
     font-weight: 700;
-    border-radius: 13px;
-    padding: 6px 25px;
+    border-radius: 5px;
+    padding: 6px 35px;
 }
 .blockTime{
     background: #000000;
@@ -718,7 +741,8 @@ video{
 }
 .blockTime {
     text-align: center;
-    height: 274px;
+    height: 287px;
+    border-radius: 5px;
 }
 .suggestionNone{
     display: none;
@@ -747,25 +771,26 @@ video{
     color: white;
     font-weight: bold;
     font-size: 13px;
-    margin-bottom: 1px;
+    margin-bottom: -3px;
 }
 .timeSh{
-    font-size: 23px;
-    font-weight: bold;
+    font-size: 28px;
     color: white;
     margin-bottom: 0;
+    font-family: "Ubuntu-Bold";
 }
 .calendar {
     color: white;
     font-size: 14px;
     font-weight: 500;
-    margin-bottom: 2px;
+    margin-bottom: 11px;
+    margin-top: -4px;
 }
 .rectangle {
     height: 45px;
     background: #4a4a4a;
     width: 19px;
-    margin-bottom: 12px;
+    margin-bottom: 5px;
     border-radius: 20px;
 }
 .l .rectangle {
@@ -870,13 +895,15 @@ video{
 .commentTitle {
     display: flex;
     background: #CECECE 0% 0% no-repeat padding-box;
-    width: 300px;
-    padding: 10px 0;
+    width: 50%;
+    padding: 6px 30px 10px;
     justify-content: center;
     margin-bottom: 30px;
+    border-top-left-radius: 10px;
 }
 .commentBlock {
     background: #f7f7f7;
+    border-radius: 5px;
 }
 .content-commentaire {
     margin-bottom: 0 20px;
@@ -890,14 +917,16 @@ video{
     font-weight: 700;
     padding-right: 20px;
     margin-bottom: 0;
-}.commentText{
+}
+.commentText{
      color: #FFFFFF;
      font-weight: 700;
      padding-right: 25px;
      margin-bottom: 0;
+     padding-top: 4px;
  }
 .commentImg {
-    width: 22px;
+    width: 40px;
     height: 18px;
     margin-top: 5px;
 }
@@ -1040,7 +1069,6 @@ video{
     text-align: center;
     font-size: 18px;
     background: #fff;
-
     /* Center slide text vertically */
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1121,6 +1149,8 @@ video{
     border-radius: 5px;
     background-color: #f8f8f8;
     box-shadow: 3px 3px 8px 0 rgba(0, 0, 0, 0.15);
+    margin-right: 20px !important;
+    width: 280px !important;
 }
 .swiper-wrapper {
     height: auto !important;
@@ -1257,6 +1287,9 @@ video{
 }
 .header2Web {
     display: block;
+}
+.div-block-332 {
+    margin-top: unset !important;
 }
 .header2Mobile {
     display: none;
@@ -1475,11 +1508,12 @@ video{
     font-family: "Ubuntu-Bold";
 }
 .sousBlockTitle{
-    padding: 20px;
+    padding: 20px 20px 10px 20px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     background-color: #ebebeb;
     margin: 0px -18px 0;
+    min-height: 137px;
 }
 .text-inshaAlla {
     color: #ddafb5;
@@ -1490,10 +1524,15 @@ video{
 }
 .BlockInshaAlla {
     background-color: #fde9e9 !important;
+    padding-left: 20px;
 }
 .sousElementInshaAlla {
     display: block;
     width: 89%;
+    margin-left: 10px;
+}
+.colModife7{
+    padding-right: 0 !important;
 }
 .div-block-325 {
     display: -webkit-box;
@@ -1578,7 +1617,8 @@ video{
     margin-top: -9px;
 }
 .div-block-331 {
-    padding-left: 40px;
+    padding-left: 0;
+    min-height: 306px;
 }
 .inputCommentaire{
     resize: none;
@@ -1589,9 +1629,11 @@ video{
     border-color: #c4c4c4;
     border-radius: 5px;
     background: #f7f7f7;
-    width: 100%;
+    width: 96%;
     margin-top: -12px;
-    margin-bottom: 22px;
+    margin-left: 10px;
+    min-height: 205px;
+    margin-bottom: 20px;
 }
 .text-block-264 {
     display: -webkit-box;
@@ -1642,6 +1684,33 @@ video{
 }
 .imgCoeur2 img {
     width: 17px;
+}
+.btnAnnuler{
+    border: 1px solid #5e5e5e;
+    color: #5e5e5e;
+    padding: 5px 15px !important;
+    margin-left: 10px;
+    margin-right: 40px;
+}
+.btnEnvoyer {
+    background: #5e5e5e;
+    color: #ffffff;
+    padding: 5px 35px !important;
+    font-size: 14px;
+}
+.flexElement1{
+    display: flex;
+    justify-content: space-between;
+}
+.fistElement{
+    width: 71%;
+    height: 100%;
+}
+.secondElement{
+    width: 28%;
+}
+.opacityElement{
+    opacity: 0;
 }
 
 @media all and (min-width: 300px) and (max-width: 767px){

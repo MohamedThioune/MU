@@ -1,14 +1,13 @@
 $(document).ready(function() {
-    $( ".btnMenue" ).click(function() {
-        $( ".menue1" ).addClass('visible');
-        $( ".btnMenue" ).addClass('invisible');
-        $( ".btnMenue1" ).addClass('visiblelement');
+    $( "._4-points" ).click(function() {
+        $( ".sidebar-format" ).removeClass('invisible').addClass('visible') ;
+        $( ".nav-up-right" ).addClass('opacityElement') ;
+        $( ".griscolor" ).addClass('grisElement') ;
     });
-
-    $( ".btnMenue1" ).click(function() {
-        $( ".menue1" ).removeClass('visible');
-        $( ".btnMenue1" ).removeClass('visiblelement');
-        $( ".btnMenue" ).removeClass('invisible');
+    $( "._4-points-closed" ).click(function() {
+        $( ".sidebar-format" ).removeClass('visible').addClass('invisible') ;
+        $( ".nav-up-right" ).removeClass('opacityElement') ;
+        $( ".griscolor" ).removeClass('grisElement') ;
     });
 });
 $(document).ready(function() {
@@ -27,4 +26,26 @@ $(document).ready(function() {
     $( ".cross" ).click(function() {
         $( ".block-shop" ).hide();
     });
+});
+
+
+
+// pour le sidbar coté client
+$("#monFlow").click(function(){
+    $("#sousBlockMonFlow").toggle();
+});
+$("#mesKiffes").click(function(){
+    $("#sousBlockKiffes").toggle();
+});
+$("#maChaines").click(function(){
+    $("#sousBlockChaines").toggle();
+});
+$("#timeChield").click(function(){
+    $("#sousBlockTimeChield").toggle();
+});
+$("#hassanates").click(function(){
+    $("#sousBlockHassanates").toggle();
+});
+$("#parametre").click(function(){
+    $("#sousBlockParametre").toggle();
 });

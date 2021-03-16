@@ -1,28 +1,21 @@
+@extends('layouts.sidbarNavigation')
 <html lang="fr">
 <head>
-    <meta charset="utf-8">
-    <title>
-        MU
-    </title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{asset('css/menu.css')}}">
+    @section('css')
     <link rel="stylesheet" href="node_modules/swiper/swiper.min.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/2def424b14.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="{{asset('css/menu.css')}}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    @endsection
 </head>
-
-
-
 <body>
 
+
+@section('content-play-element')
 <div class="elementFixedMobie">
-    <div class="content-home">
+    <!--    <div class="content-home">
         <div class="content-naveBar">
             <nav class="navbar navbar-expand-lg navModife">
                 <button class="groupPointNav btnMenue1">
@@ -31,12 +24,6 @@
                         <img class="flecheMuu" src="{{ asset('img/icones/fleche.svg') }}" alt="">
                         <p class="muuText">mmmuuu</p>
                     </div>
-                </button>
-                <a class="navbar-brand elementLogo" href="#">
-                    <img src="{{ asset('img/logo-MU.png') }}" alt="">
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
                 </button>
                 <button class="btnMenue ">
                     <div class="d-flex">
@@ -51,6 +38,13 @@
                     </div>
 
                 </button>
+                <a class="navbar-brand elementLogo" href="#">
+                    <img src="{{ asset('img/logo-MU.png') }}" alt="">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
 
                 <div class="content-Menu menue1">
                     <form class="form-inline2 d-flex position-relative">
@@ -89,75 +83,75 @@
 
                         </div>
 
-                        <!--                        <div class="contentElementRight">
-                                                    <div class="categorieProfil">
-                                                        <div class="block1">
-                                                            <button class="btn btnCat colorElement">Cat1</button>
-                                                            <p class="sousCategorie colorElement">Cat 1.1</p>
-                                                            <p class="sousCategorie colorElement">Cat 1.2</p>
-                                                            <p class="sousCategorie colorElement">Cat 1.3</p>
-                                                            <p class="sousCategorie colorElement">Cat 1.4</p>
-                                                            <p class="sousCategorie colorElement">Cat 1.5</p>
-                                                            <p class="sousCategorie colorElement">Cat 1.6</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="categorieProfil">
-                                                        <div class="block1">
-                                                            <button class="btn btnCat">Cat2</button>
-                                                            <p class="sousCategorie">Cat 2.1</p>
-                                                            <p class="sousCategorie">Cat 2.2</p>
-                                                            <p class="sousCategorie">Cat 2.3</p>
-                                                            <p class="sousCategorie">Cat 2.4</p>
-                                                            <p class="sousCategorie">Cat 2.5</p>
-                                                            <p class="sousCategorie">Cat 2.6</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="categorieProfil">
-                                                        <div class="block1">
-                                                            <button class="btn btnCat">Cat3</button>
-                                                            <p class="sousCategorie">Cat 3.1</p>
-                                                            <p class="sousCategorie">Cat 3.2</p>
-                                                            <p class="sousCategorie">Cat 3.3</p>
-                                                            <p class="sousCategorie">Cat 3.4</p>
-                                                            <p class="sousCategorie">Cat 3.5</p>
-                                                            <p class="sousCategorie">Cat 3.6</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="categorieProfil">
-                                                        <div class="block1">
-                                                            <button class="btn btnCat">Cat4</button>
-                                                            <p class="sousCategorie">Cat 4.1</p>
-                                                            <p class="sousCategorie">Cat 4.2</p>
-                                                            <p class="sousCategorie">Cat 4.3</p>
-                                                            <p class="sousCategorie">Cat 4.4</p>
-                                                            <p class="sousCategorie">Cat 4.5</p>
-                                                            <p class="sousCategorie">Cat 4.6</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="categorieProfil">
-                                                        <div class="block1">
-                                                            <button class="btn btnCat">Cat5</button>
-                                                            <p class="sousCategorie">Cat 5.1</p>
-                                                            <p class="sousCategorie">Cat 5.2</p>
-                                                            <p class="sousCategorie">Cat 5.3</p>
-                                                            <p class="sousCategorie">Cat 5.4</p>
-                                                            <p class="sousCategorie">Cat 5.5</p>
-                                                            <p class="sousCategorie">Cat 5.6</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="categorieProfil">
-                                                        <div class="block1">
-                                                            <button class="btn btnCat">Cat6</button>
-                                                            <p class="sousCategorie">Cat 6.1</p>
-                                                            <p class="sousCategorie">Cat 6.2</p>
-                                                            <p class="sousCategorie">Cat 6.3</p>
-                                                            <p class="sousCategorie">Cat 6.4</p>
-                                                            <p class="sousCategorie">Cat 6.5</p>
-                                                            <p class="sousCategorie">Cat 6.6</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                        -->                    </div>
+                        <div class="contentElementRight">
+                            <div class="categorieProfil">
+                                <div class="block1">
+                                    <button class="btn btnCat colorElement">Cat1</button>
+                                    <p class="sousCategorie colorElement">Cat 1.1</p>
+                                    <p class="sousCategorie colorElement">Cat 1.2</p>
+                                    <p class="sousCategorie colorElement">Cat 1.3</p>
+                                    <p class="sousCategorie colorElement">Cat 1.4</p>
+                                    <p class="sousCategorie colorElement">Cat 1.5</p>
+                                    <p class="sousCategorie colorElement">Cat 1.6</p>
+                                </div>
+                            </div>
+                            <div class="categorieProfil">
+                                <div class="block1">
+                                    <button class="btn btnCat">Cat2</button>
+                                    <p class="sousCategorie">Cat 2.1</p>
+                                    <p class="sousCategorie">Cat 2.2</p>
+                                    <p class="sousCategorie">Cat 2.3</p>
+                                    <p class="sousCategorie">Cat 2.4</p>
+                                    <p class="sousCategorie">Cat 2.5</p>
+                                    <p class="sousCategorie">Cat 2.6</p>
+                                </div>
+                            </div>
+                            <div class="categorieProfil">
+                                <div class="block1">
+                                    <button class="btn btnCat">Cat3</button>
+                                    <p class="sousCategorie">Cat 3.1</p>
+                                    <p class="sousCategorie">Cat 3.2</p>
+                                    <p class="sousCategorie">Cat 3.3</p>
+                                    <p class="sousCategorie">Cat 3.4</p>
+                                    <p class="sousCategorie">Cat 3.5</p>
+                                    <p class="sousCategorie">Cat 3.6</p>
+                                </div>
+                            </div>
+                            <div class="categorieProfil">
+                                <div class="block1">
+                                    <button class="btn btnCat">Cat4</button>
+                                    <p class="sousCategorie">Cat 4.1</p>
+                                    <p class="sousCategorie">Cat 4.2</p>
+                                    <p class="sousCategorie">Cat 4.3</p>
+                                    <p class="sousCategorie">Cat 4.4</p>
+                                    <p class="sousCategorie">Cat 4.5</p>
+                                    <p class="sousCategorie">Cat 4.6</p>
+                                </div>
+                            </div>
+                            <div class="categorieProfil">
+                                <div class="block1">
+                                    <button class="btn btnCat">Cat5</button>
+                                    <p class="sousCategorie">Cat 5.1</p>
+                                    <p class="sousCategorie">Cat 5.2</p>
+                                    <p class="sousCategorie">Cat 5.3</p>
+                                    <p class="sousCategorie">Cat 5.4</p>
+                                    <p class="sousCategorie">Cat 5.5</p>
+                                    <p class="sousCategorie">Cat 5.6</p>
+                                </div>
+                            </div>
+                            <div class="categorieProfil">
+                                <div class="block1">
+                                    <button class="btn btnCat">Cat6</button>
+                                    <p class="sousCategorie">Cat 6.1</p>
+                                    <p class="sousCategorie">Cat 6.2</p>
+                                    <p class="sousCategorie">Cat 6.3</p>
+                                    <p class="sousCategorie">Cat 6.4</p>
+                                    <p class="sousCategorie">Cat 6.5</p>
+                                    <p class="sousCategorie">Cat 6.6</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="categorie row">
                         <div class="contentButtonCategorie">
                             <button class="btn btnCategorie flow">Flow</button>
@@ -172,75 +166,75 @@
                             <p class="textSousCategorie">Food</p>
                             <p class="textSousCategorie">Sport / Gaming</p>
                         </div>
-                        <!--                        <div class="contentElementRight">
-                                                    <div class="categorieProfil">
-                                                        <div class="block1">
-                                                            <button class="btn btnCat colorElement">Cat1</button>
-                                                            <p class="sousCategorie colorElement">Cat 1.1</p>
-                                                            <p class="sousCategorie colorElement">Cat 1.2</p>
-                                                            <p class="sousCategorie colorElement">Cat 1.3</p>
-                                                            <p class="sousCategorie colorElement">Cat 1.4</p>
-                                                            <p class="sousCategorie colorElement">Cat 1.5</p>
-                                                            <p class="sousCategorie colorElement">Cat 1.6</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="categorieProfil">
-                                                        <div class="block1">
-                                                            <button class="btn btnCat">Cat2</button>
-                                                            <p class="sousCategorie">Cat 2.1</p>
-                                                            <p class="sousCategorie">Cat 2.2</p>
-                                                            <p class="sousCategorie">Cat 2.3</p>
-                                                            <p class="sousCategorie">Cat 2.4</p>
-                                                            <p class="sousCategorie">Cat 2.5</p>
-                                                            <p class="sousCategorie">Cat 2.6</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="categorieProfil">
-                                                        <div class="block1">
-                                                            <button class="btn btnCat">Cat3</button>
-                                                            <p class="sousCategorie">Cat 3.1</p>
-                                                            <p class="sousCategorie">Cat 3.2</p>
-                                                            <p class="sousCategorie">Cat 3.3</p>
-                                                            <p class="sousCategorie">Cat 3.4</p>
-                                                            <p class="sousCategorie">Cat 3.5</p>
-                                                            <p class="sousCategorie">Cat 3.6</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="categorieProfil">
-                                                        <div class="block1">
-                                                            <button class="btn btnCat">Cat4</button>
-                                                            <p class="sousCategorie">Cat 4.1</p>
-                                                            <p class="sousCategorie">Cat 4.2</p>
-                                                            <p class="sousCategorie">Cat 4.3</p>
-                                                            <p class="sousCategorie">Cat 4.4</p>
-                                                            <p class="sousCategorie">Cat 4.5</p>
-                                                            <p class="sousCategorie">Cat 4.6</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="categorieProfil">
-                                                        <div class="block1">
-                                                            <button class="btn btnCat">Cat5</button>
-                                                            <p class="sousCategorie">Cat 5.1</p>
-                                                            <p class="sousCategorie">Cat 5.2</p>
-                                                            <p class="sousCategorie">Cat 5.3</p>
-                                                            <p class="sousCategorie">Cat 5.4</p>
-                                                            <p class="sousCategorie">Cat 5.5</p>
-                                                            <p class="sousCategorie">Cat 5.6</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="categorieProfil">
-                                                        <div class="block1">
-                                                            <button class="btn btnCat">Cat6</button>
-                                                            <p class="sousCategorie">Cat 6.1</p>
-                                                            <p class="sousCategorie">Cat 6.2</p>
-                                                            <p class="sousCategorie">Cat 6.3</p>
-                                                            <p class="sousCategorie">Cat 6.4</p>
-                                                            <p class="sousCategorie">Cat 6.5</p>
-                                                            <p class="sousCategorie">Cat 6.6</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                        -->
+                        <div class="contentElementRight">
+                            <div class="categorieProfil">
+                                <div class="block1">
+                                    <button class="btn btnCat colorElement">Cat1</button>
+                                    <p class="sousCategorie colorElement">Cat 1.1</p>
+                                    <p class="sousCategorie colorElement">Cat 1.2</p>
+                                    <p class="sousCategorie colorElement">Cat 1.3</p>
+                                    <p class="sousCategorie colorElement">Cat 1.4</p>
+                                    <p class="sousCategorie colorElement">Cat 1.5</p>
+                                    <p class="sousCategorie colorElement">Cat 1.6</p>
+                                </div>
+                            </div>
+                            <div class="categorieProfil">
+                                <div class="block1">
+                                    <button class="btn btnCat">Cat2</button>
+                                    <p class="sousCategorie">Cat 2.1</p>
+                                    <p class="sousCategorie">Cat 2.2</p>
+                                    <p class="sousCategorie">Cat 2.3</p>
+                                    <p class="sousCategorie">Cat 2.4</p>
+                                    <p class="sousCategorie">Cat 2.5</p>
+                                    <p class="sousCategorie">Cat 2.6</p>
+                                </div>
+                            </div>
+                            <div class="categorieProfil">
+                                <div class="block1">
+                                    <button class="btn btnCat">Cat3</button>
+                                    <p class="sousCategorie">Cat 3.1</p>
+                                    <p class="sousCategorie">Cat 3.2</p>
+                                    <p class="sousCategorie">Cat 3.3</p>
+                                    <p class="sousCategorie">Cat 3.4</p>
+                                    <p class="sousCategorie">Cat 3.5</p>
+                                    <p class="sousCategorie">Cat 3.6</p>
+                                </div>
+                            </div>
+                            <div class="categorieProfil">
+                                <div class="block1">
+                                    <button class="btn btnCat">Cat4</button>
+                                    <p class="sousCategorie">Cat 4.1</p>
+                                    <p class="sousCategorie">Cat 4.2</p>
+                                    <p class="sousCategorie">Cat 4.3</p>
+                                    <p class="sousCategorie">Cat 4.4</p>
+                                    <p class="sousCategorie">Cat 4.5</p>
+                                    <p class="sousCategorie">Cat 4.6</p>
+                                </div>
+                            </div>
+                            <div class="categorieProfil">
+                                <div class="block1">
+                                    <button class="btn btnCat">Cat5</button>
+                                    <p class="sousCategorie">Cat 5.1</p>
+                                    <p class="sousCategorie">Cat 5.2</p>
+                                    <p class="sousCategorie">Cat 5.3</p>
+                                    <p class="sousCategorie">Cat 5.4</p>
+                                    <p class="sousCategorie">Cat 5.5</p>
+                                    <p class="sousCategorie">Cat 5.6</p>
+                                </div>
+                            </div>
+                            <div class="categorieProfil">
+                                <div class="block1">
+                                    <button class="btn btnCat">Cat6</button>
+                                    <p class="sousCategorie">Cat 6.1</p>
+                                    <p class="sousCategorie">Cat 6.2</p>
+                                    <p class="sousCategorie">Cat 6.3</p>
+                                    <p class="sousCategorie">Cat 6.4</p>
+                                    <p class="sousCategorie">Cat 6.5</p>
+                                    <p class="sousCategorie">Cat 6.6</p>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                     <div class="categorie row">
                         <div class="contentButtonCategorie">
@@ -269,56 +263,56 @@
                 </form>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ml-auto">
-                    @if(Auth::guest())
-                         <li class="nav-item nav-modife">
+                        @if(Auth::guest())
+                        <li class="nav-item nav-modife">
                             <a href="{{route('register')}}" class="btnCommunaute">Rejoindre la communauté</a>
                         </li>
                         <li class="nav-item nav-modife">
                             <img src="{{ asset('img/icones/login.svg') }}" alt="">
                             <a class="nav-link" href="{{route('login')}}">Log in</a>
                         </li>
-                    @else
+                        @else
                         <li class="nav-item nav-modife">
                             @if(Auth::user()->timeout)
-                                @if(intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/ 86400) == 0)
-                                    @if(intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/ 3600) > 0)
-                                    <p class="day" style="font-size:18px; color:white">Last login - <span style="color:#c22d84">{{intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/3600)}} hours ago</span></p>
-                                    @else(intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/ 3600) == 0)
-                                    <p class="day"style="font-size:18px; color:white">Last login - <span style="color:#c22d84">{{intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/60)}} minutes ago</span></p>
-                                    @endif
-                                @elseif(intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/ 86400) == 1)
-                                <p class="day" style="font-size:18px; color:white">Last login - <span style="color:#c22d84">Yesterday at {{strftime("%H:%M", strtotime(Auth::user()->timeout))}}</span></p>
-                                @elseif(intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/ 86400) >= 2 && intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/ 86400) <= 27)
-                                <p class="day"style="font-size:18px; color:white">Last login - <span style="color:#c22d84">{{intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/ 86400)}} days ago</span></p>
-                                @else(intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/ 86400) > 27)
-                                <p class="day" style="font-size:18px; color:white">Last login - <span style="color:#c22d84">On {{strftime("%d/%m/%Y", strtotime(Auth::user()->timeout))}}</span></p>
-                                @endif
+                            @if(intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/ 86400) == 0)
+                            @if(intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/ 3600) > 0)
+                            <p class="day" style="font-size:18px; color:white">Last login - <span style="color:#c22d84">{{intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/3600)}} hours ago</span></p>
+                            @else(intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/ 3600) == 0)
+                            <p class="day"style="font-size:18px; color:white">Last login - <span style="color:#c22d84">{{intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/60)}} minutes ago</span></p>
+                            @endif
+                            @elseif(intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/ 86400) == 1)
+                            <p class="day" style="font-size:18px; color:white">Last login - <span style="color:#c22d84">Yesterday at {{strftime("%H:%M", strtotime(Auth::user()->timeout))}}</span></p>
+                            @elseif(intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/ 86400) >= 2 && intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/ 86400) <= 27)
+                            <p class="day"style="font-size:18px; color:white">Last login - <span style="color:#c22d84">{{intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/ 86400)}} days ago</span></p>
+                            @else(intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/ 86400) > 27)
+                            <p class="day" style="font-size:18px; color:white">Last login - <span style="color:#c22d84">On {{strftime("%d/%m/%Y", strtotime(Auth::user()->timeout))}}</span></p>
+                            @endif
                             @else
                             <p class="day" style="font-size:18px; color:#f4de39">WELCOME <span style="color:white"> TO</span> <span style="color:#c22d84"> MU</span></p>
                             @endif
                         </li>
                         <li class="nav-item nav-modife">
-                            <!-- User connected with his name -->
+
                             @if(!session('profile'))
                             <span class="btnCommunaute" style="background:none; box-shadow: 4px 4px 15px white;font-weight:bold">
-                                 @php
-                                    $profile = DB::Table('users')->select('profile.*')
-                                                                 ->join('profile', 'users.id', 'profile.user_id')
-                                                                 ->where('users.id', Auth::id())
-                                                                 ->first();
+                                             @php
+                                                $profile = DB::Table('users')->select('profile.*')
+                                                                             ->join('profile', 'users.id', 'profile.user_id')
+                                                                             ->where('users.id', Auth::id())
+                                                                             ->first();
 
-                                    echo $profile->name;
-                                 @endphp
-                                 &nbsp;&nbsp;
-                                <a style="color:white;font-size:19px;" href="{{route('choose')}}"><i class="fas fa-caret-down"></i></a>
-                            </span>
+                                                echo $profile->name;
+                                             @endphp
+                                             &nbsp;&nbsp;
+                                            <a style="color:white;font-size:19px;" href="{{route('choose')}}"><i class="fas fa-caret-down"></i></a>
+                                        </span>
                             @elseif(session('profile')["age"] <= 15)
                             <span class="btnCommunaute" style="background:none; box-shadow: 4px 4px 15px #e9d22e;font-weight:bold"> {{session('profile')["name"]}} &nbsp;&nbsp;<a style="color:#e9d22e;font-size:19px;" href="{{route('choose')}}"><i class="fas fa-caret-down"></i></a></span>
                             @elseif(session('profile')["age"] > 15 && session('profile')["sex"] == '1')
                             <span class="btnCommunaute" style="background:none; box-shadow: 4px 4px 15px #3eacec;font-weight:bold"> {{session('profile')["name"]}} &nbsp;&nbsp;<a href="{{route('choose')}}"><i class="fas fa-caret-down"></i></a></span>
                             @elseif(session('profile')["age"] > 15 && session('profile')["sex"] == '0')
                             <span class="btnCommunaute" style="background:none; box-shadow: 4px 4px 15px #d14f94;font-weight:bold"> {{session('profile')["name"]}} &nbsp;&nbsp;<a style="color:#d14f94;font-size:19px;" href="{{route('choose')}}"><i class="fas fa-caret-down"></i></a><span>
-                            @endif
+                                        @endif
                         </li>
                         <li class="nav-item nav-modife">
                             <img src="{{ asset('img/icones/login.svg') }}" alt="">
@@ -327,7 +321,7 @@
                                 <button class="nav-link btnLogOut" type="submit" >Log out</button>
                             </form>
                         </li>
-                    @endif
+                        @endif
                     </ul>
                 </div>
             </nav>
@@ -345,20 +339,20 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>-->
     <div class="content-contenue1">
         <div class="contentParDefaut">
             <div class="linearColor"></div>
             <div class="container-fluid position-relative">
-                <div class="row">
-                    <div class="col-sm-12  col-md-12 col-lg-9 col-modife">
+                <div class="flexElement1">
+                    <div class="fistElement">
                         <div class="videoParDefaut">
                             <video poster="{{ asset('images/sista_preloader.png')}}" class="elementVideoParDefaut" controls>
                                 <source src="{{ asset('vids/uploads')}}/{{session('video')->vid}}" type="video/mp4;charset=UTF-8">
                             </video>
                         </div>
                     </div>
-                    <div class="col-sm-12 col-md-12 col-lg-3 colMobe">
+                    <div class="secondElement colMobe">
                         <div class="content2">
                             <div class="bannierAlerte">
                                 <img class="alertMissing" src="{{ asset('img/icones/alerte.svg') }}" alt="">
@@ -483,7 +477,7 @@
                         </div>
                         <div class="blockImgPuli bottomElement2">
                             <img src="{{ asset('img/icones/share.png') }}" alt="">
-                            <p class="textShare">Share</p>
+                            <p class="textShare">Partager</p>
                         </div>
                         <div class=" shopBtn blockImgPuli bottomElement3">
                             <img src="{{ asset('img/panier.png') }}" alt="">
@@ -552,7 +546,7 @@
                         <p class="nbreAbonnees">12,4 k Abonnes</p>
                     </div>
                     <div class="elementBtnSouscrire">
-                        <button class="btn btnSubscribe">Subscribe</button>
+                        <button class="btn btnSubscribe">S'abonner</button>
                     </div>
                 </div>
                 <div class="mobMobile">
@@ -702,12 +696,12 @@
     </div>
 </div>
 
-    <div class="content-commentaire">
+<div class="content-commentaire">
     <div class="container-fluid">
         <div class="row ">
-            <div class="col-md-5  col-lg-5 col-sm-12  commentBlock">
+            <div class="col-md-5  col-lg-5 col-sm-12">
                 @if(count($comments) > 0)
-                <div class="commentOne">
+                <div class="commentOne commentBlock">
                     <div class="commentTitle">
                         <p class="nombreComment">{{count($comments)}}</p>
                         <p class="commentText">Comments</p>
@@ -722,11 +716,11 @@
                                 <div class="div-block-327">
 
                                     @if($users[$i]->age <= 15)
-                                        <img src="{{asset('images/kids_preloader.png')}}" style="width:45px; height:42px"  class="img-circle" alt="User Image"/>
+                                    <img src="{{asset('images/kids_preloader.png')}}" style="width:45px; height:42px"  class="img-circle" alt="User Image"/>
                                     @elseif($users[$i]->age > 15 && $users[$i]->sex == '1')
-                                        <img src="{{asset('images/flow_preloader.png')}}" style="width:45px; height:42px"  class="img-circle" alt="User Image"/>
+                                    <img src="{{asset('images/flow_preloader.png')}}" style="width:45px; height:42px"  class="img-circle" alt="User Image"/>
                                     @elseif($users[$i]->age > 15 && users[$i]->sex == '0')
-                                        <img src="{{asset('images/sista_preloader.png')}}" style="width:45px; height:42px"  class="img-circle" alt="User Image"/>
+                                    <img src="{{asset('images/sista_preloader.png')}}" style="width:45px; height:42px"  class="img-circle" alt="User Image"/>
                                     @endif
                                 </div>
                                 <div class="div-block-326" >
@@ -736,17 +730,17 @@
                                 </div>
                                 <div class="text-block-324">
                                     @if(intval(abs(strtotime("now") - strtotime($comments[$i]->created_at))/ 86400) == 0)
-                                        @if(intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 3600) > 0)
-                                         {{intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/3600)}} hours ago
-                                        @else(intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 3600) == 0)
-                                         {{intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/60)}} minutes ago
-                                        @endif
+                                    @if(intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 3600) > 0)
+                                    {{intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/3600)}} hours ago
+                                    @else(intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 3600) == 0)
+                                    {{intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/60)}} minutes ago
+                                    @endif
                                     @elseif(intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 86400) == 1)
-                                     Yesterday at {{strftime("%H:%M", strtotime( $comments[$i]->created_at))}}
+                                    Yesterday at {{strftime("%H:%M", strtotime( $comments[$i]->created_at))}}
                                     @elseif(intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 86400) >= 2 && intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 86400) <= 27)
-                                      {{intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 86400)}} days ago
+                                    {{intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 86400)}} days ago
                                     @else(intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 86400) > 27)
-                                     On {{strftime("%d/%m/%Y", strtotime( $comments[$i]->created_at))}}
+                                    On {{strftime("%d/%m/%Y", strtotime( $comments[$i]->created_at))}}
                                     @endif
                                 </div>
                             </div>
@@ -780,34 +774,34 @@
                                     <button type="submit" class="text-block-326 btn">Envoyer</button>
                                 </div>
                             </form>
-                        <div>
+                            <div>
 
                             </div>
                         </div>
                     </div>
                     @php
                     if($i == 1)
-                        break;
+                    break;
                     @endphp
                     @endfor
 
                     @for($i = 0; $i < count($comments); $i++)
 
 
-                    </div>
+                </div>
 
-                    @php
-                        if($i == 0)
-                            break;
-                    @endphp
-                    @endfor
-                    <br>
+                @php
+                if($i == 0)
+                break;
+                @endphp
+                @endfor
+                <br>0 Commentaire pour l'instant
                 @else
-                <div class="commentOne">
+                <div class="commentOne commentBlock">
                     <div class="commentTitle">
-                        <p class="nombreComment"></p>
-                        <p class="commentText">0 Commentaire pour l'instant</p>
                         <img class="commentImg" src="{{ asset('img/icones/commet.svg') }}" alt="">
+                        <p class="nombreComment"></p>
+                        <p class="commentText">0 Commentaire</p>
                     </div>
                     <div class="div-block-331" >
                         <div class="text-block-264">Commentaires</div>
@@ -816,20 +810,18 @@
                         <form method="POST" action="/comments">
                             @csrf
                             <input type="hidden" name="video_id" value="{{session('video')->id}}" id="">
-                            <textarea class="inputCommentaire" name="value" id="" rows="5"></textarea>
+                            <textarea class="inputCommentaire" name="value" id=""></textarea>
 
                             <div class="div-block-332">
-                                <div data-w-id="4b72083c-6fc6-243d-8a1a-20877dbe9b72" class="text-block-325">Annuler</div>
-                                <button type="submit" class="text-block-326 btn">Envoyer</button>
+                                <button class="btn btnAnnuler">Annuler</button>
+                                <button type="submit" class="btn btnEnvoyer">Envoyer</button>
                             </div>
                         </form>
                     </div>
                 </div>
                 @endif
-                </div>
-
-
-                 <div class="col-md-7 col-lg-7">
+            </div>
+            <div class="col-md-7 col-lg-7 colModife7">
                 <div class="contentSwipeToday BlockInshaAlla swiperBlackMob">
                     <div class="barreLatraleNoir">
                         <div class="categorie-name">
@@ -860,11 +852,11 @@
                                             <div class="block3">
                                                 <p class="mindText">Mind</p>
                                                 <p class="day">Publié il y à 2 jours</p>
-                                                <!--                                            <div class="d-flex justify-content-between">
-                                                                                                <p class="numberviewsSuggestion">1230</p>
-                                                                                                <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+                            <!--                                     <div class="d-flex justify-content-between">
+                                                                            <p class="numberviewsSuggestion">1230</p>
+                                                                            <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
 
-                                                                                            </div>
+                                                                        </div>
                                                 -->                                        </div>
                                         </div>
                                     </div>
@@ -1131,7 +1123,6 @@
                 </div>
             </div>
 
-            </div>
         </div>
     </div>
 </div>
@@ -1219,7 +1210,6 @@
                 </div>
             </div>
 
-            </div>
         </div>
     </div>
 </div>
@@ -1307,7 +1297,6 @@
                 </div>
             </div>
 
-            </div>
         </div>
     </div>
 </div>
@@ -1393,7 +1382,6 @@
                         @endforeach
                     </div>
                 </div>
-            </div>
             </div>
         </div>
     </div>
@@ -1481,42 +1469,26 @@
                     </div>
                 </div>
             </div>
-            </div>
         </div>
     </div>
 </div>
 @endif
 @endif
-</div>
-
-</body>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="node_modules/swiper/swiper-bundle.js"></script>
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
-<script>
-    //My code not persuassive
-    var video_play = document.querySelector(".elementVideoParDefaut");
-
-    if(video_play.readyState > video_play.HAVE_METADATA){
-        var min = Math.floor(video_play.duration / 60);
-        var sec = Math.floor(video_play.duration - min * 60);
-        document.getElementById("doNotMissing").innerHTML = min + ":" + sec;
-    }
-
-</script>
 <script>
     var swiper = new Swiper('.swipeContainermodife1', {
-        slidesPerView: 2.5,
-        spaceBetween: 40
+        slidesPerView: 2.1,
+        spaceBetween: 30
     });
 </script>
 
 <script>
     var swiper = new Swiper('.swiper-helatcare', {
         slidesPerView: 4,
-        spaceBetween: 40,
+        spaceBetween: 30,
         // Responsive breakpoints
         breakpoints: {
 
@@ -1528,15 +1500,15 @@
             // when window width is <= 480px
             480: {
                 slidesPerView: 2.3,
-                spaceBetween: 20
+                spaceBetween: 10
             },
             980: {
                 slidesPerView: 3.3,
-                spaceBetween: 30
+                spaceBetween: 10
             },
             1200: {
                 slidesPerView: 4,
-                spaceBetween: 40
+                spaceBetween: 30
             },
 
 
@@ -1557,14 +1529,7 @@
         });
     }
 </script>
-<script>
-    function TestsFunction() {
-        var T = document.getElementById("TestsDiv"),
-            displayValue = "";
-        if (T.style.display == "")
-            displayValue = "none";
-
-        T.style.display = displayValue;
-    }
-</script>
 <script src="{{asset('js/menu.js')}}"></script>
+@endsection
+
+</body>
