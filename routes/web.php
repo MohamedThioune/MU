@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-
+    
     $subtopics = DB::Table('sub_topics')->select('*')
                                         ->get();
 

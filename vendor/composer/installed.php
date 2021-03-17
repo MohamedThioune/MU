@@ -6,7 +6,7 @@
     'aliases' => 
     array (
     ),
-    'reference' => 'bb748c99a65632e0ba2c87645dfdd603a1ff881f',
+    'reference' => '139d27d953d81ae3c961276adf3fbc7c231604f4',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -383,6 +383,15 @@
       ),
       'reference' => '9f7a229a69d52506914b4bc61bfdb199d90c5547',
     ),
+    'james-heinrich/getid3' => 
+    array (
+      'pretty_version' => 'v1.9.20',
+      'version' => '1.9.20.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '3c15e353b9bb1252201c73394bb8390b573a751d',
+    ),
     'jlapp/swaggervel' => 
     array (
       'pretty_version' => 'dev-master',
@@ -433,7 +442,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => 'bb748c99a65632e0ba2c87645dfdd603a1ff881f',
+      'reference' => '139d27d953d81ae3c961276adf3fbc7c231604f4',
     ),
     'laravel/tinker' => 
     array (
