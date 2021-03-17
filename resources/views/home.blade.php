@@ -916,10 +916,6 @@
                                         @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) > 27)
                                         <p class="day">On {{strftime("%d/%m/%Y", strtotime($video->created_at))}}</p>
                                         @endif
-                                     <div class="d-flex justify-content-between">
-                                            <p class="numberviewsSuggestion">1230</p>
-                                            <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
-                                        </div>
                                     </div>
                                 </div>
                             </div>

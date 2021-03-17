@@ -62,7 +62,8 @@
                                 <img src="{{ asset('img/Mu-Vignette-video-400x250-plato.jpg') }}" class="image-98">
                             </label>
                             <div class="input">
-                                <input name="thumbnail" id="thumbnail" type="file">
+                                <input class="btn btn-default" name="thumbnail" id="thumbnail" type="file" />
+                                <label for="thumbnail">Modifier vignette de la video</label>
                             </div>
                         </div>
                     </div>
@@ -92,7 +93,7 @@
                     <div class="div-block-246">
                         <div class="div-block-242">
                             <div class="div-block-243">
-                                <img src="{{ asset('img/Mu-lune-pink2x.png') }}" alt="">
+                                <img style="width:30px;height:30px" src="{{ asset('img/Mu-lune-pink2x.png') }}" alt="">
                             </div>
                             <p>Santé</p>
                         </div>
@@ -100,7 +101,7 @@
                         @foreach($subtopics_health as $subtopic)
                         <div class="div-block-245">
                             <!-- <div class="div-block-244"></div> -->
-                            <input  class="div-block-244" type="radio" id="link" name="subtopic_id" value="{{$subtopic->id}}">
+                            <input class="div-block-244" type="radio" width="50" height="30" id="link" name="subtopic_id" value="{{$subtopic->id}}">
                             <label for="link" class="link-20">{{$subtopic->libelle}}</label>
                             <!-- <a href="#" class="link-20">Topic 1</a> -->
                         </div>
@@ -110,7 +111,7 @@
                     <div class="div-block-246">
                         <div class="div-block-242">
                             <div class="div-block-243">
-                                <img src="{{ asset('img/Groupe-9272x.png') }}" alt="">
+                                <img style="width:30px;height:30px" src="{{ asset('img/Groupe-9272x.png') }}" alt="">
                             </div>
                             <p>Life</p>
                         </div>
@@ -128,7 +129,7 @@
                     <div class="div-block-246">
                         <div class="div-block-242">
                             <div class="div-block-243">
-                                <img src="{{ asset('img/Groupe-9262x.png') }}" alt="">
+                                <img style="width:30px;height:30px" src="{{ asset('img/Groupe-9262x.png') }}" alt="">
                             </div>
                             <p>Tuto</p>
                         </div>
@@ -161,7 +162,7 @@
                     <div class="div-block-246">
                         <div class="div-block-242">
                             <div class="div-block-243">
-                                <img src="{{ asset('img/Groupe-9292x.png') }}" alt="">
+                                <img style="width:30px;height:30px" src="{{ asset('img/Groupe-9292x.png') }}" alt="">
                             </div>
                             <p>Education</p>
                         </div>
@@ -179,7 +180,7 @@
                     <div class="div-block-246">
                         <div class="div-block-242">
                             <div class="div-block-243">
-                                <img src="{{ asset('img/Groupe-9302x.png') }}" alt=""></div>
+                                <img style="width:30px;height:30px" src="{{ asset('img/Groupe-9302x.png') }}" alt=""></div>
                             <p>Business</p>
                         </div>
 
@@ -209,7 +210,7 @@
                     <div class="div-block-246">
                         <div class="div-block-242">
                             <div class="div-block-243">
-                                 <img src="{{ asset('img/Groupe-928.png') }}" alt="">
+                                 <img style="width:30px;height:30px" src="{{ asset('img/Groupe-928.png') }}" alt="">
                             </div>
                             <p>News</p>
                         </div>

@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="../css/sidbarDasboard.css">
 
     <link rel="stylesheet" href="../css/mu-dev.webflow.css">
+    <script src="https://kit.fontawesome.com/2def424b14.js" crossorigin="anonymous"></script>
     @yield('head')
 </head>
 

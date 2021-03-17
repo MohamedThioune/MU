@@ -457,7 +457,7 @@
                     </div>
                     <div class="block-detail-commentaire">
                         <p class="des-text">Description de la vidéo : <span class="">{{ session('video')->description }}</span>      </p>
-                        <p class="des-text">Objectifs de la vidéo :</p>
+                        <p class="des-text">Objectifs de la vidéo : {{ session('video')->motivation }}</p>
                     </div>
 
                     <div class="blockshareAndComments">
@@ -530,15 +530,24 @@
                 </div>
                 <div class="blockAuteur webElement">
                     <img class="imgBadge" src="{{ asset('img/icones/Badge.png') }}" alt="">
-                    <div class="elementImgAuteur">
-                        <img src="{{ asset('img/auteur.png') }}" alt="">
-                    </div>
                     @php
                     $channel = DB::Table('users')->select('channels.*')
                     ->join('channels', 'users.id', 'channels.user_id')
                     ->where('users.id', session('user')->id)
                     ->first();
                     @endphp
+                    <div class="elementImgAuteur">
+                        @if($channel->urlPhoto)
+                        <img class="" src="{{ asset('/images/uploads') }}/{{$user->photo}}" alt="">
+                        @elseif(session('user')->age <= 15)
+                        <img class="" src="{{asset('images/kids_preloader.png')}}" alt="">
+                        @elseif(session('user')->age > 15 && session('user')->sex == '1')
+                        <img class="img-circle" src="{{asset('images/flow_preloader.png')}}" alt=""/>
+                        @elseif(session('user')->age > 15 && session('user')->sex == '0')
+                        <img class="" src="{{asset('images/sista_preloader.png')}}" alt="">
+                        @endif
+                        <img src="{{ asset('img/auteur.png') }}" alt="">
+                    </div>
                     <p class="nameAuteur contentweb">{{$channel->name}}</p>
                     <p class="nbreAbonnees contentweb">12,4 k Abonnes</p>
                     <div class="contentMobile">
@@ -795,7 +804,6 @@
                 break;
                 @endphp
                 @endfor
-                <br>0 Commentaire pour l'instant
                 @else
                 <div class="commentOne commentBlock">
                     <div class="commentTitle">
@@ -1478,6 +1486,25 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="node_modules/swiper/swiper-bundle.js"></script>
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<script>
+    //My code not persuassive
+    var video_play = document.querySelector(".elementVideoParDefaut");
+    var 
+
+    function time(){
+        setTimeout(start, 10000);
+    }
+   
+    function start(){
+        
+        if(video_play.readyState > video_play.HAVE_METADATA){
+            
+            alert("Playing ...");
+        }
+    }
+</script>
+
 <script>
     var swiper = new Swiper('.swipeContainermodife1', {
         slidesPerView: 2.1,

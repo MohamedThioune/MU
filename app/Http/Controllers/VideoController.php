@@ -16,7 +16,7 @@ use Auth;
 use DB;
 use getID3;
 use Math;
-use Carbon\Carbon;
+use Carbon\Carbon; 
 use App\Models\Unlike;
 
 class VideoController extends AppBaseController
@@ -33,7 +33,7 @@ class VideoController extends AppBaseController
         // /** @var Video $videos */
         // $videos = Video::all();
 
-        /** @var MainTopic $maintopics */
+        /** @var Subtopic $subtopics */
         $subtopics = SubTopic::all();
 
         $duration = null;
@@ -41,7 +41,14 @@ class VideoController extends AppBaseController
         $videos = DB::Table('users')->select('videos.*')
                                       ->join('videos', 'users.id', 'videos.user_id')
                                       ->where('users.id', $id)
+                                      ->whereNull('videos.deleted_at')
                                       ->get();
+
+        /** @var Channel $channel */
+        $channel = DB::Table('users')->select('channels.*')
+                                        ->join('channels', 'users.id', 'channels.user_id')
+                                        ->where('users.id', Auth::id())
+                                        ->first();
         foreach ($videos as $video) {
             if ($video->duration){
                 $durations = explode(':', $video->duration);
@@ -53,7 +60,7 @@ class VideoController extends AppBaseController
             }
         }
         
-        return view('videos.index', compact('videos', 'subtopics'));
+        return view('videos.index', compact('videos', 'subtopics', 'channel', ));
     }
 
     /**
@@ -64,7 +71,7 @@ class VideoController extends AppBaseController
     public function create()
     {
         $subtopics = SubTopic::all();
-
+    
         /** @var SubTopic $subtopics */
         $subtopics_health = DB::Table('sub_topics')->select('sub_topics.*')
         ->join('main_topics', 'main_topics.id', 'sub_topics.maintopic_id')
@@ -399,8 +406,25 @@ class VideoController extends AppBaseController
         }
         $user->unlike($video);
         
+        return redirect()->back();
+    }
 
-        
+    public function deletes(){
+        if($_POST['checkboxes']){
+            extract($_POST);
+
+            if(count($checkboxes) == 1 && $checkboxes[0]=="null")
+            return redirect()->back();
+
+            foreach($checkboxes as $checkbox){
+                if($checkbox != "null"){
+                $video = Video::find($checkbox);
+                $video->delete();
+                }
+            }
+            Flash::success('Videos deleted successfully.');
+        }
+
         return redirect()->back();
     }
 }
