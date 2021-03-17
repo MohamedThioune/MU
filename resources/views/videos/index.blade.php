@@ -44,8 +44,8 @@
             <a href="#" class="link-26">Playlist</a>
         </div>
         <div class="chaine-name">
-            <h1 class="heading-45">Halimatou créatrice de douceurs</h1>
-            <a href="#" class="link-17">Modifier le nom de ma chaîne</a>
+            <h1 class="heading-45">{{$channel->name}}</h1>
+            &nbsp;&nbsp; <a href="{{route('channels.edit', [$channel->id])}}" class="link-17">Modifier le nom de ma chaîne</a>
         </div>
         <div class="div-block-220">
             <div class="div-block-224">
@@ -59,19 +59,24 @@
                 </div>
                 <div class="div-block-223">
                     <div class="text-block-246">Description de ma chaîne</div>
-                    <textarea class="div-block-225" placeholder="Bien plus chaine de gourmandise et de régale. Vous trouverez ici les recettes les petites astuces pour gagner du temps et ne plus rater vos mets préférés."></textarea>
+                    <textarea class="div-block-225" placeholder="{{$channel->description}}"></textarea>
                 </div>
             </div>
-            <div class="div-block-224">
+            @php $user = Auth::user(); @endphp
+
+            @if($user->sex == 0)
+           <div class="div-block-224">
            <div class="div-block-222"></div>
                 <div class="div-block-231">
                     <div class="div-block-226">
                         <div class="div-block-227"></div>
                     </div>
                 </div>
-                <div class="text-block-246">Publier ma chaîne uniquement  sur Sista 2 Sisita</div>
+                <div class="text-block-246">Publier ma chaîne uniquement sur Sista 2 Sisita</div>
             </div>
-        </div>
+            </div>
+            @endif
+
     </div>
     <div class="div-block-229">
         <div class="more-oiunt">
@@ -86,58 +91,57 @@
         <p class="text-block-254">Like</p>
         <p class="text-block-254">Evalutation</p>
     </div>
+
+    <form action="{{route('deletes.videos')}}" method="POST">
+    @csrf
+    <input name="checkboxes[]" type="hidden" value="null" class="div-block-232" id="element1" >
+
+    @foreach($videos as $video)
+    @if(!$video->deleted_at)
     <div class="div-block-229">
-        <input type="checkbox" class="div-block-232 id="element1">
-        <a href="#" for="elemnt1" class="div-block-230 w-inline-block">
-            <img src="{{ asset('img/Mu-chaine-video-vignette.jpg') }}" loading="lazy" alt=""></a>
+        <input name="checkboxes[]" type="checkbox" value="{{$video->id}}" class="div-block-232" id="element1" >
+        <a href="{{route('play',[$video->id])}}" for="elemnt1" class="div-block-230 w-inline-block">
+
+        @php $user = App\User::find($video->user_id); @endphp
+
+        @if($video->thumbnail)
+            <img src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" width="120" height="100" loading="lazy" alt="">
+        @else
+            <img src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" width="120" height="100" loading="lazy" alt="">
+        @endif
+        </a>
+
         <div class="text-block-253">
-            <a href="#" class="link-18">Quand il y a poulet, il y a ça !<br>Le poulet iassa incontournable...</a><br>
+            <a href="{{route('play',[$video->id])}}" class="link-18">{{$video->description}}</a><br>
         </div>
-        <p class="text-block-254">Food</p>
-        <p class="text-block-254">20/02/2021</p>
-        <p class="text-block-254">23 k</p>
-        <p class="text-block-254">4 k</p>
-        <p class="text-block-254">FUN (75%)</p>
+        @php 
+        
+        $created = explode("-", $video->created_at); 
+        $day = explode(" ", $created[2]); 
+
+        $maintopic = DB::Table('videos')->select('main_topics.*') 
+                                        ->join('sub_topics', 'sub_topics.id', 'videos.subtopic_id')
+                                        ->join('main_topics', 'main_topics.id', 'sub_topics.maintopic_id')
+                                        ->where('sub_topics.id', $video->subtopic_id)
+                                        ->get();
+        $read = DB::Table('reads')
+                        ->where('video_id', $video->id)
+                        ->count();
+
+        @endphp 
+        <p class="text-block-254">{{$maintopic[0]->libelle}}</p>
+        <p class="text-block-254">{{$day[0]}}/{{$created[1]}}/{{$created[0]}} </p>
+
+        <p class="text-block-254">{{$read}}</p>
+        <p class="text-block-254">0</p>
+        <p class="text-block-254">Behavior (0%)</p>
     </div>
-    <div class="div-block-229">
-        <input type="checkbox" class="div-block-232 id="element2">
-        <a href="#" for="elemnt2" class="div-block-230 w-inline-block">
-            <img src="{{ asset('img/Mu-chaine-video-vignette-burger.jpg') }}" loading="lazy" alt=""></a>
-        <div class="text-block-253">
-            <a href="#" class="link-19">Ma pâte burger est la Qeen dans son royaume !<br>Burger fait maison à ma façon...</a><br>
-        </div>
-        <p class="text-block-254">Food</p>
-        <p class="text-block-254">20/02/2021</p>
-        <p class="text-block-254">23 k</p>
-        <p class="text-block-254">4 k</p>
-        <p class="text-block-254">FUN (75%)</p>
-    </div>
-    <div class="div-block-229">
-        <input type="checkbox" class="div-block-232 id="element3">
-        <a href="#" for="elemnt3" class="div-block-230 w-inline-block">
-            <img src="{{ asset('img/Mu-chaine-video-vignette-olive.jpg') }}" loading="lazy" alt=""></a>
-        <div class="text-block-253">
-            <a href="#" class="link-19">Ma pâte burger est la Qeen dans son royaume !<br>Burger fait maison à ma façon...</a><br>
-        </div>
-        <p class="text-block-254">Food</p>
-        <p class="text-block-254">20/02/2021</p>
-        <p class="text-block-254">23 k</p>
-        <p class="text-block-254">4 k</p>
-        <p class="text-block-254">FUN (75%)</p>
-    </div>
-    <div class="div-block-229">
-        <input type="checkbox"  class="div-block-232 id="element3">
-        <a href="#" for="elemnt3" class="div-block-230 w-inline-block">
-            <img src="{{ asset('img/Mu-chaine-video-vignette-nouille.jpg') }}" loading="lazy" alt=""></a>
-        <div class="text-block-253">
-            <a href="#" class="link-19">Ma pâte burger est la Qeen dans son royaume !<br>Burger fait maison à ma façon...</a><br>
-        </div>
-        <p class="text-block-254">Food</p>
-        <p class="text-block-254">20/02/2021</p>
-        <p class="text-block-254">23 k</p>
-        <p class="text-block-254">4 k</p>
-        <p class="text-block-254">FUN (75%)</p>
-    </div>
+    @endif
+    
+    @endforeach
+    <br>
+    <button type="submit" stylle="margin-right:-30px;" class="btn btn-danger" onclick="return confirm('Etes vous sure de vouloir supprimer cette sélection')"> <i class="fas fa-trash"></i>&nbsp;Supprimer la sélection</button>
+    </form>
 </div>
 @endsection
 @section('scripts')

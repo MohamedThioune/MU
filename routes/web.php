@@ -23,32 +23,38 @@ Route::get('/', function () {
     $videos_haltcare = DB::Table('videos')->select('videos.*')
                                  ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
                                  ->where('mainTopic_id', 1)
+                                 ->whereNull('videos.deleted_at')
                                  ->get();
 
     $videos_life = DB::Table('videos')->select('videos.*')
     ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
     ->where('mainTopic_id', 2)
+    ->whereNull('videos.deleted_at')
     ->get();
 
     $videos_health = DB::Table('videos')->select('videos.*')
     ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
     ->where('mainTopic_id', 3)
+    ->whereNull('videos.deleted_at')
     ->get();
 
 
     $videos_business = DB::Table('videos')->select('videos.*')
     ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
     ->where('mainTopic_id', 4)
+    ->whereNull('videos.deleted_at')
     ->get();
 
     $videos_environnement = DB::Table('videos')->select('videos.*')
     ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
     ->where('mainTopic_id', 5)
+    ->whereNull('videos.deleted_at')
     ->get();
 
     $videos_education = DB::Table('videos')->select('videos.*')
     ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
     ->where('mainTopic_id', 6)
+    ->whereNull('videos.deleted_at')
     ->get();
 
     
@@ -61,9 +67,11 @@ Route::get('vids/uploads/^[a-zA-Z0-9_]*$');
 
 Route::get('vids/thumbnails/^[a-zA-Z0-9_]*$');
 
+// delete in selection : Videos for user
+Route::post('/delete/videos', [App\Http\Controllers\VideoController::class, 'deletes'])->name('deletes.videos')->middleware('auth');
+
 // play page : Play the current video [Online]
 Route::get('/play', function () {
-    
     return view('play');
 })->name('playing');
 

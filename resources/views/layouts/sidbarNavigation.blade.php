@@ -240,7 +240,7 @@
                         </a>
                     </div>
                     <div class="publish-notif">
-                        <a href="ma-chaine-publier.html" class="cam-publier w-inline-block">
+                        <a href="{{route('videos.create')}}" class="cam-publier w-inline-block">
                             <img src="{{ asset('img/Mu-upload-cloud-blanc2x.png') }}" class="imgCloud2" alt="">
                         </a>
                         <a href="#" class="cloche w-inline-block">
