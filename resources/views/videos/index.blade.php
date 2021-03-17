@@ -5,7 +5,8 @@
 @endsection
 
 @section('content-sidbar-element')
-<!--    <section class="content-header">
+<!--    
+    <section class="content-header">
         <h1 class="pull-left">Videos</h1>
         <h1 class="pull-right">
            <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px" href="{{ route('videos.create') }}">Add New</a>
@@ -78,6 +79,7 @@
             @endif
 
     </div>
+    @include('flash::message')
     <div class="div-block-229">
         <div class="more-oiunt">
             <div class="div-block-233"></div>

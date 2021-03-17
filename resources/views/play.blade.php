@@ -1486,6 +1486,25 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="node_modules/swiper/swiper-bundle.js"></script>
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<script>
+    //My code not persuassive
+    var video_play = document.querySelector(".elementVideoParDefaut");
+    var 
+
+    function time(){
+        setTimeout(start, 10000);
+    }
+   
+    function start(){
+        
+        if(video_play.readyState > video_play.HAVE_METADATA){
+            
+            alert("Playing ...");
+        }
+    }
+</script>
+
 <script>
     var swiper = new Swiper('.swipeContainermodife1', {
         slidesPerView: 2.1,
