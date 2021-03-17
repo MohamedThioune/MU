@@ -422,6 +422,7 @@ class VideoController extends AppBaseController
                 $video->delete();
                 }
             }
+            Flash::success('Videos deleted successfully.');
         }
 
         return redirect()->back();
