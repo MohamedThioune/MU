@@ -6573,6 +6573,7 @@
 
 .text-block-331 {
     margin-right: 40px;
+    font-family: "Ubuntu-Regular";
 }
 
 .text-block-332 {
@@ -6636,11 +6637,7 @@
     margin-bottom: 10px;
     color: #5e5e5e;
     font-size: 18px;
-    font-weight: 700;
-}
-
-.text-block-335 {
-    font-size: 18px;
+    font-family: "Ubuntu-Medium";
 }
 
 .text-block-336 {
@@ -6648,6 +6645,16 @@
     color: #8f8f8f;
     font-size: 16px;
     line-height: 23px;
+    font-family: "Ubuntu-Regular";
+    width: 400px;
+    overflow: hidden;
+}
+.text-block-336 img{
+    width: 100%;
+}
+
+.text-block-335 {
+    font-size: 18px;
 }
 
 .text-block-337 {
@@ -6915,7 +6922,7 @@
     margin-bottom: 20px;
     color: #c4c4c4;
     font-size: 16px;
-    font-weight: 700;
+    font-family: "Ubuntu-Medium";
 }
 
 .business-now {
@@ -6954,9 +6961,11 @@
     margin-bottom: 0px;
     color: #5e5e5e;
     font-size: 18px;
-    font-weight: 700;
+    font-family: "Ubuntu-Medium";
 }
-
+.image9{
+    width: 72px;
+}
 .mon-flow-content {
     display: -webkit-box;
     display: -webkit-flex;
@@ -6984,7 +6993,7 @@
     margin-right: 5px;
     color: #5e5e5e;
     font-size: 16px;
-    font-weight: 400;
+    font-family: "Ubuntu-Medium";
 }
 
 .infos-biz-chaine {
@@ -7074,6 +7083,7 @@
     background-color: #f7f7f7;
     color: #8f8f8f;
     text-decoration: none;
+    font-family: "Ubuntu-Medium";
 }
 
 .div-block-338 {
@@ -8233,6 +8243,224 @@
     display: flex;
     padding-top: 15px;
 }
+.business-content2{
+    width: 85%;
+    display: block;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+.chaineAbonneBlockHead{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    width: auto;
+    height: 200px;
+    margin-top: 0px;
+    padding: 10px 10px 0px 0px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    -webkit-box-align: end;
+    -webkit-align-items: flex-end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+    background-image: url('../img/Mu-bandeau-chaine-avion.jpg') !important;
+    background-position: 0% 100%;
+    background-size: cover;
+}
+.infos-hot{
+    padding: 40px 20px 40px 40px;
+}
+.text-block-381 {
+    margin-top: 0px;
+    margin-bottom: 20px;
+    color: #8f8f8f;
+    font-size: 16px;
+    font-weight: 700;
+}
+.image-131 {
+    border-radius: 50px;
+}
+.div-block-394 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+.text-block-383 {
+    margin-bottom: 7px;
+    font-size: 25px;
+    font-family: "Ubuntu-Bold";
+}
+.text-block-385 {
+    margin-bottom: 7px;
+    color: #db087c;
+    font-family: "Ubuntu-Regular";
+}
+.text-block-384 {
+    color: #8f8f8f;
+    font-size: 20px;
+    line-height: 25px;
+    font-family: "Ubuntu-Medium";
+}
+.text-block-384 {
+    color: #8f8f8f;
+    font-size: 20px;
+    line-height: 25px;
+    font-family: "Ubuntu-Medium";
+    margin-bottom: 0;
+}
+.hot-green {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    margin-right: 40px;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border-radius: 50px;
+}
+
+.playlist2 {
+    border-style: solid;
+    border-width: 20px 1px 1px;
+    border-color: #fff;
+    background-color: #f1f0f0;
+    width: 85%;
+    padding-left: 30px;
+
+}
+.text-Playlist{
+    margin-top: 20px;
+    color: #8f8f8f;
+    font-family: "Ubuntu-Medium";
+    margin-left: 10px;
+}
+.link-block-41 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    height: 30px;
+    padding: 8px 20px;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #fff;
+    border-radius: 25px;
+    color: #fff;
+    text-decoration: none;
+}
+.div-block-385 {
+    padding: 7px 9px;
+    border-radius: 40px;
+    background-color: rgba(51, 51, 51, 0.3);
+}
+.chaine {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+.link-block-40 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    width: 120px;
+    height: 35px;
+    padding-right: 15px;
+    padding-left: 15px;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border-radius: 30px 0px 0px 30px;
+    background-color: #f5740a;
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
+}
+.alerte {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    width: 60px;
+    height: 35px;
+    margin-right: 0px;
+    margin-left: 1px;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
+    background-color: #f5740a;
+    line-height: 14px;
+}
+
+element.style {
+}
+.div-block-370 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    margin-right: 20px;
+    margin-left: 20px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+.link-block-42 {
+    margin-right: 20px;
+}
 
 @media screen and (min-width: 1280px) {
     .image-3 {
@@ -8965,7 +9193,7 @@
     }
 
     .business-content {
-        width: 100%;
+        width: 86%;
     }
 
     .time-mon-flow {
