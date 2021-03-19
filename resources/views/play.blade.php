@@ -7,6 +7,8 @@
     <script src="https://kit.fontawesome.com/2def424b14.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="{{asset('css/menu.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.css" integrity="sha512-phGxLIsvHFArdI7IyLjv14dchvbVkEDaH95efvAae/y2exeWBQCQDpNFbOTdV1p4/pIa/XtbuDCnfhDEIXhvGQ==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     @endsection
 </head>
@@ -347,11 +349,17 @@
                 <div class="flexElement1">
                     <div class="fistElement">
                         <div class="videoParDefaut">
-                            <video poster="{{ asset('images/sista_preloader.png')}}" class="elementVideoParDefaut" controls>
+                            <video poster="{{ asset('images/sista_preloader.png')}}" class="elementVideoParDefaut" onplay="start()" controls>
                                 <source src="{{ asset('vids/uploads')}}/{{session('video')->vid}}" type="video/mp4;charset=UTF-8">
                             </video>
                         </div>
-                    </div>
+                        <div id="blessings" class="animate__animated animate__bounceInUp" >
+                            <center><span style="width:300px; background:black; color:white; font-size:1.3em;">👋🏾 Bismillah !</span>
+                            <input type="hidden" name="barometer" id="barometer" value="">
+                        </div>
+                        <div id="prays" class="animate__animated animate__zoomInDown">
+                            <center><span style="width:300px; background:black; color:white; font-size:1.3em;">Alhamdoulilah &#x1F4FF;!</span></center>                        </div>
+                        </div>
                     <div class="secondElement colMobe">
                         <div class="content2">
                             <div class="bannierAlerte">
@@ -1490,20 +1498,44 @@
 <script>
     //My code not persuassive
     var video_play = document.querySelector(".elementVideoParDefaut");
-    var 
+    var blessings = document.getElementById("blessings");
+    var prays = document.getElementById("prays"); 
+    var barometer = document.getElementById("barometer");
+    barometer.value = "";
+    
+    blessings.style.display = "none";
+    prays.style.display = "none"; 
 
-    function time(){
-        setTimeout(start, 10000);
+    function toggle(){
+        blessings.style.display = "none";
     }
-   
+
+    function endof(){
+        prays.style.display = "none"; 
+    }
+
     function start(){
         
         if(video_play.readyState > video_play.HAVE_METADATA){
-            
-            alert("Playing ...");
+            blessings.style.display = "block"; 
+            barometer.value = "1";
+            setTimeout(toggle, 10000);
+
+            var duration = video_play.duration;
+            wait = (duration - 18)*1000;  
+            setTimeout(end, wait);
+
+            setTimeout(endof, 10000);
         }
     }
+
+    function end(){
+        blessings.style.display = "none";
+        prays.style.display = "block"; 
+    }
 </script>
+
+
 
 <script>
     var swiper = new Swiper('.swipeContainermodife1', {

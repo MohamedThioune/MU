@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="{{asset('css/menu.css')}}">
     <link rel="stylesheet" href="../css/sidbarNavigation.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.css" integrity="sha512-phGxLIsvHFArdI7IyLjv14dchvbVkEDaH95efvAae/y2exeWBQCQDpNFbOTdV1p4/pIa/XtbuDCnfhDEIXhvGQ==" crossorigin="anonymous" />
     @yield('css')
 </head>
 
@@ -164,7 +165,7 @@
                             <li class="nav-item nav-modife">
                                 <a href="{{route('register')}}" class="oumma w-button">Rejoindre la Oumma</a>
                             </li>
-                            <li class="nav-item nav-modife">
+                            <li class="nav-item nav-modife" style="margin-top:5px;">
                                 <img src="{{ asset('img/icones/login.svg') }}" alt="">
                                 <a class="nav-link" href="{{route('login')}}">Log in</a>
                             </li>
@@ -211,17 +212,18 @@
                                 <span class="btnCommunaute" style="background:none; box-shadow: 4px 4px 15px #d14f94;font-weight:bold"> {{session('profile')["name"]}} &nbsp;&nbsp;<a style="color:#d14f94;font-size:19px;" href="{{route('choose')}}"><i class="fas fa-caret-down"></i></a><span>
                                         @endif
                             </li>
+                                <div class="btn connexion">
+                                    <span class="div-block-272">
+                                        <img src="{{ asset('img/Mu-login-blanc.svg') }}" alt="" class="image-101">
+                                    </span>
+                                    <form action="{{ route('logout') }}" class="nav-modife formModife" method="POST">
+                                        @csrf
+                                        <button class="nav-link btnLogOut" type="submit" >Log out</button>
+                                    </form>
+                                </div>
                             @endif
                         </ul>
-                        <div class="btn connexion">
-                            <span class="div-block-272">
-                                <img src="{{ asset('img/Mu-login-blanc.svg') }}" alt="" class="image-101">
-                            </span>
-                            <form action="{{ route('logout') }}" class="nav-modife formModife" method="POST">
-                                @csrf
-                                <button class="nav-link btnLogOut" type="submit" >Log out</button>
-                            </form>
-                        </div>
+                        
                     </div>
                 </div>
                 <div class="bar-down">
