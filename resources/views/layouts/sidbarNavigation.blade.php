@@ -16,8 +16,6 @@
 </head>
 
 <body>
-
-
     <div class="position-relative">
         <div class="griscolor"></div>
         <div class="content-element-page">
@@ -134,123 +132,125 @@
                 </div>
             </div>
             <div class="d-flex">
-                <div class="sidebar-format invisible">
-                    <div class="sidenavbar">
-                        <div class="sidenavbar-up">
-                            <div>
-                                <a href="#" class="_4-points-closed w-inline-block">
-                                    <div class="_2points">
-                                        <div class="point-1x4-pr"></div>
-                                        <div class="point-1x4-pr2"></div>
-                                    </div>
-                                    <div class="_2points">
-                                        <div class="point-1x4-pr3"></div>
-                                        <div class="point-1x4-pr4"></div>
-                                    </div>
-                                </a>
-                            </div>
-                            <a  href="flow.html" class="mu-logo w-inline-block">
-                                <img src="{{ asset('img/Mu-full-white-00.png') }}" class="imgMUfull" alt=""></a>
-                        </div>
-                        <div class="div-block-387">
-                            <div class="logo-txt-sidebar">
-                                <img src="{{ asset('img/Smuuse-logo-blanc-SB-2021-80x22.png') }}"  class="imgSumse"></div>
-                        </div>
-                    </div>
-                    <div class="head-slidebar-user">
-                        <p class="text-block-242">Halima</p>
-                        <p class="text-block-243">Particulier</p>
-                        <div class="profil-photo">
-                            <img src="{{ asset('img/Mu-bull-profil-caio-56733.jpg') }}" width="69" alt="" class="image-94"></div>
-                        <div class="text-block-237">Bienvenue dans ton tableau de bord</div>
-                    </div>
-                    <div class="faq-wrapper">
-                        <div class="faq-question" id="monFlow">
-                            <div class="indentification">
-                                <div class="sidebar-icon">
-                                    <img src="{{ asset('img/Mu-flow-picto-bull.svg') }}" alt="" class="image-120"></div>
-                                <div class="faq-q-text" ><strong class="bold-text-5">Mon Flow</strong></div>
-                            </div>
-                        </div>
-                        <div class="faq-answer" id="sousBlockMonFlow">
-                            <div data-w-id="3ebc1e8b-4c8a-0be6-ba36-5e829586b776" class="text-block-257">
-                                <a href="mon-flow.html" class="link-27">Mon flow</a><br>
-                            </div>
-                            <div data-w-id="3ebc1e8b-4c8a-0be6-ba36-5e829586b77a" class="text-block-257">
-                                <a href="mon-flow.html" class="link-27">Mes alertes</a><br>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="faq-wrapper">
-                        <div class="faq-question" id="mesKiffes">
-                            <div class="indentification">
-                                <div class="sidebar-icon">
-                                    <img src="{{ asset('img/Mu-coeur-gris.svg') }}" class="imgCoeurGris" alt="">
-                                </div>
-                                <div class="faq-q-text" ><strong class="bold-text-5">Mes kiffes</strong></div>
-                            </div>
-                        </div>
-                        <div id="sousBlockKiffes" class="faq-answer">
-                            <p class="text-block-257">Mes kiffs<br></p>
-                            <p class="text-block-257">Associations<br></p>
-                            <p class="text-block-257">Commerces<br></p>
-                            <p class="text-block-257">Tout<br></p>
-                        </div>
-                    </div>
-                    <div class="faq-wrapper">
-                        <div class="faq-question" id="maChaines">
-                            <div class="indentification">
-                                <div class="sidebar-icon">
-                                    <img src="{{ asset('img/Mu-tV-chanel-play-gris.svg') }}" class="imgMuGris" alt="">
-                                </div>
-                                <div class="faq-q-text" ><strong class="bold-text-5">Ma chaîne</strong></div>
-                            </div>
-                        </div>
-                        <div class="faq-answer" id="sousBlockChaines">
-                            <a data-w-id="3ebc1e8b-4c8a-0be6-ba36-5e829586b79c" href="#" class="link-block-36 w-inline-block">
-                                <p class="text-block-257">Tableau de bord<br></p>
-                            </a>
-                            <a data-w-id="3ebc1e8b-4c8a-0be6-ba36-5e829586b7a0" href="ma-chaine-publier.html" class="link-block-36 w-inline-block">
-                                <p class="text-block-257">Publier<br></p>
-                            </a>
-                            <p class="faq-answer-text">Publier<br>Mes vidéos <br>Commentaires <br>Audiences <br>Abonnés<br>Monétisation<br></p>
-                        </div>
-                    </div>
-                    <div class="faq-wrapper" id="timeChield">
-                        <div class="time-shahid-onglet">
-                            <div class="indentification">
-                                <div class="sidebar-icon">
-                                    <img src="{{ asset('img/Time-shahid.png') }}" class="imgTimeShalid" alt="">
-                                </div>
-                                <div class="faq-q-text" ><strong class="titre-onglet-time">Time Shahid</strong></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="faq-wrapper">
-                        <div class="faq-question" id="hassanates">
-                            <div class="indentification">
-                                <div class="sidebar-icon">
-                                    <img src="{{ asset('img/Mu-etoile-gris-.svg') }}" class="imgEtoile" alt=""></div>
-                                <div class="faq-q-text" ><strong class="bold-text-5">Hassanates</strong></div>
-                            </div>
-                        </div>
-                        <div class="faq-answer" id="sousBlockHassanates">
-                            <p class="faq-answer-text">Time Sahid<br>Sadakatiya<br>Hassanates Party<br></p>
-                        </div>
-                    </div>
-                    <div class="faq-wrapper">
-                        <div class="faq-question" id="parametre">
-                            <div class="indentification">
-                                <div class="sidebar-icon">
-                                    <img src="{{ asset('img/Mu-engrenage-gris2x.png') }}" class="imgMuEngrenage" alt=""></div>
-                                <div class="faq-q-text" ><strong class="bold-text-5">Paramètres </strong></div>
-                            </div>
-                        </div>
-                        <div class="faq-answer" id="sousBlockParametre">
-                            <p class="faq-answer-text">Smuuse option<br>‍<br></p>
-                        </div>
-                    </div>
-                </div>
+               <div class="contentSidElement">
+                   <div class="sidebar-format invisible">
+                       <div class="sidenavbar">
+                           <div class="sidenavbar-up">
+                               <div>
+                                   <a href="#" class="_4-points-closed w-inline-block">
+                                       <div class="_2points">
+                                           <div class="point-1x4-pr"></div>
+                                           <div class="point-1x4-pr2"></div>
+                                       </div>
+                                       <div class="_2points">
+                                           <div class="point-1x4-pr3"></div>
+                                           <div class="point-1x4-pr4"></div>
+                                       </div>
+                                   </a>
+                               </div>
+                               <a  href="flow.html" class="mu-logo w-inline-block">
+                                   <img src="{{ asset('img/Mu-full-white-00.png') }}" class="imgMUfull" alt=""></a>
+                           </div>
+                           <div class="div-block-387">
+                               <div class="logo-txt-sidebar">
+                                   <img src="{{ asset('img/Smuuse-logo-blanc-SB-2021-80x22.png') }}"  class="imgSumse"></div>
+                           </div>
+                       </div>
+                       <div class="head-slidebar-user">
+                           <p class="text-block-242">Halima</p>
+                           <p class="text-block-243">Particulier</p>
+                           <div class="profil-photo">
+                               <img src="{{ asset('img/Mu-bull-profil-caio-56733.jpg') }}" width="69" alt="" class="image-94"></div>
+                           <div class="text-block-237">Bienvenue dans ton tableau de bord</div>
+                       </div>
+                       <div class="faq-wrapper">
+                           <div class="faq-question" id="monFlow">
+                               <div class="indentification">
+                                   <div class="sidebar-icon">
+                                       <img src="{{ asset('img/Mu-flow-picto-bull.svg') }}" alt="" class="image-120"></div>
+                                   <div class="faq-q-text" ><strong class="bold-text-5">Mon Flow</strong></div>
+                               </div>
+                           </div>
+                           <div class="faq-answer" id="sousBlockMonFlow">
+                               <div data-w-id="3ebc1e8b-4c8a-0be6-ba36-5e829586b776" class="text-block-257">
+                                   <a href="mon-flow.html" class="link-27">Mon flow</a><br>
+                               </div>
+                               <div data-w-id="3ebc1e8b-4c8a-0be6-ba36-5e829586b77a" class="text-block-257">
+                                   <a href="mon-flow.html" class="link-27">Mes alertes</a><br>
+                               </div>
+                           </div>
+                       </div>
+                       <div class="faq-wrapper">
+                           <div class="faq-question" id="mesKiffes">
+                               <div class="indentification">
+                                   <div class="sidebar-icon">
+                                       <img src="{{ asset('img/Mu-coeur-gris.svg') }}" class="imgCoeurGris" alt="">
+                                   </div>
+                                   <div class="faq-q-text" ><strong class="bold-text-5">Mes kiffes</strong></div>
+                               </div>
+                           </div>
+                           <div id="sousBlockKiffes" class="faq-answer">
+                               <p class="text-block-257">Mes kiffs<br></p>
+                               <p class="text-block-257">Associations<br></p>
+                               <p class="text-block-257">Commerces<br></p>
+                               <p class="text-block-257">Tout<br></p>
+                           </div>
+                       </div>
+                       <div class="faq-wrapper">
+                           <div class="faq-question" id="maChaines">
+                               <div class="indentification">
+                                   <div class="sidebar-icon">
+                                       <img src="{{ asset('img/Mu-tV-chanel-play-gris.svg') }}" class="imgMuGris" alt="">
+                                   </div>
+                                   <div class="faq-q-text" ><strong class="bold-text-5">Ma chaîne</strong></div>
+                               </div>
+                           </div>
+                           <div class="faq-answer" id="sousBlockChaines">
+                               <a data-w-id="3ebc1e8b-4c8a-0be6-ba36-5e829586b79c" href="#" class="link-block-36 w-inline-block">
+                                   <p class="text-block-257">Tableau de bord<br></p>
+                               </a>
+                               <a data-w-id="3ebc1e8b-4c8a-0be6-ba36-5e829586b7a0" href="ma-chaine-publier.html" class="link-block-36 w-inline-block">
+                                   <p class="text-block-257">Publier<br></p>
+                               </a>
+                               <p class="faq-answer-text">Publier<br>Mes vidéos <br>Commentaires <br>Audiences <br>Abonnés<br>Monétisation<br></p>
+                           </div>
+                       </div>
+                       <div class="faq-wrapper" id="timeChield">
+                           <div class="time-shahid-onglet">
+                               <div class="indentification">
+                                   <div class="sidebar-icon">
+                                       <img src="{{ asset('img/Time-shahid.png') }}" class="imgTimeShalid" alt="">
+                                   </div>
+                                   <div class="faq-q-text" ><strong class="titre-onglet-time">Time Shahid</strong></div>
+                               </div>
+                           </div>
+                       </div>
+                       <div class="faq-wrapper">
+                           <div class="faq-question" id="hassanates">
+                               <div class="indentification">
+                                   <div class="sidebar-icon">
+                                       <img src="{{ asset('img/Mu-etoile-gris-.svg') }}" class="imgEtoile" alt=""></div>
+                                   <div class="faq-q-text" ><strong class="bold-text-5">Hassanates</strong></div>
+                               </div>
+                           </div>
+                           <div class="faq-answer" id="sousBlockHassanates">
+                               <p class="faq-answer-text">Time Sahid<br>Sadakatiya<br>Hassanates Party<br></p>
+                           </div>
+                       </div>
+                       <div class="faq-wrapper">
+                           <div class="faq-question" id="parametre">
+                               <div class="indentification">
+                                   <div class="sidebar-icon">
+                                       <img src="{{ asset('img/Mu-engrenage-gris2x.png') }}" class="imgMuEngrenage" alt=""></div>
+                                   <div class="faq-q-text" ><strong class="bold-text-5">Paramètres </strong></div>
+                               </div>
+                           </div>
+                           <div class="faq-answer" id="sousBlockParametre">
+                               <p class="faq-answer-text">Smuuse option<br>‍<br></p>
+                           </div>
+                       </div>
+                   </div>
+               </div>
                 @yield('content-play-element')
             </div>
 

@@ -136,6 +136,98 @@
         <p class="text-block-339">Horaire d&#x27;ouverture<br>‍</p>
         <a href="#" class="link-25">Contact<br></a>
     </div>
+    <div class="derniersNouvelles">
+        <p class="text-Playlist">La playlist</p>
+        <div class="swiper-container swipeContainermodife1">
+            <div class="swiper-wrapper">
+                <div class=" swiper-slide card-suggestionDay">
+                    <div class="elementCardSuggestionDay">
+                        <img class="imgElementCardSuggestionDay" src="{{ asset('img/card1.png') }}" alt="">
+                        <div class="contentFlyHeure">
+                            <p class="flyText">Fly</p>
+                            <p class="heureFly" style="color:white;">17:25</p>
+                        </div>
+                    </div>
+                    <div class="contentCardSuggestionDay">
+                        <div class="d-flex justify-content-between">
+                            <p class="libertiText">Liberty in the words</p>
+                            <img class="imgLiberti" src="{{ asset('img/icones/Mu-badge22.png') }}" alt="">
+                        </div>
+                        <div class="mindCard">
+                            <div class="blockImgMind">
+                                <img class="" src="{{ asset('img/mid1.png') }}" alt="">
+                            </div>
+                            <div class="block3">
+                                <p class="mindText">Mind</p>
+                                <p class="day">Publié il y à 2 jours</p>
+                                <!--                                     <div class="d-flex justify-content-between">
+                                                                                <p class="numberviewsSuggestion">1230</p>
+                                                                                <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+
+                                                                            </div>
+                                                    -->                                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class=" swiper-slide card-suggestionDay">
+                    <div class="elementCardSuggestionDay">
+                        <img class="imgElementCardSuggestionDay" src="{{ asset('img/card2.png') }}" alt="">
+                        <div class="contentFlyHeure">
+                            <p class="flyText">Fly</p>
+                            <p class="heureFly">17:25</p>
+                        </div>
+                    </div>
+                    <div class="contentCardSuggestionDay">
+                        <div class="d-flex justify-content-between">
+                            <p class="libertiText">Liberty in the words</p>
+                            <img class="imgLiberti" src="{{ asset('img/icones/Mu-badge22.png') }}" alt="">
+                        </div>
+                        <div class="mindCard">
+                            <div class="blockImgMind">
+                                <img class="" src="{{ asset('img/auteurCard2.png') }}" alt="">
+                            </div>
+                            <div class="block3">
+                                <p class="mindText">Mind</p>
+                                <p class="day">Publié il y à 2 jours</p>
+                                <!--   <div class="d-flex justify-content-between">
+                                       <p class="numberviewsSuggestion">1230</p>
+                                       <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+                                   </div>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class=" swiper-slide card-suggestionDay">
+                    <div class="elementCardSuggestionDay">
+                        <img class="imgElementCardSuggestionDay" src="{{ asset('img/card3.png') }}" alt="">
+                        <div class="contentFlyHeure">
+                            <p class="flyText">Fly</p>
+                            <p class="heureFly">17:25</p>
+                        </div>
+                    </div>
+                    <div class="contentCardSuggestionDay">
+                        <div class="d-flex justify-content-between">
+                            <p class="libertiText">Liberty in the words</p>
+                            <img class="imgLiberti" src="{{ asset('img/icones/Mu-badge22.png') }}" alt="">
+                        </div>
+                        <div class="mindCard">
+                            <div class="blockImgMind">
+                                <img class="" src="{{ asset('img/auteurCard3.png') }}" alt="">
+                            </div>
+                            <div class="block3">
+                                <p class="mindText">Mind</p>
+                                <p class="day">Publié il y à 2 jours</p>
+                                <!-- <div class="d-flex justify-content-between">
+                                     <p class="numberviewsSuggestion">1230</p>
+                                     <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+                                 </div>-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div id="Offre-business" class="offre-de-la-chaine">
         <p class="text-block-342">Les offres</p>
         <div class="div-block-319">
@@ -258,7 +350,7 @@
             </div>
         </div>
         <div class="playlist2">
-            <p class="text-Playlist">Toutes les vidéos</p>
+            <p class="text-Playlist">Les dernières nouvelles</p>
             <div class="swiper-container swipeContainermodife1">
                 <div class="swiper-wrapper">
                     <div class=" swiper-slide card-suggestionDay">

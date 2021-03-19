@@ -20,23 +20,9 @@
 <body>
 
 <div class="content-section-sibBar">
-
-    <div class="content-naveBar-sidbar">
-        <div class="section-12">
-            <a href="#" class="w-inline-block">
-                <img src="{{ asset('img/Mu-menu-4-balls-blanc2x.png') }}"  class="image-96">
-            </a>
-            <img src="{{ asset('img/logo-MU.png') }}" class="imgLogo">
-        </div>
-        <div class="section-13">
-            <a href="" class="link-block-34 w-inline-block">
-                <img src="{{ asset('img/Smuuse-fushia-blanc-SB.png') }}"  class="fushia">
-            </a>
-        </div>
-    </div>
     <div class="d-flex">
         <div class="content-sidbar">
-            <div class="sidebar">
+            <div class="sidebar sideBarModife">
                 <div class="head-slidebar">
                     <div class="text-ma-chaine">Ma chaîne</div>
                     <div class="text-fonction">Particulier</div>
@@ -144,7 +130,9 @@
             </div>
 
         </div>
-        @yield ('content-sidbar-element')
+        <div class="content22">
+            @yield ('content-sidbar-element')
+        </div>
     </div>
 </div>
 

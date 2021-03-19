@@ -1717,7 +1717,7 @@ video{
 .indexElement{
     margin-top: -90px;
     display: block;
-    position: relative;
+    position: fixed;
     z-index: 999999999999999;
 }
 .sidebar-format::-webkit-scrollbar {
