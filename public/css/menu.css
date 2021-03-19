@@ -1149,7 +1149,6 @@ video{
     border-radius: 5px;
     background-color: #f8f8f8;
     box-shadow: 3px 3px 8px 0 rgba(0, 0, 0, 0.15);
-    margin-right: 20px !important;
     width: 280px !important;
 }
 .swiper-wrapper {
@@ -1712,6 +1711,19 @@ video{
 .opacityElement{
     opacity: 0;
 }
+.indexElement{
+    z-index: 999;
+}
+.indexElement{
+    margin-top: -90px;
+    display: block;
+    position: fixed;
+    z-index: 999999999999999;
+}
+.sidebar-format::-webkit-scrollbar {
+    display: none !important;
+}
+
 
 @media all and (min-width: 300px) and (max-width: 767px){
     .col-lg-9 {

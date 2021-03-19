@@ -2338,7 +2338,7 @@
 }
 
 .sidebar {
-  width: 200px;
+  width: auto !important;
   padding: 0px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -2691,6 +2691,8 @@
   border: 0px solid #000;
   color: #333;
   font-family: "Ubuntu-Bold";
+  font-size: 30px;
+  line-height: 33px;
 }
 
 .link-17 {
@@ -2972,7 +2974,6 @@
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  height: 305px;
   padding: 20px 10px 10px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -3037,8 +3038,9 @@
   border-color: #c4c4c4;
 }
 .content2{
-  width: 400px;
-  height: 250px;
+  width: 350px;
+  height: 220px;
+  margin-top: -23px;
 }
 .content2 img{
   width: 100%;
@@ -3113,10 +3115,9 @@
 }
 
 .text-title-video {
-  margin-bottom: 0px;
+  margin-bottom: 15px;
   padding-top: 0px;
   padding-bottom: 0px;
-  padding-left: 5px;
   font-family: "Ubuntu-Regular";
   font-weight: normal !important;
 }
@@ -3263,11 +3264,11 @@
 }
 
 .text-la-video2{
-  margin-bottom: 10px;
-  padding: 15px 15px 15px 0px;
-  font-size: 17px;
+  margin-bottom: 1px;
+  padding: 0px;
+  font-size: 14px;
   font-weight: 500;
-  font-family: "Ubuntu-Medium";
+  font-family: "Ubuntu-Regular";
 }
 
 .div-block-242 {
@@ -3443,7 +3444,6 @@
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  height: 305px;
   padding: 20px 10px 10px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -3648,6 +3648,23 @@
 }
 .faq-answer{
   display: none;
+}
+.sideBarModife{
+  display: block !important;
+  opacity: 1;
+  position: fixed !important;
+  z-index: 111;
+  width: auto;
+  overflow: scroll;
+}
+.sideBarModife::-webkit-scrollbar {
+  display: none !important;
+}
+.content-sidbar{
+  width: 15%;
+}
+.content22{
+  width: 86%;
 }
 
 @media screen and (min-width: 1280px) {

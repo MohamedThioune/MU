@@ -2,10 +2,11 @@
 @section('head')
 <script>(function(e,t,n){var r=e.querySelectorAll("html")[0];r.className=r.className.replace(/(^|\s)no-js(\s|$)/,"$1js$2")})(document,window,0);</script>
 <link rel="stylesheet" type="text/css" href="../css/component.css" />
+<link rel="stylesheet" type="text/css" href="../css/video.css" />
 @endsection
 
 @section('content-sidbar-element')
-    <form action="/videos" method="POST" class="formpublier" enctype="multipart/form-data">
+    <form action="/videos" method="POST" class="formpublier2" enctype="multipart/form-data">
         @csrf
         <div class="mes-videos">
             <div class="div-block-219">
@@ -32,16 +33,16 @@
                 @endif
             </div>
             <div class="div-block-235">
-                <p class="text-la-video2">Télécharger ma vidéo</p>
+                <p class=" text-title-video">Télécharger ma vidéo</p>
                 <div class="div-block-254">
                     <div class="div-block-237">
                         <div class="form-group titre-video">
-                            <label for="titre-video" class="text-title-video">Titre de la vidéo</label>
+                            <label for="titre-video" class="text-la-video2">Titre de la vidéo</label>
                             <input type="text" class="form-control div-block-236" id="main_title" name="main_title">
                         </div>
                         <p class="text-number-element">0/120</p>
                         <div class="data-video">
-                            <div class="form-group div-block-238">
+                            <div class="form-group">
                                 <div class="box">
                                     <input type="file" name="vid" id="vid" class="inputfile inputFile1 inputfile-4"/>
                                     <label for="vid">
@@ -58,10 +59,10 @@
                     </div>
                     <div class="div-block-239">
                         <div class="content2">
-                            <label class="label-22 div-block-234" for="input">
+                            <label class="label-22" for="input">
                                 <img src="{{ asset('img/Mu-Vignette-video-400x250-plato.jpg') }}" class="image-98">
                             </label>
-                            <div class="input">
+                            <div class="input inputModifeVignette">
                                 <input class="btn btn-default" name="thumbnail" id="thumbnail" type="file" />
                                 <label for="thumbnail">Modifier vignette de la video</label>
                             </div>
@@ -71,18 +72,64 @@
             </div>
             <div class="div-block-241">
                 <div class="div-block-248">
-                    <p class="text-la-video2">Description de ma vidéo</p>
+                    <p class=" text-title-video">Description de ma vidéo</p>
                     <div class="div-block-249">
                         <div class="form-group titre-video">
-                            <label class="text-title-video">Description de la vidéo</label>
+                            <label class="text-la-video2">Description de la vidéo</label>
                             <textarea class="form-control div-block-240" name="description" id="description" cols="30" rows="5">
                             </textarea>
                         </div>
                         <div class="form-group titre-video">
                             <label class="text-title-video">Objectifs de la vidéo</label>
-                            <p class="text-description-acte">&quot;Les acts ne valent que par leurs intentions&quot; alors précise tes objectifs</p>
-                            <textarea class="form-control div-block-240" name="motivation" id="motivation" cols="30" rows="5">
-                            </textarea>
+                            <p class="text-block-263">"Les acts ne valent que par leurs intentions" alors précise tes objectifs.
+                                Et souviens toi que la première des intentions est de plaire à ton Créateur.
+                                Que Le Très miséricordieux t'en récompense.</p>
+                            <div class="div-block-310">
+                                <div class="divChekElement">
+                                    <input type="checkbox" value="informer" class="btn-check" id="btn-check-2-outlined" checked autocomplete="off">
+                                    <label class="btn text-block-311" for="btn-check-2-outlined">Informer</label>
+                                </div>
+                                <div class="divChekElement">
+                                    <input type="checkbox" value="partager" class="btn-check" id="btn-check-2-outlined"  autocomplete="off">
+                                    <label class="btn text-block-311" for="btn-check-2-outlined">Partager</label>
+                                </div>
+                                <div class="divChekElement">
+                                    <input type="checkbox" value="faire-rire" class="btn-check" id="btn-check-2-outlined"  autocomplete="off">
+                                    <label class="btn text-block-311" for="btn-check-2-outlined">Faire rire</label>
+                                </div>
+                                <div class="divChekElement">
+                                    <input type="checkbox" value="sensibiliser" class="btn-check" id="btn-check-2-outlined"  autocomplete="off">
+                                    <label class="btn text-block-311" for="btn-check-2-outlined">Sensibiliser</label>
+                                </div>
+                                <div class="divChekElement">
+                                    <input type="checkbox" value="inspirer" class="btn-check" id="btn-check-2-outlined"  autocomplete="off">
+                                    <label class="btn text-block-311" for="btn-check-2-outlined">Inspirer</label>
+                                </div>
+                            </div>
+                            <div class="div-block-310">
+                                <div class="divChekElement">
+                                    <input type="checkbox" value="avertir" class="btn-check" id="btn-check-2-outlined"  autocomplete="off">
+                                    <label class="btn text-block-311" for="btn-check-2-outlined">Avertir</label>
+                                </div>
+                                <div class="divChekElement">
+                                    <input type="checkbox" value="soutenir" class="btn-check" id="btn-check-2-outlined"  autocomplete="off">
+                                    <label class="btn text-block-311" for="btn-check-2-outlined">Soutenir</label>
+                                </div>
+                                <div class="divChekElement">
+                                    <input type="checkbox" value="vendre" class="btn-check" id="btn-check-2-outlined"  autocomplete="off">
+                                    <label class="btn text-block-311" for="btn-check-2-outlined">Vendre</label>
+                                </div>
+                                <div class="divChekElement">
+                                    <input type="checkbox" value="rappeler" class="btn-check" id="btn-check-2-outlined"  autocomplete="off">
+                                    <label class="btn text-block-311" for="btn-check-2-outlined">Rappeler</label>
+                                </div>
+                                <div class="divChekElement">
+                                    <input type="checkbox" value="expliquer" class="btn-check" id="btn-check-2-outlined"  autocomplete="off">
+                                    <label class="btn text-block-311" for="btn-check-2-outlined">Expliquer</label>
+                                </div>
+                            </div>
+                            <!--<textarea class="form-control div-block-240" name="motivation" id="motivation" cols="30" rows="5">
+                            </textarea>-->
                         </div>
                     </div>
                 </div>

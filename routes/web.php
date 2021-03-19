@@ -17,7 +17,7 @@ Route::get('/', function () {
                                         ->get();
 
     $signals = DB::Table('reports')->select('*')
-                               ->where('reports.user_id', Auth::id()) 
+                               ->where('reports.user_id', Auth::id())
                                ->get();
 
     $videos_haltcare = DB::Table('videos')->select('videos.*')
@@ -57,7 +57,7 @@ Route::get('/', function () {
     ->whereNull('videos.deleted_at')
     ->get();
 
-    
+
     session(['videos_haltcare' => $videos_haltcare, 'videos_life' => $videos_life, 'videos_health' => $videos_health, 'videos_business' => $videos_business, 'videos_environnement' => $videos_environnement, 'videos_education' => $videos_education]);
 
     return view('home', compact('subtopics'));
@@ -72,6 +72,7 @@ Route::post('/delete/videos', [App\Http\Controllers\VideoController::class, 'del
 
 // play page : Play the current video [Online]
 Route::get('/play', function () {
+
     return view('play');
 })->name('playing');
 
@@ -80,7 +81,7 @@ Route::get('/play/{n}', [App\Http\Controllers\HomeController::class, 'play'])->w
 // home page : list all videos [Online]
 Route::get('/choose', [App\Http\Controllers\ProfileController::class, 'choose'])->name('choose')->middleware('auth');
 
-//link to report 
+//link to report
 Route::get('/report/{n}', [App\Http\Controllers\ReportController::class, 'report'])->where('n','[0-9]+')->name('report')->middleware('auth');
 
 //link to profile
@@ -116,3 +117,5 @@ Route::resource('reads', 'ReadController');
 Route::resource('comments', 'CommentController');
 
 Route::resource('responseComments', 'ResponseCommentController');
+
+Route::view('/chaineAbonne', 'chaineAbonne');
