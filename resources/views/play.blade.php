@@ -545,7 +545,7 @@
                     ->first();
                     @endphp
                     <div class="elementImgAuteur">
-                        @if($channel->urlPhoto)
+                        @if($channel->logo)
                         <img class="" src="{{ asset('/images/uploads') }}/{{$user->photo}}" alt="">
                         @elseif(session('user')->age <= 15)
                         <img class="" src="{{asset('images/kids_preloader.png')}}" alt="">

@@ -24,7 +24,7 @@
         <div class="content-sidbar">
             <div class="sidebar sideBarModife">
                 <div class="head-slidebar">
-                    <div class="text-ma-chaine">Ma chaîne</div>
+                    <div class="text-ma-chaine">{{$channel->name}}</div>
                     <div class="text-fonction">Particulier</div>
                     <div class="profil-photo">
                         <img src="{{ asset('img/Mu-bull-profil-daniela-constantin.jpg') }}" alt="" class="image-94">
