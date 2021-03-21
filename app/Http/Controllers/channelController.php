@@ -8,6 +8,7 @@ use App\Http\Controllers\AppBaseController;
 use App\Models\Channel;
 use App\Models\CategoryPrimary;
 use App\Models\CategorySecondary;
+use App\Models\Subtopic;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
@@ -36,9 +37,9 @@ class channelController extends AppBaseController
                                       ->join('channels', 'users.id', 'channels.user_id')
                                       ->where('users.id', $id)
                                       ->get();
+        $canal = false;
                                       
-        return view('channels.index')
-            ->with('channel', $channel);
+        return view('channels.index', compact('channel','canal'));
     }
 
     /**
@@ -174,5 +175,90 @@ class channelController extends AppBaseController
         Flash::success('Channel deleted successfully.');
 
         return redirect(route('channels.index'));
+    }
+
+    public function visit($id){
+        
+        $channel = false;
+
+        /** @var Channel $channel */
+        $canal = DB::Table('users')->select('channels.*')
+                                        ->join('channels', 'users.id', 'channels.user_id')
+                                        ->where('users.id', Auth::id())
+                                        ->first();
+        
+        /** @var subtopic $subtopics */
+        $subtopics = Subtopic::all();
+
+        /** @var category_primary $categorie_primaries */
+        $category_primaries = CategoryPrimary::all();
+
+        /** @var category_secondary $categorie_secondaries */
+        $category_secondaries = CategorySecondary::all();
+
+        $visit = channel::find($id);
+
+        $videos_top = DB::table('videos', 'views')
+        ->join('reads', 'videos.id', 'reads.video_id')            
+        ->select(DB::raw('count(*) as views, reads.video_id'))
+        ->groupBy('reads.video_id')
+        ->where('videos.user_id', $visit->user_id)
+        ->orderByDesc('views') 
+        ->limit(3)
+        ->get();
+
+        $videos = DB::Table('users')->select('videos.*')
+                                    ->join('videos', 'users.id', 'videos.user_id')
+                                    ->where('users.id', $visit->user_id)
+                                    ->whereNull('videos.deleted_at')
+                                    ->orderByDesc('videos.created_at')
+                                    ->limit(3)
+                                    ->get();
+        
+                                    
+        if($canal->id == $visit->id)
+            return view('channels.index', compact('channel','canal','category_primaries','category_secondaries'));
+        else
+            return view('chaineAbonne', compact('visit', 'videos','subtopics','videos_top'));
+
+    }
+
+    public function overview($id){
+
+        $bool = true;
+
+        $visit = channel::find($id);
+
+        $videos_top = DB::table('videos', 'views')
+        ->join('reads', 'videos.id', 'reads.video_id')            
+        ->select(DB::raw('count(*) as views, reads.video_id'))
+        ->groupBy('reads.video_id')
+        ->where('videos.user_id', $visit->user_id)
+        ->orderByDesc('views') 
+        ->limit(3)
+        ->get();
+
+        $videos = DB::Table('users')->select('videos.*')
+                                    ->join('videos', 'users.id', 'videos.user_id')
+                                    ->where('users.id', $visit->user_id)
+                                    ->whereNull('videos.deleted_at')
+                                    ->orderByDesc('videos.created_at')
+                                    ->limit(3)
+                                    ->get();
+
+        /** @var subtopic $subtopics */
+        $subtopics = Subtopic::all();
+
+
+        /** @var Channel $channel */
+        $channel = DB::Table('users')->select('channels.*')
+                                        ->join('channels', 'users.id', 'channels.user_id')
+                                        ->where('users.id', Auth::id())
+                                        ->first();
+
+        if($channel->id == $visit->id)
+            return view('chaineAbonne', compact('channel','visit', 'videos','videos_top', 'subtopics', 'bool'));
+        else
+            return view('chaineAbonne', compact('channel', 'visit', 'videos','videos_top', 'subtopics'));
     }
 }

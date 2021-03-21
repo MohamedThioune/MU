@@ -17,41 +17,47 @@ Route::get('/', function () {
                                         ->get();
 
     $signals = DB::Table('reports')->select('*')
-                               ->where('reports.user_id', Auth::id()) 
+                               ->where('reports.user_id', Auth::id())
                                ->get();
 
     $videos_haltcare = DB::Table('videos')->select('videos.*')
                                  ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
                                  ->where('mainTopic_id', 1)
+                                 ->whereNull('videos.deleted_at')
                                  ->get();
 
     $videos_life = DB::Table('videos')->select('videos.*')
     ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
     ->where('mainTopic_id', 2)
+    ->whereNull('videos.deleted_at')
     ->get();
 
     $videos_health = DB::Table('videos')->select('videos.*')
     ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
     ->where('mainTopic_id', 3)
+    ->whereNull('videos.deleted_at')
     ->get();
 
 
     $videos_business = DB::Table('videos')->select('videos.*')
     ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
     ->where('mainTopic_id', 4)
+    ->whereNull('videos.deleted_at')
     ->get();
 
     $videos_environnement = DB::Table('videos')->select('videos.*')
     ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
     ->where('mainTopic_id', 5)
+    ->whereNull('videos.deleted_at')
     ->get();
 
     $videos_education = DB::Table('videos')->select('videos.*')
     ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
     ->where('mainTopic_id', 6)
+    ->whereNull('videos.deleted_at')
     ->get();
 
-    
+
     session(['videos_haltcare' => $videos_haltcare, 'videos_life' => $videos_life, 'videos_health' => $videos_health, 'videos_business' => $videos_business, 'videos_environnement' => $videos_environnement, 'videos_education' => $videos_education]);
 
     return view('home', compact('subtopics'));
@@ -61,9 +67,12 @@ Route::get('vids/uploads/^[a-zA-Z0-9_]*$');
 
 Route::get('vids/thumbnails/^[a-zA-Z0-9_]*$');
 
+// delete in selection : Videos for user
+Route::post('/delete/videos', [App\Http\Controllers\VideoController::class, 'deletes'])->name('deletes.videos')->middleware('auth');
+
 // play page : Play the current video [Online]
 Route::get('/play', function () {
-    
+
     return view('play');
 })->name('playing');
 
@@ -72,11 +81,18 @@ Route::get('/play/{n}', [App\Http\Controllers\HomeController::class, 'play'])->w
 // home page : list all videos [Online]
 Route::get('/choose', [App\Http\Controllers\ProfileController::class, 'choose'])->name('choose')->middleware('auth');
 
-//link to report 
+// link to report
 Route::get('/report/{n}', [App\Http\Controllers\ReportController::class, 'report'])->where('n','[0-9]+')->name('report')->middleware('auth');
 
-//link to profile
+// link to profile
 Route::get('/connected/{n}', [App\Http\Controllers\HomeController::class, 'connected'])->where('n','[0-9]+')->name('connected')->middleware('auth');
+
+// channel page : mode visiteur
+Route::get('/chaine_visiteur/{n}', [App\Http\Controllers\ChannelController::class, 'visit'])->where('n','[0-9]+')->name('channel.visitor')->middleware('auth');
+
+// channel page : apercu
+Route::get('/apercu/{n}', [App\Http\Controllers\ChannelController::class, 'overview'])->where('n','[0-9]+')->name('channel.fly')->middleware('auth');
+
 
 Auth::routes();
 

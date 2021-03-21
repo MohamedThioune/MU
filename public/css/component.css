@@ -6,7 +6,9 @@
     position: absolute;
     z-index: -1;
 }
-
+.formpublier{
+    width: 87%;
+}
 .inputfile + label {
     font-weight: 700;
     text-overflow: ellipsis;
@@ -18,7 +20,7 @@
     /* 10px 20px */
 }
 
-
+.
 .no-js .inputfile + label {
     display: none;
 }
@@ -31,9 +33,6 @@
     margin-top: -0.25em;
     margin-right: 0.25em;
 }
-
-
-
 .inputfile-4 + label figure {
     width: 60px;
     height: 60px;

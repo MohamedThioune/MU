@@ -26,7 +26,7 @@ class Channel extends Model
     public $fillable = [
         'name',
         'description',
-        'urlPhoto',
+        'logo',
         'user_id',
         'categoryprimary_id',
         'categorysecondary_id',
@@ -41,7 +41,7 @@ class Channel extends Model
         'id' => 'integer',
         'name' => 'string',
         'description' => 'string',
-        'urlPhoto' => 'string',
+        'logo' => 'string',
         'user_id' => 'integer',
         'categoryprimary_id' => 'integer',
         'categorysecondary_id' => 'integer',
