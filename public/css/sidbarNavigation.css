@@ -4317,8 +4317,8 @@
 }
 
 .temps-tsha {
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 0px;
+    margin-bottom: 5px;
     color: #fff;
     font-size: 30px;
     font-weight: 700;
@@ -4442,7 +4442,7 @@
     padding-left: 5px;
     background-color: #4d4d4d;
     color: #fff;
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 400;
 }
 
@@ -4478,17 +4478,25 @@
     color: #333;
     font-size: 12px;
     line-height: 17px;
-    font-weight: 700;
+    font-family: "Ubuntu-Bold";
     text-decoration: none;
 }
-
+.link-212{
+    margin-bottom: 0;
+    margin-top: 5px;
+    padding-left: 15px;
+    font-size: 15px;
+    color: #333;
+    line-height: 17px;
+    font-family: "Ubuntu-Bold";
+    text-decoration: none;
+}
 .link-22 {
     margin-bottom: 3px;
     color: #4d4d4d;
     font-size: 11px;
     text-decoration: none;
 }
-
 .text-block-295 {
     background-color: transparent;
     font-family: Oswald, sans-serif;
@@ -4496,7 +4504,6 @@
     font-weight: 700;
     text-decoration: none;
 }
-
 .go {
     padding: 6px 8px;
     border-radius: 8px;
@@ -7021,6 +7028,12 @@
     color: #5e5e5e;
     font-size: 16px;
     font-weight: 500;
+    margin-bottom: 0;
+}
+.back-subscrib-bar {
+    padding: 7px 9px;
+    border-radius: 40px;
+    background-color: rgba(51, 51, 51, 0.14);
 }
 
 .descrition-biz-chaine {
@@ -7287,7 +7300,8 @@
 .text-block-352 {
     color: #93e270;
     font-size: 25px;
-    font-weight: 700;
+    font-family: "Ubuntu-Medium";
+    margin-bottom: 0;
 }
 
 .div-block-345 {
@@ -7451,6 +7465,7 @@
     height: 20px;
     border-radius: 10px;
     background-color: #ebebeb;
+    margin-bottom: 0;
 }
 
 .div-block-354 {
@@ -7469,6 +7484,7 @@
     margin-right: 10px;
     color: #12ccff;
     font-size: 12px;
+    margin-bottom: 0;
 }
 
 .div-block-355 {
@@ -7498,22 +7514,27 @@
 
 .text-block-355 {
     color: #93e270;
+    margin-bottom: 0;
 }
 
 .text-block-356 {
     color: #8f8f8f;
+    margin-bottom: 0;
 }
 
 .text-block-357 {
     color: #ffbe26;
+    margin-bottom: 0;
 }
 
 .text-block-358 {
     color: #db087c;
+    margin-bottom: 0;
 }
 
 .text-block-359 {
     color: #12ccff;
+    margin-bottom: 0;
 }
 
 .div-block-359 {
@@ -7524,6 +7545,7 @@
 
 .text-block-360 {
     color: #0679c5;
+    margin-bottom: 0;
 }
 
 .div-block-360 {
@@ -7564,6 +7586,7 @@
 
 .text-block-361 {
     color: #d39b9b;
+    margin-bottom: 0;
 }
 
 .chaine-vu {
@@ -7593,15 +7616,18 @@
 
 .text-block-362 {
     font-size: 16px;
-    font-weight: 500;
+    font-family: "Ubuntu-Medium";
+    margin-bottom: 0;
 }
 
 .text-block-363 {
     margin-right: 5px;
+    margin-bottom: 0;
 }
 
 .text-block-364 {
     color: #8f8f8f;
+    margin-bottom: 0;
 }
 
 .div-block-367 {
@@ -7662,6 +7688,7 @@
 
 .text-block-365 {
     color: #4d4d4d;
+    margin-bottom: 0;
 }
 
 .text-block-366 {
@@ -7727,6 +7754,7 @@
     -ms-flex-direction: column;
     flex-direction: column;
     border-bottom: 20px solid #fff;
+    background: #f8f8f8;
 }
 
 .div-block-372 {
@@ -7747,7 +7775,8 @@
     margin-right: 10px;
     color: #8f8f8f;
     font-size: 16px;
-    font-weight: 500;
+    font-family: "Ubuntu-Medium";
+    margin-bottom: 0;
 }
 
 .div-block-373 {
@@ -7805,6 +7834,7 @@
     -webkit-justify-content: space-between;
     -ms-flex-pack: justify;
     justify-content: space-between;
+    margin-bottom: 0;
 }
 
 .text-block-370 {
@@ -7812,6 +7842,7 @@
     color: #93e270;
     font-size: 25px;
     font-weight: 700;
+    margin-bottom: 0;
 }
 
 .text-block-371 {
@@ -7819,7 +7850,8 @@
     margin-left: 10px;
     color: #5e5e5e;
     font-size: 16px;
-    font-weight: 500;
+    font-family: "Ubuntu-Medium";
+    margin-bottom: 0;
 }
 
 .text-block-372 {
@@ -7827,12 +7859,14 @@
     color: #93e270;
     font-size: 25px;
     font-weight: 700;
+    margin-bottom: 0;
 }
 
 .text-block-373 {
     color: #5e5e5e;
     font-size: 16px;
-    font-weight: 500;
+    font-family: "Ubuntu-Medium";
+    margin-bottom: 0;
 }
 
 .date-indicator {
@@ -7840,7 +7874,7 @@
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    margin-bottom: 10px;
+    margin-bottom: 3px;
     -webkit-box-pack: end;
     -webkit-justify-content: flex-end;
     -ms-flex-pack: end;
@@ -7856,6 +7890,7 @@
 
 .text-block-374 {
     color: #c4c4c4;
+    margin-bottom: 0;
 }
 
 .text-block-375 {
@@ -7964,10 +7999,10 @@
 }
 
 .text-block-353-copy {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     color: #8f8f8f;
     font-size: 18px;
-    font-weight: 500;
+   font-family: "Ubuntu-Medium";
 }
 
 .smuusin-name-recom {
@@ -9219,26 +9254,32 @@ element.style {
 
     .text-block-354 {
         color: #d39b9b;
+        margin-bottom: 0;
     }
 
     .text-block-357 {
         color: #eaa;
+        margin-bottom: 0;
     }
 
     .text-block-358 {
         color: #12ccff;
+        margin-bottom: 0;
     }
 
     .text-block-359 {
         color: #e4d46a;
+        margin-bottom: 0;
     }
 
     .text-block-360 {
         color: #ff9a26;
+        margin-bottom: 0;
     }
 
     .text-block-361 {
         color: #a3c2d6;
+        margin-bottom: 0;
     }
 
     .bull-chaine {
@@ -9247,14 +9288,17 @@ element.style {
 
     .text-block-363 {
         color: #8f8f8f;
+        margin-bottom: 0;
     }
 
     .text-block-364 {
         color: #8f8f8f;
+        margin-bottom: 0;
     }
 
     .text-block-367 {
         color: #b90568;
+        margin-bottom: 0;
     }
 
     .big-event {

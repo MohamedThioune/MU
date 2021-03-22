@@ -59,7 +59,7 @@
         <p class="text-block-381">Fresh Flow</p>
         <div class="div-block-394">
             <div class="hot-green">
-                <img src="{{ asset('img/Mu-hot-info.png') }}" loading="lazy" width="47" alt="" class="image-131">
+                <img src="{{ asset('img/Mu-hot-info.png') }}" loading="lazy" width="47">
             </div>
             <div class="div-block-391">
                 <div class="div-block-393">
