@@ -554,16 +554,18 @@
                     ->first();
                     @endphp
                     <div class="elementImgAuteur">
-                        @if($channel->logo)
-                        <img class="" src="{{ asset('/images/uploads') }}/{{$user->photo}}" alt="">
-                        @elseif(session('user')->age <= 15)
-                        <img class="" src="{{asset('images/kids_preloader.png')}}" alt="">
-                        @elseif(session('user')->age > 15 && session('user')->sex == '1')
-                        <img class="img-circle" src="{{asset('images/flow_preloader.png')}}" alt=""/>
-                        @elseif(session('user')->age > 15 && session('user')->sex == '0')
-                        <img class="" src="{{asset('images/sista_preloader.png')}}" alt="">
-                        @endif
-                        <img src="{{ asset('img/auteur.png') }}" alt="">
+                        <a class="elementImgAuteur" href="{{route('channel.visitor', $channel->id)}}"class="nameAuteur contentweb">
+                            @if($channel->logo)
+                            <img class="" src="{{ asset('/images/uploads') }}/{{$user->photo}}" alt="">
+                            @elseif(session('user')->age <= 15)
+                            <img class="" src="{{asset('images/kids_preloader.png')}}" alt="">
+                            @elseif(session('user')->age > 15 && session('user')->sex == '1')
+                            <img class="img-circle" src="{{asset('images/flow_preloader.png')}}" alt=""/>
+                            @elseif(session('user')->age > 15 && session('user')->sex == '0')
+                            <img class="" src="{{asset('images/sista_preloader.png')}}" alt="">
+                            @endif
+                            <img src="{{ asset('img/auteur.png') }}" alt="">
+                        </a>
                     </div>
                     
                     <a href="{{route('channel.visitor', $channel->id)}}"class="nameAuteur contentweb">{{$channel->name}}</a>
