@@ -159,7 +159,16 @@
                            </div>
                        </div>
                        <div class="head-slidebar-user">
+                        @if($channel)
                            <p class="text-block-242">{{$channel->name}}</p>
+                        @else
+                        @php
+                            $canal = DB::Table('users')->select('channels.*')
+                                        ->join('channels', 'users.id', 'channels.user_id')
+                                        ->where('users.id', Auth::id())
+                                        ->first(); @endphp
+                            <p class="text-block-242">{{$canal->name}}</p>
+                        @endif
                            <p class="text-block-243">Particulier</p>
                            <div class="profil-photo">
                                <img src="{{ asset('img/Mu-bull-profil-caio-56733.jpg') }}" width="69" alt="" class="image-94"></div>

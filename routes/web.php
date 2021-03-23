@@ -12,6 +12,10 @@
 */
 
 Route::get('/', function () {
+    $channel = DB::Table('users')->select('channels.*')
+                                        ->join('channels', 'users.id', 'channels.user_id')
+                                        ->where('users.id', Auth::id())
+                                        ->first();
     
     $subtopics = DB::Table('sub_topics')->select('*')
                                         ->get();
@@ -60,7 +64,7 @@ Route::get('/', function () {
 
     session(['videos_haltcare' => $videos_haltcare, 'videos_life' => $videos_life, 'videos_health' => $videos_health, 'videos_business' => $videos_business, 'videos_environnement' => $videos_environnement, 'videos_education' => $videos_education]);
 
-    return view('home', compact('subtopics'));
+    return view('home', compact('subtopics','channel'));
 })->name('home');
 
 Route::get('vids/uploads/^[a-zA-Z0-9_]*$');

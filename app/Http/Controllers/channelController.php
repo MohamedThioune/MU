@@ -178,6 +178,10 @@ class channelController extends AppBaseController
     }
 
     public function visit($id){
+        $admin = false;
+        $bool = false;
+        $edit = false;
+        $editing = false; 
         
         $channel = false;
 
@@ -188,11 +192,12 @@ class channelController extends AppBaseController
                                         ->first();
 
          /** @var Event $event */
-         $event = DB::Table('channels')->select('events.*')
+         $events = DB::Table('channels')->select('events.*')
                                         ->join('events', 'channels.id', 'events.channel_id')
                                         ->where('channels.id', $id)
                                         ->orderBy('events.created_at','desc')
-                                        ->first();
+                                        ->limit(3)
+                                        ->get();
          /** @var Activity $activities */
          $activities = DB::Table('channels')->select('activities.*')
                                         ->join('activities', 'channels.id', 'activities.channel_id')
@@ -237,23 +242,30 @@ class channelController extends AppBaseController
                                     ->get();
         
                                     
-        if($canal->id == $visit->id)
-            return view('channels.index', compact('channel','canal','category_primaries','category_secondaries'));
-        else
-            return view('chaineAbonne', compact('visit', 'videos','subtopics','event','activities','contact', 'videos_top'));
+        if($canal->id == $visit->id){
+            $admin = true;
+            $edit = true;
+        }else{
+            $bool = false;
+            $edit = false;
+        }
+        return view('chaineAbonne', compact('channel','visit', 'videos','subtopics','bool', 'admin','edit','events','activities','contact', 'videos_top'));
 
     }
 
     public function overview($id){
 
         $bool = true;
+        $admin = false;
+        $edit=false;
 
         /** @var Event $event */
-        $event = DB::Table('channels')->select('events.*')
+        $events = DB::Table('channels')->select('events.*')
                                       ->join('events', 'channels.id', 'events.channel_id')
                                       ->where('channels.id', $id)
                                       ->orderBy('events.created_at','desc')
-                                      ->first();
+                                      ->limit(3)
+                                      ->get();
         
         /** @var Activity $activities */
         $activities = DB::Table('channels')->select('activities.*')
@@ -300,8 +312,8 @@ class channelController extends AppBaseController
                                         ->first();
 
         if($channel->id == $visit->id)
-            return view('chaineAbonne', compact('channel','visit', 'videos','videos_top', 'event', 'activities', 'contact', 'subtopics', 'bool'));
+            return view('chaineAbonne', compact('channel','visit', 'videos','videos_top', 'events', 'activities', 'contact', 'subtopics', 'bool','edit','admin'));
         else
-            return view('chaineAbonne', compact('channel', 'visit', 'videos','videos_top', 'event', 'activities', 'contact', 'subtopics'));
+            return view('chaineAbonne', compact('channel', 'visit', 'videos','videos_top', 'events', 'activities', 'contact', 'subtopics'));
     }
 }
