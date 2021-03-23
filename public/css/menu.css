@@ -1834,6 +1834,51 @@ video{
 .shadid103{
     width: 110px;
 }
+.imgPubBlock {
+    width: 72%;
+    height: 200px;
+    overflow: hidden;
+}
+.imgPubBlock img{
+    width: 100%;
+    /* height: 100%; */
+}
+.like-notication2{
+    display: flex;
+    margin-top: 3px;
+    margin-left: 0px;
+    padding: 0px 35px 0px 50px;
+}
+.blockTitle2{
+    display: flex;
+    justify-content: space-between;
+}
+.toutesNotifications{
+    border-radius: 20px;
+    background-color: #ebebeb;
+    color: #8f8f8f;
+    font-size: 14px;
+    padding: 8px 13px;
+}
+.paddignElement8 {
+    padding-top: 26px;
+}
+.more-seting {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    margin-right: 10px;
+    margin-left: 10px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+.share-blanc {
+    margin-right: 20px;
+}
 @media all and (min-width: 300px) and (max-width: 767px){
     .col-lg-9 {
         -ms-flex: unset !important;

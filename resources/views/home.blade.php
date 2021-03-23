@@ -29,17 +29,17 @@
                 <p class="link-229">www.pub-link</p>
                 <a href="" class="go w-inline-block text-block-295">Go!</a>
             </div>
-            <div class="like-notication">
+            <div class="like-notication2">
                 <button class="btn btnNote">
-                    <img src="Image-5.png" alt="">
+                    <img src="{{ asset('img/Image-5.png') }}" alt="">
                 </button>
                 <button class="btn btnNote">
-                    <img src="Image-6.png" alt="">
+                    <img src="{{ asset('img/Image-6.png') }}" alt="">
                 </button>
             </div>
         </div>
         <div class="imgPubBlock">
-            <img src="" alt="">
+            <img src="{{ asset('img/Mu-bandeau-Pub.jpg') }}" alt="">
         </div>
     </div>
     <p class="text-block-350">Tous tes informations en un clin d'œil </p>
@@ -50,10 +50,15 @@
         <a href="#" class="link-26">Offres</a>
         <a href="#" class="link-26">Playlist</a>
     </div>
-    <div class="derniersNouvelles">
-        <div class="d-flex">
-            <img src="{{ asset('img/Mu-flow-picto-bull.svg') }}"  alt="" class="image-bull1">
-            <p class="text-Playlist">Hot notifications</p>
+    <div class="hotNotifications">
+        <div class="blockTitle2">
+            <div class="d-flex">
+                <img src="{{ asset('img/Mu-flow-picto-bull.svg') }}"  alt="" class="image-bull1">
+                <p class="text-Playlist">Hot notifications</p>
+            </div>
+         <div class="paddignElement8">
+             <a href="" class="toutesNotifications">Toutes mes notifications</a>
+         </div>
         </div>
         <div class="swiper-container swipeContainermodife1">
             <div class="swiper-wrapper">
@@ -413,40 +418,60 @@
                     </div>
                     <div class="div-block-364">
                         <div class="div-block-354">
-                            <p class="text-block-354">In sha Allah</p>
-                            <p class="div-block-353"></p>
+                            <p class="text-block-354 textWidth">In sha Allah</p>
+                            <div class="d-flex flex-column w-100">
+                                <div class="progress div-block-354">
+                                    <div class="progress-bar ml-auto" role="progressbar" aria-valuenow="83" aria-valuemin="0" aria-valuemax="100" style="width: 83%; background-color: rgb(235 235 235);"></div>
+                                </div>
+                            </div>
                         </div>
                         <div class="div-block-354">
-                            <p class="text-block-355">Din</p>
-                            <div class="div-block-355"></div>
+                            <p class="text-block-355 textWidth">Din</p>
+                            <div class="progress div-block-354">
+                                <div class="progress-bar ml-auto" role="progressbar" aria-valuenow="53" aria-valuemin="0" aria-valuemax="100" style="width: 53%; background-color: rgb(235 235 235);"></div>
+                            </div>
                         </div>
                         <div class="div-block-354">
-                            <p class="text-block-356">Business</p>
-                            <div class="div-block-356"></div>
+                            <p class="text-block-356 textWidth">Business</p>
+                            <div class="progress div-block-354">
+                                <div class="progress-bar ml-auto" role="progressbar" aria-valuenow="47" aria-valuemin="0" aria-valuemax="100" style="width: 47%; background-color: rgb(235 235 235);"></div>
+                            </div>
                         </div>
                         <div class="div-block-354">
-                            <p class="text-block-357">Santé bien-être</p>
-                            <div class="div-block-357"></div>
+                            <p class="text-block-357 textWidth">Santé bien-être</p>
+                            <div class="progress div-block-354">
+                                <div class="progress-bar ml-auto" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%; background-color: rgb(235 235 235);"></div>
+                            </div>
                         </div>
                         <div class="div-block-354">
-                            <p class="text-block-358">Education</p>
-                            <div class="div-block-358"></div>
+                            <p class="text-block-358 textWidth">Education</p>
+                            <div class="progress div-block-354">
+                                <div class="progress-bar ml-auto" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%; background-color: rgb(235 235 235);"></div>
+                            </div>
                         </div>
                         <div class="div-block-354">
-                            <p class="text-block-359">Sport Fit</p>
-                            <div class="div-block-359"></div>
+                            <p class="text-block-359 textWidth">Sport Fit</p>
+                            <div class="progress div-block-354">
+                                <div class="progress-bar ml-auto" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: 10%; background-color: rgb(235 235 235);"></div>
+                            </div>
                         </div>
                         <div class="div-block-354">
-                            <p class="text-block-360">News</p>
-                            <div class="div-block-360"></div>
+                            <p class="text-block-360 textWidth">News</p>
+                            <div class="progress div-block-354">
+                                <div class="progress-bar ml-auto" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%; background-color: rgb(235 235 235);"></div>
+                            </div>
                         </div>
                         <div class="div-block-354">
-                            <p class="text-block-367">Life</p>
-                            <div class="div-block-361"></div>
+                            <p class="text-block-367 textWidth">Life</p>
+                            <div class="progress div-block-354">
+                                <div class="progress-bar ml-auto" role="progressbar" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100" style="width: 5%; background-color: rgb(235 235 235);"></div>
+                            </div>
                         </div>
                         <div class="div-block-354">
-                            <p class="text-block-361">Tech et science</p>
-                            <div class="div-block-363"></div>
+                            <p class="text-block-361 textWidth">Tech et science</p>
+                            <div class="progress div-block-354">
+                                <div class="progress-bar ml-auto" role="progressbar" aria-valuenow="73" aria-valuemin="0" aria-valuemax="100" style="width: 73%; background-color: rgb(235 235 235);"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
