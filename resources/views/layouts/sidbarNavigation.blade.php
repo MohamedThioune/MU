@@ -159,7 +159,7 @@
                            </div>
                        </div>
                        <div class="head-slidebar-user">
-                           <p class="text-block-242">{{$channel->name}}</p>
+                           <p class="text-block-242">Everywhere</p>
                            <p class="text-block-243">Particulier</p>
                            <div class="profil-photo">
                                <img src="{{ asset('img/Mu-bull-profil-caio-56733.jpg') }}" width="69" alt="" class="image-94"></div>

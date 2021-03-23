@@ -1,4 +1,4 @@
-<html lang="fr">
+@extends('layouts.sidbarNavigation')
 <head>
     <meta charset="utf-8">
     <title>
@@ -15,1506 +15,1007 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
-
 <body>
-
-<div class="elementFixedMobie">
-    <div class="content-home">
-        <div class="content-naveBar">
-            <nav class="navbar navbar-expand-lg navModife">
-                <div class="d-flex">
-                    <button class="btnMenue ">
-                        <div class="d-flex">
-                            <div class="PointMenu ">
-                                <div class="onePoint"></div>
-                                <div class="onePoint"></div>
-                            </div>
-                            <div class="PointMenu">
-                                <div class="onePoint"></div>
-                                <div class="onePoint"></div>
-                            </div>
-                        </div>
-
-                    </button>
-                    <button class="groupPointNav  btnMenue1">
-                        <img class="pointsRose" src="{{ asset('img/icones/troispoints.svg') }}" alt="">
-                        <div class="muu d-flex">
-                            <img class="flecheMuu" src="{{ asset('img/icones/fleche.svg') }}" alt="">
-                            <p class="muuText">mmmuuu</p>
-                        </div>
-                    </button>
-                    <a class="navbar-brand elementLogo" href="#">
-                        <img src="{{ asset('img/logo-MU.png') }}" alt="">
-                    </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                </div>
-                <div class="content-Menu menue1">
-                    <form class="form-inline2 d-flex position-relative">
-                        <input class="form-control mr-sm-2 searchNav2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn searchButtonMenue" type="submit">
-                            <img src="{{ asset('img/icones/search.png') }}" alt="">
-                        </button>
-                    </form>
-                    <div class="sousMenuGlobale1">
-                        <div class="contentElementLeft">
-                            <div class="blockItem">
-                                <img class="iconeMenue" src="{{ asset('img/icones/login.svg') }}" alt="">
-                                <p class="NameElementMenue">Profil</p>
-                                <img src="{{ asset('img/icones/fleche.svg') }}" alt="" class="iconeFleche">
-                            </div>
-                            <div class="blockItem">
-                                <div class="iconeMenue2"><img src="{{ asset('img/icones/time-shahid.png') }}" alt=""></div>
-                                <p class="NameElementMenue">Time shahid</p>
-                                <img src="{{ asset('img/icones/fleche.svg') }}" alt="" class="iconeFleche">
-                            </div>
-                            <div class="blockItem">
-                                <img class="iconeMenue" src="{{ asset('img/icones/settings.svg') }}" alt="">
-                                <p class="NameElementMenue">Setting</p>
-                                <img src="{{ asset('img/icones/fleche.svg') }}" alt="" class="iconeFleche">
-                            </div>
-                            <div class="blockItem">
-                                <img class="iconeMenue" src="{{ asset('img/icones/published.svg') }}" alt="">
-                                <p class="NameElementMenue">Published</p>
-                                <img src="{{ asset('img/icones/fleche.svg') }}" alt="" class="iconeFleche">
-                            </div>
-                            <div class="blockItem">
-                                <img class="iconeMenue" src="{{ asset('img/icones/alerte.svg') }}" alt="">
-                                <p class="NameElementMenue">Alerte</p>
-                                <img src="{{ asset('img/icones/fleche.svg') }}" alt="" class="iconeFleche">
-                            </div>
-
-                        </div>
-
-                        <!--                        <div class="contentElementRight">
-                                                    <div class="categorieProfil">
-                                                        <div class="block1">
-                                                            <button class="btn btnCat colorElement">Cat1</button>
-                                                            <p class="sousCategorie colorElement">Cat 1.1</p>
-                                                            <p class="sousCategorie colorElement">Cat 1.2</p>
-                                                            <p class="sousCategorie colorElement">Cat 1.3</p>
-                                                            <p class="sousCategorie colorElement">Cat 1.4</p>
-                                                            <p class="sousCategorie colorElement">Cat 1.5</p>
-                                                            <p class="sousCategorie colorElement">Cat 1.6</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="categorieProfil">
-                                                        <div class="block1">
-                                                            <button class="btn btnCat">Cat2</button>
-                                                            <p class="sousCategorie">Cat 2.1</p>
-                                                            <p class="sousCategorie">Cat 2.2</p>
-                                                            <p class="sousCategorie">Cat 2.3</p>
-                                                            <p class="sousCategorie">Cat 2.4</p>
-                                                            <p class="sousCategorie">Cat 2.5</p>
-                                                            <p class="sousCategorie">Cat 2.6</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="categorieProfil">
-                                                        <div class="block1">
-                                                            <button class="btn btnCat">Cat3</button>
-                                                            <p class="sousCategorie">Cat 3.1</p>
-                                                            <p class="sousCategorie">Cat 3.2</p>
-                                                            <p class="sousCategorie">Cat 3.3</p>
-                                                            <p class="sousCategorie">Cat 3.4</p>
-                                                            <p class="sousCategorie">Cat 3.5</p>
-                                                            <p class="sousCategorie">Cat 3.6</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="categorieProfil">
-                                                        <div class="block1">
-                                                            <button class="btn btnCat">Cat4</button>
-                                                            <p class="sousCategorie">Cat 4.1</p>
-                                                            <p class="sousCategorie">Cat 4.2</p>
-                                                            <p class="sousCategorie">Cat 4.3</p>
-                                                            <p class="sousCategorie">Cat 4.4</p>
-                                                            <p class="sousCategorie">Cat 4.5</p>
-                                                            <p class="sousCategorie">Cat 4.6</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="categorieProfil">
-                                                        <div class="block1">
-                                                            <button class="btn btnCat">Cat5</button>
-                                                            <p class="sousCategorie">Cat 5.1</p>
-                                                            <p class="sousCategorie">Cat 5.2</p>
-                                                            <p class="sousCategorie">Cat 5.3</p>
-                                                            <p class="sousCategorie">Cat 5.4</p>
-                                                            <p class="sousCategorie">Cat 5.5</p>
-                                                            <p class="sousCategorie">Cat 5.6</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="categorieProfil">
-                                                        <div class="block1">
-                                                            <button class="btn btnCat">Cat6</button>
-                                                            <p class="sousCategorie">Cat 6.1</p>
-                                                            <p class="sousCategorie">Cat 6.2</p>
-                                                            <p class="sousCategorie">Cat 6.3</p>
-                                                            <p class="sousCategorie">Cat 6.4</p>
-                                                            <p class="sousCategorie">Cat 6.5</p>
-                                                            <p class="sousCategorie">Cat 6.6</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                        -->                    </div>
-                    <div class="categorie row">
-                        <div class="contentButtonCategorie">
-                            <button class="btn btnCategorie flow">Flow</button>
-                            <button class="btn btnCategorie kids">Kids</button>
-                            <button class="btn btnCategorie sista">Sista’s</button>
-                        </div>
-                        <div class="contentSousMenueCategorie sousCategorieFlow">
-                            <p class="textSousCategorie">Life / Art</p>
-                            <p class="textSousCategorie">Business</p>
-                            <p class="textSousCategorie">Education</p>
-                            <p class="textSousCategorie">Health / Wellness</p>
-                            <p class="textSousCategorie">Food</p>
-                            <p class="textSousCategorie">Sport / Gaming</p>
-                        </div>
-                        <!--                        <div class="contentElementRight">
-                                                    <div class="categorieProfil">
-                                                        <div class="block1">
-                                                            <button class="btn btnCat colorElement">Cat1</button>
-                                                            <p class="sousCategorie colorElement">Cat 1.1</p>
-                                                            <p class="sousCategorie colorElement">Cat 1.2</p>
-                                                            <p class="sousCategorie colorElement">Cat 1.3</p>
-                                                            <p class="sousCategorie colorElement">Cat 1.4</p>
-                                                            <p class="sousCategorie colorElement">Cat 1.5</p>
-                                                            <p class="sousCategorie colorElement">Cat 1.6</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="categorieProfil">
-                                                        <div class="block1">
-                                                            <button class="btn btnCat">Cat2</button>
-                                                            <p class="sousCategorie">Cat 2.1</p>
-                                                            <p class="sousCategorie">Cat 2.2</p>
-                                                            <p class="sousCategorie">Cat 2.3</p>
-                                                            <p class="sousCategorie">Cat 2.4</p>
-                                                            <p class="sousCategorie">Cat 2.5</p>
-                                                            <p class="sousCategorie">Cat 2.6</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="categorieProfil">
-                                                        <div class="block1">
-                                                            <button class="btn btnCat">Cat3</button>
-                                                            <p class="sousCategorie">Cat 3.1</p>
-                                                            <p class="sousCategorie">Cat 3.2</p>
-                                                            <p class="sousCategorie">Cat 3.3</p>
-                                                            <p class="sousCategorie">Cat 3.4</p>
-                                                            <p class="sousCategorie">Cat 3.5</p>
-                                                            <p class="sousCategorie">Cat 3.6</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="categorieProfil">
-                                                        <div class="block1">
-                                                            <button class="btn btnCat">Cat4</button>
-                                                            <p class="sousCategorie">Cat 4.1</p>
-                                                            <p class="sousCategorie">Cat 4.2</p>
-                                                            <p class="sousCategorie">Cat 4.3</p>
-                                                            <p class="sousCategorie">Cat 4.4</p>
-                                                            <p class="sousCategorie">Cat 4.5</p>
-                                                            <p class="sousCategorie">Cat 4.6</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="categorieProfil">
-                                                        <div class="block1">
-                                                            <button class="btn btnCat">Cat5</button>
-                                                            <p class="sousCategorie">Cat 5.1</p>
-                                                            <p class="sousCategorie">Cat 5.2</p>
-                                                            <p class="sousCategorie">Cat 5.3</p>
-                                                            <p class="sousCategorie">Cat 5.4</p>
-                                                            <p class="sousCategorie">Cat 5.5</p>
-                                                            <p class="sousCategorie">Cat 5.6</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="categorieProfil">
-                                                        <div class="block1">
-                                                            <button class="btn btnCat">Cat6</button>
-                                                            <p class="sousCategorie">Cat 6.1</p>
-                                                            <p class="sousCategorie">Cat 6.2</p>
-                                                            <p class="sousCategorie">Cat 6.3</p>
-                                                            <p class="sousCategorie">Cat 6.4</p>
-                                                            <p class="sousCategorie">Cat 6.5</p>
-                                                            <p class="sousCategorie">Cat 6.6</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                        -->
-                    </div>
-                    <div class="categorie row">
-                        <div class="contentButtonCategorie">
-                            <button class="btn btnCategorie flow">Flow</button>
-                            <button class="btn btnCategorie kids">Kids</button>
-                            <button class="btn btnCategorie sista">Sista’s</button>
-                        </div>
-                        <div class="contentSousMenueCategorie sousCategorieFlow">
-                            <p class="textSousCategorie">Life / Art</p>
-                            <p class="textSousCategorie">Business</p>
-                            <p class="textSousCategorie">Education</p>
-                            <p class="textSousCategorie">Health / Wellness</p>
-                            <p class="textSousCategorie">Food</p>
-                            <p class="textSousCategorie">Sport / Gaming</p>
-                        </div>
-
-                    </div>
-                </div>
-
-
-                <form class="form-inline position-relative">
-                    <input class="form-control mr-sm-2 searchNav" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn searchButton" type="submit">
-                        <img src="{{ asset('img/icones/search.png') }}" alt="">
-                    </button>
-                </form>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ml-auto">
-                    @if(Auth::guest())
-                         <li class="nav-item nav-modife">
-                            <a href="{{route('register')}}" class="btnCommunaute">Rejoindre la Oumma</a>
-                        </li>
-                        <li class="nav-item nav-modife">
-                            <img src="{{ asset('img/icones/login.svg') }}" alt="">
-                            <a class="nav-link" href="{{route('login')}}">Connexion</a>
-                        </li>
-                    @else
-                        <li class="nav-item nav-modife">
-                            @if(Auth::user()->timeout)
-                                @if(intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/ 86400) == 0)
-                                    @if(intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/ 3600) > 0)
-                                    <p class="day" style="font-size:18px; color:white">Last login - <span style="color:#c22d84">{{intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/3600)}} hours ago</span></p>
-                                    @else(intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/ 3600) == 0)
-                                    <p class="day"style="font-size:18px; color:white">Last login - <span style="color:#c22d84">{{intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/60)}} minutes ago</span></p>
-                                    @endif
-                                @elseif(intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/ 86400) == 1)
-                                <p class="day" style="font-size:18px; color:white">Last login - <span style="color:#c22d84">Yesterday at {{strftime("%H:%M", strtotime(Auth::user()->timeout))}}</span></p>
-                                @elseif(intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/ 86400) >= 2 && intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/ 86400) <= 27)
-                                <p class="day"style="font-size:18px; color:white">Last login - <span style="color:#c22d84">{{intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/ 86400)}} days ago</span></p>
-                                @else(intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/ 86400) > 27)
-                                <p class="day" style="font-size:18px; color:white">Last login - <span style="color:#c22d84">On {{strftime("%d/%m/%Y", strtotime(Auth::user()->timeout))}}</span></p>
-                                @endif
-                            @else
-                            <p class="day" style="font-size:18px; color:#f4de39">WELCOME <span style="color:white"> TO</span> <span style="color:#c22d84"> MU</span></p>
-                            @endif
-                        <li class="nav-item nav-modife">
-                            <!-- User connected with his name -->
-                            @if(!session('profile'))
-                            <a href="{{route('choose')}}" class="btnCommunaute" style="cursor:pointer; text-decoration:none; color:white; background:none; box-shadow: 4px 4px 15px white;font-weight:bold">
-                                 @php
-                                    $profile = DB::Table('users')->select('profile.*')
-                                                                 ->join('profile', 'users.id', 'profile.user_id')
-                                                                 ->where('users.id', Auth::id())
-                                                                 ->first();
-
-                                    echo $profile->name;
-                                 @endphp
-                                 &nbsp;&nbsp;
-                                <i class="fas fa-caret-down"></i>
-                            </a>
-                            @elseif(session('profile')["age"] <= 15)
-                            <a href="{{route('choose')}}" class="btnCommunaute" style="cursor:pointer; text-decoration:none; color:white; background:none; box-shadow: 4px 4px 15px #e9d22e;font-weight:bold"> {{session('profile')["name"]}} &nbsp;&nbsp;<i class="fas fa-caret-down"></i></a>
-                            @elseif(session('profile')["age"] > 15 && session('profile')["sex"] == '1')
-                            <a href="{{route('choose')}}" class="btnCommunaute" style="cursor:pointer; text-decoration:none; color:white; background:none; box-shadow: 4px 4px 15px #3eacec;font-weight:bold"> {{session('profile')["name"]}} &nbsp;&nbsp;<i class="fas fa-caret-down"></i></a>
-                            @elseif(session('profile')["age"] > 15 && session('profile')["sex"] == '0')
-                            <a href="{{route('choose')}}" class="btnCommunaute" style="cursor:pointer; text-decoration:none; color:white; background:none; box-shadow: 4px 4px 15px #d14f94;font-weight:bold"> {{session('profile')["name"]}} &nbsp;&nbsp;<i class="fas fa-caret-down"></i><a>
-                            @endif
-                        </li>
-                        <li class="nav-item nav-modife">
-                            <img src="{{ asset('img/icones/login.svg') }}" alt="">
-                            <form action="{{ route('logout') }}" class="nav-modife formModife" method="POST">
-                                @csrf
-                                <button class="nav-link btnLogOut" type="submit" >Log out</button>
-                            </form>
-                        </li>
-                    @endif
-                    </ul>
-                </div>
-            </nav>
-            <div class="header2">
-                <div class="container-modife">
-                    <div class="block2">
-                        <img class="img-logo2" src="{{ asset('img/Smuuse-logo-blanc.png') }}" alt="">
-                        <center>
-                        <div class="d-flex groupButtonHeader2">
-                            <button class="btn btnheader2">Flow</button>
-                            <button class="btn btnheader2">Sista’s</button>
-                            <button class="btn btnheader2">Kids</button>
-                        </div>
-                        </center>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- <div class="content-contenue1">
-        <div class="contentParDefaut">
-            <div class="linearColor"></div>
-            <div class="container-fluid position-relative">
-                <div class="row">
-                    <div class="col-sm-12  col-md-12 col-lg-9 col-modife">
-                        <div class="videoParDefaut">
-                            <video class="elementVideoParDefaut"  controls>
-                                <source src="{{ asset('videos/video-principale.mp4') }}" type="video/mp4">
-                            </video>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-md-12 col-lg-3 colMobe">
-                        <div class="content2">
-                            <div class="bannierAlerte">
-                                <img class="alertMissing" src="{{ asset('img/icones/alerte.svg') }}" alt="">
-                                <p class="doNotMissing">Do not miss</p>
-                            </div>
-                            <div class="contentSuggestion1">
-                                <div class="publicite">
-                                    <img src="{{ asset('img/publicite.png') }}" alt="">
-                                </div>
-                                <div class="suggestion">
-                                    <div class="cardSuggestion2">
-                                        <div class="img-video-suggestion">
-                                            <img class="w-100" src="{{ asset('img/fitness.png') }}" alt="">
-                                            <div class="detailElement">
-                                                <p class="heure">17:25</p>
-                                                <div class="group2">
-                                                    <div class="d-flex">
-                                                        <p class="text-liberty">Liberty in the words</p>
-                                                        <img src="" alt="">
-                                                    </div>
-                                                    <div class="d-flex">
-                                                        <div class="imgMind"><img  src="{{ asset('img/main.jpeg') }}" alt=""></div>
-                                                        <div class="text-img">
-                                                            <div>
-                                                                <p class="textMind">Mind</p>
-                                                                <p class="numberviews">1230</p>
-                                                            </div>
-                                                            <div class="imgViews"><img  src="{{ asset('img/icones/eye-4-xxl.png') }}" alt=""></div>
-                                                        </div>
-                                                        <p class="text-days">4 days ago</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="cardSuggestion2">
-                                        <div class="img-video-suggestion">
-                                            <img class="w-100" src="{{ asset('img/fitness.png') }}" alt="">
-                                            <div class="detailElement">
-                                                <p class="heure">17:25</p>
-                                                <div class="group2">
-                                                    <div class="d-flex">
-                                                        <p class="text-liberty">Liberty in the words</p>
-                                                        <img src="" alt="">
-                                                    </div>
-                                                    <div class="d-flex">
-                                                        <div class="imgMind"><img  src="{{ asset('img/main.jpeg') }}" alt=""></div>
-                                                        <div class="text-img">
-                                                            <div>
-                                                                <p class="textMind">Mind</p>
-                                                                <p class="numberviews">1230</p>
-                                                            </div>
-                                                            <div class="imgViews"><img  src="{{ asset('img/icones/eye-4-xxl.png') }}" alt=""></div>
-                                                        </div>
-                                                        <p class="text-days">4 days ago</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-    <div class="content-contenue2">
-        <div class="container-modife container-modife-mobile">
-            <div class="blockgeneral">
-                <div class="blockDetail webElement">
-                    <p class="text-title">Dad Men : because life is fun 1/4</p>
-                    <div class="content12">
-                        <p class="datePublication">Published : 08 nov. 2020</p>
-                        <div class="d-flex textImgView">
-                            <p class="nbrView"> 22 578</p>
-                            <div class="imgOeil"><img  src="{{ asset('img/icones/oeil.png') }}" alt=""></div>
-                        </div>
-                        <div class="groupLOveUnlove">
-                            <div class="blockLoveUnlove">
-                                <p class="nbrLove">122 k</p>
-                                <div class="imgCoeur"><img src="{{ asset('img/icones/coeurRose.svg') }}" alt=""></div>
-                            </div>
-                            <div class="blockLoveUnlove">
-                                <div class="imgCoeur"><img src="{{ asset('img/icones/loveRenverseGris.png') }}" alt=""></div>
-                                <p class="nbrLove">2 078</p>
-                            </div>
-                            <div class="blockImgPuliMobile">
-                                <img src="{{ asset('img/icones/more.png') }}" alt="">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="blockshareAndComments">
-                        <div class="blockImgPuli bottomElement">
-                            <img src="{{ asset('img/icones/lune.png') }}" alt="">
-                        </div>
-                        <div class="blockImgPuli">
-                            <img src="{{ asset('img/icones/share.png') }}" alt="">
-                            <p class="textShare">Share</p>
-                        </div>
-                        <div class="blockImgPuli">
-                            <img src="{{ asset('img/icones/more.png') }}" alt="">
-                            <p class="textShare">More</p>
-                        </div>
-                        <div class="blockImgPuli">
-                            <img src="{{ asset('img/icones/comments.png') }}" alt="">
-                            <p class="textShare">Comments</p>
-                        </div>
-                    </div>
-                    <div class="blockcomentaireAndButton">
-                        <p class="commentaire">lown payment at confirmation of order and rest on factory dispatch date, Two years EU</p>
-                    </div>
-                    <div class="moreContent">
-                        <button class="btn btnMore">More</button>
-                        <img class="imgFleche" src="{{ asset('img/icones/fleche.svg') }}" alt="">
-                    </div>
-                </div>
-                <div class="blockAuteur webElement">
-                    <img class="imgBadge" src="{{ asset('img/icones/Mu-badge22.png') }}" alt="">
-                    <div class="elementImgAuteur">
-                        <img src="{{ asset('img/auteur.png') }}" alt="">
-                    </div>
-                    <p class="nameAuteur contentweb">Dad Men</p>
-                    <p class="nbreAbonnees contentweb">12,4 k Abonnes</p>
-                    <div class="contentMobile">
-                        <p class="nameAuteur">Dad Men</p>
-                        <p class="nbreAbonnees">12,4 k Abonnes</p>
-                    </div>
-                    <div class="elementBtnSouscrire">
-                        <button class="btn btnSubscribe">Subscribe</button>
-                    </div>
-                </div>
-                <div class="mobMobile">
-                    <div class="publicite">
-                        <div class="seed-Block">
-                            <p class="seedText">See the Ad</p>
-                        </div>
-                        <img src="{{ asset('img/publicite.png') }}" alt="">
-                    </div>
-                </div>
-                <div class="blockTime position-relative">
-                    <button class="btn btnPLus"><img src="{{ asset('img/icones/plus.png') }}" alt=""></button>
-                    <img class="img-time" src="{{ asset('img/icones/time-shahid.png') }}" alt="">
-                    <div class="">
-                        <p class="textTimeShalied">Time Shahid</p>
-                        <p class="timeSh">2h 25mn</p>
-                        <p class="calendar">12 Rajab 1638</p>
-                    </div>
-
-                    <div class="elementBarreText">
-                        <div class="contentBarreText">
-                            <div class="rectangle"></div>
-                            <p class="lettre">B</p>
-                        </div>
-                        <div class="contentBarreText l">
-                            <div class="rectangle"></div>
-                            <p class="lettre">L</p>
-                        </div>
-                        <div class="contentBarreText h">
-                            <div class="rectangle"></div>
-                            <p class="lettre">H</p>
-                        </div>
-                        <div class="contentBarreText e">
-                            <div class="rectangle"></div>
-                            <p class="lettre">E</p>
-                        </div>
-                        <div class="contentBarreText d">
-                            <div class="rectangle"></div>
-                            <p class="lettre">D</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="blockTablettePub">
-        <div class="blockgeneralTablette">
-            <div class="blockDetail">
-                <p class="text-title">Dad Men : because life is fun 1/4</p>
-                <div class="content12">
-                    <p class="datePublication">Published : 08 nov. 2020</p>
-                    <div class="d-flex textImgView">
-                        <p class="nbrView"> 22 578</p>
-                        <div class="imgOeil"><img  src="{{ asset('img/icones/oeil.png') }}" alt=""></div>
-                    </div>
-                    <div class="groupLOveUnlove">
-                        <div class="groupLOveTablette">
-                            <div class="blockLoveUnlove">
-                                <p class="nbrLove">122 k</p>
-                                <div class="imgCoeur"><img src="{{ asset('img/icones/coeurRose.svg') }}" alt=""></div>
-                            </div>
-                            <div class="blockLoveUnlove">
-                                <div class="imgCoeur"><img src="{{ asset('img/icones/loveRenverseGris.png') }}" alt=""></div>
-                                <p class="nbrLove">2 078</p>
-                            </div>
-                        </div>
-                        <div class="shareMore">
-                            <div class="blockImgPuli">
-                                <img src="{{ asset('img/icones/share.png') }}" alt="">
-                                <p class="textShare">Share</p>
-                            </div>
-                            <div class="blockImgPuli">
-                                <img src="{{ asset('img/icones/more.png') }}" alt="">
-                                <p class="textShare">More</p>
-                            </div>
-                        </div>
-                        <div class="blockImgPuliMobile">
-                            <img src="{{ asset('img/icones/more.png') }}" alt="">
-                        </div>
-                    </div>
-                </div>
-                <div class="blockcomentaireAndButton">
-                    <p class="commentaire">lown payment at confirmation of order and rest on factory dispatch date, Two years EU</p>
-                </div>
-                <div class="moreContent">
-                    <button class="btn btnMore">More</button>
-                    <img class="imgFleche" src="{{ asset('img/icones/fleche.svg') }}" alt="">
-                </div>
-            </div>
-            <div class="blockAuteur">
-                <img class="imgBadge" src="{{ asset('img/icones/Mu-badge22.png') }}" alt="">
-                <div class="elementImgAuteur">
-                    <img src="{{ asset('img/auteur.png') }}" alt="">
-                </div>
-                <div class="blockTextAuteur">
-                    <p class="nameAuteur contentweb">Dad Men</p>
-                    <p class="nbreAbonnees contentweb">12,4 k Abonnes</p>
-                </div>
-                <div class="contentMobile">
-                    <p class="nameAuteur">Dad Men</p>
-                    <p class="nbreAbonnees">12,4 k Abonnes</p>
-                </div>
-                <div class="elementBtnSouscrire">
-                    <button class="btn btnSubscribe">Subscribe</button>
-                </div>
-            </div>
-        </div>
-        <div class="contentSuggestion1">
-            <div class="publicite">
-                <img src="{{ asset('img/publicite.png') }}" alt="">
-            </div>
-            <div class="blockTimeTablette position-relative">
-                <button class="btn btnPLus"><img src="{{ asset('img/icones/plus.png') }}" alt=""></button>
-                <img class="img-time" src="{{ asset('img/icones/time-shahid.png') }}" alt="">
-                <div class="">
-                    <p class="textTimeShalied">Time Shahid</p>
-                    <p class="timeSh">2h 25mn</p>
-                    <p class="calendar">12 Rajab 1638</p>
-                </div>
-
-                <div class="elementBarreText">
-                    <div class="contentBarreText">
-                        <div class="rectangle"></div>
-                        <p class="lettre">B</p>
-                    </div>
-                    <div class="contentBarreText l">
-                        <div class="rectangle"></div>
-                        <p class="lettre">L</p>
-                    </div>
-                    <div class="contentBarreText h">
-                        <div class="rectangle"></div>
-                        <p class="lettre">H</p>
-                    </div>
-                    <div class="contentBarreText e">
-                        <div class="rectangle"></div>
-                        <p class="lettre">E</p>
-                    </div>
-                    <div class="contentBarreText d">
-                        <div class="rectangle"></div>
-                        <p class="lettre">D</p>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div> -->
-</div>
-
-<!-- <div class="content-commentaire">
-    <div class="container-fluid">
-        <div class="row commentBlock">
-            <div class="col-md-12 col-lg-6 col-modife col-sm-12">
-                <div class="commentOne">
-                    <div class="commentTitle">
-                        <p class="nombreComment">14</p>
-                        <p class="commentText">Comments</p>
-                        <img class="commentImg" src="{{ asset('img/icones/commet.svg') }}" alt="">
-                    </div>
-                    <div class="auteurCommentBlock">
-                        <div class="elementAuteurComment">
-                            <img class="commentImg" src="{{ asset('img/auteur-commentaire.png') }}" alt="">
-                        </div>
-                        <div class="textBlock">
-                            <div>
-                                <p class="commentaireAuteurTitle">Morning Mum <span class="timeCommentaire">2 h ago</span></p>
-                                <p class="commentaireText">50% down payment at confirmation of order and rest … <span class="readMore">Read more</span></p>
-                                <div class="checkBlock">
-                                    <div class="blockLick">
-                                        <p class="numberLike">19</p>
-                                        <img src="{{ asset('img/') }}" alt="">
-                                    </div>
-                                    <div class="d-flex">
-                                        <img src="" alt="">
-                                        <p></p>
-                                    </div>
-                                </div>
-                                <div class="reponse">
-                                    <div class="imgReponseBlock">
-                                        <img src="{{ asset('img/femme.png') }}" alt="">
-                                    </div>
-                                    <div class="blockReponse">
-                                        <div class="textHeure">
-                                            <p class="reponseText">Coucou girls</p>
-                                            <p class="timeReponse">15 mn ago</p>
-                                        </div>
-                                        <p class="textReponse">Everyone can do this and do that…</p>
-                                    </div>
-                                </div>
-                                <div class="blockMoreAnswer">
-                                    <div class="d-flex">
-                                        <p class="textComment">More comments</p>
-                                        <img src="" alt="">
-                                    </div>
-                                    <div class="d-flex">
-                                        <p class="textCommentBleu">Dad Men answer</p>
-                                        <img src="" alt="">
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-
-
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-12 col-lg-6">
-                <div class="contentSwipeToday swiperBlackMob">
-                    <div class="barreLatraleNoir">To day</div>
-                    <div class="swiper-container swipeContainermodife1">
-                        <div class="swiper-wrapper">
-                            <div class=" swiper-slide card-suggestionDay">
-                                <div class="elementCardSuggestionDay">
-                                    <img class="imgElementCardSuggestionDay" src="{{ asset('img/card1.png') }}" alt="">
-                                    <div class="contentFlyHeure">
-                                        <p class="flyText">Fly</p>
-                                        <p class="heureFly">17:25</p>
-                                    </div>
-                                </div>
-                                <div class="contentCardSuggestionDay">
-                                    <div class="d-flex justify-content-between">
-                                        <p class="libertiText">Liberty in the words</p>
-                                        <img class="imgLiberti" src="{{ asset('img/icones/Mu-badge22.png') }}" alt="">
-                                    </div>
-                                    <div class="mindCard">
-                                        <div class="blockImgMind">
-                                            <img class="" src="{{ asset('img/mid1.png') }}" alt="">
-                                        </div>
-                                        <div class="block3">
-                                            <p class="mindText">Mind</p>
-                                            <div class="d-flex justify-content-between">
-                                                <p class="numberviewsSuggestion">1230</p>
-                                                <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
-                                                <p class="day">4 days ago</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class=" swiper-slide card-suggestionDay">
-                                <div class="elementCardSuggestionDay">
-                                    <img class="imgElementCardSuggestionDay" src="{{ asset('img/card2.png') }}" alt="">
-                                    <div class="contentFlyHeure">
-                                        <p class="flyText">Fly</p>
-                                        <p class="heureFly">17:25</p>
-                                    </div>
-                                </div>
-                                <div class="contentCardSuggestionDay">
-                                    <div class="d-flex justify-content-between">
-                                        <p class="libertiText">Liberty in the words</p>
-                                        <img class="imgLiberti" src="{{ asset('img/icones/Mu-badge22.png') }}" alt="">
-                                    </div>
-                                    <div class="mindCard">
-                                        <div class="blockImgMind">
-                                            <img class="" src="{{ asset('img/auteurCard2.png') }}" alt="">
-                                        </div>
-                                        <div class="block3">
-                                            <p class="mindText">Mind</p>
-                                            <div class="d-flex justify-content-between">
-                                                <p class="numberviewsSuggestion">1230</p>
-                                                <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
-                                                <p class="day">4 days ago</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class=" swiper-slide card-suggestionDay">
-                                <div class="elementCardSuggestionDay">
-                                    <img class="imgElementCardSuggestionDay" src="{{ asset('img/card3.png') }}" alt="">
-                                    <div class="contentFlyHeure">
-                                        <p class="flyText">Fly</p>
-                                        <p class="heureFly">17:25</p>
-                                    </div>
-                                </div>
-                                <div class="contentCardSuggestionDay">
-                                    <div class="d-flex justify-content-between">
-                                        <p class="libertiText">Liberty in the words</p>
-                                        <img class="imgLiberti" src="{{ asset('img/icones/Mu-badge22.png') }}" alt="">
-                                    </div>
-                                    <div class="mindCard">
-                                        <div class="blockImgMind">
-                                            <img class="" src="{{ asset('img/auteurCard3.png') }}" alt="">
-                                        </div>
-                                        <div class="block3">
-                                            <p class="mindText">Mind</p>
-                                            <div class="d-flex justify-content-between">
-                                                <p class="numberviewsSuggestion">1230</p>
-                                                <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
-                                                <p class="day">4 days ago</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class=" swiper-slide card-suggestionDay">
-                                <div class="elementCardSuggestionDay">
-                                    <img class="imgElementCardSuggestionDay" src="{{ asset('img/card4.png') }}" alt="">
-                                    <div class="contentFlyHeure">
-                                        <p class="flyText">Fly</p>
-                                        <p class="heureFly">17:25</p>
-                                    </div>
-                                </div>
-                                <div class="contentCardSuggestionDay">
-                                    <div class="d-flex justify-content-between">
-                                        <p class="libertiText">Liberty in the words</p>
-                                        <img class="imgLiberti" src="{{ asset('img/icones/Mu-badge22.png') }}" alt="">
-                                    </div>
-                                    <div class="mindCard">
-                                        <div class="blockImgMind">
-                                            <img class="" src="{{ asset('img/auteurCard4.png') }}" alt="">
-                                        </div>
-                                        <div class="block3">
-                                            <p class="mindText">Mind</p>
-                                            <div class="d-flex justify-content-between">
-                                                <p class="numberviewsSuggestion">1230</p>
-                                                <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
-                                                <p class="day">4 days ago</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
+@section('content-play-element')
+<!--
 @php
     $signals = DB::Table('reports')->select('*')
                                ->where('reports.user_id', Auth::id())
                                ->get();
-@endphp
-
-@if(count(session('videos_haltcare')) > 0)
-<div class="content-Haltcare">
-    <div class="container-fluid">
-        <div class="contentSwipeToday">
-            <div class="barreLatraleNoir vertBarre">
-                <div class="categorie-name">
-                    <img src="{{ asset('img/Mu-feuille-noir2x.png') }}"  alt="">
-                </div>
+@endphp-->
+<div class="contentOneMonFlow">
+    <div class="pub-bando-connect">
+        <div class="info-pub-bando">
+            <div class="accroche">
+                <a class="accrocheskate" href="">
+                    <img class="accrocheskateImg" src="{{ asset('img/Nuage-rose.png') }}" alt="">
+                    <p class="link-212">Trouves ton skate</p>
+                </a>
             </div>
-            <div class="swiper-slide swipe2">
-                <p class="text-hel">Healthcares</p>
-                <div class="swiper-container swiper-helatcare">
-                    <div class="swiper-wrapper">
-                        @foreach(session('videos_haltcare') as $video)
-                        <div class="swiper-slide card-suggestionDay">
-                            <div class="elementCardSuggestionDay">
-                                @php 
-                                    $user = App\User::find($video->user_id);
-                                @endphp
-
-                                @if($video->thumbnail)
-                                    <img class="imgElementCardSuggestionDay" src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" alt="">
-                                @elseif($user->age <= 15)
-                                    <img class="imgElementCardSuggestionDay" src="{{asset('images/kids_preloader.png')}}" alt="">
-                                @elseif($user->age > 15 && $user->sex == '1')
-                                    <img class="imgElementCardSuggestionDay" src="{{asset('images/flow_preloader.png')}}" alt=""/>
-                                @elseif($user->age > 15 && $user->sex == '0')
-                                    <img class="imgElementCardSuggestionDay" src="{{asset('images/sista_preloader.png')}}" alt="">
-                                @endif
-                            
-                                <a href="{{route('play',[$video->id])}}" target="blank" class="contentFlyHeure">
-                                    <p class="flyText"> 
-                                        @foreach($subtopics as $subtopic)
-                                        @if($video->subtopic_id == $subtopic->id)
-                                            {{ $subtopic->libelle }}
-                                        @endif
-                                        @endforeach
-                                    </p>
-                                    <p class="heureFly">
-                                        @php
-                                        $reports = DB::Table('reports')
-                                        ->where('video_id', $video->id)
-                                        ->count();
-
-                                        if ($video->duration){
-                                        $durations = explode(':', $video->duration);
-                                        if($durations[0] == "00")
-                                        echo $durations[1]. ':' .$durations[2];
-                                        else
-                                        echo $durations[0]. ':' .$durations[1]. ':' .$durations[2];
-                                        }
-                                        @endphp
-                                    </p>
-                                </a>
-                            </div>
-                            <div class="contentCardSuggestionDay">
-                                <div class="d-flex justify-content-between">
-                                    <p class="libertiText">{{$video->main_title}}</p>
-
-                                    <a href="{!! route('report',[$video->id]) !!}">
-                                        @if($reports < 2)
-                                        <img class="imgLiberti" src="{{asset('img/icones/Mu-badge22.png')}}" alt="Lune" data-toggle="tooltip" data-placement="top" title="Community-approved video">
-                                        @else
-                                        <img class="imgLiberti" src="{{asset('img/icones/lune-rouge-small.png')}}" alt="Lune"  data-toggle="tooltip" data-placement="top" title="This video has been pointed out by members of the community as being unbearable">
-                                        @endif
-                                    </a>
-                                </div>
-                                <div class="mindCard">
-                                   
-                                    <div class="blockImgMind">
-                                        @if($user->photo)
-                                        <img class="" src="{{ asset('/images/uploads') }}/{{$user->photo}}" alt="">
-                                        @elseif($user->age <= 15)
-                                        <img class="" src="{{asset('images/kids_preloader.png')}}" alt="">
-                                        @elseif($user->age > 15 && $user->sex == '1')
-                                        <img class="img-circle" src="{{asset('images/flow_preloader.png')}}" alt=""/>
-                                        @elseif($user->age > 15 && $user->sex == '0')
-                                        <img class="" src="{{asset('images/sista_preloader.png')}} /{{$user->photo}}" alt="">
-                                        @endif
-                                    </div>
-                                    <div class="block3">
-                                        <p class="mindText">{{$user->name}}</p>
-                                        <!-- Date creation relative -->
-                                        @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
-                                        @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
-                                        <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/3600)}} hours ago </p>
-                                        @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) == 0)
-                                        <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/60)}} minutes ago </p>
-                                        @endif
-                                        @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 1)
-                                        <p class="day">Yesterday at {{strftime("%H:%M", strtotime($video->created_at))}}</p>
-                                        @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) >= 2 && intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) <= 27)
-                                        <p class="day"> {{intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400)}} days ago </p>
-                                        @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) > 27)
-                                        <p class="day">On {{strftime("%d/%m/%Y", strtotime($video->created_at))}}</p>
-                                        @endif
-                                      <!--  <div class="d-flex justify-content-between">
-                                            <p class="numberviewsSuggestion">1230</p>
-                                            <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
-                                        </div>-->
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        @endforeach
-                    </div>
-                </div>
+            <div class="annonces">
+                <p class="text-block-294">Annonces</p>
+                <p class="link-229">www.pub-link</p>
+                <a href="" class="go w-inline-block text-block-295">Go!</a>
             </div>
-
+            <div class="like-notication">
+                <button class="btn btnNote">
+                    <img src="Image-5.png" alt="">
+                </button>
+                <button class="btn btnNote">
+                    <img src="Image-6.png" alt="">
+                </button>
+            </div>
+        </div>
+        <div class="imgPubBlock">
+            <img src="" alt="">
         </div>
     </div>
-</div>
-@endif
-
-@if(count(session('videos_life')) > 0)
-<div class="content-life">
-    <div class="container-fluid">
-        <div class="contentSwipeToday">
-            <div class="barreLatraleNoir life">
-                <div class="categorie-name">
-                    <img src="{{ asset('img/Mu-fleur2.png') }}"  alt="">
-                </div>
-            </div>
-            <div class="swiper-slide swipe2">
-                <p class="text-life">Life</p>
-                <div class="swiper-container swiper-helatcare">
-                    <div class="swiper-wrapper">
-                        @foreach(session('videos_life') as $video)
-                        <div class=" swiper-slide card-suggestionDay">
-                            <div class="elementCardSuggestionDay">
-                                @php 
-                                    $user = App\User::find($video->user_id);
-                                @endphp
-
-                                @if($video->thumbnail)
-                                    <img class="imgElementCardSuggestionDay" src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" alt="">
-                                @elseif($user->age <= 15)
-                                    <img class="imgElementCardSuggestionDay" src="{{asset('images/kids_preloader.png')}}" alt="">
-                                @elseif($user->age > 15 && $user->sex == '1')
-                                    <img class="imgElementCardSuggestionDay" src="{{asset('images/flow_preloader.png')}}" alt=""/>
-                                @elseif($user->age > 15 && $user->sex == '0')
-                                    <img class="imgElementCardSuggestionDay" src="{{asset('images/sista_preloader.png')}}" alt="">
-                                @endif                                
-                                <a href="{{route('play',[$video->id])}}" target="blank" class="contentFlyHeure">
-                                    <p class="flyText">
-                                        @foreach($subtopics as $subtopic)
-                                        @if($video->subtopic_id == $subtopic->id)
-                                            {{ $subtopic->libelle }}
-                                        @endif
-                                        @endforeach
-                                    </p>
-                                    <p class="heureFly">
-                                        @php
-                                        $reports = DB::Table('reports')
-                                        ->where('video_id', $video->id)
-                                        ->count();
-
-                                        if ($video->duration){
-                                        $durations = explode(':', $video->duration);
-                                        if($durations[0] == "00")
-                                        echo $durations[1]. ':' .$durations[2];
-                                        else
-                                        echo $durations[0]. ':' .$durations[1]. ':' .$durations[2];
-                                        }
-                                        @endphp
-                                    </p>
-                                </a>
-                            </div>
-                            <div class="contentCardSuggestionDay">
-                                <div class="d-flex justify-content-between">
-                                    <p class="libertiText">{{$video->main_title}}</p>
-                                    <a href="{!! route('report',[$video->id]) !!}">
-                                        @if($reports < 2)
-                                        <img class="imgLiberti" src="{{asset('img/icones/Mu-badge22.png')}}" alt="Lune" data-toggle="tooltip" data-placement="top" title="Community-approved video">
-                                        @else
-                                        <img class="imgLiberti" src="{{asset('img/icones/lune-rouge-small.png')}}" alt="Lune"  data-toggle="tooltip" data-placement="top" title="This video has been pointed out by members of the community as being unbearable">
-                                        @endif
-                                    </a>
-                                </div>
-                                <div class="mindCard">
-            
-                                    <div class="blockImgMind">
-                                        @if($user->photo)
-                                        <img class="" src="{{ asset('/images/uploads') }}/{{$user->photo}}" alt="">
-                                        @elseif($user->age <= 15)
-                                        <img class="" src="{{asset('images/kids_preloader.png')}}" alt="">
-                                        @elseif($user->age > 15 && $user->sex == '1')
-                                        <img class="img-circle" src="{{asset('images/flow_preloader.png')}}" alt=""/>
-                                        @elseif($user->age > 15 && $user->sex == '0')
-                                        <img class="" src="{{asset('images/sista_preloader.png')}} /{{$user->photo}}" alt="">
-                                        @endif
-                                    </div>
-                                    <div class="block3">
-                                        <p class="mindText">{{$user->name}}</p>
-                                        <!-- Date creation relative -->
-                                        @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
-                                        @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
-                                        <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/3600)}} hours ago </p>
-                                        @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) == 0)
-                                        <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/60)}} minutes ago </p>
-                                        @endif
-                                        @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 1)
-                                        <p class="day">Yesterday at {{strftime("%H:%M", strtotime($video->created_at))}}</p>
-                                        @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) >= 2 && intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) <= 27)
-                                        <p class="day"> {{intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400)}} days ago </p>
-                                        @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) > 27)
-                                        <p class="day">On {{strftime("%d/%m/%Y", strtotime($video->created_at))}}</p>
-                                        @endif
-                                       <!-- <div class="d-flex justify-content-between">
-                                            <p class="numberviewsSuggestion">1230</p>
-                                            <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
-                                        </div>-->
-                                    </div>
-                                </div>
-                            </div>
+    <p class="text-block-350">Tous tes informations en un clin d'œil </p>
+    <div class="menu-content-business">
+        <a href="#" class="link-26">Infos</a>
+        <a href="#" class="link-26">Récents</a>
+        <a href="#" class="link-26">Toutes les videos</a>
+        <a href="#" class="link-26">Offres</a>
+        <a href="#" class="link-26">Playlist</a>
+    </div>
+    <div class="derniersNouvelles">
+        <div class="d-flex">
+            <img src="{{ asset('img/Mu-flow-picto-bull.svg') }}"  alt="" class="image-bull1">
+            <p class="text-Playlist">Hot notifications</p>
+        </div>
+        <div class="swiper-container swipeContainermodife1">
+            <div class="swiper-wrapper">
+                <div class=" swiper-slide card-suggestionDay">
+                    <div class="elementCardSuggestionDay">
+                        <img class="imgElementCardSuggestionDay" src="{{ asset('img/card1.png') }}" alt="">
+                        <div class="contentFlyHeure">
+                            <p class="flyText">Fly</p>
+                            <p class="heureFly" style="color:white;">17:25</p>
                         </div>
-                        @endforeach
+                    </div>
+                    <div class="contentCardSuggestionDay">
+                        <div class="d-flex justify-content-between">
+                            <p class="libertiText">Liberty in the words</p>
+                            <img class="imgLiberti" src="{{ asset('img/icones/Mu-badge22.png') }}" alt="">
+                        </div>
+                        <div class="mindCard">
+                            <div class="blockImgMind">
+                                <img class="" src="{{ asset('img/mid1.png') }}" alt="">
+                            </div>
+                            <div class="block3">
+                                <p class="mindText">Mind</p>
+                                <p class="day">Publié il y à 2 jours</p>
+                                <!--                                     <div class="d-flex justify-content-between">
+                                                                                <p class="numberviewsSuggestion">1230</p>
+                                                                                <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+
+                                                                            </div>
+                                                    -->                                        </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-
+                <div class=" swiper-slide hot-notification">
+                    <div class="div-block-391">
+                        <div class="hot-green">
+                            <img class="imgGrenn" src="{{ asset('img/Mu-hot-info.png') }}" loading="lazy">
+                        </div>
+                        <div class="div-block-393">
+                            <div class="div-block-392">
+                                <img src="{{ asset('img/Mu-video-format-bike-girl.jpg') }}" loading="lazy" sizes="100vw" srcset="images/Mu-video-format-bike-girl-p-800.jpeg 800w, images/Mu-video-format-bike-girl.jpg 898w" alt="" class="image-130"></div>
+                            <div>
+                                <p class="text-block-383">Titre de l&#x27;évenement</p>
+                                <p class="text-block-385">Publier il y a 2h</p>
+                                <div>
+                                    <p class="hot-flow-txt-description">Cours du jeudi reporté à la semaine prochaine </p>
+                                    <p class="hot-flow-txt-description">Inscription sur le site</p>
+                                </div>
+                            </div>
+                            <div class="like-notication">
+                                <button class="btn div-block-398">
+                                    <img src="{{ asset('img/Image-5.png') }}" alt="">
+                                </button>
+                                <button class="btn div-block-398">
+                                    <img src="{{ asset('img/Image-6.png') }}" alt="">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class=" swiper-slide hot-notification">
+                    <div class="div-block-391">
+                        <div class="hot-green">
+                            <img class="imgGrenn" src="{{ asset('img/Mu-hot-info.png') }}" loading="lazy">
+                        </div>
+                        <div class="div-block-393">
+                            <div class="div-block-392">
+                                <img src="{{ asset('img/Mu-video-format-bike-girl.jpg') }}" loading="lazy" sizes="100vw" srcset="images/Mu-video-format-bike-girl-p-800.jpeg 800w, images/Mu-video-format-bike-girl.jpg 898w" alt="" class="image-130"></div>
+                            <div>
+                                <p class="text-block-383">Titre de l&#x27;évenement</p>
+                                <p class="text-block-385">Publier il y a 2h</p>
+                                <div>
+                                    <p class="hot-flow-txt-description">Cours du jeudi reporté à la semaine prochaine </p>
+                                    <p class="hot-flow-txt-description">Inscription sur le site</p>
+                                </div>
+                            </div>
+                            <div class="like-notication">
+                                <button class="btn div-block-398">
+                                    <img src="{{ asset('img/Image-5.png') }}" alt="">
+                                </button>
+                                <button class="btn div-block-398">
+                                    <img src="{{ asset('img/Image-6.png') }}" alt="">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
-@endif
 
-@if(count(session('videos_health')) > 0)
-<div class="content-Health">
-    <div class="container-fluid">
-        <div class="contentSwipeToday">
-            <div class="barreLatraleNoir Health">
-                <div class="categorie-name">
-                    <img src="{{ asset('img/Mu-fleur2.png') }}"  alt="">
-                </div>
-            </div>
-            <div class="swiper-slide swipe2">
-                <p class="text-health">Health</p>
-                <div class="swiper-container swiper-helatcare">
-                    <div class="swiper-wrapper">
-                        @foreach(session('videos_health') as $video)
-                        <div class=" swiper-slide card-suggestionDay">
-                            <div class="elementCardSuggestionDay">
-                                @php 
-                                    $user = App\User::find($video->user_id);
-                                @endphp
-
-                                @if($video->thumbnail)
-                                    <img class="imgElementCardSuggestionDay" src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" alt="">
-                                @elseif($user->age <= 15)
-                                    <img class="imgElementCardSuggestionDay" src="{{asset('images/kids_preloader.png')}}" alt="">
-                                @elseif($user->age > 15 && $user->sex == '1')
-                                    <img class="imgElementCardSuggestionDay" src="{{asset('images/flow_preloader.png')}}" alt=""/>
-                                @elseif($user->age > 15 && $user->sex == '0')
-                                    <img class="imgElementCardSuggestionDay" src="{{asset('images/sista_preloader.png')}}" alt="">
-                                @endif                                
-                                <a href="{{route('play',[$video->id])}}" target="blank" class="contentFlyHeure">
-                                    <p class="flyText">
-                                        @foreach($subtopics as $subtopic)
-                                        @if($video->subtopic_id == $subtopic->id)
-                                            {{ $subtopic->libelle }}
-                                        @endif
-                                        @endforeach
-                                    </p>
-                                    <p class="heureFly">
-                                        @php
-                                        $reports = DB::Table('reports')
-                                        ->where('video_id', $video->id)
-                                        ->count();
-
-                                        if ($video->duration){
-                                        $durations = explode(':', $video->duration);
-                                        if($durations[0] == "00")
-                                        echo $durations[1]. ':' .$durations[2];
-                                        else
-                                        echo $durations[0]. ':' .$durations[1]. ':' .$durations[2];
-                                        }
-                                        @endphp
-                                    </p>
-                                </a>
-                            </div>
-                            <div class="contentCardSuggestionDay">
-                                <div class="d-flex justify-content-between">
-                                    <p class="libertiText">{{$video->main_title}}</p>
-                                    <a href="{!! route('report',[$video->id]) !!}">
-                                        @if($reports < 2)
-                                        <img class="imgLiberti" src="{{asset('img/icones/Mu-badge22.png')}}" alt="Lune" data-toggle="tooltip" data-placement="top" title="Community-approved video">
-                                        @else
-                                        <img class="imgLiberti" src="{{asset('img/icones/lune-rouge-small.png')}}" alt="Lune"  data-toggle="tooltip" data-placement="top" title="This video has been pointed out by members of the community as being unbearable">
-                                        @endif
-                                    </a>
-                                </div>
-                                <div class="mindCard">
-                                    
-                                    <div class="blockImgMind">
-                                        @if($user->photo)
-                                        <img class="" src="{{ asset('/images/uploads') }}/{{$user->photo}}" alt="">
-                                        @elseif($user->age <= 15)
-                                        <img class="" src="{{asset('images/kids_preloader.png')}}" alt="">
-                                        @elseif($user->age > 15 && $user->sex == '1')
-                                        <img class="img-circle" src="{{asset('images/flow_preloader.png')}}" alt=""/>
-                                        @elseif($user->age > 15 && $user->sex == '0')
-                                        <img class="" src="{{asset('images/sista_preloader.png')}} /{{$user->photo}}" alt="">
-                                        @endif
-                                    </div>
-                                    <div class="block3">
-                                        <p class="mindText">{{$user->name}}</p>
-                                        <!-- Date creation relative -->
-                                        @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
-                                        @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
-                                        <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/3600)}} hours ago </p>
-                                        @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) == 0)
-                                        <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/60)}} minutes ago </p>
-                                        @endif
-                                        @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 1)
-                                        <p class="day">Yesterday at {{strftime("%H:%M", strtotime($video->created_at))}}</p>
-                                        @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) >= 2 && intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) <= 27)
-                                        <p class="day"> {{intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400)}} days ago </p>
-                                        @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) > 27)
-                                        <p class="day">On {{strftime("%d/%m/%Y", strtotime($video->created_at))}}</p>
-                                        @endif
-                                      <!--  <div class="d-flex justify-content-between">
-                                            <p class="numberviewsSuggestion">1230</p>
-                                            <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
-
-                                        </div>-->
-                                    </div>
-                                </div>
-                            </div>
+    <div class="suggestionFlow">
+        <p class="text-Playlist2">Suggestions</p>
+        <div class="swiper-container swipeContainermodife1">
+            <div class="swiper-wrapper">
+                <div class=" swiper-slide card-suggestionDay">
+                    <div class="elementCardSuggestionDay">
+                        <img class="imgElementCardSuggestionDay" src="{{ asset('img/card1.png') }}" alt="">
+                        <div class="contentFlyHeure">
+                            <p class="flyText">Fly</p>
+                            <p class="heureFly" style="color:white;">17:25</p>
                         </div>
-                        @endforeach
+                    </div>
+                    <div class="contentCardSuggestionDay">
+                        <div class="d-flex justify-content-between">
+                            <p class="libertiText">Liberty in the words</p>
+                            <img class="imgLiberti" src="{{ asset('img/icones/Mu-badge22.png') }}" alt="">
+                        </div>
+                        <div class="mindCard">
+                            <div class="blockImgMind">
+                                <img class="" src="{{ asset('img/mid1.png') }}" alt="">
+                            </div>
+                            <div class="block3">
+                                <p class="mindText">Mind</p>
+                                <p class="day">Publié il y à 2 jours</p>
+                                <!--                                     <div class="d-flex justify-content-between">
+                                                                                <p class="numberviewsSuggestion">1230</p>
+                                                                                <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+
+                                                                            </div>
+                                                    -->                                        </div>
+                        </div>
                     </div>
                 </div>
-            </div>
+                <div class=" swiper-slide card-suggestionDay">
+                    <div class="elementCardSuggestionDay">
+                        <img class="imgElementCardSuggestionDay" src="{{ asset('img/card1.png') }}" alt="">
+                        <div class="contentFlyHeure">
+                            <p class="flyText">Fly</p>
+                            <p class="heureFly" style="color:white;">17:25</p>
+                        </div>
+                    </div>
+                    <div class="contentCardSuggestionDay">
+                        <div class="d-flex justify-content-between">
+                            <p class="libertiText">Liberty in the words</p>
+                            <img class="imgLiberti" src="{{ asset('img/icones/Mu-badge22.png') }}" alt="">
+                        </div>
+                        <div class="mindCard">
+                            <div class="blockImgMind">
+                                <img class="" src="{{ asset('img/mid1.png') }}" alt="">
+                            </div>
+                            <div class="block3">
+                                <p class="mindText">Mind</p>
+                                <p class="day">Publié il y à 2 jours</p>
+                                <!--                                     <div class="d-flex justify-content-between">
+                                                                                <p class="numberviewsSuggestion">1230</p>
+                                                                                <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+
+                                                                            </div>
+                                                    -->                                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class=" swiper-slide card-suggestionDay">
+                    <div class="elementCardSuggestionDay">
+                        <img class="imgElementCardSuggestionDay" src="{{ asset('img/card1.png') }}" alt="">
+                        <div class="contentFlyHeure">
+                            <p class="flyText">Fly</p>
+                            <p class="heureFly" style="color:white;">17:25</p>
+                        </div>
+                    </div>
+                    <div class="contentCardSuggestionDay">
+                        <div class="d-flex justify-content-between">
+                            <p class="libertiText">Liberty in the words</p>
+                            <img class="imgLiberti" src="{{ asset('img/icones/Mu-badge22.png') }}" alt="">
+                        </div>
+                        <div class="mindCard">
+                            <div class="blockImgMind">
+                                <img class="" src="{{ asset('img/mid1.png') }}" alt="">
+                            </div>
+                            <div class="block3">
+                                <p class="mindText">Mind</p>
+                                <p class="day">Publié il y à 2 jours</p>
+                                <!--                                     <div class="d-flex justify-content-between">
+                                                                                <p class="numberviewsSuggestion">1230</p>
+                                                                                <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+
+                                                                            </div>
+                                                    -->                                        </div>
+                        </div>
+                    </div>
+                </div>
 
             </div>
         </div>
     </div>
-</div>
-@endif
-
-@if(count(session('videos_business')) > 0)
-<div class="content-Business">
-    <div class="container-fluid">
-        <div class="contentSwipeToday">
-            <div class="barreLatraleNoir Business">
-                <div class="categorie-name">
-                    <img src="{{ asset('img/Mu-fleur2.png') }}"  alt="">
+    <div class="chaine-vu">
+        <div>
+            <p class="text-block-353-copy">Voilà la chaîne que tu consultes le plus</p>
+        </div>
+        <div class="div-block-367">
+            <div class="bull-chaine">
+                <img src="{{ asset('img/Mu-bull-profil-reynaldo-brigworkz-brigantty.jpg') }}"  alt="" class="image-125">
+            </div>
+            <div class="div-block-368">
+                <p class="text-block-362">Nom de la chaine</p>
+                <div class="div-block-371">
+                    <p class="text-block-363">100 k</p>
+                    <p class="text-block-345">Abonnés</p>
+                </div>
+                <p class="text-block-364">34 Publications</p>
+                <div class="text-block-366">
+                    <a href="#" class="link-28">Voir la chaîne</a>
                 </div>
             </div>
-            <div class="swiper-slide swipe2">
-                <p class="text-business">Business</p>
-                <div class="swiper-container swiper-helatcare">
-                    <div class="swiper-wrapper">
-                        @foreach(session('videos_business') as $video)
-                        <div class=" swiper-slide card-suggestionDay">
-                            <div class="elementCardSuggestionDay">
-                                @php 
-                                    $user = App\User::find($video->user_id);
-                                @endphp
-
-                                @if($video->thumbnail)
-                                    <img class="imgElementCardSuggestionDay" src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" alt="">
-                                @elseif($user->age <= 15)
-                                    <img class="imgElementCardSuggestionDay" src="{{asset('images/kids_preloader.png')}}" alt="">
-                                @elseif($user->age > 15 && $user->sex == '1')
-                                    <img class="imgElementCardSuggestionDay" src="{{asset('images/flow_preloader.png')}}" alt=""/>
-                                @elseif($user->age > 15 && $user->sex == '0')
-                                    <img class="imgElementCardSuggestionDay" src="{{asset('images/sista_preloader.png')}}" alt="">
-                                @endif                                 
-                                <a href="{{route('play',[$video->id])}}" target="blank" class="contentFlyHeure">
-                                    <p class="flyText">
-                                        @foreach($subtopics as $subtopic)
-                                        @if($video->subtopic_id == $subtopic->id)
-                                            {{ $subtopic->libelle }}
-                                        @endif
-                                        @endforeach
-                                    </p>
-                                    <p class="heureFly">
-                                        @php
-                                        $reports = DB::Table('reports')
-                                        ->where('video_id', $video->id)
-                                        ->count();
-
-                                        if ($video->duration){
-                                        $durations = explode(':', $video->duration);
-                                        if($durations[0] == "00")
-                                        echo $durations[1]. ':' .$durations[2];
-                                        else
-                                        echo $durations[0]. ':' .$durations[1]. ':' .$durations[2];
-                                        }
-                                        @endphp
-                                    </p>
-                                </a>
-                            </div>
-                            <div class="contentCardSuggestionDay">
-                                <div class="d-flex justify-content-between">
-                                    <p class="libertiText">{{$video->main_title}}</p>
-                                    <a href="{!! route('report',[$video->id]) !!}">
-                                        @if($reports < 2)
-                                        <img class="imgLiberti" src="{{asset('img/icones/Mu-badge22.png')}}" alt="Lune" data-toggle="tooltip" data-placement="top" title="Community-approved video">
-                                        @else
-                                        <img class="imgLiberti" src="{{asset('img/icones/lune-rouge-small.png')}}" alt="Lune"  data-toggle="tooltip" data-placement="top" title="This video has been pointed out by members of the community as being unbearable">
-                                        @endif
-                                    </a>
-                                </div>
-                                <div class="mindCard">
-                                   
-                                    <div class="blockImgMind">
-                                        @if($user->photo)
-                                        <img class="" src="{{ asset('/images/uploads') }}/{{$user->photo}}" alt="">
-                                        @elseif($user->age <= 15)
-                                        <img class="" src="{{asset('images/kids_preloader.png')}}" alt="">
-                                        @elseif($user->age > 15 && $user->sex == '1')
-                                        <img class="img-circle" src="{{asset('images/flow_preloader.png')}}" alt=""/>
-                                        @elseif($user->age > 15 && $user->sex == '0')
-                                        <img class="" src="{{asset('images/sista_preloader.png')}} /{{$user->photo}}" alt="">
-                                        @endif
-                                    </div>
-                                    <div class="block3">
-                                        <p class="mindText">{{$user->name}}</p>
-                                        <!-- Date creation relative -->
-                                        @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
-                                        @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
-                                        <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/3600)}} hours ago </p>
-                                        @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) == 0)
-                                        <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/60)}} minutes ago </p>
-                                        @endif
-                                        @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 1)
-                                        <p class="day">Yesterday at {{strftime("%H:%M", strtotime($video->created_at))}}</p>
-                                        @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) >= 2 && intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) <= 27)
-                                        <p class="day"> {{intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400)}} days ago </p>
-                                        @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) > 27)
-                                        <p class="day">On {{strftime("%d/%m/%Y", strtotime($video->created_at))}}</p>
-                                        @endif
-                                     <!--   <div class="d-flex justify-content-between">
-                                            <p class="numberviewsSuggestion">1230</p>
-                                            <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
-
-                                        </div>-->
-                                    </div>
-                                </div>
-                            </div>
+            <div class="back-subscrib-bar">
+                <div class="chaine">
+                    <a href="#" class="link-block-40 w-inline-block">
+                        <div class="div-block-386">
+                            <img src="{{ asset('img/Mu-coeur-blanc.svg') }}" class="imgCoeurBlanc" width="23" alt="">
                         </div>
-                        @endforeach
+                        <div class="text-block-380">S&#x27;abonner</div>
+                    </a>
+                    <div class="alerte">
+                        <img src="{{ asset('img/Mu-cloche-blanc.svg') }}" class="cloche3"  alt="">
                     </div>
+                    <div class="more-seting">
+                        <div class="div-block-399"></div>
+                        <div class="div-block-399"></div>
+                        <div class="div-block-399"></div>
+                    </div>
+                    <div class="share-blanc">
+                        <img src="{{ asset('img/Share-blanc.svg') }}" alt="" class="image-12Blanc">
+                    </div>
+                    <a href="#" class="link-block-42 w-inline-block">
+                        <img src="{{ asset('img/Mu-panier2x_1.png') }}" class="panier2" width="27" alt="">
+                    </a>
+                    <a href="#" class="link-block-41 w-inline-block">
+                        <div>Soutenir</div>
+                    </a>
                 </div>
-            </div>
-
             </div>
         </div>
     </div>
-</div>
-@endif
-
-@if(count(session('videos_education')) > 0)
-<div class="content-Education">
-    <div class="container-fluid">
-        <div class="contentSwipeToday">
-            <div class="barreLatraleNoir Education">
-                <div class="categorie-name">
-                    <img src="{{ asset('img/Mu-fleur2.png') }}"  alt="">
+    <div id="event" class="big-event">
+        <p class="text-block-353-copy">Les prochains événements </p>
+        <div class="div-block-375">
+            <div class="div-block-373">
+                <div class="div-block-372">
+                    <img src="{{ asset('img/Groupe-9262x.png') }}"  alt="" class="img127">
+                </div>
+                <div class="div-block-374">
+                    <div class="date-indicator">
+                        <p class="text-block-371">mois</p>
+                        <p class="text-block-373">jours</p>
+                    </div>
+                    <div>
+                        <div class="div-block-376">
+                            <div class="div-block-378">
+                                <p class="text-block-368">Ramadan</p>
+                                <p class="text-block-374">dans </p>
+                            </div>
+                            <div class="div-block-377">
+                                <p class="text-block-370">1</p>
+                                <p class="text-block-372">15</p>
+                            </div>
+                        </div>
+                        <div class="div-block-376">
+                            <div class="div-block-379">
+                                <p class="text-block-368">Aïd el fitre</p>
+                                <p class="text-block-375">dans </p>
+                            </div>
+                            <div class="div-block-377">
+                                <p class="text-block-370">2</p>
+                                <p class="text-block-372">15</p>
+                            </div>
+                        </div>
+                        <div class="div-block-376">
+                            <div class="div-block-380">
+                                <p class="text-block-368">Hajj</p>
+                                <p class="text-block-376">dans </p>
+                            </div>
+                            <div class="div-block-377">
+                                <p class="text-block-370">6</p>
+                                <p class="text-block-372">02</p>
+                            </div>
+                        </div>
+                        <div class="div-block-376">
+                            <div class="div-block-381">
+                                <p class="text-block-368">Aïd el Kabir</p>
+                                <p class="text-block-377">dans </p>
+                            </div>
+                            <div class="div-block-377">
+                                <p class="text-block-370">11</p>
+                                <p class="text-block-372">02</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-                <div class="swiper-slide swipe2">
-                    <p class="text-education">Education</p>
-                    <div class="swiper-container swiper-helatcare">
-                        <div class="swiper-wrapper">
-                            @foreach(session('videos_education') as $video)
-                            <div class=" swiper-slide card-suggestionDay">
-                                <div class="elementCardSuggestionDay">
-                                    @php 
-                                        $user = App\User::find($video->user_id);
-                                    @endphp
+        </div>
+    </div>
+    <div id="resume" class="resume-flow">
+        <div class="div-block-343">
+            <div class="div-block-352">
+                <div class="resume-activitee">
+                    <p class="text-block-353-copy">Ce mois</p>
+                    <div class="nombre-de">
+                        <p class="text-block-351">Vidéos regardées</p>
+                        <div class="div-block-344">
+                            <div class="div-block-345">
+                                <p class="text-block-352">80</p>
+                            </div>
+                            <div class="div-block-347">
+                                <img src="{{ asset('img/Mu-video-regarder2x.png') }}" class="imgRegarde" width="61" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nombre-de">
+                        <p class="text-block-351">Vidéos aimées</p>
+                        <div class="div-block-344">
+                            <div class="div-block-345">
+                                <p class="text-block-352">45 </p>
+                            </div>
+                            <div class="div-block-348">
+                                <img src="{{ asset('img/Mu-video-likee2x.png') }}" class="imgVideoLike"  alt=""></div>
+                        </div>
+                    </div>
+                    <div class="nombre-de">
+                        <p class="text-block-351">Vidéos partagées</p>
+                        <div class="div-block-344">
+                            <div class="div-block-345">
+                                <p class="text-block-352">18 </p>
+                            </div>
+                            <div class="div-block-349">
+                                <img src="{{ asset('img/Mu-nbr-de-partage2x.png') }}" class="imgVideoLike" alt=""></div>
+                        </div>
+                    </div>
+                    <div class="nombre-de">
+                        <p class="text-block-351">Sadakatiyas supportées</p>
+                        <div class="div-block-344">
+                            <div class="div-block-345">
+                                <p class="text-block-352">3</p>
+                            </div>
+                            <div class="div-block-350">
+                                <img src="{{ asset('img/Mu-sadaka-support2x.png') }}" class="imgVideoLike" alt=""></div>
+                        </div>
+                    </div>
+                    <div class="nombre-de">
+                        <p class="text-block-351">Chaines suivies</p>
+                        <div class="div-block-344">
+                            <div class="div-block-345">
+                                <p class="text-block-352">16 </p>
+                            </div>
+                            <div class="div-block-351">
+                                <img src="{{ asset('img/Mu-chaine-follow-gris2x.png') }}"  class="imgVideoLike"></div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="time-mon-flow">
+                        <div class="div-block-342"><img src="{{ asset('img/Time-shahid.svg') }}"  alt="" class="shadid103"></div>
+                        <div class="div-block-341">
+                            <p class="text-block-290">Time shahid</p>
+                            <p class="temps-tsha">1h 25 mn</p>
+                            <p class="text-block-329">6 Rajab 1663</p>
+                        </div>
+                    </div>
+                    <div class="div-block-364">
+                        <div class="div-block-354">
+                            <p class="text-block-354">In sha Allah</p>
+                            <p class="div-block-353"></p>
+                        </div>
+                        <div class="div-block-354">
+                            <p class="text-block-355">Din</p>
+                            <div class="div-block-355"></div>
+                        </div>
+                        <div class="div-block-354">
+                            <p class="text-block-356">Business</p>
+                            <div class="div-block-356"></div>
+                        </div>
+                        <div class="div-block-354">
+                            <p class="text-block-357">Santé bien-être</p>
+                            <div class="div-block-357"></div>
+                        </div>
+                        <div class="div-block-354">
+                            <p class="text-block-358">Education</p>
+                            <div class="div-block-358"></div>
+                        </div>
+                        <div class="div-block-354">
+                            <p class="text-block-359">Sport Fit</p>
+                            <div class="div-block-359"></div>
+                        </div>
+                        <div class="div-block-354">
+                            <p class="text-block-360">News</p>
+                            <div class="div-block-360"></div>
+                        </div>
+                        <div class="div-block-354">
+                            <p class="text-block-367">Life</p>
+                            <div class="div-block-361"></div>
+                        </div>
+                        <div class="div-block-354">
+                            <p class="text-block-361">Tech et science</p>
+                            <div class="div-block-363"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   <div id="Playlist-flow" class="playlist">
 
-                                    @if($video->thumbnail)
-                                        <img class="imgElementCardSuggestionDay" src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" alt="">
-                                    @elseif($user->age <= 15)
-                                        <img class="imgElementCardSuggestionDay" src="{{asset('images/kids_preloader.png')}}" alt="">
-                                    @elseif($user->age > 15 && $user->sex == '1')
-                                        <img class="imgElementCardSuggestionDay" src="{{asset('images/flow_preloader.png')}}" alt=""/>
-                                    @elseif($user->age > 15 && $user->sex == '0')
-                                        <img class="imgElementCardSuggestionDay" src="{{asset('images/sista_preloader.png')}}" alt="">
-                                    @endif                                     
-                                    <a href="{{route('play',[$video->id])}}" target="blank" class="contentFlyHeure">
-                                        <p class="flyText">
-                                        @foreach($subtopics as $subtopic)
-                                        @if($video->subtopic_id == $subtopic->id)
-                                            {{ $subtopic->libelle }}
-                                        @endif
-                                        @endforeach
-                                        </p>
-                                        <p class="heureFly">
+
+
+    <div>
+            @if(count(session('videos_life')) > 0)
+            <div class="content-life">
+                <div class="container-fluid">
+                    <div class="contentSwipeToday">
+                        <div class="barreLatraleNoir life">
+                            <div class="categorie-name">
+                                <img src="{{ asset('img/Mu-fleur2.png') }}"  alt="">
+                            </div>
+                        </div>
+                        <div class="swiper-slide swipe2">
+                            <p class="text-life">Life</p>
+                            <div class="swiper-container swiper-helatcare">
+                                <div class="swiper-wrapper">
+                                    @foreach(session('videos_life') as $video)
+                                    <div class=" swiper-slide card-suggestionDay">
+                                        <div class="elementCardSuggestionDay">
                                             @php
-                                            $reports = DB::Table('reports')
-                                            ->where('video_id', $video->id)
-                                            ->count();
-
-                                            if ($video->duration){
-                                            $durations = explode(':', $video->duration);
-                                            if($durations[0] == "00")
-                                            echo $durations[1]. ':' .$durations[2];
-                                            else
-                                            echo $durations[0]. ':' .$durations[1]. ':' .$durations[2];
-                                            }
+                                            $user = App\User::find($video->user_id);
                                             @endphp
-                                        </p>
-                                    </a>
-                                </div>
-                                <div class="contentCardSuggestionDay">
-                                    <div class="d-flex justify-content-between">
-                                        <p class="libertiText">{{$video->main_title}}</p>
-                                        <a href="{!! route('report',[$video->id]) !!}">
-                                            @if($reports < 2)
-                                            <img class="imgLiberti" src="{{asset('img/icones/Mu-badge22.png')}}" alt="Lune" data-toggle="tooltip" data-placement="top" title="Community-approved video">
-                                            @else
-                                            <img class="imgLiberti" src="{{asset('img/icones/lune-rouge-small.png')}}" alt="Lune"  data-toggle="tooltip" data-placement="top" title="This video has been pointed out by members of the community as being unbearable">
+
+                                            @if($video->thumbnail)
+                                            <img class="imgElementCardSuggestionDay" src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" alt="">
+                                            @elseif($user->age <= 15)
+                                            <img class="imgElementCardSuggestionDay" src="{{asset('images/kids_preloader.png')}}" alt="">
+                                            @elseif($user->age > 15 && $user->sex == '1')
+                                            <img class="imgElementCardSuggestionDay" src="{{asset('images/flow_preloader.png')}}" alt=""/>
+                                            @elseif($user->age > 15 && $user->sex == '0')
+                                            <img class="imgElementCardSuggestionDay" src="{{asset('images/sista_preloader.png')}}" alt="">
                                             @endif
+                                            <a href="{{route('play',[$video->id])}}" target="blank" class="contentFlyHeure">
+                                                <p class="flyText">
+                                                    @foreach($subtopics as $subtopic)
+                                                    @if($video->subtopic_id == $subtopic->id)
+                                                    {{ $subtopic->libelle }}
+                                                    @endif
+                                                    @endforeach
+                                                </p>
+                                                <p class="heureFly">
+                                                    @php
+                                                    $reports = DB::Table('reports')
+                                                    ->where('video_id', $video->id)
+                                                    ->count();
+
+                                                    if ($video->duration){
+                                                    $durations = explode(':', $video->duration);
+                                                    if($durations[0] == "00")
+                                                    echo $durations[1]. ':' .$durations[2];
+                                                    else
+                                                    echo $durations[0]. ':' .$durations[1]. ':' .$durations[2];
+                                                    }
+                                                    @endphp
+                                                </p>
+                                            </a>
+                                        </div>
+                                        <div class="contentCardSuggestionDay">
+                                            <div class="d-flex justify-content-between">
+                                                <p class="libertiText">{{$video->main_title}}</p>
+                                                <a href="{!! route('report',[$video->id]) !!}">
+                                                    @if($reports < 2)
+                                                    <img class="imgLiberti" src="{{asset('img/icones/Mu-badge22.png')}}" alt="Lune" data-toggle="tooltip" data-placement="top" title="Community-approved video">
+                                                    @else
+                                                    <img class="imgLiberti" src="{{asset('img/icones/lune-rouge-small.png')}}" alt="Lune"  data-toggle="tooltip" data-placement="top" title="This video has been pointed out by members of the community as being unbearable">
+                                                    @endif
+                                                </a>
+                                            </div>
+                                            <div class="mindCard">
+
+                                                <div class="blockImgMind">
+                                                    @if($user->photo)
+                                                    <img class="" src="{{ asset('/images/uploads') }}/{{$user->photo}}" alt="">
+                                                    @elseif($user->age <= 15)
+                                                    <img class="" src="{{asset('images/kids_preloader.png')}}" alt="">
+                                                    @elseif($user->age > 15 && $user->sex == '1')
+                                                    <img class="img-circle" src="{{asset('images/flow_preloader.png')}}" alt=""/>
+                                                    @elseif($user->age > 15 && $user->sex == '0')
+                                                    <img class="" src="{{asset('images/sista_preloader.png')}} /{{$user->photo}}" alt="">
+                                                    @endif
+                                                </div>
+                                                <div class="block3">
+                                                    <p class="mindText">{{$user->name}}</p>
+
+                                                    @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
+                                                    @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
+                                                    <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/3600)}} hours ago </p>
+                                                    @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) == 0)
+                                                    <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/60)}} minutes ago </p>
+                                                    @endif
+                                                    @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 1)
+                                                    <p class="day">Yesterday at {{strftime("%H:%M", strtotime($video->created_at))}}</p>
+                                                    @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) >= 2 && intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) <= 27)
+                                                    <p class="day"> {{intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400)}} days ago </p>
+                                                    @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) > 27)
+                                                    <p class="day">On {{strftime("%d/%m/%Y", strtotime($video->created_at))}}</p>
+                                                    @endif
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        @endif
+
+        @if(count(session('videos_health')) > 0)
+        <div class="content-Health">
+            <div class="container-fluid">
+                <div class="contentSwipeToday">
+                    <div class="barreLatraleNoir Health">
+                        <div class="categorie-name">
+                            <img src="{{ asset('img/Mu-fleur2.png') }}"  alt="">
+                        </div>
+                    </div>
+                    <div class="swiper-slide swipe2">
+                        <p class="text-health">Health</p>
+                        <div class="swiper-container swiper-helatcare">
+                            <div class="swiper-wrapper">
+                                @foreach(session('videos_health') as $video)
+                                <div class=" swiper-slide card-suggestionDay">
+                                    <div class="elementCardSuggestionDay">
+                                        @php
+                                        $user = App\User::find($video->user_id);
+                                        @endphp
+
+                                        @if($video->thumbnail)
+                                        <img class="imgElementCardSuggestionDay" src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" alt="">
+                                        @elseif($user->age <= 15)
+                                        <img class="imgElementCardSuggestionDay" src="{{asset('images/kids_preloader.png')}}" alt="">
+                                        @elseif($user->age > 15 && $user->sex == '1')
+                                        <img class="imgElementCardSuggestionDay" src="{{asset('images/flow_preloader.png')}}" alt=""/>
+                                        @elseif($user->age > 15 && $user->sex == '0')
+                                        <img class="imgElementCardSuggestionDay" src="{{asset('images/sista_preloader.png')}}" alt="">
+                                        @endif
+                                        <a href="{{route('play',[$video->id])}}" target="blank" class="contentFlyHeure">
+                                            <p class="flyText">
+                                                @foreach($subtopics as $subtopic)
+                                                @if($video->subtopic_id == $subtopic->id)
+                                                {{ $subtopic->libelle }}
+                                                @endif
+                                                @endforeach
+                                            </p>
+                                            <p class="heureFly">
+                                                @php
+                                                $reports = DB::Table('reports')
+                                                ->where('video_id', $video->id)
+                                                ->count();
+
+                                                if ($video->duration){
+                                                $durations = explode(':', $video->duration);
+                                                if($durations[0] == "00")
+                                                echo $durations[1]. ':' .$durations[2];
+                                                else
+                                                echo $durations[0]. ':' .$durations[1]. ':' .$durations[2];
+                                                }
+                                                @endphp
+                                            </p>
                                         </a>
                                     </div>
-                                    <div class="mindCard">
-                                        @php
-                                        $user = App\User::find($video->user_id);
-                                        @endphp
-                                        <div class="blockImgMind">
-                                            @if($user->photo)
-                                            <img class="" src="{{ asset('/images/uploads') }}/{{$user->photo}}" alt="">
-                                            @elseif($user->age <= 15)
-                                            <img class="" src="{{asset('images/kids_preloader.png')}}" alt="">
-                                            @elseif($user->age > 15 && $user->sex == '1')
-                                            <img class="img-circle" src="{{asset('images/flow_preloader.png')}}" alt=""/>
-                                            @elseif($user->age > 15 && $user->sex == '0')
-                                            <img class="" src="{{asset('images/sista_preloader.png')}} /{{$user->photo}}" alt="">
-                                            @endif
+                                    <div class="contentCardSuggestionDay">
+                                        <div class="d-flex justify-content-between">
+                                            <p class="libertiText">{{$video->main_title}}</p>
+                                            <a href="{!! route('report',[$video->id]) !!}">
+                                                @if($reports < 2)
+                                                <img class="imgLiberti" src="{{asset('img/icones/Mu-badge22.png')}}" alt="Lune" data-toggle="tooltip" data-placement="top" title="Community-approved video">
+                                                @else
+                                                <img class="imgLiberti" src="{{asset('img/icones/lune-rouge-small.png')}}" alt="Lune"  data-toggle="tooltip" data-placement="top" title="This video has been pointed out by members of the community as being unbearable">
+                                                @endif
+                                            </a>
                                         </div>
-                                        <div class="block3">
-                                            <p class="mindText">{{$user->name}}</p>
-                                            <!-- Date creation relative -->
-                                            @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
-                                            @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
-                                            <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/3600)}} hours ago </p>
-                                            @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) == 0)
-                                            <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/60)}} minutes ago </p>
-                                            @endif
-                                            @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 1)
-                                            <p class="day">Yesterday at {{strftime("%H:%M", strtotime($video->created_at))}}</p>
-                                            @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) >= 2 && intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) <= 27)
-                                            <p class="day"> {{intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400)}} days ago </p>
-                                            @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) > 27)
-                                            <p class="day">On {{strftime("%d/%m/%Y", strtotime($video->created_at))}}</p>
-                                            @endif
-                                         <!--   <div class="d-flex justify-content-between">
-                                                <p class="numberviewsSuggestion">1230</p>
-                                                <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+                                        <div class="mindCard">
 
-                                            </div>-->
+                                            <div class="blockImgMind">
+                                                @if($user->photo)
+                                                <img class="" src="{{ asset('/images/uploads') }}/{{$user->photo}}" alt="">
+                                                @elseif($user->age <= 15)
+                                                <img class="" src="{{asset('images/kids_preloader.png')}}" alt="">
+                                                @elseif($user->age > 15 && $user->sex == '1')
+                                                <img class="img-circle" src="{{asset('images/flow_preloader.png')}}" alt=""/>
+                                                @elseif($user->age > 15 && $user->sex == '0')
+                                                <img class="" src="{{asset('images/sista_preloader.png')}} /{{$user->photo}}" alt="">
+                                                @endif
+                                            </div>
+                                            <div class="block3">
+                                                <p class="mindText">{{$user->name}}</p>
+                                            // Date creation relative
+                                                @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
+                                                @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
+                                                <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/3600)}} hours ago </p>
+                                                @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) == 0)
+                                                <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/60)}} minutes ago </p>
+                                                @endif
+                                                @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 1)
+                                                <p class="day">Yesterday at {{strftime("%H:%M", strtotime($video->created_at))}}</p>
+                                                @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) >= 2 && intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) <= 27)
+                                                <p class="day"> {{intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400)}} days ago </p>
+                                                @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) > 27)
+                                                <p class="day">On {{strftime("%d/%m/%Y", strtotime($video->created_at))}}</p>
+                                                @endif
+
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+                                @endforeach
                             </div>
-                            @endforeach
                         </div>
                     </div>
-                </div>
 
+                </div>
             </div>
         </div>
-    </div>
-</div>
-@endif
+        @endif
 
-@if(count(session('videos_environnement')) > 0)
-<div class="content-Evironnement">
-    <div class="container-fluid">
-        <div class="contentSwipeToday">
-            <div class="barreLatraleNoir Evironnement">
-                <div class="categorie-name">
-                    <img src="{{ asset('img/Mu-fleur2.png') }}"  alt="">
-                </div>
-            </div>
-            <div class="swiper-slide swipe2">
-                <p class="text-environnement">Environnement</p>
-                <div class="swiper-container swiper-helatcare">
-                    <div class="swiper-wrapper">
-                        @foreach(session('videos_environnement') as $video)
-                        <div class=" swiper-slide card-suggestionDay">
-                            <div class="elementCardSuggestionDay">
-                                    @php 
+        @if(count(session('videos_business')) > 0)
+        <div class="content-Business">
+            <div class="container-fluid">
+                <div class="contentSwipeToday">
+                    <div class="barreLatraleNoir Business">
+                        <div class="categorie-name">
+                            <img src="{{ asset('img/Mu-fleur2.png') }}"  alt="">
+                        </div>
+                    </div>
+                    <div class="swiper-slide swipe2">
+                        <p class="text-business">Business</p>
+                        <div class="swiper-container swiper-helatcare">
+                            <div class="swiper-wrapper">
+                                @foreach(session('videos_business') as $video)
+                                <div class=" swiper-slide card-suggestionDay">
+                                    <div class="elementCardSuggestionDay">
+                                        @php
                                         $user = App\User::find($video->user_id);
-                                    @endphp
+                                        @endphp
 
-                                    @if($video->thumbnail)
+                                        @if($video->thumbnail)
                                         <img class="imgElementCardSuggestionDay" src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" alt="">
-                                    @elseif($user->age <= 15)
-                                        <img class="imgElementCardSuggestionDay" src="{{asset('images/kids_preloader.png')}}" alt="">
-                                    @elseif($user->age > 15 && $user->sex == '1')
-                                        <img class="imgElementCardSuggestionDay" src="{{asset('images/flow_preloader.png')}}" alt=""/>
-                                    @elseif($user->age > 15 && $user->sex == '0')
-                                        <img class="imgElementCardSuggestionDay" src="{{asset('images/sista_preloader.png')}}" alt="">
-                                    @endif                                 
-                                    <a href="{{route('play',[$video->id])}}" target="blank" class="contentFlyHeure">
-                                    <p class="flyText"> 
-                                        @foreach($subtopics as $subtopic)
-                                        @if($video->subtopic_id == $subtopic->id)
-                                            {{ $subtopic->libelle }}
-                                        @endif
-                                        @endforeach
-                                    </p>
-                                    <p class="heureFly">
-                                        @php
-                                        $reports = DB::Table('reports')
-                                        ->where('video_id', $video->id)
-                                        ->count();
-
-                                        if ($video->duration){
-                                        $durations = explode(':', $video->duration);
-                                        if($durations[0] == "00")
-                                        echo $durations[1]. ':' .$durations[2];
-                                        else
-                                        echo $durations[0]. ':' .$durations[1]. ':' .$durations[2];
-                                        }
-                                        @endphp
-                                    </p>
-                                </a>
-                            </div>
-                            <div class="contentCardSuggestionDay">
-                                <div class="d-flex justify-content-between">
-                                    <p class="libertiText">{{$video->main_title}}</p>
-                                    <a href="{!! route('report',[$video->id]) !!}">
-                                        @if($reports < 2)
-                                        <img class="imgLiberti" src="{{asset('img/icones/Mu-badge22.png')}}" alt="Lune" data-toggle="tooltip" data-placement="top" title="Community-approved video">
-                                        @else
-                                        <img class="imgLiberti" src="{{asset('img/icones/Lune-bleu-rouge.jpg')}}" alt="Lune"  data-toggle="tooltip" data-placement="top" title="This video has been pointed out by members of the community as being unbearable">
-                                        @endif
-                                    </a>
-                                </div>
-                                <div class="mindCard">
-                                    @php
-                                    $user = App\User::find($video->user_id);
-                                    @endphp
-                                    <div class="blockImgMind">
-                                        @if($user->photo)
-                                        <img class="" src="{{ asset('/images/uploads') }}/{{$user->photo}}" alt="">
                                         @elseif($user->age <= 15)
-                                        <img class="" src="{{asset('images/kids_preloader.png')}}" alt="">
+                                        <img class="imgElementCardSuggestionDay" src="{{asset('images/kids_preloader.png')}}" alt="">
                                         @elseif($user->age > 15 && $user->sex == '1')
-                                        <img class="img-circle" src="{{asset('images/flow_preloader.png')}}" alt=""/>
+                                        <img class="imgElementCardSuggestionDay" src="{{asset('images/flow_preloader.png')}}" alt=""/>
                                         @elseif($user->age > 15 && $user->sex == '0')
-                                        <img class="" src="{{asset('images/sista_preloader.png')}} /{{$user->photo}}" alt="">
+                                        <img class="imgElementCardSuggestionDay" src="{{asset('images/sista_preloader.png')}}" alt="">
                                         @endif
-                                    </div>
-                                    <div class="block3">
-                                        <p class="mindText">{{$user->name}}</p>
-                                        <!-- Date creation relative -->
-                                        @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
-                                        @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
-                                        <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/3600)}} hours ago </p>
-                                        @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) == 0)
-                                        <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/60)}} minutes ago </p>
-                                        @endif
-                                        @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 1)
-                                        <p class="day">Yesterday at {{strftime("%H:%M", strtotime($video->created_at))}}</p>
-                                        @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) >= 2 && intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) <= 27)
-                                        <p class="day"> {{intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400)}} days ago </p>
-                                        @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) > 27)
-                                        <p class="day">On {{strftime("%d/%m/%Y", strtotime($video->created_at))}}</p>
-                                        @endif
-                                      <!--  <div class="d-flex justify-content-between">
-                                            <p class="numberviewsSuggestion">1230</p>
-                                            <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+                                        <a href="{{route('play',[$video->id])}}" target="blank" class="contentFlyHeure">
+                                            <p class="flyText">
+                                                @foreach($subtopics as $subtopic)
+                                                @if($video->subtopic_id == $subtopic->id)
+                                                {{ $subtopic->libelle }}
+                                                @endif
+                                                @endforeach
+                                            </p>
+                                            <p class="heureFly">
+                                                @php
+                                                $reports = DB::Table('reports')
+                                                ->where('video_id', $video->id)
+                                                ->count();
 
-                                        </div>-->
+                                                if ($video->duration){
+                                                $durations = explode(':', $video->duration);
+                                                if($durations[0] == "00")
+                                                echo $durations[1]. ':' .$durations[2];
+                                                else
+                                                echo $durations[0]. ':' .$durations[1]. ':' .$durations[2];
+                                                }
+                                                @endphp
+                                            </p>
+                                        </a>
+                                    </div>
+                                    <div class="contentCardSuggestionDay">
+                                        <div class="d-flex justify-content-between">
+                                            <p class="libertiText">{{$video->main_title}}</p>
+                                            <a href="{!! route('report',[$video->id]) !!}">
+                                                @if($reports < 2)
+                                                <img class="imgLiberti" src="{{asset('img/icones/Mu-badge22.png')}}" alt="Lune" data-toggle="tooltip" data-placement="top" title="Community-approved video">
+                                                @else
+                                                <img class="imgLiberti" src="{{asset('img/icones/lune-rouge-small.png')}}" alt="Lune"  data-toggle="tooltip" data-placement="top" title="This video has been pointed out by members of the community as being unbearable">
+                                                @endif
+                                            </a>
+                                        </div>
+                                        <div class="mindCard">
+
+                                            <div class="blockImgMind">
+                                                @if($user->photo)
+                                                <img class="" src="{{ asset('/images/uploads') }}/{{$user->photo}}" alt="">
+                                                @elseif($user->age <= 15)
+                                                <img class="" src="{{asset('images/kids_preloader.png')}}" alt="">
+                                                @elseif($user->age > 15 && $user->sex == '1')
+                                                <img class="img-circle" src="{{asset('images/flow_preloader.png')}}" alt=""/>
+                                                @elseif($user->age > 15 && $user->sex == '0')
+                                                <img class="" src="{{asset('images/sista_preloader.png')}} /{{$user->photo}}" alt="">
+                                                @endif
+                                            </div>
+                                            <div class="block3">
+                                                <p class="mindText">{{$user->name}}</p>
+                                          //  Date creation relative
+                                                @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
+                                                @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
+                                                <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/3600)}} hours ago </p>
+                                                @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) == 0)
+                                                <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/60)}} minutes ago </p>
+                                                @endif
+                                                @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 1)
+                                                <p class="day">Yesterday at {{strftime("%H:%M", strtotime($video->created_at))}}</p>
+                                                @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) >= 2 && intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) <= 27)
+                                                <p class="day"> {{intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400)}} days ago </p>
+                                                @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) > 27)
+                                                <p class="day">On {{strftime("%d/%m/%Y", strtotime($video->created_at))}}</p>
+                                                @endif
+
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
+                                @endforeach
                             </div>
                         </div>
-                        @endforeach
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        @endif
+
+        @if(count(session('videos_education')) > 0)
+        <div class="content-Education">
+            <div class="container-fluid">
+                <div class="contentSwipeToday">
+                    <div class="barreLatraleNoir Education">
+                        <div class="categorie-name">
+                            <img src="{{ asset('img/Mu-fleur2.png') }}"  alt="">
+                        </div>
+                    </div>
+                    <div class="swiper-slide swipe2">
+                        <p class="text-education">Education</p>
+                        <div class="swiper-container swiper-helatcare">
+                            <div class="swiper-wrapper">
+                                @foreach(session('videos_education') as $video)
+                                <div class=" swiper-slide card-suggestionDay">
+                                    <div class="elementCardSuggestionDay">
+                                        @php
+                                        $user = App\User::find($video->user_id);
+                                        @endphp
+
+                                        @if($video->thumbnail)
+                                        <img class="imgElementCardSuggestionDay" src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" alt="">
+                                        @elseif($user->age <= 15)
+                                        <img class="imgElementCardSuggestionDay" src="{{asset('images/kids_preloader.png')}}" alt="">
+                                        @elseif($user->age > 15 && $user->sex == '1')
+                                        <img class="imgElementCardSuggestionDay" src="{{asset('images/flow_preloader.png')}}" alt=""/>
+                                        @elseif($user->age > 15 && $user->sex == '0')
+                                        <img class="imgElementCardSuggestionDay" src="{{asset('images/sista_preloader.png')}}" alt="">
+                                        @endif
+                                        <a href="{{route('play',[$video->id])}}" target="blank" class="contentFlyHeure">
+                                            <p class="flyText">
+                                                @foreach($subtopics as $subtopic)
+                                                @if($video->subtopic_id == $subtopic->id)
+                                                {{ $subtopic->libelle }}
+                                                @endif
+                                                @endforeach
+                                            </p>
+                                            <p class="heureFly">
+                                                @php
+                                                $reports = DB::Table('reports')
+                                                ->where('video_id', $video->id)
+                                                ->count();
+
+                                                if ($video->duration){
+                                                $durations = explode(':', $video->duration);
+                                                if($durations[0] == "00")
+                                                echo $durations[1]. ':' .$durations[2];
+                                                else
+                                                echo $durations[0]. ':' .$durations[1]. ':' .$durations[2];
+                                                }
+                                                @endphp
+                                            </p>
+                                        </a>
+                                    </div>
+                                    <div class="contentCardSuggestionDay">
+                                        <div class="d-flex justify-content-between">
+                                            <p class="libertiText">{{$video->main_title}}</p>
+                                            <a href="{!! route('report',[$video->id]) !!}">
+                                                @if($reports < 2)
+                                                <img class="imgLiberti" src="{{asset('img/icones/Mu-badge22.png')}}" alt="Lune" data-toggle="tooltip" data-placement="top" title="Community-approved video">
+                                                @else
+                                                <img class="imgLiberti" src="{{asset('img/icones/lune-rouge-small.png')}}" alt="Lune"  data-toggle="tooltip" data-placement="top" title="This video has been pointed out by members of the community as being unbearable">
+                                                @endif
+                                            </a>
+                                        </div>
+                                        <div class="mindCard">
+                                            @php
+                                            $user = App\User::find($video->user_id);
+                                            @endphp
+                                            <div class="blockImgMind">
+                                                @if($user->photo)
+                                                <img class="" src="{{ asset('/images/uploads') }}/{{$user->photo}}" alt="">
+                                                @elseif($user->age <= 15)
+                                                <img class="" src="{{asset('images/kids_preloader.png')}}" alt="">
+                                                @elseif($user->age > 15 && $user->sex == '1')
+                                                <img class="img-circle" src="{{asset('images/flow_preloader.png')}}" alt=""/>
+                                                @elseif($user->age > 15 && $user->sex == '0')
+                                                <img class="" src="{{asset('images/sista_preloader.png')}} /{{$user->photo}}" alt="">
+                                                @endif
+                                            </div>
+                                            <div class="block3">
+                                                <p class="mindText">{{$user->name}}</p>
+
+                                                @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
+                                                @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
+                                                <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/3600)}} hours ago </p>
+                                                @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) == 0)
+                                                <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/60)}} minutes ago </p>
+                                                @endif
+                                                @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 1)
+                                                <p class="day">Yesterday at {{strftime("%H:%M", strtotime($video->created_at))}}</p>
+                                                @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) >= 2 && intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) <= 27)
+                                                <p class="day"> {{intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400)}} days ago </p>
+                                                @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) > 27)
+                                                <p class="day">On {{strftime("%d/%m/%Y", strtotime($video->created_at))}}</p>
+                                                @endif
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
+        @endif
 
+        @if(count(session('videos_environnement')) > 0)
+        <div class="content-Evironnement">
+            <div class="container-fluid">
+                <div class="contentSwipeToday">
+                    <div class="barreLatraleNoir Evironnement">
+                        <div class="categorie-name">
+                            <img src="{{ asset('img/Mu-fleur2.png') }}"  alt="">
+                        </div>
+                    </div>
+                    <div class="swiper-slide swipe2">
+                        <p class="text-environnement">Environnement</p>
+                        <div class="swiper-container swiper-helatcare">
+                            <div class="swiper-wrapper">
+                                @foreach(session('videos_environnement') as $video)
+                                <div class=" swiper-slide card-suggestionDay">
+                                    <div class="elementCardSuggestionDay">
+                                        @php
+                                        $user = App\User::find($video->user_id);
+                                        @endphp
+
+                                        @if($video->thumbnail)
+                                        <img class="imgElementCardSuggestionDay" src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" alt="">
+                                        @elseif($user->age <= 15)
+                                        <img class="imgElementCardSuggestionDay" src="{{asset('images/kids_preloader.png')}}" alt="">
+                                        @elseif($user->age > 15 && $user->sex == '1')
+                                        <img class="imgElementCardSuggestionDay" src="{{asset('images/flow_preloader.png')}}" alt=""/>
+                                        @elseif($user->age > 15 && $user->sex == '0')
+                                        <img class="imgElementCardSuggestionDay" src="{{asset('images/sista_preloader.png')}}" alt="">
+                                        @endif
+                                        <a href="{{route('play',[$video->id])}}" target="blank" class="contentFlyHeure">
+                                            <p class="flyText">
+                                                @foreach($subtopics as $subtopic)
+                                                @if($video->subtopic_id == $subtopic->id)
+                                                {{ $subtopic->libelle }}
+                                                @endif
+                                                @endforeach
+                                            </p>
+                                            <p class="heureFly">
+                                                @php
+                                                $reports = DB::Table('reports')
+                                                ->where('video_id', $video->id)
+                                                ->count();
+
+                                                if ($video->duration){
+                                                $durations = explode(':', $video->duration);
+                                                if($durations[0] == "00")
+                                                echo $durations[1]. ':' .$durations[2];
+                                                else
+                                                echo $durations[0]. ':' .$durations[1]. ':' .$durations[2];
+                                                }
+                                                @endphp
+                                            </p>
+                                        </a>
+                                    </div>
+                                    <div class="contentCardSuggestionDay">
+                                        <div class="d-flex justify-content-between">
+                                            <p class="libertiText">{{$video->main_title}}</p>
+                                            <a href="{!! route('report',[$video->id]) !!}">
+                                                @if($reports < 2)
+                                                <img class="imgLiberti" src="{{asset('img/icones/Mu-badge22.png')}}" alt="Lune" data-toggle="tooltip" data-placement="top" title="Community-approved video">
+                                                @else
+                                                <img class="imgLiberti" src="{{asset('img/icones/Lune-bleu-rouge.jpg')}}" alt="Lune"  data-toggle="tooltip" data-placement="top" title="This video has been pointed out by members of the community as being unbearable">
+                                                @endif
+                                            </a>
+                                        </div>
+                                        <div class="mindCard">
+                                            @php
+                                            $user = App\User::find($video->user_id);
+                                            @endphp
+                                            <div class="blockImgMind">
+                                                @if($user->photo)
+                                                <img class="" src="{{ asset('/images/uploads') }}/{{$user->photo}}" alt="">
+                                                @elseif($user->age <= 15)
+                                                <img class="" src="{{asset('images/kids_preloader.png')}}" alt="">
+                                                @elseif($user->age > 15 && $user->sex == '1')
+                                                <img class="img-circle" src="{{asset('images/flow_preloader.png')}}" alt=""/>
+                                                @elseif($user->age > 15 && $user->sex == '0')
+                                                <img class="" src="{{asset('images/sista_preloader.png')}} /{{$user->photo}}" alt="">
+                                                @endif
+                                            </div>
+                                            <div class="block3">
+                                                <p class="mindText">{{$user->name}}</p>
+
+                                                @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
+                                                @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
+                                                <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/3600)}} hours ago </p>
+                                                @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) == 0)
+                                                <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/60)}} minutes ago </p>
+                                                @endif
+                                                @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 1)
+                                                <p class="day">Yesterday at {{strftime("%H:%M", strtotime($video->created_at))}}</p>
+                                                @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) >= 2 && intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) <= 27)
+                                                <p class="day"> {{intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400)}} days ago </p>
+                                                @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) > 27)
+                                                <p class="day">On {{strftime("%d/%m/%Y", strtotime($video->created_at))}}</p>
+                                                @endif
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
+        @endif
+
     </div>
-</div>
-@endif
-</div>
-
-</body>
-
+</div>-->
 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -1522,7 +1023,7 @@
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script>
     var swiper = new Swiper('.swipeContainermodife1', {
-        slidesPerView: 2.2,
+        slidesPerView: 3,
         spaceBetween: 30
     });
 </script>
@@ -1545,7 +1046,7 @@
                 spaceBetween: 10
             },
             980: {
-                slidesPerView: 3.3,
+                slidesPerView: 3,
                 spaceBetween: 10
             },
             1200: {
@@ -1571,4 +1072,6 @@
         });
     }
 </script>
-<script src="{{asset('js/menu.js')}}"></script>
+<script src="{{asset('js/fixeElement.js')}}"></script>
+@endsection
+</body>

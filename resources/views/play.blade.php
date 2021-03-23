@@ -14,7 +14,7 @@
 </head>
 <body>
 
-
+<div class="d-block">
 @section('content-play-element')
 <div class="elementFixedMobie">
     <!--    <div class="content-home">
@@ -1681,6 +1681,7 @@
 </div>
 @endif
 @endif
+</div>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="node_modules/swiper/swiper-bundle.js"></script>
@@ -1706,7 +1707,7 @@
     }
 
     function start(){
-        
+
         if(video_play.readyState > video_play.HAVE_METADATA){
             blessings.style.display = "block"; 
             barometer.value = "1";

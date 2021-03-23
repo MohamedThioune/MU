@@ -1723,8 +1723,117 @@ video{
 .sidebar-format::-webkit-scrollbar {
     display: none !important;
 }
+.contentOneMonFlow {
+    width: 85%;
+    display: block;
+}
+.accrocheskate {
+    display: flex;
+    margin-bottom: 20px;
+}
+.accrocheskateImg {
+    width: 49px;
+}
+.info-pub-bando{
+    padding: 20px 50px;
+}
+.pub-bando-connect{
+    display: flex;
+}
+.link-229 {
+    position: relative;
+    top: -14px;
+    margin-right: 15px;
+    margin-bottom: 3px;
+    color: #4d4d4d;
+    font-size: 11px;
+    text-decoration: none;
+}
 
-
+.go{
+    position: relative;
+    top: -10px;
+}
+.hot-notification{
+    text-align: left;
+    border-radius: 5px;
+    background-color: #f1f0f0;
+    padding: 20px 0px 20px 20px;
+    height: 246px !important;
+    width: 400px !important;
+}
+.div-block-391{
+    display: flex;
+}
+.imgGrenn {
+    border-radius: 50px;
+    width: 47px;
+}
+.like-notication{
+    display: flex;
+    margin-top: 2px;
+    margin-left: -32px;
+    padding: 0px 60px 0px 0px;
+    justify-content: center;
+}
+.hot-flow-txt-description {
+    color: #8f8f8f;
+    font-size: 18px;
+    line-height: 22px;
+    font-family: "Ubuntu-Medium";
+    margin-bottom: 0;
+    padding-right: 10px;
+}
+.image-bull1 {
+    color: #c0bebe;
+    width: 22px;
+    height: 22px;
+    margin-top: 22px;
+}
+.suggestionFlow {
+    margin-left: -5px;
+    padding-left: 40px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    border-bottom: 20px solid #fff;
+    background-image: linear-gradient(135deg, #f18ac3, #ffe3a3);
+    padding-top: 20px;
+}
+.text-Playlist2{
+    color: #FFFFFF;
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-family: "Ubuntu-Medium";
+    margin-left: 10px;
+}
+.image-125{
+    width: 92px;
+}
+.imgCoeurBlanc{
+    width: 23px;
+}
+.cloche3{
+    width: 11px;
+}
+.image-12Blanc{
+    width: 29px
+}
+.panier2{
+    width: 27px;
+}
+.img127{
+    width: 100%;
+}
+.imgRegarde{
+    width: 61px;
+}
+.imgVideoLike{
+    width: 61px;
+}
+.shadid103{
+    width: 110px;
+}
 @media all and (min-width: 300px) and (max-width: 767px){
     .col-lg-9 {
         -ms-flex: unset !important;
