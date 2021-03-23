@@ -60,8 +60,8 @@
             </div>
 
             @if($bool)
-            <a class="text-block-380" style="color:white; background: #F57409; padding:5px 0; margin-left:20px; border-radius:10px;  " href="{{route('channels.index')}}">
-                <div style="padding: 5px 15px"><strong style="text-decoration:underline;" style="">Apercu en mode visiteur</strong> :<br> Voici ce que les utilisateurs pourront voir de votre page.<br>Cliquer pour quitter le mode apercu.</div>
+            <a class="text-block-380" style="color:white; background: #F57409; padding:5px 0; margin-left:20px; border-radius:10px; margin-top:-10px; " href="{{route('channels.index')}}">
+                <div style="padding: 3px 10px;font-size:0.75em"><strong style="text-decoration:underline;" style="">Apercu en mode visiteur</strong> :<br> Voici ce que les utilisateurs pourront voir de votre page.<br>Cliquer pour quitter ce mode apercu.</div>
             </a>
             @endif
         </div>
@@ -84,15 +84,34 @@
                     <div class="div-block-392">
                         <img src="{{ asset('img/Mu-video-format-bike-girl.jpg') }}" loading="lazy" sizes="100vw" srcset="images/Mu-video-format-bike-girl-p-800.jpeg 800w, images/Mu-video-format-bike-girl.jpg 898w" alt="" class="image-130"></div>
                     <div>
-                        <p class="text-block-383">Un évenement pour un autre ...</p>
-                        <p class="text-block-385">Publier il y a 2h</p>
+                        <p class="text-block-383">{{$event->libelle}}</p>
+                        @if(intval(abs(strtotime("now") - strtotime($event->created_at))/ 86400) == 0)
+                        @if(intval(abs(strtotime("now") - strtotime( $event->created_at))/ 3600) > 0)
+                        <p class="text-block-385">Published {{intval(abs(strtotime("now") - strtotime( $event->created_at))/3600)}} hours ago</p>
+                        @else(intval(abs(strtotime("now") - strtotime( $event->created_at))/ 3600) == 0)
+                        <p class="text-block-385">Published {{intval(abs(strtotime("now") - strtotime( $event->created_at))/60)}} minutes ago</p>
+                        @endif
+                        @elseif(intval(abs(strtotime("now") - strtotime( $event->created_at))/ 86400) == 1)
+                        <p class="text-block-385">Yesterday at {{strftime("%H:%M", strtotime( $event->created_at))}}
+                        @elseif(intval(abs(strtotime("now") - strtotime( $event->created_at))/ 86400) >= 2 && intval(abs(strtotime("now") - strtotime( $event->created_at))/ 86400) <= 27)
+                        <p class="text-block-385">Published {{intval(abs(strtotime("now") - strtotime( $event->created_at))/ 86400)}} days ago</p>
+                        @else(intval(abs(strtotime("now") - strtotime( $event->created_at))/ 86400) > 27)
+                        <p class="text-block-385">Published on {{strftime("%d/%m/%Y", strtotime( $event->created_at))}}</p>
+                        @endif
                         <div>
-                            <p class="text-block-384">Cours du jeudi reporté à la semaine prochaine </p>
-                            <p class="text-block-384">Inscription sur le site</p>
+                            <p class="text-block-384">{{$event->text}}</p>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+        <br>
+        <div class="div-block-394">
+            @if(!$event)
+            <a class="btn btn-default" style="text-decoration:none;" href="{{route('events.create')}}" alt="">&#x267B; Actualiser</a>
+            @else
+            <a class="btn btn-default" style="text-decoration:none;" href="{{route('events.edit', $event->id)}}" alt="">&#x267B; Actualiser</a>   
+            @endif         
         </div>
     </div>
     <div class="business-now">
@@ -141,18 +160,25 @@
                             <p class="text-block-343"><b style="color:black;">{{$visit->name}}</b> en grandes lignes ...</p>
                         </div>
                         <div class="descrition-biz-chaine">
-                            <p class="text-block-330">CE QUE NOUS FESONS &#x1F680; : <br>Suite but ligne 2<br>Suite but ligne 2<br>Suite but ligne 2<br></>
+                            <p class="text-block-330">CE QUE NOUS FESONS &#x1F680; : @foreach($activities as $activity) <br> - {{$activity->text}} @endforeach</p>
                         </div>
+                        <a class="btn btn-default" style="text-decoration:none;margin-left:-15px" href="{{route('activities.create')}}" alt="">&#x267B; Actualiser</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="coordonne">
-        <p class="text-block-331">Adresse : Business Objectif <br>N° voie<br>Code postale Ville<br>Pays </p>
-        <p class="text-block-332">Site web<br></p>
-        <p class="text-block-339">Horaire d&#x27;ouverture<br>‍</p>
-        <a href="#" class="link-25">Contact<br></a>
+        <div class="text-block-331"><a href="" class="link-25">Contact</a></div> <br>
+        <p class="text-block-331"> <span style="text-decoration:underline">Adresse</span><br>N° voie : {{$contact->adresse}}<br>Code postale : {{$contact->code_postale}}<br> Ville : {{$contact->ville}} <br>Pays : {{$contact->pays}}</p>
+        <p class="text-block-332" style="text-decoration:underline">Site web : {{$contact->site_web}}<br></p>
+        <p class="text-block-339" style="text-decoration:underline">Horaire d&#x27;ouverture : 08h30 - 18H00<br>‍</p>
+        
+        @if(!$contact)
+        <a class="btn btn-default" style="text-decoration:none;margin-left:-15px" href="{{route('contacts.create')}}" alt="">&#x267B; Actualiser</a>
+        @else
+        <a class="btn btn-default" style="text-decoration:none;margin-left:-15px" href="{{route('contacts.edit', $contact->id)}}" alt="">&#x267B; Actualiser</a>
+        @endif
     </div>
     <div class="derniersNouvelles">
         <p class="text-Playlist">Les videos qui ont été le plus visionnées ... </p>

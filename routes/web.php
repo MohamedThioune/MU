@@ -127,3 +127,10 @@ Route::get('comment/likecomment/{comment_id}','CommentController@likeComment')->
 Route::get('comment/dislikecomment/{comment_id}','CommentController@dislikeComment')->name('dislikecomment');
 
 Route::resource('responseComments', 'ResponseCommentController');
+
+
+Route::resource('events', 'EventController');
+
+Route::resource('activities', 'ActivityController');
+
+Route::resource('contacts', 'ContactController');

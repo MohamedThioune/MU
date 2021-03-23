@@ -186,6 +186,27 @@ class channelController extends AppBaseController
                                         ->join('channels', 'users.id', 'channels.user_id')
                                         ->where('users.id', Auth::id())
                                         ->first();
+
+         /** @var Event $event */
+         $event = DB::Table('channels')->select('events.*')
+                                        ->join('events', 'channels.id', 'events.channel_id')
+                                        ->where('channels.id', $id)
+                                        ->orderBy('events.created_at','desc')
+                                        ->first();
+         /** @var Activity $activities */
+         $activities = DB::Table('channels')->select('activities.*')
+                                        ->join('activities', 'channels.id', 'activities.channel_id')
+                                        ->where('channels.id', $id)
+                                        ->orderBy('activities.created_at','desc')
+                                        ->limit(4)
+                                        ->get();
+
+         /** @var Contact $contact */
+         $contact = DB::Table('channels')->select('contacts.*')
+         ->join('contacts', 'channels.id', 'contacts.channel_id')
+         ->where('channels.id', $id)
+         ->orderBy('contacts.created_at','desc')
+         ->first();                       
         
         /** @var subtopic $subtopics */
         $subtopics = Subtopic::all();
@@ -219,13 +240,35 @@ class channelController extends AppBaseController
         if($canal->id == $visit->id)
             return view('channels.index', compact('channel','canal','category_primaries','category_secondaries'));
         else
-            return view('chaineAbonne', compact('visit', 'videos','subtopics','videos_top'));
+            return view('chaineAbonne', compact('visit', 'videos','subtopics','event','activities','contact', 'videos_top'));
 
     }
 
     public function overview($id){
 
         $bool = true;
+
+        /** @var Event $event */
+        $event = DB::Table('channels')->select('events.*')
+                                      ->join('events', 'channels.id', 'events.channel_id')
+                                      ->where('channels.id', $id)
+                                      ->orderBy('events.created_at','desc')
+                                      ->first();
+        
+        /** @var Activity $activities */
+        $activities = DB::Table('channels')->select('activities.*')
+                                        ->join('activities', 'channels.id', 'activities.channel_id')
+                                        ->where('channels.id', $id)
+                                        ->orderBy('activities.created_at','desc')
+                                        ->limit(4)
+                                        ->get();
+
+        /** @var Contact $contact */
+        $contact = DB::Table('channels')->select('contacts.*')
+                                        ->join('contacts', 'channels.id', 'contacts.channel_id')
+                                        ->where('channels.id', $id)
+                                        ->orderBy('contacts.created_at','desc')
+                                        ->first();
 
         $visit = channel::find($id);
 
@@ -257,8 +300,8 @@ class channelController extends AppBaseController
                                         ->first();
 
         if($channel->id == $visit->id)
-            return view('chaineAbonne', compact('channel','visit', 'videos','videos_top', 'subtopics', 'bool'));
+            return view('chaineAbonne', compact('channel','visit', 'videos','videos_top', 'event', 'activities', 'contact', 'subtopics', 'bool'));
         else
-            return view('chaineAbonne', compact('channel', 'visit', 'videos','videos_top', 'subtopics'));
+            return view('chaineAbonne', compact('channel', 'visit', 'videos','videos_top', 'event', 'activities', 'contact', 'subtopics'));
     }
 }

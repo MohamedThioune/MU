@@ -45,3 +45,15 @@
     <a href="{{ route('responseComments.index') }}"><i class="fa fa-edit"></i><span>Response Comments</span></a>
 </li>
 
+<li class="{{ Request::is('events*') ? 'active' : '' }}">
+    <a href="{{ route('events.index') }}"><i class="fa fa-edit"></i><span>Events</span></a>
+</li>
+
+<li class="{{ Request::is('activities*') ? 'active' : '' }}">
+    <a href="{{ route('activities.index') }}"><i class="fa fa-edit"></i><span>Activities</span></a>
+</li>
+
+<li class="{{ Request::is('contacts*') ? 'active' : '' }}">
+    <a href="{{ route('contacts.index') }}"><i class="fa fa-edit"></i><span>Contacts</span></a>
+</li>
+
