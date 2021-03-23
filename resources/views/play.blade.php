@@ -12,7 +12,7 @@
 </head>
 <body>
 
-
+<div class="d-block">
 @section('content-play-element')
 <div class="elementFixedMobie">
     <!--    <div class="content-home">
@@ -1482,6 +1482,7 @@
 </div>
 @endif
 @endif
+</div>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="node_modules/swiper/swiper-bundle.js"></script>
@@ -1490,16 +1491,16 @@
 <script>
     //My code not persuassive
     var video_play = document.querySelector(".elementVideoParDefaut");
-    var 
+    var
 
     function time(){
         setTimeout(start, 10000);
     }
-   
+
     function start(){
-        
+
         if(video_play.readyState > video_play.HAVE_METADATA){
-            
+
             alert("Playing ...");
         }
     }
