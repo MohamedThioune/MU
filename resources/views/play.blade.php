@@ -12,8 +12,9 @@
 </head>
 <body>
 
-<div class="d-block">
+
 @section('content-play-element')
+<div class="d-block">
 <div class="elementFixedMobie">
     <!--    <div class="content-home">
         <div class="content-naveBar">
