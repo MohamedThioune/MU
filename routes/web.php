@@ -19,17 +19,19 @@ Route::get('/', function () {
                                  ->first();
     
     $last = DB::table('videos', 'views')
-    ->join('reads', 'videos.id', 'reads.video_id')            
-    ->select(DB::raw('count(*) as views, videos.*, reads.video_id'))
+    ->join('reads', 'videos.id', 'reads.video_id') 
+    ->whereNull('videos.deleted_at')            
+    ->select(DB::raw('count(*) as views, reads.video_id'))
     ->groupBy('reads.video_id')
     ->orderByDesc('views')
-    ->whereNull('videos.deleted_at') 
     ->limit(3)
-    ->get();                           
+    ->get(); 
+    
+    $vimeo = App\Models\Video::find($last[0]->video_id);
 
     $channel_top = DB::Table('users')->select('channels.*')
                                         ->join('channels', 'users.id', 'channels.user_id')
-                                        ->where('channels.user_id', $last[0]->user_id)
+                                        ->where('channels.user_id', $vimeo->user_id)
                                         ->first();
 
     $videos_count = DB::Table('videos')->select('videos.*')

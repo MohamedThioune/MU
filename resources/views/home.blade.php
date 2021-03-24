@@ -184,9 +184,12 @@
         <p class="text-Playlist2">Suggestions</p>
         <div class="swiper-container swipeContainermodife1">
             <div class="swiper-wrapper">
-                @foreach($last as $video)
+                @foreach($last as $vid)
                 <div class=" swiper-slide card-suggestionDay">
-                    @php $user = App\User::find($video->user_id); @endphp
+                    @php 
+                        $video = App\Models\Video::find($vid->video_id);
+                        $user = App\User::find($video->user_id);
+                    @endphp
                     <div class="elementCardSuggestionDay">
                         @if($video->thumbnail)
                             <img class="imgElementCardSuggestionDay" src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" alt="">
