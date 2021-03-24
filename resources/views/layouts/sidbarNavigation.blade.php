@@ -159,7 +159,13 @@
                            </div>
                        </div>
                        <div class="head-slidebar-user">
-                           <p class="text-block-242">Everywhere</p>
+                        @if(!Auth::guest())
+                            @if($channel)
+                            echo "<p class='text-block-242'>{$channel->name}</p>";
+                            @endif
+                        @endif
+                       
+                           
                            <p class="text-block-243">Particulier</p>
                            <div class="profil-photo">
                                <img src="{{ asset('img/Mu-bull-profil-caio-56733.jpg') }}" width="69" alt="" class="image-94"></div>

@@ -13,6 +13,36 @@
 
 Route::get('/', function () {
     
+    $video = DB::Table('videos')->select('videos.*')
+                                 ->whereNull('videos.deleted_at')
+                                 ->orderByDesc('videos.created_at')
+                                 ->first();
+    
+    $last = DB::table('videos', 'views')
+    ->join('reads', 'videos.id', 'reads.video_id')            
+    ->select(DB::raw('count(*) as views, videos.*, reads.video_id'))
+    ->groupBy('reads.video_id')
+    ->orderByDesc('views') 
+    ->limit(3)
+    ->get();                           
+
+    $channel_top = DB::Table('users')->select('channels.*')
+                                        ->join('channels', 'users.id', 'channels.user_id')
+                                        ->where('channels.user_id', $last[0]->user_id)
+                                        ->first();
+
+    $videos_count = DB::Table('videos')->select('videos.*')
+    ->join('users','users.id','videos.user_id')
+    ->where('videos.user_id', $channel_top->user_id)
+    ->whereNull('videos.deleted_at')
+    ->count();
+
+    
+    /** @var Event $event */
+    $events = DB::Table('events')->select('events.*')
+                                   ->limit(3)
+                                   ->get();
+    
     $channel = DB::Table('users')->select('channels.*')
     ->join('channels', 'users.id', 'channels.user_id')
     ->where('users.id', Auth::id())
@@ -65,7 +95,8 @@ Route::get('/', function () {
 
     session(['videos_haltcare' => $videos_haltcare, 'videos_life' => $videos_life, 'videos_health' => $videos_health, 'videos_business' => $videos_business, 'videos_environnement' => $videos_environnement, 'videos_education' => $videos_education]);
 
-    return view('home', compact('subtopics','channel'));
+    return view('home', compact('subtopics','channel','events', 'video','last','channel_top','videos_count'));
+
 })->name('home');
 
 Route::get('vids/uploads/^[a-zA-Z0-9_]*$');
@@ -139,3 +170,5 @@ Route::resource('events', 'EventController');
 Route::resource('activities', 'ActivityController');
 
 Route::resource('contacts', 'ContactController');
+
+Route::resource('products', 'productController');

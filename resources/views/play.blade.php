@@ -556,7 +556,7 @@
                     <div class="elementImgAuteur">
                         <a class="elementImgAuteur" href="{{route('channel.visitor', $channel->id)}}"class="nameAuteur contentweb">
                             @if($channel->logo)
-                            <img class="" src="{{ asset('/images/uploads') }}/{{$user->photo}}" alt="">
+                            <img class="" src="{{ asset('/images/uploads') }}/{{$channel->photo}}" alt="">
                             @elseif(session('user')->age <= 15)
                             <img class="" src="{{asset('images/kids_preloader.png')}}" alt="">
                             @elseif(session('user')->age > 15 && session('user')->sex == '1')
@@ -564,7 +564,6 @@
                             @elseif(session('user')->age > 15 && session('user')->sex == '0')
                             <img class="" src="{{asset('images/sista_preloader.png')}}" alt="">
                             @endif
-                            <img src="{{ asset('img/auteur.png') }}" alt="">
                         </a>
                     </div>
                     

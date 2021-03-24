@@ -60,9 +60,13 @@
             </div>
 
             @if($bool)
-            <a class="text-block-380" style="color:white; background: #F57409; padding:5px 0; margin-left:20px; border-radius:10px; margin-top:-10px; " href="{{route('channels.index')}}">
+            <a class="text-block-380" style="color:white; background: #F57409; padding:5px 0; margin-left:20px; border-radius:10px; margin-top:-10px; " href="{{route('channel.visitor', $visit->id)}}">
                 <div style="padding: 3px 10px;font-size:0.75em"><strong style="text-decoration:underline;" style="">Apercu en mode visiteur</strong> :<br> Voici ce que les utilisateurs pourront voir de votre page.<br>Cliquer pour quitter ce mode apercu.</div>
             </a>
+            @elseif($admin)
+            <div class="text-block-380" style="color:white; background: #F57409; padding:5px 0; margin-left:20px; border-radius:10px; margin-top:-10px; " >
+                <div style="padding: 3px 10px;font-size:0.75em"><strong style="text-decoration:underline;" style="">Mode Admin</strong> :<br> <a  class= "btn btn-default" href="{{route('channel.fly',$visit->id)}}">Passer en mode apercu.</a> &nbsp;&nbsp;&nbsp; <a class= "btn btn-default" href="{{route('channel.visitor',$visit->id)}}">Passer en mode edition.</a> </div>
+            </div>
             @endif
         </div>
     </div>
@@ -79,6 +83,7 @@
             <div class="hot-green">
                 <img src="{{ asset('img/Mu-hot-info.png') }}" loading="lazy" width="47">
             </div>
+            @foreach($events as $event)
             <div class="div-block-391">
                 <div class="div-block-393">
                     <div class="div-block-392">
@@ -104,14 +109,17 @@
                     </div>
                 </div>
             </div>
+            @endforeach
         </div>
         <br>
         <div class="div-block-394">
+        @if($edit)
             @if(!$event)
             <a class="btn btn-default" style="text-decoration:none;" href="{{route('events.create')}}" alt="">&#x267B; Actualiser</a>
             @else
             <a class="btn btn-default" style="text-decoration:none;" href="{{route('events.edit', $event->id)}}" alt="">&#x267B; Actualiser</a>   
-            @endif         
+            @endif   
+        @endif      
         </div>
     </div>
     <div class="business-now">
@@ -162,7 +170,9 @@
                         <div class="descrition-biz-chaine">
                             <p class="text-block-330">CE QUE NOUS FESONS &#x1F680; : @foreach($activities as $activity) <br> - {{$activity->text}} @endforeach</p>
                         </div>
+                        @if($edit)
                         <a class="btn btn-default" style="text-decoration:none;margin-left:-15px" href="{{route('activities.create')}}" alt="">&#x267B; Actualiser</a>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -174,10 +184,12 @@
         <p class="text-block-332" style="text-decoration:underline">Site web : {{$contact->site_web}}<br></p>
         <p class="text-block-339" style="text-decoration:underline">Horaire d&#x27;ouverture : 08h30 - 18H00<br>‍</p>
         
-        @if(!$contact)
-        <a class="btn btn-default" style="text-decoration:none;margin-left:-15px" href="{{route('contacts.create')}}" alt="">&#x267B; Actualiser</a>
-        @else
-        <a class="btn btn-default" style="text-decoration:none;margin-left:-15px" href="{{route('contacts.edit', $contact->id)}}" alt="">&#x267B; Actualiser</a>
+        @if($edit)
+            @if(!$contact)
+            <a class="btn btn-default" style="text-decoration:none;margin-left:-15px" href="{{route('contacts.create')}}" alt="">&#x267B; Actualiser</a>
+            @else
+            <a class="btn btn-default" style="text-decoration:none;margin-left:-15px" href="{{route('contacts.edit', $contact->id)}}" alt="">&#x267B; Actualiser</a>
+            @endif
         @endif
     </div>
     <div class="derniersNouvelles">
