@@ -384,7 +384,7 @@
                         <p class="text-block-351">Vidéos regardées</p>
                         <div class="div-block-344">
                             <div class="div-block-345">
-                                <p class="text-block-352">80</p>
+                                <p class="text-block-352">{{count($look_videos)}}</p>
                             </div>
                             <div class="div-block-347">
                                 <img src="{{ asset('img/Mu-video-regarder2x.png') }}" class="imgRegarde" width="61" alt="">

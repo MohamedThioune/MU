@@ -22,7 +22,8 @@ Route::get('/', function () {
     ->join('reads', 'videos.id', 'reads.video_id')            
     ->select(DB::raw('count(*) as views, videos.*, reads.video_id'))
     ->groupBy('reads.video_id')
-    ->orderByDesc('views') 
+    ->orderByDesc('views')
+    ->whereNull('videos.deleted_at') 
     ->limit(3)
     ->get();                           
 
@@ -36,6 +37,17 @@ Route::get('/', function () {
     ->where('videos.user_id', $channel_top->user_id)
     ->whereNull('videos.deleted_at')
     ->count();
+
+    $start =  (new \Datetime())->format('Y-m-01 H:i:s');
+    $end =   (new \Datetime())->format('Y-m-30 H:i:s');
+
+    $look_videos = DB::table('reads')
+    ->join('videos','videos.id','reads.video_id')
+    ->where('reads.user_id',Auth::id())
+    ->whereNull('videos.deleted_at')
+    ->select(DB::raw('count(*) as views, reads.video_id'))
+    ->groupBy('reads.video_id')
+    ->get();                           
 
     
     /** @var Event $event */
@@ -95,7 +107,7 @@ Route::get('/', function () {
 
     session(['videos_haltcare' => $videos_haltcare, 'videos_life' => $videos_life, 'videos_health' => $videos_health, 'videos_business' => $videos_business, 'videos_environnement' => $videos_environnement, 'videos_education' => $videos_education]);
 
-    return view('home', compact('subtopics','channel','events', 'video','last','channel_top','videos_count'));
+    return view('home', compact('subtopics','channel','events', 'video','last','channel_top','videos_count','look_videos'));
 
 })->name('home');
 

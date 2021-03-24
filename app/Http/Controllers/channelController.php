@@ -229,6 +229,7 @@ class channelController extends AppBaseController
         ->select(DB::raw('count(*) as views, reads.video_id'))
         ->groupBy('reads.video_id')
         ->where('videos.user_id', $visit->user_id)
+        ->whereNull('videos.deleted_at')
         ->orderByDesc('views') 
         ->limit(3)
         ->get();
