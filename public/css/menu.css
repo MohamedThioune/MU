@@ -1879,6 +1879,142 @@ video{
 .share-blanc {
     margin-right: 20px;
 }
+.div-block-406 {
+    padding: 20px 40px;
+    background-color: #f7f7f7;
+}
+.div-block-407 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border-bottom: 1px solid #ebebeb;
+    border-radius: 0px;
+}
+.div-block-414 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+.div-block-412 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border-right: 1px solid #e2dcdc;
+}
+.vignette {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    width: 141px;
+    height: 72px;
+    margin-right: 20px;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+.image-135 {
+    border-radius: 5px;
+    width: 141px;
+}
+.imge135 {
+    border-radius: 5px;
+    width: 141px;
+}
+.div-block-410 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    margin-right: 60px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+.text-block-394 {
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-family: "Ubuntu-Medium";
+
+}
+.text-block-396 {
+    color: #8f8f8f;
+    font-family: "Ubuntu-Regular";
+    margin-bottom: 0;
+}
+.div-block-413 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+.div-block-409 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    margin-right: 20px;
+    margin-left: 20px;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+.image-136 {
+    border-radius: 50%;
+    width: 43px;
+}
+.imge136 {
+    border-radius: 50%;
+    width: 43px;
+}
+.text-block-395 {
+    font-size: 16px;
+    font-family: "Ubuntu-Medium";
+    margin-bottom: 0;
+}
+.points-vertical{
+    border: none !important;
+}
+.div-block-411 {
+    width: 6px;
+    height: 6px;
+    margin-bottom: 3px;
+    border-radius: 50%;
+    background-color: #c4c4c4;
+    color: #c4c4c4;
+}
+.imge-135{
+    width: 141px;
+}
 @media all and (min-width: 300px) and (max-width: 767px){
     .col-lg-9 {
         -ms-flex: unset !important;

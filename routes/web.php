@@ -119,3 +119,4 @@ Route::resource('comments', 'CommentController');
 Route::resource('responseComments', 'ResponseCommentController');
 
 Route::view('/chaineAbonne', 'chaineAbonne');
+Route::view('/notification', 'notification');
