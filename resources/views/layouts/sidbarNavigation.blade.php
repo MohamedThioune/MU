@@ -161,7 +161,7 @@
                        <div class="head-slidebar-user">
                         @if(!Auth::guest())
                             @if($channel)
-                            echo "<p class='text-block-242'>{$channel->name}</p>";
+                            <p class='text-block-242'>{{$channel->name}}</p>
                             @endif
                         @endif
                        

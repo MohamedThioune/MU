@@ -49,8 +49,20 @@ Route::get('/', function () {
     ->whereNull('videos.deleted_at')
     ->select(DB::raw('count(*) as views, reads.video_id'))
     ->groupBy('reads.video_id')
-    ->get();                           
+    ->get();  
 
+    $like_videos = DB::table('likes')
+    ->where('likeable_type','App\Models\Video')
+    ->where('likes.user_id', Auth::id())
+    ->select(DB::raw('count(*) as likes, likes.user_id'))
+    ->groupBy('likes.user_id')
+    ->first(); 
+
+    $follows = DB::table('abonne_channel')
+    ->where('abonne_channel.user_id', Auth::id())
+    ->select(DB::raw('count(*) as trends, abonne_channel.user_id'))
+    ->groupBy('abonne_channel.user_id')
+    ->first(); 
     
     /** @var Event $event */
     $events = DB::Table('events')->select('events.*')
@@ -109,7 +121,7 @@ Route::get('/', function () {
 
     session(['videos_haltcare' => $videos_haltcare, 'videos_life' => $videos_life, 'videos_health' => $videos_health, 'videos_business' => $videos_business, 'videos_environnement' => $videos_environnement, 'videos_education' => $videos_education]);
 
-    return view('home', compact('subtopics','channel','events', 'video','last','channel_top','videos_count','look_videos'));
+    return view('home', compact('subtopics','channel','events', 'video','last','channel_top','videos_count','look_videos','like_videos','follows'));
 
 })->name('home');
 

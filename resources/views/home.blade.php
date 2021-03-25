@@ -77,7 +77,7 @@
                         @elseif($user->age > 15 && $user->sex == '0')
                             <img class="imgElementCardSuggestionDay" src="{{asset('images/sista_preloader.png')}}" alt="">
                         @endif                        
-                        <div class="contentFlyHeure">
+                        <a href="{{route('play',[$video->id])}}" class="contentFlyHeure">
                             <p class="flyText">
                             @foreach($subtopics as $subtopic)
                                 @if($video->subtopic_id == $subtopic->id)
@@ -86,7 +86,7 @@
                             @endforeach
                             </p>
                             <p class="heureFly" style="color:white;">{{$video->duration}}</p>
-                        </div>
+                        </a>
                     </div>
                     <div class="contentCardSuggestionDay">
                         <div class="d-flex justify-content-between">
@@ -200,7 +200,7 @@
                         @elseif($user->age > 15 && $user->sex == '0')
                             <img class="imgElementCardSuggestionDay" src="{{asset('images/sista_preloader.png')}}" alt="">
                         @endif                        
-                        <div class="contentFlyHeure">
+                        <a href="{{route('play',[$video->id])}}" target="" class="contentFlyHeure">
                             <p class="flyText">
                             @foreach($subtopics as $subtopic)
                                 @if($video->subtopic_id == $subtopic->id)
@@ -209,7 +209,7 @@
                             @endforeach
                             </p>
                             <p class="heureFly" style="color:white;">{{$video->duration}}</p>
-                        </div>
+                        </a>
                     </div>
                     <div class="contentCardSuggestionDay">
                         <div class="d-flex justify-content-between">
@@ -273,11 +273,11 @@
                 @if($channel_top->logo)
                     <img class="image-125" src="{{ asset('/images/uploads') }}/{{$channel->photo}}" alt="">
                 @elseif($user->age <= 15)
-                <img class="image-125" src="{{asset('images/kids_preloader.png')}}" alt="">
+                    <img class="image-125" src="{{asset('images/kids_preloader.png')}}" alt="">
                 @elseif($user->age > 15 && $user->sex == '1')
-                <img class="image-125" src="{{asset('images/flow_preloader.png')}}" alt=""/>
+                    <img class="image-125" src="{{asset('images/flow_preloader.png')}}" alt=""/>
                 @elseif($user->age > 15 && $user->sex == '0')
-                <img class="image-125" src="{{asset('images/sista_preloader.png')}}" alt="">
+                    <img class="image-125" src="{{asset('images/sista_preloader.png')}}" alt="">
                 @endif
             </div>
             <div class="div-block-368">
@@ -398,7 +398,7 @@
                         <p class="text-block-351">Vidéos aimées</p>
                         <div class="div-block-344">
                             <div class="div-block-345">
-                                <p class="text-block-352">45 </p>
+                                <p class="text-block-352">{{$like_videos->likes}} </p>
                             </div>
                             <div class="div-block-348">
                                 <img src="{{ asset('img/Mu-video-likee2x.png') }}" class="imgVideoLike"  alt=""></div>
@@ -408,7 +408,7 @@
                         <p class="text-block-351">Vidéos partagées</p>
                         <div class="div-block-344">
                             <div class="div-block-345">
-                                <p class="text-block-352">18 </p>
+                                <p class="text-block-352">0 </p>
                             </div>
                             <div class="div-block-349">
                                 <img src="{{ asset('img/Mu-nbr-de-partage2x.png') }}" class="imgVideoLike" alt=""></div>
@@ -418,7 +418,7 @@
                         <p class="text-block-351">Sadakatiyas supportées</p>
                         <div class="div-block-344">
                             <div class="div-block-345">
-                                <p class="text-block-352">3</p>
+                                <p class="text-block-352">0</p>
                             </div>
                             <div class="div-block-350">
                                 <img src="{{ asset('img/Mu-sadaka-support2x.png') }}" class="imgVideoLike" alt=""></div>
@@ -428,7 +428,7 @@
                         <p class="text-block-351">Chaines suivies</p>
                         <div class="div-block-344">
                             <div class="div-block-345">
-                                <p class="text-block-352">16 </p>
+                                <p class="text-block-352">{{$follows->trends}} </p>
                             </div>
                             <div class="div-block-351">
                                 <img src="{{ asset('img/Mu-chaine-follow-gris2x.png') }}"  class="imgVideoLike"></div>

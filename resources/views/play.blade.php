@@ -1072,8 +1072,13 @@
                                         @endif
                                     </div>
                                     <div class="block3">
-                                        <p class="mindText">{{$user->name}}</p>
-                                        <!-- Date creation relative -->
+                                        @php  
+                                            $channel = DB::Table('users')->select('channels.*')
+                                                                        ->join('channels', 'users.id', 'channels.user_id')
+                                                                        ->where('users.id', $video->user_id)
+                                                                        ->first(); 
+                                        @endphp
+                                        <p class="mindText">{{$channel->name}}</p>                                        <!-- Date creation relative -->
                                         @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
                                         @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
                                         <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/3600)}} hours ago </p>
@@ -1186,7 +1191,13 @@
                                         @endif
                                     </div>
                                     <div class="block3">
-                                        <p class="mindText">{{$user->name}}</p>
+                                        @php  
+                                            $channel = DB::Table('users')->select('channels.*')
+                                                                        ->join('channels', 'users.id', 'channels.user_id')
+                                                                        ->where('users.id', $video->user_id)
+                                                                        ->first(); 
+                                        @endphp
+                                        <p class="mindText">{{$channel->name}}</p>
                                         <!-- Date creation relative -->
                                         @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
                                         @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
@@ -1300,8 +1311,13 @@
                                         @endif
                                     </div>
                                     <div class="block3">
-                                        <p class="mindText">{{$user->name}}</p>
-                                        <!-- Date creation relative -->
+                                        @php  
+                                            $channel = DB::Table('users')->select('channels.*')
+                                                                        ->join('channels', 'users.id', 'channels.user_id')
+                                                                        ->where('users.id', $video->user_id)
+                                                                        ->first(); 
+                                        @endphp
+                                        <p class="mindText">{{$channel->name}}</p>                                        <!-- Date creation relative -->
                                         @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
                                         @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
                                         <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/3600)}} hours ago </p>
@@ -1415,8 +1431,13 @@
                                         @endif
                                     </div>
                                     <div class="block3">
-                                        <p class="mindText">{{$user->name}}</p>
-                                        <!-- Date creation relative -->
+                                        @php  
+                                            $channel = DB::Table('users')->select('channels.*')
+                                                                        ->join('channels', 'users.id', 'channels.user_id')
+                                                                        ->where('users.id', $video->user_id)
+                                                                        ->first(); 
+                                        @endphp
+                                        <p class="mindText">{{$channel->name}}</p>                                        <!-- Date creation relative -->
                                         @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
                                         @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
                                         <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/3600)}} hours ago </p>
@@ -1532,8 +1553,13 @@
                                             @endif
                                         </div>
                                         <div class="block3">
-                                            <p class="mindText">{{$user->name}}</p>
-                                            <!-- Date creation relative -->
+                                        @php  
+                                            $channel = DB::Table('users')->select('channels.*')
+                                                                        ->join('channels', 'users.id', 'channels.user_id')
+                                                                        ->where('users.id', $video->user_id)
+                                                                        ->first(); 
+                                        @endphp
+                                        <p class="mindText">{{$channel->name}}</p>                                            <!-- Date creation relative -->
                                             @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
                                             @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
                                             <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/3600)}} hours ago </p>
@@ -1560,16 +1586,16 @@
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
-</div>
 @endif
 @endif
 
 @if(session('videos_environnement'))
 @if(count(session('videos_environnement')) > 0)
-<div class="content-Evironnement">
+ <div class="content-Evironnement">
     <div class="container-fluid">
         <div class="contentSwipeToday">
             <div class="barreLatraleNoir Evironnement">
@@ -1649,8 +1675,14 @@
                                         @endif
                                     </div>
                                     <div class="block3">
-                                        <p class="mindText">{{$user->name}}</p>
-                                        <!-- Date creation relative -->
+                                        @php  
+                                            $channel = DB::Table('users')->select('channels.*')
+                                                                        ->join('channels', 'users.id', 'channels.user_id')
+                                                                        ->where('users.id', $video->user_id)
+                                                                        ->first(); 
+                                        @endphp
+                                        <p class="mindText">{{$channel->name}}</p>                                        
+                                        
                                         @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
                                         @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
                                         <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/3600)}} hours ago </p>
@@ -1664,11 +1696,12 @@
                                         @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) > 27)
                                         <p class="day">On {{strftime("%d/%m/%Y", strtotime($video->created_at))}}</p>
                                         @endif
-                                      <!--  <div class="d-flex justify-content-between">
+                                        <!--
+                                        <div class="d-flex justify-content-between">
                                             <p class="numberviewsSuggestion">1230</p>
                                             <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
 
-                                        </div>-->
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
@@ -1680,7 +1713,6 @@
             </div>
         </div>
     </div>
-</div>
 @endif
 @endif
 </div>
