@@ -1992,9 +1992,46 @@ video{
     border-radius: 50%;
     width: 43px;
 }
+.image90{
+    width: 50px;
+}
 .imge136 {
     border-radius: 50%;
     width: 43px;
+}
+.div-block-201 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    padding-left: 60px;
+}
+.div-block-202 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    padding-left: 10px;
+}
+.infos {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+.globalParametre {
+    width: 85%;
+}
+.infos-nom{
+    align-items: baseline;
+}
+.formModife2{
+    display: flex;
 }
 .text-block-395 {
     font-size: 16px;

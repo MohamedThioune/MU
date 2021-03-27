@@ -120,3 +120,5 @@ Route::resource('responseComments', 'ResponseCommentController');
 
 Route::view('/chaineAbonne', 'chaineAbonne');
 Route::view('/notification', 'notification');
+Route::view('/parametre', 'users/parametre');
+Route::view('/parametrePhoto', 'users/parametrePhoto');
