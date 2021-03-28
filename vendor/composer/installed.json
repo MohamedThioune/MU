@@ -1,42 +1,37 @@
 {
     "packages": [
         {
-            "name": "beyondcode/laravel-comments",
-            "version": "1.2.0",
-            "version_normalized": "1.2.0.0",
+            "name": "arcanedev/arabic",
+            "version": "0.0.2",
+            "version_normalized": "0.0.2.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/beyondcode/laravel-comments.git",
-                "reference": "dd9d3c8d9fec2f9c305f1d2828df6b6a35e0c84d"
+                "url": "https://github.com/ARCANEDEV/Arabic.git",
+                "reference": "cc7dc9cdf41970e0aff39ea32f3f1cc23af310b3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/beyondcode/laravel-comments/zipball/dd9d3c8d9fec2f9c305f1d2828df6b6a35e0c84d",
-                "reference": "dd9d3c8d9fec2f9c305f1d2828df6b6a35e0c84d",
+                "url": "https://api.github.com/repos/ARCANEDEV/Arabic/zipball/cc7dc9cdf41970e0aff39ea32f3f1cc23af310b3",
+                "reference": "cc7dc9cdf41970e0aff39ea32f3f1cc23af310b3",
                 "shasum": ""
             },
             "require": {
-                "illuminate/support": "~5.6.0|~5.7.0|~5.8.0|^6.0|^7.0|^8.0",
-                "php": "^7.2.5"
+                "php": ">=5.4.0"
             },
             "require-dev": {
-                "orchestra/testbench": "^3.6|^5.0|^6.0",
-                "phpunit/phpunit": "^7.0|^8.0|9.2.*"
+                "phpunit/phpunit": "~4.4"
             },
-            "time": "2021-01-04T15:24:14+00:00",
+            "time": "2014-12-15T16:39:26+00:00",
             "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "BeyondCode\\Comments\\CommentsServiceProvider"
-                    ]
-                }
-            },
             "installation-source": "dist",
             "autoload": {
                 "psr-4": {
-                    "BeyondCode\\Comments\\": "src"
-                }
+                    "Arcanedev\\Arabic\\": "src/",
+                    "Arcanedev\\Arabic\\Tests\\": "tests/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -44,24 +39,16 @@
             ],
             "authors": [
                 {
-                    "name": "Marcel Pociot",
-                    "email": "marcel@beyondco.de",
-                    "homepage": "https://beyondcode.de",
-                    "role": "Developer"
+                    "name": "ARCANEDEV",
+                    "email": "arcanedev.maroc@gmail.com"
                 }
             ],
-            "description": "Add comments to your Laravel application",
-            "homepage": "https://github.com/beyondcode/laravel-comments",
-            "keywords": [
-                "beyondcode",
-                "comments",
-                "laravel-comments"
-            ],
+            "description": "Arabic Libs & Helpers",
             "support": {
-                "issues": "https://github.com/beyondcode/laravel-comments/issues",
-                "source": "https://github.com/beyondcode/laravel-comments/tree/1.2.0"
+                "issues": "https://github.com/ARCANEDEV/Arabic/issues",
+                "source": "https://github.com/ARCANEDEV/Arabic/tree/master"
             },
-            "install-path": "../beyondcode/laravel-comments"
+            "install-path": "../arcanedev/arabic"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",

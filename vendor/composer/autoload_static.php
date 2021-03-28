@@ -25,6 +25,7 @@ class ComposerStaticInit8485fb7189a64a9c5667f31bce03e74b
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
         '0ccdf99b8f62f02c52cba55802e0c2e7' => __DIR__ . '/..' . '/zircote/swagger-php/src/functions.php',
+        '3b0f16c0762a22ffed787d705a1c68b3' => __DIR__ . '/..' . '/arcanedev/arabic/src/helpers.php',
         'a28599dc506da421718fad75955a4b9d' => __DIR__ . '/..' . '/infyomlabs/laravel-generator/src/helpers.php',
         'f18cc91337d49233e5754e93f3ed9ec3' => __DIR__ . '/..' . '/laravelcollective/html/src/helpers.php',
     );
@@ -148,12 +149,10 @@ class ComposerStaticInit8485fb7189a64a9c5667f31bce03e74b
             'Cron\\' => 5,
             'Collective\\Html\\' => 16,
         ),
-        'B' => 
-        array (
-            'BeyondCode\\Comments\\' => 20,
-        ),
         'A' => 
         array (
+            'Arcanedev\\Arabic\\Tests\\' => 23,
+            'Arcanedev\\Arabic\\' => 17,
             'App\\' => 4,
         ),
     );
@@ -429,9 +428,13 @@ class ComposerStaticInit8485fb7189a64a9c5667f31bce03e74b
         array (
             0 => __DIR__ . '/..' . '/laravelcollective/html/src',
         ),
-        'BeyondCode\\Comments\\' => 
+        'Arcanedev\\Arabic\\Tests\\' => 
         array (
-            0 => __DIR__ . '/..' . '/beyondcode/laravel-comments/src',
+            0 => __DIR__ . '/..' . '/arcanedev/arabic/tests',
+        ),
+        'Arcanedev\\Arabic\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/arcanedev/arabic/src',
         ),
         'App\\' => 
         array (
@@ -577,12 +580,33 @@ class ComposerStaticInit8485fb7189a64a9c5667f31bce03e74b
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
+        'Arcanedev\\Arabic\\Contracts\\DateTimeInterface' => __DIR__ . '/..' . '/arcanedev/arabic/src/Contracts/DateTimeInterface.php',
+        'Arcanedev\\Arabic\\Contracts\\DateTime\\DayInterface' => __DIR__ . '/..' . '/arcanedev/arabic/src/Contracts/DateTime/DayInterface.php',
+        'Arcanedev\\Arabic\\Contracts\\DateTime\\MonthsInterface' => __DIR__ . '/..' . '/arcanedev/arabic/src/Contracts/DateTime/MonthsInterface.php',
+        'Arcanedev\\Arabic\\Contracts\\DateTime\\PeriodsInterface' => __DIR__ . '/..' . '/arcanedev/arabic/src/Contracts/DateTime/PeriodsInterface.php',
+        'Arcanedev\\Arabic\\Contracts\\NumberInterface' => __DIR__ . '/..' . '/arcanedev/arabic/src/Contracts/NumberInterface.php',
+        'Arcanedev\\Arabic\\DateTime' => __DIR__ . '/..' . '/arcanedev/arabic/src/DateTime.php',
+        'Arcanedev\\Arabic\\DateTime\\Days' => __DIR__ . '/..' . '/arcanedev/arabic/src/DateTime/Days.php',
+        'Arcanedev\\Arabic\\DateTime\\Months' => __DIR__ . '/..' . '/arcanedev/arabic/src/DateTime/Months.php',
+        'Arcanedev\\Arabic\\DateTime\\Periods' => __DIR__ . '/..' . '/arcanedev/arabic/src/DateTime/Periods.php',
+        'Arcanedev\\Arabic\\Exceptions\\Exception' => __DIR__ . '/..' . '/arcanedev/arabic/src/Exceptions/Exception.php',
+        'Arcanedev\\Arabic\\Exceptions\\InvalidDateFormatException' => __DIR__ . '/..' . '/arcanedev/arabic/src/Exceptions/InvalidDateFormatException.php',
+        'Arcanedev\\Arabic\\Exceptions\\InvalidTimestampException' => __DIR__ . '/..' . '/arcanedev/arabic/src/Exceptions/InvalidTimestampException.php',
+        'Arcanedev\\Arabic\\Exceptions\\InvalidTypeException' => __DIR__ . '/..' . '/arcanedev/arabic/src/Exceptions/InvalidTypeException.php',
+        'Arcanedev\\Arabic\\Exceptions\\NumbersNotFoundException' => __DIR__ . '/..' . '/arcanedev/arabic/src/Exceptions/NumbersNotFoundException.php',
+        'Arcanedev\\Arabic\\Exceptions\\UndefinedOffsetException' => __DIR__ . '/..' . '/arcanedev/arabic/src/Exceptions/UndefinedOffsetException.php',
+        'Arcanedev\\Arabic\\Number' => __DIR__ . '/..' . '/arcanedev/arabic/src/Number.php',
+        'Arcanedev\\Arabic\\Str' => __DIR__ . '/..' . '/arcanedev/arabic/src/Str.php',
+        'Arcanedev\\Arabic\\Str\\Numbers' => __DIR__ . '/..' . '/arcanedev/arabic/src/Str/Numbers.php',
+        'Arcanedev\\Arabic\\Tests\\DateTimeTest' => __DIR__ . '/..' . '/arcanedev/arabic/tests/DateTimeTest.php',
+        'Arcanedev\\Arabic\\Tests\\DateTime\\DaysTest' => __DIR__ . '/..' . '/arcanedev/arabic/tests/DateTime/DaysTest.php',
+        'Arcanedev\\Arabic\\Tests\\DateTime\\MonthsTest' => __DIR__ . '/..' . '/arcanedev/arabic/tests/DateTime/MonthsTest.php',
+        'Arcanedev\\Arabic\\Tests\\DateTime\\PeriodsTest' => __DIR__ . '/..' . '/arcanedev/arabic/tests/DateTime/PeriodsTest.php',
+        'Arcanedev\\Arabic\\Tests\\NumberTest' => __DIR__ . '/..' . '/arcanedev/arabic/tests/NumberTest.php',
+        'Arcanedev\\Arabic\\Tests\\StrTest' => __DIR__ . '/..' . '/arcanedev/arabic/tests/StrTest.php',
+        'Arcanedev\\Arabic\\Tests\\Str\\NumbersTest' => __DIR__ . '/..' . '/arcanedev/arabic/tests/Str/NumbersTest.php',
+        'Arcanedev\\Arabic\\Tests\\TestCase' => __DIR__ . '/..' . '/arcanedev/arabic/tests/TestCase.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
-        'BeyondCode\\Comments\\Comment' => __DIR__ . '/..' . '/beyondcode/laravel-comments/src/Comment.php',
-        'BeyondCode\\Comments\\CommentsServiceProvider' => __DIR__ . '/..' . '/beyondcode/laravel-comments/src/CommentsServiceProvider.php',
-        'BeyondCode\\Comments\\Contracts\\Commentator' => __DIR__ . '/..' . '/beyondcode/laravel-comments/src/Contracts/Commentator.php',
-        'BeyondCode\\Comments\\Traits\\CanComment' => __DIR__ . '/..' . '/beyondcode/laravel-comments/src/Traits/CanComment.php',
-        'BeyondCode\\Comments\\Traits\\HasComments' => __DIR__ . '/..' . '/beyondcode/laravel-comments/src/Traits/HasComments.php',
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
         'Carbon\\CarbonInterval' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
         'Carbon\\Exceptions\\InvalidDateException' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Exceptions/InvalidDateException.php',

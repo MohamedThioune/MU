@@ -1,11 +1,4 @@
 <?php return array (
-  'beyondcode/laravel-comments' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'BeyondCode\\Comments\\CommentsServiceProvider',
-    ),
-  ),
   'fideloper/proxy' => 
   array (
     'providers' => 

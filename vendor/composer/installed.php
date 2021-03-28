@@ -6,19 +6,19 @@
     'aliases' => 
     array (
     ),
-    'reference' => '139d27d953d81ae3c961276adf3fbc7c231604f4',
+    'reference' => '9784a55828e0fe42c37acf5033e617fc2c1ed1c6',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
   array (
-    'beyondcode/laravel-comments' => 
+    'arcanedev/arabic' => 
     array (
-      'pretty_version' => '1.2.0',
-      'version' => '1.2.0.0',
+      'pretty_version' => '0.0.2',
+      'version' => '0.0.2.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'dd9d3c8d9fec2f9c305f1d2828df6b6a35e0c84d',
+      'reference' => 'cc7dc9cdf41970e0aff39ea32f3f1cc23af310b3',
     ),
     'cordoval/hamcrest-php' => 
     array (
@@ -442,7 +442,7 @@
       'aliases' => 
       array (
       ),
-      'reference' => '139d27d953d81ae3c961276adf3fbc7c231604f4',
+      'reference' => '9784a55828e0fe42c37acf5033e617fc2c1ed1c6',
     ),
     'laravel/tinker' => 
     array (

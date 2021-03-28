@@ -283,7 +283,7 @@
             <div class="div-block-368">
                 <p class="text-block-362">{{$channel_top->name}}</p>
                 <div class="div-block-371">
-                    <p class="text-block-363">{{\App\Models\Channel::find($channel->id)->abonnees->count()}}</p>
+                    <p class="text-block-363">{{\App\Models\Channel::find($channel_top->id)->abonnees->count()}}</p>
                     <p class="text-block-345">Abonnés</p>
                 </div>
                 <p class="text-block-364">{{$videos_count}} Publications</p>
@@ -333,6 +333,9 @@
                         <p class="text-block-373">jours</p>
                     </div>
                     <div>
+                        @php 
+                        $date = new hijri();
+                        @endphp
                         <div class="div-block-376">
                             <div class="div-block-378">
                                 <p class="text-block-368">Ramadan</p>
@@ -378,6 +381,7 @@
             </div>
         </div>
     </div>
+    @if(!Auth::guest())
     <div id="resume" class="resume-flow">
         <div class="div-block-343">
             <div class="div-block-352">
@@ -436,56 +440,146 @@
                     </div>
                 </div>
                 <div>
+                @php 
+                    $date = explode(",",$date->date(null,2,false));
+                    $hijri_year = $date[1];
+                    $hijri_month =  explode(" ", $date[0])[6];
+                    $hijri_day = explode(" ", $date[0])[5];
+                    $gregorian =  (new \Datetime())->format('d.m.Y');
+                @endphp
                     <div class="time-mon-flow">
                         <div class="div-block-342"><img src="{{ asset('img/Time-shahid.svg') }}"  alt="" class="shadid103"></div>
                         <div class="div-block-341">
                             <p class="text-block-290">Time shahid</p>
-                            <p class="temps-tsha">1h 25 mn</p>
-                            <p class="text-block-329">6 Rajab 1663</p>
+                            @php $shahid = explode(":",$shahid); if($shahid[0] == "00") $shahid[0] = "0"; @endphp
+                            <p class="temps-tsha">{{$shahid[0]}}h {{$shahid[1]}} mn</p>
+                            <p class="text-block-329" style="font-size:1.0em">{{$hijri_day}} {{$hijri_month}} {{$hijri_year}}</p>
+                            <p class="text-block-329" style="font-size:0.8em">{{$gregorian}}</p>
                         </div>
                     </div>
+                    @php
+                        $start =  (new \Datetime())->format('Y-m-01 H:i:s');
+                        $end =   (new \Datetime())->format('Y-m-30 H:i:s');
+                    @endphp
                     <div class="div-block-364">
                         <div class="div-block-354">
                             <p class="text-block-354">In sha Allah</p>
-                            <p class="div-block-353"></p>
+                            <p class="progress" style="height:1px;">
+                            <div class="progress-bar" role="progressbar bg-info" style="width:0%; height:3%; border-radius:10px; background:#ebebeb; " aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                            </p>
                         </div>
                         <div class="div-block-354">
+                            @php 
+                            $variant = DB::table('videos')
+                                    ->join('reads','videos.id','reads.video_id')
+                                    ->join('sub_topics','sub_topics.id','videos.subtopic_id')
+                                    ->join('main_topics','main_topics.id','sub_topics.mainTopic_id')
+                                    ->where('reads.user_id', Auth::id())
+                                    ->where('reads.created_at', '>=', $start)
+                                    ->where('reads.created_at', '<', $end)
+                                    ->where('reads.user_id', Auth::id())
+                                    ->where('main_topics.id', 6)
+                                    ->whereNull('videos.deleted_at')
+                                    ->count();
+                            @endphp
                             <p class="text-block-355">Din</p>
-                            <div class="div-block-355"></div>
+                            <div class="progress-bar" role="progressbar bg-info" style="width:{{($variant/$looks)*100}}%; height:3%; border-radius:10px; background:#ebebeb; " aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <div class="div-block-354">
-                            <p class="text-block-356">Business</p>
-                            <div class="div-block-356"></div>
+                            @php 
+                            $variant = DB::table('videos')
+                                    ->join('reads','videos.id','reads.video_id')
+                                    ->join('sub_topics','sub_topics.id','videos.subtopic_id')
+                                    ->join('main_topics','main_topics.id','sub_topics.mainTopic_id')
+                                    ->where('reads.user_id', Auth::id())
+                                    ->where('reads.created_at', '>=', $start)
+                                    ->where('reads.created_at', '<', $end)
+                                    ->where('reads.user_id', Auth::id())
+                                    ->where('main_topics.id', 4)
+                                    ->whereNull('videos.deleted_at')
+                                    ->count();
+                            @endphp
+                            <p class="text-block-356">Business </p>
+                            <div class="progress-bar" role="progressbar bg-info" style="width:{{($variant/$looks)*100}}%; height:3%; border-radius:10px; background:#ebebeb; " aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <div class="div-block-354">
-                            <p class="text-block-357">Santé bien-être</p>
-                            <div class="div-block-357"></div>
+                            @php 
+                            $variant = DB::table('videos')
+                                    ->join('reads','videos.id','reads.video_id')
+                                    ->join('sub_topics','sub_topics.id','videos.subtopic_id')
+                                    ->join('main_topics','main_topics.id','sub_topics.mainTopic_id')
+                                    ->where('reads.created_at', '>=', $start)
+                                    ->where('reads.created_at', '<', $end)
+                                    ->where('reads.user_id', Auth::id())
+                                    ->where('main_topics.id', 1)
+                                    ->whereNull('videos.deleted_at')
+                                    ->count();
+                            @endphp 
+                            <p class="text-block-357">Santé bien-être </p>
+                            <div class="progress-bar" role="progressbar bg-info" style="width:{{($variant/$looks)*100}}%; height:3%; border-radius:10px; background:#ebebeb; " aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <div class="div-block-354">
+                            @php 
+                            $variant = DB::table('videos')
+                                    ->join('reads','videos.id','reads.video_id')
+                                    ->join('sub_topics','sub_topics.id','videos.subtopic_id')
+                                    ->join('main_topics','main_topics.id','sub_topics.mainTopic_id')
+                                    ->where('reads.created_at', '>=', $start)
+                                    ->where('reads.created_at', '<', $end)
+                                    ->where('reads.user_id', Auth::id())
+                                    ->where('main_topics.id', 3)
+                                    ->whereNull('videos.deleted_at')
+                                    ->count();
+                            @endphp 
+                            <p class="text-block-359">Sport Fit</p>
+                            <div class="progress-bar" role="progressbar bg-info" style="width:{{($variant/$looks)*100}}%; height:3%; border-radius:10px; background:#ebebeb; " aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <div class="div-block-354">
+                            @php 
+                            $variant = DB::table('videos')
+                                    ->join('reads','videos.id','reads.video_id')
+                                    ->join('sub_topics','sub_topics.id','videos.subtopic_id')
+                                    ->join('main_topics','main_topics.id','sub_topics.mainTopic_id')
+                                    ->where('reads.created_at', '>=', $start)
+                                    ->where('reads.created_at', '<', $end)
+                                    ->where('reads.user_id', Auth::id())
+                                    ->where('main_topics.id', 2)
+                                    ->whereNull('videos.deleted_at')
+                                    ->count();
+                            @endphp 
+                            <p class="text-block-367">Life </p>
+                            <div class="progress-bar" role="progressbar bg-info" style="width:{{($variant/$looks)*100}}%; height:3%; border-radius:10px; background:#ebebeb; " aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <div class="div-block-354">
+                            @php 
+                            $variant = DB::table('videos')
+                                    ->join('reads','videos.id','reads.video_id')
+                                    ->join('sub_topics','sub_topics.id','videos.subtopic_id')
+                                    ->join('main_topics','main_topics.id','sub_topics.mainTopic_id')
+                                    ->where('reads.created_at', '>=', $start)
+                                    ->where('reads.created_at', '<', $end)
+                                    ->where('reads.user_id', Auth::id())
+                                    ->where('main_topics.id', 5)
+                                    ->whereNull('videos.deleted_at')
+                                    ->count();
+                            @endphp 
+                            <p class="text-block-361">Tech et science </p>
+                            <div class="progress-bar" role="progressbar bg-info" style="width:{{($variant/$looks)*100}}%; height:3%; border-radius:10px; background:#ebebeb; " aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <div class="div-block-354">
                             <p class="text-block-358">Education</p>
-                            <div class="div-block-358"></div>
-                        </div>
-                        <div class="div-block-354">
-                            <p class="text-block-359">Sport Fit</p>
-                            <div class="div-block-359"></div>
+                            <div class="progress-bar" role="progressbar bg-info" style="width:0%; height:3%; border-radius:10px; background:#ebebeb; " aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <div class="div-block-354">
                             <p class="text-block-360">News</p>
-                            <div class="div-block-360"></div>
-                        </div>
-                        <div class="div-block-354">
-                            <p class="text-block-367">Life</p>
-                            <div class="div-block-361"></div>
-                        </div>
-                        <div class="div-block-354">
-                            <p class="text-block-361">Tech et science</p>
-                            <div class="div-block-363"></div>
+                            <div class="progress-bar" role="progressbar bg-info" style="width:0%; height:3%; border-radius:10px; background:#ebebeb; " aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    @endif
 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

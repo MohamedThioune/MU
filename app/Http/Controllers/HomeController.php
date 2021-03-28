@@ -47,6 +47,51 @@ class HomeController extends Controller
 
     public function play($id){
 
+        /* 
+        * Time shahid and Progress bar 
+        */
+
+        $start =  (new \Datetime())->format('Y-m-01 H:i:s');
+        $end =   (new \Datetime())->format('Y-m-30 H:i:s');
+
+        $look_videos = DB::table('reads')
+        ->join('videos','videos.id','reads.video_id')
+        ->where('reads.user_id',Auth::id())
+        ->whereNull('videos.deleted_at')
+        ->where('reads.created_at', '>=', $start)
+        ->where('reads.created_at', '<', $end)
+        ->select(DB::raw('count(*) as views, reads.video_id'))
+        ->groupBy('reads.video_id')
+        ->get();
+
+        $shahid = strtotime('i:s');
+
+        foreach($look_videos as $look){
+            $video = Video::find($look->video_id);
+            if($video->duration){
+                $duration = strtotime($video->duration);
+                $shahid += $duration;
+            }
+        };
+    
+        $shahid = date('H:i:s', $shahid);
+
+        /* 
+
+        */
+
+        $looks = DB::table('videos')
+        ->join('reads','videos.id','reads.video_id')
+        ->where('reads.user_id', Auth::id())
+        ->where('reads.created_at', '>=', $start)
+        ->where('reads.created_at', '<', $end)
+        ->whereNull('videos.deleted_at')
+        ->count();
+        
+        /* 
+        * 
+        */
+    
         $video = Video::find($id);
         $user = User::find($video->user_id); 
         $users = array();
@@ -73,6 +118,6 @@ class HomeController extends Controller
         Read::create($inputs_read);
 
         session(['video' => $video, 'user' => $user]);
-        return view('play', compact('comments', 'counts', 'reads', 'users', 'subtopics'));
+        return view('play', compact('comments', 'counts', 'reads', 'users', 'subtopics','looks','shahid'));
     }
 }

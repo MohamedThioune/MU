@@ -567,7 +567,7 @@
                         </a>
                     </div>
                     
-                    <a href="{{route('channel.visitor', $channel->id)}}"class="nameAuteur contentweb">{{$channel->name}}</a>
+                    <a href="{{route('channel.visitor', $channel->id)}}" style="color:#333333" class="nameAuteur contentweb">{{$channel->name}}</a>
                     <p class="nbreAbonnees contentweb"> {{\App\Models\Channel::find($channel->id)->abonnees->count()}} Abonnes</p>
                     <div class="contentMobile">
                         <p class="nameAuteur">{{$channel->name}}</p>
@@ -585,36 +585,122 @@
                         <img src="{{ asset('img/publicite.png') }}" alt="">
                     </div>
                 </div>
+                    @php 
+                        $date = new hijri();
+
+                        $date = explode(",",$date->date(null,2,false));
+                        $hijri_year = $date[1];
+                        $hijri_month =  explode(" ", $date[0])[6];
+                        $hijri_day = explode(" ", $date[0])[5];
+                        $gregorian =  (new \Datetime())->format('d.m.Y');
+
+                        $start =  (new \Datetime())->format('Y-m-01 H:i:s');
+                        $end =   (new \Datetime())->format('Y-m-30 H:i:s');
+                    @endphp
                 <div class="blockTime position-relative">
                     <button class="btn btnPLus"><img src="{{ asset('img/icones/plus.png') }}" alt=""></button>
                     <img class="img-time" src="{{ asset('img/icones/time-shahid.png') }}" alt="">
                     <div class="">
                         <p class="textTimeShalied">Time Shahid</p>
-                        <p class="timeSh">2h 25mn</p>
-                        <p class="calendar">12 Rajab 1638</p>
+                        @php $shahid = explode(":",$shahid); if($shahid[0] == "00") $shahid[0] = "0"; @endphp
+                        <p class="timeSh">{{$shahid[0]}}h {{$shahid[1]}} mn</p>
+                        <p class="calendar">{{$hijri_day}} {{$hijri_month}} {{$hijri_year}} (<span style="font-size:0.8em">{{$gregorian}}</span>)</p>
                     </div>
 
-                    <div class="elementBarreText">
-                        <div class="contentBarreText">
-                            <div class="rectangle"></div>
-                            <p class="lettre">B</p>
-                        </div>
-                        <div class="contentBarreText l">
-                            <div class="rectangle"></div>
-                            <p class="lettre">L</p>
-                        </div>
-                        <div class="contentBarreText h">
-                            <div class="rectangle"></div>
-                            <p class="lettre">H</p>
-                        </div>
+                    <div class="elementBarreText" style="transform: rotate(-180deg); height:50px; margin-top:40px">
+                        
                         <div class="contentBarreText e">
-                            <div class="rectangle"></div>
-                            <p class="lettre">E</p>
+                            @php 
+                                $variant = DB::table('videos')
+                                        ->join('reads','videos.id','reads.video_id')
+                                        ->join('sub_topics','sub_topics.id','videos.subtopic_id')
+                                        ->join('main_topics','main_topics.id','sub_topics.mainTopic_id')
+                                        ->where('reads.user_id', Auth::id())
+                                        ->where('reads.created_at', '>=', $start)
+                                        ->where('reads.created_at', '<', $end)
+                                        ->where('reads.user_id', Auth::id())
+                                        ->where('main_topics.id', 5)
+                                        ->whereNull('videos.deleted_at')
+                                        ->count();
+                            @endphp
+                            <p class="lettre" style="transform: rotate(180deg);">E</p>
+                            <div class="progress-bar" role="progressbar bg-info" style="width:18px; height:{{(($variant/$looks)*100)}}%; border-radius:10px; background:#4A4A4A;" aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
+                            
                         </div>
                         <div class="contentBarreText d">
-                            <div class="rectangle"></div>
-                            <p class="lettre">D</p>
+                            @php 
+                                $variant = DB::table('videos')
+                                        ->join('reads','videos.id','reads.video_id')
+                                        ->join('sub_topics','sub_topics.id','videos.subtopic_id')
+                                        ->join('main_topics','main_topics.id','sub_topics.mainTopic_id')
+                                        ->where('reads.user_id', Auth::id())
+                                        ->where('reads.created_at', '>=', $start)
+                                        ->where('reads.created_at', '<', $end)
+                                        ->where('reads.user_id', Auth::id())
+                                        ->where('main_topics.id', 5)
+                                        ->whereNull('videos.deleted_at')
+                                        ->count();
+                            @endphp
+                            <p class="lettre" style="transform: rotate(180deg);">D</p>
+                            <div class="progress-bar" role="progressbar bg-info" style="width:18px; height:{{(($variant/$looks)*100)}}%; border-radius:10px; background:#4A4A4A;" aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
+                            
                         </div>
+                        <div class="contentBarreText h">
+                            @php 
+                                $variant = DB::table('videos')
+                                        ->join('reads','videos.id','reads.video_id')
+                                        ->join('sub_topics','sub_topics.id','videos.subtopic_id')
+                                        ->join('main_topics','main_topics.id','sub_topics.mainTopic_id')
+                                        ->where('reads.user_id', Auth::id())
+                                        ->where('reads.created_at', '>=', $start)
+                                        ->where('reads.created_at', '<', $end)
+                                        ->where('reads.user_id', Auth::id())
+                                        ->where('main_topics.id', 3)
+                                        ->whereNull('videos.deleted_at')
+                                        ->count();
+                            @endphp
+                            <p class="lettre">H</p>
+                            <div class="progress-bar" role="progressbar bg-info" style="width:18px; height:{{(($variant/$looks)*100)}}%; border-radius:10px; background:#4A4A4A;" aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
+                            
+                        </div>
+                        <div class="contentBarreText l">
+
+                            @php  
+                                $variant = DB::table('videos')
+                                        ->join('reads','videos.id','reads.video_id')
+                                        ->join('sub_topics','sub_topics.id','videos.subtopic_id')
+                                        ->join('main_topics','main_topics.id','sub_topics.mainTopic_id')
+                                        ->where('reads.user_id', Auth::id())
+                                        ->where('reads.created_at', '>=', $start)
+                                        ->where('reads.created_at', '<', $end)
+                                        ->where('reads.user_id', Auth::id())
+                                        ->where('main_topics.id', 2)
+                                        ->whereNull('videos.deleted_at')
+                                        ->count();
+                            @endphp
+                            <p class="lettre" style="transform: rotate(180deg);">L</p>
+                            <div class="progress-bar" role="progressbar bg-info" style="width:18px; height:{{(($variant/$looks)*100)}}%; border-radius:10px; background:#4A4A4A;" aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
+                           
+                        </div>
+                        <div class="contentBarreText">
+                            @php 
+                                $variant = DB::table('videos')
+                                        ->join('reads','videos.id','reads.video_id')
+                                        ->join('sub_topics','sub_topics.id','videos.subtopic_id')
+                                        ->join('main_topics','main_topics.id','sub_topics.mainTopic_id')
+                                        ->where('reads.user_id', Auth::id())
+                                        ->where('reads.created_at', '>=', $start)
+                                        ->where('reads.created_at', '<', $end)
+                                        ->where('reads.user_id', Auth::id())
+                                        ->where('main_topics.id', 1)
+                                        ->whereNull('videos.deleted_at')
+                                        ->count();
+                            @endphp
+                            <p class="lettre" style="transform: rotate(180deg);">B</p>
+                            <div class="progress-bar" role="progressbar bg-info" style="width:18px; height:{{(($variant/$looks)*100)}}%; border-radius:10px; background:#4A4A4A;" aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
+                         
+                            
+                        </div>   
                     </div>
                 </div>
             </div>
@@ -1078,7 +1164,8 @@
                                                                         ->where('users.id', $video->user_id)
                                                                         ->first(); 
                                         @endphp
-                                        <p class="mindText">{{$channel->name}}</p>                                        <!-- Date creation relative -->
+                                        <p class="mindText">{{$channel->name}}</p>                                        
+                                        <!-- Date creation relative -->
                                         @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
                                         @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
                                         <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/3600)}} hours ago </p>

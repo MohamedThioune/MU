@@ -77,6 +77,8 @@
         <a href="#" class="link-26">Offres</a>
         <a href="#" class="link-26">Playlist</a>
     </div>
+    @if($events)
+    @if(count($events)>1)
     <div class="infos-hot">
         <p class="text-block-381">Fresh Flow</p>
         <div class="div-block-394">
@@ -122,6 +124,8 @@
         @endif      
         </div>
     </div>
+    @endif
+    @endif
     <div class="business-now">
         <div class="video-sadakatia-asso">
             <a href="{{route('play',$videos[0]->id)}}"><img src="{{ asset('img/Mu-Vignette-video-400x250-photographe.jpg') }}" alt=""></a>
@@ -163,6 +167,8 @@
                 <div class="div-block-384">
                     <img src="{{ asset('img/Capture-d’écran-2021-03-04-à-12.34.15.png') }}" width="47" class="image-128"></div>
                 <div>
+                    @if($activities)
+                    @if(count($activities)>0)
                     <div>
                         <div class="infos-biz-chaine">
                             <p class="text-block-343"><b style="color:black;">{{$visit->name}}</b> en grandes lignes ...</p>
@@ -174,10 +180,20 @@
                         <a class="btn btn-default" style="text-decoration:none;margin-left:-15px" href="{{route('activities.create')}}" alt="">&#x267B; Actualiser</a>
                         @endif
                     </div>
+                    @else
+                    <div>
+                        <div class="infos-biz-chaine">
+                            <p class="text-block-343"><b style="color:black;">{{$visit->name}}</b> la pour vous &#x1F60E; ...</p>
+                        </div>
+                    </div>
+                    @endif
+                    
+                    @endif
                 </div>
             </div>
         </div>
     </div>
+    @if($contact)
     <div class="coordonne">
         <div class="text-block-331"><a href="" class="link-25">Contact</a></div> <br>
         <p class="text-block-331"> <span style="text-decoration:underline">Adresse</span><br>N° voie : {{$contact->adresse}}<br>Code postale : {{$contact->code_postale}}<br> Ville : {{$contact->ville}} <br>Pays : {{$contact->pays}}</p>
@@ -192,6 +208,8 @@
             @endif
         @endif
     </div>
+    @endif
+    @php $bool = false; @endphp
     <div class="derniersNouvelles">
         <p class="text-Playlist">Les videos qui ont été le plus visionnées ... </p>
         <div class="swiper-container swipeContainermodife1">
@@ -199,6 +217,7 @@
                 @foreach($videos_top as $video)
                 @if($video->views > 200)
                 @php 
+                    $bool = true;
                     $top = App\Models\Video::find($video->video_id);
                     $user = App\User::find($top->user_id);
                 @endphp
@@ -264,6 +283,7 @@
                 </div>
                 @endif
                 @endforeach
+               @if(!$bool) Aucune video ne peut etre charger pour cette chaine en ce moment &#x1F625;  @endif
             </div>
         </div>
     </div>
