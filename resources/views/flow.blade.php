@@ -1,23 +1,15 @@
 @extends('layouts.sidbarNavigation')
-    <meta charset="utf-8">
-    <title>
-        MU
-    </title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<head>
+    @section('css')
     <link rel="stylesheet" href="css/menu.css">
     <link rel="stylesheet" href="node_modules/swiper/swiper.min.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    @endsection
 </head>
-
 <body>
 @section('content-play-element')
-<div class="d-block">
+<div class="contentOneMonFlow">
 @if(session('videos_haltcare'))
 @if(count(session('videos_haltcare')) > 0)
 <div class="content-Haltcare">
@@ -35,7 +27,7 @@
                         @foreach(session('videos_haltcare') as $video)
                         <div class="swiper-slide card-suggestionDay">
                             <div class="elementCardSuggestionDay">
-                                @php 
+                                @php
                                     $user = App\User::find($video->user_id);
                                 @endphp
 
@@ -48,9 +40,9 @@
                                 @elseif($user->age > 15 && $user->sex == '0')
                                     <img class="imgElementCardSuggestionDay" src="{{asset('images/sista_preloader.png')}}" alt="">
                                 @endif
-                            
+
                                 <a href="{{route('play',[$video->id])}}" target="blank" class="contentFlyHeure">
-                                    <p class="flyText"> 
+                                    <p class="flyText">
                                         @foreach($subtopics as $subtopic)
                                         @if($video->subtopic_id == $subtopic->id)
                                             {{ $subtopic->libelle }}
@@ -87,7 +79,7 @@
                                     </a>
                                 </div>
                                 <div class="mindCard">
-                                   
+
                                     <div class="blockImgMind">
                                         @if($user->photo)
                                         <img class="" src="{{ asset('/images/uploads') }}/{{$user->photo}}" alt="">
@@ -100,13 +92,13 @@
                                         @endif
                                     </div>
                                     <div class="block3">
-                                        @php  
+                                        @php
                                             $channel = DB::Table('users')->select('channels.*')
                                                                         ->join('channels', 'users.id', 'channels.user_id')
                                                                         ->where('users.id', $video->user_id)
-                                                                        ->first(); 
+                                                                        ->first();
                                         @endphp
-                                        <p class="mindText">{{$channel->name}}</p>                                        
+                                        <p class="mindText">{{$channel->name}}</p>
                                         <!-- Date creation relative -->
                                         @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
                                         @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
@@ -157,7 +149,7 @@
                         @foreach(session('videos_life') as $video)
                         <div class=" swiper-slide card-suggestionDay">
                             <div class="elementCardSuggestionDay">
-                                @php 
+                                @php
                                     $user = App\User::find($video->user_id);
                                 @endphp
 
@@ -169,7 +161,7 @@
                                     <img class="imgElementCardSuggestionDay" src="{{asset('images/flow_preloader.png')}}" alt=""/>
                                 @elseif($user->age > 15 && $user->sex == '0')
                                     <img class="imgElementCardSuggestionDay" src="{{asset('images/sista_preloader.png')}}" alt="">
-                                @endif                                
+                                @endif
                                 <a href="{{route('play',[$video->id])}}" target="blank" class="contentFlyHeure">
                                     <p class="flyText">
                                         @foreach($subtopics as $subtopic)
@@ -207,7 +199,7 @@
                                     </a>
                                 </div>
                                 <div class="mindCard">
-            
+
                                     <div class="blockImgMind">
                                         @if($user->photo)
                                         <img class="" src="{{ asset('/images/uploads') }}/{{$user->photo}}" alt="">
@@ -220,11 +212,11 @@
                                         @endif
                                     </div>
                                     <div class="block3">
-                                        @php  
+                                        @php
                                             $channel = DB::Table('users')->select('channels.*')
                                                                         ->join('channels', 'users.id', 'channels.user_id')
                                                                         ->where('users.id', $video->user_id)
-                                                                        ->first(); 
+                                                                        ->first();
                                         @endphp
                                         <p class="mindText">{{$channel->name}}</p>
                                         <!-- Date creation relative -->
@@ -277,7 +269,7 @@
                         @foreach(session('videos_health') as $video)
                         <div class=" swiper-slide card-suggestionDay">
                             <div class="elementCardSuggestionDay">
-                                @php 
+                                @php
                                     $user = App\User::find($video->user_id);
                                 @endphp
 
@@ -289,7 +281,7 @@
                                     <img class="imgElementCardSuggestionDay" src="{{asset('images/flow_preloader.png')}}" alt=""/>
                                 @elseif($user->age > 15 && $user->sex == '0')
                                     <img class="imgElementCardSuggestionDay" src="{{asset('images/sista_preloader.png')}}" alt="">
-                                @endif                                
+                                @endif
                                 <a href="{{route('play',[$video->id])}}" target="blank" class="contentFlyHeure">
                                     <p class="flyText">
                                         @foreach($subtopics as $subtopic)
@@ -327,7 +319,7 @@
                                     </a>
                                 </div>
                                 <div class="mindCard">
-                                    
+
                                     <div class="blockImgMind">
                                         @if($user->photo)
                                         <img class="" src="{{ asset('/images/uploads') }}/{{$user->photo}}" alt="">
@@ -340,11 +332,11 @@
                                         @endif
                                     </div>
                                     <div class="block3">
-                                        @php  
+                                        @php
                                             $channel = DB::Table('users')->select('channels.*')
                                                                         ->join('channels', 'users.id', 'channels.user_id')
                                                                         ->where('users.id', $video->user_id)
-                                                                        ->first(); 
+                                                                        ->first();
                                         @endphp
                                         <p class="mindText">{{$channel->name}}</p>                                        <!-- Date creation relative -->
                                         @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
@@ -397,7 +389,7 @@
                         @foreach(session('videos_business') as $video)
                         <div class=" swiper-slide card-suggestionDay">
                             <div class="elementCardSuggestionDay">
-                                @php 
+                                @php
                                     $user = App\User::find($video->user_id);
                                 @endphp
 
@@ -409,7 +401,7 @@
                                     <img class="imgElementCardSuggestionDay" src="{{asset('images/flow_preloader.png')}}" alt=""/>
                                 @elseif($user->age > 15 && $user->sex == '0')
                                     <img class="imgElementCardSuggestionDay" src="{{asset('images/sista_preloader.png')}}" alt="">
-                                @endif                                 
+                                @endif
                                 <a href="{{route('play',[$video->id])}}" target="blank" class="contentFlyHeure">
                                     <p class="flyText">
                                         @foreach($subtopics as $subtopic)
@@ -447,7 +439,7 @@
                                     </a>
                                 </div>
                                 <div class="mindCard">
-                                   
+
                                     <div class="blockImgMind">
                                         @if($user->photo)
                                         <img class="" src="{{ asset('/images/uploads') }}/{{$user->photo}}" alt="">
@@ -460,11 +452,11 @@
                                         @endif
                                     </div>
                                     <div class="block3">
-                                        @php  
+                                        @php
                                             $channel = DB::Table('users')->select('channels.*')
                                                                         ->join('channels', 'users.id', 'channels.user_id')
                                                                         ->where('users.id', $video->user_id)
-                                                                        ->first(); 
+                                                                        ->first();
                                         @endphp
                                         <p class="mindText">{{$channel->name}}</p>                                        <!-- Date creation relative -->
                                         @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
@@ -517,7 +509,7 @@
                             @foreach(session('videos_education') as $video)
                             <div class=" swiper-slide card-suggestionDay">
                                 <div class="elementCardSuggestionDay">
-                                    @php 
+                                    @php
                                         $user = App\User::find($video->user_id);
                                     @endphp
 
@@ -529,7 +521,7 @@
                                         <img class="imgElementCardSuggestionDay" src="{{asset('images/flow_preloader.png')}}" alt=""/>
                                     @elseif($user->age > 15 && $user->sex == '0')
                                         <img class="imgElementCardSuggestionDay" src="{{asset('images/sista_preloader.png')}}" alt="">
-                                    @endif                                     
+                                    @endif
                                     <a href="{{route('play',[$video->id])}}" target="blank" class="contentFlyHeure">
                                         <p class="flyText">
                                         @foreach($subtopics as $subtopic)
@@ -582,11 +574,11 @@
                                             @endif
                                         </div>
                                         <div class="block3">
-                                        @php  
+                                        @php
                                             $channel = DB::Table('users')->select('channels.*')
                                                                         ->join('channels', 'users.id', 'channels.user_id')
                                                                         ->where('users.id', $video->user_id)
-                                                                        ->first(); 
+                                                                        ->first();
                                         @endphp
                                         <p class="mindText">{{$channel->name}}</p>                                            <!-- Date creation relative -->
                                             @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
@@ -639,7 +631,7 @@
                         @foreach(session('videos_environnement') as $video)
                         <div class=" swiper-slide card-suggestionDay">
                             <div class="elementCardSuggestionDay">
-                                    @php 
+                                    @php
                                         $user = App\User::find($video->user_id);
                                     @endphp
 
@@ -651,9 +643,9 @@
                                         <img class="imgElementCardSuggestionDay" src="{{asset('images/flow_preloader.png')}}" alt=""/>
                                     @elseif($user->age > 15 && $user->sex == '0')
                                         <img class="imgElementCardSuggestionDay" src="{{asset('images/sista_preloader.png')}}" alt="">
-                                    @endif                                 
+                                    @endif
                                     <a href="{{route('play',[$video->id])}}" target="blank" class="contentFlyHeure">
-                                    <p class="flyText"> 
+                                    <p class="flyText">
                                         @foreach($subtopics as $subtopic)
                                         @if($video->subtopic_id == $subtopic->id)
                                             {{ $subtopic->libelle }}
@@ -704,14 +696,14 @@
                                         @endif
                                     </div>
                                     <div class="block3">
-                                        @php  
+                                        @php
                                             $channel = DB::Table('users')->select('channels.*')
                                                                         ->join('channels', 'users.id', 'channels.user_id')
                                                                         ->where('users.id', $video->user_id)
-                                                                        ->first(); 
+                                                                        ->first();
                                         @endphp
-                                        <p class="mindText">{{$channel->name}}</p>                                        
-                                        
+                                        <p class="mindText">{{$channel->name}}</p>
+
                                         @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
                                         @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
                                         <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/3600)}} hours ago </p>
@@ -745,5 +737,61 @@
 @endif
 @endif
 </div>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="node_modules/swiper/swiper-bundle.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+    var swiper = new Swiper('.swipeContainermodife1', {
+        slidesPerView: 3,
+        spaceBetween: 30
+    });
+</script>
+
+<script>
+    var swiper = new Swiper('.swiper-helatcare', {
+        slidesPerView: 4.4,
+        spaceBetween: 30,
+        // Responsive breakpoints
+        breakpoints: {
+
+            // when window width is <= 320px
+            320: {
+                slidesPerView: 1.2,
+                spaceBetween: 10
+            },
+            // when window width is <= 480px
+            480: {
+                slidesPerView: 2.3,
+                spaceBetween: 10
+            },
+            980: {
+                slidesPerView: 3,
+                spaceBetween: 10
+            },
+            1200: {
+                slidesPerView: 4.4,
+                spaceBetween: 10
+            },
+
+
+        }
+    });
+    if ($('.swiper-container .swiper-slide').length < 1) {
+        var swiper = new Swiper('.swiper-helatcare', {
+            // Optional parameters
+            direction: 'horizontal',
+            loop: false,
+            //autoplay: 6500,
+            autoplayDisableOnInteraction: false,
+
+            keyboardControl: true,
+            mousewheelControl: true,
+            paginationClickable: true,
+
+        });
+    }
+</script>
+<script src="{{asset('js/fixeElement.js')}}"></script>
 @endsection
 </body>

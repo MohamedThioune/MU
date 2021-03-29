@@ -1506,6 +1506,12 @@ video{
     padding: 20px 15px 0;
     font-family: "Ubuntu-Bold";
 }
+.text-environnement{
+    text-align: left;
+    padding: 20px 15px 0;
+    font-family: "Ubuntu-Bold";
+    color: #ffc877;
+}
 .sousBlockTitle{
     padding: 20px 20px 10px 20px;
     border-top-left-radius: 5px;

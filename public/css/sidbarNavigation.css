@@ -1903,12 +1903,13 @@
     display: flex;
     flex-wrap: wrap;
     margin-top: 39px;
+    margin-left: 15px;
 }
 .margin2{
     margin-right: 30px;
 }
 .div-block-200 {
-    width: 15%;
+    width: 9%;
     height: auto;
     margin: 10px 15px;
 }

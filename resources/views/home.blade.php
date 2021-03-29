@@ -1,28 +1,14 @@
 @extends('layouts.sidbarNavigation')
 <head>
-    <meta charset="utf-8">
-    <title>
-        MU
-    </title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    @section('css')
     <link rel="stylesheet" href="css/menu.css">
     <link rel="stylesheet" href="node_modules/swiper/swiper.min.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    @endsection
 </head>
 <body>
 @section('content-play-element')
-<!--
-@php
-    $signals = DB::Table('reports')->select('*')
-                               ->where('reports.user_id', Auth::id())
-                               ->get();
-@endphp-->
 <div class="contentOneMonFlow">
     <div class="pub-bando-connect">
         <div class="info-pub-bando">
@@ -81,7 +67,7 @@
                             <img class="imgElementCardSuggestionDay" src="{{asset('images/flow_preloader.png')}}" alt=""/>
                         @elseif($user->age > 15 && $user->sex == '0')
                             <img class="imgElementCardSuggestionDay" src="{{asset('images/sista_preloader.png')}}" alt="">
-                        @endif                        
+                        @endif
                         <a href="{{route('play',[$video->id])}}" class="contentFlyHeure">
                             <p class="flyText">
                             @foreach($subtopics as $subtopic)
@@ -191,7 +177,7 @@
             <div class="swiper-wrapper">
                 @foreach($last as $vid)
                 <div class=" swiper-slide card-suggestionDay">
-                    @php 
+                    @php
                         $video = App\Models\Video::find($vid->video_id);
                         $user = App\User::find($video->user_id);
                     @endphp
@@ -204,7 +190,7 @@
                             <img class="imgElementCardSuggestionDay" src="{{asset('images/flow_preloader.png')}}" alt=""/>
                         @elseif($user->age > 15 && $user->sex == '0')
                             <img class="imgElementCardSuggestionDay" src="{{asset('images/sista_preloader.png')}}" alt="">
-                        @endif                        
+                        @endif
                         <a href="{{route('play',[$video->id])}}" target="" class="contentFlyHeure">
                             <p class="flyText">
                             @foreach($subtopics as $subtopic)
@@ -338,7 +324,7 @@
                         <p class="text-block-373">jours</p>
                     </div>
                     <div>
-                        @php 
+                        @php
                         $date = new hijri();
                         @endphp
                         <div class="div-block-376">
@@ -451,7 +437,7 @@
                     </div>
                 </div>
                 <div>
-                @php 
+                @php
                     $date = explode(",",$date->date(null,2,false));
                     $hijri_year = $date[1];
                     $hijri_month =  explode(" ", $date[0])[6];
@@ -480,7 +466,7 @@
                             </p>
                         </div>
                         <div class="div-block-354">
-                            @php 
+                            @php
                             $variant = DB::table('videos')
                                     ->join('reads','videos.id','reads.video_id')
                                     ->join('sub_topics','sub_topics.id','videos.subtopic_id')
@@ -497,7 +483,7 @@
                             <div class="progress-bar" role="progressbar bg-info" style="width:{{($variant/$looks)*100}}%; height:3%; border-radius:10px; background:#ebebeb; " aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <div class="div-block-354">
-                            @php 
+                            @php
                             $variant = DB::table('videos')
                                     ->join('reads','videos.id','reads.video_id')
                                     ->join('sub_topics','sub_topics.id','videos.subtopic_id')
@@ -514,7 +500,7 @@
                             <div class="progress-bar" role="progressbar bg-info" style="width:{{($variant/$looks)*100}}%; height:3%; border-radius:10px; background:#ebebeb; " aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <div class="div-block-354">
-                            @php 
+                            @php
                             $variant = DB::table('videos')
                                     ->join('reads','videos.id','reads.video_id')
                                     ->join('sub_topics','sub_topics.id','videos.subtopic_id')
@@ -525,12 +511,12 @@
                                     ->where('main_topics.id', 1)
                                     ->whereNull('videos.deleted_at')
                                     ->count();
-                            @endphp 
+                            @endphp
                             <p class="text-block-357">Santé</p>
                             <div class="progress-bar" role="progressbar bg-info" style="width:{{($variant/$looks)*100}}%; height:3%; border-radius:10px; background:#ebebeb; " aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <div class="div-block-354">
-                            @php 
+                            @php
                             $variant = DB::table('videos')
                                     ->join('reads','videos.id','reads.video_id')
                                     ->join('sub_topics','sub_topics.id','videos.subtopic_id')
@@ -541,12 +527,12 @@
                                     ->where('main_topics.id', 3)
                                     ->whereNull('videos.deleted_at')
                                     ->count();
-                            @endphp 
+                            @endphp
                             <p class="text-block-359">Sport Fit</p>
                             <div class="progress-bar" role="progressbar bg-info" style="width:{{($variant/$looks)*100}}%; height:3%; border-radius:10px; background:#ebebeb; " aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <div class="div-block-354">
-                            @php 
+                            @php
                             $variant = DB::table('videos')
                                     ->join('reads','videos.id','reads.video_id')
                                     ->join('sub_topics','sub_topics.id','videos.subtopic_id')
@@ -557,12 +543,12 @@
                                     ->where('main_topics.id', 2)
                                     ->whereNull('videos.deleted_at')
                                     ->count();
-                            @endphp 
+                            @endphp
                             <p class="text-block-367">Life </p>
                             <div class="progress-bar" role="progressbar bg-info" style="width:{{($variant/$looks)*100}}%; height:3%; border-radius:10px; background:#ebebeb; " aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <div class="div-block-354">
-                            @php 
+                            @php
                             $variant = DB::table('videos')
                                     ->join('reads','videos.id','reads.video_id')
                                     ->join('sub_topics','sub_topics.id','videos.subtopic_id')
@@ -573,7 +559,7 @@
                                     ->where('main_topics.id', 5)
                                     ->whereNull('videos.deleted_at')
                                     ->count();
-                            @endphp 
+                            @endphp
                             <p class="text-block-361">Tech et science </p>
                             <div class="progress-bar" role="progressbar bg-info" style="width:{{($variant/$looks)*100}}%; height:3%; border-radius:10px; background:#ebebeb; " aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
@@ -647,6 +633,6 @@
         });
     }
 </script>
-<script src="{{asset('js/fixeElement.js')}}"></script>
-@endsection
+    <script src="{{asset('js/fixeElement.js')}}"></script>
+    @endsection
 </body>
