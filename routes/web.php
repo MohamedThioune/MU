@@ -226,3 +226,28 @@ Route::resource('activities', 'ActivityController');
 Route::resource('contacts', 'ContactController');
 
 Route::resource('products', 'productController');
+
+
+Route::view('/chaineAbonne', 'chaineAbonne');
+Route::view('/notification', 'notification');
+Route::get('/parametre', function () {
+    $channel = DB::Table('users')->select('channels.*')
+    ->join('channels', 'users.id', 'channels.user_id')
+    ->where('users.id', Auth::id())
+    ->first();
+    return view('users.parametre',compact('channel'));
+})->name('parametre');
+
+Route::get('/parametrePhoto', function () {
+    $channel = DB::Table('users')->select('channels.*')
+    ->join('channels', 'users.id', 'channels.user_id')
+    ->where('users.id', Auth::id())
+    ->first();
+    return view('users.parametrePhoto',compact('channel'));
+})->name('user.pictures');
+
+
+Route::post('/parameter', [App\Http\Controllers\UserController::class, 'parameter'])->name('users.parameter')->middleware('auth');
+
+Route::get('/picture/{alpha}', [App\Http\Controllers\UserController::class, 'picture'])->name('users.picture')->middleware('auth');
+

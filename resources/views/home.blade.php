@@ -37,17 +37,17 @@
                 <p class="link-229">www.pub-link</p>
                 <a href="" class="go w-inline-block text-block-295">Go!</a>
             </div>
-            <div class="like-notication">
+            <div class="like-notication2">
                 <button class="btn btnNote">
-                    <img src="Image-5.png" alt="">
+                    <img src="{{ asset('img/Image-5.png') }}" alt="">
                 </button>
                 <button class="btn btnNote">
-                    <img src="Image-6.png" alt="">
+                    <img src="{{ asset('img/Image-6.png') }}" alt="">
                 </button>
             </div>
         </div>
         <div class="imgPubBlock">
-            <img src="" alt="">
+            <img src="{{ asset('img/Mu-bandeau-Pub.jpg') }}" alt="">
         </div>
     </div>
     <p class="text-block-350">Tous tes informations en un clin d'œil </p>
@@ -58,10 +58,15 @@
         <a href="#" class="link-26">Offres</a>
         <a href="#" class="link-26">Playlist</a>
     </div>
-    <div class="derniersNouvelles">
-        <div class="d-flex">
-            <img src="{{ asset('img/Mu-flow-picto-bull.svg') }}"  alt="" class="image-bull1">
-            <p class="text-Playlist">Hot notifications</p>
+    <div class="hotNotifications">
+        <div class="blockTitle2">
+            <div class="d-flex">
+                <img src="{{ asset('img/Mu-flow-picto-bull.svg') }}"  alt="" class="image-bull1">
+                <p class="text-Playlist">Hot notifications</p>
+            </div>
+         <div class="paddignElement8">
+             <a href="" class="toutesNotifications">Toutes mes notifications</a>
+         </div>
         </div>
         <div class="swiper-container swipeContainermodife1">
             <div class="swiper-wrapper">

@@ -1900,14 +1900,17 @@
 }
 
 .choix {
-    margin-top: 49px;
-    margin-left: 0px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 39px;
 }
-
+.margin2{
+    margin-right: 30px;
+}
 .div-block-200 {
-    width: 60%;
+    width: 15%;
     height: auto;
-    margin: 10px 4px;
+    margin: 10px 15px;
 }
 
 .image-86 {
@@ -1968,6 +1971,7 @@
     display: -ms-flexbox;
     display: flex;
 }
+
 
 .box-parametre {
     display: -webkit-box;
@@ -2066,7 +2070,7 @@
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     padding-bottom: 10px;
     -webkit-box-pack: justify;
     -webkit-justify-content: space-between;
@@ -2074,13 +2078,15 @@
     justify-content: space-between;
     border-bottom: 1px solid #ebebeb;
     color: #8f8f8f;
+    align-items: baseline;
 }
 
 .text-block-228 {
     width: 100px;
     color: #4d4d4d;
     font-size: 12px;
-    font-weight: 500;
+    font-family: "Ubuntu-Regular";
+    margin-bottom: 0;
 }
 
 .div-block-207 {
@@ -2102,7 +2108,7 @@
 }
 
 .text-block-229 {
-    padding: 0px 10px 10px;
+
     color: #8f8f8f;
     font-size: 15px;
     font-weight: 400;
@@ -2177,7 +2183,7 @@
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    margin-bottom: 20px;
+    margin-bottom: 0px;
     padding-bottom: 10px;
     -webkit-box-pack: justify;
     -webkit-justify-content: space-between;
@@ -2191,10 +2197,10 @@
 }
 
 .nom-p {
-    padding: 0px 10px 10px;
     color: #4d4d4d;
     font-size: 16px;
-    font-weight: 500;
+    font-family: "Ubuntu-Medium";
+    margin-bottom: 0;
 }
 
 .infos {
@@ -2252,11 +2258,13 @@
 
 .text-block-232 {
     color: #4d4d4d;
+    font-family: "Ubuntu-Regular";
 }
 
 .text-block-233 {
     margin-top: 10px;
     text-align: center;
+    font-family: "Ubuntu-Regular";
 }
 
 .text-block-234 {
@@ -2269,18 +2277,20 @@
 .text-block-235 {
     margin-right: 10px;
     margin-left: 10px;
-    padding: 5px 15px;
+    padding: 5px 15px !important;
     border-radius: 20px;
     background-color: #ebebeb;
+    border: 0px solid !important;
 }
 
 .text-block-236 {
     margin-right: 10px;
     margin-left: 10px;
-    padding: 5px 15px;
+    padding: 5px 15px !important;
     border-radius: 20px;
     background-color: #8f8f8f;
     color: #fff6f6;
+    border: 0px solid !important;
 }
 
 .div-block-213 {
@@ -4119,7 +4129,7 @@
     width: 127px;
     height: auto;
     margin: 0px 20px 0px 0px;
-    padding: 0px 10px 10px;
+
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -webkit-flex-direction: column;
@@ -7473,22 +7483,31 @@
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    margin-top: 10px;
     -webkit-box-pack: justify;
     -webkit-justify-content: space-between;
     -ms-flex-pack: justify;
     justify-content: space-between;
+    width: 100%;
 }
-
+.textWidth{
+    width: 60%;
+    margin-right: 10px;
+}
+.progress{
+    background: #e9ecef5c !important;
+    height: 22px;
+    border-radius: 14px;
+    margin-bottom: 5px;
+}
 .text-block-354 {
     margin-right: 10px;
     color: #12ccff;
     font-size: 12px;
     margin-bottom: 0;
+    width: 60%;
 }
 
 .div-block-355 {
-    width: 90px;
     height: 20px;
     border-radius: 10px;
     background-color: #ebebeb;
@@ -8347,6 +8366,10 @@
     margin-bottom: 7px;
     font-size: 25px;
     font-family: "Ubuntu-Bold";
+    text-overflow: ellipsis;
+    width: 292px;
+    overflow: hidden;
+    white-space: nowrap;
 }
 .text-block-385 {
     margin-bottom: 7px;
@@ -8394,6 +8417,15 @@
     background-color: #fffdef;
     width: 100%;
     padding-left: 30px;
+}
+.hotNotifications{
+    border-style: solid;
+    border-width: 20px 1px 1px;
+    border-color: #fff;
+    width: 100%;
+    padding: 20px 40px;
+    border-bottom: 20px solid #fff;
+    background: #f8f8f8;
 }
 .text-Playlist{
     margin-top: 20px;

@@ -13,6 +13,7 @@ use Hash;
 use App\User;
 use Illuminate\Support\Str;
 use App\Http\Controllers\UserController\upload;
+use DB;
 
 class UserController extends AppBaseController
 {
@@ -223,4 +224,51 @@ class UserController extends AppBaseController
 
         return redirect()->back();
     }
+
+    public function parameter(UpdateUserRequest $request){
+
+        $channel = DB::Table('users')->select('channels.*')
+                                    ->join('channels', 'users.id', 'channels.user_id')
+                                    ->where('users.id', Auth::id())
+                                    ->first();
+
+        $input = $request->all();
+
+        /** @var User $user */
+        $user = Auth::user();
+
+        $name =  $input['name'] ? $input['name'] : $user->name;
+
+        $date =  $input['date'] ? $input['date'] : $user->date;
+
+        $adresse =  $input['adresse'] ? $input['adresse'] : $user->adresse;
+
+        $password = $input['name'] ? bcrypt($input['password']) : $user->password ;
+
+
+
+        User::where('id', Auth::id())
+            ->update(['name' => $name , 'password' => $password, 'date' => $date, 'adresse' => $adresse]);
+        
+        Flash::success('Information user updated successfully.');
+        
+        return view('users.parametre',compact('channel'));
+    }
+
+    public function picture($alpha){
+        $channel = DB::Table('users')->select('channels.*')
+        ->join('channels', 'users.id', 'channels.user_id')
+        ->where('users.id', Auth::id())
+        ->first();
+
+        User::where('id', Auth::id())
+        ->update(['photo' => $alpha]);
+    
+        Flash::success('Profile picture updated successfully.');
+
+        return redirect(route('parametre'));
+
+    }
+
+
 }

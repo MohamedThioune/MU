@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="{{asset('css/menu.css')}}">
     <link rel="stylesheet" href="../css/sidbarNavigation.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.css" integrity="sha512-phGxLIsvHFArdI7IyLjv14dchvbVkEDaH95efvAae/y2exeWBQCQDpNFbOTdV1p4/pIa/XtbuDCnfhDEIXhvGQ==" crossorigin="anonymous" />
+    <script src="https://kit.fontawesome.com/2def424b14.js" crossorigin="anonymous"></script>
     @yield('css')
 </head>
 
@@ -168,7 +169,7 @@
                            
                            <p class="text-block-243">Particulier</p>
                            <div class="profil-photo">
-                               <img src="{{ asset('img/Mu-bull-profil-caio-56733.jpg') }}" width="69" alt="" class="image-94"></div>
+                               <img src="{{ asset('images/uploads/') }}/{{Auth::user()->photo}}" width="69" alt="" class="image-94"></div>
                            <div class="text-block-237">Bienvenue dans ton tableau de bord</div>
                        </div>
                        <div class="faq-wrapper">
