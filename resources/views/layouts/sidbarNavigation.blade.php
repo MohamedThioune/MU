@@ -160,7 +160,7 @@
                            </div>
                        </div>
                        <div class="head-slidebar-user">
-                        @if(!Auth::guest())
+                       @if(!Auth::guest()) 
                             @if($channel)
                             <p class='text-block-242'>{{$channel->name}}</p>
                             @endif
@@ -169,7 +169,9 @@
                            
                            <p class="text-block-243">Particulier</p>
                            <div class="profil-photo">
+                           @if(!Auth::guest())
                                <img src="{{ asset('images/uploads/') }}/{{Auth::user()->photo}}" width="69" alt="" class="image-94"></div>
+                           @endif
                            <div class="text-block-237">Bienvenue dans ton tableau de bord</div>
                        </div>
                        <div class="faq-wrapper">
