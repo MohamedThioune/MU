@@ -1740,6 +1740,22 @@ video{
 .accrocheskateImg {
     width: 49px;
 }
+.v1{
+width: unset !important;
+}
+/*safarie*/
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    .accrocheskateImg{
+        width: 49px;
+        height: min-intrinsic !important;
+    }
+    .swiper-slide {
+        height: auto !important;
+    }
+    .fistElement {
+        height: auto !important;
+    }
+}
 .info-pub-bando{
     padding: 20px 50px;
 }
