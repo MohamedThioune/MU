@@ -164,9 +164,9 @@ Route::post('/delete/videos', [App\Http\Controllers\VideoController::class, 'del
 Route::get('/play', function () {
 
     return view('play');
-})->name('playing');
+})->name('playing')->middleware('auth');
 
-Route::get('/play/{n}', [App\Http\Controllers\HomeController::class, 'play'])->where('n','[0-9]+')->name('play');
+Route::get('/play/{n}', [App\Http\Controllers\HomeController::class, 'play'])->where('n','[0-9]+')->name('play')->middleware('auth');
 
 // home page : list all videos [Online]
 Route::get('/choose', [App\Http\Controllers\ProfileController::class, 'choose'])->name('choose')->middleware('auth');
@@ -188,7 +188,7 @@ Route::get('/flow', function () {
     $subtopics = DB::Table('sub_topics')->select('*')
     ->get();
     return view('flow',compact('subtopics'));
-})->name('flow');
+})->name('flow')->middleware('auth');
 
 Auth::routes();
 
@@ -197,19 +197,19 @@ Route::get('suscribe/{channel_id}','UserController@suscribe')->name('suscribe');
 
 Route::resource('profiles', 'ProfileController')->middleware('auth');
 
-Route::resource('channels', 'channelController');
+Route::resource('channels', 'channelController')->middleware('auth');
 
-Route::resource('categorySecondaries', 'CategorySecondaryController');
+Route::resource('categorySecondaries', 'CategorySecondaryController')->middleware('auth');
 
-Route::resource('categoryPrimaries', 'CategoryPrimaryController');
+Route::resource('categoryPrimaries', 'CategoryPrimaryController')->middleware('auth');
 
-Route::resource('subTopics', 'SubTopicController');
+Route::resource('subTopics', 'SubTopicController')->middleware('auth');
 
-Route::resource('mainTopics', 'MainTopicController');
+Route::resource('mainTopics', 'MainTopicController')->middleware('auth');
 
-Route::resource('videos', 'VideoController');
-Route::get('likevideo/{video_id}','VideoController@likeVideo')->name('likevideo');
-Route::get('dislikevideo/{video_id}','VideoController@dislikeVideo')->name('dislikevideo');
+Route::resource('videos', 'VideoController')->middleware('auth');
+Route::get('likevideo/{video_id}','VideoController@likeVideo')->name('likevideo')->middleware('auth');
+Route::get('dislikevideo/{video_id}','VideoController@dislikeVideo')->name('dislikevideo')->middleware('auth');
 
 
 Route::resource('reports', 'ReportController');
@@ -242,7 +242,7 @@ Route::get('/parametre', function () {
     ->where('users.id', Auth::id())
     ->first();
     return view('users.parametre',compact('channel'));
-})->name('parametre');
+})->name('parametre')->middleware('auth');
 
 Route::get('/parametrePhoto', function () {
     $channel = DB::Table('users')->select('channels.*')
@@ -250,7 +250,7 @@ Route::get('/parametrePhoto', function () {
     ->where('users.id', Auth::id())
     ->first();
     return view('users.parametrePhoto',compact('channel'));
-})->name('user.pictures');
+})->name('user.pictures')->middleware('auth');
 
 
 Route::post('/parameter', [App\Http\Controllers\UserController::class, 'parameter'])->name('users.parameter')->middleware('auth');

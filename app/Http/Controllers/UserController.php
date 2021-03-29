@@ -245,8 +245,6 @@ class UserController extends AppBaseController
 
         $password = $input['name'] ? bcrypt($input['password']) : $user->password ;
 
-
-
         User::where('id', Auth::id())
             ->update(['name' => $name , 'password' => $password, 'date' => $date, 'adresse' => $adresse]);
         
