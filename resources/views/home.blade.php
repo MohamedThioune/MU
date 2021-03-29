@@ -409,7 +409,7 @@
                         <p class="text-block-351">Vidéos aimées</p>
                         <div class="div-block-344">
                             <div class="div-block-345">
-                                @if($like_videos->likes)
+                                @if($like_videos)
                                 <p class="text-block-352">{{$like_videos->likes}} </p>
                                 @endif
                             </div>
