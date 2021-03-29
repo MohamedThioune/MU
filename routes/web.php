@@ -151,7 +151,7 @@ Route::get('/', function () {
 
     return view('home', compact('subtopics','channel','events', 'video','last','channel_top','videos_count','look_videos','like_videos','follows', 'looks','shahid'));
 
-})->name('home');
+})->name('home')->middleware('auth');
 
 Route::get('vids/uploads/^[a-zA-Z0-9_]*$');
 
@@ -178,10 +178,10 @@ Route::get('/report/{n}', [App\Http\Controllers\ReportController::class, 'report
 Route::get('/connected/{n}', [App\Http\Controllers\HomeController::class, 'connected'])->where('n','[0-9]+')->name('connected')->middleware('auth');
 
 // channel page : mode visiteur
-Route::get('/chaine_visiteur/{n}', [App\Http\Controllers\ChannelController::class, 'visit'])->where('n','[0-9]+')->name('channel.visitor')->middleware('auth');
+Route::get('/chaine_visiteur/{n}', ['middleware'=>'auth', 'uses'=>'channelController@visit'])->where('n','[0-9]+')->name('channel.visitor');
 
 // channel page : apercu
-Route::get('/apercu/{n}', [App\Http\Controllers\ChannelController::class, 'overview'])->where('n','[0-9]+')->name('channel.fly')->middleware('auth');
+Route::get('/apercu/{n}', ['middleware'=>'auth', 'uses'=>'channelController@overview'])->where('n','[0-9]+')->name('channel.fly');
 
 // flow page : apercu
 Route::get('/flow', function () {
@@ -236,6 +236,7 @@ Route::resource('products', 'productController');
 
 Route::view('/chaineAbonne', 'chaineAbonne');
 Route::view('/notification', 'notification');
+
 Route::get('/parametre', function () {
     $channel = DB::Table('users')->select('channels.*')
     ->join('channels', 'users.id', 'channels.user_id')
