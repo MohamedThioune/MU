@@ -592,7 +592,7 @@
                         $hijri_year = $date[1];
                         $hijri_month =  explode(" ", $date[0])[6];
                         $hijri_day = explode(" ", $date[0])[5];
-                        $gregorian =  (new \Datetime())->format('d.m.Y');
+                        $gregorian =  (new \Datetime())->format('d/m/y');
 
                         $start =  (new \Datetime())->format('Y-m-01 H:i:s');
                         $end =   (new \Datetime())->format('Y-m-30 H:i:s');
@@ -604,7 +604,7 @@
                         <p class="textTimeShalied">Time Shahid</p>
                         @php $shahid = explode(":",$shahid); if($shahid[0] == "00") $shahid[0] = "0"; @endphp
                         <p class="timeSh">{{$shahid[0]}}h {{$shahid[1]}} mn</p>
-                        <p class="calendar">{{$hijri_day}} {{$hijri_month}} {{$hijri_year}} (<span style="font-size:0.8em">{{$gregorian}}</span>)</p>
+                        <p class="calendar">{{$hijri_day}} {{$hijri_month}} {{$hijri_year}} - <span>{{$gregorian}}</span></p>
                     </div>
 
                     <div class="elementBarreText" style="transform: rotate(-180deg); height:50px; margin-top:40px">

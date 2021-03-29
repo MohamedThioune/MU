@@ -183,6 +183,12 @@ Route::get('/chaine_visiteur/{n}', [App\Http\Controllers\ChannelController::clas
 // channel page : apercu
 Route::get('/apercu/{n}', [App\Http\Controllers\ChannelController::class, 'overview'])->where('n','[0-9]+')->name('channel.fly')->middleware('auth');
 
+// flow page : apercu
+Route::get('/flow', function () {
+    $subtopics = DB::Table('sub_topics')->select('*')
+    ->get();
+    return view('flow',compact('subtopics'));
+})->name('flow');
 
 Auth::routes();
 

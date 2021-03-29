@@ -34,7 +34,7 @@
                                 <div class="point-1x4"></div>
                             </div>
                         </a>
-                        <a  href="flow.html" class="mu-logo w-inline-block">
+                        <a  href="{{route('home')}}" class="mu-logo w-inline-block">
                             <img src="{{ asset('img/logo-MU.png') }}" class="imgLogo22" alt="">
                         </a>
                     </div>

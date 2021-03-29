@@ -54,7 +54,7 @@
     <div class="menu-content-business">
         <a href="#" class="link-26">Infos</a>
         <a href="#" class="link-26">Récents</a>
-        <a href="#" class="link-26">Toutes les videos</a>
+        <a href="{{route('flow')}}" class="link-26">Toutes les videos</a>
         <a href="#" class="link-26">Offres</a>
         <a href="#" class="link-26">Playlist</a>
     </div>
@@ -396,7 +396,9 @@
                         <p class="text-block-351">Vidéos regardées</p>
                         <div class="div-block-344">
                             <div class="div-block-345">
+                            @if($look_videos)
                                 <p class="text-block-352">{{count($look_videos)}}</p>
+                            @endif
                             </div>
                             <div class="div-block-347">
                                 <img src="{{ asset('img/Mu-video-regarder2x.png') }}" class="imgRegarde" width="61" alt="">
@@ -407,7 +409,9 @@
                         <p class="text-block-351">Vidéos aimées</p>
                         <div class="div-block-344">
                             <div class="div-block-345">
+                                @if($like_videos->likes)
                                 <p class="text-block-352">{{$like_videos->likes}} </p>
+                                @endif
                             </div>
                             <div class="div-block-348">
                                 <img src="{{ asset('img/Mu-video-likee2x.png') }}" class="imgVideoLike"  alt=""></div>
@@ -437,7 +441,9 @@
                         <p class="text-block-351">Chaines suivies</p>
                         <div class="div-block-344">
                             <div class="div-block-345">
+                            @if($follows->trends)
                                 <p class="text-block-352">{{$follows->trends}} </p>
+                            @endif
                             </div>
                             <div class="div-block-351">
                                 <img src="{{ asset('img/Mu-chaine-follow-gris2x.png') }}"  class="imgVideoLike"></div>
@@ -520,7 +526,7 @@
                                     ->whereNull('videos.deleted_at')
                                     ->count();
                             @endphp 
-                            <p class="text-block-357">Santé bien-être </p>
+                            <p class="text-block-357">Santé</p>
                             <div class="progress-bar" role="progressbar bg-info" style="width:{{($variant/$looks)*100}}%; height:3%; border-radius:10px; background:#ebebeb; " aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <div class="div-block-354">
