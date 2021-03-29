@@ -8,7 +8,7 @@ use App\Http\Controllers\AppBaseController;
 use App\Models\Channel;
 use App\Models\CategoryPrimary;
 use App\Models\CategorySecondary;
-use App\Models\Subtopic;
+use App\Models\SubTopic;
 use Illuminate\Http\Request;
 use Flash;
 use Response;
@@ -214,7 +214,7 @@ class channelController extends AppBaseController
          ->first();                       
         
         /** @var subtopic $subtopics */
-        $subtopics = Subtopic::all();
+        $subtopics = SubTopic::all();
 
         /** @var category_primary $categorie_primaries */
         $category_primaries = CategoryPrimary::all();
