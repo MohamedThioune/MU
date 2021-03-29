@@ -252,7 +252,7 @@ class UserController extends AppBaseController
         
         Flash::success('Information user updated successfully.');
         
-        return view('users.parametre',compact('channel'));
+        return redirect(route('parametre'));
     }
 
     public function picture($alpha){
@@ -269,6 +269,5 @@ class UserController extends AppBaseController
         return redirect(route('parametre'));
 
     }
-
 
 }
