@@ -15,6 +15,7 @@ use Illuminate\Support\Str;
 use App\Http\Controllers\UserController\upload;
 use DB;
 
+
 class UserController extends AppBaseController
 {
     /**
@@ -56,6 +57,8 @@ class UserController extends AppBaseController
         $input['password'] = Hash::make($input['password']);
         /** @var User $user */
         $user = User::create($input);
+
+        $user->notify(new RegisterNotify());
 
         Flash::success('User saved successfully.');
 

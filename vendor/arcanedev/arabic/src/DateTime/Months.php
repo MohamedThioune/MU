@@ -33,18 +33,18 @@ class Months implements MonthsInterface
 
     /** @var array */
     private static $hijriMonthsNames     = [
-        'Muharram'          => 'Muharram',
-        'Safar'             => 'Safar',
-        'Rabi al-Awwal'     => 'Rabi~al-Awwal',
-        'Rabi al-Akhir'     => 'Rabi~al-Akhir',
-        'Jamadi al-Awwal'   => 'Jamadi~al-Awwal',
-        'Jamadi al-Akhir'   => 'Jamadi~al-Akhir',
+        'Muharram'          => 'Mouharram~al-Harâm',
+        'Safar'             => 'Safar~al~Khayr',
+        'Rabi al-Awwal'     => 'Rabi\'al-Awwal',
+        'Rabi al-Akhir'     => 'Rabi\'al-Akhîr',
+        'Jamadi al-Awwal'   => 'Joumada~al-Awwal',
+        'Jamadi al-Akhir'   => 'Joumada~al-Akhir',
         'Rajab'             => 'Rajab',
-        'Shabaan'           => 'Sha\'baan',
-        'Ramadhan'          => 'Ramadhan',
-        'Shawwal'           => 'Shawwal',
-        'Zilqad'            => 'Zilqad',
-        'Zilhajj'           => 'Zilhajj',
+        'Shabaan'           => 'Sha\'bâne',
+        'Ramadhan'          => 'Ramadân',
+        'Shawwal'           => 'Shawwâl',
+        'Zilqad'            => 'Dhoul~Qi\'dah',
+        'Zilhajj'           => 'Houl~Hidjah',
     ];
     
     /* 

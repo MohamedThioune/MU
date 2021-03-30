@@ -11,6 +11,8 @@ use Flash;
 use App\Profile;
 use App\Models\Channel;
 
+use App\Notifications\RegisterNotify;
+
 trait RegistersUsers
 {
     use RedirectsUsers;
@@ -70,6 +72,8 @@ trait RegistersUsers
         Flash::success('Channel successfully ☑️ created through your user property ');
 
         $this->guard()->login($user);
+
+        $user->notify(new RegisterNotify());
 
         return $this->registered($request, $user)
                         ?: redirect($this->redirectPath());

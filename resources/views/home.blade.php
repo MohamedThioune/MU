@@ -397,6 +397,8 @@
                             <div class="div-block-345">
                                 @if($like_videos)
                                 <p class="text-block-352">{{$like_videos->likes}} </p>
+                                @else
+                                <p class="text-block-352">0</p>
                                 @endif
                             </div>
                             <div class="div-block-348">
@@ -427,8 +429,12 @@
                         <p class="text-block-351">Chaines suivies</p>
                         <div class="div-block-344">
                             <div class="div-block-345">
-                            @if($follows->trends)
-                                <p class="text-block-352">{{$follows->trends}} </p>
+                            @if($follows)
+                                @if($follows->trends)
+                                    <p class="text-block-352">{{$follows->trends}} </p>
+                                @endif
+                            @else
+                                <p class="text-block-352">0</p>
                             @endif
                             </div>
                             <div class="div-block-351">
@@ -444,6 +450,7 @@
                     $hijri_day = explode(" ", $date[0])[5];
                     $gregorian =  (new \Datetime())->format('d.m.Y');
                 @endphp
+                @if($looks > 0)
                     <div class="time-mon-flow">
                         <div class="div-block-342"><img src="{{ asset('img/Time-shahid.svg') }}"  alt="" class="shadid103"></div>
                         <div class="div-block-341">
@@ -480,7 +487,7 @@
                                     ->count();
                             @endphp
                             <p class="text-block-355">Din</p>
-                            <div class="progress-bar" role="progressbar bg-info" style="width:{{($variant/$looks)*100}}%; height:3%; border-radius:10px; background:#ebebeb; " aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar" role="progressbar bg-info" style="width:{{$variant != 0 ?(($variant/$looks)*100):'0'}}%; height:3%; border-radius:10px; background:#ebebeb; " aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <div class="div-block-354">
                             @php
@@ -497,7 +504,7 @@
                                     ->count();
                             @endphp
                             <p class="text-block-356">Business </p>
-                            <div class="progress-bar" role="progressbar bg-info" style="width:{{($variant/$looks)*100}}%; height:3%; border-radius:10px; background:#ebebeb; " aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar" role="progressbar bg-info" style="width:{{$variant != 0 ?(($variant/$looks)*100):'0'}}%; height:3%; border-radius:10px; background:#ebebeb; " aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <div class="div-block-354">
                             @php
@@ -513,7 +520,7 @@
                                     ->count();
                             @endphp
                             <p class="text-block-357">Santé</p>
-                            <div class="progress-bar" role="progressbar bg-info" style="width:{{($variant/$looks)*100}}%; height:3%; border-radius:10px; background:#ebebeb; " aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar" role="progressbar bg-info" style="width:{{$variant != 0 ?(($variant/$looks)*100):'0'}}%; height:3%; border-radius:10px; background:#ebebeb; " aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <div class="div-block-354">
                             @php
@@ -529,7 +536,7 @@
                                     ->count();
                             @endphp
                             <p class="text-block-359">Sport Fit</p>
-                            <div class="progress-bar" role="progressbar bg-info" style="width:{{($variant/$looks)*100}}%; height:3%; border-radius:10px; background:#ebebeb; " aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar" role="progressbar bg-info" style="width:{{$variant != 0 ?(($variant/$looks)*100):'0'}}%; height:3%; border-radius:10px; background:#ebebeb; " aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <div class="div-block-354">
                             @php
@@ -545,7 +552,7 @@
                                     ->count();
                             @endphp
                             <p class="text-block-367">Life </p>
-                            <div class="progress-bar" role="progressbar bg-info" style="width:{{($variant/$looks)*100}}%; height:3%; border-radius:10px; background:#ebebeb; " aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar" role="progressbar bg-info" style="width:{{$variant != 0 ?(($variant/$looks)*100):'0'}}%; height:3%; border-radius:10px; background:#ebebeb; " aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <div class="div-block-354">
                             @php
@@ -561,17 +568,18 @@
                                     ->count();
                             @endphp
                             <p class="text-block-361">Tech et science </p>
-                            <div class="progress-bar" role="progressbar bg-info" style="width:{{($variant/$looks)*100}}%; height:3%; border-radius:10px; background:#ebebeb; " aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar" role="progressbar bg-info" style="width:{{$variant != 0 ?(($variant/$looks)*100):'0'}}%; height:3%; border-radius:10px; background:#ebebeb; " aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <div class="div-block-354">
                             <p class="text-block-358">Education</p>
-                            <div class="progress-bar" role="progressbar bg-info" style="width:0%; height:3%; border-radius:10px; background:#ebebeb; " aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                            <!-- <div class="progress-bar" role="progressbar bg-info" style="width:{{$variant != 0 ?(($variant/$looks)*100):'0'}}%; height:3%; border-radius:10px; background:#ebebeb; " aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div> -->
                         </div>
                         <div class="div-block-354">
                             <p class="text-block-360">News</p>
-                            <div class="progress-bar" role="progressbar bg-info" style="width:0%; height:3%; border-radius:10px; background:#ebebeb; " aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                            <!-- <div class="progress-bar" role="progressbar bg-info" style="width:{{$looks != 0 & $variant != 0 ?(($variant/$looks)*100):'0'}}%; height:3%; border-radius:10px; background:#ebebeb; " aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div> -->
                         </div>
                     </div>
+                @endif
                 </div>
             </div>
         </div>
