@@ -106,7 +106,7 @@
                                 </div>
                             @endif
                         </ul>
-                        
+
                     </div>
                 </div>
                 <div class="bar-down">
@@ -114,7 +114,7 @@
                         <img src="{{ asset('img/Smuuse-logo-blanc-SB-2021-80x22.png') }}" alt="" class="image-102">
                     </div>
                     <div class="d-flex">
-                        <a href="flow.html" class="div-block-281 w-inline-block">
+                        <a href="{{route('flow')}}" class="div-block-281 w-inline-block">
                             <p class="text-block-286">Flow</p>
                         </a>
                         <a href="#" class="div-block-282 w-inline-block">
@@ -160,20 +160,20 @@
                            </div>
                        </div>
                        <div class="head-slidebar-user">
-                       @if(!Auth::guest()) 
+                       @if(!Auth::guest())
                             @if($channel)
                             <p class='text-block-242'>{{$channel->name}}</p>
                             @endif
                         @endif
-                       
-                           
+
+
                            <p class="text-block-243">Particulier</p>
                            <div class="profil-photo">
                             @if(!Auth::guest())
                                <img src="{{ asset('images/uploads/') }}/{{Auth::user()->photo}}" width="69" alt="" class="image-94">
-                            @endif   
+                            @endif
                             </div>
-                          
+
                            <div class="text-block-237">Bienvenue dans ton tableau de bord</div>
                        </div>
                        <div class="faq-wrapper">
@@ -186,10 +186,10 @@
                            </div>
                            <div class="faq-answer" id="sousBlockMonFlow">
                                <div data-w-id="3ebc1e8b-4c8a-0be6-ba36-5e829586b776" class="text-block-257">
-                                   <a href="mon-flow.html" class="link-27">Mon flow</a><br>
+                                   <a href="{{route('flow')}}" class="link-27">Mon flow</a><br>
                                </div>
                                <div data-w-id="3ebc1e8b-4c8a-0be6-ba36-5e829586b77a" class="text-block-257">
-                                   <a href="mon-flow.html" class="link-27">Mes alertes</a><br>
+                                   <a href="" class="link-27">Mes alertes</a><br>
                                </div>
                            </div>
                        </div>
@@ -222,7 +222,7 @@
                                <a data-w-id="3ebc1e8b-4c8a-0be6-ba36-5e829586b79c" href="#" class="link-block-36 w-inline-block">
                                    <p class="text-block-257">Tableau de bord<br></p>
                                </a>
-                               <a data-w-id="3ebc1e8b-4c8a-0be6-ba36-5e829586b7a0" href="ma-chaine-publier.html" class="link-block-36 w-inline-block">
+                               <a data-w-id="3ebc1e8b-4c8a-0be6-ba36-5e829586b7a0" href="" class="link-block-36 w-inline-block">
                                    <p class="text-block-257">Publier<br></p>
                                </a>
                                <p class="faq-answer-text">Publier<br>Mes vidéos <br>Commentaires <br>Audiences <br>Abonnés<br>Monétisation<br></p>
@@ -255,7 +255,7 @@
                                <div class="indentification">
                                    <div class="sidebar-icon">
                                        <img src="{{ asset('img/Mu-engrenage-gris2x.png') }}" class="imgMuEngrenage" alt=""></div>
-                                   <div class="faq-q-text" ><strong class="bold-text-5">Paramètres </strong></div>
+                                   <div class="faq-q-text" ><a href="{{route('parametre')}}" class="bold-text-5">Paramètres </a></div>
                                </div>
                            </div>
                            <div class="faq-answer" id="sousBlockParametre">

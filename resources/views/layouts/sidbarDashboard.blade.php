@@ -37,11 +37,11 @@
                             <div class="sidebar-icon">
                                 <img src="{{ asset('img/baseline-brightness_2-24px2x.png') }}" alt="">
                             </div>
-                            <p class="faq-q-text"><strong class="bold-text-5">Mon Flow</strong></p>
+                            <a href="{{route('flow')}}" class="faq-q-text"><strong class="bold-text-5">Mon Flow</strong></a>
                         </div>
                     </div>
                     <div class="faq-answer" id="sousBlockMonFlow">
-                        <a class="faq-answer-text" href="">Alerte</a>
+                        <a class="{{route('notification ')}}" href="">Alerte</a>
                         <a class="faq-answer-text" href="">Playliste</a>
                         <a class="faq-answer-text" href="">Âbonnements </a>
                     </div>
@@ -52,22 +52,22 @@
                             <div class="sidebar-icon">
                                 <img class="machaineImg" src="{{ asset('img/Mu-tv-icone2x.png') }}"  alt="">
                             </div>
-                            <p class="faq-q-text"><strong class="bold-text-5">Ma Chaîne</strong></p>
+                            <a href="{{route('chaine')}}" class="faq-q-text"><strong class="bold-text-5">Ma Chaîne</strong></a>
                         </div>
                     </div>
                     <div class="faq-answer" id="sousBlockChaines">
-                        <a href="flow-dashboard.html" class="link-block-36 w-inline-block">
+                        <a href="{{route('')}}" class="link-block-36 w-inline-block">
                             <div class="text-block-261">Tableau de bord</div>
                         </a>
                         <a href="ma-chaine-publier.html" class="link-block-36 w-inline-block w--current">
                             <p class="text-block-261">Publier</p>
                         </a>
-                        <a href="" class="faq-answer-text">Publier</a>
-                        <a href=""  class="faq-answer-text">Mes vidéos </a>
+                        <a href="{{route('videos/create')}}" class="faq-answer-text">Publier</a>
+                        <a href="{{route('videos')}}"  class="faq-answer-text">Mes vidéos </a>
                         <a href="" class="faq-answer-text">Commentaires</a>
                         <a href="" class="faq-answer-text">Audiences</a>
                         <a href="" class="faq-answer-text">Abonnés</a>
-                        <a href="" class="faq-answer-text"> Monétisation</a>
+                        <a href="{{route('flow')}}" class="faq-answer-text"> Monétisation</a>
                     </div>
                 </div>
                 <div class="faq-wrapper">
