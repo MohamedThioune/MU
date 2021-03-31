@@ -11,7 +11,7 @@
         <div>
             <p class="text-block-4">As Salaaamou alaykouuum !!!</p>
             <p class="text-block-5">{{__('Welcome to SMUUSE')}}!<br>{{__('The Muslim video platform.')}}</p>
-            <a href="{{route('language.choose', 'en')}}" class="btn btn-info">&#x1F1FA;&#x1F1F8; English</a>   <a href="{{route('language.choose', 'fr')}}" class="btn btn-danger">&#x1F1EB;&#x1F1F7; Français</a>
+            <a href="{{route('language.choose', 'en')}}" class="btn btn-info"> EN &#x1F1FA;&#x1F1F8;</a>   <a href="{{route('language.choose', 'fr')}}" class="btn btn-danger"> FR &#x1F1EB;&#x1F1F7;</a>
         </div>
     </div>
 </div>

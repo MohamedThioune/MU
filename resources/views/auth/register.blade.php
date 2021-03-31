@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+@php App::setLocale(session('lang')); @endphp
 <div class="body-4">
     <img src="{{ asset('img/Doobl-buble.png') }} "  alt="" class="bull2">
     <img src="{{ asset('img/Buble-400.png') }}" class="bull">
@@ -10,15 +11,25 @@
                 <img src="{{ asset('img/smuuse-logo-txt-blck-©-.png') }}"  class="image-3">
             </div>
             <div class="div-block-16">
-                <div class="text-block-205">Rejoins ta communauté</div>
+                @if(!session('lang')) 
+                <div><a href="{{route('language.choose', 'fr')}}" class="btn btn-danger"> Change langage : Continuer en français &#x1F1EB;&#x1F1F7;</a></div>
+                @else
+                    @if(session('lang') == "en")
+                    <div><a href="{{route('language.choose', 'fr')}}" class="btn btn-default"> Change langage : Continuer en français &#x1F1EB;&#x1F1F7;</a></div>
+                    @else
+                    <div><a href="{{route('language.choose', 'en')}}" class="btn btn-danger"> Changer de langue : Continue in english &#x1F1FA;&#x1F1F8;</a></div>
+                    @endif
+                @endif
+                <br>
+                <div class="text-block-205">{{__('I join my community')}}</div>
             </div>
-            <div class="text-block-216">Crée ton compte<br>et démultiplie tes hassanates</div>
+            <div class="text-block-216">{{__('register.create')}}<br>{{__('register.hassanate')}}</div>
             <div class="w-form">
 
                 <form method="POST" class="form-2" action="{{ route('register') }}" aria-label="{{ __('Register') }}">
                     @csrf
                     <div class="">
-                        <input id="email" type="email" placeholder="Adresse e-mail" class="form-control text-field-3 w-input{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
+                        <input id="email" type="email" placeholder="{{ __('register.email') }}" class="form-control text-field-3 w-input{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
 
                         @if ($errors->has('email'))
                         <span class="invalid-feedback" role="alert">
@@ -27,9 +38,9 @@
                         @endif
                     </div>
                     <div>
-                        <label for="sex" class="field-label-3">Je suis </label>
-                        <label class="radio-button-field w-radio"><input type="radio"  id="radio" name="sex" value="0" class="w-form-formradioinput radio-button-2 w-radio-input {{ $errors->has('sex') ? ' is-invalid' : '' }}" ><span class="radio-button-label w-form-label">une femme</span></label>
-                        <label class="radio-button-field-2 w-radio"><input type="radio"  id="radio-2" name="sex" value="1" class="w-form-formradioinput radio-button w-radio-input {{ $errors->has('sex') ? ' is-invalid' : '' }}"><span class="radio-button-label-2 w-form-label">un homme</span></label>
+                        <label for="sex" class="field-label-3">{{__('register.ami')}} </label>
+                        <label class="radio-button-field w-radio"><input type="radio"  id="radio" name="sex" value="0" class="w-form-formradioinput radio-button-2 w-radio-input {{ $errors->has('sex') ? ' is-invalid' : '' }}" ><span class="radio-button-label w-form-label">{{__('register.femme')}}</span></label>
+                        <label class="radio-button-field-2 w-radio"><input type="radio"  id="radio-2" name="sex" value="1" class="w-form-formradioinput radio-button w-radio-input {{ $errors->has('sex') ? ' is-invalid' : '' }}"><span class="radio-button-label-2 w-form-label">{{__('register.homme')}}</span></label>
                         @if ($errors->has('sex'))
                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('sex') }}</strong>
@@ -55,7 +66,7 @@
                         @endif
                     </div>
                     <div class="">
-                        <input id="password" type="password" placeholder="Password" class="text-field-4 w-input form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+                        <input id="password" type="password" placeholder="{{__('Password')}}" class="text-field-4 w-input form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
 
                         @if ($errors->has('password'))
                         <span class="invalid-feedback" role="alert">
@@ -65,12 +76,12 @@
                     </div>
 
                     <div class="">
-                        <input id="password-confirm" type="password" placeholder="Confirm Password" class="form-control text-field-4 w-input" name="password_confirmation" required>
+                        <input id="password-confirm" type="password" placeholder="{{__('Confirm Password')}}" class="form-control text-field-4 w-input" name="password_confirmation" required>
                     </div>
 
                     <div class="">
                         <button type="submit" class="btn submit-button-2 w-button">
-                            {{ __('S inscire') }}
+                            {{ __('Register') }}
                         </button>
                     </div>
 

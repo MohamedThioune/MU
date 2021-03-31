@@ -50,6 +50,30 @@
     "Oops! Something went wrong while submitting the form." : "Oups ! Un problème est survenu lors de la soumission du formulaire.",
     "Welcome to SMUUSE": "Bienvenue sur Smuuse ",
     "The Muslim video platform.":"La plateforme vidéo des musulmans",
-    "I join my community": "Je rejoins ma communauté"
+    "I join my community": "Je rejoins ma communauté",
+
+    "Welcome":"Bienvenue",
+    "Welcome.synopsis" : "Nous vous souhaitons la bienvenue  a votre  premiere plateforme communautaire musulmane destinée à vous fournir des vidéos conforme aux chartes  musulmane tout en ayant un apport instructif, de distraction ou tout simplement une plateforme destiné  a la communion entre frère musulman .",
+    "Welcome.credentials": "Vos informations de connexion  :",
+    "Welcome.username": "Nom d'utilisateur ",
+    "Welcome.password": "Celle que vous aurez saisi à votre connexion",
+    "Welcome.faith": "Foi",
+    "Welcome.control": "Contrôle",    
+    "Welcome.block1": "Mettre en avant votre religion avec un contenu approprié.",
+    "Welcome.block2": "Une plateforme qui vous est dédiée à vous les femmes .",
+    "Welcome.block3": "Du contenu adapté à toute la famille en toute sécurité ☺️.",
+    "Learn More": "En savoir plus",
+    "Looking forward to seeing you again": "Au plaisir de vous revoir !!",
+    "unsubscribe": "This e-mail has been",
+
+    "register.create": "Crée ton compte",
+    "register.hassanate": "et démultiplie tes hassanates",
+    "register.ami": "Je suis",
+    "register.email": "Adresse email",
+    "register.femme": "une femme",
+    "register.homme": "un homme",
+    "register.name": "Nom au complet"
+    
+    
   }
   

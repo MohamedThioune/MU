@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
 @php App::setLocale(session('lang')); @endphp
 <div class="body-3">
 <div class="section-2">
@@ -54,7 +53,7 @@
                         <p class="text-block-6">{{ __('You don\'t have an account yet?')}}</p>
                     </div>
                     <div class="div-block-6 text-center">
-                        <a href="{{ route('register') }}" class="text-block-7"><b>Bismillah -  {{App::getLocale()}} </b> <br> <span class="text-block-9">{{ __('I join my community')}}</span></a>
+                        <a href="{{ route('register') }}" class="text-block-7"><b>Bismillah </b> <br> <span class="text-block-9">{{ __('I join my community')}}</span></a>
                     </div>
 
                 </form>
