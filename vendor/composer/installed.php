@@ -1,12 +1,12 @@
 <?php return array (
   'root' => 
   array (
-    'pretty_version' => 'dev-master',
-    'version' => 'dev-master',
+    'pretty_version' => 'dev-louis_Farrakhan',
+    'version' => 'dev-louis_Farrakhan',
     'aliases' => 
     array (
     ),
-    'reference' => '9784a55828e0fe42c37acf5033e617fc2c1ed1c6',
+    'reference' => '8c0d66ce4f81e53211c8488104837fdaebb19fcb',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -19,6 +19,15 @@
       array (
       ),
       'reference' => 'cc7dc9cdf41970e0aff39ea32f3f1cc23af310b3',
+    ),
+    'caouecs/laravel-lang' => 
+    array (
+      'pretty_version' => '3.0.62',
+      'version' => '3.0.62.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'fcb8cec051b175278e0a9efa440f0b1033d12dd7',
     ),
     'cordoval/hamcrest-php' => 
     array (
@@ -437,12 +446,12 @@
     ),
     'laravel/laravel' => 
     array (
-      'pretty_version' => 'dev-master',
-      'version' => 'dev-master',
+      'pretty_version' => 'dev-louis_Farrakhan',
+      'version' => 'dev-louis_Farrakhan',
       'aliases' => 
       array (
       ),
-      'reference' => '9784a55828e0fe42c37acf5033e617fc2c1ed1c6',
+      'reference' => '8c0d66ce4f81e53211c8488104837fdaebb19fcb',
     ),
     'laravel/tinker' => 
     array (

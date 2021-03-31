@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/home', function () {
     
     $video = DB::Table('videos')->select('videos.*')
                                  ->whereNull('videos.deleted_at')
@@ -258,3 +258,8 @@ Route::post('/parameter', [App\Http\Controllers\UserController::class, 'paramete
 
 Route::get('/picture/{alpha}', [App\Http\Controllers\UserController::class, 'picture'])->name('users.picture')->middleware('auth');
 
+Route::get('/', function(){
+    return view('language');
+})->name('language.show');
+
+Route::get('/language/{lang}', [App\Http\Controllers\UserController::class, 'choose_language'])->name('language.choose');

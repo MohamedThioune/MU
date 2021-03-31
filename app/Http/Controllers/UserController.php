@@ -14,6 +14,7 @@ use App\User;
 use Illuminate\Support\Str;
 use App\Http\Controllers\UserController\upload;
 use DB;
+use App;
 
 
 class UserController extends AppBaseController
@@ -269,6 +270,17 @@ class UserController extends AppBaseController
 
         return redirect(route('parametre'));
 
+    }
+
+    public function choose_language($language){
+        if($language == 'fr')
+            session(['lang'=>'fr']);
+        else{
+            session(['lang'=>'en']);    
+        }
+
+
+        return redirect('login');   
     }
 
 }

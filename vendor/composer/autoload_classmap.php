@@ -94,6 +94,7 @@ return array(
     'App\\Models\\UnlikeComment' => $baseDir . '/app/Models/UnlikeComment.php',
     'App\\Models\\Video' => $baseDir . '/app/Models/Video.php',
     'App\\Models\\product' => $baseDir . '/app/Models/product.php',
+    'App\\Notifications\\RegisterNotify' => $baseDir . '/app/Notifications/RegisterNotify.php',
     'App\\Profile' => $baseDir . '/app/Profile.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',

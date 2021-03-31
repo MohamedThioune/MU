@@ -573,6 +573,7 @@ class ComposerStaticInit8485fb7189a64a9c5667f31bce03e74b
         'App\\Models\\UnlikeComment' => __DIR__ . '/../..' . '/app/Models/UnlikeComment.php',
         'App\\Models\\Video' => __DIR__ . '/../..' . '/app/Models/Video.php',
         'App\\Models\\product' => __DIR__ . '/../..' . '/app/Models/product.php',
+        'App\\Notifications\\RegisterNotify' => __DIR__ . '/../..' . '/app/Notifications/RegisterNotify.php',
         'App\\Profile' => __DIR__ . '/../..' . '/app/Profile.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',

@@ -2,6 +2,7 @@
 
 @section('content')
 
+@php App::setLocale(session('lang')); @endphp
 <div class="body-3">
 <div class="section-2">
     <div class="container-6 w-container">
@@ -10,7 +11,7 @@
         </div>
         <div>
             <p class="text-block-4">As Salaaamou alaykouuum !!!</p>
-            <p class="text-block-5">Bienvenue sur Smuuse !<br>La plateforme vidéo des musulmans.</p>
+            <p class="text-block-5">{{__('Welcome to SMUUSE')}}!<br>{{__('The Muslim video platform.')}}</p>
         </div>
     </div>
 </div>
@@ -24,7 +25,7 @@
                 <form class="form-group form"  method="POST" action="{{ route('login') }}" aria-label="{{ __('Login') }}">
                     @csrf
                     <div class="w-100">
-                        <input id="email" type="email" placeholder="E-mail ou téléphone" class="text-field w-input form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required >
+                        <input id="email" type="email" placeholder="{{ __('E-Mail or Phone') }}" class="text-field w-input form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required >
 
                         @if ($errors->has('email'))
                         <span class="invalid-feedback" role="alert">
@@ -33,7 +34,7 @@
                         @endif
                     </div>
                     <div class="w-100">
-                        <input id="password" type="password" placeholder="Mot de passe" class="text-field w-input form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+                        <input id="password" type="password" placeholder="{{__('Password')}}" class="text-field w-input form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
 
                         @if ($errors->has('password'))
                         <span class="invalid-feedback" role="alert">
@@ -42,26 +43,26 @@
                         @endif
                     </div>
                     <button type="submit" class="btn submit-button w-button">
-                        {{ __('Connexion') }}
+                        {{ __('Login') }}
                     </button>
                     <div class="text-center">
                         <a class="link-2" href="{{ route('password.request') }}">
-                            {{ __('Mot de passe oublié ?') }}
+                            {{ __('Forgot Your Password?') }}
                         </a>
                     </div>
                     <div class="link-block w-inline-block">
-                        <p class="text-block-6">Tu n&#x27;as pas encore de compte ?</p>
+                        <p class="text-block-6">{{ __('You don\'t have an account yet?')}}</p>
                     </div>
                     <div class="div-block-6 text-center">
-                        <a href="{{ route('register') }}" class="text-block-7"><b>Bismillah </b> <br> <span class="text-block-9">Je rejoins ma communauté</span></a>
+                        <a href="{{ route('register') }}" class="text-block-7"><b>Bismillah -  {{App::getLocale()}} </b> <br> <span class="text-block-9">{{ __('I join my community')}}</span></a>
                     </div>
 
                 </form>
                 <div class="w-form-done">
-                    <p>Thank you! Your submission has been received!</p>
+                    <p>{{ __('Thank you! Your submission has been received!')}}</p>
                 </div>
                 <div class="w-form-fail">
-                    <p>Oops! Something went wrong while submitting the form.</p>
+                    <p>{{ __('Oops! Something went wrong while submitting the form.')}}</p>
                 </div>
             </div>
         </div>
