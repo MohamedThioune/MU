@@ -1741,8 +1741,9 @@ video{
     width: 49px;
 }
 .v1{
-width: unset !important;
+    width: unset !important;
 }
+
 /*safarie*/
 @media screen and (-webkit-min-device-pixel-ratio:0) {
     .accrocheskateImg{
@@ -2074,6 +2075,7 @@ width: unset !important;
 .imge-135{
     width: 141px;
 }
+
 @media all and (min-width: 300px) and (max-width: 767px){
     .col-lg-9 {
         -ms-flex: unset !important;
