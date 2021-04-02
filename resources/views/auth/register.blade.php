@@ -8,7 +8,7 @@
     <div class="section-5">
         <div class="container-7 w-container">
             <div class="logo section96">
-                <img src="{{ asset('img/smuuse-logo-txt-blck-©-.png') }}"  class="image-3">
+            <a href="{{route('home')}}"><img src="{{ asset('img/smuuse-logo-txt-blck-©-.png') }}"  class="image-3"></a>
             </div>
             <div class="div-block-16">
                 @if(!session('lang')) 
@@ -28,6 +28,7 @@
 
                 <form method="POST" class="form-2" action="{{ route('register') }}" aria-label="{{ __('Register') }}">
                     @csrf
+                    @include('adminlte-templates::common.errors')
                     <div class="">
                         <input id="email" type="email" placeholder="{{ __('register.email') }}" class="form-control text-field-3 w-input{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
 

@@ -606,9 +606,9 @@
                         <p class="timeSh">{{$shahid[0]}}h {{$shahid[1]}} mn</p>
                         <p class="calendar">{{$hijri_day}} {{$hijri_month}} {{$hijri_year}} - <span>{{$gregorian}}</span></p>
                     </div>
-
+                @if($looks > 0)
                     <div class="elementBarreText" style="transform: rotate(-180deg); height:50px; margin-top:40px">
-                        
+
                         <div class="contentBarreText e">
                             @php 
                                 $variant = DB::table('videos')
@@ -624,7 +624,7 @@
                                         ->count();
                             @endphp
                             <p class="lettre" style="transform: rotate(180deg);">E</p>
-                            <div class="progress-bar" role="progressbar bg-info" style="width:18px; height:{{(($variant/$looks)*100)}}%; border-radius:10px; background:#4A4A4A;" aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar" role="progressbar bg-info" style="width:18px; height:{{$variant != 0 ?(($variant/$looks)*100):'0'}}%; border-radius:10px; background:#4A4A4A;" aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
                             
                         </div>
                         <div class="contentBarreText d">
@@ -637,12 +637,12 @@
                                         ->where('reads.created_at', '>=', $start)
                                         ->where('reads.created_at', '<', $end)
                                         ->where('reads.user_id', Auth::id())
-                                        ->where('main_topics.id', 5)
+                                        ->where('main_topics.id', 6)
                                         ->whereNull('videos.deleted_at')
                                         ->count();
                             @endphp
                             <p class="lettre" style="transform: rotate(180deg);">D</p>
-                            <div class="progress-bar" role="progressbar bg-info" style="width:18px; height:{{(($variant/$looks)*100)}}%; border-radius:10px; background:#4A4A4A;" aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar" role="progressbar bg-info" style="width:18px; height:{{$variant != 0 ?(($variant/$looks)*100):'0'}}%; border-radius:10px; background:#4A4A4A;" aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
                             
                         </div>
                         <div class="contentBarreText h">
@@ -660,7 +660,7 @@
                                         ->count();
                             @endphp
                             <p class="lettre">H</p>
-                            <div class="progress-bar" role="progressbar bg-info" style="width:18px; height:{{(($variant/$looks)*100)}}%; border-radius:10px; background:#4A4A4A;" aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar" role="progressbar bg-info" style="width:18px; height:{{$variant != 0 ?(($variant/$looks)*100):'0'}}%; border-radius:10px; background:#4A4A4A;" aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
                             
                         </div>
                         <div class="contentBarreText l">
@@ -679,7 +679,7 @@
                                         ->count();
                             @endphp
                             <p class="lettre" style="transform: rotate(180deg);">L</p>
-                            <div class="progress-bar" role="progressbar bg-info" style="width:18px; height:{{(($variant/$looks)*100)}}%; border-radius:10px; background:#4A4A4A;" aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar" role="progressbar bg-info" style="width:18px; height:{{$variant != 0 ?(($variant/$looks)*100):'0'}}%; border-radius:10px; background:#4A4A4A;" aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
                            
                         </div>
                         <div class="contentBarreText">
@@ -697,11 +697,10 @@
                                         ->count();
                             @endphp
                             <p class="lettre" style="transform: rotate(180deg);">B</p>
-                            <div class="progress-bar" role="progressbar bg-info" style="width:18px; height:{{(($variant/$looks)*100)}}%; border-radius:10px; background:#4A4A4A;" aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
-                         
-                            
+                            <div class="progress-bar" role="progressbar bg-info" style="width:18px; height:{{$variant != 0 ?(($variant/$looks)*100):'0'}}%; border-radius:10px; background:#4A4A4A;" aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>   
                     </div>
+                @endif
                 </div>
             </div>
         </div>

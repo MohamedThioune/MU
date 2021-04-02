@@ -32,11 +32,11 @@
                 </button>
             </div>
         </div>
-        <div class="imgPubBlock">
+        <!-- <div class="imgPubBlock">
             <img src="{{ asset('img/Mu-bandeau-Pub.jpg') }}" alt="">
-        </div>
+        </div> -->
     </div>
-    <p class="text-block-350">Tous tes informations en un clin d'œil </p>
+    <p class="text-block-350">Tous tes informations en un clin d'oeil</p>
     <div class="menu-content-business">
         <a href="#" class="link-26">Infos</a>
         <a href="#" class="link-26">Récents</a>
@@ -127,7 +127,6 @@
                         </div>
                     </div>
                 </div>
-                @foreach($events as $event)
                 <div class=" swiper-slide hot-notification">
                     <div class="div-block-391">
                         <div class="hot-green">
@@ -139,11 +138,11 @@
                             <div>
                             <p class="text-block-383">{{$event->libelle}}</p>
                             @if(intval(abs(strtotime("now") - strtotime($event->created_at))/ 86400) == 0)
-                            @if(intval(abs(strtotime("now") - strtotime( $event->created_at))/ 3600) > 0)
-                            <p class="text-block-385">Published {{intval(abs(strtotime("now") - strtotime( $event->created_at))/3600)}} hours ago</p>
-                            @else(intval(abs(strtotime("now") - strtotime( $event->created_at))/ 3600) == 0)
-                            <p class="text-block-385">Published {{intval(abs(strtotime("now") - strtotime( $event->created_at))/60)}} minutes ago</p>
-                            @endif
+                                @if(intval(abs(strtotime("now") - strtotime( $event->created_at))/ 3600) > 0)
+                                <p class="text-block-385">Published {{intval(abs(strtotime("now") - strtotime( $event->created_at))/3600)}} hours ago</p>
+                                @else(intval(abs(strtotime("now") - strtotime( $event->created_at))/ 3600) == 0)
+                                <p class="text-block-385">Published {{intval(abs(strtotime("now") - strtotime( $event->created_at))/60)}} minutes ago</p>
+                                @endif
                             @elseif(intval(abs(strtotime("now") - strtotime( $event->created_at))/ 86400) == 1)
                             <p class="text-block-385">Yesterday at {{strftime("%H:%M", strtotime( $event->created_at))}}
                             @elseif(intval(abs(strtotime("now") - strtotime( $event->created_at))/ 86400) >= 2 && intval(abs(strtotime("now") - strtotime( $event->created_at))/ 86400) <= 27)
@@ -166,7 +165,6 @@
                         </div>
                     </div>
                 </div>
-                @endforeach
             </div>
         </div>
     </div>
@@ -450,7 +448,7 @@
                     $hijri_day = explode(" ", $date[0])[5];
                     $gregorian =  (new \Datetime())->format('d.m.Y');
                 @endphp
-                @if($looks > 0)
+                
                     <div class="time-mon-flow">
                         <div class="div-block-342"><img src="{{ asset('img/Time-shahid.svg') }}"  alt="" class="shadid103"></div>
                         <div class="div-block-341">
@@ -465,6 +463,7 @@
                         $start =  (new \Datetime())->format('Y-m-01 H:i:s');
                         $end =   (new \Datetime())->format('Y-m-30 H:i:s');
                     @endphp
+                    @if($looks > 0)
                     <div class="div-block-364">
                         <div class="div-block-354">
                             <p class="text-block-354">In sha Allah</p>
@@ -579,7 +578,7 @@
                             <!-- <div class="progress-bar" role="progressbar bg-info" style="width:{{$looks != 0 & $variant != 0 ?(($variant/$looks)*100):'0'}}%; height:3%; border-radius:10px; background:#ebebeb; " aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div> -->
                         </div>
                     </div>
-                @endif
+                    @endif
                 </div>
             </div>
         </div>

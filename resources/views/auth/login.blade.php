@@ -23,8 +23,9 @@
             <div class="form-block w-form">
                 <form class="form-group form"  method="POST" action="{{ route('login') }}" aria-label="{{ __('Login') }}">
                     @csrf
+                    @include('adminlte-templates::common.errors')
                     <div class="w-100">
-                        <input id="email" type="email" placeholder="{{ __('E-Mail or Phone') }}" class="text-field w-input form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required >
+                        <input id="email" type="email" placeholder="{{ __('E-Mail') }}" class="text-field w-input form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required >
 
                         @if ($errors->has('email'))
                         <span class="invalid-feedback" role="alert">
@@ -50,7 +51,7 @@
                         </a>
                     </div>
                     <div class="link-block w-inline-block">
-                        <p class="text-block-6">{{ __('You don\'t have an account yet?')}}</p>
+                        <p class="text-block-6">{{__('Don\'t you have an account yet ?')}}</p>
                     </div>
                     <div class="div-block-6 text-center">
                         <a href="{{ route('register') }}" class="text-block-7"><b>Bismillah </b> <br> <span class="text-block-9">{{ __('I join my community')}}</span></a>

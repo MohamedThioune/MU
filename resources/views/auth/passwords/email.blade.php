@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="../css/mu-dev.webflow.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    @php App::setLocale(session('lang')); @endphp
+
 </head>
 <body class="body-4">
 <img src="{{ asset('img/Doobl-buble.png') }} "  alt="" class="bull2">
@@ -23,17 +25,19 @@
 <div class="section-5">
     <div class="container-7 w-container">
         <div class="logo section96">
-            <img src="{{ asset('img/smuuse-logo-txt-blck-©-.png') }}"  class="image-3">
+            <a href="{{route('home')}}"><img src="{{ asset('img/smuuse-logo-txt-blck-©-.png') }}"  class="image-3"></a>
         </div>
         <div class="div-block-16">
-            <div class="text-block-205">Mot de passe oublié ?</div>
-            <div class="text-block-204">Dit &quot;La ilaha illa Allah&quot;<br>&quot;Il n&#x27;y a pas de Dieu sauf Allah&quot; </div>
-            <div class="text-block-207">C&#x27;est la plus belle des paroles.</div>
+            <div class="text-block-205">{{__('Forgot Your Password?')}} </div>
+            <div class="text-block-204">{{__('Says')}} &quot;La ilaha illa Allah&quot;<br>&quot;{{__('There is no God but Allah')}}</div>
+            <div class="text-block-207">{{__('This is the most beautiful of words')}}</div>
             <div class="div-block-17">
-                <div class="text-block-209">Saisis ton adresse e-mail <br>et reçois les instructions pour <br>réinitialiser ton mot de passe</div>
+                <div class="text-block-209">{{__('Enter your email address ')}}<br>{{__('and receive instructions')}}<br>{{__('to reset your password')}}</div>
             </div>
         </div>
         <form method="POST" action="{{ route('password.email') }}" aria-label="{{ __('Reset Password') }}" >
+            @include('adminlte-templates::common.errors')
+            @csrf
             <div class="panel-body">
                 @if (session('status'))
                 <div class="alert alert-success" role="alert">
@@ -50,11 +54,11 @@
         </form>
 
         <div class="div-block-19">
-            <div class="text-block-214">Tu n’as pas encore de compte ?</div>
+            <div class="text-block-214">{{__('Don\'t you have an account yet ?')}}</div>
         </div>
         <a data-w-id="bf7b3e52-289d-2a8b-0bd9-f6996ef1c3d1" href="{{ route('register') }}" class="rejoindre-vide w-inline-block">
             <div class="text-block-213">BISMILLAH</div>
-            <div class="text-block-212">Je rejoins ma communauté</div>
+            <div class="text-block-212">{{__('I join my community')}}</div>
         </a>
     </div>
 </div>

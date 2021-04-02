@@ -23,6 +23,13 @@
     "register.email": "Email Address",
     "register.femme": "a woman",
     "register.homme": "a man",
-    "register.name": "Full name"
+    "register.name": "Full name",
+
+    "reset.faith" : "There is no God but Allah",
+    "reset.parole" : "This is the most beautiful of words",
+    "reset.instruction 1" : "Enter your email address ",
+    "reset.instruction 2" : "and receive instructions ",
+    "reset.instruction 3" : "to reset your password"
+
 
 }

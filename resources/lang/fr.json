@@ -4,10 +4,10 @@
     "Before proceeding, please check your email for a verification link.": "Avant de continuer, veuillez vérifier votre courrier électronique pour un lien de vérification.",
     "click here to request another": "cliquer ici pour faire une autre demande",
     "Confirm Password": "Confirmez le mot de passe",
-    "E-Mail or Phone": "E-mail ou téléphone",
+    "E-Mail": "E-mail",
     "Error": "Erreur",
     "Forbidden": "Interdit",
-    "Forgot Your Password?": "Vous avez oublié votre mot de passe ?",
+    "Forgot Your Password?": "Mot de passe oublié ?",
     "Go Home": "Aller à l'accueil",
     "Hello!": "Bonjour !",
     "hi": "salut",
@@ -45,12 +45,12 @@
     "You are receiving this email because we received a password reset request for your account.": "Vous recevez cet email car nous avons reçu une demande de réinitialisation de mot de passe pour votre compte.",
     "Whoops!": "Oups !",
     "Whoops, something went wrong on our servers.": "Oups, quelque chose s'est mal passé sur nos serveurs.",
-    "You don't have an account yet?": "tu n’as pas encore de compte?",
     "Thank you! Your submission has been received!" : "Merci ! Votre demande a été reçue !",
     "Oops! Something went wrong while submitting the form." : "Oups ! Un problème est survenu lors de la soumission du formulaire.",
     "Welcome to SMUUSE": "Bienvenue sur Smuuse ",
     "The Muslim video platform.":"La plateforme vidéo des musulmans",
     "I join my community": "Je rejoins ma communauté",
+    "Don't you have an account yet ?" : "Tu n'as pas encore de compte ?",
 
     "Welcome":"Bienvenue",
     "Welcome.synopsis" : "Nous vous souhaitons la bienvenue  a votre  premiere plateforme communautaire musulmane destinée à vous fournir des vidéos conforme aux chartes  musulmane tout en ayant un apport instructif, de distraction ou tout simplement une plateforme destiné  a la communion entre frère musulman .",
@@ -72,8 +72,15 @@
     "register.email": "Adresse email",
     "register.femme": "une femme",
     "register.homme": "un homme",
-    "register.name": "Nom au complet"
-    
+    "register.name": "Nom au complet",
+
+    "Says" : "Dit",
+    "There is no God but Allah" : "Il n'y a pas d'autre Dieu qu'Allah",
+    "This is the most beautiful of words" : "C'est la plus belle des paroles.",
+    "Enter your email address " : "Saisis ton adresse e-mail",
+    "and receive instructions" : "et reçois les instructions pour",
+    "to reset your password" : "réinitialiser ton mot de passe",
+    "Enter your new password" : "Entrez votre nouveau mot de passe"
     
   }
   

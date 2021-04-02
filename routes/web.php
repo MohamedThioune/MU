@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/home', function () {
+Route::get('/', function () {
     
     $video = DB::Table('videos')->select('videos.*')
                                  ->whereNull('videos.deleted_at')
@@ -93,9 +93,8 @@ Route::get('/home', function () {
     $shahid = date('H:i:s', $shahid);
     
     /** @var Event $event */
-    $events = DB::Table('events')->select('events.*')
-                                   ->limit(3)
-                                   ->get();
+    $event = DB::Table('events')->select('events.*')
+                                   ->first();
     
     $channel = DB::Table('users')->select('channels.*')
     ->join('channels', 'users.id', 'channels.user_id')
@@ -149,7 +148,7 @@ Route::get('/home', function () {
 
     session(['videos_haltcare' => $videos_haltcare, 'videos_life' => $videos_life, 'videos_health' => $videos_health, 'videos_business' => $videos_business, 'videos_environnement' => $videos_environnement, 'videos_education' => $videos_education]);
 
-    return view('home', compact('subtopics','channel','events', 'video','last','channel_top','videos_count','look_videos','like_videos','follows', 'looks','shahid'));
+    return view('home', compact('subtopics','channel','event', 'video','last','channel_top','videos_count','look_videos','like_videos','follows', 'looks','shahid'));
 
 })->name('home')->middleware('auth');
 
@@ -193,6 +192,7 @@ Route::get('/flow', function () {
 Auth::routes();
 
 Route::resource('users', 'UserController')->middleware('auth');
+
 Route::get('suscribe/{channel_id}','UserController@suscribe')->name('suscribe');
 
 Route::resource('profiles', 'ProfileController')->middleware('auth');
@@ -258,7 +258,7 @@ Route::post('/parameter', [App\Http\Controllers\UserController::class, 'paramete
 
 Route::get('/picture/{alpha}', [App\Http\Controllers\UserController::class, 'picture'])->name('users.picture')->middleware('auth');
 
-Route::get('/', function(){
+Route::get('/language', function(){
     return view('language');
 })->name('language.show');
 
