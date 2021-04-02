@@ -278,8 +278,7 @@ class UserController extends AppBaseController
         else{
             session(['lang'=>'en']);    
         }
-
-
+        
         return redirect('login');   
     }
 
