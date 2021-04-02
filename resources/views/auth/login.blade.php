@@ -3,10 +3,16 @@
 @section('content')
 @php App::setLocale(session('lang')); @endphp
 <div class="body-3">
+    <div class="section-9">
+        <a href="" class="link-block-33 w-inline-block">
+            <p class="text-block-226">Change language: Continuer en français </p>
+            <div class="div-block-197"><img src="{{ asset('img/FR-flag.png') }}" alt="" class="image-85"></div>
+        </a>
+    </div>
 <div class="section-2">
     <div class="container-6 w-container">
         <div class="div-block-15">
-            <img src="{{ asset('img/smuuse-logo-txt-blck-©-.png') }}" >
+            <img class="image-34" src="{{ asset('img/smuuse-logo-txt-blck-©-.png') }}" >
         </div>
         <div>
             <p class="text-block-4">As Salaaamou alaykouuum !!!</p>
@@ -328,12 +334,47 @@
     <p class="text-block-201">© 2021 Smuuse.  All Rights Reserved.</p>
 </div>
 </div>
+<div class="modal fade ModalTraduction" id="myModal">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="container-56 w-container">
+                <div class="div-block-389">
+                    <img src="{{ asset('img/Smuus-logo-2021-fluide-color.png') }}" class="image-139">
+                    <img src="{{ asset('img/Smuuse-fushia-blanc-SB.png') }}" loading="lazy" width="347" sizes="(max-width: 479px) 100vw, 347px" class="image-138">
+                </div>
+                <div class="lang-activ">
+                    <button class="button-19 w-button" data-dismiss="modal">English </button>
+                    <button class="button-33 w-button" data-dismiss="modal">Français</button>
+                </div>
+                <div class="lang-offf">
+                    <button  class="button-31 w-button" data-dismiss="modal">عرب</button>
+                    <button class="button-31 w-button" data-dismiss="modal">Türk</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <script>
     $("#accordion").on("hide.bs.collapse show.bs.collapse", e => {
         $(e.target)
             .prev()
             .find("i:last-child")
             .toggleClass("fa-minus fa-plus");
+    });
+
+    $('form').each(function() {
+        if (!$(this).is('[action]')) {
+            $(this).attr('action', '/');
+        }
+    });
+</script>
+<script>
+    $(window).on('load',function(){
+        var delayMs = 500; // delay in milliseconds
+
+        setTimeout(function(){
+            $('#myModal').modal('show');
+        }, delayMs);
     });
 </script>
 @endsection
