@@ -94,7 +94,7 @@ setcookie('lang', session('lang'), time() + 365*24*3600, null, null, false, true
                 <div class="div-block-131">
                 </div>
                 <div class="div-block-135">
-                    <h1 data-w-id="adafdb43-370d-b392-95fb-2c2aa0f32678" class="heading-29">Nous sommes musulmans.<br>Alors partageons le bien ;)</h1>
+                    <h1 data-w-id="adafdb43-370d-b392-95fb-2c2aa0f32678" class="heading-29">{{__('We are muslims.')}}<br>{{__('So let\'s share the good"')}} ;)</h1>
                 </div>
                 <div class="div-block-136">
                 </div>
@@ -102,9 +102,9 @@ setcookie('lang', session('lang'), time() + 365*24*3600, null, null, false, true
         </div>
         <div class="div-block-132">
             <div class="div-block-133">
-                <p  class="text-block-102">Il était indispensable et urgent d’avoir un service de streaming préservé de contenus inappropriés et inspiré de nos valeurs … </p>
-                <p  class="text-block-103">... alors, nous l&#x27;avons fait.</p>
-                <p  class="text-block-104">Pour nos enfants et pour nous même.</p>
+                <p  class="text-block-102">{{__('It was essential and urgent to have a streaming service free of inappropriate content and inspired by our values.')}} </p>
+                <p  class="text-block-103">{{__('...so we did it.')}}</p>
+                <p  class="text-block-104">{{__('For our children and for ourselves.')}}</p>
             </div>
             <div class="div-block-134">
                 <img src="{{ asset('img/Mu-Family-copie2x.png') }}">
@@ -179,111 +179,112 @@ setcookie('lang', session('lang'), time() + 365*24*3600, null, null, false, true
                 </div>
                 <div class="faq-wrapper">
                     <div class="faq-question">
-                        <p class="faq-q-text"><strong class="bold-text-5">{{__('')}}Combien ça coûte ?</strong></p>
+                        <p class="faq-q-text"><strong class="bold-text-5">{{__('How much does it cost ?')}}</strong></p>
                         <div class="faq-plus-wrap">
                             <div class="faq-plus-l"></div>
                             <div class="faq-plus"></div>
                         </div>
                     </div>
                     <div class="faq-answer">
-                        <p class="faq-answer-text">{{__('')}}L’abonnement individuel coûte : 4,95 € / mois * <br>L’abonnement famille coûte : 9,95 € /mois* (pour 5 personnes).<br>Tu peux également profiter d’un abonnement annuel dont le prix varie en fonction des offres du moment.<br>‍<br>Ton abonnement est avant tout un investissement pour toi même, pour le rôle que tu souhaites jouer dans ta communauté. Avec Smuuse, nous mettons à ta disposition un bel outil, à toi d&#x27;en faire le meilleur usage.<br></p>
+                        <p class="faq-answer-text">{{__('How much does it cost ? The individual subscription costs: 4,95 € / month * (for 5 people) The family subscription costs: 9.95 € / month* (for 5 people).You can also take advantage of an annual subscription, the price of which varies according to the current offers.Your subscription is first and foremost an investment for yourself, for the role you wish to play in your community. With Smuuse, we provide you with a great tool, it\'s up to you to make the best use of it')}}</p>
                     </div>
                 </div>
                 <div class="faq-wrapper">
                     <div class="faq-question">
-                        <p class="faq-q-text"><strong class="bold-text-5">{{__('')}}Pourquoi Smuuse est-il payant ?</strong></p>
+                        <p class="faq-q-text"><strong class="bold-text-5">{{__('Why is Smuuse not free ?')}}</strong></p>
                         <div class="faq-plus-wrap">
                             <div class="faq-plus-l"></div>
                             <div class="faq-plus"></div>
                         </div>
                     </div>
                     <div class="faq-answer">
-                        <p class="faq-answer-text">{{__('')}}Pour t’offrir la meilleure expérience et la plus fiable. <br>Pour garantir notre indépendance et la tienne.<br>Pour rémunérer ceux qui produisent du contenu.<br>‍<br>Parce que nous ne revendons pas tes données.<br>‍<br>Nous souhaitons construire le futur de la communauté avec la communauté et sans financement ce n’est pas possible. <br><br>Nous avons donc besoin de ta participation financière, mais également de tes invocations et de toutes autres aides que tu peux apporter ; en partageant au maximum le site par exemple...<br></p>
+                        <p class="faq-answer-text">{{__('To give you the best and most reliable experience. To guarantee our independence and yours. To pay those who produce content. Because we don\'t sell your data. We want to build the future of the community with the community and without funding this is not possible. So we need your financial participation, but also your invocations and any other help you can give; by sharing the site as much as possible for example...')}}</p>
+                    </div>
+                </div>
+
+                <div class="faq-wrapper">
+                    <div class="faq-question">
+                        <p class="faq-q-text"><strong class="bold-text-5">{{__('Can I earn money on Smuuse ?')}}</strong></p>
+                        <div class="faq-plus-wrap">
+                            <div class="faq-plus-l"></div>
+                            <div class="faq-plus"></div>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="faq-answer-text">{{__('Yes! In sha Allah! By producing content that is appreciated by other users. This way you can combine and multiply your intentions to earn both here and in the hereafter. You will find all the elements in the remuneration section, once the platform is active.')}}</p>
+                    </div>
+                </div>
+               
+                <div class="faq-wrapper">
+                    <div class="faq-question">
+                        <div class="faq-q-text"><strong class="bold-text-5">{{__('Does Smuuse filter content ?')}}</strong></div>
+                        <div class="faq-plus-wrap">
+                            <div class="faq-plus-l"></div>
+                            <div class="faq-plus"></div>
+                        </div>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="faq-answer-text">{{__('Yes, we apply several filters on content, but also on accounts and publications. We have also provided you with a filter to refine videos with us... Yes! No good deed goes unnoticed. So take advantage of it.')}}</p>
                     </div>
                 </div>
                 <div class="faq-wrapper">
                     <div class="faq-question">
-                        <p class="faq-q-text"><strong class="bold-text-5">{{__('')}}Puis-je gagner de l&#x27;argent sur Smuuse ?</strong></p>
+                        <p class="faq-q-text"><strong class="bold-text-5">{{__('Is there any advertising on Smuuse ?')}}</strong></p>
                         <div class="faq-plus-wrap">
                             <div class="faq-plus-l"></div>
                             <div class="faq-plus"></div>
                         </div>
                     </div>
                     <div class="faq-answer">
-                        <p class="faq-answer-text">{{__('')}}Oui ! In sha Allah ! {{__('')}}En produisant du contenu apprécié par les autres utilisateurs.<br><br>Tu peux ainsi combiner et multiplier tes intentions à la fois pour gagner ici bas et dans l&#x27;au-delà.<br>Tu trouveras tous les éléments dans la rubrique rémunération, une fois la plateforme active.<br></p>
+                        <p class="faq-answer-text">{{__('Yes, there is advertising. Don\'t worry, it won\'t be intrusive. We don\'t like to be interrupted by ads in the middle of a video either. Advertising is important on Smuuse. Advertising is important on Smuuse. It allows us to give more visibility to commercial actors in the community, to associations, etc. It also allows you to consume more efficiently. It also allows you to consume more ethically and to do good deeds at the same time.')}}</p>
                     </div>
                 </div>
                 <div class="faq-wrapper">
                     <div class="faq-question">
-                        <div class="faq-q-text"><strong class="bold-text-5">{{__('')}}Smuuse filtre-t-il les contenus ?</strong></div>
+                        <p class="faq-q-text"><strong class="bold-text-5">{{__('What does my subscription include ?')}}</strong></p>
                         <div class="faq-plus-wrap">
                             <div class="faq-plus-l"></div>
                             <div class="faq-plus"></div>
                         </div>
                     </div>
                     <div class="faq-answer">
-                        <p class="faq-answer-text">{{__('')}}Oui, nous appliquons plusieurs filtres sur les contenus, mais également sur les comptes et les publications.<br>‍<br>Nous avons aussi mis à ta disposition un filtre pour affiner les vidéos avec nous… Oui ! Aucune bonne action n’est à négliger. Alors, profites-en.</p>
+                        <p class="faq-answer-text">{{__('Your subscription includes unlimited access to all streaming services (Flow, Sista2Sista and Kids) and to \"hassanates parties\". However, additional services will be added at a later date... Many surprises are in store.')}}</p>
                     </div>
                 </div>
                 <div class="faq-wrapper">
                     <div class="faq-question">
-                        <p class="faq-q-text"><strong class="bold-text-5">{{__('')}}Y a-t-il de la publicité sur Smuuse ?</strong></p>
+                        <p class="faq-q-text"><strong class="bold-text-5">{{__('How do I deactivate my subscription ?')}}</strong></p>
                         <div class="faq-plus-wrap">
                             <div class="faq-plus-l"></div>
                             <div class="faq-plus"></div>
                         </div>
                     </div>
                     <div class="faq-answer">
-                        <p class="faq-answer-text">{{__('')}}Oui, il y a de la publicité. Rassure-toi, elle ne sera pas intrusive.<br>Nous aussi nous n’aimons pas être interrompus par de la pub en plein milieu d’une vidéo.<br>‍<br>La publicité est importante sur Smuuse. Elle permet de donner plus de visibilité aux acteurs commerciaux de la communauté, aux associations, etc. Elle te permet aussi de consommer plus éthique et de faire des bonnes actions par la même occasion.</p>
+                        <p class="faq-answer-text">{{__('Your subscription includes unlimited access to all streaming services (Flow, Sista2Sista and Kids) and to \'hassanates parties\'. However, additional services will be added at a later date... Many surprises are in store.')}}</p>
                     </div>
                 </div>
                 <div class="faq-wrapper">
                     <div class="faq-question">
-                        <p class="faq-q-text"><strong class="bold-text-5">{{__('')}}Qu’inclut mon abonnement ?</strong></p>
+                        <p class="faq-q-text"><strong class="bold-text-5">{{__('How do I deactivate my subscription ?')}}</strong></p>
                         <div class="faq-plus-wrap">
                             <div class="faq-plus-l"></div>
                             <div class="faq-plus"></div>
                         </div>
                     </div>
                     <div class="faq-answer">
-                        <p class="faq-answer-text">{{__('')}}Ton abonnement comprend, en illimité, tous les services de streaming (Flow, Sista2Sista et Kids) et aux &quot;hassanates party&quot;.  <br>Cependant, des services additionnels  viendront compléter l’offre ultérieurement… Beaucoup de surprises sont à venir.</p>
+                        <p class="faq-answer-text">{{__('When you sign up for your subscription, you will be charged once to activate your account. As soon as the platform is online, you get 1 month free of charge before the monthly payments start. If you have taken out an annual subscription, you will receive 2 months free.')}}</p>
                     </div>
                 </div>
                 <div class="faq-wrapper">
                     <div class="faq-question">
-                        <p class="faq-q-text"><strong class="bold-text-5">{{__('')}}Comment désactiver mon abonnement ?</strong></p>
+                        <p class="faq-q-text"><strong class="bold-text-5">{{__('Who are we ?')}}</strong></p>
                         <div class="faq-plus-wrap">
                             <div class="faq-plus-l"></div>
                             <div class="faq-plus"></div>
                         </div>
                     </div>
                     <div class="faq-answer">
-                        <p class="faq-answer-text">{{__('')}}Tu pourras facilement désactiver ton abonnement en te rendant dans ton compte et en décochant celui-ci. Il s’arrêtera automatiquement à la fin du cycle de facturation.</p>
-                    </div>
-                </div>
-                <div class="faq-wrapper">
-                    <div class="faq-question">
-                        <p class="faq-q-text"><strong class="bold-text-5">{{__('')}}Quand commence mon abonnement ?</strong></p>
-                        <div class="faq-plus-wrap">
-                            <div class="faq-plus-l"></div>
-                            <div class="faq-plus"></div>
-                        </div>
-                    </div>
-                    <div class="faq-answer">
-                        <p class="faq-answer-text">{{__('')}}Lorsque tu souscris à ton abonnement, tu es prélevé(e) une seule fois pour activer ton compte. <br>‍<br>Dès lors que la plateforme est en ligne, tu profites de 1 mois gratuit avant que ne commencent les prélèvements mensuels. <br>‍<br>Si tu as souscrit à un abonnement annuel, tu bénéficieras de 2 mois gratuits.</p>
-                    </div>
-                </div>
-                <div class="faq-wrapper">
-                    <div class="faq-question">
-                        <p class="faq-q-text"><strong class="bold-text-5">{{__('')}}Qui sommes-nous ?</strong></p>
-                        <div class="faq-plus-wrap">
-                            <div class="faq-plus-l"></div>
-                            <div class="faq-plus"></div>
-                        </div>
-                    </div>
-                    <div class="faq-answer">
-                        <p class="faq-answer-text"> {{__('')}}Nous sommes des pères et des mères, des fils et des filles, des frères et des soeurs, des entrepreneurs et des entrepreneuses. <br>‍<br>Nous souhaitons être les acteurs de nos vies contemporaines et non uniquement des spectateurs.<br> <br>Nous commettrons beaucoup d’erreurs, car la tâche n’est pas simple. Nous demandons donc ton soutien, ton indulgence et tes invocations, et surtout le pardon de notre Seigneur (AL Afouw, Celui qui efface les fautes) et Son aide.<br>  <br>Nous sommes tout simplement des musulmans, fiers de l’être et espérons le Firdaws (le paradis le plus élevé), pour nous comme pour toi !<br>‍<br>Que la Paix et les bénédictions d’Allah, à Lui la gloire et les louanges, soient sur notre bien aimé prophète. <br><br>Tu peux nous écrire par e-mail à : <a href="mailto:ask@smuuse.com" class="link-15">salam@smuuse.com</a>
-                        <p class="faq-answer-text"> {{__('')}} Nous sommes des pères et des mères, des fils et des filles, des frères et des soeurs, des entrepreneurs et des entrepreneuses. <br>‍<br>Nous souhaitons être les acteurs de nos vies contemporaines et non uniquement des spectateurs.<br> <br>Nous commettrons beaucoup d’erreurs, car la tâche n’est pas simple. Nous demandons donc ton soutien, ton indulgence et tes invocations, et surtout le pardon de notre Seigneur (AL Afouw, Celui qui efface les fautes) et Son aide.<br>  <br>Nous sommes tout simplement des musulmans, fiers de l’être et espérons le Firdaws (le paradis le plus élevé), pour nous comme pour toi !<br>‍<br>Que la Paix et les bénédictions d’Allah, à Lui la gloire et les louanges, soient sur notre bien aimé prophète. <br><br>Tu peux nous écrire par e-mail à : <a href="mailto:ask@smuuse.com" class="link-15">salam@smuuse.com</a>
+                        <p class="faq-answer-text"> {{__('We are fathers and mothers, sons and daughters, brothers and sisters, entrepreneurs. We want to be actors in our contemporary lives and not just spectators. We will make many mistakes, because the task is not easy. We therefore ask for your support, your indulgence and your invocations, and above all the forgiveness of our Lord (AL Afouw, He who erases faults) and His help. We are simply Muslims, proud to be Muslims and hope for the Firdaws (the highest paradise), for us as well as for you! May the Peace and blessings of Allah, to Him be the glory and praise, be upon our beloved Prophet.')}}</a>
                         </p>
                     </div>
                 </div>
@@ -293,8 +294,8 @@ setcookie('lang', session('lang'), time() + 365*24*3600, null, null, false, true
 </div>
 <div class="remerciement">
     <div class="container-37 w-container">
-        <p class="text-block-44">{{__('')}}* Images non contractuelles<br></p>
-        <p class="text-block-170">{{__('')}}Nous tenons à remercier toutes les personnes qui veillent à notre bien-être et à notre santé... et toutes les louanges sont à Allah.<br>Nos remerciements également tous celles et ceux qui concourent à notre réussite. <br></p>
+        <p class="text-block-44">* {{__('Non-contractual images')}}<br></p>
+        <p class="text-block-170">{{__('We would like to thank all the people who look after our well-being and health... and all praise is due to Allah. Our thanks also to all those who contribute to our success.')}}</p>
     </div>
 </div>
 <footer id="footer" class="footer-fr">
@@ -325,11 +326,21 @@ setcookie('lang', session('lang'), time() + 365*24*3600, null, null, false, true
             </div>
             <div class="div-block-194">
                 <div class="langue w-clearfix">
-                    <div data-w-id="df413b25-36ec-fef2-5e7e-8c290ca1aad7" class="francais">
-                        <img src="{{ asset('img/Mu-globe-langue-gris2x_1Mu-globe-langue-gris2x.png') }}" width="28" alt="">
-                        <a href="#" class="button-3 w-button">Français </a>
-                        <img src="{{ asset('img/Mu-flech-bas2x_1Mu-flech-bas2x.png') }}"  width="35" alt="">
-                    </div>
+                    @if(isset($_COOKIE['lang']))
+                        @if($_COOKIE['lang'] == 'fr')
+                        <div data-w-id="df413b25-36ec-fef2-5e7e-8c290ca1aad7" class="francais">
+                            <img src="{{ asset('img/Mu-globe-langue-gris2x_1Mu-globe-langue-gris2x.png') }}" width="28" alt="">
+                            <a href="#" class="button-3 w-button">Français </a>
+                            <img src="{{ asset('img/Mu-flech-bas2x_1Mu-flech-bas2x.png') }}"  width="35" alt="">
+                        </div>
+                        @else
+                        <div data-w-id="df413b25-36ec-fef2-5e7e-8c290ca1aad7" class="francais">
+                            <img src="{{ asset('img/Mu-globe-langue-gris2x_1Mu-globe-langue-gris2x.png') }}" width="28" alt="">
+                            <a href="#" class="button-3 w-button">Anglais </a>
+                            <img src="{{ asset('img/Mu-flech-bas2x_1Mu-flech-bas2x.png') }}"  width="35" alt="">
+                        </div>
+                        @endif
+                    @endif
                     <div style="width:0px;height:0px;opacity:0" class="choix-langue">
                         <a href="#" data-w-id="df413b25-36ec-fef2-5e7e-8c290ca1aadd" class="link-block-29 w-inline-block">
                             <div class="text-block-194">English </div>
@@ -345,7 +356,7 @@ setcookie('lang', session('lang'), time() + 365*24*3600, null, null, false, true
     </div>
 </footer>
 <div class="copy-right">
-    <p class="text-block-201">© 2021 Smuuse.  {{__('All Rights Reservd.')}}</p>
+    <p class="text-block-201">© 2021 Smuuse.  {{__('All Rights reserved.')}}</p>
 </div>
 </div>
 @if(!isset($_COOKIE['lang']))
@@ -358,8 +369,8 @@ setcookie('lang', session('lang'), time() + 365*24*3600, null, null, false, true
                     <img src="{{ asset('img/Smuuse-fushia-blanc-SB.png') }}" loading="lazy" width="347" sizes="(max-width: 479px) 100vw, 347px" class="image-138">
                 </div>
                 <div class="lang-activ">
-                    <a href="{{route('language.choose', 'en')}}" class="button-19 w-button" data-dismiss="modal" onclick="">English </a>
-                    <a href="{{route('language.choose', 'fr')}}" class="button-33 w-button" data-dismiss="modal" onclick="">Français</a>
+                    <a href="{{route('language.choose', 'en')}}" class="button-19 w-button" >English </a>
+                    <a href="{{route('language.choose', 'fr')}}" class="button-33 w-button" >Français</a>
                 </div>
                 <div class="lang-offf">
                     <button  class="button-31 w-button" data-dismiss="modal">عرب</button>

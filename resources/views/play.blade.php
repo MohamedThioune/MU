@@ -438,7 +438,7 @@
                 <div class="blockDetail webElement">
                     <div class="sousBlockTitle">
                         <div class="title-groupIcone">
-                            <p class="text-title">Titre de la vidéo: {{session('video')->main_title }}</p>
+                            <p class="text-title">{{__('Title of the video')}} : {{session('video')->main_title }}</p>
                             <div class="groupLOveUnlove">
                                 <div class="blockLoveUnlove">
                                     <p class="nbrLove">{{ session('video')->likers()->count() }} </p>
@@ -465,7 +465,7 @@
                         $months = ['01' => 'Jan', '02' => 'Feb', '03' => 'Mar', '04' => 'Apr', '05' => 'May', '06' => 'Jun', '07' => 'Jul', '08' => 'Aug', '09' => 'Sep', '10' => 'Oct', '11' => 'Nov', '12' => 'Dec' ];
                         @endphp
                         <div class="content12">
-                            <p class="datePublication">Published :&nbsp;{{session('video')->created_at->format('d')}}&nbsp; {{ $months[session('video')->created_at->format('m')]}}. &nbsp;{{session('video')->created_at->format('Y')}} </p>
+                            <p class="datePublication">{{__('Published')}} :&nbsp;{{session('video')->created_at->format('d')}}&nbsp; {{ $months[session('video')->created_at->format('m')]}}. &nbsp;{{session('video')->created_at->format('Y')}} </p>
                             <div class="d-flex textImgView">
                                 <p class="nbrView"> {{$reads}}</p>
                                 <div class="imgOeil"><img  src="{{ asset('img/icones/oeil.png') }}" alt=""></div>
@@ -473,8 +473,8 @@
                         </div>
                     </div>
                     <div class="block-detail-commentaire">
-                        <p class="des-text">Description de la vidéo : <span class="">{{ session('video')->description }}</span>      </p>
-                        <p class="des-text">Objectifs de la vidéo : {{ session('video')->motivation }}</p>
+                        <p class="des-text">{{__('Description of my video')}} : <span class="">{{ session('video')->description }}</span>      </p>
+                        <p class="des-text">{{__('Objectives of the video')}} : {{ session('video')->motivation }}</p>
                     </div>
 
                     <div class="blockshareAndComments">
@@ -486,19 +486,19 @@
                         <div class="blockImgPuli bottomElement">
                             <a href="{!! route('report',[session('video')->id]) !!}">
                                 @if($reports < 2)
-                                <img class="imgLiberti" src="{{asset('img/icon-feuille.png')}}" alt="Lune" data-toggle="tooltip" data-placement="top" title="Community-approved video">
+                                <img class="imgLiberti" src="{{asset('img/icon-feuille.png')}}" alt="Lune" data-toggle="tooltip" data-placement="top" title="{{__('Community-approved video')}}">
                                 @else
-                                <img class="imgLiberti" src="{{asset('img/icon-feuille.png')}}" alt="Lune"  data-toggle="tooltip" data-placement="top" title="This video has been pointed out by members of the community as being unbearable">
+                                <img class="imgLiberti" src="{{asset('img/icon-feuille.png')}}" alt="Lune"  data-toggle="tooltip" data-placement="top" title="{{__('This video has been pointed out by members of the community as being unbearable')}}">
                                 @endif
                             </a>
                         </div>
                         <div class="blockImgPuli bottomElement2">
                             <img src="{{ asset('img/icones/share.png') }}" alt="">
-                            <p class="textShare">Partager</p>
+                            <p class="textShare">{{__('Share')}}</p>
                         </div>
                         <div class=" shopBtn blockImgPuli bottomElement3">
                             <img src="{{ asset('img/panier.png') }}" alt="">
-                            <p class="textShare">Shop</p>
+                            <p class="textShare">{{__('Shop')}}</p>
                         </div>
                         <div class="blockImgPuli">
                             <div class="trois-point-noir">...</div>
@@ -507,7 +507,7 @@
                     <div class="block-shop">
                         <div  class="offre-shop">
                             <div class="div-block-322">
-                                <p class="text-block-318">Offre de la chaine</p>
+                                <p class="text-block-318">{{__('Offer of the channel')}}</p>
                                 <div data-w-id="0a070e0d-57d5-30ba-c024-1a4991a71631" class="cross">
                                     <div class="bar-cross"></div>
                                     <div class="bar-cross-left"></div>
@@ -518,27 +518,27 @@
                                     <div class="imgBullProfil">
                                         <img src="{{ asset('img/Mu-bull-profil-logo-fitG.jpg') }}"  alt="">
                                     </div>
-                                    <div class="text-block-320">Nom produit/ formation</div>
+                                    <div class="text-block-320">{{__('Product name')}} / Formation</div>
                                     <a href="#" class="link-block-38 w-inline-block">
-                                        <span class="text-block-319">Découvrir</span>
+                                        <span class="text-block-319">{{__('Discover')}}</span>
                                     </a>
                                 </div>
                                 <div class="div-block-318">
                                     <div class="imgBullProfil">
                                         <img src="{{ asset('img/Mu-bull-profil-logo-fitG.jpg') }}"  alt="">
                                     </div>
-                                    <div class="text-block-320">Nom produit 2</div>
+                                    <div class="text-block-320">{{__('Product name')}} 2</div>
                                     <a href="#" class="link-block-38 w-inline-block">
-                                        <span class="text-block-319">Découvrir</span>
+                                        <span class="text-block-319">{{__('Discover')}}</span>
                                     </a>
                                 </div>
                                 <div class="div-block-318">
                                     <div class="imgBullProfil">
                                         <img src="{{ asset('img/Mu-bull-profil-logo-fitG.jpg') }}"  alt="">
                                     </div>
-                                    <div class="text-block-320">Nom produit...</div>
+                                    <div class="text-block-320">{{__('Product name')}}...</div>
                                     <a href="#" class="link-block-38 w-inline-block">
-                                        <span class="text-block-319">Découvrir</span>
+                                        <span class="text-block-319">{{__('Discover')}}</span>
                                     </a>
                                 </div>
                             </div>
@@ -556,7 +556,7 @@
                     <div class="elementImgAuteur">
                         <a class="elementImgAuteur" href="{{route('channel.visitor', $channel->id)}}"class="nameAuteur contentweb">
                             @if($channel->logo)
-                            <img class="" src="{{ asset('/images/uploads') }}/{{$channel->photo}}" alt="">
+                            <img class="" src="{{ asset('/img/') }}/{{$channel->logo}}" alt="">
                             @elseif(session('user')->age <= 15)
                             <img class="" src="{{asset('images/kids_preloader.png')}}" alt="">
                             @elseif(session('user')->age > 15 && session('user')->sex == '1')
@@ -568,19 +568,19 @@
                     </div>
                     
                     <a href="{{route('channel.visitor', $channel->id)}}" style="color:#333333" class="nameAuteur contentweb">{{$channel->name}}</a>
-                    <p class="nbreAbonnees contentweb"> {{\App\Models\Channel::find($channel->id)->abonnees->count()}} Abonnes</p>
+                    <p class="nbreAbonnees contentweb"> {{\App\Models\Channel::find($channel->id)->abonnees->count()}} {{__('Subscribers')}}</p>
                     <div class="contentMobile">
                         <p class="nameAuteur">{{$channel->name}}</p>
                     <!-- <p class="nbreAbonnees"> {{\App\Models\Channel::find($channel->id)->abonnees->count()}} Abonnes</p>  -->
                     </div>
                     <div class="elementBtnSouscrire">
-                        <a href="{{ route('suscribe',$channel->id) }}" class="btn btnSubscribe">Subscribe</a>
+                        <a href="{{ route('suscribe',$channel->id) }}" class="btn btnSubscribe">{{__('Subscribe')}}</a>
                     </div>
                 </div>
                 <div class="mobMobile">
                     <div class="publicite">
                         <div class="seed-Block">
-                            <p class="seedText">See the Ad</p>
+                            <p class="seedText">{{__('See the Ad')}}</p>
                         </div>
                         <img src="{{ asset('img/publicite.png') }}" alt="">
                     </div>
@@ -743,10 +743,10 @@
                     </div>
                 </div>
                 <div class="blockcomentaireAndButton">
-                    <p class="commentaire">lown payment at confirmation of order and rest on factory dispatch date, Two years EU</p>
+                    <p class="commentaire">{{__('lown payment at confirmation of order and rest on factory dispatch date, Two years EU')}}</p>
                 </div>
                 <div class="moreContent">
-                    <button class="btn btnMore">More</button>
+                    <button class="btn btnMore">{{__('More')}}</button>
                     <img class="imgFleche" src="{{ asset('img/icones/fleche.svg') }}" alt="">
                 </div>
             </div>
@@ -817,7 +817,7 @@
                 <div class="commentOne commentBlock">
                     <div class="commentTitle">
                         <p class="nombreComment">{{count($comments)}}</p>
-                        <p class="commentText">Comments</p>
+                        <p class="commentText">{{__('Comments')}}</p>
                         <img class="commentImg" src="{{ asset('img/icones/commet.svg') }}" alt="">
                     </div>
 
@@ -840,7 +840,7 @@
                                 </div>
                                 <div class="div-block-326" >
                                     <div class="text-block-323">{{$users[$i]->name}}</div>
-                                    <div class="text-block-322" style="width:300px">{{$comments[$i]->value}}...&nbsp;&nbsp;<a href="#" class="link-24">Lire plus</a>
+                                    <div class="text-block-322" style="width:300px">{{$comments[$i]->value}}...&nbsp;&nbsp;<a href="#" class="link-24">{{__('Read more')}}</a>
                                     </div>
                                 </div>
                                 <div class="text-block-324">
@@ -882,7 +882,7 @@
                             </div>
                         </div>
                         <div class="div-block-331" id="TestsDiv" style="display:none">
-                            <div class="text-block-264">Commentaires</div>
+                            <div class="text-block-264">{{__('')}}Commentaires</div>
 
                             @include('adminlte-templates::common.errors')
                             <form method="POST" action="/comments">
@@ -891,8 +891,8 @@
                                 <textarea class="inputCommentaire" name="value" id="" rows="5"></textarea>
 
                                 <div class="div-block-332">
-                                    <div data-w-id="4b72083c-6fc6-243d-8a1a-20877dbe9b72" class="text-block-325">Annuler</div>
-                                    <button type="submit" class="text-block-326 btn">Envoyer</button>
+                                    <div data-w-id="4b72083c-6fc6-243d-8a1a-20877dbe9b72" class="text-block-325">{{__('')}}Annuler</div>
+                                    <button type="submit" class="text-block-326 btn">{{__('')}}Envoyer</button>
                                 </div>
                             </form>
                             <div>
@@ -921,7 +921,7 @@
                     <div class="commentTitle">
                         <img class="commentImg" src="{{ asset('img/icones/commet.svg') }}" alt="">
                         <p class="nombreComment"></p>
-                        <p class="commentText">0 Commentaire</p>
+                        <p class="commentText">0 {{__('')}}Commentaire</p>
                     </div>
                     <div class="div-block-331" >
                         <div class="text-block-264">Commentaires</div>
@@ -933,8 +933,8 @@
                             <textarea class="inputCommentaire" name="value" id=""></textarea>
 
                             <div class="div-block-332">
-                                <button class="btn btnAnnuler">Annuler</button>
-                                <button type="submit" class="btn btnEnvoyer">Envoyer</button>
+                                <button class="btn btnAnnuler">{{__('')}}Annuler</button>
+                                <button type="submit" class="btn btnEnvoyer">{{__('')}}Envoyer</button>
                             </div>
                         </form>
                     </div>
@@ -1147,7 +1147,7 @@
                                    
                                     <div class="blockImgMind">
                                         @if($user->photo)
-                                        <img class="" src="{{ asset('/images/uploads') }}/{{$user->photo}}" alt="">
+                                        <img class="" src="{{ asset('/img/') }}/{{$user->photo}}" alt="">
                                         @elseif($user->age <= 15)
                                         <img class="" src="{{asset('images/kids_preloader.png')}}" alt="">
                                         @elseif($user->age > 15 && $user->sex == '1')
@@ -1267,7 +1267,7 @@
             
                                     <div class="blockImgMind">
                                         @if($user->photo)
-                                        <img class="" src="{{ asset('/images/uploads') }}/{{$user->photo}}" alt="">
+                                        <img class="" src="{{ asset('/img/') }}/{{$user->photo}}" alt="">
                                         @elseif($user->age <= 15)
                                         <img class="" src="{{asset('images/kids_preloader.png')}}" alt="">
                                         @elseif($user->age > 15 && $user->sex == '1')
@@ -1387,7 +1387,7 @@
                                     
                                     <div class="blockImgMind">
                                         @if($user->photo)
-                                        <img class="" src="{{ asset('/images/uploads') }}/{{$user->photo}}" alt="">
+                                        <img class="" src="{{ asset('/img/') }}/{{$user->photo}}" alt="">
                                         @elseif($user->age <= 15)
                                         <img class="" src="{{asset('images/kids_preloader.png')}}" alt="">
                                         @elseif($user->age > 15 && $user->sex == '1')
@@ -1507,7 +1507,7 @@
                                    
                                     <div class="blockImgMind">
                                         @if($user->photo)
-                                        <img class="" src="{{ asset('/images/uploads') }}/{{$user->photo}}" alt="">
+                                        <img class="" src="{{ asset('/img/') }}/{{$user->photo}}" alt="">
                                         @elseif($user->age <= 15)
                                         <img class="" src="{{asset('images/kids_preloader.png')}}" alt="">
                                         @elseif($user->age > 15 && $user->sex == '1')
@@ -1629,7 +1629,7 @@
                                         @endphp
                                         <div class="blockImgMind">
                                             @if($user->photo)
-                                            <img class="" src="{{ asset('/images/uploads') }}/{{$user->photo}}" alt="">
+                                            <img class="" src="{{ asset('/img/') }}/{{$user->photo}}" alt="">
                                             @elseif($user->age <= 15)
                                             <img class="" src="{{asset('images/kids_preloader.png')}}" alt="">
                                             @elseif($user->age > 15 && $user->sex == '1')
@@ -1751,7 +1751,7 @@
                                     @endphp
                                     <div class="blockImgMind">
                                         @if($user->photo)
-                                        <img class="" src="{{ asset('/images/uploads') }}/{{$user->photo}}" alt="">
+                                        <img class="" src="{{ asset('/img/') }}/{{$user->photo}}" alt="">
                                         @elseif($user->age <= 15)
                                         <img class="" src="{{asset('images/kids_preloader.png')}}" alt="">
                                         @elseif($user->age > 15 && $user->sex == '1')

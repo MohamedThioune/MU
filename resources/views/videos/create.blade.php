@@ -3,6 +3,7 @@
 <script>(function(e,t,n){var r=e.querySelectorAll("html")[0];r.className=r.className.replace(/(^|\s)no-js(\s|$)/,"$1js$2")})(document,window,0);</script>
 <link rel="stylesheet" type="text/css" href="../css/component.css" />
 <link rel="stylesheet" type="text/css" href="../css/video.css" />
+@php if(isset($_COOKIE['lang'])) App::setLocale($_COOKIE['lang']); @endphp
 @endsection
 
 @section('content-sidbar-element')
@@ -27,17 +28,17 @@
                             </div>
                         </div>
 
-                        <p class="text-publier-cette-video">Publier cette vidéo uniquement sur Sista 2 Sista</p>
+                        <p class="text-publier-cette-video">{{__('')}}Publier cette vidéo uniquement sur Sista 2 Sista</p>
                     </div>
                 </div>
                 @endif
             </div>
             <div class="div-block-235">
-                <p class=" text-title-video">Télécharger ma vidéo</p>
+                <p class=" text-title-video">{{__('Download a video')}}</p>
                 <div class="div-block-254">
                     <div class="div-block-237">
                         <div class="form-group titre-video">
-                            <label for="titre-video" class="text-la-video2">Titre de la vidéo</label>
+                            <label for="titre-video" class="text-la-video2">{{__('Title of the video')}}</label>
                             <input type="text" class="form-control div-block-236" id="main_title" name="main_title">
                         </div>
                         <p class="text-number-element">0/120</p>
@@ -47,7 +48,7 @@
                                     <input type="file" name="vid" id="vid" class="inputfile inputFile1 inputfile-4"/>
                                     <label for="vid">
                                         <figure> <img src="{{ asset('img/outline-cloud_upload-24px.png') }}" class="img-cloud" alt=""></figure>
-                                        <span class="text2-telecharger-la-video">Télécharger la vidéo</span>
+                                        <span class="text2-telecharger-la-video">{{__('Download my video')}}</span>
                                     </label>
                                 </div>
 
@@ -64,7 +65,7 @@
                             </label>
                             <div class="input inputModifeVignette">
                                 <input class="btn btn-default" name="thumbnail" id="thumbnail" type="file" />
-                                <label for="thumbnail">Modifier vignette de la video</label>
+                                <label for="thumbnail">{{__('Change video thumbnail')}}</label>
                             </div>
                         </div>
                     </div>
@@ -72,60 +73,58 @@
             </div>
             <div class="div-block-241">
                 <div class="div-block-248">
-                    <p class=" text-title-video">Description de ma vidéo</p>
+                    <p class=" text-title-video">{{__('Description of a video')}}</p>
                     <div class="div-block-249">
                         <div class="form-group titre-video">
-                            <label class="text-la-video2">Description de la vidéo</label>
+                            <label class="text-la-video2">{{__('Description of my video')}}</label>
                             <textarea class="form-control div-block-240" name="description" id="description" cols="30" rows="5">
                             </textarea>
                         </div>
                         <div class="form-group titre-video">
-                            <label class="text-title-video">Objectifs de la vidéo</label>
-                            <p class="text-block-263">"Les acts ne valent que par leurs intentions" alors précise tes objectifs.
-                                Et souviens toi que la première des intentions est de plaire à ton Créateur.
-                                Que Le Très miséricordieux t'en récompense.</p>
+                            <label class="text-title-video">{{__('Objectives of the video')}}</label>
+                            <p class="text-block-263">{{__('\'Acts are only as good as their intentions\' so be clear about your goals. And remember that the first intention is to please your Creator. May the Most Merciful reward you for this.')}}</p>
                             <div class="div-block-310">
                                 <div class="divChekElement">
                                     <input type="checkbox" value="informer" class="btn-check" id="btn-check-2-outlined" checked autocomplete="off">
-                                    <label class="btn text-block-311" for="btn-check-2-outlined">Informer</label>
+                                    <label class="btn text-block-311" for="btn-check-2-outlined">{{__('Inform')}}</label>
                                 </div>
                                 <div class="divChekElement">
                                     <input type="checkbox" value="partager" class="btn-check" id="btn-check-2-outlined"  autocomplete="off">
-                                    <label class="btn text-block-311" for="btn-check-2-outlined">Partager</label>
+                                    <label class="btn text-block-311" for="btn-check-2-outlined">{{__('Share')}}</label>
                                 </div>
                                 <div class="divChekElement">
                                     <input type="checkbox" value="faire-rire" class="btn-check" id="btn-check-2-outlined"  autocomplete="off">
-                                    <label class="btn text-block-311" for="btn-check-2-outlined">Faire rire</label>
+                                    <label class="btn text-block-311" for="btn-check-2-outlined">{{__('Making you laugh')}}</label>
                                 </div>
                                 <div class="divChekElement">
                                     <input type="checkbox" value="sensibiliser" class="btn-check" id="btn-check-2-outlined"  autocomplete="off">
-                                    <label class="btn text-block-311" for="btn-check-2-outlined">Sensibiliser</label>
+                                    <label class="btn text-block-311" for="btn-check-2-outlined">{{__('Sensitize')}}</label>
                                 </div>
                                 <div class="divChekElement">
                                     <input type="checkbox" value="inspirer" class="btn-check" id="btn-check-2-outlined"  autocomplete="off">
-                                    <label class="btn text-block-311" for="btn-check-2-outlined">Inspirer</label>
+                                    <label class="btn text-block-311" for="btn-check-2-outlined">{{__('Inspire')}}</label>
                                 </div>
                             </div>
                             <div class="div-block-310">
                                 <div class="divChekElement">
                                     <input type="checkbox" value="avertir" class="btn-check" id="btn-check-2-outlined"  autocomplete="off">
-                                    <label class="btn text-block-311" for="btn-check-2-outlined">Avertir</label>
+                                    <label class="btn text-block-311" for="btn-check-2-outlined">{{__('Notify')}}</label>
                                 </div>
                                 <div class="divChekElement">
                                     <input type="checkbox" value="soutenir" class="btn-check" id="btn-check-2-outlined"  autocomplete="off">
-                                    <label class="btn text-block-311" for="btn-check-2-outlined">Soutenir</label>
+                                    <label class="btn text-block-311" for="btn-check-2-outlined">{{__('Support')}}</label>
                                 </div>
                                 <div class="divChekElement">
                                     <input type="checkbox" value="vendre" class="btn-check" id="btn-check-2-outlined"  autocomplete="off">
-                                    <label class="btn text-block-311" for="btn-check-2-outlined">Vendre</label>
+                                    <label class="btn text-block-311" for="btn-check-2-outlined">{{__('Sell')}}</label>
                                 </div>
                                 <div class="divChekElement">
                                     <input type="checkbox" value="rappeler" class="btn-check" id="btn-check-2-outlined"  autocomplete="off">
-                                    <label class="btn text-block-311" for="btn-check-2-outlined">Rappeler</label>
+                                    <label class="btn text-block-311" for="btn-check-2-outlined">{{__('Call back')}}</label>
                                 </div>
                                 <div class="divChekElement">
                                     <input type="checkbox" value="expliquer" class="btn-check" id="btn-check-2-outlined"  autocomplete="off">
-                                    <label class="btn text-block-311" for="btn-check-2-outlined">Expliquer</label>
+                                    <label class="btn text-block-311" for="btn-check-2-outlined">{{__('Explain')}}</label>
                                 </div>
                             </div>
                             <!--<textarea class="form-control div-block-240" name="motivation" id="motivation" cols="30" rows="5">
@@ -135,7 +134,7 @@
                 </div>
             </div>
             <div class="div-block-250">
-                <p class="text-la-video2">Catégorie de la vidéo</p>
+                <p class="text-la-video2">{{__('Category of the video')}}</p>
                 <div class="div-block-247">
                     <div class="div-block-246">
                         <div class="div-block-242">
@@ -276,14 +275,14 @@
             </div>
             <div class="div-block-261">
                 <div>
-                    <p class="text-la-video2">Date de publication</p>
+                    <p class="text-la-video2">{{__('Date of publication')}}</p>
                 </div>
                 <div class="div-block-262">
                     <div class="div-block-265">
-                        <p class="text-publication-immediat">Publication immédiate </p>
+                        <p class="text-publication-immediat">{{__('Immediate publication')}}</p>
                         <div class="div-block-264"></div>
                     </div>
-                    <p>Publication progammer pour le </p>
+                    <p>{{__('Publication schedule for the')}}</p>
                     <div class="div-block-263">
                         <div>
                             <div class="text-block-279">Date</div>
@@ -292,13 +291,13 @@
                             </div>
                         </div>
                         <div>
-                            <div class="text-block-278">Heure</div>
+                            <div class="text-block-278">{{__('Hour')}}</div>
                             <div>
                                 <input class="text-block-277" id="date" type="time" value="00 : 00">
                             </div>
                         </div>
                     </div>
-                    <a href="#" class="button-14 w-button">Valider</a>
+                    <a href="#" class="button-14 w-button">{{__('Approve')}}</a>
                 </div>
             </div>
             <!-- <div class="div-block-256">
@@ -325,10 +324,10 @@
             <div class="div-block-251">
                 <p class="text-la-video2">Validation Publication</p>
                 <div class="div-block-253">
-                    <p class="text-alhamdoulila2">Al hamdulillah ! Tu t&#x27;apprêtes à publier tes vidéos. <br>Qu&#x27;Allah Le Miséricordieux te fasse profiter de tout le bien qu&#x27;il y a dans ton oeuvre,<br> et qu&#x27;Il te préserve du mal qu&#x27;elle peut réserver. Ici-bas et dans l&#x27;au-delà !</p>
+                    <p class="text-alhamdoulila2">Al hamdulillah ! {{__('You are about to publish your videos.')}}<br>{{__('May Allah the Merciful make you enjoy all the good that is in your work and preserve you from the evil that it may hold. Here below and in the Hereafter !')}}</p>
                     <button type="submit" value="Save" class="btn div-block-252">
                         <span class="text-bismillah-publication">BISMILLAH</span>
-                        <span class="text-publie">Je publie ma vidéo</span>
+                        <span class="text-publie">{{__('I publish my video')}}</span>
                     </button>
                 </div>
             </div>

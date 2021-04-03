@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     @endsection
+    @php if(isset($_COOKIE['lang'])) App::setLocale($_COOKIE['lang']); @endphp
+
 </head>
 <body>
 @section('content-play-element')
@@ -19,7 +21,7 @@
                         <div class="div-block-386">
                             <img src="{{ asset('img/Mu-coeur-blanc.svg') }}" loading="lazy" width="23" alt="">
                         </div>
-                        <a class="text-block-380" style="color:white; background: #F57409; padding:5px 0;" href="{{ route('suscribe',$visit->id) }}"><div>S&#x27;abonner</div></a>
+                        <a class="text-block-380" style="color:white; background: #F57409; padding:5px 0;" href="{{ route('suscribe',$visit->id) }}"><div>{{__('Subscribe')}}</div></a>
                     </a>
                     <div class="alerte">
                         <img src="{{ asset('img/Mu-cloche-blanc.svg') }}" loading="lazy" width="11" alt="">
@@ -31,7 +33,7 @@
                         <img src="{{ asset('img/Mu-panier2x_1.png') }}" loading="lazy" width="27" alt="">
                     </a>
                     <a href="#" class="link-block-41 w-inline-block">
-                        <div>Soutenir</div>
+                        <div>{{__('Support us')}}</div>
                     </a>
                 </div>
             </div>
@@ -55,26 +57,26 @@
                 <h1 class="heading-45">{{$visit->name}}</h1>
                 <div class="div-block-383">
                     <p class="text-block-344">{{\App\Models\Channel::find($visit->id)->abonnees->count()}} </p>
-                    <p class="text-block-345">abonnés</p>
+                    <p class="text-block-345">{{__('Subscribers')}}</p>
                 </div>
             </div>
 
             @if($bool)
             <a class="text-block-380" style="color:white; background: #F57409; padding:5px 0; margin-left:20px; border-radius:10px; margin-top:-10px; " href="{{route('channel.visitor', $visit->id)}}">
-                <div style="padding: 3px 10px;font-size:0.75em"><strong style="text-decoration:underline;" style="">Apercu en mode visiteur</strong> :<br> Voici ce que les utilisateurs pourront voir de votre page.<br>Cliquer pour quitter ce mode apercu.</div>
+                <div style="padding: 3px 10px;font-size:0.75em"><strong style="text-decoration:underline;" style="">{{__('Preview in visitor mode')}}</strong> :<br> {{__('This is what users will see of your page.')}}<br>{{__('Click to exit this mode.')}}</div>
             </a>
             @elseif($admin)
             <div class="text-block-380" style="color:white; background: #F57409; padding:5px 0; margin-left:20px; border-radius:10px; margin-top:-10px; " >
-                <div style="padding: 3px 10px;font-size:0.75em"><strong style="text-decoration:underline;" style="">Mode Admin</strong> :<br> <a  class= "btn btn-default" href="{{route('channel.fly',$visit->id)}}">Passer en mode apercu.</a> &nbsp;&nbsp;&nbsp; <a class= "btn btn-default" href="{{route('channel.visitor',$visit->id)}}">Passer en mode edition.</a> </div>
+                <div style="padding: 3px 10px;font-size:0.75em"><strong style="text-decoration:underline;" style="">{{__('Admin mode')}}</strong> :<br> <a  class= "btn btn-default" href="{{route('channel.fly',$visit->id)}}">{{__('Switch to overview mode.')}}</a> &nbsp;&nbsp;&nbsp; <a class= "btn btn-default" href="{{route('channel.visitor',$visit->id)}}">{{__('Passes an edition mode.')}}</a> </div>
             </div>
             @endif
         </div>
     </div>
     <div class="menu-content-business">
         <a href="#" class="link-26">Infos</a>
-        <a href="#" class="link-26">Récents</a>
-        <a href="#" class="link-26">Toutes les videos</a>
-        <a href="#" class="link-26">Offres</a>
+        <a href="#" class="link-26">Recents</a>
+        <a href="{{route('flow')}}" class="link-26">{{__('All videos')}}</a>
+        <a href="#" class="link-26">{{__('Offers')}}</a>
         <a href="#" class="link-26">Playlist</a>
     </div>
     @if($events)
@@ -117,9 +119,9 @@
         <div class="div-block-394">
         @if($edit)
             @if(!$event)
-            <a class="btn btn-default" style="text-decoration:none;" href="{{route('events.create')}}" alt="">&#x267B; Actualiser</a>
+            <a class="btn btn-default" style="text-decoration:none;" href="{{route('events.create')}}" alt="">&#x267B; {{__('Refresh')}}}</a>
             @else
-            <a class="btn btn-default" style="text-decoration:none;" href="{{route('events.edit', $event->id)}}" alt="">&#x267B; Actualiser</a>   
+            <a class="btn btn-default" style="text-decoration:none;" href="{{route('events.edit', $event->id)}}" alt="">&#x267B; {{__('Refresh')}}}</a>   
             @endif   
         @endif      
         </div>
@@ -131,11 +133,11 @@
             <a href="{{route('play',$videos[0]->id)}}"><img src="{{ asset('img/Mu-Vignette-video-400x250-photographe.jpg') }}" alt=""></a>
         </div>
         <div class="sadaka-txt">
-            <p class="text-block-334">Savoir Illustré son business</p>
+            <p class="text-block-334">{{$videos[0]->main_title}}</p>
             <p class="text-block-336">{{$visit->description}}</p>
             <div class="div-block-337">
                 <a href="#Offre-business" class="business-buton w-inline-block">
-                    <span class="text-block-338">Découvrir toutes les offres</span>
+                    <span class="text-block-338">{{__('Discover all offers')}}</span>
                 </a>
             </div>
             <div class="div-block-339">
@@ -171,19 +173,19 @@
                     @if(count($activities)>0)
                     <div>
                         <div class="infos-biz-chaine">
-                            <p class="text-block-343"><b style="color:black;">{{$visit->name}}</b> en grandes lignes ...</p>
+                            <p class="text-block-343"><b style="color:black;">{{$visit->name}}</b>{{__('in outline ...')}}</p>
                         </div>
                         <div class="descrition-biz-chaine">
-                            <p class="text-block-330">CE QUE NOUS FESONS &#x1F680; : @foreach($activities as $activity) <br> - {{$activity->text}} @endforeach</p>
+                            <p class="text-block-330">{{__('WHAT WE DO')}}  &#x1F680; : @foreach($activities as $activity) <br> - {{$activity->text}} @endforeach</p>
                         </div>
                         @if($edit)
-                        <a class="btn btn-default" style="text-decoration:none;margin-left:-15px" href="{{route('activities.create')}}" alt="">&#x267B; Actualiser</a>
+                        <a class="btn btn-default" style="text-decoration:none;margin-left:-15px" href="{{route('activities.create')}}" alt="">&#x267B; {{__('Refresh')}}}}</a>
                         @endif
                     </div>
                     @else
                     <div>
                         <div class="infos-biz-chaine">
-                            <p class="text-block-343"><b style="color:black;">{{$visit->name}}</b> la pour vous &#x1F60E; ...</p>
+                            <p class="text-block-343"><b style="color:black;">{{$visit->name}}</b>{{__('')}} la pour vous &#x1F60E; ...</p>
                         </div>
                     </div>
                     @endif
@@ -196,22 +198,22 @@
     @if($contact)
     <div class="coordonne">
         <div class="text-block-331"><a href="" class="link-25">Contact</a></div> <br>
-        <p class="text-block-331"> <span style="text-decoration:underline">Adresse</span><br>N° voie : {{$contact->adresse}}<br>Code postale : {{$contact->code_postale}}<br> Ville : {{$contact->ville}} <br>Pays : {{$contact->pays}}</p>
-        <p class="text-block-332" style="text-decoration:underline">Site web : {{$contact->site_web}}<br></p>
-        <p class="text-block-339" style="text-decoration:underline">Horaire d&#x27;ouverture : 08h30 - 18H00<br>‍</p>
+        <p class="text-block-331"> <span style="text-decoration:underline">{{__('')}}Adresse</span><br>N° voie : {{$contact->adresse}}<br>Code postale : {{$contact->code_postale}}<br> Ville : {{$contact->ville}} <br>Pays : {{$contact->pays}}</p>
+        <p class="text-block-332" style="text-decoration:underline">{{__('')}}Site web : {{$contact->site_web}}<br></p>
+        <p class="text-block-339" style="text-decoration:underline">{{__('')}}Horaire d&#x27;ouverture : 08h30 - 18H00<br>‍</p>
         
         @if($edit)
             @if(!$contact)
-            <a class="btn btn-default" style="text-decoration:none;margin-left:-15px" href="{{route('contacts.create')}}" alt="">&#x267B; Actualiser</a>
+            <a class="btn btn-default" style="text-decoration:none;margin-left:-15px" href="{{route('contacts.create')}}" alt="">&#x267B; {{__('Refresh')}}</a>
             @else
-            <a class="btn btn-default" style="text-decoration:none;margin-left:-15px" href="{{route('contacts.edit', $contact->id)}}" alt="">&#x267B; Actualiser</a>
+            <a class="btn btn-default" style="text-decoration:none;margin-left:-15px" href="{{route('contacts.edit', $contact->id)}}" alt="">&#x267B; {{__('Refresh')}}}</a>
             @endif
         @endif
     </div>
     @endif
     @php $bool = false; @endphp
     <div class="derniersNouvelles">
-        <p class="text-Playlist">Les videos qui ont été le plus visionnées ... </p>
+        <p class="text-Playlist">{{__('The videos that have been viewed the most ...')}}</p>
         <div class="swiper-container swipeContainermodife1">
             <div class="swiper-wrapper">
                 @foreach($videos_top as $video)
@@ -283,7 +285,7 @@
                 </div>
                 @endif
                 @endforeach
-               @if(!$bool) Aucune video ne peut etre charger pour cette chaine en ce moment &#x1F625;  @endif
+               @if(!$bool) {{__('No videos can be uploaded for this channel at this time')}} &#x1F625;  @endif
             </div>
         </div>
     </div>
@@ -293,31 +295,31 @@
             <div class="div-block-318">
                 <div>
                     <img src="{{ asset('img/Nuage-rose.png') }}" width="52" alt=""></div>
-                <p class="text-block-320">Nom produit/ formation</p>
+                <p class="text-block-320">{{__('Product name')}} / Formation</p>
                 <a href="#" class="link-block-38 w-inline-block">
-                    <div class="text-block-319">Découvrir</div>
+                    <div class="text-block-319">{{__('Discover')}}</div>
                 </a>
             </div>
             <div class="div-block-318">
                 <div>
                     <img src="{{ asset('img/Nuage-rose.png') }}" width="52"></div>
-                <p class="text-block-320">Nom produit 2</p>
+                <p class="text-block-320">{{__('Product name')}} ...</p>
                 <a href="#" class="link-block-38 w-inline-block">
-                    <div class="text-block-319">Découvrir</div>
+                    <div class="text-block-319">{{__('Discover')}}</div>
                 </a>
             </div>
             <div class="div-block-318">
                 <div><img src="{{ asset('img/Nuage-rose.png') }}" width="52"></div>
-                <p class="text-block-320">Nom produit...</p>
+                <p class="text-block-320">{{__('Product name')}}...</p>
                 <a href="#" class="link-block-38 w-inline-block">
-                    <div class="text-block-319">Découvrir</div>
+                    <div class="text-block-319">{{__('Discover')}}</div>
                 </a>
             </div>
         </div>
     </div>
     <div class="">
         <div class="playlist2">
-            <p class="text-Playlist">MA playlist ...</p>
+            <p class="text-Playlist">{{__('MY')}} playlist ...</p>
             
             <div class="swiper-container swipeContainermodife1">
                 <div class="swiper-wrapper">
@@ -410,7 +412,7 @@
             </div>
         </div>
         <div class="playlist2">
-            <p class="text-Playlist">Les dernières nouvelles</p>
+            <p class="text-Playlist">{{__('Latest news')}}</p>
             <div class="swiper-container swipeContainermodife1">
                 <div class="swiper-wrapper">
                     @foreach($videos as $video)

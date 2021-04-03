@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="../css/mu-dev.webflow.css">
     <script src="https://kit.fontawesome.com/2def424b14.js" crossorigin="anonymous"></script>
     @yield('head')
+    @php if(isset($_COOKIE['lang'])) App::setLocale($_COOKIE['lang']); @endphp
 </head>
 
 <body>
@@ -25,9 +26,9 @@
             <div class="sidebar sideBarModife">
                 <div class="head-slidebar">
                     <div class="text-ma-chaine">{{$channel->name}}</div>
-                    <div class="text-fonction">Particulier</div>
+                    <div class="text-fonction">{{__('Individuals')}}</div>
                     <div class="profil-photo">
-                        <img src="{{ asset('img/Mu-bull-profil-daniela-constantin.jpg') }}" alt="" class="image-94">
+                        <img src="{{asset('img')}}/{{Auth::user()->photo}}" alt="" class="image-94">
                     </div>
 
                 </div>
@@ -37,13 +38,13 @@
                             <div class="sidebar-icon">
                                 <img src="{{ asset('img/baseline-brightness_2-24px2x.png') }}" alt="">
                             </div>
-                            <a href="{{route('flow')}}" class="faq-q-text"><strong class="bold-text-5">Mon Flow</strong></a>
+                            <a href="{{route('home')}}" class="faq-q-text"><strong class="bold-text-5">{{__('Flownishh')}}</strong></a>
                         </div>
                     </div>
                     <div class="faq-answer" id="sousBlockMonFlow">
-                        <a class="{{route('notification ')}}" href="">Alerte</a>
-                        <a class="faq-answer-text" href="">Playliste</a>
-                        <a class="faq-answer-text" href="">Âbonnements </a>
+                        <a class="" href="">{{__('Alert')}}</a>
+                        <a class="faq-answer-text" href="">Playlist</a>
+                        <a class="faq-answer-text" href="">{{__('Subscriptions')}}</a>
                     </div>
                 </div>
                 <div class="faq-wrapper">
@@ -52,22 +53,22 @@
                             <div class="sidebar-icon">
                                 <img class="machaineImg" src="{{ asset('img/Mu-tv-icone2x.png') }}"  alt="">
                             </div>
-                            <a href="{{route('chaine')}}" class="faq-q-text"><strong class="bold-text-5">Ma Chaîne</strong></a>
+                            <a href="{{route('channel.visitor', $channel->id)}}" class="faq-q-text"><strong class="bold-text-5">{{__('My channel')}}</strong></a>
                         </div>
                     </div>
                     <div class="faq-answer" id="sousBlockChaines">
-                        <a href="{{route('')}}" class="link-block-36 w-inline-block">
-                            <div class="text-block-261">Tableau de bord</div>
+                        <a href="{{route('channel.visitor', $channel->name)}}" class="link-block-36 w-inline-block">
+                            <div class="text-block-261">{{__('Dashboard')}}</div>
                         </a>
                         <a href="ma-chaine-publier.html" class="link-block-36 w-inline-block w--current">
-                            <p class="text-block-261">Publier</p>
+                            <p class="text-block-261">{{__('Publish')}}</p>
                         </a>
-                        <a href="{{route('videos/create')}}" class="faq-answer-text">Publier</a>
-                        <a href="{{route('videos')}}"  class="faq-answer-text">Mes vidéos </a>
-                        <a href="" class="faq-answer-text">Commentaires</a>
+                        <a href="{{route('videos.create')}}" class="faq-answer-text">{{__('Dashboard')}}</a>
+                        <a href="{{route('videos.index')}}"  class="faq-answer-text">{{__('My videos')}}</a>
+                        <a href="" class="faq-answer-text">{{__('Comments')}}</a>
                         <a href="" class="faq-answer-text">Audiences</a>
-                        <a href="" class="faq-answer-text">Abonnés</a>
-                        <a href="{{route('flow')}}" class="faq-answer-text"> Monétisation</a>
+                        <a href="" class="faq-answer-text">{{__('Subscribers')}}</a>
+                        <a href="{{route('flow')}}" class="faq-answer-text">{{__('Monetization')}}</a>
                     </div>
                 </div>
                 <div class="faq-wrapper">
@@ -80,7 +81,7 @@
                         </div>
                     </div>
                     <div class="faq-answer" id="sousBlockTimeChield">
-                        <a href="" class="faq-answer-text">Smuuse option</a>
+                        <a href="{{route('home')}}" class="faq-answer-text">Smuuse</a>
                         <a href="" class="faq-answer-text">‍</a>
                     </div>
                 </div>
@@ -109,7 +110,7 @@
                         </div>
                     </div>
                     <div class="faq-answer" id="sousBlockSadaka">
-                        <a href="" class="faq-answer-text">Smuuse option</a>
+                        <a href="" class="faq-answer-text">Smuuse - {{__('will be available in a later version')}}</a>
                         <a href="" class="faq-answer-text">‍</a>
                     </div>
                 </div>
@@ -119,11 +120,11 @@
                             <div class="sidebar-icon">
                                 <img src="{{ asset('img/Mu-menu-4-balls-blanc2x.png') }}" alt="">
                             </div>
-                            <p class="faq-q-text"><strong class="bold-text-5">MON COMPTE</strong></p>
+                            <p class="faq-q-text"><strong class="bold-text-5">{{__('')}}MON COMPTE</strong></p>
                         </div>
                     </div>
                     <div class="faq-answer" id="sousBlockCompte">
-                        <a href="" class="faq-answer-text">Smuuse option</a>
+                        <a href="{{route('users.parameter')}}" class="faq-answer-text">Parametres</a>
                         <a href="" class="faq-answer-text">‍</a>
                     </div>
                 </div>

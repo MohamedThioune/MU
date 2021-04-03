@@ -250,7 +250,7 @@ class channelController extends AppBaseController
             $bool = false;
             $edit = false;
         }
-        return view('chaineAbonne', compact('channel','visit', 'videos','subtopics','bool', 'admin','edit','events','activities','contact', 'videos_top'));
+        return view('chaineAbonne', compact('canal','channel','visit', 'videos','subtopics','bool', 'admin','edit','events','activities','contact', 'videos_top'));
 
     }
 

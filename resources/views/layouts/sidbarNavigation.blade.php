@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.css" integrity="sha512-phGxLIsvHFArdI7IyLjv14dchvbVkEDaH95efvAae/y2exeWBQCQDpNFbOTdV1p4/pIa/XtbuDCnfhDEIXhvGQ==" crossorigin="anonymous" />
     <script src="https://kit.fontawesome.com/2def424b14.js" crossorigin="anonymous"></script>
     @yield('css')
+    @php if(isset($_COOKIE['lang'])) App::setLocale($_COOKIE['lang']); @endphp
 </head>
 
 <body>
@@ -40,17 +41,17 @@
                     </div>
                     <div class="search-bar">
                         <img src="{{ asset('img/Loupe.png') }}" class="loupe">
-                        <div class="text-block-281">chercher</div>
+                        <div class="text-block-281">{{__('search')}}</div>
                     </div>
                     <div class="nav-up-left">
                         <ul class="ulModife1">
                             @if(Auth::guest())
                             <li class="nav-item nav-modife">
-                                <a href="{{route('register')}}" class="oumma w-button">Rejoindre la Oumma</a>
+                                <a href="{{route('register')}}" class="oumma w-button">{{__('Joining the Ummah')}}</a>
                             </li>
                             <li class="nav-item nav-modife" style="margin-top:5px;">
                                 <img src="{{ asset('img/icones/login.svg') }}" alt="">
-                                <a class="nav-link" href="{{route('login')}}">Log in</a>
+                                <a class="nav-link" href="{{route('login')}}">{{__('Log in')}}</a>
                             </li>
                             @else
                           <!--  <li class="nav-item nav-modife">
@@ -101,7 +102,7 @@
                                     </span>
                                     <form action="{{ route('logout') }}" class="nav-modife formModife" method="POST">
                                         @csrf
-                                        <button class="nav-link btnLogOut" type="submit" >Log out</button>
+                                        <button class="nav-link btnLogOut" type="submit" >{{__('Log out')}}</button>
                                     </form>
                                 </div>
                             @endif
@@ -162,34 +163,36 @@
                        <div class="head-slidebar-user">
                        @if(!Auth::guest())
                             @if($channel)
-                            <p class='text-block-242'>{{$channel->name}}</p>
+                                <p class='text-block-242'>{{$channel->name}}</p>
+                            @else
+                                <p class='text-block-242'>{{$canal->name}}</p>
                             @endif
                         @endif
 
 
-                           <p class="text-block-243">Particulier</p>
+                           <p class="text-block-243">{{__('Individuals')}}</p>
                            <div class="profil-photo">
                             @if(!Auth::guest())
-                               <img src="{{ asset('images/uploads/') }}/{{Auth::user()->photo}}" width="69" alt="" class="image-94">
+                               <img src="{{ asset('img') }}/{{Auth::user()->photo}}" width="69" alt="" class="image-94">
                             @endif
                             </div>
 
-                           <div class="text-block-237">Bienvenue dans ton tableau de bord</div>
+                           <div class="text-block-237">{{__('Welcome to your dashboard')}}</div>
                        </div>
                        <div class="faq-wrapper">
                            <div class="faq-question" id="monFlow">
                                <div class="indentification">
                                    <div class="sidebar-icon">
                                        <img src="{{ asset('img/Mu-flow-picto-bull.svg') }}" alt="" class="image-120"></div>
-                                   <div class="faq-q-text" ><strong class="bold-text-5">Mon Flow</strong></div>
+                                   <div class="faq-q-text" ><strong class="bold-text-5">{{__('Flownish')}}</strong></div>
                                </div>
                            </div>
                            <div class="faq-answer" id="sousBlockMonFlow">
                                <div data-w-id="3ebc1e8b-4c8a-0be6-ba36-5e829586b776" class="text-block-257">
-                                   <a href="{{route('flow')}}" class="link-27">Mon flow</a><br>
+                                   <a href="{{route('home')}}" class="link-27">{{__('Flownish')}}</a><br>
                                </div>
                                <div data-w-id="3ebc1e8b-4c8a-0be6-ba36-5e829586b77a" class="text-block-257">
-                                   <a href="" class="link-27">Mes alertes</a><br>
+                                   <a href="" class="link-27">{{__('My alerts')}}</a><br>
                                </div>
                            </div>
                        </div>
@@ -199,14 +202,14 @@
                                    <div class="sidebar-icon">
                                        <img src="{{ asset('img/Mu-coeur-gris.svg') }}" class="imgCoeurGris" alt="">
                                    </div>
-                                   <div class="faq-q-text" ><strong class="bold-text-5">Mes kiffes</strong></div>
+                                   <div class="faq-q-text" ><strong class="bold-text-5">{{__('My likes')}}</strong></div>
                                </div>
                            </div>
                            <div id="sousBlockKiffes" class="faq-answer">
-                               <p class="text-block-257">Mes kiffs<br></p>
+                               <p class="text-block-257">{{__('My likes')}}<br></p>
                                <p class="text-block-257">Associations<br></p>
-                               <p class="text-block-257">Commerces<br></p>
-                               <p class="text-block-257">Tout<br></p>
+                               <p class="text-block-257">Business<br></p>
+                               <p class="text-block-257">{{__('All')}}<br></p>
                            </div>
                        </div>
                        <div class="faq-wrapper">
@@ -215,17 +218,23 @@
                                    <div class="sidebar-icon">
                                        <img src="{{ asset('img/Mu-tV-chanel-play-gris.svg') }}" class="imgMuGris" alt="">
                                    </div>
-                                   <div class="faq-q-text" ><strong class="bold-text-5">Ma chaîne</strong></div>
+                                   <div class="faq-q-text" ><strong class="bold-text-5">{{__('My channel')}}</strong></div>
                                </div>
                            </div>
                            <div class="faq-answer" id="sousBlockChaines">
-                               <a data-w-id="3ebc1e8b-4c8a-0be6-ba36-5e829586b79c" href="#" class="link-block-36 w-inline-block">
-                                   <p class="text-block-257">Tableau de bord<br></p>
+                               @if($channel)
+                               <a data-w-id="3ebc1e8b-4c8a-0be6-ba36-5e829586b79c" href="{{route('channel.visitor', [$channel->id])}}" class="link-block-36 w-inline-block">
+                                   <p class="text-block-257">{{__('Dashboard')}}<br></p>
                                </a>
-                               <a data-w-id="3ebc1e8b-4c8a-0be6-ba36-5e829586b7a0" href="" class="link-block-36 w-inline-block">
-                                   <p class="text-block-257">Publier<br></p>
+                               @else
+                               <a data-w-id="3ebc1e8b-4c8a-0be6-ba36-5e829586b79c" href="{{route('channel.visitor', [$canal->id])}}" class="link-block-36 w-inline-block">
+                                   <p class="text-block-257">{{__('Dashboard')}}<br></p>
                                </a>
-                               <p class="faq-answer-text">Publier<br>Mes vidéos <br>Commentaires <br>Audiences <br>Abonnés<br>Monétisation<br></p>
+                               @endif
+                               <a data-w-id="3ebc1e8b-4c8a-0be6-ba36-5e829586b7a0" href="{{route('videos.create')}}" class="link-block-36 w-inline-block">
+                                   <p class="text-block-257">{{__('Publish')}}<br></p>
+                               </a>
+                               <p class="faq-answer-text">{{__('My videos')}}<br>{{__('Comments')}}<br>Audiences <br>{{__('Subscribers')}}<br>{{__('Monetization')}}<br></p>
                            </div>
                        </div>
                        <div class="faq-wrapper" id="timeChield">
@@ -255,11 +264,11 @@
                                <div class="indentification">
                                    <div class="sidebar-icon">
                                        <img src="{{ asset('img/Mu-engrenage-gris2x.png') }}" class="imgMuEngrenage" alt=""></div>
-                                   <div class="faq-q-text" ><a href="{{route('parametre')}}" class="bold-text-5">Paramètres </a></div>
+                                   <div class="faq-q-text" ><a href="{{route('parametre')}}" class="bold-text-5">{{__('Parameters')}}</a></div>
                                </div>
                            </div>
                            <div class="faq-answer" id="sousBlockParametre">
-                               <p class="faq-answer-text">Smuuse option<br>‍<br></p>
+                               <p class="faq-answer-text">Smuuse<br>‍<br></p>
                            </div>
                        </div>
                    </div>
@@ -269,7 +278,5 @@
 
         </div>
     </div>
-
-
 </body>
 </html>

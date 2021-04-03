@@ -9,19 +9,20 @@
 </head>
 <body>
 @section('content-play-element')
+@php if(isset($_COOKIE['lang'])) App::setLocale($_COOKIE['lang']); @endphp
 <div class="contentOneMonFlow">
     <div class="pub-bando-connect">
         <div class="info-pub-bando">
             <div class="accroche">
                 <a class="accrocheskate" href="">
                     <img class="accrocheskateImg" src="{{ asset('img/Nuage-rose.png') }}" alt="">
-                    <p class="link-212">Trouves ton skate</p>
+                    <p class="link-212"></p>
                 </a>
             </div>
             <div class="annonces">
                 <p class="text-block-294">Annonces</p>
                 <p class="link-229">www.pub-link</p>
-                <a href="" class="go w-inline-block text-block-295">Go!</a>
+                <a href="" class="go w-inline-block text-block-295">{{__('Go !')}}</a>
             </div>
             <div class="like-notication2">
                 <button class="btn btnNote">
@@ -36,22 +37,22 @@
             <img src="{{ asset('img/Mu-bandeau-Pub.jpg') }}" alt="">
         </div> -->
     </div>
-    <p class="text-block-350">Tous tes informations en un clin d'oeil</p>
+    <p class="text-block-350">{{__('All your information at a glance')}} &#x1F609;</p>
     <div class="menu-content-business">
         <a href="#" class="link-26">Infos</a>
-        <a href="#" class="link-26">Récents</a>
-        <a href="{{route('flow')}}" class="link-26">Toutes les videos</a>
-        <a href="#" class="link-26">Offres</a>
+        <a href="#" class="link-26">Recents</a>
+        <a href="{{route('flow')}}" class="link-26">{{__('All videos')}}</a>
+        <a href="#" class="link-26">{{__('Offers')}}</a>
         <a href="#" class="link-26">Playlist</a>
     </div>
     <div class="hotNotifications">
         <div class="blockTitle2">
             <div class="d-flex">
                 <img src="{{ asset('img/Mu-flow-picto-bull.svg') }}"  alt="" class="image-bull1">
-                <p class="text-Playlist">Hot notifications</p>
+                <p class="text-Playlist">{{__('Hot notifications')}}</p>
             </div>
          <div class="paddignElement8">
-             <a href="" class="toutesNotifications">Toutes mes notifications</a>
+             <a href="" class="toutesNotifications">{{__('Hot notifications')}}</a>
          </div>
         </div>
         <div class="swiper-container swipeContainermodife1">
@@ -87,7 +88,7 @@
                         <div class="mindCard">
                             <div class="blockImgMind">
                                 @if($user->photo)
-                                <img class="" src="{{ asset('/images/uploads') }}/{{$user->photo}}" alt="">
+                                <img class="" src="{{ asset('/img') }}/{{$user->photo}}" alt="">
                                 @elseif($user->age <= 15)
                                 <img class="" src="{{asset('images/kids_preloader.png')}}" alt="">
                                 @elseif($user->age > 15 && $user->sex == '1')
@@ -208,13 +209,13 @@
                         <div class="mindCard">
                             <div class="blockImgMind">
                                 @if($user->photo)
-                                <img class="" src="{{ asset('/images/uploads') }}/{{$user->photo}}" alt="">
+                                <img class="" src="{{ asset('/img') }}/{{$user->photo}}" alt="">
                                 @elseif($user->age <= 15)
                                 <img class="" src="{{asset('images/kids_preloader.png')}}" alt="">
                                 @elseif($user->age > 15 && $user->sex == '1')
                                 <img class="img-circle" src="{{asset('images/flow_preloader.png')}}" alt=""/>
                                 @elseif($user->age > 15 && $user->sex == '0')
-                                <img class="" src="{{asset('images/sista_preloader.png')}} /{{$user->photo}}" alt="">
+                                <img class="" src="{{asset('images/sista_preloader.png')}}" alt="">
                                 @endif
                             </div>
                             <div class="block3">
@@ -255,12 +256,12 @@
     <div class="chaine-vu">
         <div>
             @php $user = App\User::find($channel_top->user_id); @endphp
-            <p class="text-block-353-copy">Voilà la chaîne la plus consultée en ce moment ...</p>
+            <p class="text-block-353-copy">{{__('')}}</p>
         </div>
         <div class="div-block-367">
             <div class="bull-chaine">
                 @if($channel_top->logo)
-                    <img class="image-125" src="{{ asset('/images/uploads') }}/{{$channel->photo}}" alt="">
+                    <img class="image-125" src="{{ asset('/img') }}/{{$channel->logo}}" alt="">
                 @elseif($user->age <= 15)
                     <img class="image-125" src="{{asset('images/kids_preloader.png')}}" alt="">
                 @elseif($user->age > 15 && $user->sex == '1')
@@ -273,11 +274,11 @@
                 <p class="text-block-362">{{$channel_top->name}}</p>
                 <div class="div-block-371">
                     <p class="text-block-363">{{\App\Models\Channel::find($channel_top->id)->abonnees->count()}}</p>
-                    <p class="text-block-345">Abonnés</p>
+                    <p class="text-block-345">{{__('Subscribers')}}</p>
                 </div>
                 <p class="text-block-364">{{$videos_count}} Publications</p>
                 <div class="text-block-366">
-                    <a href="{{route('channel.visitor', $channel_top->id)}}" class="link-28">Voir la chaîne</a>
+                    <a href="{{route('channel.visitor', $channel_top->id)}}" class="link-28">{{__('See the channel')}}</a>
                 </div>
             </div>
             <div class="back-subscrib-bar">
@@ -286,7 +287,7 @@
                         <div class="div-block-386">
                             <img src="{{ asset('img/Mu-coeur-blanc.svg') }}" class="imgCoeurBlanc" width="23" alt="">
                         </div>
-                        <a class="text-block-380" style="color:white; background: #F57409; padding:5px 0;" href="{{ route('suscribe',$channel_top->id) }}"><div>S&#x27;abonner</div></a>
+                        <a class="text-block-380" style="color:white; background: #F57409; padding:5px 0;" href="{{ route('suscribe',$channel_top->id) }}"><div>{{__('Subscribe')}}</div></a>
                     </a>
                     <div class="alerte">
                         <img src="{{ asset('img/Mu-cloche-blanc.svg') }}" class="cloche3"  alt="">
@@ -303,14 +304,14 @@
                         <img src="{{ asset('img/Mu-panier2x_1.png') }}" class="panier2" width="27" alt="">
                     </a>
                     <a href="#" class="link-block-41 w-inline-block">
-                        <div>Soutenir</div>
+                        <div>{{__('Support us')}}</div>
                     </a>
                 </div>
             </div>
         </div>
     </div>
     <div id="event" class="big-event">
-        <p class="text-block-353-copy">Les prochains événements </p>
+        <p class="text-block-353-copy">{{__('Upcoming events')}}</p>
         <div class="div-block-375">
             <div class="div-block-373">
                 <div class="div-block-372">
@@ -318,8 +319,8 @@
                 </div>
                 <div class="div-block-374">
                     <div class="date-indicator">
-                        <p class="text-block-371">mois</p>
-                        <p class="text-block-373">jours</p>
+                        <p class="text-block-371">{{__('month')}}</p>
+                        <p class="text-block-373">{{__('days')}}</p>
                     </div>
                     <div>
                         @php
@@ -328,7 +329,7 @@
                         <div class="div-block-376">
                             <div class="div-block-378">
                                 <p class="text-block-368">Ramadan</p>
-                                <p class="text-block-374">dans </p>
+                                <p class="text-block-374">{{__('in')}}</p>
                             </div>
                             <div class="div-block-377">
                                 <p class="text-block-370">1</p>
@@ -338,7 +339,7 @@
                         <div class="div-block-376">
                             <div class="div-block-379">
                                 <p class="text-block-368">Aïd el fitre</p>
-                                <p class="text-block-375">dans </p>
+                                <p class="text-block-375">{{__('in')}}</p>
                             </div>
                             <div class="div-block-377">
                                 <p class="text-block-370">2</p>
@@ -348,7 +349,7 @@
                         <div class="div-block-376">
                             <div class="div-block-380">
                                 <p class="text-block-368">Hajj</p>
-                                <p class="text-block-376">dans </p>
+                                <p class="text-block-376">{{__('in')}}</p>
                             </div>
                             <div class="div-block-377">
                                 <p class="text-block-370">6</p>
@@ -358,7 +359,7 @@
                         <div class="div-block-376">
                             <div class="div-block-381">
                                 <p class="text-block-368">Aïd el Kabir</p>
-                                <p class="text-block-377">dans </p>
+                                <p class="text-block-377">{{__('in')}}</p>
                             </div>
                             <div class="div-block-377">
                                 <p class="text-block-370">11</p>
@@ -375,9 +376,9 @@
         <div class="div-block-343">
             <div class="div-block-352">
                 <div class="resume-activitee">
-                    <p class="text-block-353-copy">Ce mois</p>
+                    <p class="text-block-353-copy">{{__('This month')}}</p>
                     <div class="nombre-de">
-                        <p class="text-block-351">Vidéos regardées</p>
+                        <p class="text-block-351">{{__('Videos viewed')}}</p>
                         <div class="div-block-344">
                             <div class="div-block-345">
                             @if($look_videos)
@@ -390,7 +391,7 @@
                         </div>
                     </div>
                     <div class="nombre-de">
-                        <p class="text-block-351">Vidéos aimées</p>
+                        <p class="text-block-351">{{__('Favourite videos')}}</p>
                         <div class="div-block-344">
                             <div class="div-block-345">
                                 @if($like_videos)
@@ -404,7 +405,7 @@
                         </div>
                     </div>
                     <div class="nombre-de">
-                        <p class="text-block-351">Vidéos partagées</p>
+                        <p class="text-block-351">{{__('Shared videos')}}</p>
                         <div class="div-block-344">
                             <div class="div-block-345">
                                 <p class="text-block-352">0 </p>
@@ -414,7 +415,7 @@
                         </div>
                     </div>
                     <div class="nombre-de">
-                        <p class="text-block-351">Sadakatiyas supportées</p>
+                        <p class="text-block-351">{{__('Sadakatiyas supported')}}</p>
                         <div class="div-block-344">
                             <div class="div-block-345">
                                 <p class="text-block-352">0</p>
@@ -424,7 +425,7 @@
                         </div>
                     </div>
                     <div class="nombre-de">
-                        <p class="text-block-351">Chaines suivies</p>
+                        <p class="text-block-351">{{__('Channels followed')}}</p>
                         <div class="div-block-344">
                             <div class="div-block-345">
                             @if($follows)
@@ -518,7 +519,7 @@
                                     ->whereNull('videos.deleted_at')
                                     ->count();
                             @endphp
-                            <p class="text-block-357">Santé</p>
+                            <p class="text-block-357">Health</p>
                             <div class="progress-bar" role="progressbar bg-info" style="width:{{$variant != 0 ?(($variant/$looks)*100):'0'}}%; height:3%; border-radius:10px; background:#ebebeb; " aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <div class="div-block-354">
