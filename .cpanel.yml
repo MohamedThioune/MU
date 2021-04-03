@@ -1,3 +1,4 @@
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/faseya/public_html/faseya/mu_code
+    - export DEPLOYPATH=/home/faseya/public_html/faseya/mu_code/public
+    - /bin/cp index.php $DEPLOYPATH
