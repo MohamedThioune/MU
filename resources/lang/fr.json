@@ -117,7 +117,7 @@
     "All your information at a glance":"Toutes les informations en un clin d'oeil", 
     "All videos":"Toutes les vidéos", 
     "Offers":"Offres",  
-    "Hot notifications":"Notifications en vogue", 
+    "Hot notifications":"Notifications en tendances", 
     "Subscribe":"S'abonner", 
     "Support us":"Soutenir",
     "Upcoming events":"Les prochains événements ",
@@ -149,7 +149,7 @@
     "Monetization":"Monétisation",
     "will be available in a later version":"sera disponible dans une version ulterieure",
     "Joining the Ummah":"Rejoindre la Oumma",
-    "My alerts":"Mes alertes",
+    "My notifications":"Mes notifications",
     "Parameters":"Paramètres",
     "Title of the video":"Titre de la vidéo",
     "Download my video":"Télécharger ma vidéo",
@@ -222,11 +222,12 @@
     "lown payment at confirmation of order and rest on factory dispatch date, Two years EU":"Paiement initial à la confirmation de la commande et solde à la date d'expédition de l'usine, Deux ans EU",
     "More":"Plus",
     "Read more":"Lire plus",
-    "":"",
-    "":"",
-    "":"",
-    "":"",
-    "":""
+    "Country":"Pays",
+    "- you have to follow a chain to get it.":"- vous devez suivre une chaine pour en avoir.",
+    "All notifications":"Toutes les notifications",
+    "Here is the most viewed channel at the moment":"Voici la chaine la plus consultée en ce moment",
+    "videos for children":"idéos pour enfants",
+    "My":""
 
 
   }

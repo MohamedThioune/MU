@@ -61,3 +61,7 @@
     <a href="{{ route('products.index') }}"><i class="fa fa-edit"></i><span>Products</span></a>
 </li>
 
+<li class="{{ Request::is('playlists*') ? 'active' : '' }}">
+    <a href="{{ route('playlists.index') }}"><i class="fa fa-edit"></i><span>Playlists</span></a>
+</li>
+

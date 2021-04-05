@@ -103,13 +103,18 @@ class VideoController extends AppBaseController
         ->where('sub_topics.maintopic_id', 5)
         ->get();
 
+        $subtopics_inshaallah = DB::Table('sub_topics')->select('sub_topics.*')
+        ->join('main_topics', 'main_topics.id', 'sub_topics.maintopic_id')
+        ->where('sub_topics.maintopic_id', 7)
+        ->get();
+
 
         /** @var Channel $channel */
         $channel = DB::Table('users')->select('channels.*')
                                                         ->join('channels', 'users.id', 'channels.user_id')
                                                         ->where('users.id', Auth::id())
                                                         ->first();
-        return view('videos.create',compact('subtopics_health', 'subtopics_life', 'subtopics_healthcare', 'subtopics_business', 'subtopics_education', 'subtopics_new', 'subtopics', 'channel'));
+        return view('videos.create',compact('subtopics_health', 'subtopics_life', 'subtopics_healthcare', 'subtopics_business', 'subtopics_education', 'subtopics_new', 'subtopics_inshaallah', 'subtopics', 'channel'));
     }
 
     /**

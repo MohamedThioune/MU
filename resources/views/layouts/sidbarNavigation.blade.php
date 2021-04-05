@@ -7,7 +7,6 @@
     </title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="{{asset('css/menu.css')}}">
@@ -118,7 +117,7 @@
                         <a href="{{route('flow')}}" class="div-block-281 w-inline-block">
                             <p class="text-block-286">Flow</p>
                         </a>
-                        <a href="#" class="div-block-282 w-inline-block">
+                        <a href="{{route('kids')}}" class="div-block-282 w-inline-block">
                             <p class="text-block-286">Kids</p>
                         </a>
                         <a href="#" class="div-block-283 w-inline-block">
@@ -129,7 +128,7 @@
                         <a href="{{route('videos.create')}}" class="cam-publier w-inline-block">
                             <img src="{{ asset('img/Mu-upload-cloud-blanc2x.png') }}" class="imgCloud2" alt="">
                         </a>
-                        <a href="#" class="cloche w-inline-block">
+                        <a href="{{route('notification')}}" class="cloche w-inline-block">
                             <img src="{{ asset('img/Mu-cloche-blanc.svg') }}" class="imgCloche" alt="">
                         </a>
                     </div>
@@ -152,7 +151,7 @@
                                        </div>
                                    </a>
                                </div>
-                               <a  href="flow.html" class="mu-logo w-inline-block">
+                               <a  href="{{route('home')}}" class="mu-logo w-inline-block">
                                    <img src="{{ asset('img/Mu-full-white-00.png') }}" class="imgMUfull" alt=""></a>
                            </div>
                            <div class="div-block-387">
@@ -192,7 +191,7 @@
                                    <a href="{{route('home')}}" class="link-27">{{__('Flownish')}}</a><br>
                                </div>
                                <div data-w-id="3ebc1e8b-4c8a-0be6-ba36-5e829586b77a" class="text-block-257">
-                                   <a href="" class="link-27">{{__('My alerts')}}</a><br>
+                                   <a href="{{route('notification')}}" class="link-27">{{__('My notifications')}}</a><br>
                                </div>
                            </div>
                        </div>
@@ -234,7 +233,7 @@
                                <a data-w-id="3ebc1e8b-4c8a-0be6-ba36-5e829586b7a0" href="{{route('videos.create')}}" class="link-block-36 w-inline-block">
                                    <p class="text-block-257">{{__('Publish')}}<br></p>
                                </a>
-                               <p class="faq-answer-text">{{__('My videos')}}<br>{{__('Comments')}}<br>Audiences <br>{{__('Subscribers')}}<br>{{__('Monetization')}}<br></p>
+                               <!-- <p class="faq-answer-text">{{__('My videos')}}<br>{{__('Comments')}}<br>Audiences <br>{{__('Subscribers')}}<br>{{__('Monetization')}}<br></p> -->
                            </div>
                        </div>
                        <div class="faq-wrapper" id="timeChield">

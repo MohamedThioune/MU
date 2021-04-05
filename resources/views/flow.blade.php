@@ -10,7 +10,7 @@
 <body>
 @section('content-play-element')
 <div class="contentOneMonFlow">
-@if(session('videos_haltcare'))
+@if(session('videos_haltcare')) 
 @if(count(session('videos_haltcare')) > 0)
 <div class="content-Haltcare">
     <div class="container-fluid">
@@ -41,7 +41,7 @@
                                     <img class="imgElementCardSuggestionDay" src="{{asset('images/sista_preloader.png')}}" alt="">
                                 @endif
 
-                                <a href="{{route('play',[$video->id])}}" target="blank" class="contentFlyHeure">
+                                <a href="{{route('play',[$video->id])}}"  style="text-decoration:none" target="blank" class="contentFlyHeure">
                                     <p class="flyText">
                                         @foreach($subtopics as $subtopic)
                                         @if($video->subtopic_id == $subtopic->id)
@@ -68,8 +68,7 @@
                             </div>
                             <div class="contentCardSuggestionDay">
                                 <div class="d-flex justify-content-between">
-                                    <p class="libertiText">{{$video->main_title}}</p>
-
+                                <a href="{{route('play', $video->id)}}"  style="text-decoration:none" class="libertiText">{{$video->main_title}}</a>
                                     <a href="{!! route('report',[$video->id]) !!}">
                                         @if($reports < 2)
                                         <img class="imgLiberti" src="{{asset('img/icones/Mu-badge22.png')}}" alt="Lune" data-toggle="tooltip" data-placement="top" title="Community-approved video">
@@ -81,15 +80,15 @@
                                 <div class="mindCard">
 
                                     <div class="blockImgMind">
-                                        @if($user->photo)
-                                        <img class="" src="{{ asset('/images/uploads') }}/{{$user->photo}}" alt="">
-                                        @elseif($user->age <= 15)
-                                        <img class="" src="{{asset('images/kids_preloader.png')}}" alt="">
-                                        @elseif($user->age > 15 && $user->sex == '1')
-                                        <img class="img-circle" src="{{asset('images/flow_preloader.png')}}" alt=""/>
-                                        @elseif($user->age > 15 && $user->sex == '0')
-                                        <img class="" src="{{asset('images/sista_preloader.png')}} /{{$user->photo}}" alt="">
-                                        @endif
+                                    @if($user->photo)
+                                    <a href="{{route('play',[$video->id])}}"> <img class="" src="{{ asset('/img') }}/{{$user->photo}}" alt=""> </a>
+                                    @elseif($user->age <= 15)
+                                    <a href="{{route('play',[$video->id])}}"> <img class="" src="{{asset('images/kids_preloader.png')}}" alt=""> </a>
+                                    @elseif($user->age > 15 && $user->sex == '1')
+                                    <a href="{{route('play',[$video->id])}}"> <img class="img-circle" src="{{asset('images/flow_preloader.png')}}" alt=""/> </a>
+                                    @elseif($user->age > 15 && $user->sex == '0')
+                                    <a href="{{route('play',[$video->id])}}"> <img class="" src="{{asset('images/sista_preloader.png')}}" alt=""> </a>
+                                    @endif
                                     </div>
                                     <div class="block3">
                                         @php
@@ -98,7 +97,7 @@
                                                                         ->where('users.id', $video->user_id)
                                                                         ->first();
                                         @endphp
-                                        <p class="mindText">{{$channel->name}}</p>
+                                        <a href="{{route('play',[$video->id])}}" style="text-decoration:none" class="mindText">{{$channel->name}}</a>
                                         <!-- Date creation relative -->
                                         @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
                                         @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
@@ -113,10 +112,12 @@
                                         @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) > 27)
                                         <p class="day">On {{strftime("%d/%m/%Y", strtotime($video->created_at))}}</p>
                                         @endif
-                                      <!--  <div class="d-flex justify-content-between">
-                                            <p class="numberviewsSuggestion">1230</p>
-                                            <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
-                                        </div>-->
+                                        @if($kids)
+                                        <div class="d-flex justify-content-between" style="cursor:pointer" data-toggle="tooltip" data-placement="top" title="{{__('Videos for children')}}">
+                                            <p class="numberviewsSuggestion"></p>
+                                            <img class="oeil-1" src="{{ asset('images/kids_preloader.png') }}" alt="">
+                                        </div>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -148,7 +149,7 @@
                     <div class="swiper-wrapper">
                         @foreach(session('videos_life') as $video)
                         <div class=" swiper-slide card-suggestionDay">
-                            <div class="elementCardSuggestionDay">
+                        <div class="elementCardSuggestionDay">
                                 @php
                                     $user = App\User::find($video->user_id);
                                 @endphp
@@ -162,7 +163,8 @@
                                 @elseif($user->age > 15 && $user->sex == '0')
                                     <img class="imgElementCardSuggestionDay" src="{{asset('images/sista_preloader.png')}}" alt="">
                                 @endif
-                                <a href="{{route('play',[$video->id])}}" target="blank" class="contentFlyHeure">
+
+                                <a href="{{route('play',[$video->id])}}"  style="text-decoration:none" target="blank" class="contentFlyHeure">
                                     <p class="flyText">
                                         @foreach($subtopics as $subtopic)
                                         @if($video->subtopic_id == $subtopic->id)
@@ -189,7 +191,7 @@
                             </div>
                             <div class="contentCardSuggestionDay">
                                 <div class="d-flex justify-content-between">
-                                    <p class="libertiText">{{$video->main_title}}</p>
+                                <a href="{{route('play', $video->id)}}"  style="text-decoration:none" class="libertiText">{{$video->main_title}}</a>
                                     <a href="{!! route('report',[$video->id]) !!}">
                                         @if($reports < 2)
                                         <img class="imgLiberti" src="{{asset('img/icones/Mu-badge22.png')}}" alt="Lune" data-toggle="tooltip" data-placement="top" title="Community-approved video">
@@ -201,15 +203,15 @@
                                 <div class="mindCard">
 
                                     <div class="blockImgMind">
-                                        @if($user->photo)
-                                        <img class="" src="{{ asset('/images/uploads') }}/{{$user->photo}}" alt="">
-                                        @elseif($user->age <= 15)
-                                        <img class="" src="{{asset('images/kids_preloader.png')}}" alt="">
-                                        @elseif($user->age > 15 && $user->sex == '1')
-                                        <img class="img-circle" src="{{asset('images/flow_preloader.png')}}" alt=""/>
-                                        @elseif($user->age > 15 && $user->sex == '0')
-                                        <img class="" src="{{asset('images/sista_preloader.png')}} /{{$user->photo}}" alt="">
-                                        @endif
+                                    @if($user->photo)
+                                    <a href="{{route('play',[$video->id])}}"> <img class="" src="{{ asset('/img') }}/{{$user->photo}}" alt=""> </a>
+                                    @elseif($user->age <= 15)
+                                    <a href="{{route('play',[$video->id])}}"> <img class="" src="{{asset('images/kids_preloader.png')}}" alt=""> </a>
+                                    @elseif($user->age > 15 && $user->sex == '1')
+                                    <a href="{{route('play',[$video->id])}}"> <img class="img-circle" src="{{asset('images/flow_preloader.png')}}" alt=""/> </a>
+                                    @elseif($user->age > 15 && $user->sex == '0')
+                                    <a href="{{route('play',[$video->id])}}"> <img class="" src="{{asset('images/sista_preloader.png')}}" alt=""> </a>
+                                    @endif
                                     </div>
                                     <div class="block3">
                                         @php
@@ -218,7 +220,7 @@
                                                                         ->where('users.id', $video->user_id)
                                                                         ->first();
                                         @endphp
-                                        <p class="mindText">{{$channel->name}}</p>
+                                        <a href="{{route('play',[$video->id])}}" style="text-decoration:none" class="mindText">{{$channel->name}}</a>
                                         <!-- Date creation relative -->
                                         @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
                                         @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
@@ -233,10 +235,12 @@
                                         @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) > 27)
                                         <p class="day">On {{strftime("%d/%m/%Y", strtotime($video->created_at))}}</p>
                                         @endif
-                                       <!-- <div class="d-flex justify-content-between">
-                                            <p class="numberviewsSuggestion">1230</p>
-                                            <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
-                                        </div>-->
+                                        @if($kids)
+                                        <div class="d-flex justify-content-between" style="cursor:pointer" data-toggle="tooltip" data-placement="top" title="{{__('Videos for children')}}">
+                                            <p class="numberviewsSuggestion"></p>
+                                            <img class="oeil-1" src="{{ asset('images/kids_preloader.png') }}" alt="">
+                                        </div>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -268,7 +272,7 @@
                     <div class="swiper-wrapper">
                         @foreach(session('videos_health') as $video)
                         <div class=" swiper-slide card-suggestionDay">
-                            <div class="elementCardSuggestionDay">
+                        <div class="elementCardSuggestionDay">
                                 @php
                                     $user = App\User::find($video->user_id);
                                 @endphp
@@ -282,7 +286,8 @@
                                 @elseif($user->age > 15 && $user->sex == '0')
                                     <img class="imgElementCardSuggestionDay" src="{{asset('images/sista_preloader.png')}}" alt="">
                                 @endif
-                                <a href="{{route('play',[$video->id])}}" target="blank" class="contentFlyHeure">
+
+                                <a href="{{route('play',[$video->id])}}"  style="text-decoration:none" target="blank" class="contentFlyHeure">
                                     <p class="flyText">
                                         @foreach($subtopics as $subtopic)
                                         @if($video->subtopic_id == $subtopic->id)
@@ -309,7 +314,7 @@
                             </div>
                             <div class="contentCardSuggestionDay">
                                 <div class="d-flex justify-content-between">
-                                    <p class="libertiText">{{$video->main_title}}</p>
+                                <a href="{{route('play', $video->id)}}"  style="text-decoration:none" class="libertiText">{{$video->main_title}}</a>
                                     <a href="{!! route('report',[$video->id]) !!}">
                                         @if($reports < 2)
                                         <img class="imgLiberti" src="{{asset('img/icones/Mu-badge22.png')}}" alt="Lune" data-toggle="tooltip" data-placement="top" title="Community-approved video">
@@ -321,15 +326,15 @@
                                 <div class="mindCard">
 
                                     <div class="blockImgMind">
-                                        @if($user->photo)
-                                        <img class="" src="{{ asset('/images/uploads') }}/{{$user->photo}}" alt="">
-                                        @elseif($user->age <= 15)
-                                        <img class="" src="{{asset('images/kids_preloader.png')}}" alt="">
-                                        @elseif($user->age > 15 && $user->sex == '1')
-                                        <img class="img-circle" src="{{asset('images/flow_preloader.png')}}" alt=""/>
-                                        @elseif($user->age > 15 && $user->sex == '0')
-                                        <img class="" src="{{asset('images/sista_preloader.png')}} /{{$user->photo}}" alt="">
-                                        @endif
+                                    @if($user->photo)
+                                    <a href="{{route('play',[$video->id])}}"> <img class="" src="{{ asset('/img') }}/{{$user->photo}}" alt=""> </a>
+                                    @elseif($user->age <= 15)
+                                    <a href="{{route('play',[$video->id])}}"> <img class="" src="{{asset('images/kids_preloader.png')}}" alt=""> </a>
+                                    @elseif($user->age > 15 && $user->sex == '1')
+                                    <a href="{{route('play',[$video->id])}}"> <img class="img-circle" src="{{asset('images/flow_preloader.png')}}" alt=""/> </a>
+                                    @elseif($user->age > 15 && $user->sex == '0')
+                                    <a href="{{route('play',[$video->id])}}"> <img class="" src="{{asset('images/sista_preloader.png')}}" alt=""> </a>
+                                    @endif
                                     </div>
                                     <div class="block3">
                                         @php
@@ -338,7 +343,8 @@
                                                                         ->where('users.id', $video->user_id)
                                                                         ->first();
                                         @endphp
-                                        <p class="mindText">{{$channel->name}}</p>                                        <!-- Date creation relative -->
+                                        <a href="{{route('play',[$video->id])}}" style="text-decoration:none" class="mindText">{{$channel->name}}</a>
+                                        <!-- Date creation relative -->
                                         @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
                                         @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
                                         <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/3600)}} hours ago </p>
@@ -352,11 +358,13 @@
                                         @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) > 27)
                                         <p class="day">On {{strftime("%d/%m/%Y", strtotime($video->created_at))}}</p>
                                         @endif
-                                      <!--  <div class="d-flex justify-content-between">
-                                            <p class="numberviewsSuggestion">1230</p>
-                                            <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
 
-                                        </div>-->
+                                        @if($kids)
+                                        <div class="d-flex justify-content-between" style="cursor:pointer" data-toggle="tooltip" data-placement="top" title="{{__('Videos for children')}}">
+                                            <p class="numberviewsSuggestion"></p>
+                                            <img class="oeil-1" src="{{ asset('images/kids_preloader.png') }}" alt="">
+                                        </div>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -429,7 +437,7 @@
                             </div>
                             <div class="contentCardSuggestionDay">
                                 <div class="d-flex justify-content-between">
-                                    <p class="libertiText">{{$video->main_title}}</p>
+                                <a href="{{route('play', $video->id)}}"  style="text-decoration:none" class="libertiText">{{$video->main_title}}</a>
                                     <a href="{!! route('report',[$video->id]) !!}">
                                         @if($reports < 2)
                                         <img class="imgLiberti" src="{{asset('img/icones/Mu-badge22.png')}}" alt="Lune" data-toggle="tooltip" data-placement="top" title="Community-approved video">
@@ -441,15 +449,15 @@
                                 <div class="mindCard">
 
                                     <div class="blockImgMind">
-                                        @if($user->photo)
-                                        <img class="" src="{{ asset('/images/uploads') }}/{{$user->photo}}" alt="">
-                                        @elseif($user->age <= 15)
-                                        <img class="" src="{{asset('images/kids_preloader.png')}}" alt="">
-                                        @elseif($user->age > 15 && $user->sex == '1')
-                                        <img class="img-circle" src="{{asset('images/flow_preloader.png')}}" alt=""/>
-                                        @elseif($user->age > 15 && $user->sex == '0')
-                                        <img class="" src="{{asset('images/sista_preloader.png')}} /{{$user->photo}}" alt="">
-                                        @endif
+                                    @if($user->photo)
+                                    <a href="{{route('play',[$video->id])}}"> <img class="" src="{{ asset('/img') }}/{{$user->photo}}" alt=""> </a>
+                                    @elseif($user->age <= 15)
+                                    <a href="{{route('play',[$video->id])}}"> <img class="" src="{{asset('images/kids_preloader.png')}}" alt=""> </a>
+                                    @elseif($user->age > 15 && $user->sex == '1')
+                                    <a href="{{route('play',[$video->id])}}"> <img class="img-circle" src="{{asset('images/flow_preloader.png')}}" alt=""/> </a>
+                                    @elseif($user->age > 15 && $user->sex == '0')
+                                    <a href="{{route('play',[$video->id])}}"> <img class="" src="{{asset('images/sista_preloader.png')}}" alt=""> </a>
+                                    @endif
                                     </div>
                                     <div class="block3">
                                         @php
@@ -458,7 +466,7 @@
                                                                         ->where('users.id', $video->user_id)
                                                                         ->first();
                                         @endphp
-                                        <p class="mindText">{{$channel->name}}</p>                                        <!-- Date creation relative -->
+                                        <a href="{{route('play',[$video->id])}}" style="text-decoration:none" class="mindText">{{$channel->name}}</a>
                                         @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
                                         @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
                                         <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/3600)}} hours ago </p>
@@ -472,11 +480,12 @@
                                         @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) > 27)
                                         <p class="day">On {{strftime("%d/%m/%Y", strtotime($video->created_at))}}</p>
                                         @endif
-                                     <!--   <div class="d-flex justify-content-between">
-                                            <p class="numberviewsSuggestion">1230</p>
-                                            <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
-
-                                        </div>-->
+                                        @if($kids)
+                                        <div class="d-flex justify-content-between" style="cursor:pointer" data-toggle="tooltip" data-placement="top" title="{{__('Videos for children')}}">
+                                            <p class="numberviewsSuggestion"></p>
+                                            <img class="oeil-1" src="{{ asset('images/kids_preloader.png') }}" alt="">
+                                        </div>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -549,7 +558,7 @@
                                 </div>
                                 <div class="contentCardSuggestionDay">
                                     <div class="d-flex justify-content-between">
-                                        <p class="libertiText">{{$video->main_title}}</p>
+                                    <a href="{{route('play', $video->id)}}"  style="text-decoration:none" class="libertiText">{{$video->main_title}}</a>
                                         <a href="{!! route('report',[$video->id]) !!}">
                                             @if($reports < 2)
                                             <img class="imgLiberti" src="{{asset('img/icones/Mu-badge22.png')}}" alt="Lune" data-toggle="tooltip" data-placement="top" title="Community-approved video">
@@ -563,15 +572,15 @@
                                         $user = App\User::find($video->user_id);
                                         @endphp
                                         <div class="blockImgMind">
-                                            @if($user->photo)
-                                            <img class="" src="{{ asset('/images/uploads') }}/{{$user->photo}}" alt="">
-                                            @elseif($user->age <= 15)
-                                            <img class="" src="{{asset('images/kids_preloader.png')}}" alt="">
-                                            @elseif($user->age > 15 && $user->sex == '1')
-                                            <img class="img-circle" src="{{asset('images/flow_preloader.png')}}" alt=""/>
-                                            @elseif($user->age > 15 && $user->sex == '0')
-                                            <img class="" src="{{asset('images/sista_preloader.png')}} /{{$user->photo}}" alt="">
-                                            @endif
+                                        @if($user->photo)
+                                        <a href="{{route('play',[$video->id])}}"> <img class="" src="{{ asset('/img') }}/{{$user->photo}}" alt=""> </a>
+                                        @elseif($user->age <= 15)
+                                        <a href="{{route('play',[$video->id])}}"> <img class="" src="{{asset('images/kids_preloader.png')}}" alt=""> </a>
+                                        @elseif($user->age > 15 && $user->sex == '1')
+                                        <a href="{{route('play',[$video->id])}}"> <img class="img-circle" src="{{asset('images/flow_preloader.png')}}" alt=""/> </a>
+                                        @elseif($user->age > 15 && $user->sex == '0')
+                                        <a href="{{route('play',[$video->id])}}"> <img class="" src="{{asset('images/sista_preloader.png')}}" alt=""> </a>
+                                        @endif
                                         </div>
                                         <div class="block3">
                                         @php
@@ -580,7 +589,7 @@
                                                                         ->where('users.id', $video->user_id)
                                                                         ->first();
                                         @endphp
-                                        <p class="mindText">{{$channel->name}}</p>                                            <!-- Date creation relative -->
+                                        <a href="{{route('play',[$video->id])}}" style="text-decoration:none" class="mindText">{{$channel->name}}</a>
                                             @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
                                             @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
                                             <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/3600)}} hours ago </p>
@@ -594,11 +603,12 @@
                                             @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) > 27)
                                             <p class="day">On {{strftime("%d/%m/%Y", strtotime($video->created_at))}}</p>
                                             @endif
-                                         <!--   <div class="d-flex justify-content-between">
-                                                <p class="numberviewsSuggestion">1230</p>
-                                                <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
-
-                                            </div>-->
+                                            @if($kids)
+                                            <div class="d-flex justify-content-between" style="cursor:pointer" data-toggle="tooltip" data-placement="top" title="{{__('Videos for children')}}">
+                                                <p class="numberviewsSuggestion"></p>
+                                                <img class="oeil-1" src="{{ asset('images/kids_preloader.png') }}" alt="">
+                                            </div>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
@@ -671,7 +681,7 @@
                             </div>
                             <div class="contentCardSuggestionDay">
                                 <div class="d-flex justify-content-between">
-                                    <p class="libertiText">{{$video->main_title}}</p>
+                                <a href="{{route('play', $video->id)}}"  style="text-decoration:none" class="libertiText">{{$video->main_title}}</a>
                                     <a href="{!! route('report',[$video->id]) !!}">
                                         @if($reports < 2)
                                         <img class="imgLiberti" src="{{asset('img/icones/Mu-badge22.png')}}" alt="Lune" data-toggle="tooltip" data-placement="top" title="Community-approved video">
@@ -685,15 +695,15 @@
                                     $user = App\User::find($video->user_id);
                                     @endphp
                                     <div class="blockImgMind">
-                                        @if($user->photo)
-                                        <img class="" src="{{ asset('/images/uploads') }}/{{$user->photo}}" alt="">
-                                        @elseif($user->age <= 15)
-                                        <img class="" src="{{asset('images/kids_preloader.png')}}" alt="">
-                                        @elseif($user->age > 15 && $user->sex == '1')
-                                        <img class="img-circle" src="{{asset('images/flow_preloader.png')}}" alt=""/>
-                                        @elseif($user->age > 15 && $user->sex == '0')
-                                        <img class="" src="{{asset('images/sista_preloader.png')}} /{{$user->photo}}" alt="">
-                                        @endif
+                                    @if($user->photo)
+                                    <a href="{{route('play',[$video->id])}}"> <img class="" src="{{ asset('/img') }}/{{$user->photo}}" alt=""> </a>
+                                    @elseif($user->age <= 15)
+                                    <a href="{{route('play',[$video->id])}}"> <img class="" src="{{asset('images/kids_preloader.png')}}" alt=""> </a>
+                                    @elseif($user->age > 15 && $user->sex == '1')
+                                    <a href="{{route('play',[$video->id])}}"> <img class="img-circle" src="{{asset('images/flow_preloader.png')}}" alt=""/> </a>
+                                    @elseif($user->age > 15 && $user->sex == '0')
+                                    <a href="{{route('play',[$video->id])}}"> <img class="" src="{{asset('images/sista_preloader.png')}}" alt=""> </a>
+                                    @endif
                                     </div>
                                     <div class="block3">
                                         @php
@@ -702,7 +712,7 @@
                                                                         ->where('users.id', $video->user_id)
                                                                         ->first();
                                         @endphp
-                                        <p class="mindText">{{$channel->name}}</p>
+                                        <a href="{{route('play',[$video->id])}}" style="text-decoration:none" class="mindText">{{$channel->name}}</a>
 
                                         @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
                                         @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
@@ -717,12 +727,12 @@
                                         @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) > 27)
                                         <p class="day">On {{strftime("%d/%m/%Y", strtotime($video->created_at))}}</p>
                                         @endif
-                                        <!--
-                                        <div class="d-flex justify-content-between">
-                                            <p class="numberviewsSuggestion">1230</p>
-                                            <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
-
-                                        </div> -->
+                                        @if($kids)
+                                        <div class="d-flex justify-content-between" style="cursor:pointer" data-toggle="tooltip" data-placement="top" title="{{__('Videos for children')}}">
+                                            <p class="numberviewsSuggestion"></p>
+                                            <img class="oeil-1" src="{{ asset('images/kids_preloader.png') }}" alt="">
+                                        </div>
+                                        @endif
                                     </div>
                                 </div>
                             </div>

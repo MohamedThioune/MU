@@ -1,3 +1,4 @@
+
 @extends('layouts.sidbarDashboard')
 @section('head')
 <script>(function(e,t,n){var r=e.querySelectorAll("html")[0];r.className=r.className.replace(/(^|\s)no-js(\s|$)/,"$1js$2")})(document,window,0);</script>
@@ -9,6 +10,7 @@
 @section('content-sidbar-element')
     <form action="/videos" method="POST" class="formpublier2" enctype="multipart/form-data">
         @csrf
+        @include('adminlte-templates::common.errors')
         <div class="mes-videos">
             <div class="div-block-219">
                 <div class="bandeau-chaine"></div>
@@ -28,7 +30,7 @@
                             </div>
                         </div>
 
-                        <p class="text-publier-cette-video">{{__('')}}Publier cette vidéo uniquement sur Sista 2 Sista</p>
+                        <p class="text-publier-cette-video">{{__('Publish this video only on Sista 2 Sista')}}</p>
                     </div>
                 </div>
                 @endif
@@ -85,50 +87,48 @@
                             <p class="text-block-263">{{__('\'Acts are only as good as their intentions\' so be clear about your goals. And remember that the first intention is to please your Creator. May the Most Merciful reward you for this.')}}</p>
                             <div class="div-block-310">
                                 <div class="divChekElement">
-                                    <input type="checkbox" value="informer" class="btn-check" id="btn-check-2-outlined" checked autocomplete="off">
+                                    <input type="checkbox" name="motivation" value="informer" class="btn-check" id="btn-check-2-outlined" checked autocomplete="off">
                                     <label class="btn text-block-311" for="btn-check-2-outlined">{{__('Inform')}}</label>
                                 </div>
                                 <div class="divChekElement">
-                                    <input type="checkbox" value="partager" class="btn-check" id="btn-check-2-outlined"  autocomplete="off">
+                                    <input type="checkbox" name="motivation" value="partager" class="btn-check" id="btn-check-2-outlined"  autocomplete="off">
                                     <label class="btn text-block-311" for="btn-check-2-outlined">{{__('Share')}}</label>
                                 </div>
                                 <div class="divChekElement">
-                                    <input type="checkbox" value="faire-rire" class="btn-check" id="btn-check-2-outlined"  autocomplete="off">
+                                    <input type="checkbox" name="motivation" value="faire-rire" class="btn-check" id="btn-check-2-outlined"  autocomplete="off">
                                     <label class="btn text-block-311" for="btn-check-2-outlined">{{__('Making you laugh')}}</label>
                                 </div>
                                 <div class="divChekElement">
-                                    <input type="checkbox" value="sensibiliser" class="btn-check" id="btn-check-2-outlined"  autocomplete="off">
+                                    <input type="checkbox" name="motivation" value="sensibiliser" class="btn-check" id="btn-check-2-outlined"  autocomplete="off">
                                     <label class="btn text-block-311" for="btn-check-2-outlined">{{__('Sensitize')}}</label>
                                 </div>
                                 <div class="divChekElement">
-                                    <input type="checkbox" value="inspirer" class="btn-check" id="btn-check-2-outlined"  autocomplete="off">
+                                    <input type="checkbox" name="motivation" value="inspirer" class="btn-check" id="btn-check-2-outlined"  autocomplete="off">
                                     <label class="btn text-block-311" for="btn-check-2-outlined">{{__('Inspire')}}</label>
                                 </div>
                             </div>
                             <div class="div-block-310">
                                 <div class="divChekElement">
-                                    <input type="checkbox" value="avertir" class="btn-check" id="btn-check-2-outlined"  autocomplete="off">
+                                    <input type="checkbox" name="motivation" value="avertir" class="btn-check" id="btn-check-2-outlined"  autocomplete="off">
                                     <label class="btn text-block-311" for="btn-check-2-outlined">{{__('Notify')}}</label>
                                 </div>
                                 <div class="divChekElement">
-                                    <input type="checkbox" value="soutenir" class="btn-check" id="btn-check-2-outlined"  autocomplete="off">
+                                    <input type="checkbox" name="motivation" value="soutenir" class="btn-check" id="btn-check-2-outlined"  autocomplete="off">
                                     <label class="btn text-block-311" for="btn-check-2-outlined">{{__('Support')}}</label>
                                 </div>
                                 <div class="divChekElement">
-                                    <input type="checkbox" value="vendre" class="btn-check" id="btn-check-2-outlined"  autocomplete="off">
+                                    <input type="checkbox" name="motivation" value="vendre" class="btn-check" id="btn-check-2-outlined"  autocomplete="off">
                                     <label class="btn text-block-311" for="btn-check-2-outlined">{{__('Sell')}}</label>
                                 </div>
                                 <div class="divChekElement">
-                                    <input type="checkbox" value="rappeler" class="btn-check" id="btn-check-2-outlined"  autocomplete="off">
+                                    <input type="checkbox" name="motivation" value="rappeler" class="btn-check" id="btn-check-2-outlined"  autocomplete="off">
                                     <label class="btn text-block-311" for="btn-check-2-outlined">{{__('Call back')}}</label>
                                 </div>
                                 <div class="divChekElement">
-                                    <input type="checkbox" value="expliquer" class="btn-check" id="btn-check-2-outlined"  autocomplete="off">
+                                    <input type="checkbox" name="motivation" value="expliquer" class="btn-check" id="btn-check-2-outlined"  autocomplete="off">
                                     <label class="btn text-block-311" for="btn-check-2-outlined">{{__('Explain')}}</label>
                                 </div>
                             </div>
-                            <!--<textarea class="form-control div-block-240" name="motivation" id="motivation" cols="30" rows="5">
-                            </textarea>-->
                         </div>
                     </div>
                 </div>
@@ -188,7 +188,6 @@
                             <!-- <a href="#" class="link-20">Topic 1</a> -->
                         </div>
                         @endforeach
-
                     </div>
                     <!-- <div class="div-block-246">
                         <div class="div-block-242">
@@ -271,6 +270,25 @@
                         @endforeach
 
                     </div>
+
+                    <div class="div-block-246">
+                        <div class="div-block-242">
+                            <div class="div-block-243">
+                                 <img style="width:30px;height:30px" src="{{ asset('img/Groupe-928.png') }}" alt="">
+                            </div>
+                            <p>Insha'allah</p>
+                        </div>
+
+                        @foreach($subtopics_inshaallah as $subtopic)
+                        <div class="div-block-245">
+                            <!-- <div class="div-block-244"></div> -->
+                            <input  class="div-block-244" type="radio" id="link" name="subtopic_id" value="{{$subtopic->id}}">
+                            <label for="link" class="link-20">{{$subtopic->libelle}}</label>
+                            <!-- <a href="#" class="link-20">Topic 1</a> -->
+                        </div>
+                        @endforeach
+
+                    </div>
                 </div>
             </div>
             <div class="div-block-261">
@@ -332,8 +350,6 @@
                 </div>
             </div>
         </div>
-
-        @include('adminlte-templates::common.errors')
 
 @endsection
 @section('scripts')

@@ -117,7 +117,14 @@ class HomeController extends Controller
 
         Read::create($inputs_read);
 
+        $inshaallah = DB::Table('videos')->select('videos.*')
+                            ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
+                            ->where('mainTopic_id', 7)
+                            ->whereNull('videos.deleted_at')
+                            ->OrderByDesc('videos.created_at', )
+                            ->get();
+
         session(['video' => $video, 'user' => $user]);
-        return view('play', compact('comments', 'counts', 'reads', 'users', 'subtopics','looks','shahid'));
+        return view('play', compact('comments', 'counts', 'reads', 'users', 'subtopics','looks','shahid','inshaallah'));
     }
 }

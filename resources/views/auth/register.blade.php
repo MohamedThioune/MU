@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-@php App::setLocale(session('lang')); @endphp
+@php if(isset($_COOKIE['lang'])) App::setLocale($_COOKIE['lang']); @endphp
+
 <div class="body-4">
     <img src="{{ asset('img/Doobl-buble.png') }} "  alt="" class="bull2">
     <img src="{{ asset('img/Buble-400.png') }}" class="bull">
@@ -57,6 +58,17 @@
                                     </span>
                         @endif
                     </div>
+
+                    <div class="">
+                        <input id="name" type="text" class=" text-field-4 w-input form-control{{ $errors->has('pays') ? ' is-invalid' : '' }}" placeholder="{{__('Country')}}" name="pays" value="{{ old('pays') }}" required>
+
+                        @if ($errors->has('pays'))
+                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('pays') }}</strong>
+                                    </span>
+                        @endif
+                    </div>
+
                     <div class="">
                         <input id="age" type="number" class=" text-field-4 w-input form-control{{ $errors->has('age') ? ' is-invalid' : '' }}" placeholder="Age" name="age" value="{{ old('age') }}" required>
 

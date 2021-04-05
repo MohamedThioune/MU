@@ -145,10 +145,15 @@ Route::get('/', function () {
     ->whereNull('videos.deleted_at')
     ->get();
 
-
+    $playlists = DB::Table('playlists')->select('videos.*')
+    ->join('videos', 'videos.id', 'playlists.video_id')
+    ->whereNull('playlists.deleted_at')
+    ->where('playlists.user_id', Auth::id())
+    ->get();
+    
     session(['videos_haltcare' => $videos_haltcare, 'videos_life' => $videos_life, 'videos_health' => $videos_health, 'videos_business' => $videos_business, 'videos_environnement' => $videos_environnement, 'videos_education' => $videos_education]);
 
-    return view('home', compact('subtopics','channel','event', 'video','last','channel_top','videos_count','look_videos','like_videos','follows', 'looks','shahid'));
+    return view('home', compact('subtopics','channel','event', 'video','last','channel_top','videos_count','look_videos','like_videos','follows', 'looks','shahid','playlists'));
 
 })->name('home')->middleware('auth');
 
@@ -186,8 +191,71 @@ Route::get('/apercu/{n}', ['middleware'=>'auth', 'uses'=>'channelController@over
 Route::get('/flow', function () {
     $subtopics = DB::Table('sub_topics')->select('*')
     ->get();
-    return view('flow',compact('subtopics'));
+    $kids = false;
+    return view('flow',compact('subtopics','kids'));
 })->name('flow')->middleware('auth');
+
+// kids page : apercu
+Route::get('/kids', function () {
+    $subtopics = DB::Table('sub_topics')->select('*')
+    ->get();
+
+    $kids = true;
+
+    $videos_haltcare = DB::Table('videos')->select('videos.*')
+                                 ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
+                                 ->join('users','users.id','videos.user_id')
+                                 ->where('users.age','<',15)
+                                 ->where('mainTopic_id', 1)
+                                 ->whereNull('videos.deleted_at')
+                                 ->get();
+
+    $videos_life = DB::Table('videos')->select('videos.*')
+    ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
+    ->join('users','users.id','videos.user_id')
+    ->where('users.age','<',15)
+    ->where('mainTopic_id', 2)
+    ->whereNull('videos.deleted_at')
+    ->get();
+
+    $videos_health = DB::Table('videos')->select('videos.*')
+    ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
+    ->join('users','users.id','videos.user_id')
+    ->where('users.age','<',15)
+    ->where('mainTopic_id', 3)
+    ->whereNull('videos.deleted_at')
+    ->get();
+
+
+    $videos_business = DB::Table('videos')->select('videos.*')
+    ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
+    ->join('users','users.id','videos.user_id')
+    ->where('users.age','<',15)
+    ->where('mainTopic_id', 4)
+    ->whereNull('videos.deleted_at')
+    ->get();
+
+    $videos_environnement = DB::Table('videos')->select('videos.*')
+    ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
+    ->join('users','users.id','videos.user_id')
+     ->where('users.age','<',15)
+    ->where('mainTopic_id', 5)
+    ->whereNull('videos.deleted_at')
+    ->get();
+
+    $videos_education = DB::Table('videos')->select('videos.*')
+    ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
+    ->join('users','users.id','videos.user_id')
+    ->where('users.age','<',15)
+    ->where('mainTopic_id', 6)
+    ->whereNull('videos.deleted_at')
+    ->get();
+
+
+    session(['videos_haltcare' => $videos_haltcare, 'videos_life' => $videos_life, 'videos_health' => $videos_health, 'videos_business' => $videos_business, 'videos_environnement' => $videos_environnement, 'videos_education' => $videos_education]);
+
+    return view('flow',compact('subtopics','kids'));
+})->name('kids')->middleware('auth');
 
 Auth::routes();
 
@@ -235,7 +303,21 @@ Route::resource('products', 'productController');
 
 
 Route::view('/chaineAbonne', 'chaineAbonne');
-Route::view('/notification', 'notification');
+
+Route::get('/notification', function(){
+    $channel = DB::Table('users')->select('channels.*')
+    ->join('channels', 'users.id', 'channels.user_id')
+    ->where('users.id', Auth::id())
+    ->first();
+
+    $follows = DB::table('abonne_channel')
+    ->select('channels.*')
+    ->join('channels','channels.id','abonne_channel.channel_id')
+    ->where('abonne_channel.user_id', Auth::id())
+    ->get(); 
+
+    return view('notification',compact('channel','follows'));
+})->name('notification');
 
 Route::get('/parametre', function () {
     $channel = DB::Table('users')->select('channels.*')
@@ -263,3 +345,9 @@ Route::get('/language', function(){
 })->name('language.show');
 
 Route::get('/language/{lang}', [App\Http\Controllers\UserController::class, 'choose_language'])->name('language.choose');
+
+Route::get('/playlist/{video}', [App\Http\Controllers\PlaylistController::class, 'add'])->name('playlist.add');
+
+Route::get('/playlist/delete/{video}', [App\Http\Controllers\PlaylistController::class, 'remove'])->name('playlist.remove');
+
+Route::resource('playlists', 'PlaylistController');

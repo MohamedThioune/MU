@@ -77,10 +77,10 @@ class Video extends Model
      */
     public static $rules = [
         //restriction on length
-        'main_title' => 'required|min:2|max:20',
+        'main_title' => 'required|min:2|max:40',
         'vid' => 'required|mimes:mp4,vlc,avi,webm,flv,wmv,mov,ts,3gp,qt,ogg|max:102400',
         'thumbnail' => 'required|mimes:jpg,jpeg,png|max:2028',
-        'description' => 'required',
+        'description' => 'required|min:20|max:500',
         'subtopic_id' => 'required'
     ];
 

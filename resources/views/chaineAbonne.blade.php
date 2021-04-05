@@ -44,7 +44,7 @@
                 @php $user = App\User::find($visit->user_id); @endphp
 
                 @if($visit->logo)
-                <img src="{{ asset('img/Capture-d’écran-2021-03-04-à-12.34.15.png') }}" class="image-118">
+                <img src="{{asset('img')}}/{{$visit->logo}}" class="image-118">
                 @elseif($user->age <= 15)
                 <img class="image-118" src="{{asset('images/kids_preloader.png')}}" alt="">
                 @elseif($user->age > 15 && $user->sex == '1')

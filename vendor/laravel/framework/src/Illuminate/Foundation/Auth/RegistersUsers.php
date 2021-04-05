@@ -46,6 +46,7 @@ trait RegistersUsers
             "can_stream" => 1,
             "sex" => $request->input('sex'),
             "age" => $request->input('age'),
+            "pays" => $request->input('pays'),
             "user_id" => Auth::id(),
         );
 

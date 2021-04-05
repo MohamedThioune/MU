@@ -32,132 +32,61 @@
                 </button>
             </div>
         </div>
-        <div class="imgPubBlock">
+        <!-- <div class="imgPubBlock">
             <img src="{{ asset('img/Mu-bandeau-Pub.jpg') }}" alt="">
-        </div>
+        </div> -->
     </div>
-    <p class="text-block-350">6 notifications</p>
+    <p class="text-block-350">{{count($follows) > 0 ? " notifications" : "0 notification ". __('- you have to follow a chain to get it.') }} </p>
     <div class="div-block-406">
+        @foreach($follows as $box)
         <div class="div-block-407">
-            <div class="div-block-414">
-                <div class="div-block-412">
+            @php
+            $video = DB::Table('videos')->select('videos.*')
+                    ->where('videos.user_id', $box->user_id)
+                    ->whereNull('videos.deleted_at')
+                    ->orderByDesc('videos.created_at')
+                    ->first();
+            @endphp
+            <div class="div-block-414" style="width:100%">
+                <div class="div-block-412" style="width:40%">
                     <div class="vignette">
-                        <img src="{{ asset('img/Mu-video-format-photo-phone-.jpg') }}"  class="image-135">
+                        @if($video->thumbnail)
+                            <img class="image-135" src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" alt="">
+                        @else
+                            <img src="{{ asset('img/grille.png') }}" class="image-135">
+                        @endif
                     </div>
                     <div class="div-block-410">
-                        <div class="text-block-394">This is some text inside of a div block.<br>sur deux lignes</div>
-                        <div class="text-block-396">Publier il y a 2 jours</div>
+                        <div class="text-block-394">{{$video->description}}</div>
+                        @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
+                        @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
+                        <div class="text-block-396">{{intval(abs(strtotime("now") - strtotime($video->created_at))/3600)}} hours ago </div>
+                        @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) == 0)
+                        <div class="text-block-396">{{intval(abs(strtotime("now") - strtotime($video->created_at))/60)}} minutes ago </div>
+                        @endif
+                        @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 1)
+                        <div class="text-block-396">Yesterday at {{strftime("%H:%M", strtotime($video->created_at))}}</div>
+                        @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) >= 2 && intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) <= 27)
+                        <div class="text-block-396"> {{intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400)}} days ago </div>
+                        @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) > 27)
+                        <div class="text-block-396">On {{strftime("%d/%m/%Y", strtotime($video->created_at))}}</div>
+                        @endif
                     </div>
                 </div>
-                <div class="div-block-413">
+                <div class="div-block-413" style="width:55%">
                     <div class="div-block-409">
-                        <img src="{{ asset('img/Mu-bull-profil-sebastiaan-stam.jpg') }}" alt="" class="image-136">
+                        <img src="{{asset('img')}}/{{$box->logo}} " alt="" class="image-136">
                     </div>
-                    <div class="text-block-395">Chaine name</div>
+                    <div class="text-block-395">{{$box->name}}</div>
                 </div>
             </div>
-            <button class="points-vertical">
+            <!-- <button class="points-vertical">
                 <div class="div-block-411"></div>
                 <div class="div-block-411"></div>
                 <div class="div-block-411"></div>
-            </button>
+            </button> -->
         </div>
-        <div class="div-block-407">
-            <div class="div-block-414">
-                <div class="div-block-412">
-                    <div class="vignette">
-                        <img src="{{ asset('img/Mu-video-format-old-lady.jpg') }}"  alt="" class="image-135">
-                    </div>
-                    <div class="div-block-410">
-                        <p class="text-block-394">This is some text inside of a div block.<br>sur deux lignes</p>
-                        <p class="text-block-396">Publier il y a 2 jours</p>
-                    </div>
-                </div>
-                <div class="div-block-413">
-                    <div class="div-block-409">
-                        <img src="{{ asset('img/Mu-bull-profil-jill-burrow.jpg') }}" alt="" class="image-136">
-                    </div>
-                    <p class="text-block-395">Chaine name</p>
-                </div>
-            </div>
-            <button class="points-vertical">
-                <div class="div-block-411"></div>
-                <div class="div-block-411"></div>
-                <div class="div-block-411"></div>
-            </button>
-        </div>
-        <div class="div-block-407">
-            <div class="div-block-414">
-                <div class="div-block-412">
-                    <div class="vignette">
-                        <img src="{{ asset('img/Mu-video-format-phone.jpg') }}" alt="" class="imge135">
-                    </div>
-                    <div class="div-block-410">
-                        <p class="text-block-394">This is some text inside of a div block.<br>sur deux lignes</p>
-                        <p class="text-block-396">Publier il y a 2 jours</p>
-                    </div>
-                </div>
-                <div class="div-block-413">
-                    <div class="div-block-409">
-                        <img src="{{ asset('img/Mu-bull-profil-karolina-grabowska-bonbon.jpg') }}" alt="" class="image-136">
-                    </div>
-                    <p class="text-block-395">Chaine name</p>
-                </div>
-            </div>
-            <button class="points-vertical">
-                <div class="div-block-411"></div>
-                <div class="div-block-411"></div>
-                <div class="div-block-411"></div>
-            </button>
-        </div>
-        <div class="div-block-407">
-            <div class="div-block-414">
-                <div class="div-block-412">
-                    <div class="vignette">
-                        <img src="{{ asset('img/Mu-video-format-sista-fone.jpg') }}" class="image-135">
-                    </div>
-                    <div class="div-block-410">
-                        <div class="text-block-394">This is some text inside of a div block.<br>sur deux lignes</div>
-                        <div class="text-block-396">Publier il y a 2 jours</div>
-                    </div>
-                </div>
-                <div class="div-block-413">
-                    <div class="div-block-409">
-                        <img src="{{ asset('img/Mu-bull-profil-pixabay-161153.jpg') }}"  alt="" class="image-136">
-                    </div>
-                    <p class="text-block-395">Chaine name</p>
-                </div>
-            </div>
-            <button class="points-vertical">
-                <div class="div-block-411"></div>
-                <div class="div-block-411"></div>
-                <div class="div-block-411"></div>
-            </button>
-        </div>
-        <div class="div-block-407">
-            <div class="div-block-414">
-                <div class="div-block-412">
-                    <div class="vignette">
-                        <img src="{{ asset('img/Mu-video-format-2-man.jpg') }}"  alt="" class="image-135">
-                    </div>
-                    <div class="div-block-410">
-                        <p class="text-block-394">This is some text inside of a div block.<br>sur deux lignes</p>
-                        <p class="text-block-396">Publier il y a 2 jours</p>
-                    </div>
-                </div>
-                <div class="div-block-413">
-                    <div class="div-block-409">
-                        <img src="{{ asset('img/Mu-bull-profil-yender-fonseca.jpg') }}" width="43" alt="" class="image-136">
-                    </div>
-                    <p class="text-block-395">Chaine name</p>
-                </div>
-            </div>
-            <button class="points-vertical">
-                <div class="div-block-411"></div>
-                <div class="div-block-411"></div>
-                <div class="div-block-411"></div>
-            </button>
-        </div>
+        @endforeach
     </div>
 
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
