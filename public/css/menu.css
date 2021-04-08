@@ -1820,20 +1820,20 @@ video{
     z-index: 999;
 }
 .indexElement{
-    margin-top: -90px;
     display: block;
     position: fixed;
     z-index: 999999999999999;
 }
+.content-contenue1 {
+    margin-top: 90px;
+}
 .sidebar-format::-webkit-scrollbar {
     display: none !important;
 }
-.sidebar-format{
-    margin-top: -90px;
-}
 .contentOneMonFlow {
-    width: 85%;
+    width: 87%;
     display: block;
+    margin-top: 90px;
 }
 .accrocheskate {
     display: flex;

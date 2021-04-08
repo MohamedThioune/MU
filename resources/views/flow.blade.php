@@ -1,4 +1,5 @@
 @extends('layouts.sidbarNavigation')
+<html lang="fr">
 <head>
     @section('css')
     <link rel="stylesheet" href="css/menu.css">
@@ -753,33 +754,6 @@
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script>
     var swiper = new Swiper('.swipeContainermodife1', {
-        direction: 'horizontal',
-        allowTouchMove: true,
-        slidesPerView: 'auto',
-        grabCursor: true,
-        preventClicks: true,
-        spaceBetween: 30,
-        keyboardControl: true,
-        speed: 1000,
-        pagination: {
-            el: null
-        },
-        scrollbar: {
-            el: '.swiper-scrollbar',
-            draggable: true,
-            hide: false,
-            snapOnRelease: true
-        },
-        mousewheel: {
-            enable: true
-        },
-        keyboard: {
-            enabled: true
-        },
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev'
-        },
         slidesPerView: 3,
         spaceBetween: 30
     });
@@ -787,33 +761,6 @@
 
 <script>
     var swiper = new Swiper('.swiper-helatcare', {
-        direction: 'horizontal',
-        allowTouchMove: true,
-        slidesPerView: 'auto',
-        grabCursor: true,
-        preventClicks: true,
-        spaceBetween: 30,
-        keyboardControl: true,
-        speed: 1000,
-        pagination: {
-            el: null
-        },
-        scrollbar: {
-            el: '.swiper-scrollbar',
-            draggable: true,
-            hide: false,
-            snapOnRelease: true
-        },
-        mousewheel: {
-            enable: true
-        },
-        keyboard: {
-            enabled: true
-        },
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev'
-        },
         slidesPerView: 4.4,
         spaceBetween: 30,
         // Responsive breakpoints
