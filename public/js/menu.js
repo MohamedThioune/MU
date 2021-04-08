@@ -2,7 +2,7 @@ $(document).ready(function() {
     $( ".contentSidElement" ).addClass('v1') ;
     $( "._4-points" ).click(function() {
         $( ".sidebar-format" ).removeClass('invisible').addClass('visible') ;
-        $( ".nav-up-right" ).addClass('opacityElement') ;contentSidElement
+        $( ".nav-up-right" ).addClass('opacityElement') ;
         $( ".griscolor" ).addClass('grisElement') ;
         $( ".contentSidElement" ).removeClass('v1') ;
     });

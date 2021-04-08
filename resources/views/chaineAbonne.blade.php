@@ -1,6 +1,7 @@
 @extends('layouts.sidbarNavigation')
 <head>
     @section('css')
+    <meta name="viewport" content="target-densitydpi=device-dpi, initial-scale=1.0, user-scalable=no" />
     <link rel="stylesheet" href="css/menu.css">
     <link rel="stylesheet" href="node_modules/swiper/swiper.min.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
@@ -121,9 +122,9 @@
             @if(!$event)
             <a class="btn btn-default" style="text-decoration:none;" href="{{route('events.create')}}" alt="">&#x267B; {{__('Refresh')}}}</a>
             @else
-            <a class="btn btn-default" style="text-decoration:none;" href="{{route('events.edit', $event->id)}}" alt="">&#x267B; {{__('Refresh')}}}</a>   
-            @endif   
-        @endif      
+            <a class="btn btn-default" style="text-decoration:none;" href="{{route('events.edit', $event->id)}}" alt="">&#x267B; {{__('Refresh')}}}</a>
+            @endif
+        @endif
         </div>
     </div>
     @endif
@@ -189,7 +190,7 @@
                         </div>
                     </div>
                     @endif
-                    
+
                     @endif
                 </div>
             </div>
@@ -201,7 +202,7 @@
         <p class="text-block-331"> <span style="text-decoration:underline">{{__('')}}Adresse</span><br>N° voie : {{$contact->adresse}}<br>Code postale : {{$contact->code_postale}}<br> Ville : {{$contact->ville}} <br>Pays : {{$contact->pays}}</p>
         <p class="text-block-332" style="text-decoration:underline">{{__('')}}Site web : {{$contact->site_web}}<br></p>
         <p class="text-block-339" style="text-decoration:underline">{{__('')}}Horaire d&#x27;ouverture : 08h30 - 18H00<br>‍</p>
-        
+
         @if($edit)
             @if(!$contact)
             <a class="btn btn-default" style="text-decoration:none;margin-left:-15px" href="{{route('contacts.create')}}" alt="">&#x267B; {{__('Refresh')}}</a>
@@ -218,7 +219,7 @@
             <div class="swiper-wrapper">
                 @foreach($videos_top as $video)
                 @if($video->views > 200)
-                @php 
+                @php
                     $bool = true;
                     $top = App\Models\Video::find($video->video_id);
                     $user = App\User::find($top->user_id);
@@ -258,7 +259,7 @@
                             </div>
                             <div class="block3">
                                 <p class="mindText">{{$top->main_title}}</p>
-                                
+
                                 @if(intval(abs(strtotime("now") - strtotime($top->created_at))/ 86400) == 0)
                                 @if(intval(abs(strtotime("now") - strtotime($top->created_at))/ 3600) > 0)
                                 <p class="day">Published {{intval(abs(strtotime("now") - strtotime($top->created_at))/3600)}} hours ago </p>
@@ -273,12 +274,12 @@
                                 <p class="day">Published on {{strftime("%d/%m/%Y", strtotime($top->created_at))}}</p>
                                 @endif
 
-                                <!--              
+                                <!--
                                     <div class="d-flex justify-content-between">
                                         <p class="numberviewsSuggestion">1230</p>
                                         <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
-                                    </div>  
-                                -->                                        
+                                    </div>
+                                -->
                             </div>
                         </div>
                     </div>
@@ -320,7 +321,7 @@
     <div class="">
         <div class="playlist2">
             <p class="text-Playlist">{{__('MY')}} playlist ...</p>
-            
+
             <div class="swiper-container swipeContainermodife1">
                 <div class="swiper-wrapper">
                     <div class=" swiper-slide card-suggestionDay">
@@ -431,7 +432,7 @@
                             @elseif($user->age > 15 && $user->sex == '0')
                                 <img class="imgElementCardSuggestionDay" src="{{asset('images/sista_preloader.png')}}" alt="">
                             @endif
-    
+
                             <div class="contentFlyHeure">
                                 <p class="flyText">
                                     @foreach($subtopics as $subtopic)

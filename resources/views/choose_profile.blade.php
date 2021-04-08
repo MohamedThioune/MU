@@ -2,11 +2,12 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <meta name="viewport" content="target-densitydpi=device-dpi, initial-scale=1.0, user-scalable=no" />
+
 
     <!-- Bootstrap 3.3.7 -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-   
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -73,7 +74,7 @@
                         @endphp
                         <div class="div-block-22">
                             <a href="{{route('connected',[$profile->id])}}">
-                                <div class="@php if($profile->age <= 15) echo 'div-block-24'; else if($profile->age > 15 && $profile->sex == 0) echo 'div-block-21'; else if($profile->age > 15 && $profile->sex == 1) echo 'div-block-28'; @endphp" >                                    
+                                <div class="@php if($profile->age <= 15) echo 'div-block-24'; else if($profile->age > 15 && $profile->sex == 0) echo 'div-block-21'; else if($profile->age > 15 && $profile->sex == 1) echo 'div-block-28'; @endphp" >
                                 </div>
                             </a>
                             <p class="text-block-218">{{$profile->name}}</p>

@@ -3986,7 +3986,7 @@
     width: 32px;
 }
 .imgCloche{
-    width: 13px;
+    width: 20px;
 }
 .imgMUfull{
     width: 29px;
@@ -6202,6 +6202,8 @@
 
 .text-block-322 {
     margin-bottom: 10px;
+    width: 287px;
+    text-overflow: ellipsis;
 }
 
 .text-block-323 {
@@ -6214,7 +6216,7 @@
 }
 
 .coment-1 {
-    padding: 20px;
+    padding: 0 15px;
 }
 
 .div-block-328 {
@@ -6223,7 +6225,12 @@
     display: -ms-flexbox;
     display: flex;
 }
-
+.text-block-Date{
+    line-height: 20px;
+    color: #333;
+    font-size: 14px;
+    font-family: "Ubuntu-Bold";
+}
 .div-block-329 {
     display: -webkit-box;
     display: -webkit-flex;

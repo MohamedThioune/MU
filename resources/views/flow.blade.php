@@ -10,7 +10,7 @@
 <body>
 @section('content-play-element')
 <div class="contentOneMonFlow">
-@if(session('videos_haltcare')) 
+@if(session('videos_haltcare'))
 @if(count(session('videos_haltcare')) > 0)
 <div class="content-Haltcare">
     <div class="container-fluid">
@@ -753,6 +753,33 @@
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script>
     var swiper = new Swiper('.swipeContainermodife1', {
+        direction: 'horizontal',
+        allowTouchMove: true,
+        slidesPerView: 'auto',
+        grabCursor: true,
+        preventClicks: true,
+        spaceBetween: 30,
+        keyboardControl: true,
+        speed: 1000,
+        pagination: {
+            el: null
+        },
+        scrollbar: {
+            el: '.swiper-scrollbar',
+            draggable: true,
+            hide: false,
+            snapOnRelease: true
+        },
+        mousewheel: {
+            enable: true
+        },
+        keyboard: {
+            enabled: true
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev'
+        },
         slidesPerView: 3,
         spaceBetween: 30
     });
@@ -760,6 +787,33 @@
 
 <script>
     var swiper = new Swiper('.swiper-helatcare', {
+        direction: 'horizontal',
+        allowTouchMove: true,
+        slidesPerView: 'auto',
+        grabCursor: true,
+        preventClicks: true,
+        spaceBetween: 30,
+        keyboardControl: true,
+        speed: 1000,
+        pagination: {
+            el: null
+        },
+        scrollbar: {
+            el: '.swiper-scrollbar',
+            draggable: true,
+            hide: false,
+            snapOnRelease: true
+        },
+        mousewheel: {
+            enable: true
+        },
+        keyboard: {
+            enabled: true
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev'
+        },
         slidesPerView: 4.4,
         spaceBetween: 30,
         // Responsive breakpoints
@@ -791,13 +845,32 @@
         var swiper = new Swiper('.swiper-helatcare', {
             // Optional parameters
             direction: 'horizontal',
-            loop: false,
-            //autoplay: 6500,
-            autoplayDisableOnInteraction: false,
-
+            allowTouchMove: true,
+            slidesPerView: 'auto',
+            grabCursor: true,
+            preventClicks: true,
+            spaceBetween: 30,
             keyboardControl: true,
-            mousewheelControl: true,
-            paginationClickable: true,
+            speed: 1000,
+            pagination: {
+                el: null
+            },
+            scrollbar: {
+                el: '.swiper-scrollbar',
+                draggable: true,
+                hide: false,
+                snapOnRelease: true
+            },
+            mousewheel: {
+                enable: true
+            },
+            keyboard: {
+                enabled: true
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev'
+            },
 
         });
     }
