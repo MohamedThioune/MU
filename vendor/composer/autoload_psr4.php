@@ -73,6 +73,7 @@ return array(
     'DeepCopy\\' => array($vendorDir . '/myclabs/deep-copy/src/DeepCopy'),
     'Cron\\' => array($vendorDir . '/dragonmantank/cron-expression/src/Cron'),
     'Collective\\Html\\' => array($vendorDir . '/laravelcollective/html/src'),
+    'Braintree\\' => array($vendorDir . '/braintree/braintree_php/lib/Braintree'),
     'Arcanedev\\Arabic\\Tests\\' => array($vendorDir . '/arcanedev/arabic/tests'),
     'Arcanedev\\Arabic\\' => array($vendorDir . '/arcanedev/arabic/src'),
     'App\\' => array($baseDir . '/app'),

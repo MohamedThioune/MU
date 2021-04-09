@@ -224,6 +224,10 @@ return [
         'Html'      => Collective\Html\HtmlFacade::class,
         'Flash'     => Laracasts\Flash\Flash::class,
         'hijri'     => Arcanedev\Arabic\DateTime::class,
+        'Braintree_ClientToken' => Braintree\ClientToken::class,
+        'Braintree_Configuration' =>  Braintree\Configuration::class,
+        'Braintree_Transaction' => Braintree\Transaction::class,
+        'PaymentMethodNonce' => Braintree\PaymentMethodNonce::class,
         
     ],
 

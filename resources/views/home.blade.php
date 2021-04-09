@@ -140,7 +140,8 @@
                         </div>
                     </div>
                 </div>
-                <div class=" swiper-slide hot-notification">
+
+                <div class="swiper-slide hot-notification" style="background:white;">
                     <div class="div-block-391">
                         <div class="hot-green">
                             <img class="imgGrenn" src="{{ asset('img/Mu-hot-info.png') }}" loading="lazy">
@@ -164,7 +165,7 @@
                             <p class="text-block-385">Published on {{strftime("%d/%m/%Y", strtotime( $event->created_at))}}</p>
                             @endif
                             <div>
-                                <p class="text-block-384">{{$event->text}}</p>
+                                <p class="" style="color:8F8F8F;font-weight:bold;font-size:large" >{{$event->text}}</p>
                             </div>
                             </div>
                             <div class="like-notication">
@@ -174,6 +175,27 @@
                                 <button class="btn div-block-398">
                                     <img src="{{ asset('img/Image-6.png') }}" alt="">
                                 </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide hot-notification" style="background:white;">
+                    <div class="div-block-391">
+                        <div class="hot-green">
+                            <img class="imgGrenn" src="{{ asset('img/Mu-hot-info.png') }}" loading="lazy">
+                        </div>
+                        <div class="div-block-393">
+                            <div class="div-block-392"> 
+                                <img src="{{ asset('img/Mu-video-format-bike-girl.jpg') }}" loading="lazy" sizes="100vw" srcset="images/Mu-video-format-bike-girl-p-800.jpeg 800w, images/Mu-video-format-bike-girl.jpg 898w" alt="" class="image-130"></div>
+                            <div>
+                            <p class="text-block-383">{{__('Want to see more')}}</p>
+                           
+                            <p class="text-block-385">{{__('Discover even more interesting features')}}</p>
+                            <br>
+                            <div>
+                                <a href="{{route('process')}}" style="text-decoration:none;" class="toutesNotifications">{{__('Switch to SMUUSE PRO')}}</a>
+                            </div>
                             </div>
                         </div>
                     </div>

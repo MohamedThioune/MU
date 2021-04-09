@@ -60,6 +60,9 @@ setcookie('lang', session('lang'), time() + 365*24*3600, null, null, false, true
                                         <strong>{{ $errors->first('password') }}</strong>
                                     </span>
                         @endif
+
+                        <input type="hidden" name="state" value="0" required>
+
                     </div>
                     <button type="submit" class="btn submit-button w-button">
                         {{ __('Login') }}

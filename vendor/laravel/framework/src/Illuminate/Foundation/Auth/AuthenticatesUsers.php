@@ -32,8 +32,18 @@ trait AuthenticatesUsers
      */
     public function login(Request $request)
     {
-        $this->validateLogin($request);
 
+        $user = DB::Table('users')->select('users.*')
+                           ->where('users.email',$request->email)
+                           ->first();
+        if($user){
+            if($user->state == 1){
+                $this->validateLogin($request);}
+            else{
+                return $this->sendFailedLoginResponse($request);}
+        }else{
+            return $this->sendFailedLoginResponse($request);}
+            
         // If the class is using the ThrottlesLogins trait, we can automatically throttle
         // the login attempts for this application. We'll key this by the username and
         // the IP address of the client making these requests into this application.

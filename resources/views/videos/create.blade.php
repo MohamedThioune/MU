@@ -291,6 +291,7 @@
                     </div>
                 </div>
             </div>
+            
             <div class="div-block-261">
                 <div>
                     <p class="text-la-video2">{{__('Date of publication')}}</p>

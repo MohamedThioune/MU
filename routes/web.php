@@ -192,7 +192,13 @@ Route::get('/flow', function () {
     $subtopics = DB::Table('sub_topics')->select('*')
     ->get();
     $kids = false;
-    return view('flow',compact('subtopics','kids'));
+    $channel = DB::Table('users')->select('channels.*')
+    ->join('channels', 'users.id', 'channels.user_id')
+    ->where('users.id', Auth::id())
+    ->first();
+
+    return view('flow',compact('subtopics','kids','channel'));
+    
 })->name('flow')->middleware('auth');
 
 // kids page : apercu
@@ -351,3 +357,38 @@ Route::get('/playlist/{video}', [App\Http\Controllers\PlaylistController::class,
 Route::get('/playlist/delete/{video}', [App\Http\Controllers\PlaylistController::class, 'remove'])->name('playlist.remove');
 
 Route::resource('playlists', 'PlaylistController');
+
+Route::get('/process', function(){
+    $gateway = new Braintree\Gateway([
+        'environment' => 'sandbox',
+        'merchantId' => '2yw4qvsvxcr5fhyx',
+        'publicKey' => 'j2cqsvvdjnvs2v5w',
+        'privateKey' => '9605f4859f57d23d0ee40cedb88c834e'
+        ]);
+    
+    $clientToken = $gateway->clientToken()->generate();
+    
+    $channel = DB::Table('users')->select('channels.*')
+    ->join('channels', 'users.id', 'channels.user_id')
+    ->where('users.id', Auth::id())
+    ->first();
+    return view('process',compact('channel','clientToken'));
+})->name('process');
+
+Route::view('/boot', 'boot')->name('braintree.token');
+
+Route::post('/payment', function(){
+    $channel = DB::Table('users')->select('channels.*')
+    ->join('channels', 'users.id', 'channels.user_id')
+    ->where('users.id', Auth::id())
+    ->first();
+
+    try {
+        $payment_method_nonce = PaymentMethodNonce::create($_POST['clientToken']);
+    } 
+    catch (Braintree\Exception\NotFound $e) {
+        echo $e->getMessage();
+        }
+
+    return view('process',compact('channel','payment_method_nonce'));
+})->name('payment');
