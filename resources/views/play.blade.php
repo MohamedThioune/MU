@@ -16,333 +16,8 @@
 
 
 @section('content-play-element')
-<div class="d-block">
+<div class="d-block blockGeneralContent">
 <div class="elementFixedMobie">
-    <!--    <div class="content-home">
-        <div class="content-naveBar">
-            <nav class="navbar navbar-expand-lg navModife">
-                <button class="groupPointNav btnMenue1">
-                    <img class="pointsRose" src="{{ asset('img/icones/troispoints.svg') }}" alt="">
-                    <div class="muu d-flex">
-                        <img class="flecheMuu" src="{{ asset('img/icones/fleche.svg') }}" alt="">
-                        <p class="muuText">mmmuuu</p>
-                    </div>
-                </button>
-                <button class="btnMenue ">
-                    <div class="d-flex">
-                        <div class="PointMenu ">
-                            <div class="onePoint"></div>
-                            <div class="onePoint"></div>
-                        </div>
-                        <div class="PointMenu">
-                            <div class="onePoint"></div>
-                            <div class="onePoint"></div>
-                        </div>
-                    </div>
-
-                </button>
-                <a class="navbar-brand elementLogo" href="#">
-                    <img src="{{ asset('img/logo-MU.png') }}" alt="">
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-
-                <div class="content-Menu menue1">
-                    <form class="form-inline2 d-flex position-relative">
-                        <input class="form-control mr-sm-2 searchNav2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn searchButtonMenue" type="submit">
-                            <img src="{{ asset('img/icones/search.png') }}" alt="">
-                        </button>
-                    </form>
-                    <div class="sousMenuGlobale1">
-                        <div class="contentElementLeft">
-                            <div class="blockItem">
-                                <img class="iconeMenue" src="{{ asset('img/icones/login.svg') }}" alt="">
-                                <p class="NameElementMenue">Profil</p>
-                                <img src="{{ asset('img/icones/fleche.svg') }}" alt="" class="iconeFleche">
-                            </div>
-                            <div class="blockItem">
-                                <div class="iconeMenue2"><img src="{{ asset('img/icones/time-shahid.png') }}" alt=""></div>
-                                <p class="NameElementMenue">Time shahid</p>
-                                <img src="{{ asset('img/icones/fleche.svg') }}" alt="" class="iconeFleche">
-                            </div>
-                            <div class="blockItem">
-                                <img class="iconeMenue" src="{{ asset('img/icones/settings.svg') }}" alt="">
-                                <p class="NameElementMenue">Setting</p>
-                                <img src="{{ asset('img/icones/fleche.svg') }}" alt="" class="iconeFleche">
-                            </div>
-                            <div class="blockItem">
-                                <img class="iconeMenue" src="{{ asset('img/icones/published.svg') }}" alt="">
-                                <p class="NameElementMenue">Published</p>
-                                <img src="{{ asset('img/icones/fleche.svg') }}" alt="" class="iconeFleche">
-                            </div>
-                            <div class="blockItem">
-                                <img class="iconeMenue" src="{{ asset('img/icones/alerte.svg') }}" alt="">
-                                <p class="NameElementMenue">Alerte</p>
-                                <img src="{{ asset('img/icones/fleche.svg') }}" alt="" class="iconeFleche">
-                            </div>
-
-                        </div>
-
-                        <div class="contentElementRight">
-                            <div class="categorieProfil">
-                                <div class="block1">
-                                    <button class="btn btnCat colorElement">Cat1</button>
-                                    <p class="sousCategorie colorElement">Cat 1.1</p>
-                                    <p class="sousCategorie colorElement">Cat 1.2</p>
-                                    <p class="sousCategorie colorElement">Cat 1.3</p>
-                                    <p class="sousCategorie colorElement">Cat 1.4</p>
-                                    <p class="sousCategorie colorElement">Cat 1.5</p>
-                                    <p class="sousCategorie colorElement">Cat 1.6</p>
-                                </div>
-                            </div>
-                            <div class="categorieProfil">
-                                <div class="block1">
-                                    <button class="btn btnCat">Cat2</button>
-                                    <p class="sousCategorie">Cat 2.1</p>
-                                    <p class="sousCategorie">Cat 2.2</p>
-                                    <p class="sousCategorie">Cat 2.3</p>
-                                    <p class="sousCategorie">Cat 2.4</p>
-                                    <p class="sousCategorie">Cat 2.5</p>
-                                    <p class="sousCategorie">Cat 2.6</p>
-                                </div>
-                            </div>
-                            <div class="categorieProfil">
-                                <div class="block1">
-                                    <button class="btn btnCat">Cat3</button>
-                                    <p class="sousCategorie">Cat 3.1</p>
-                                    <p class="sousCategorie">Cat 3.2</p>
-                                    <p class="sousCategorie">Cat 3.3</p>
-                                    <p class="sousCategorie">Cat 3.4</p>
-                                    <p class="sousCategorie">Cat 3.5</p>
-                                    <p class="sousCategorie">Cat 3.6</p>
-                                </div>
-                            </div>
-                            <div class="categorieProfil">
-                                <div class="block1">
-                                    <button class="btn btnCat">Cat4</button>
-                                    <p class="sousCategorie">Cat 4.1</p>
-                                    <p class="sousCategorie">Cat 4.2</p>
-                                    <p class="sousCategorie">Cat 4.3</p>
-                                    <p class="sousCategorie">Cat 4.4</p>
-                                    <p class="sousCategorie">Cat 4.5</p>
-                                    <p class="sousCategorie">Cat 4.6</p>
-                                </div>
-                            </div>
-                            <div class="categorieProfil">
-                                <div class="block1">
-                                    <button class="btn btnCat">Cat5</button>
-                                    <p class="sousCategorie">Cat 5.1</p>
-                                    <p class="sousCategorie">Cat 5.2</p>
-                                    <p class="sousCategorie">Cat 5.3</p>
-                                    <p class="sousCategorie">Cat 5.4</p>
-                                    <p class="sousCategorie">Cat 5.5</p>
-                                    <p class="sousCategorie">Cat 5.6</p>
-                                </div>
-                            </div>
-                            <div class="categorieProfil">
-                                <div class="block1">
-                                    <button class="btn btnCat">Cat6</button>
-                                    <p class="sousCategorie">Cat 6.1</p>
-                                    <p class="sousCategorie">Cat 6.2</p>
-                                    <p class="sousCategorie">Cat 6.3</p>
-                                    <p class="sousCategorie">Cat 6.4</p>
-                                    <p class="sousCategorie">Cat 6.5</p>
-                                    <p class="sousCategorie">Cat 6.6</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="categorie row">
-                        <div class="contentButtonCategorie">
-                            <button class="btn btnCategorie flow">Flow</button>
-                            <button class="btn btnCategorie kids">Kids</button>
-                            <button class="btn btnCategorie sista">Sista’s</button>
-                        </div>
-                        <div class="contentSousMenueCategorie sousCategorieFlow">
-                            <p class="textSousCategorie">Life / Art</p>
-                            <p class="textSousCategorie">Business</p>
-                            <p class="textSousCategorie">Education</p>
-                            <p class="textSousCategorie">Health / Wellness</p>
-                            <p class="textSousCategorie">Food</p>
-                            <p class="textSousCategorie">Sport / Gaming</p>
-                        </div>
-                        <div class="contentElementRight">
-                            <div class="categorieProfil">
-                                <div class="block1">
-                                    <button class="btn btnCat colorElement">Cat1</button>
-                                    <p class="sousCategorie colorElement">Cat 1.1</p>
-                                    <p class="sousCategorie colorElement">Cat 1.2</p>
-                                    <p class="sousCategorie colorElement">Cat 1.3</p>
-                                    <p class="sousCategorie colorElement">Cat 1.4</p>
-                                    <p class="sousCategorie colorElement">Cat 1.5</p>
-                                    <p class="sousCategorie colorElement">Cat 1.6</p>
-                                </div>
-                            </div>
-                            <div class="categorieProfil">
-                                <div class="block1">
-                                    <button class="btn btnCat">Cat2</button>
-                                    <p class="sousCategorie">Cat 2.1</p>
-                                    <p class="sousCategorie">Cat 2.2</p>
-                                    <p class="sousCategorie">Cat 2.3</p>
-                                    <p class="sousCategorie">Cat 2.4</p>
-                                    <p class="sousCategorie">Cat 2.5</p>
-                                    <p class="sousCategorie">Cat 2.6</p>
-                                </div>
-                            </div>
-                            <div class="categorieProfil">
-                                <div class="block1">
-                                    <button class="btn btnCat">Cat3</button>
-                                    <p class="sousCategorie">Cat 3.1</p>
-                                    <p class="sousCategorie">Cat 3.2</p>
-                                    <p class="sousCategorie">Cat 3.3</p>
-                                    <p class="sousCategorie">Cat 3.4</p>
-                                    <p class="sousCategorie">Cat 3.5</p>
-                                    <p class="sousCategorie">Cat 3.6</p>
-                                </div>
-                            </div>
-                            <div class="categorieProfil">
-                                <div class="block1">
-                                    <button class="btn btnCat">Cat4</button>
-                                    <p class="sousCategorie">Cat 4.1</p>
-                                    <p class="sousCategorie">Cat 4.2</p>
-                                    <p class="sousCategorie">Cat 4.3</p>
-                                    <p class="sousCategorie">Cat 4.4</p>
-                                    <p class="sousCategorie">Cat 4.5</p>
-                                    <p class="sousCategorie">Cat 4.6</p>
-                                </div>
-                            </div>
-                            <div class="categorieProfil">
-                                <div class="block1">
-                                    <button class="btn btnCat">Cat5</button>
-                                    <p class="sousCategorie">Cat 5.1</p>
-                                    <p class="sousCategorie">Cat 5.2</p>
-                                    <p class="sousCategorie">Cat 5.3</p>
-                                    <p class="sousCategorie">Cat 5.4</p>
-                                    <p class="sousCategorie">Cat 5.5</p>
-                                    <p class="sousCategorie">Cat 5.6</p>
-                                </div>
-                            </div>
-                            <div class="categorieProfil">
-                                <div class="block1">
-                                    <button class="btn btnCat">Cat6</button>
-                                    <p class="sousCategorie">Cat 6.1</p>
-                                    <p class="sousCategorie">Cat 6.2</p>
-                                    <p class="sousCategorie">Cat 6.3</p>
-                                    <p class="sousCategorie">Cat 6.4</p>
-                                    <p class="sousCategorie">Cat 6.5</p>
-                                    <p class="sousCategorie">Cat 6.6</p>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="categorie row">
-                        <div class="contentButtonCategorie">
-                            <button class="btn btnCategorie flow">Flow</button>
-                            <button class="btn btnCategorie kids">Kids</button>
-                            <button class="btn btnCategorie sista">Sista’s</button>
-                        </div>
-                        <div class="contentSousMenueCategorie sousCategorieFlow">
-                            <p class="textSousCategorie">Life / Art</p>
-                            <p class="textSousCategorie">Business</p>
-                            <p class="textSousCategorie">Education</p>
-                            <p class="textSousCategorie">Health / Wellness</p>
-                            <p class="textSousCategorie">Food</p>
-                            <p class="textSousCategorie">Sport / Gaming</p>
-                        </div>
-
-                    </div>
-                </div>
-
-
-                <form class="form-inline position-relative">
-                    <input class="form-control mr-sm-2 searchNav" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn searchButton" type="submit">
-                        <img src="{{ asset('img/icones/search.png') }}" alt="">
-                    </button>
-                </form>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ml-auto">
-                        @if(Auth::guest())
-                        <li class="nav-item nav-modife">
-                            <a href="{{route('register')}}" class="btnCommunaute">Rejoindre la communauté</a>
-                        </li>
-                        <li class="nav-item nav-modife">
-                            <img src="{{ asset('img/icones/login.svg') }}" alt="">
-                            <a class="nav-link" href="{{route('login')}}">Log in</a>
-                        </li>
-                        @else
-                        <li class="nav-item nav-modife">
-                            @if(Auth::user()->timeout)
-                            @if(intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/ 86400) == 0)
-                            @if(intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/ 3600) > 0)
-                            <p class="day" style="font-size:18px; color:white">Last login - <span style="color:#c22d84">{{intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/3600)}} hours ago</span></p>
-                            @else(intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/ 3600) == 0)
-                            <p class="day"style="font-size:18px; color:white">Last login - <span style="color:#c22d84">{{intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/60)}} minutes ago</span></p>
-                            @endif
-                            @elseif(intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/ 86400) == 1)
-                            <p class="day" style="font-size:18px; color:white">Last login - <span style="color:#c22d84">Yesterday at {{strftime("%H:%M", strtotime(Auth::user()->timeout))}}</span></p>
-                            @elseif(intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/ 86400) >= 2 && intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/ 86400) <= 27)
-                            <p class="day"style="font-size:18px; color:white">Last login - <span style="color:#c22d84">{{intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/ 86400)}} days ago</span></p>
-                            @else(intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/ 86400) > 27)
-                            <p class="day" style="font-size:18px; color:white">Last login - <span style="color:#c22d84">On {{strftime("%d/%m/%Y", strtotime(Auth::user()->timeout))}}</span></p>
-                            @endif
-                            @else
-                            <p class="day" style="font-size:18px; color:#f4de39">WELCOME <span style="color:white"> TO</span> <span style="color:#c22d84"> MU</span></p>
-                            @endif
-                        </li>
-                        <li class="nav-item nav-modife">
-
-                            @if(!session('profile'))
-                            <span class="btnCommunaute" style="background:none; box-shadow: 4px 4px 15px white;font-weight:bold">
-                                             @php
-                                                $profile = DB::Table('users')->select('profile.*')
-                                                                             ->join('profile', 'users.id', 'profile.user_id')
-                                                                             ->where('users.id', Auth::id())
-                                                                             ->first();
-
-                                                echo $profile->name;
-                                             @endphp
-                                             &nbsp;&nbsp;
-                                            <a style="color:white;font-size:19px;" href="{{route('choose')}}"><i class="fas fa-caret-down"></i></a>
-                                        </span>
-                            @elseif(session('profile')["age"] <= 15)
-                            <span class="btnCommunaute" style="background:none; box-shadow: 4px 4px 15px #e9d22e;font-weight:bold"> {{session('profile')["name"]}} &nbsp;&nbsp;<a style="color:#e9d22e;font-size:19px;" href="{{route('choose')}}"><i class="fas fa-caret-down"></i></a></span>
-                            @elseif(session('profile')["age"] > 15 && session('profile')["sex"] == '1')
-                            <span class="btnCommunaute" style="background:none; box-shadow: 4px 4px 15px #3eacec;font-weight:bold"> {{session('profile')["name"]}} &nbsp;&nbsp;<a href="{{route('choose')}}"><i class="fas fa-caret-down"></i></a></span>
-                            @elseif(session('profile')["age"] > 15 && session('profile')["sex"] == '0')
-                            <span class="btnCommunaute" style="background:none; box-shadow: 4px 4px 15px #d14f94;font-weight:bold"> {{session('profile')["name"]}} &nbsp;&nbsp;<a style="color:#d14f94;font-size:19px;" href="{{route('choose')}}"><i class="fas fa-caret-down"></i></a><span>
-                                        @endif
-                        </li>
-                        <li class="nav-item nav-modife">
-                            <img src="{{ asset('img/icones/login.svg') }}" alt="">
-                            <form action="{{ route('logout') }}" class="nav-modife formModife" method="POST">
-                                @csrf
-                                <button class="nav-link btnLogOut" type="submit" >Log out</button>
-                            </form>
-                        </li>
-                        @endif
-                    </ul>
-                </div>
-            </nav>
-            <div class="header2">
-                <div class="container-modife">
-                    <div class="block2">
-                        <p class="textHeader2">mmmuuu</p>
-                        <div class="d-flex groupButtonHeader2">
-                            <button class="btn btnheader2">Flow</button>
-                            <button class="btn btnheader2">Sista’s</button>
-                            <button class="btn btnheader2">Kids</button>
-                        </div>
-                        <img class="setting2" src="{{ asset('img/icones/settings.svg') }}" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>-->
     <div class="content-contenue1">
         <div class="contentParDefaut">
             <div class="linearColor"></div>
@@ -352,7 +27,10 @@
                         <div class="videoParDefaut">
                             <video poster="{{ asset('images/sista_preloader.png')}}" class="elementVideoParDefaut" onplay="start()" controls>
                                 <source src="{{ asset('vids/uploads')}}/{{session('video')->vid}}" type="video/mp4;charset=UTF-8">
+                                <source src="{{ asset('vids/uploads')}}/{{session('video')->vid}}" type='video/webm; codecs="vp8, vorbis"' />
+                                <source src="{{ asset('vids/uploads')}}/{{session('video')->vid}}" type='video/ogg; codecs="theora, vorbis"' />
                             </video>
+
                         </div>
                         <div id="blessings" class="animate__animated animate__bounceInUp" >
                             <center><span style="; background:black; color:white; font-size:1.3em;">👋🏾 Bismillah !</span>
@@ -361,7 +39,7 @@
                         <div id="prays" class="animate__animated animate__zoomInDown">
                             <center><span style="; background:black; color:white; font-size:1.3em;">Alhamdoulilah &#x1F4FF;!</span></center>                        </div>
                         </div>
-                    <div class="secondElement ">
+                    <div class="secondElement">
                         <img class="pubCap" src="{{ asset('img/pub-cap.png')}}" alt="">
                         <div class="blockLikePub">
                             <div class="accroche">
@@ -513,7 +191,7 @@
                     ->first();
                     @endphp
                     <div class="elementImgAuteur">
-                        <a class="elementImgAuteur" href="{{route('channel.visitor', $channel->id)}}"class="nameAuteur contentweb">
+                        <a class="" href="{{route('channel.visitor', $channel->id)}}"class="nameAuteur contentweb">
                             @if($channel->logo)
                             <img class="" src="{{ asset('/img/') }}/{{$channel->logo}}" alt="">
                             @elseif(session('user')->age <= 15)
@@ -536,14 +214,6 @@
                         <a href="{{ route('suscribe',$channel->id) }}" class="btn btnSubscribe">{{__('Subscribe')}} <button class="btn btnClocheNot">
                                 <img src="{{ asset('img/Mu-cloche-blanc.png') }}" class="imgClocheAbonne" alt="">
                             </button></a>
-                    </div>
-                </div>
-                <div class="mobMobile">
-                    <div class="publicite">
-                        <div class="seed-Block">
-                            <p class="seedText">{{__('See the Ad')}}</p>
-                        </div>
-                        <img src="{{ asset('img/publicite.png') }}" alt="">
                     </div>
                 </div>
                     @php
@@ -769,7 +439,48 @@
         </div>
     </div>
 </div>
-
+<div class="mobMobile">
+    <div class="block-shop">
+        <div  class="offre-shop">
+            <div class="div-block-322">
+                <p class="text-block-318">{{__('Offer of the channel')}}</p>
+                <div data-w-id="0a070e0d-57d5-30ba-c024-1a4991a71631" class="cross">
+                    <div class="bar-cross"></div>
+                    <div class="bar-cross-left"></div>
+                </div>
+            </div>
+            <div class="div-block-319">
+                <div class="div-block-318">
+                    <div class="imgBullProfil">
+                        <img src="{{ asset('img/Mu-bull-profil-logo-fitG.jpg') }}"  alt="">
+                    </div>
+                    <div class="text-block-320">{{__('Product name')}} / Formation</div>
+                    <a href="#" class="link-block-38 w-inline-block">
+                        <span class="text-block-319">{{__('Discover')}}</span>
+                    </a>
+                </div>
+                <div class="div-block-318">
+                    <div class="imgBullProfil">
+                        <img src="{{ asset('img/Mu-bull-profil-logo-fitG.jpg') }}"  alt="">
+                    </div>
+                    <div class="text-block-320">{{__('Product name')}} 2</div>
+                    <a href="#" class="link-block-38 w-inline-block">
+                        <span class="text-block-319">{{__('Discover')}}</span>
+                    </a>
+                </div>
+                <div class="div-block-318">
+                    <div class="imgBullProfil">
+                        <img src="{{ asset('img/Mu-bull-profil-logo-fitG.jpg') }}"  alt="">
+                    </div>
+                    <div class="text-block-320">{{__('Product name')}}...</div>
+                    <a href="#" class="link-block-38 w-inline-block">
+                        <span class="text-block-319">{{__('Discover')}}</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="content-commentaire">
     <div class="container-fluid">
         <div class="row ">
@@ -1062,7 +773,12 @@
                 </div>
             </div>
             <div class="swiper-slide swipe2">
-                <p class="text-hel">Healthcares</p>
+                <div class="swipeTitle">
+                    <div class="categorie-name1">
+                        <img src="{{ asset('img/Mu-feuille-noir2x.png') }}"  alt="">
+                    </div>
+                    <p class="text-hel">Healthcares</p>
+                </div>
                 <div class="swiper-container swiper-helatcare">
                     <div class="swiper-wrapper">
                         @foreach(session('videos_haltcare') as $video)
@@ -1183,7 +899,12 @@
                 </div>
             </div>
             <div class="swiper-slide swipe2">
-                <p class="text-life">Life</p>
+                <div class="swipeTitle">
+                    <div class="categorie-name1">
+                        <img src="{{ asset('img/Mu-fleur2.png') }}"  alt="">
+                    </div>
+                    <p class="text-life">Life</p>
+                </div>
                 <div class="swiper-container swiper-helatcare">
                     <div class="swiper-wrapper">
                         @foreach(session('videos_life') as $video)
@@ -1304,7 +1025,12 @@
                 </div>
             </div>
             <div class="swiper-slide swipe2">
-                <p class="text-health">Health</p>
+                <div class="swipeTitle">
+                    <div class="categorie-name1">
+                        <img src="{{ asset('img/Mu-fleur2.png') }}"  alt="">
+                    </div>
+                    <p class="text-health">Health</p>
+                </div>
                 <div class="swiper-container swiper-helatcare">
                     <div class="swiper-wrapper">
                         @foreach(session('videos_health') as $video)
@@ -1425,7 +1151,12 @@
                 </div>
             </div>
             <div class="swiper-slide swipe2">
-                <p class="text-business">Business</p>
+                <div class="swipeTitle">
+                    <div class="categorie-name1">
+                        <img src="{{ asset('img/Mu-fleur2.png') }}"  alt="">
+                    </div>
+                    <p class="text-business">Business</p>
+                </div>
                 <div class="swiper-container swiper-helatcare">
                     <div class="swiper-wrapper">
                         @foreach(session('videos_business') as $video)
@@ -1545,7 +1276,12 @@
                 </div>
             </div>
                 <div class="swiper-slide swipe2">
-                    <p class="text-education">Education</p>
+                    <div class="swipeTitle">
+                        <div class="categorie-name1">
+                            <img src="{{ asset('img/Mu-fleur2.png') }}"  alt="">
+                        </div>
+                        <p class="text-education">Education</p>
+                    </div>
                     <div class="swiper-container swiper-helatcare">
                         <div class="swiper-wrapper">
                             @foreach(session('videos_education') as $video)
@@ -1667,7 +1403,12 @@
                 </div>
             </div>
             <div class="swiper-slide swipe2">
-                <p class="text-environnement">Environnement</p>
+                <div class="swipeTitle">
+                    <div class="categorie-name1">
+                        <img src="{{ asset('img/Mu-fleur2.png') }}"  alt="">
+                    </div>
+                    <p class="text-environnement">Environnement</p>
+                </div>
                 <div class="swiper-container swiper-helatcare">
                     <div class="swiper-wrapper">
                         @foreach(session('videos_environnement') as $video)

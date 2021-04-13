@@ -9579,11 +9579,20 @@ element.style {
         height: auto;
         margin-left: 0px;
     }
-
     .search-bar {
         width: auto;
+        margin-left: 0;
     }
-
+    .mu-logo{
+     margin-left: 0px;
+    }
+    .nav-up-right{
+     justify-content: space-between;
+        width: 100%;
+    }
+    .bar-up{
+     padding-right: 15px;
+    }
     .text-block-281 {
         margin-right: 30px;
     }

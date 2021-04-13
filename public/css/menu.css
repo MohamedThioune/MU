@@ -40,7 +40,7 @@
 }
 body {
     background: #FFFFFF;
-    overflow-x: hidden !important;
+    overflow-x: hidden;
     font-family: "Ubuntu-Regular";
 }
 .col-md-9 {
@@ -349,10 +349,14 @@ button:focus {
     justify-content: space-between;
 }
 .videoParDefaut{
+    overflow: hidden;
     position: relative;
-    width: 100%;
-    height: 514px;
+    width:100%;
+}
+.videoParDefaut::after {
+    padding-top: 56.25%;
     display: block;
+    content: '';
 }
 .title-groupIcone{
     display: flex;
@@ -368,10 +372,10 @@ video{
     top: 0;
     left: 0;
     width: 100%;
-    height: inherit;
+    height: 100%;
     z-index: 3;
-    bottom: 0;
-    right: 0;
+    margin: 0 auto;
+    display: block;
 }
 .contentParDefaut {
     background: url("../img/grille.png") space;
@@ -385,7 +389,7 @@ video{
     left: 0;
     right: 0;
     background: #0E0D0D;
-    opacity: 0.86;
+    opacity: 0.94;
 }
 .bannierAlerte {
     background: #2725254d;
@@ -552,6 +556,7 @@ video{
     color: rgb(51, 51, 51);
     font-family: "Ubuntu-Medium";
     margin-left: 40px;
+    margin-bottom: 0;
 }
 .block-detail-commentaire {
     background: #efefef;
@@ -2225,6 +2230,12 @@ video{
 .imge-135{
     width: 141px;
 }
+.webMobile{
+    display: none;
+}
+.categorie-name1{
+    display: none;
+}
 
 @media all and (min-width: 300px) and (max-width: 767px){
     .col-lg-9 {
@@ -2285,10 +2296,10 @@ video{
         background: rgba(255, 255, 255, 0.08) 0% 0% no-repeat padding-box;
         border-radius: 11px;
     }
-
     .blockgeneral {
         display: block;
         margin-bottom: 0;
+        padding: 0 15px;
     }
     .container-modife-mobile {
         width: 100%;
@@ -2296,10 +2307,10 @@ video{
     }
     .blockDetail {
         width: 100%;
-        padding: 15px 20px;
+        padding: 0px 15px;
     }
     .content-contenue1 {
-        margin-bottom: 0;
+        margin-top: 50px;
     }
     .col-modife {
         padding-left: 0 !important;
@@ -2319,10 +2330,10 @@ video{
         color: #605C5C;
         margin-bottom: 0;
         font-size: 13px;
-        width: 100%;
+        width: 46%;
     }
     .textImgView {
-        width: 22%;
+        width: 50%;
     }
     .groupLOveUnlove {
         width: 63%;
@@ -2350,12 +2361,26 @@ video{
         width: 100%;
         display: flex;
         justify-content: space-between;
+        height: 87px;
+    }
+    .contentFlyHeure{
+        background: unset;
+    }
+    .flyText{
+        display: none;
+    }
+    .heureFly {
+        display: none;
     }
     .imgBadge {
-        right: 46%;
-        width: 24px;
+        right: 42%;
+        width: 18px;
         position: absolute;
     }
+    .imgLiberti {
+        display: none;
+    }
+
     .contentMobile {
         display: block;
         width: 45%;
@@ -2388,8 +2413,9 @@ video{
         padding-right: 15px;
     }
     .btnSubscribe {
-        padding: 4px 20px;
+        padding: 1px 10px;
         font-size: 13px;
+        width: 96%;
     }
     .blockTime {
         background: #000000;
@@ -2399,9 +2425,116 @@ video{
     .mobMobile {
         display: block;
     }
+    .mobMobile .block-shop{
+        display: block !important;
+    }
+    .cross{
+        display: none;
+    }
+    .div-block-322{
+        justify-content: center;
+    }
+    .nombreComment {
+        padding-right: 6px;
+        margin-bottom: 0;
+        font-size: 15px;
+        margin-left: 0px;
+    }
+    .offre-shop {
+        padding: 0px 0px;
+    }
+    .div-block-318 {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        margin: 0;
+        padding: 10px;
+        width: 24%;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+        border-radius: 5px;
+        background-color: #fff;
+    }
+    .div-block-318 {
+        margin: 0;
+        padding: 10px;
+        width: 30%;
+        height: 148px;
+    }
+    .div-block-319 {
+        justify-content: space-between;
+        margin: 0 30px 31px 30px;
+    }
+    .div-block-326 {
+        width: 55%;
+    }
+    .categorie-name {
+        width: 100%;
+        position: absolute;
+        top: 45%;
+        display: none;
+    }
+    .categorie-name1 {
+        display: block;
+    }
+    .categorie-name1 img{
+        width: 16px;
+        margin-top: 26px;
+        margin-left: 15px;
+    }
     .publicite{
         position: relative;
         margin-bottom: 20px;
+    }
+    .card-suggestionDay {
+        width: 255px !important;
+        background-color: unset;
+        box-shadow: unset;
+    }
+    .elementCardSuggestionDay {
+        height: 139px;
+        border: 1px outset #343a400d;
+        border-radius: 8px;
+    }
+    .swipeTitle{
+        display: flex;
+    }
+    .libertiText {
+        margin-bottom: 10px;
+        color: #4d4d4d;
+        font-size: 14px;
+        height: 24px;
+    }
+    .swipe2 {
+        width: 93% !important;
+    }
+    .swiper-container {
+         padding: unset !important;
+    }
+    .commentTitle {
+        display: flex;
+        background: #CECECE 0% 0% no-repeat padding-box;
+        width: 51%;
+        padding: 6px 0px 6px;
+        justify-content: center;
+        margin-bottom: 30px;
+        border-top-left-radius: 0px;
+        margin-top: -20px;
+        margin-left: -7px;
+    }
+    .commentText {
+        padding-right: 15px;
+        margin-bottom: 0;
+        padding-top: 0px;
+        font-size: 15px;
     }
     .seed-Block{
         position: absolute;
@@ -2409,6 +2542,11 @@ video{
         background: rgba(37, 37, 37, 0.43) 0% 0% no-repeat padding-box;
         color: #9ACED5;
         padding: 10px 30px;
+    }
+    .commentImg {
+        width: 28px;
+        height: 12px;
+        margin-top: 5px;
     }
     .seedText {
         margin-bottom: 0;
@@ -2472,6 +2610,46 @@ video{
         margin-top: -50px;
         padding-right: 0px;
         margin-left: -30px;
+    }
+    .bar-down {
+        display: none;
+    }
+    .webUp{
+        display: none !important;
+    }
+    .webMobile{
+        display: flex;
+    }
+    .flexElement1 {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    .webPub{
+        display: none;
+    }
+    .fistElement {
+        width: 100%;
+        margin-left: 5px;
+        margin-right: 0px;
+    }
+    .secondElement{
+        display: none;
+    }
+    .blockGeneralContent{
+        width: 100%;
+    }
+    body{
+        background: #f7f7f7;
+    }
+    .btnClocheNot {
+        border-left: 1px solid white;
+        margin-top: -2px;
+        margin-left: 10px;
+        padding-left: 8px;
+        padding-top: 1px;
+        width: 7%;
+        height: 23px;
     }
 }
 @media all and (min-width: 768px) and (max-width: 1023px){

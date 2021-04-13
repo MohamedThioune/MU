@@ -22,7 +22,8 @@
         <div class="griscolor"></div>
         <div class="content-element-page">
             <div class="nav-bar">
-                <div class="bar-up">
+             <!-- navbar web-->
+                <div class="bar-up webUp">
                     <div class="nav-up-right">
                         <a data-w-id="85409373-dce4-fdcf-64c5-c0ed0fa665a1" href="#" class="_4-points w-inline-block">
                             <div class="_2points">
@@ -109,6 +110,31 @@
 
                     </div>
                 </div>
+
+                <!-- navbar Mobile-->
+                <div class="bar-up webMobile">
+                    <div class="nav-up-right">
+                        <a data-w-id="85409373-dce4-fdcf-64c5-c0ed0fa665a1" href="#" class="_4-points w-inline-block">
+                            <div class="_2points">
+                                <div class="point-1x4"></div>
+                                <div class="point-1x4"></div>
+                            </div>
+                            <div class="_2points">
+                                <div class="point-1x4"></div>
+                                <div class="point-1x4"></div>
+                            </div>
+                        </a>
+                        <a  href="{{route('home')}}" class="mu-logo w-inline-block">
+                            <img src="{{ asset('img/logo-MU.png') }}" class="imgLogo22" alt="">
+                        </a>
+                        <div class="search-bar">
+                            <img src="{{ asset('img/Loupe.png') }}" class="loupe">
+                            <div class="text-block-281">{{__('search')}}</div>
+                        </div>
+                    </div>
+
+                </div>
+
                 <div class="bar-down">
                     <div class="div-block-268">
                         <img src="{{ asset('img/Smuuse-logo-blanc-SB-2021-80x22.png') }}" alt="" class="image-102">
