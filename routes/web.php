@@ -47,7 +47,7 @@ Route::get('/', function () {
     ->join('videos','videos.id','reads.video_id')
     ->where('reads.user_id',Auth::id())
     ->whereNull('videos.deleted_at')
-    ->where('reads.created_at', '>=', $start)
+    ->where('reads.created_at', '>=', $start) 
     ->where('reads.created_at', '<', $end)
     ->select(DB::raw('count(*) as views, reads.video_id'))
     ->groupBy('reads.video_id')
@@ -197,7 +197,51 @@ Route::get('/flow', function () {
     ->where('users.id', Auth::id())
     ->first();
 
-    return view('flow',compact('subtopics','kids','channel'));
+    $videos_haltcare = DB::Table('videos')->select('videos.*')
+                                 ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
+                                 ->join('users','users.id','videos.user_id')
+                                 ->where('users.age','<',15)
+                                 ->where('mainTopic_id', 1)
+                                 ->whereNull('videos.deleted_at')
+                                 ->get();
+
+    $videos_life = DB::Table('videos')->select('videos.*')
+    ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
+    ->join('users','users.id','videos.user_id')
+    ->where('mainTopic_id', 2)
+    ->whereNull('videos.deleted_at')
+    ->get();
+
+    $videos_health = DB::Table('videos')->select('videos.*')
+    ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
+    ->join('users','users.id','videos.user_id')
+    ->where('mainTopic_id', 3)
+    ->whereNull('videos.deleted_at')
+    ->get();
+
+
+    $videos_business = DB::Table('videos')->select('videos.*')
+    ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
+    ->join('users','users.id','videos.user_id')
+    ->where('mainTopic_id', 4)
+    ->whereNull('videos.deleted_at')
+    ->get();
+
+    $videos_environnement = DB::Table('videos')->select('videos.*')
+    ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
+    ->join('users','users.id','videos.user_id')
+    ->where('mainTopic_id', 5)
+    ->whereNull('videos.deleted_at')
+    ->get();
+
+    $videos_education = DB::Table('videos')->select('videos.*')
+    ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
+    ->join('users','users.id','videos.user_id')
+    ->where('mainTopic_id', 6)
+    ->whereNull('videos.deleted_at')
+    ->get();
+
+    return view('flow',compact('subtopics','kids','channel','videos_haltcare','videos_life','videos_health','videos_business','videos_environnement','videos_education'));
     
 })->name('flow')->middleware('auth');
 
@@ -257,10 +301,7 @@ Route::get('/kids', function () {
     ->whereNull('videos.deleted_at')
     ->get();
 
-
-    session(['videos_haltcare' => $videos_haltcare, 'videos_life' => $videos_life, 'videos_health' => $videos_health, 'videos_business' => $videos_business, 'videos_environnement' => $videos_environnement, 'videos_education' => $videos_education]);
-
-    return view('flow',compact('subtopics','kids'));
+    return view('flow',compact('subtopics','kids','videos_haltcare','videos_life','videos_health','videos_business','videos_environnement','videos_education'));
 })->name('kids')->middleware('auth');
 
 Auth::routes();
@@ -359,6 +400,7 @@ Route::get('/playlist/delete/{video}', [App\Http\Controllers\PlaylistController:
 Route::resource('playlists', 'PlaylistController');
 
 Route::get('/process', function(){
+
     $gateway = new Braintree\Gateway([
         'environment' => 'sandbox',
         'merchantId' => '2yw4qvsvxcr5fhyx',
@@ -375,20 +417,112 @@ Route::get('/process', function(){
     return view('process',compact('channel','clientToken'));
 })->name('process');
 
-Route::view('/boot', 'boot')->name('braintree.token');
+Route::post('/process', function(){
 
-Route::post('/payment', function(){
+    //setting up braintree credentials.
+    Braintree_Configuration::environment('sandbox');
+    Braintree_Configuration::merchantId('2yw4qvsvxcr5fhyx');
+    Braintree_Configuration::publicKey('j2cqsvvdjnvs2v5w');
+    Braintree_Configuration::privateKey('9605f4859f57d23d0ee40cedb88c834e');
+
+    $result = Braintree_Transaction::sale([
+        'amount' => $_POST['amount'],
+        'customer' => ['firstName' => Auth::user()->name],
+        'paymentMethodNonce' => $_POST['payment_method_nonce'],
+        'options' => [
+            'submitForSettlement' => True
+        ]
+        ]);
+
+    if ($result->success === true) {
+        $facturation = DB::table('facturations')
+        ->select('facturations.*') 
+        ->join('users', 'users.id', 'facturations.user_id')
+        ->where('users.id', Auth::id() )
+        ->orderByDesc('facturations.created_at')
+        ->first();
+
+        $start =  new \Datetime(); 
+        if($_POST['amount'] > 0)
+            if($_POST['amount'] == 120 || $_POST['amount'] == 60 ){
+                $type = "Annually";
+                if($_POST['amount'] == 120 ){
+                    $profile = "OUMMATI";
+                    DB::table('users')
+                    ->where('users.id',Auth::id())
+                    ->update(['type'=> $profile]);
+                }else{
+                    $profile = "SAHABA";
+                    DB::table('users')
+                    ->where('users.id',Auth::id())
+                    ->update(['type'=> $profile]);}
+            }
+            else{
+                $type = "Monthly";
+                if($_POST['amount'] == 12 ){
+                    $profile = "OUMMATI";
+                    DB::table('users')
+                    ->where('users.id',Auth::id())
+                    ->update(['type'=> $profile]);}
+                else{
+                    $profile = "SAHABA";
+                    DB::table('users')
+                    ->where('users.id',Auth::id())
+                    ->update(['type'=> $profile]);}
+            }
+ 
+        if(!$facturation){
+            $end =  new \Datetime();
+            if($type == "Monthly")
+                $end->add(new DateInterval('P1M'));
+            else 
+                $end->add(new DateInterval('P12M'));
+        }else{
+            $end_at = new \Datetime($facturation->end_at);
+            if($type == "Monthly")
+                $end = $end_at->add(new DateInterval('P1M'));
+            else 
+                $end = $end_at->add(new DateInterval('P12M'));
+        }
+
+        DB::table('facturations')->insert([
+            'amount' =>  $_POST['amount'],
+            'type' => $type,
+            'profile' => $profile,
+            'user_id' => Auth::id(),
+            'end_at' => $end,
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+
+        $start = $start->format("d.m.Y");
+        $end = $end->format("d.m.Y");
+
+        Auth::user()->notify(new App\Notifications\InvoiceNotify()); 
+
+        Flash::success('Payment made successfully ! <br> ~ Valid from ' .$start.  " to " .$end. ".<br> <a href='"  .route('home'). "' class='btn btn-info'>Quitter et retourner à l'acceuil</a> ");
+        
+    } 
+    else 
+        Flash::error('Error occured &#x1F534; '.$result->errors->message );
+
+    return redirect(route('payment'));
+})->name('payment');
+
+
+Route::resource('facturations', 'FacturationController');
+
+Route::get('/tarif', function(){
     $channel = DB::Table('users')->select('channels.*')
     ->join('channels', 'users.id', 'channels.user_id')
     ->where('users.id', Auth::id())
     ->first();
+    return view('tarif',compact('channel'));
+})->name('tarifs');
 
-    try {
-        $payment_method_nonce = PaymentMethodNonce::create($_POST['clientToken']);
-    } 
-    catch (Braintree\Exception\NotFound $e) {
-        echo $e->getMessage();
-        }
+Route::post('/tarif', function(){
+    session(['amount'=>$_POST['amount']]);
+    return redirect(route('process'));
+})->name('tarif');
 
-    return view('process',compact('channel','payment_method_nonce'));
-})->name('payment');
+

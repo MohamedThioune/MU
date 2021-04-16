@@ -3,9 +3,11 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Models\Facturation;
 
-class ProcessRequest extends FormRequest
+class UpdateFacturationRequest extends FormRequest
 {
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -13,7 +15,7 @@ class ProcessRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,9 +25,8 @@ class ProcessRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'name' => 'required',
-            'amount' => 'required',
-        ];
+        $rules = Facturation::$rules;
+        
+        return $rules;
     }
 }

@@ -1,5 +1,5 @@
 @extends('layouts.sidbarNavigation')
-<html lang="fr">
+<html>
 <head>
     @section('css')
     <link rel="stylesheet" href="node_modules/swiper/swiper.min.css">
@@ -344,6 +344,7 @@
             </div>
         </div>
     </div>-->
+   
     <div class="content-contenue1">
         <div class="contentParDefaut">
             <div class="linearColor"></div>
@@ -352,7 +353,7 @@
                     <div class="fistElement">
                         <div class="videoParDefaut">
                             <video poster="{{ asset('images/sista_preloader.png')}}" class="elementVideoParDefaut" onplay="start()" controls>
-                                <source src="{{ asset('vids/uploads')}}/{{session('video')->vid}}" type="video/mp4;charset=UTF-8">
+                                <source src="{{ asset('vids/uploads')}}/{{$video->vid}}" type="video/mp4;charset=UTF-8">
                             </video>
                         </div>
                         <div id="blessings" class="animate__animated animate__bounceInUp" >
@@ -439,23 +440,23 @@
                 <div class="blockDetail webElement">
                     <div class="sousBlockTitle">
                         <div class="title-groupIcone">
-                            <p class="text-title">{{__('Title of the video')}} : {{session('video')->main_title }}</p>
+                            <p class="text-title">{{__('Title of the video')}} : {{$video->main_title }}</p>
                             <div class="groupLOveUnlove">
                                 <div class="blockLoveUnlove">
-                                    <p class="nbrLove">{{ session('video')->likers()->count() }} </p>
+                                    <p class="nbrLove">{{ $video->likers()->count() }} </p>
                                     <div class="imgCoeur">
-                                    <a href="{{ route('likevideo',session('video')->id ) }}">
+                                    <a href="{{ route('likevideo',$video->id ) }}">
                                     <img src="{{ asset('img/icones/coeurRose.svg') }}" alt="">
                                     </a>
                                     </div>
                                 </div>
                                 <div class="blockLoveUnlove">
                                     <div class="imgCoeur">
-                                    <a href="{{ route('dislikevideo',session('video')->id )}}">
+                                    <a href="{{ route('dislikevideo',$video->id )}}">
                                     <img src="{{ asset('img/icones/loveRenverseGris.png') }}" alt="">
                                     </a>
                                     </div>
-                                    <p class="nbrLove">{{ session('video')->unlikes()->count() }}</p>
+                                    <p class="nbrLove">{{ $video->unlikes()->count() }}</p>
                                 </div>
                                 <div class="blockImgPuliMobile">
                                     <img src="{{ asset('img/icones/more.png') }}" alt="">
@@ -466,7 +467,7 @@
                         $months = ['01' => 'Jan', '02' => 'Feb', '03' => 'Mar', '04' => 'Apr', '05' => 'May', '06' => 'Jun', '07' => 'Jul', '08' => 'Aug', '09' => 'Sep', '10' => 'Oct', '11' => 'Nov', '12' => 'Dec' ];
                         @endphp
                         <div class="content12">
-                            <p class="datePublication">{{__('Published')}} :&nbsp;{{session('video')->created_at->format('d')}}&nbsp; {{ $months[session('video')->created_at->format('m')]}}. &nbsp;{{session('video')->created_at->format('Y')}} </p>
+                            <p class="datePublication">{{__('Published')}} :&nbsp;{{$video->created_at->format('d')}}&nbsp; {{ $months[$video->created_at->format('m')]}}. &nbsp;{{$video->created_at->format('Y')}} </p>
                             <div class="d-flex textImgView">
                                 <p class="nbrView"> {{$reads}}</p>
                                 <div class="imgOeil"><img  src="{{ asset('img/icones/oeil.png') }}" alt=""></div>
@@ -474,18 +475,18 @@
                         </div>
                     </div>
                     <div class="block-detail-commentaire">
-                        <p class="des-text">{{__('Description of my video')}} : <span class="">{{ session('video')->description }}</span>      </p>
-                        <p class="des-text">{{__('Objectives of the video')}} : {{ session('video')->motivation }}</p>
+                        <p class="des-text">{{__('Description of my video')}} : <span class="">{{ $video->description }}</span>      </p>
+                        <p class="des-text">{{__('Objectives of the video')}} : {{ $video->motivation }}</p>
                     </div>
 
                     <div class="blockshareAndComments">
                         @php
                         $reports = DB::Table('reports')
-                        ->where('video_id', session('video')->id)
+                        ->where('video_id', $video->id)
                         ->count();
                         @endphp
                         <div class="blockImgPuli bottomElement">
-                            <a href="{!! route('report',[session('video')->id]) !!}">
+                            <a href="{!! route('report',[$video->id]) !!}">
                                 @if($reports < 2)
                                 <img class="imgLiberti" src="{{asset('img/icon-feuille.png')}}" alt="Lune" data-toggle="tooltip" data-placement="top" title="{{__('Community-approved video')}}">
                                 @else
@@ -551,18 +552,18 @@
                     @php
                     $channel = DB::Table('users')->select('channels.*')
                     ->join('channels', 'users.id', 'channels.user_id')
-                    ->where('users.id', session('user')->id)
+                    ->where('users.id', $user->id)
                     ->first();
                     @endphp
                     <div class="elementImgAuteur">
                         <a class="elementImgAuteur" href="{{route('channel.visitor', $channel->id)}}"class="nameAuteur contentweb">
                             @if($channel->logo)
                             <img class="" src="{{ asset('/img/') }}/{{$channel->logo}}" alt="">
-                            @elseif(session('user')->age <= 15)
+                            @elseif($user->age <= 15)
                             <img class="" src="{{asset('images/kids_preloader.png')}}" alt="">
-                            @elseif(session('user')->age > 15 && session('user')->sex == '1')
+                            @elseif($user->age > 15 && $user->sex == '1')
                             <img class="img-circle" src="{{asset('images/flow_preloader.png')}}" alt=""/>
-                            @elseif(session('user')->age > 15 && session('user')->sex == '0')
+                            @elseif($user->age > 15 && $user->sex == '0')
                             <img class="" src="{{asset('images/sista_preloader.png')}}" alt="">
                             @endif
                         </a>
@@ -888,7 +889,7 @@
                             @include('adminlte-templates::common.errors')
                             <form method="POST" action="/comments">
                                 @csrf
-                                <input type="hidden" name="video_id" value="{{session('video')->id}}" id="">
+                                <input type="hidden" name="video_id" value="{{$video->id}}" id="">
                                 <textarea class="inputCommentaire" name="value" id="" rows="5"></textarea>
 
                                 <div class="div-block-332">
@@ -930,7 +931,7 @@
                         @include('adminlte-templates::common.errors')
                         <form method="POST" action="/comments">
                             @csrf
-                            <input type="hidden" name="video_id" value="{{session('video')->id}}" id="">
+                            <input type="hidden" name="video_id" value="{{$video->id}}" id="">
                             <textarea class="inputCommentaire" name="value" id=""></textarea>
 
                             <div class="div-block-332">
@@ -1061,8 +1062,8 @@
     </div>
 </div>
 
-@if(session('videos_haltcare'))
-@if(count(session('videos_haltcare')) > 0)
+@if($videos_haltcare)
+@if(count($videos_haltcare) > 0)
 <div class="content-Haltcare">
     <div class="container-fluid">
         <div class="contentSwipeToday">
@@ -1075,7 +1076,7 @@
                 <p class="text-hel">Healthcares</p>
                 <div class="swiper-container swiper-helatcare">
                     <div class="swiper-wrapper">
-                        @foreach(session('videos_haltcare') as $video)
+                        @foreach($videos_haltcare as $video)
                         <div class="swiper-slide card-suggestionDay">
                             <div class="elementCardSuggestionDay">
                                 @php
@@ -1182,8 +1183,8 @@
 @endif
 @endif
 
-@if(session('videos_life'))
-@if(count(session('videos_life')) > 0)
+@if($videos_life)
+@if(count($videos_life) > 0)
 <div class="content-life">
     <div class="container-fluid">
         <div class="contentSwipeToday">
@@ -1196,7 +1197,7 @@
                 <p class="text-life">Life</p>
                 <div class="swiper-container swiper-helatcare">
                     <div class="swiper-wrapper">
-                        @foreach(session('videos_life') as $video)
+                        @foreach($videos_life as $video)
                         <div class=" swiper-slide card-suggestionDay">
                         <div class="elementCardSuggestionDay">
                                 @php
@@ -1303,8 +1304,8 @@
 @endif
 @endif
 
-@if(session('videos_health'))
-@if(count(session('videos_health')) > 0)
+@if($videos_health)
+@if(count($videos_health) > 0)
 <div class="content-Health">
     <div class="container-fluid">
         <div class="contentSwipeToday">
@@ -1317,7 +1318,7 @@
                 <p class="text-health">Health</p>
                 <div class="swiper-container swiper-helatcare">
                     <div class="swiper-wrapper">
-                        @foreach(session('videos_health') as $video)
+                        @foreach($videos_health as $video)
                         <div class=" swiper-slide card-suggestionDay">
                         <div class="elementCardSuggestionDay">
                                 @php
@@ -1544,8 +1545,8 @@
 @endif
 @endif
 
-@if(session('videos_education'))
-@if(count(session('videos_education')) > 0)
+@if($videos_education)
+@if(count($videos_education) > 0)
 <div class="content-Education">
     <div class="container-fluid">
         <div class="contentSwipeToday">
@@ -1558,7 +1559,7 @@
                     <p class="text-education">Education</p>
                     <div class="swiper-container swiper-helatcare">
                         <div class="swiper-wrapper">
-                            @foreach(session('videos_education') as $video)
+                            @foreach($videos_education as $video)
                             <div class=" swiper-slide card-suggestionDay">
                                 <div class="elementCardSuggestionDay">
                                     @php
@@ -1666,8 +1667,8 @@
 @endif
 @endif
 
-@if(session('videos_environnement'))
-@if(count(session('videos_environnement')) > 0)
+@if($videos_environnement)
+@if(count($videos_environnement) > 0)
 <div class="content-Evironnement">
     <div class="container-fluid">
         <div class="contentSwipeToday">
@@ -1680,7 +1681,7 @@
                 <p class="text-environnement">Environnement</p>
                 <div class="swiper-container swiper-helatcare">
                     <div class="swiper-wrapper">
-                        @foreach(session('videos_environnement') as $video)
+                        @foreach($videos_environnement as $video)
                         <div class=" swiper-slide card-suggestionDay">
                             <div class="elementCardSuggestionDay">
                                     @php

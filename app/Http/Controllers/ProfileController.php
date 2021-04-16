@@ -29,6 +29,9 @@ class ProfileController extends AppBaseController
         // return view('profiles.index')
         //     ->with('profiles', $profiles);
 
+        if (Auth::user()->type != "OUMMATI")
+            return redirect('/');
+
         $id = Auth::id();
         $profiles = DB::Table('users')->select('profile.*')
                                       ->join('profile', 'users.id', 'profile.user_id')
@@ -47,6 +50,9 @@ class ProfileController extends AppBaseController
      */
     public function create()
     {
+        if (Auth::user()->type != "OUMMATI")
+            return redirect('/');
+
         return view('profiles.create');
     }
 
@@ -59,6 +65,9 @@ class ProfileController extends AppBaseController
      */
     public function store(CreateProfileRequest $request)
     {
+        if (Auth::user()->type != "OUMMATI")
+            return redirect('/');
+
         $input = $request->all();
 
         /** @var Profile $profile */
@@ -78,6 +87,9 @@ class ProfileController extends AppBaseController
      */
     public function show($id)
     {
+        if (Auth::user()->type != "OUMMATI")
+            return redirect('/');
+
         /** @var Profile $profile */
         $profile = Profile::find($id);
 
@@ -99,6 +111,9 @@ class ProfileController extends AppBaseController
      */
     public function edit($id)
     {
+        if (Auth::user()->type != "OUMMATI")
+            return redirect('/');
+
         /** @var Profile $profile */
         $profile = Profile::find($id);
 
@@ -121,6 +136,9 @@ class ProfileController extends AppBaseController
      */
     public function update($id, UpdateProfileRequest $request)
     {
+        if (Auth::user()->type != "OUMMATI")
+            return redirect('/');
+
         /** @var Profile $profile */
         $profile = Profile::find($id);
 
@@ -149,6 +167,9 @@ class ProfileController extends AppBaseController
      */
     public function destroy($id)
     {
+        if (Auth::user()->type != "OUMMATI")
+            return redirect('/');
+
         /** @var Profile $profile */
         $profile = Profile::find($id);
 
@@ -167,6 +188,9 @@ class ProfileController extends AppBaseController
 
     public function choose(){
         
+        if (Auth::user()->type != "OUMMATI")
+            return redirect('/');
+
         $id = Auth::id();
         $profiles = DB::Table('users')->select('profile.*')
                                       ->join('profile', 'users.id', 'profile.user_id')

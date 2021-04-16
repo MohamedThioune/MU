@@ -48,6 +48,53 @@ class HomeController extends Controller
     public function play($id){
 
         /* 
+        * All videos by main_topic
+        */
+
+        $videos_haltcare = DB::Table('videos')->select('videos.*')
+                                 ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
+                                 ->join('users','users.id','videos.user_id')
+                                 ->where('mainTopic_id', 1)
+                                 ->whereNull('videos.deleted_at')
+                                 ->get();
+
+        $videos_life = DB::Table('videos')->select('videos.*')
+        ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
+        ->join('users','users.id','videos.user_id')
+        ->where('mainTopic_id', 2)
+        ->whereNull('videos.deleted_at')
+        ->get();
+
+        $videos_health = DB::Table('videos')->select('videos.*')
+        ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
+        ->join('users','users.id','videos.user_id')
+        ->where('mainTopic_id', 3)
+        ->whereNull('videos.deleted_at')
+        ->get();
+
+
+        $videos_business = DB::Table('videos')->select('videos.*')
+        ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
+        ->join('users','users.id','videos.user_id')
+        ->where('mainTopic_id', 4)
+        ->whereNull('videos.deleted_at')
+        ->get();
+
+        $videos_environnement = DB::Table('videos')->select('videos.*')
+        ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
+        ->join('users','users.id','videos.user_id')
+        ->where('mainTopic_id', 5)
+        ->whereNull('videos.deleted_at')
+        ->get();
+
+        $videos_education = DB::Table('videos')->select('videos.*')
+        ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
+        ->join('users','users.id','videos.user_id')
+        ->where('mainTopic_id', 6)
+        ->whereNull('videos.deleted_at')
+        ->get();
+
+        /* 
         * Time shahid and Progress bar 
         */
 
@@ -76,10 +123,6 @@ class HomeController extends Controller
     
         $shahid = date('H:i:s', $shahid);
 
-        /* 
-
-        */
-
         $looks = DB::table('videos')
         ->join('reads','videos.id','reads.video_id')
         ->where('reads.user_id', Auth::id())
@@ -89,9 +132,12 @@ class HomeController extends Controller
         ->count();
         
         /* 
-        * 
+          * 
         */
-    
+        
+        //State lecture of a video today
+        $state = false;
+
         $video = Video::find($id);
         $user = User::find($video->user_id); 
         $users = array();
@@ -115,16 +161,31 @@ class HomeController extends Controller
         $counts = count($comments);
         $inputs_read = ['video_id' => $id, 'user_id' => Auth::id()];
 
-        Read::create($inputs_read);
+        //Check if the user have read a video today 
+        $read_video = DB::table('reads')
+                    ->select('videos.id','reads.created_at')
+                    ->join('videos','videos.id','reads.video_id')
+                    ->where('reads.user_id',Auth::id())
+                    ->whereNull('videos.deleted_at')
+                    ->orderByDesc('reads.created_at')
+                    ->first();
 
+        $read_at = (new \Datetime($read_video->created_at))->format('d-m-Y');
+        $day = (new \Datetime())->format('d-m-Y');
+
+        if($read_at == $day)
+            if($read_video->id != $video->id){
+                return redirect('/');
+            }else
+                Read::create($inputs_read);
+       
         $inshaallah = DB::Table('videos')->select('videos.*')
-                            ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
-                            ->where('mainTopic_id', 7)
-                            ->whereNull('videos.deleted_at')
-                            ->OrderByDesc('videos.created_at', )
-                            ->get();
+                    ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
+                    ->where('mainTopic_id', 7)
+                    ->whereNull('videos.deleted_at')
+                    ->OrderByDesc('videos.created_at', )
+                    ->get();
 
-        session(['video' => $video, 'user' => $user]);
-        return view('play', compact('comments', 'counts', 'reads', 'users', 'subtopics','looks','shahid','inshaallah'));
+        return view('play', compact('user', 'video', 'comments', 'counts', 'reads', 'users', 'subtopics','looks','shahid','inshaallah','videos_haltcare','videos_life','videos_health','videos_business','videos_environnement','videos_education'));
     }
 }

@@ -194,7 +194,7 @@
                             <p class="text-block-385">{{__('Discover even more interesting features')}}</p>
                             <br>
                             <div>
-                                <a href="{{route('process')}}" style="text-decoration:none;" class="toutesNotifications">{{__('Switch to SMUUSE PRO')}}</a>
+                                <a href="{{route('tarifs')}}" style="text-decoration:none;" class="toutesNotifications">{{__('Switch to SMUUSE PRO')}}</a>
                             </div>
                             </div>
                         </div>

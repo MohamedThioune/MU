@@ -10,8 +10,8 @@
 <body>
 @section('content-play-element')
 <div class="contentOneMonFlow">
-@if(session('videos_haltcare')) 
-@if(count(session('videos_haltcare')) > 0)
+@if($videos_haltcare) 
+@if(count($videos_haltcare) > 0)
 <div class="content-Haltcare">
     <div class="container-fluid">
         <div class="contentSwipeToday">
@@ -24,7 +24,7 @@
                 <p class="text-hel">Healthcares</p>
                 <div class="swiper-container swiper-helatcare">
                     <div class="swiper-wrapper">
-                        @foreach(session('videos_haltcare') as $video)
+                        @foreach($videos_haltcare as $video)
                         <div class="swiper-slide card-suggestionDay">
                             <div class="elementCardSuggestionDay">
                                 @php
@@ -133,21 +133,21 @@
 @endif
 @endif
 
-@if(session('videos_life'))
-@if(count(session('videos_life')) > 0)
+@if($videos_life)
+@if(count($videos_life) > 0)
 <div class="content-life">
     <div class="container-fluid">
         <div class="contentSwipeToday">
             <div class="barreLatraleNoir life">
                 <div class="categorie-name">
-                    <img src="{{ asset('img/Mu-fleur2.png') }}"  alt="">
+                    <img src="{{ asset('img/Mu-fleur2.png') }}" alt="">
                 </div>
             </div>
             <div class="swiper-slide swipe2">
                 <p class="text-life">Life</p>
                 <div class="swiper-container swiper-helatcare">
                     <div class="swiper-wrapper">
-                        @foreach(session('videos_life') as $video)
+                        @foreach($videos_life as $video)
                         <div class=" swiper-slide card-suggestionDay">
                         <div class="elementCardSuggestionDay">
                                 @php
@@ -256,8 +256,8 @@
 @endif
 @endif
 
-@if(session('videos_health'))
-@if(count(session('videos_health')) > 0)
+@if($videos_health)
+@if(count($videos_health) > 0)
 <div class="content-Health">
     <div class="container-fluid">
         <div class="contentSwipeToday">
@@ -270,7 +270,7 @@
                 <p class="text-health">Health</p>
                 <div class="swiper-container swiper-helatcare">
                     <div class="swiper-wrapper">
-                        @foreach(session('videos_health') as $video)
+                        @foreach($videos_health as $video)
                         <div class=" swiper-slide card-suggestionDay">
                         <div class="elementCardSuggestionDay">
                                 @php
@@ -380,8 +380,8 @@
 @endif
 @endif
 
-@if(session('videos_business'))
-@if(count(session('videos_business')) > 0)
+@if($videos_business)
+@if(count($videos_business) > 0)
 <div class="content-Business">
     <div class="container-fluid">
         <div class="contentSwipeToday">
@@ -394,7 +394,7 @@
                 <p class="text-business">Business</p>
                 <div class="swiper-container swiper-helatcare">
                     <div class="swiper-wrapper">
-                        @foreach(session('videos_business') as $video)
+                        @foreach($videos_business as $video)
                         <div class=" swiper-slide card-suggestionDay">
                             <div class="elementCardSuggestionDay">
                                 @php
@@ -501,8 +501,8 @@
 @endif
 @endif
 
-@if(session('videos_education'))
-@if(count(session('videos_education')) > 0)
+@if($videos_education)
+@if(count($videos_education) > 0)
 <div class="content-Education">
     <div class="container-fluid">
         <div class="contentSwipeToday">
@@ -515,7 +515,7 @@
                     <p class="text-education">Education</p>
                     <div class="swiper-container swiper-helatcare">
                         <div class="swiper-wrapper">
-                            @foreach(session('videos_education') as $video)
+                            @foreach($videos_education as $video)
                             <div class=" swiper-slide card-suggestionDay">
                                 <div class="elementCardSuggestionDay">
                                     @php
@@ -624,8 +624,8 @@
 @endif
 @endif
 
-@if(session('videos_environnement'))
-@if(count(session('videos_environnement')) > 0)
+@if($videos_environnement)
+@if(count($videos_environnement) > 0)
  <div class="content-Evironnement">
     <div class="container-fluid">
         <div class="contentSwipeToday">
@@ -638,7 +638,7 @@
                 <p class="text-environnement">Environnement</p>
                 <div class="swiper-container swiper-helatcare">
                     <div class="swiper-wrapper">
-                        @foreach(session('videos_environnement') as $video)
+                        @foreach($videos_environnement as $video)
                         <div class=" swiper-slide card-suggestionDay">
                             <div class="elementCardSuggestionDay">
                                     @php

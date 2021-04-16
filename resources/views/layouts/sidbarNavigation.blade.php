@@ -72,29 +72,35 @@
                                 <p class="day" style="font-size:18px; color:#f4de39">WELCOME <span style="color:white"> TO</span> <span style="color:#c22d84"> MU</span></p>
                                 @endif
                             </li>-->
-                            <li class="nav-item nav-modife">
+                            @if(Auth::user())
+                                @if(Auth::user()->type)
+                                    @if(Auth::user()->type == "OUMMATI")
+                                        <li class="nav-item nav-modife">
 
-                                @if(!session('profile'))
-                                <span class="btnCommunaute" style="background:none; box-shadow: 4px 4px 15px white;font-weight:bold">
-                                             @php
-                                                $profile = DB::Table('users')->select('profile.*')
-                                                                             ->join('profile', 'users.id', 'profile.user_id')
-                                                                             ->where('users.id', Auth::id())
-                                                                             ->first();
+                                            @if(!session('profile'))
+                                            <span class="btnCommunaute" style="background:none; box-shadow: 4px 4px 15px white;font-weight:bold">
+                                                        @php
+                                                            $profile = DB::Table('users')->select('profile.*')
+                                                                                        ->join('profile', 'users.id', 'profile.user_id')
+                                                                                        ->where('users.id', Auth::id())
+                                                                                        ->first();
 
-                                                echo $profile->name;
-                                             @endphp
-                                             &nbsp;&nbsp;
-                                            <a style="color:white;font-size:19px;" href="{{route('choose')}}"><i class="fas fa-caret-down"></i></a>
-                                        </span>
-                                @elseif(session('profile')["age"] <= 15)
-                                <span class="btnCommunaute" style="background:none; box-shadow: 4px 4px 15px #e9d22e;font-weight:bold"> {{session('profile')["name"]}} &nbsp;&nbsp;<a style="color:#e9d22e;font-size:19px;" href="{{route('choose')}}"><i class="fas fa-caret-down"></i></a></span>
-                                @elseif(session('profile')["age"] > 15 && session('profile')["sex"] == '1')
-                                <span class="btnCommunaute" style="background:none; box-shadow: 4px 4px 15px #3eacec;font-weight:bold"> {{session('profile')["name"]}} &nbsp;&nbsp;<a href="{{route('choose')}}"><i class="fas fa-caret-down"></i></a></span>
-                                @elseif(session('profile')["age"] > 15 && session('profile')["sex"] == '0')
-                                <span class="btnCommunaute" style="background:none; box-shadow: 4px 4px 15px #d14f94;font-weight:bold"> {{session('profile')["name"]}} &nbsp;&nbsp;<a style="color:#d14f94;font-size:19px;" href="{{route('choose')}}"><i class="fas fa-caret-down"></i></a><span>
-                                        @endif
-                            </li>
+                                                            echo $profile->name;
+                                                        @endphp
+                                                        &nbsp;&nbsp;
+                                                        <a style="color:white;font-size:19px;" href="{{route('choose')}}"><i class="fas fa-caret-down"></i></a>
+                                                    </span>
+                                            @elseif(session('profile')["age"] <= 15)
+                                            <span class="btnCommunaute" style="background:none; box-shadow: 4px 4px 15px #e9d22e;font-weight:bold"> {{session('profile')["name"]}} &nbsp;&nbsp;<a style="color:#e9d22e;font-size:19px;" href="{{route('choose')}}"><i class="fas fa-caret-down"></i></a></span>
+                                            @elseif(session('profile')["age"] > 15 && session('profile')["sex"] == '1')
+                                            <span class="btnCommunaute" style="background:none; box-shadow: 4px 4px 15px #3eacec;font-weight:bold"> {{session('profile')["name"]}} &nbsp;&nbsp;<a href="{{route('choose')}}"><i class="fas fa-caret-down"></i></a></span>
+                                            @elseif(session('profile')["age"] > 15 && session('profile')["sex"] == '0')
+                                            <span class="btnCommunaute" style="background:none; box-shadow: 4px 4px 15px #d14f94;font-weight:bold"> {{session('profile')["name"]}} &nbsp;&nbsp;<a style="color:#d14f94;font-size:19px;" href="{{route('choose')}}"><i class="fas fa-caret-down"></i></a><span>
+                                                    @endif
+                                        </li>
+                                    @endif
+                                @endif
+                            @endif
                                 <div class="btn connexion">
                                     <span class="div-block-272">
                                         <img src="{{ asset('img/Mu-login-blanc.svg') }}" alt="" class="image-101">
@@ -163,7 +169,7 @@
                        @if(!Auth::guest())
                             @if($channel)
                                 <p class='text-block-242'>{{$channel->name}}</p>
-                            @else
+                            @else if($canal)
                                 <p class='text-block-242'>{{$canal->name}}</p>
                             @endif
                         @endif
@@ -225,7 +231,7 @@
                                <a data-w-id="3ebc1e8b-4c8a-0be6-ba36-5e829586b79c" href="{{route('channel.visitor', [$channel->id])}}" class="link-block-36 w-inline-block">
                                    <p class="text-block-257">{{__('Dashboard')}}<br></p>
                                </a>
-                               @else
+                               @else if($canal)
                                <a data-w-id="3ebc1e8b-4c8a-0be6-ba36-5e829586b79c" href="{{route('channel.visitor', [$canal->id])}}" class="link-block-36 w-inline-block">
                                    <p class="text-block-257">{{__('Dashboard')}}<br></p>
                                </a>
