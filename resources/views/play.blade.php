@@ -4,7 +4,6 @@
     @section('css')
     <link rel="stylesheet" href="node_modules/swiper/swiper.min.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-    <script src="https://kit.fontawesome.com/2def424b14.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="{{asset('css/menu.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.css" integrity="sha512-phGxLIsvHFArdI7IyLjv14dchvbVkEDaH95efvAae/y2exeWBQCQDpNFbOTdV1p4/pIa/XtbuDCnfhDEIXhvGQ==" crossorigin="anonymous" />
@@ -17,7 +16,7 @@
 
 
 @section('content-play-element')
-<div class="d-block">
+<div class="d-block blockGeneralContent">
 <div class="elementFixedMobie">
     <!--    <div class="content-home">
         <div class="content-naveBar">
@@ -354,77 +353,39 @@
                         <div class="videoParDefaut">
                             <video poster="{{ asset('images/sista_preloader.png')}}" class="elementVideoParDefaut" onplay="start()" controls>
                                 <source src="{{ asset('vids/uploads')}}/{{$video->vid}}" type="video/mp4;charset=UTF-8">
+                                <source src="{{ asset('vids/uploads')}}/{{$video->vid}}" type='video/webm; codecs="vp8, vorbis"' />
+                                <source src="{{ asset('vids/uploads')}}/{{$video->vid}}" type='video/ogg; codecs="theora, vorbis"' />
                             </video>
+
                         </div>
                         <div id="blessings" class="animate__animated animate__bounceInUp" >
-                            <center><span style="width:300px; background:black; color:white; font-size:1.3em;">👋🏾 Bismillah !</span>
+                            <center><span style="; background:black; color:white; font-size:1.3em;">👋🏾 Bismillah !</span>
                             <input type="hidden" name="barometer" id="barometer" value="">
                         </div>
                         <div id="prays" class="animate__animated animate__zoomInDown">
-                            <center><span style="width:300px; background:black; color:white; font-size:1.3em;">Alhamdoulilah &#x1F4FF;!</span></center>                        </div>
+                            <center><span style="; background:black; color:white; font-size:1.3em;">Alhamdoulilah &#x1F4FF;!</span></center>                        </div>
                         </div>
-                    <div class="secondElement colMobe">
-                        <div class="content2">
-                            <div class="bannierAlerte">
-                                <img class="alertMissing" src="{{ asset('img/icones/alerte.svg') }}" alt="">
-                                <p id="doNotMissing">Do not miss</p>
+                    <div class="secondElement">
+                        <img class="pubCap" src="{{ asset('img/pub-cap.png')}}" alt="">
+                        <div class="blockLikePub">
+                            <div class="accroche">
+                                <a href="" class="logo-pub1 w-inline-block">
+                                    <img class="image-129" src="{{ asset('img/Nuage-rose.png')}}" alt="">
+                                </a>
+                                <p class="link-Shape">Trouves ton skate</p>
                             </div>
-                            <div class="contentSuggestion1">
-                                <div class="publicite">
-                                    <img src="{{ asset('img/publicite.png') }}" alt="">
-                                </div>
-                                <div class="suggestion">
-                                    <div class="cardSuggestion2">
-                                        <div class="img-video-suggestion">
-                                            <img class="w-100" src="{{ asset('img/fitness.png') }}" alt="">
-                                            <div class="detailElement">
-                                                <p class="heure">17:25</p>
-                                                <div class="group2">
-                                                    <div class="d-flex">
-                                                        <p class="text-liberty">Liberty in the words</p>
-                                                        <img src="" alt="">
-                                                    </div>
-                                                    <div class="d-flex">
-                                                        <div class="imgMind"><img  src="{{ asset('img/main.jpeg') }}" alt=""></div>
-                                                        <div class="text-img">
-                                                            <div>
-                                                                <p class="textMind">Mind</p>
-                                                                <p class="numberviews">1230</p>
-                                                            </div>
-                                                            <div class="imgViews"><img  src="{{ asset('img/icones/eye-4-xxl.png') }}" alt=""></div>
-                                                        </div>
-                                                        <p class="text-days">4 days ago</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="cardSuggestion2">
-                                        <div class="img-video-suggestion">
-                                            <img class="w-100" src="{{ asset('img/fitness.png') }}" alt="">
-                                            <div class="detailElement">
-                                                <p class="heure">17:25</p>
-                                                <div class="group2">
-                                                    <div class="d-flex">
-                                                        <p class="text-liberty">Liberty in the words</p>
-                                                        <img src="" alt="">
-                                                    </div>
-                                                    <div class="d-flex">
-                                                        <div class="imgMind"><img  src="{{ asset('img/main.jpeg') }}" alt=""></div>
-                                                        <div class="text-img">
-                                                            <div>
-                                                                <p class="textMind">Mind</p>
-                                                                <p class="numberviews">1230</p>
-                                                            </div>
-                                                            <div class="imgViews"><img  src="{{ asset('img/icones/eye-4-xxl.png') }}" alt=""></div>
-                                                        </div>
-                                                        <p class="text-days">4 days ago</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="annonces1">
+                                <p class="text-block-294-2">Annonce</p>
+                                <p class="link-Shape">www.pub-link</p>
+                                <a href="" class="go go-2 w-inline-block">Go!</a>
+                            </div>
+                            <div class="likeNotication2">
+                                <a href="" class="div-block-398 likePubElement">
+                                    <img src="{{ asset('img/Image-5.png')}}" alt="">
+                                </a>
+                                <a href="" class="likePubElement">
+                                    <img src="{{ asset('img/Image-6.png')}}" alt="">
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -441,26 +402,26 @@
                     <div class="sousBlockTitle">
                         <div class="title-groupIcone">
                             <p class="text-title">{{__('Title of the video')}} : {{$video->main_title }}</p>
-                            <div class="groupLOveUnlove">
-                                <div class="blockLoveUnlove">
-                                    <p class="nbrLove">{{ $video->likers()->count() }} </p>
-                                    <div class="imgCoeur">
+                        </div>
+                        <div class="groupLOveUnlove">
+                            <div class="blockLoveUnlove">
+                                <p class="nbrLove">{{ $video->likers()->count() }} </p>
+                                <div class="imgCoeur">
                                     <a href="{{ route('likevideo',$video->id ) }}">
-                                    <img src="{{ asset('img/icones/coeurRose.svg') }}" alt="">
+                                        <img src="{{ asset('img/icones/coeurRose.svg') }}" alt="">
                                     </a>
-                                    </div>
                                 </div>
-                                <div class="blockLoveUnlove">
-                                    <div class="imgCoeur">
+                            </div>
+                            <div class="blockLoveUnlove">
+                                <div class="imgCoeur">
                                     <a href="{{ route('dislikevideo',$video->id )}}">
-                                    <img src="{{ asset('img/icones/loveRenverseGris.png') }}" alt="">
+                                        <img src="{{ asset('img/icones/loveRenverseGris.png') }}" alt="">
                                     </a>
-                                    </div>
-                                    <p class="nbrLove">{{ $video->unlikes()->count() }}</p>
                                 </div>
-                                <div class="blockImgPuliMobile">
-                                    <img src="{{ asset('img/icones/more.png') }}" alt="">
-                                </div>
+                                <p class="nbrLove">{{ $video->unlikes()->count() }}</p>
+                            </div>
+                            <div class="blockImgPuliMobile">
+                                <img src="{{ asset('img/icones/more.png') }}" alt="">
                             </div>
                         </div>
                         @php
@@ -556,7 +517,7 @@
                     ->first();
                     @endphp
                     <div class="elementImgAuteur">
-                        <a class="elementImgAuteur" href="{{route('channel.visitor', $channel->id)}}"class="nameAuteur contentweb">
+                        <a class="" href="{{route('channel.visitor', $channel->id)}}"class="nameAuteur contentweb">
                             @if($channel->logo)
                             <img class="" src="{{ asset('/img/') }}/{{$channel->logo}}" alt="">
                             @elseif($user->age <= 15)
@@ -568,7 +529,7 @@
                             @endif
                         </a>
                     </div>
-                    
+
                     <a href="{{route('channel.visitor', $channel->id)}}" style="color:#333333" class="nameAuteur contentweb">{{$channel->name}}</a>
                     <p class="nbreAbonnees contentweb"> {{\App\Models\Channel::find($channel->id)->abonnees->count()}} {{__('Subscribers')}}</p>
                     <div class="contentMobile">
@@ -576,18 +537,12 @@
                     <!-- <p class="nbreAbonnees"> {{\App\Models\Channel::find($channel->id)->abonnees->count()}} Abonnes</p>  -->
                     </div>
                     <div class="elementBtnSouscrire">
-                        <a href="{{ route('suscribe',$channel->id) }}" class="btn btnSubscribe">{{__('Subscribe')}}</a>
+                        <a href="{{ route('suscribe',$channel->id) }}" class="btn btnSubscribe">{{__('Subscribe')}} <button class="btn btnClocheNot">
+                                <img src="{{ asset('img/Mu-cloche-blanc.png') }}" class="imgClocheAbonne" alt="">
+                            </button></a>
                     </div>
                 </div>
-                <div class="mobMobile">
-                    <div class="publicite">
-                        <div class="seed-Block">
-                            <p class="seedText">{{__('See the Ad')}}</p>
-                        </div>
-                        <img src="{{ asset('img/publicite.png') }}" alt="">
-                    </div>
-                </div>
-                    @php 
+                    @php
                         $date = new hijri();
 
                         $date = explode(",",$date->date(null,2,false));
@@ -612,7 +567,7 @@
                     <div class="elementBarreText" style="transform: rotate(-180deg); height:50px; margin-top:40px">
 
                         <div class="contentBarreText e">
-                            @php 
+                            @php
                                 $variant = DB::table('videos')
                                         ->join('reads','videos.id','reads.video_id')
                                         ->join('sub_topics','sub_topics.id','videos.subtopic_id')
@@ -627,10 +582,10 @@
                             @endphp
                             <p class="lettre" style="transform: rotate(180deg);">E</p>
                             <div class="progress-bar" role="progressbar bg-info" style="width:18px; height:{{$variant != 0 ?(($variant/$looks)*100):'0'}}%; border-radius:10px; background:#4A4A4A;" aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
-                            
+
                         </div>
                         <div class="contentBarreText d">
-                            @php 
+                            @php
                                 $variant = DB::table('videos')
                                         ->join('reads','videos.id','reads.video_id')
                                         ->join('sub_topics','sub_topics.id','videos.subtopic_id')
@@ -645,10 +600,10 @@
                             @endphp
                             <p class="lettre" style="transform: rotate(180deg);">D</p>
                             <div class="progress-bar" role="progressbar bg-info" style="width:18px; height:{{$variant != 0 ?(($variant/$looks)*100):'0'}}%; border-radius:10px; background:#4A4A4A;" aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
-                            
+
                         </div>
                         <div class="contentBarreText h">
-                            @php 
+                            @php
                                 $variant = DB::table('videos')
                                         ->join('reads','videos.id','reads.video_id')
                                         ->join('sub_topics','sub_topics.id','videos.subtopic_id')
@@ -663,11 +618,11 @@
                             @endphp
                             <p class="lettre">H</p>
                             <div class="progress-bar" role="progressbar bg-info" style="width:18px; height:{{$variant != 0 ?(($variant/$looks)*100):'0'}}%; border-radius:10px; background:#4A4A4A;" aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
-                            
+
                         </div>
                         <div class="contentBarreText l">
 
-                            @php  
+                            @php
                                 $variant = DB::table('videos')
                                         ->join('reads','videos.id','reads.video_id')
                                         ->join('sub_topics','sub_topics.id','videos.subtopic_id')
@@ -682,10 +637,10 @@
                             @endphp
                             <p class="lettre" style="transform: rotate(180deg);">L</p>
                             <div class="progress-bar" role="progressbar bg-info" style="width:18px; height:{{$variant != 0 ?(($variant/$looks)*100):'0'}}%; border-radius:10px; background:#4A4A4A;" aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
-                           
+
                         </div>
                         <div class="contentBarreText">
-                            @php 
+                            @php
                                 $variant = DB::table('videos')
                                         ->join('reads','videos.id','reads.video_id')
                                         ->join('sub_topics','sub_topics.id','videos.subtopic_id')
@@ -700,7 +655,7 @@
                             @endphp
                             <p class="lettre" style="transform: rotate(180deg);">B</p>
                             <div class="progress-bar" role="progressbar bg-info" style="width:18px; height:{{$variant != 0 ?(($variant/$looks)*100):'0'}}%; border-radius:10px; background:#4A4A4A;" aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>   
+                        </div>
                     </div>
                 @endif
                 </div>
@@ -810,7 +765,48 @@
         </div>
     </div>
 </div>
-
+<div class="mobMobile">
+    <div class="block-shop">
+        <div  class="offre-shop">
+            <div class="div-block-322">
+                <p class="text-block-318">{{__('Offer of the channel')}}</p>
+                <div data-w-id="0a070e0d-57d5-30ba-c024-1a4991a71631" class="cross">
+                    <div class="bar-cross"></div>
+                    <div class="bar-cross-left"></div>
+                </div>
+            </div>
+            <div class="div-block-319">
+                <div class="div-block-318">
+                    <div class="imgBullProfil">
+                        <img src="{{ asset('img/Mu-bull-profil-logo-fitG.jpg') }}"  alt="">
+                    </div>
+                    <div class="text-block-320">{{__('Product name')}} / Formation</div>
+                    <a href="#" class="link-block-38 w-inline-block">
+                        <span class="text-block-319">{{__('Discover')}}</span>
+                    </a>
+                </div>
+                <div class="div-block-318">
+                    <div class="imgBullProfil">
+                        <img src="{{ asset('img/Mu-bull-profil-logo-fitG.jpg') }}"  alt="">
+                    </div>
+                    <div class="text-block-320">{{__('Product name')}} 2</div>
+                    <a href="#" class="link-block-38 w-inline-block">
+                        <span class="text-block-319">{{__('Discover')}}</span>
+                    </a>
+                </div>
+                <div class="div-block-318">
+                    <div class="imgBullProfil">
+                        <img src="{{ asset('img/Mu-bull-profil-logo-fitG.jpg') }}"  alt="">
+                    </div>
+                    <div class="text-block-320">{{__('Product name')}}...</div>
+                    <a href="#" class="link-block-38 w-inline-block">
+                        <span class="text-block-319">{{__('Discover')}}</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="content-commentaire">
     <div class="container-fluid">
         <div class="row ">
@@ -822,8 +818,18 @@
                         <p class="commentText">{{__('Comments')}}</p>
                         <img class="commentImg" src="{{ asset('img/icones/commet.svg') }}" alt="">
                     </div>
+                    @include('adminlte-templates::common.errors')
+                    <form method="POST" action="/comments">
+                        @csrf
+                        <input type="hidden" name="video_id" value="{{$video->id}}" id="">
+                        <textarea class="inputCommentaire2" name="value" id=""></textarea>
 
-                    @for($i = 0; $i < count($comments); $i++)
+                        <div class="div-block-332">
+                            <button class="btn btnAnnuler">{{__('')}}Annuler</button>
+                            <button type="submit" class="btn btnEnvoyer">{{__('')}}Envoyer</button>
+                        </div>
+                    </form>
+                    @for($i = 1; $i < count($comments); $i++)
 
 
                     <div class="coment-1">
@@ -841,11 +847,11 @@
                                     @endif
                                 </div>
                                 <div class="div-block-326" >
-                                    <div class="text-block-323">{{$users[$i]->name}}</div>
-                                    <div class="text-block-322" style="width:300px">{{$comments[$i]->value}}...&nbsp;&nbsp;<a href="#" class="link-24">{{__('Read more')}}</a>
+                                    <p class="textblock326">{{$users[$i]->name}}</p>
+                                    <div class="text-block-322 showReadMore1" style="">{{$comments[$i]->value}}
                                     </div>
                                 </div>
-                                <div class="text-block-324">
+                                <div class="text-block-Date">
                                     @if(intval(abs(strtotime("now") - strtotime($comments[$i]->created_at))/ 86400) == 0)
                                     @if(intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 3600) > 0)
                                     {{intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/3600)}} hours ago
@@ -861,7 +867,13 @@
                                     @endif
                                 </div>
                             </div>
-                            <div class="div-block-328">
+                            <div class="d-flex">
+                                <div class="d-flex">
+                                    <p class="commenter">Commenter</p>
+                                    <button  onclick="TestsFunction()"  class="message-2-messaage w-inline-block btn">
+                                        <img src="{{ asset('img/Mu-picto-comment-gris2x.png') }}" loading="lazy" width="33" alt="">
+                                    </button>
+                                </div>
                                 <div>
                                     <div class="likes">
                                         <div class="text-block-292"> {{\App\Models\Comment::find($comments[$i]->comment_id)->likers()->count()}}</div>
@@ -878,13 +890,9 @@
                                         <div class="text-block-292"> {{\App\Models\Comment::find($comments[$i]->comment_id)->unlikes()->count()}} </div>
                                     </div>
                                 </div>
-                                <button  onclick="TestsFunction()"  class="message-2-messaage w-inline-block btn">
-                                    <img src="{{ asset('img/Mu-picto-comment-gris2x.png') }}" loading="lazy" width="33" alt="">
-                                </button>
                             </div>
                         </div>
                         <div class="div-block-331" id="TestsDiv" style="display:none">
-                            <div class="text-block-264">{{__('')}}Commentaires</div>
 
                             @include('adminlte-templates::common.errors')
                             <form method="POST" action="/comments">
@@ -901,6 +909,26 @@
 
                             </div>
                         </div>
+                       <div class="d-flex group11">
+                           <p class="textTousCom">Voir tous les commentaires</p>
+                           <button class="btn btnTous" data-toggle="modal" data-target="#exampleModal"><img class="imgTousCom" src="{{ asset('img/touscom.svg') }}" alt=""></button>
+                           <!-- Modal -->
+                           <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                               <div class="modal-dialog" role="document">
+                                   <div class="modal-content">
+                                       <div class="modal-header">
+                                           <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                               <span aria-hidden="true">&times;</span>
+                                           </button>
+                                       </div>
+                                       <div class="modal-body">
+                                           ...
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
                     </div>
                     @php
                     if($i == 1)
@@ -926,8 +954,6 @@
                         <p class="commentText">0 {{__('')}}Commentaire</p>
                     </div>
                     <div class="div-block-331" >
-                        <div class="text-block-264">Commentaires</div>
-
                         @include('adminlte-templates::common.errors')
                         <form method="POST" action="/comments">
                             @csrf
@@ -1073,7 +1099,12 @@
                 </div>
             </div>
             <div class="swiper-slide swipe2">
-                <p class="text-hel">Healthcares</p>
+                <div class="swipeTitle">
+                    <div class="categorie-name1">
+                        <img src="{{ asset('img/Mu-feuille-noir2x.png') }}"  alt="">
+                    </div>
+                    <p class="text-hel">Healthcares</p>
+                </div>
                 <div class="swiper-container swiper-helatcare">
                     <div class="swiper-wrapper">
                         @foreach($videos_haltcare as $video)
@@ -1194,7 +1225,12 @@
                 </div>
             </div>
             <div class="swiper-slide swipe2">
-                <p class="text-life">Life</p>
+                <div class="swipeTitle">
+                    <div class="categorie-name1">
+                        <img src="{{ asset('img/Mu-fleur2.png') }}"  alt="">
+                    </div>
+                    <p class="text-life">Life</p>
+                </div>
                 <div class="swiper-container swiper-helatcare">
                     <div class="swiper-wrapper">
                         @foreach($videos_life as $video)
@@ -1315,7 +1351,12 @@
                 </div>
             </div>
             <div class="swiper-slide swipe2">
-                <p class="text-health">Health</p>
+                <div class="swipeTitle">
+                    <div class="categorie-name1">
+                        <img src="{{ asset('img/Mu-fleur2.png') }}"  alt="">
+                    </div>
+                    <p class="text-health">Health</p>
+                </div>
                 <div class="swiper-container swiper-helatcare">
                     <div class="swiper-wrapper">
                         @foreach($videos_health as $video)
@@ -1436,7 +1477,12 @@
                 </div>
             </div>
             <div class="swiper-slide swipe2">
-                <p class="text-business">Business</p>
+                <div class="swipeTitle">
+                    <div class="categorie-name1">
+                        <img src="{{ asset('img/Mu-fleur2.png') }}"  alt="">
+                    </div>
+                    <p class="text-business">Business</p>
+                </div>
                 <div class="swiper-container swiper-helatcare">
                     <div class="swiper-wrapper">
                         @foreach(session('videos_business') as $video)
@@ -1556,7 +1602,12 @@
                 </div>
             </div>
                 <div class="swiper-slide swipe2">
-                    <p class="text-education">Education</p>
+                    <div class="swipeTitle">
+                        <div class="categorie-name1">
+                            <img src="{{ asset('img/Mu-fleur2.png') }}"  alt="">
+                        </div>
+                        <p class="text-education">Education</p>
+                    </div>
                     <div class="swiper-container swiper-helatcare">
                         <div class="swiper-wrapper">
                             @foreach($videos_education as $video)
@@ -1678,7 +1729,12 @@
                 </div>
             </div>
             <div class="swiper-slide swipe2">
-                <p class="text-environnement">Environnement</p>
+                <div class="swipeTitle">
+                    <div class="categorie-name1">
+                        <img src="{{ asset('img/Mu-fleur2.png') }}"  alt="">
+                    </div>
+                    <p class="text-environnement">Environnement</p>
+                </div>
                 <div class="swiper-container swiper-helatcare">
                     <div class="swiper-wrapper">
                         @foreach($videos_environnement as $video)
@@ -1799,39 +1855,36 @@
     //My code not persuassive
     var video_play = document.querySelector(".elementVideoParDefaut");
     var blessings = document.getElementById("blessings");
-    var prays = document.getElementById("prays"); 
+    var prays = document.getElementById("prays");
     var barometer = document.getElementById("barometer");
     barometer.value = "";
-    
+
     blessings.style.display = "none";
-    prays.style.display = "none"; 
+    prays.style.display = "none";
 
     function toggle(){
         blessings.style.display = "none";
     }
 
     function endof(){
-        prays.style.display = "none"; 
+        prays.style.display = "none";
     }
 
     function start(){
-
         if(video_play.readyState > video_play.HAVE_METADATA){
-            blessings.style.display = "block"; 
+            blessings.style.display = "block";
             barometer.value = "1";
             setTimeout(toggle, 10000);
-
             var duration = video_play.duration;
-            wait = (duration - 18)*1000;  
+            wait = (duration - 18)*1000;
             setTimeout(end, wait);
-
             setTimeout(endof, 10000);
         }
     }
 
     function end(){
         blessings.style.display = "none";
-        prays.style.display = "block"; 
+        prays.style.display = "block";
     }
 </script>
 
@@ -1839,12 +1892,16 @@
 
 <script>
     var swiper = new Swiper('.swipeContainermodife1', {
+
+
         slidesPerView: 2.1,
         spaceBetween: 30
     });
 </script>
 
+
 <script>
+
     var swiper = new Swiper('.swiper-helatcare', {
         slidesPerView: 4,
         spaceBetween: 30,
@@ -1875,20 +1932,60 @@
     });
     if ($('.swiper-container .swiper-slide').length < 1) {
         var swiper = new Swiper('.swiper-helatcare', {
-            // Optional parameters
-            direction: 'horizontal',
-            loop: false,
-            //autoplay: 6500,
-            autoplayDisableOnInteraction: false,
 
-            keyboardControl: true,
-            mousewheelControl: true,
-            paginationClickable: true,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev'
+            },
 
         });
     }
 </script>
 <script src="{{asset('js/menu.js')}}"></script>
+<!--    <script>
+        $(document).ready(function(){
+            //length in characters
+            var maxLength = 10;
+            var ellipsestext = "...";
+            var moretext = "Read more";
+            var lesstext = "Read less";
+            $(".showReadMore1").each(function(){
+                //get the text of paragraph or div
+                var myStr = $(this).text();
+
+                // check if it exceeds the maxLength limit
+                if($.trim(myStr).length > maxLength){
+                    //get only limited string firts to show text on page load
+                    var newStr = myStr.substring(0, maxLength);
+
+                    //get remaining string
+                    var removedStr = myStr.substr(maxLength, $.trim(myStr).length - maxLength);
+                    // now append the newStr + "..."+ hidden remaining string
+                    var Newhtml = newStr + '<span class="moreellipses">' + ellipsestext+ '</span><span class="morecontent"><span>' + removedStr + '</span>&nbsp;&nbsp;<a href="javascript:void(0)" class="ReadMore">' + moretext + '</a></span>';
+
+                    $(this).html(Newhtml);
+
+                }
+            });
+
+            //function to show/hide remaining text on ReadMore button click
+            $(".ReadMore").click(function(){
+
+                if($(this).hasClass("less")) {
+                    $(this).removeClass("less");
+                    $(this).html(moretext);
+                }
+                else {
+                    $(this).addClass("less");
+                    $(this).html(lesstext);
+                }
+
+                $(this).parent().prev().toggle();
+                $(this).prev().toggle();
+                return false;
+            });
+        });
+    </script>
 @endsection
 
 </body>

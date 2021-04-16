@@ -7,7 +7,7 @@
     </title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="target-densitydpi=device-dpi, initial-scale=1.0, user-scalable=no" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="{{asset('css/menu.css')}}">
     <link rel="stylesheet" href="../css/sidbarNavigation.css">
@@ -22,7 +22,8 @@
         <div class="griscolor"></div>
         <div class="content-element-page">
             <div class="nav-bar">
-                <div class="bar-up">
+             <!-- navbar web-->
+                <div class="bar-up webUp">
                     <div class="nav-up-right">
                         <a data-w-id="85409373-dce4-fdcf-64c5-c0ed0fa665a1" href="#" class="_4-points w-inline-block">
                             <div class="_2points">
@@ -115,6 +116,31 @@
 
                     </div>
                 </div>
+
+                <!-- navbar Mobile-->
+                <div class="bar-up webMobile">
+                    <div class="nav-up-right">
+                        <a data-w-id="85409373-dce4-fdcf-64c5-c0ed0fa665a1" href="#" class="_4-points w-inline-block">
+                            <div class="_2points">
+                                <div class="point-1x4"></div>
+                                <div class="point-1x4"></div>
+                            </div>
+                            <div class="_2points">
+                                <div class="point-1x4"></div>
+                                <div class="point-1x4"></div>
+                            </div>
+                        </a>
+                        <a  href="{{route('home')}}" class="mu-logo w-inline-block">
+                            <img src="{{ asset('img/logo-MU.png') }}" class="imgLogo22" alt="">
+                        </a>
+                        <div class="search-bar">
+                            <img src="{{ asset('img/Loupe.png') }}" class="loupe">
+                            <div class="text-block-281">{{__('search')}}</div>
+                        </div>
+                    </div>
+
+                </div>
+
                 <div class="bar-down">
                     <div class="div-block-268">
                         <img src="{{ asset('img/Smuuse-logo-blanc-SB-2021-80x22.png') }}" alt="" class="image-102">
@@ -135,7 +161,7 @@
                             <img src="{{ asset('img/Mu-upload-cloud-blanc2x.png') }}" class="imgCloud2" alt="">
                         </a>
                         <a href="{{route('notification')}}" class="cloche w-inline-block">
-                            <img src="{{ asset('img/Mu-cloche-blanc.svg') }}" class="imgCloche" alt="">
+                            <img src="{{ asset('img/Mu-cloche-blanc.png') }}" class="imgCloche" alt="">
                         </a>
                     </div>
                 </div>

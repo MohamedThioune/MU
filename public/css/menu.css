@@ -40,7 +40,7 @@
 }
 body {
     background: #FFFFFF;
-    overflow-x: hidden !important;
+    overflow-x: hidden;
     font-family: "Ubuntu-Regular";
 }
 .col-md-9 {
@@ -349,10 +349,14 @@ button:focus {
     justify-content: space-between;
 }
 .videoParDefaut{
+    overflow: hidden;
     position: relative;
-    width: 100%;
-    height: 514px;
+    width:100%;
+}
+.videoParDefaut::after {
+    padding-top: 56.25%;
     display: block;
+    content: '';
 }
 .title-groupIcone{
     display: flex;
@@ -368,10 +372,10 @@ video{
     top: 0;
     left: 0;
     width: 100%;
-    height: inherit;
+    height: 100%;
     z-index: 3;
-    bottom: 0;
-    right: 0;
+    margin: 0 auto;
+    display: block;
 }
 .contentParDefaut {
     background: url("../img/grille.png") space;
@@ -385,7 +389,7 @@ video{
     left: 0;
     right: 0;
     background: #0E0D0D;
-    opacity: 0.86;
+    opacity: 0.94;
 }
 .bannierAlerte {
     background: #2725254d;
@@ -530,7 +534,7 @@ video{
     color: #000000;
     font-size: 20px;
     margin-bottom: 15px;
-    width: 65%;
+    width: 100%;
     font-family: "Ubuntu-Medium";
 }
 .datePublication {
@@ -552,12 +556,13 @@ video{
     color: rgb(51, 51, 51);
     font-family: "Ubuntu-Medium";
     margin-left: 40px;
+    margin-bottom: 0;
 }
 .block-detail-commentaire {
     background: #efefef;
     margin: 0px -18px;
     padding: 20px 18px 10px;
-    min-height: 150px;
+    min-height: 134px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
 }
@@ -581,18 +586,18 @@ video{
     color: #605C5C;
     font-size: 15px;
     font-weight: 800;
-    padding: 0 10px;
+    padding: 0 3px;
     max-width: 704px;
 }
-.groupLOveUnlove{
-    display: flex;
-    justify-content: space-between;
-    width: 22%;
-    margin-top: 3px;
-}
+.groupLOveUnlove {
+     display: flex;
+     justify-content: end;
+     width: 100%;
+     margin-top: 3px;
+ }
 .blockLoveUnlove{
     display: flex;
-    margin-left: 0;
+    margin-right: 15px;
 }
 .contentPubli{
     display: flex;
@@ -705,11 +710,10 @@ video{
     width: 100%;
 }
 .nameAuteur{
-    font-weight: 800;
-    font-size: 18px;
+    font-size: 16px;
     margin-top: 15px;
     margin-bottom: 0px;
-    font-family: "Ubuntu-Medium";
+    font-family: "Ubuntu-Bold";
 }
 .nbreAbonnees {
     font-size: 15px;
@@ -722,7 +726,10 @@ video{
     color: white;
     font-weight: 700;
     border-radius: 5px;
-    padding: 6px 35px;
+    justify-content: center;
+    display: flex;
+    width: 170px;
+    margin: 0 auto;
 }
 .blockTime{
     background: #000000;
@@ -911,6 +918,8 @@ video{
 }
 .commentOne {
     display: block;
+    height: 397px;
+    margin-bottom: 25px;
 }
 .nombreComment{
     color: #FFFFFF;
@@ -1091,6 +1100,8 @@ video{
     height: 139px;
     position: relative;
     overflow-y: hidden;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
 }
 .elementCardSuggestionDay img{
     width: 100%;
@@ -1098,7 +1109,7 @@ video{
 }
 .flyText{
     color: #F7F7F7;
-    font-size: 27px;
+    font-size: 23px;
     margin-bottom: 0;
     font-family: "Ubuntu-Bold";
     text-shadow: 2px 2px #000;
@@ -1120,8 +1131,8 @@ video{
     justify-content: space-between;
     left: 0;
     right: 0;
-    background: transparent linear-gradient(180deg, #0000 0%, #0807079e 100%) 0% 0% no-repeat padding-box;
-    opacity: 0.69;
+    background: transparent linear-gradient( 180deg, #0000 0%, #06060645 100%) 0% 0% no-repeat padding-box;
+    opacity: 1;
     align-items: flex-end;
     padding-left: 10px;
 }
@@ -1130,6 +1141,22 @@ video{
     color: #4d4d4d;
     font-size: 15px;
     font-family: "Ubuntu-Medium";
+    height: 48px;
+}
+.inputCommentaire2 {
+    resize: none;
+    margin-right: 20px;
+    padding: 10px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #c4c4c4;
+    border-radius: 5px;
+    background: #f7f7f7;
+    width: 96%;
+    margin-top: -12px;
+    margin-left: 10px;
+    min-height: 120px;
+    margin-bottom: 20px;
 }
 .imgLiberti{
     width: 18px;
@@ -1146,7 +1173,7 @@ video{
     height: unset !important;
     margin-bottom: 40px;
     justify-content: flex-start;
-    border-radius: 5px;
+    border-radius: 8px;
     background-color: #f8f8f8;
     box-shadow: 3px 3px 8px 0 rgba(0, 0, 0, 0.15);
     width: 280px !important;
@@ -1182,6 +1209,7 @@ video{
 
 .contentCardSuggestionDay {
     padding: 10px 13px;
+    position: relative;
 }
 .mindText {
     color: #5e5e5e;
@@ -1249,7 +1277,7 @@ video{
 }
 .content-Education{
     background: #e4fbfd;
-    /* opacity: 0.1; */
+    margin-bottom: 20px;
 }
 .Education{
     background: #c7eff3;
@@ -1567,6 +1595,7 @@ video{
     display: -ms-flexbox;
     display: flex;
     margin-bottom: 10px;
+    width: 100%;
 }
 .div-block-327 {
     margin-right: 10px;
@@ -1579,7 +1608,9 @@ video{
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    margin-left: 100px;
+}
+.commenter{
+    font-size: 14px;
 }
 .likes {
     display: -webkit-box;
@@ -1620,6 +1651,25 @@ video{
 }
 .message-2-messaage {
     margin-top: -9px;
+    padding: 0 !important;
+    margin-left: 10px !important;
+}
+.textblock326{
+    font-weight: 600;
+    margin-bottom: 5px;
+    font-size: 15px;
+}
+.textTousCom{
+    font-size: 13px;
+}
+.group11 {
+    float: right;
+    margin-top: -15px;
+}
+.imgTousCom{
+    width: 24px;
+    margin-left: 3px;
+    margin-top: -15px;
 }
 .div-block-331 {
     padding-left: 0;
@@ -1707,12 +1757,66 @@ video{
     display: flex;
     justify-content: space-between;
 }
-.fistElement{
-    width: 71%;
-    height: 100%;
+.fistElement {
+    width: 70%;
+    margin-left: 5px;
+    margin-right: 18px;
 }
 .secondElement{
-    width: 28%;
+    width: 30%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    position: relative;
+}
+.pubCap {
+    width: 100%;
+    height: auto;
+}
+.blockLikePub{
+    padding: 20px;
+    position: absolute;
+    bottom: 28px;
+    text-align: center;
+    width: 100%;
+    background-color: #fff;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    align-items: center;
+}
+.accroche{
+    display: -webkit-flex;
+    justify-content: center;
+}
+.image-129{
+    width: 44px;
+}
+.link-Shape {
+    color: #333;
+    font-size: 15px;
+    line-height: 17px;
+    font-family: "Ubuntu-Regular";
+    text-decoration: none;
+    margin-bottom: 3px;
+}
+.logo-pub1 {
+    width: 30px;
+    height: 30px;
+    margin: 10px 23px 9px 0;
+}
+
+.annonces1 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    margin-bottom: 0px;
+    margin-left: 10px;
+    padding: 0px 5px 0px 0px;
+    -webkit-box-align: end;
+    -webkit-align-items: flex-end;
+    -ms-flex-align: end;
+    align-items: center;
+    justify-content: center;
 }
 .opacityElement{
     opacity: 0;
@@ -1721,17 +1825,20 @@ video{
     z-index: 999;
 }
 .indexElement{
-    margin-top: -90px;
     display: block;
     position: fixed;
     z-index: 999999999999999;
+}
+.content-contenue1 {
+    margin-top: 90px;
 }
 .sidebar-format::-webkit-scrollbar {
     display: none !important;
 }
 .contentOneMonFlow {
-    width: 85%;
+    width: 87%;
     display: block;
+    margin-top: 90px;
 }
 .accrocheskate {
     display: flex;
@@ -1743,7 +1850,24 @@ video{
 .v1{
     width: unset !important;
 }
-
+.morecontent span {
+    display: none;
+}
+.ReadMore {
+    display: visible;
+}
+.btnClocheNot {
+    border-left: 1px solid white;
+    height: auto;
+    margin-top: -2px;
+    margin-left: 10px;
+    padding-left: 8px;
+    padding-top: 4px;
+    width: 17%;
+}
+.btnClocheNot img{
+    width: 17px;
+}
 /*safarie*/
 @media screen and (-webkit-min-device-pixel-ratio:0) {
     .accrocheskateImg{
@@ -1775,7 +1899,25 @@ video{
 
 .go{
     position: relative;
-    top: -10px;
+    top: -1px;
+    font-family: "Ubuntu-Bold";
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+}
+.go-2 {
+    font-size: 13px;
+    left: 8px;
+}
+.text-block-294-2 {
+    margin-right: 10px;
+    padding-right: 5px;
+    padding-left: 5px;
+    background-color: #4d4d4d;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 400;
+    margin-bottom: 0;
 }
 .hot-notification{
     text-align: left;
@@ -1799,6 +1941,16 @@ video{
     padding: 0px 60px 0px 0px;
     justify-content: center;
 }
+.div-block-398 {
+    margin-right: 20px;
+}
+.likeNotication2 {
+    display: flex;
+    margin-top: 16px;
+    margin-left: 0;
+    padding: 0;
+    justify-content: center;
+}
 .hot-flow-txt-description {
     color: #8f8f8f;
     font-size: 18px;
@@ -1806,6 +1958,9 @@ video{
     font-family: "Ubuntu-Medium";
     margin-bottom: 0;
     padding-right: 10px;
+}
+.likePubElement img{
+    width: 22px;
 }
 .image-bull1 {
     color: #c0bebe;
@@ -2075,6 +2230,12 @@ video{
 .imge-135{
     width: 141px;
 }
+.webMobile{
+    display: none;
+}
+.categorie-name1{
+    display: none;
+}
 
 @media all and (min-width: 300px) and (max-width: 767px){
     .col-lg-9 {
@@ -2135,10 +2296,10 @@ video{
         background: rgba(255, 255, 255, 0.08) 0% 0% no-repeat padding-box;
         border-radius: 11px;
     }
-
     .blockgeneral {
         display: block;
         margin-bottom: 0;
+        padding: 0 15px;
     }
     .container-modife-mobile {
         width: 100%;
@@ -2146,10 +2307,10 @@ video{
     }
     .blockDetail {
         width: 100%;
-        padding: 15px 20px;
+        padding: 0px 15px;
     }
     .content-contenue1 {
-        margin-bottom: 0;
+        margin-top: 50px;
     }
     .col-modife {
         padding-left: 0 !important;
@@ -2169,10 +2330,10 @@ video{
         color: #605C5C;
         margin-bottom: 0;
         font-size: 13px;
-        width: 100%;
+        width: 46%;
     }
     .textImgView {
-        width: 22%;
+        width: 50%;
     }
     .groupLOveUnlove {
         width: 63%;
@@ -2200,12 +2361,26 @@ video{
         width: 100%;
         display: flex;
         justify-content: space-between;
+        height: 87px;
+    }
+    .contentFlyHeure{
+        background: unset;
+    }
+    .flyText{
+        display: none;
+    }
+    .heureFly {
+        display: none;
     }
     .imgBadge {
-        right: 46%;
-        width: 24px;
+        right: 42%;
+        width: 18px;
         position: absolute;
     }
+    .imgLiberti {
+        display: none;
+    }
+
     .contentMobile {
         display: block;
         width: 45%;
@@ -2238,8 +2413,9 @@ video{
         padding-right: 15px;
     }
     .btnSubscribe {
-        padding: 4px 20px;
+        padding: 1px 10px;
         font-size: 13px;
+        width: 96%;
     }
     .blockTime {
         background: #000000;
@@ -2249,9 +2425,116 @@ video{
     .mobMobile {
         display: block;
     }
+    .mobMobile .block-shop{
+        display: block !important;
+    }
+    .cross{
+        display: none;
+    }
+    .div-block-322{
+        justify-content: center;
+    }
+    .nombreComment {
+        padding-right: 6px;
+        margin-bottom: 0;
+        font-size: 15px;
+        margin-left: 0px;
+    }
+    .offre-shop {
+        padding: 0px 0px;
+    }
+    .div-block-318 {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        margin: 0;
+        padding: 10px;
+        width: 24%;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+        border-radius: 5px;
+        background-color: #fff;
+    }
+    .div-block-318 {
+        margin: 0;
+        padding: 10px;
+        width: 30%;
+        height: 148px;
+    }
+    .div-block-319 {
+        justify-content: space-between;
+        margin: 0 30px 31px 30px;
+    }
+    .div-block-326 {
+        width: 55%;
+    }
+    .categorie-name {
+        width: 100%;
+        position: absolute;
+        top: 45%;
+        display: none;
+    }
+    .categorie-name1 {
+        display: block;
+    }
+    .categorie-name1 img{
+        width: 16px;
+        margin-top: 26px;
+        margin-left: 15px;
+    }
     .publicite{
         position: relative;
         margin-bottom: 20px;
+    }
+    .card-suggestionDay {
+        width: 255px !important;
+        background-color: unset;
+        box-shadow: unset;
+    }
+    .elementCardSuggestionDay {
+        height: 139px;
+        border: 1px outset #343a400d;
+        border-radius: 8px;
+    }
+    .swipeTitle{
+        display: flex;
+    }
+    .libertiText {
+        margin-bottom: 10px;
+        color: #4d4d4d;
+        font-size: 14px;
+        height: 24px;
+    }
+    .swipe2 {
+        width: 93% !important;
+    }
+    .swiper-container {
+         padding: unset !important;
+    }
+    .commentTitle {
+        display: flex;
+        background: #CECECE 0% 0% no-repeat padding-box;
+        width: 51%;
+        padding: 6px 0px 6px;
+        justify-content: center;
+        margin-bottom: 30px;
+        border-top-left-radius: 0px;
+        margin-top: -20px;
+        margin-left: -7px;
+    }
+    .commentText {
+        padding-right: 15px;
+        margin-bottom: 0;
+        padding-top: 0px;
+        font-size: 15px;
     }
     .seed-Block{
         position: absolute;
@@ -2259,6 +2542,11 @@ video{
         background: rgba(37, 37, 37, 0.43) 0% 0% no-repeat padding-box;
         color: #9ACED5;
         padding: 10px 30px;
+    }
+    .commentImg {
+        width: 28px;
+        height: 12px;
+        margin-top: 5px;
     }
     .seedText {
         margin-bottom: 0;
@@ -2322,6 +2610,46 @@ video{
         margin-top: -50px;
         padding-right: 0px;
         margin-left: -30px;
+    }
+    .bar-down {
+        display: none;
+    }
+    .webUp{
+        display: none !important;
+    }
+    .webMobile{
+        display: flex;
+    }
+    .flexElement1 {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    .webPub{
+        display: none;
+    }
+    .fistElement {
+        width: 100%;
+        margin-left: 5px;
+        margin-right: 0px;
+    }
+    .secondElement{
+        display: none;
+    }
+    .blockGeneralContent{
+        width: 100%;
+    }
+    body{
+        background: #f7f7f7;
+    }
+    .btnClocheNot {
+        border-left: 1px solid white;
+        margin-top: -2px;
+        margin-left: 10px;
+        padding-left: 8px;
+        padding-top: 1px;
+        width: 7%;
+        height: 23px;
     }
 }
 @media all and (min-width: 768px) and (max-width: 1023px){

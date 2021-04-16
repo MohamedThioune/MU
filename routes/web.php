@@ -12,21 +12,21 @@
 */
 
 Route::get('/', function () {
-    
+
     $video = DB::Table('videos')->select('videos.*')
                                  ->whereNull('videos.deleted_at')
                                  ->orderByDesc('videos.created_at')
                                  ->first();
-    
+
     $last = DB::table('videos', 'views')
-    ->join('reads', 'videos.id', 'reads.video_id') 
-    ->whereNull('videos.deleted_at')            
+    ->join('reads', 'videos.id', 'reads.video_id')
+    ->whereNull('videos.deleted_at')
     ->select(DB::raw('count(*) as views, reads.video_id'))
     ->groupBy('reads.video_id')
     ->orderByDesc('views')
     ->limit(3)
-    ->get(); 
-    
+    ->get();
+
     $vimeo = App\Models\Video::find($last[0]->video_id);
 
     $channel_top = DB::Table('users')->select('channels.*')
@@ -61,7 +61,7 @@ Route::get('/', function () {
     ->where('likes.created_at', '<', $end)
     ->select(DB::raw('count(*) as likes, likes.user_id'))
     ->groupBy('likes.user_id')
-    ->first(); 
+    ->first();
 
     $follows = DB::table('abonne_channel')
     ->where('abonne_channel.user_id', Auth::id())
@@ -69,7 +69,7 @@ Route::get('/', function () {
     ->where('abonne_channel.created_at', '<', $end)
     ->select(DB::raw('count(*) as trends, abonne_channel.user_id'))
     ->groupBy('abonne_channel.user_id')
-    ->first(); 
+    ->first();
 
     $looks = DB::table('videos')
     ->join('reads','videos.id','reads.video_id')
@@ -91,16 +91,16 @@ Route::get('/', function () {
     };
 
     $shahid = date('H:i:s', $shahid);
-    
+
     /** @var Event $event */
     $event = DB::Table('events')->select('events.*')
                                    ->first();
-    
+
     $channel = DB::Table('users')->select('channels.*')
     ->join('channels', 'users.id', 'channels.user_id')
     ->where('users.id', Auth::id())
     ->first();
-    
+
     $subtopics = DB::Table('sub_topics')->select('*')
                                         ->get();
 
@@ -150,7 +150,7 @@ Route::get('/', function () {
     ->whereNull('playlists.deleted_at')
     ->where('playlists.user_id', Auth::id())
     ->get();
-    
+
     session(['videos_haltcare' => $videos_haltcare, 'videos_life' => $videos_life, 'videos_health' => $videos_health, 'videos_business' => $videos_business, 'videos_environnement' => $videos_environnement, 'videos_education' => $videos_education]);
 
     return view('home', compact('subtopics','channel','event', 'video','last','channel_top','videos_count','look_videos','like_videos','follows', 'looks','shahid','playlists'));
@@ -361,7 +361,7 @@ Route::get('/notification', function(){
     ->select('channels.*')
     ->join('channels','channels.id','abonne_channel.channel_id')
     ->where('abonne_channel.user_id', Auth::id())
-    ->get(); 
+    ->get();
 
     return view('notification',compact('channel','follows'));
 })->name('notification');

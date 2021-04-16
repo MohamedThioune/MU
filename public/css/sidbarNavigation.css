@@ -3723,6 +3723,9 @@
 
 .nav-bar {
     margin-top: 0px;
+    position: fixed;
+    width: 100%;
+    z-index: 99;
 }
 
 .bar-up {
@@ -3986,7 +3989,7 @@
     width: 32px;
 }
 .imgCloche{
-    width: 13px;
+    width: 20px;
 }
 .imgMUfull{
     width: 29px;
@@ -6202,6 +6205,8 @@
 
 .text-block-322 {
     margin-bottom: 10px;
+    width: 287px;
+    text-overflow: ellipsis;
 }
 
 .text-block-323 {
@@ -6214,7 +6219,7 @@
 }
 
 .coment-1 {
-    padding: 20px;
+    padding: 0 15px;
 }
 
 .div-block-328 {
@@ -6223,7 +6228,12 @@
     display: -ms-flexbox;
     display: flex;
 }
-
+.text-block-Date{
+    line-height: 20px;
+    color: #333;
+    font-size: 14px;
+    font-family: "Ubuntu-Bold";
+}
 .div-block-329 {
     display: -webkit-box;
     display: -webkit-flex;
@@ -9569,11 +9579,20 @@ element.style {
         height: auto;
         margin-left: 0px;
     }
-
     .search-bar {
         width: auto;
+        margin-left: 0;
     }
-
+    .mu-logo{
+     margin-left: 0px;
+    }
+    .nav-up-right{
+     justify-content: space-between;
+        width: 100%;
+    }
+    .bar-up{
+     padding-right: 15px;
+    }
     .text-block-281 {
         margin-right: 30px;
     }

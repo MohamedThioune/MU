@@ -1,4 +1,5 @@
 @extends('layouts.sidbarNavigation')
+<html lang="fr">
 <head>
     @section('css')
     <link rel="stylesheet" href="css/menu.css">
@@ -791,13 +792,32 @@
         var swiper = new Swiper('.swiper-helatcare', {
             // Optional parameters
             direction: 'horizontal',
-            loop: false,
-            //autoplay: 6500,
-            autoplayDisableOnInteraction: false,
-
+            allowTouchMove: true,
+            slidesPerView: 'auto',
+            grabCursor: true,
+            preventClicks: true,
+            spaceBetween: 30,
             keyboardControl: true,
-            mousewheelControl: true,
-            paginationClickable: true,
+            speed: 1000,
+            pagination: {
+                el: null
+            },
+            scrollbar: {
+                el: '.swiper-scrollbar',
+                draggable: true,
+                hide: false,
+                snapOnRelease: true
+            },
+            mousewheel: {
+                enable: true
+            },
+            keyboard: {
+                enabled: true
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev'
+            },
 
         });
     }

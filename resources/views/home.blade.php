@@ -127,12 +127,12 @@
 
                                     @if($playlist)
                                     <div class="d-flex justify-content-between" >
-                                        <p class="numberviewsSuggestion"> </p> 
+                                        <p class="numberviewsSuggestion"> </p>
                                         <a class="oeil-1" href="{{route('playlist.remove', $video->id)}}"><img src="{{ asset('img/Groupe-972x.png') }}"  width="10" alt="Added to my playlist"></a>
                                     </div>
                                     @else
                                     <div class="d-flex justify-content-between" >
-                                        <p class="numberviewsSuggestion"> </p> 
+                                        <p class="numberviewsSuggestion"> </p>
                                         <a class="oeil-1" href="{{route('playlist.add', $video->id)}}"><img src="{{ asset('img/icones/Like gris.png') }}"  width="10" alt="Add to my playlist"></a>
                                     </div>
                                     @endif
@@ -372,7 +372,7 @@
         </div>
     </div>
    @endif
-   
+
     <div class="chaine-vu">
         <div>
             @php $user = App\User::find($channel_top->user_id); @endphp
@@ -437,8 +437,8 @@
                 <div class="div-block-372">
                     <img src="{{ asset('img/Groupe-9262x.png') }}"  alt="" class="img127">
                 </div>
-                
-                            
+
+
                 <div class="div-block-374">
                     <div class="date-indicator">
                         <p class="text-block-371">{{__('month')}}</p>
@@ -571,7 +571,7 @@
                     $hijri_day = explode(" ", $date[0])[5];
                     $gregorian =  (new \Datetime())->format('d.m.Y');
                 @endphp
-                
+
                     <div class="time-mon-flow">
                         <div class="div-block-342"><img src="{{ asset('img/Time-shahid.svg') }}"  alt="" class="shadid103"></div>
                         <div class="div-block-341">
@@ -602,7 +602,7 @@
                                     ->count();
                             @endphp
                             <p class="text-block-354">In sha Allah</p>
-                            
+
                             <div class="progress-bar" role="progressbar bg-info" style="width:{{$variant != 0 ?(($variant/$looks)*100):'0'}}%; height:3%; border-radius:10px; background:#ebebeb; " aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                         <div class="div-block-354">
@@ -759,20 +759,6 @@
 
         }
     });
-    if ($('.swiper-container .swiper-slide').length < 1) {
-        var swiper = new Swiper('.swiper-helatcare', {
-            // Optional parameters
-            direction: 'horizontal',
-            loop: false,
-            //autoplay: 6500,
-            autoplayDisableOnInteraction: false,
-
-            keyboardControl: true,
-            mousewheelControl: true,
-            paginationClickable: true,
-
-        });
-    }
 </script>
     <script src="{{asset('js/fixeElement.js')}}"></script>
     @endsection
