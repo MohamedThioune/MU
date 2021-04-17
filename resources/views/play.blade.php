@@ -18,331 +18,7 @@
 @section('content-play-element')
 <div class="d-block blockGeneralContent">
 <div class="elementFixedMobie">
-    <!--    <div class="content-home">
-        <div class="content-naveBar">
-            <nav class="navbar navbar-expand-lg navModife">
-                <button class="groupPointNav btnMenue1">
-                    <img class="pointsRose" src="{{ asset('img/icones/troispoints.svg') }}" alt="">
-                    <div class="muu d-flex">
-                        <img class="flecheMuu" src="{{ asset('img/icones/fleche.svg') }}" alt="">
-                        <p class="muuText">mmmuuu</p>
-                    </div>
-                </button>
-                <button class="btnMenue ">
-                    <div class="d-flex">
-                        <div class="PointMenu ">
-                            <div class="onePoint"></div>
-                            <div class="onePoint"></div>
-                        </div>
-                        <div class="PointMenu">
-                            <div class="onePoint"></div>
-                            <div class="onePoint"></div>
-                        </div>
-                    </div>
-
-                </button>
-                <a class="navbar-brand elementLogo" href="#">
-                    <img src="{{ asset('img/logo-MU.png') }}" alt="">
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-
-                <div class="content-Menu menue1">
-                    <form class="form-inline2 d-flex position-relative">
-                        <input class="form-control mr-sm-2 searchNav2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn searchButtonMenue" type="submit">
-                            <img src="{{ asset('img/icones/search.png') }}" alt="">
-                        </button>
-                    </form>
-                    <div class="sousMenuGlobale1">
-                        <div class="contentElementLeft">
-                            <div class="blockItem">
-                                <img class="iconeMenue" src="{{ asset('img/icones/login.svg') }}" alt="">
-                                <p class="NameElementMenue">Profil</p>
-                                <img src="{{ asset('img/icones/fleche.svg') }}" alt="" class="iconeFleche">
-                            </div>
-                            <div class="blockItem">
-                                <div class="iconeMenue2"><img src="{{ asset('img/icones/time-shahid.png') }}" alt=""></div>
-                                <p class="NameElementMenue">Time shahid</p>
-                                <img src="{{ asset('img/icones/fleche.svg') }}" alt="" class="iconeFleche">
-                            </div>
-                            <div class="blockItem">
-                                <img class="iconeMenue" src="{{ asset('img/icones/settings.svg') }}" alt="">
-                                <p class="NameElementMenue">Setting</p>
-                                <img src="{{ asset('img/icones/fleche.svg') }}" alt="" class="iconeFleche">
-                            </div>
-                            <div class="blockItem">
-                                <img class="iconeMenue" src="{{ asset('img/icones/published.svg') }}" alt="">
-                                <p class="NameElementMenue">Published</p>
-                                <img src="{{ asset('img/icones/fleche.svg') }}" alt="" class="iconeFleche">
-                            </div>
-                            <div class="blockItem">
-                                <img class="iconeMenue" src="{{ asset('img/icones/alerte.svg') }}" alt="">
-                                <p class="NameElementMenue">Alerte</p>
-                                <img src="{{ asset('img/icones/fleche.svg') }}" alt="" class="iconeFleche">
-                            </div>
-
-                        </div>
-
-                        <div class="contentElementRight">
-                            <div class="categorieProfil">
-                                <div class="block1">
-                                    <button class="btn btnCat colorElement">Cat1</button>
-                                    <p class="sousCategorie colorElement">Cat 1.1</p>
-                                    <p class="sousCategorie colorElement">Cat 1.2</p>
-                                    <p class="sousCategorie colorElement">Cat 1.3</p>
-                                    <p class="sousCategorie colorElement">Cat 1.4</p>
-                                    <p class="sousCategorie colorElement">Cat 1.5</p>
-                                    <p class="sousCategorie colorElement">Cat 1.6</p>
-                                </div>
-                            </div>
-                            <div class="categorieProfil">
-                                <div class="block1">
-                                    <button class="btn btnCat">Cat2</button>
-                                    <p class="sousCategorie">Cat 2.1</p>
-                                    <p class="sousCategorie">Cat 2.2</p>
-                                    <p class="sousCategorie">Cat 2.3</p>
-                                    <p class="sousCategorie">Cat 2.4</p>
-                                    <p class="sousCategorie">Cat 2.5</p>
-                                    <p class="sousCategorie">Cat 2.6</p>
-                                </div>
-                            </div>
-                            <div class="categorieProfil">
-                                <div class="block1">
-                                    <button class="btn btnCat">Cat3</button>
-                                    <p class="sousCategorie">Cat 3.1</p>
-                                    <p class="sousCategorie">Cat 3.2</p>
-                                    <p class="sousCategorie">Cat 3.3</p>
-                                    <p class="sousCategorie">Cat 3.4</p>
-                                    <p class="sousCategorie">Cat 3.5</p>
-                                    <p class="sousCategorie">Cat 3.6</p>
-                                </div>
-                            </div>
-                            <div class="categorieProfil">
-                                <div class="block1">
-                                    <button class="btn btnCat">Cat4</button>
-                                    <p class="sousCategorie">Cat 4.1</p>
-                                    <p class="sousCategorie">Cat 4.2</p>
-                                    <p class="sousCategorie">Cat 4.3</p>
-                                    <p class="sousCategorie">Cat 4.4</p>
-                                    <p class="sousCategorie">Cat 4.5</p>
-                                    <p class="sousCategorie">Cat 4.6</p>
-                                </div>
-                            </div>
-                            <div class="categorieProfil">
-                                <div class="block1">
-                                    <button class="btn btnCat">Cat5</button>
-                                    <p class="sousCategorie">Cat 5.1</p>
-                                    <p class="sousCategorie">Cat 5.2</p>
-                                    <p class="sousCategorie">Cat 5.3</p>
-                                    <p class="sousCategorie">Cat 5.4</p>
-                                    <p class="sousCategorie">Cat 5.5</p>
-                                    <p class="sousCategorie">Cat 5.6</p>
-                                </div>
-                            </div>
-                            <div class="categorieProfil">
-                                <div class="block1">
-                                    <button class="btn btnCat">Cat6</button>
-                                    <p class="sousCategorie">Cat 6.1</p>
-                                    <p class="sousCategorie">Cat 6.2</p>
-                                    <p class="sousCategorie">Cat 6.3</p>
-                                    <p class="sousCategorie">Cat 6.4</p>
-                                    <p class="sousCategorie">Cat 6.5</p>
-                                    <p class="sousCategorie">Cat 6.6</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="categorie row">
-                        <div class="contentButtonCategorie">
-                            <button class="btn btnCategorie flow">Flow</button>
-                            <button class="btn btnCategorie kids">Kids</button>
-                            <button class="btn btnCategorie sista">Sista’s</button>
-                        </div>
-                        <div class="contentSousMenueCategorie sousCategorieFlow">
-                            <p class="textSousCategorie">Life / Art</p>
-                            <p class="textSousCategorie">Business</p>
-                            <p class="textSousCategorie">Education</p>
-                            <p class="textSousCategorie">Health / Wellness</p>
-                            <p class="textSousCategorie">Food</p>
-                            <p class="textSousCategorie">Sport / Gaming</p>
-                        </div>
-                        <div class="contentElementRight">
-                            <div class="categorieProfil">
-                                <div class="block1">
-                                    <button class="btn btnCat colorElement">Cat1</button>
-                                    <p class="sousCategorie colorElement">Cat 1.1</p>
-                                    <p class="sousCategorie colorElement">Cat 1.2</p>
-                                    <p class="sousCategorie colorElement">Cat 1.3</p>
-                                    <p class="sousCategorie colorElement">Cat 1.4</p>
-                                    <p class="sousCategorie colorElement">Cat 1.5</p>
-                                    <p class="sousCategorie colorElement">Cat 1.6</p>
-                                </div>
-                            </div>
-                            <div class="categorieProfil">
-                                <div class="block1">
-                                    <button class="btn btnCat">Cat2</button>
-                                    <p class="sousCategorie">Cat 2.1</p>
-                                    <p class="sousCategorie">Cat 2.2</p>
-                                    <p class="sousCategorie">Cat 2.3</p>
-                                    <p class="sousCategorie">Cat 2.4</p>
-                                    <p class="sousCategorie">Cat 2.5</p>
-                                    <p class="sousCategorie">Cat 2.6</p>
-                                </div>
-                            </div>
-                            <div class="categorieProfil">
-                                <div class="block1">
-                                    <button class="btn btnCat">Cat3</button>
-                                    <p class="sousCategorie">Cat 3.1</p>
-                                    <p class="sousCategorie">Cat 3.2</p>
-                                    <p class="sousCategorie">Cat 3.3</p>
-                                    <p class="sousCategorie">Cat 3.4</p>
-                                    <p class="sousCategorie">Cat 3.5</p>
-                                    <p class="sousCategorie">Cat 3.6</p>
-                                </div>
-                            </div>
-                            <div class="categorieProfil">
-                                <div class="block1">
-                                    <button class="btn btnCat">Cat4</button>
-                                    <p class="sousCategorie">Cat 4.1</p>
-                                    <p class="sousCategorie">Cat 4.2</p>
-                                    <p class="sousCategorie">Cat 4.3</p>
-                                    <p class="sousCategorie">Cat 4.4</p>
-                                    <p class="sousCategorie">Cat 4.5</p>
-                                    <p class="sousCategorie">Cat 4.6</p>
-                                </div>
-                            </div>
-                            <div class="categorieProfil">
-                                <div class="block1">
-                                    <button class="btn btnCat">Cat5</button>
-                                    <p class="sousCategorie">Cat 5.1</p>
-                                    <p class="sousCategorie">Cat 5.2</p>
-                                    <p class="sousCategorie">Cat 5.3</p>
-                                    <p class="sousCategorie">Cat 5.4</p>
-                                    <p class="sousCategorie">Cat 5.5</p>
-                                    <p class="sousCategorie">Cat 5.6</p>
-                                </div>
-                            </div>
-                            <div class="categorieProfil">
-                                <div class="block1">
-                                    <button class="btn btnCat">Cat6</button>
-                                    <p class="sousCategorie">Cat 6.1</p>
-                                    <p class="sousCategorie">Cat 6.2</p>
-                                    <p class="sousCategorie">Cat 6.3</p>
-                                    <p class="sousCategorie">Cat 6.4</p>
-                                    <p class="sousCategorie">Cat 6.5</p>
-                                    <p class="sousCategorie">Cat 6.6</p>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="categorie row">
-                        <div class="contentButtonCategorie">
-                            <button class="btn btnCategorie flow">Flow</button>
-                            <button class="btn btnCategorie kids">Kids</button>
-                            <button class="btn btnCategorie sista">Sista’s</button>
-                        </div>
-                        <div class="contentSousMenueCategorie sousCategorieFlow">
-                            <p class="textSousCategorie">Life / Art</p>
-                            <p class="textSousCategorie">Business</p>
-                            <p class="textSousCategorie">Education</p>
-                            <p class="textSousCategorie">Health / Wellness</p>
-                            <p class="textSousCategorie">Food</p>
-                            <p class="textSousCategorie">Sport / Gaming</p>
-                        </div>
-
-                    </div>
-                </div>
-
-
-                <form class="form-inline position-relative">
-                    <input class="form-control mr-sm-2 searchNav" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn searchButton" type="submit">
-                        <img src="{{ asset('img/icones/search.png') }}" alt="">
-                    </button>
-                </form>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ml-auto">
-                        @if(Auth::guest())
-                        <li class="nav-item nav-modife">
-                            <a href="{{route('register')}}" class="btnCommunaute">Rejoindre la communauté</a>
-                        </li>
-                        <li class="nav-item nav-modife">
-                            <img src="{{ asset('img/icones/login.svg') }}" alt="">
-                            <a class="nav-link" href="{{route('login')}}">Log in</a>
-                        </li>
-                        @else
-                        <li class="nav-item nav-modife">
-                            @if(Auth::user()->timeout)
-                            @if(intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/ 86400) == 0)
-                            @if(intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/ 3600) > 0)
-                            <p class="day" style="font-size:18px; color:white">Last login - <span style="color:#c22d84">{{intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/3600)}} hours ago</span></p>
-                            @else(intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/ 3600) == 0)
-                            <p class="day"style="font-size:18px; color:white">Last login - <span style="color:#c22d84">{{intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/60)}} minutes ago</span></p>
-                            @endif
-                            @elseif(intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/ 86400) == 1)
-                            <p class="day" style="font-size:18px; color:white">Last login - <span style="color:#c22d84">Yesterday at {{strftime("%H:%M", strtotime(Auth::user()->timeout))}}</span></p>
-                            @elseif(intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/ 86400) >= 2 && intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/ 86400) <= 27)
-                            <p class="day"style="font-size:18px; color:white">Last login - <span style="color:#c22d84">{{intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/ 86400)}} days ago</span></p>
-                            @else(intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/ 86400) > 27)
-                            <p class="day" style="font-size:18px; color:white">Last login - <span style="color:#c22d84">On {{strftime("%d/%m/%Y", strtotime(Auth::user()->timeout))}}</span></p>
-                            @endif
-                            @else
-                            <p class="day" style="font-size:18px; color:#f4de39">WELCOME <span style="color:white"> TO</span> <span style="color:#c22d84"> MU</span></p>
-                            @endif
-                        </li>
-                        <li class="nav-item nav-modife">
-
-                            @if(!session('profile'))
-                            <span class="btnCommunaute" style="background:none; box-shadow: 4px 4px 15px white;font-weight:bold">
-                                             @php
-                                                $profile = DB::Table('users')->select('profile.*')
-                                                                             ->join('profile', 'users.id', 'profile.user_id')
-                                                                             ->where('users.id', Auth::id())
-                                                                             ->first();
-
-                                                echo $profile->name;
-                                             @endphp
-                                             &nbsp;&nbsp;
-                                            <a style="color:white;font-size:19px;" href="{{route('choose')}}"><i class="fas fa-caret-down"></i></a>
-                                        </span>
-                            @elseif(session('profile')["age"] <= 15)
-                            <span class="btnCommunaute" style="background:none; box-shadow: 4px 4px 15px #e9d22e;font-weight:bold"> {{session('profile')["name"]}} &nbsp;&nbsp;<a style="color:#e9d22e;font-size:19px;" href="{{route('choose')}}"><i class="fas fa-caret-down"></i></a></span>
-                            @elseif(session('profile')["age"] > 15 && session('profile')["sex"] == '1')
-                            <span class="btnCommunaute" style="background:none; box-shadow: 4px 4px 15px #3eacec;font-weight:bold"> {{session('profile')["name"]}} &nbsp;&nbsp;<a href="{{route('choose')}}"><i class="fas fa-caret-down"></i></a></span>
-                            @elseif(session('profile')["age"] > 15 && session('profile')["sex"] == '0')
-                            <span class="btnCommunaute" style="background:none; box-shadow: 4px 4px 15px #d14f94;font-weight:bold"> {{session('profile')["name"]}} &nbsp;&nbsp;<a style="color:#d14f94;font-size:19px;" href="{{route('choose')}}"><i class="fas fa-caret-down"></i></a><span>
-                                        @endif
-                        </li>
-                        <li class="nav-item nav-modife">
-                            <img src="{{ asset('img/icones/login.svg') }}" alt="">
-                            <form action="{{ route('logout') }}" class="nav-modife formModife" method="POST">
-                                @csrf
-                                <button class="nav-link btnLogOut" type="submit" >Log out</button>
-                            </form>
-                        </li>
-                        @endif
-                    </ul>
-                </div>
-            </nav>
-            <div class="header2">
-                <div class="container-modife">
-                    <div class="block2">
-                        <p class="textHeader2">mmmuuu</p>
-                        <div class="d-flex groupButtonHeader2">
-                            <button class="btn btnheader2">Flow</button>
-                            <button class="btn btnheader2">Sista’s</button>
-                            <button class="btn btnheader2">Kids</button>
-                        </div>
-                        <img class="setting2" src="{{ asset('img/icones/settings.svg') }}" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>-->
+   
    
     <div class="content-contenue1">
         <div class="contentParDefaut">
@@ -537,9 +213,20 @@
                     <!-- <p class="nbreAbonnees"> {{\App\Models\Channel::find($channel->id)->abonnees->count()}} Abonnes</p>  -->
                     </div>
                     <div class="elementBtnSouscrire">
-                        <a href="{{ route('suscribe',$channel->id) }}" class="btn btnSubscribe">{{__('Subscribe')}} <button class="btn btnClocheNot">
+                        @if(!Auth::guest())
+                        <a href="{{ route('suscribe',$channel->id) }}" class="btn btnSubscribe" >{{__('Subscribe')}} 
+                            <button class="btn btnClocheNot">
                                 <img src="{{ asset('img/Mu-cloche-blanc.png') }}" class="imgClocheAbonne" alt="">
-                            </button></a>
+                            </button>
+                        </a>
+                        @else
+                        <a href="#" class="btn btnSubscribe"  data-toggle="tooltip" data-placement="top" title="this feature is only available to community members"> {{__('Subscribe')}} 
+                            <button class="btn btnClocheNot">
+                                <img src="{{ asset('img/Mu-cloche-blanc.png') }}" class="imgClocheAbonne" alt="">
+                            </button>
+                        </a>
+                        @endif
+                        
                     </div>
                 </div>
                     @php
@@ -557,106 +244,115 @@
                 <div class="blockTime position-relative">
                     <button class="btn btnPLus"><img src="{{ asset('img/icones/plus.png') }}" alt=""></button>
                     <img class="img-time" src="{{ asset('img/icones/time-shahid.png') }}" alt="">
+                @if(Auth::guest())
+                    <div class="">
+                        <p class="textTimeShalied">Time Shahid</p><br>
+                        <p class="calendar" style="font-weight:bold;">{{__('this feature is only available to community members')}} </p>
+                        <center><a href="{{route('register')}}" class="oumma w-button" style="text-decoration:none;width:95px">{{__('Join us !')}}</a></center>
+                    </div>
+                @else
                     <div class="">
                         <p class="textTimeShalied">Time Shahid</p>
                         @php $shahid = explode(":",$shahid); if($shahid[0] == "00") $shahid[0] = "0"; @endphp
                         <p class="timeSh">{{$shahid[0]}}h {{$shahid[1]}} mn</p>
                         <p class="calendar">{{$hijri_day}} {{$hijri_month}} {{$hijri_year}} - <span>{{$gregorian}}</span></p>
                     </div>
-                @if($looks > 0)
-                    <div class="elementBarreText" style="transform: rotate(-180deg); height:50px; margin-top:40px">
+               
+                    @if($looks > 0)
+                        <div class="elementBarreText" style="transform: rotate(-180deg); height:50px; margin-top:40px">
 
-                        <div class="contentBarreText e">
-                            @php
-                                $variant = DB::table('videos')
-                                        ->join('reads','videos.id','reads.video_id')
-                                        ->join('sub_topics','sub_topics.id','videos.subtopic_id')
-                                        ->join('main_topics','main_topics.id','sub_topics.mainTopic_id')
-                                        ->where('reads.user_id', Auth::id())
-                                        ->where('reads.created_at', '>=', $start)
-                                        ->where('reads.created_at', '<', $end)
-                                        ->where('reads.user_id', Auth::id())
-                                        ->where('main_topics.id', 5)
-                                        ->whereNull('videos.deleted_at')
-                                        ->count();
-                            @endphp
-                            <p class="lettre" style="transform: rotate(180deg);">E</p>
-                            <div class="progress-bar" role="progressbar bg-info" style="width:18px; height:{{$variant != 0 ?(($variant/$looks)*100):'0'}}%; border-radius:10px; background:#4A4A4A;" aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="contentBarreText e">
+                                @php
+                                    $variant = DB::table('videos')
+                                            ->join('reads','videos.id','reads.video_id')
+                                            ->join('sub_topics','sub_topics.id','videos.subtopic_id')
+                                            ->join('main_topics','main_topics.id','sub_topics.mainTopic_id')
+                                            ->where('reads.user_id', Auth::id())
+                                            ->where('reads.created_at', '>=', $start)
+                                            ->where('reads.created_at', '<', $end)
+                                            ->where('reads.user_id', Auth::id())
+                                            ->where('main_topics.id', 5)
+                                            ->whereNull('videos.deleted_at')
+                                            ->count();
+                                @endphp
+                                <p class="lettre" style="transform: rotate(180deg);">E</p>
+                                <div class="progress-bar" role="progressbar bg-info" style="width:18px; height:{{$variant != 0 ?(($variant/$looks)*100):'0'}}%; border-radius:10px; background:#4A4A4A;" aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
 
+                            </div>
+                            <div class="contentBarreText d">
+                                @php
+                                    $variant = DB::table('videos')
+                                            ->join('reads','videos.id','reads.video_id')
+                                            ->join('sub_topics','sub_topics.id','videos.subtopic_id')
+                                            ->join('main_topics','main_topics.id','sub_topics.mainTopic_id')
+                                            ->where('reads.user_id', Auth::id())
+                                            ->where('reads.created_at', '>=', $start)
+                                            ->where('reads.created_at', '<', $end)
+                                            ->where('reads.user_id', Auth::id())
+                                            ->where('main_topics.id', 6)
+                                            ->whereNull('videos.deleted_at')
+                                            ->count();
+                                @endphp
+                                <p class="lettre" style="transform: rotate(180deg);">D</p>
+                                <div class="progress-bar" role="progressbar bg-info" style="width:18px; height:{{$variant != 0 ?(($variant/$looks)*100):'0'}}%; border-radius:10px; background:#4A4A4A;" aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
+
+                            </div>
+                            <div class="contentBarreText h">
+                                @php
+                                    $variant = DB::table('videos')
+                                            ->join('reads','videos.id','reads.video_id')
+                                            ->join('sub_topics','sub_topics.id','videos.subtopic_id')
+                                            ->join('main_topics','main_topics.id','sub_topics.mainTopic_id')
+                                            ->where('reads.user_id', Auth::id())
+                                            ->where('reads.created_at', '>=', $start)
+                                            ->where('reads.created_at', '<', $end)
+                                            ->where('reads.user_id', Auth::id())
+                                            ->where('main_topics.id', 3)
+                                            ->whereNull('videos.deleted_at')
+                                            ->count();
+                                @endphp
+                                <p class="lettre">H</p>
+                                <div class="progress-bar" role="progressbar bg-info" style="width:18px; height:{{$variant != 0 ?(($variant/$looks)*100):'0'}}%; border-radius:10px; background:#4A4A4A;" aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
+
+                            </div>
+                            <div class="contentBarreText l">
+
+                                @php
+                                    $variant = DB::table('videos')
+                                            ->join('reads','videos.id','reads.video_id')
+                                            ->join('sub_topics','sub_topics.id','videos.subtopic_id')
+                                            ->join('main_topics','main_topics.id','sub_topics.mainTopic_id')
+                                            ->where('reads.user_id', Auth::id())
+                                            ->where('reads.created_at', '>=', $start)
+                                            ->where('reads.created_at', '<', $end)
+                                            ->where('reads.user_id', Auth::id())
+                                            ->where('main_topics.id', 2)
+                                            ->whereNull('videos.deleted_at')
+                                            ->count();
+                                @endphp
+                                <p class="lettre" style="transform: rotate(180deg);">L</p>
+                                <div class="progress-bar" role="progressbar bg-info" style="width:18px; height:{{$variant != 0 ?(($variant/$looks)*100):'0'}}%; border-radius:10px; background:#4A4A4A;" aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
+
+                            </div>
+                            <div class="contentBarreText">
+                                @php
+                                    $variant = DB::table('videos')
+                                            ->join('reads','videos.id','reads.video_id')
+                                            ->join('sub_topics','sub_topics.id','videos.subtopic_id')
+                                            ->join('main_topics','main_topics.id','sub_topics.mainTopic_id')
+                                            ->where('reads.user_id', Auth::id())
+                                            ->where('reads.created_at', '>=', $start)
+                                            ->where('reads.created_at', '<', $end)
+                                            ->where('reads.user_id', Auth::id())
+                                            ->where('main_topics.id', 1)
+                                            ->whereNull('videos.deleted_at')
+                                            ->count();
+                                @endphp
+                                <p class="lettre" style="transform: rotate(180deg);">B</p>
+                                <div class="progress-bar" role="progressbar bg-info" style="width:18px; height:{{$variant != 0 ?(($variant/$looks)*100):'0'}}%; border-radius:10px; background:#4A4A4A;" aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
                         </div>
-                        <div class="contentBarreText d">
-                            @php
-                                $variant = DB::table('videos')
-                                        ->join('reads','videos.id','reads.video_id')
-                                        ->join('sub_topics','sub_topics.id','videos.subtopic_id')
-                                        ->join('main_topics','main_topics.id','sub_topics.mainTopic_id')
-                                        ->where('reads.user_id', Auth::id())
-                                        ->where('reads.created_at', '>=', $start)
-                                        ->where('reads.created_at', '<', $end)
-                                        ->where('reads.user_id', Auth::id())
-                                        ->where('main_topics.id', 6)
-                                        ->whereNull('videos.deleted_at')
-                                        ->count();
-                            @endphp
-                            <p class="lettre" style="transform: rotate(180deg);">D</p>
-                            <div class="progress-bar" role="progressbar bg-info" style="width:18px; height:{{$variant != 0 ?(($variant/$looks)*100):'0'}}%; border-radius:10px; background:#4A4A4A;" aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
-
-                        </div>
-                        <div class="contentBarreText h">
-                            @php
-                                $variant = DB::table('videos')
-                                        ->join('reads','videos.id','reads.video_id')
-                                        ->join('sub_topics','sub_topics.id','videos.subtopic_id')
-                                        ->join('main_topics','main_topics.id','sub_topics.mainTopic_id')
-                                        ->where('reads.user_id', Auth::id())
-                                        ->where('reads.created_at', '>=', $start)
-                                        ->where('reads.created_at', '<', $end)
-                                        ->where('reads.user_id', Auth::id())
-                                        ->where('main_topics.id', 3)
-                                        ->whereNull('videos.deleted_at')
-                                        ->count();
-                            @endphp
-                            <p class="lettre">H</p>
-                            <div class="progress-bar" role="progressbar bg-info" style="width:18px; height:{{$variant != 0 ?(($variant/$looks)*100):'0'}}%; border-radius:10px; background:#4A4A4A;" aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
-
-                        </div>
-                        <div class="contentBarreText l">
-
-                            @php
-                                $variant = DB::table('videos')
-                                        ->join('reads','videos.id','reads.video_id')
-                                        ->join('sub_topics','sub_topics.id','videos.subtopic_id')
-                                        ->join('main_topics','main_topics.id','sub_topics.mainTopic_id')
-                                        ->where('reads.user_id', Auth::id())
-                                        ->where('reads.created_at', '>=', $start)
-                                        ->where('reads.created_at', '<', $end)
-                                        ->where('reads.user_id', Auth::id())
-                                        ->where('main_topics.id', 2)
-                                        ->whereNull('videos.deleted_at')
-                                        ->count();
-                            @endphp
-                            <p class="lettre" style="transform: rotate(180deg);">L</p>
-                            <div class="progress-bar" role="progressbar bg-info" style="width:18px; height:{{$variant != 0 ?(($variant/$looks)*100):'0'}}%; border-radius:10px; background:#4A4A4A;" aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
-
-                        </div>
-                        <div class="contentBarreText">
-                            @php
-                                $variant = DB::table('videos')
-                                        ->join('reads','videos.id','reads.video_id')
-                                        ->join('sub_topics','sub_topics.id','videos.subtopic_id')
-                                        ->join('main_topics','main_topics.id','sub_topics.mainTopic_id')
-                                        ->where('reads.user_id', Auth::id())
-                                        ->where('reads.created_at', '>=', $start)
-                                        ->where('reads.created_at', '<', $end)
-                                        ->where('reads.user_id', Auth::id())
-                                        ->where('main_topics.id', 1)
-                                        ->whereNull('videos.deleted_at')
-                                        ->count();
-                            @endphp
-                            <p class="lettre" style="transform: rotate(180deg);">B</p>
-                            <div class="progress-bar" role="progressbar bg-info" style="width:18px; height:{{$variant != 0 ?(($variant/$looks)*100):'0'}}%; border-radius:10px; background:#4A4A4A;" aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-                    </div>
+                    @endif
                 @endif
                 </div>
             </div>
@@ -825,8 +521,8 @@
                         <textarea class="inputCommentaire2" name="value" id=""></textarea>
 
                         <div class="div-block-332">
-                            <button class="btn btnAnnuler">{{__('')}}Annuler</button>
-                            <button type="submit" class="btn btnEnvoyer">{{__('')}}Envoyer</button>
+                            <button type="reset" class="btn btnAnnuler" @if(Auth::guest()) disabled @endif>{{__('Reset')}}</button>
+                            <button type="submit" class="btn btnEnvoyer" @if(Auth::guest()) disabled @endif>{{__('Send')}}</button>
                         </div>
                     </form>
                     @for($i = 1; $i < count($comments); $i++)

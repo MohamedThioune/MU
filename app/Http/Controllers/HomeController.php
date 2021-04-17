@@ -46,7 +46,6 @@ class HomeController extends Controller
     }
 
     public function play($id){
-
         /* 
         * All videos by main_topic
         */
@@ -59,40 +58,40 @@ class HomeController extends Controller
                                  ->get();
 
         $videos_life = DB::Table('videos')->select('videos.*')
-        ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
-        ->join('users','users.id','videos.user_id')
-        ->where('mainTopic_id', 2)
-        ->whereNull('videos.deleted_at')
-        ->get();
+                                ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
+                                ->join('users','users.id','videos.user_id')
+                                ->where('mainTopic_id', 2)
+                                ->whereNull('videos.deleted_at')
+                                ->get();
 
         $videos_health = DB::Table('videos')->select('videos.*')
-        ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
-        ->join('users','users.id','videos.user_id')
-        ->where('mainTopic_id', 3)
-        ->whereNull('videos.deleted_at')
-        ->get();
+                                ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
+                                ->join('users','users.id','videos.user_id')
+                                ->where('mainTopic_id', 3)
+                                ->whereNull('videos.deleted_at')
+                                ->get();
 
 
         $videos_business = DB::Table('videos')->select('videos.*')
-        ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
-        ->join('users','users.id','videos.user_id')
-        ->where('mainTopic_id', 4)
-        ->whereNull('videos.deleted_at')
-        ->get();
+                                ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
+                                ->join('users','users.id','videos.user_id')
+                                ->where('mainTopic_id', 4)
+                                ->whereNull('videos.deleted_at')
+                                ->get();
 
         $videos_environnement = DB::Table('videos')->select('videos.*')
-        ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
-        ->join('users','users.id','videos.user_id')
-        ->where('mainTopic_id', 5)
-        ->whereNull('videos.deleted_at')
-        ->get();
+                                ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
+                                ->join('users','users.id','videos.user_id')
+                                ->where('mainTopic_id', 5)
+                                ->whereNull('videos.deleted_at')
+                                ->get();
 
         $videos_education = DB::Table('videos')->select('videos.*')
-        ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
-        ->join('users','users.id','videos.user_id')
-        ->where('mainTopic_id', 6)
-        ->whereNull('videos.deleted_at')
-        ->get();
+                                ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
+                                ->join('users','users.id','videos.user_id')
+                                ->where('mainTopic_id', 6)
+                                ->whereNull('videos.deleted_at')
+                                ->get();
 
         /* 
         * Time shahid and Progress bar 

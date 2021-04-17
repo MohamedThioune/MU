@@ -80,7 +80,7 @@ Route::get('/', function () {
     ->count();
 
 
-    $shahid = strtotime('i:s');
+    $shahid = null;
 
     foreach($look_videos as $look){
         $video = App\Models\Video::find($look->video_id);
@@ -171,6 +171,136 @@ Route::get('/play', function () {
 })->name('playing')->middleware('auth');
 
 Route::get('/play/{n}', [App\Http\Controllers\HomeController::class, 'play'])->where('n','[0-9]+')->name('play')->middleware('auth');
+
+// share page : Play the current video shared [Online]
+Route::get('/share/{n}', function($id){
+
+    /* 
+        * 
+    */
+
+    /* 
+        * Retrieve all videos shared $shared
+    */
+    
+    /* 
+    * Test if this video.id is already shared by check in table of videos shared 
+    
+    if($condition is true  ){
+    
+    */
+
+    //State lecture of a video today
+    $state = false;
+
+    $video = App\Models\Video::find($id);
+    $user = App\User::find($video->user_id); 
+    $users = array();
+
+    $subtopics = App\Models\SubTopic::all();
+
+    $reads = DB::Table('reads')
+    ->where('video_id', $id)
+    ->count();
+
+    $comments = DB::Table('comments')->select('comments.user_id','comments.value' ,'comments.id as comment_id' ,'comments.created_at')
+    ->where('comments.video_id', $id)
+    ->orderBy('comments.created_at', 'desc')
+    ->get();
+
+    foreach($comments as $comment){
+        $auth =  App\User::find($comment->user_id);
+        array_push($users, $auth);
+    };
+
+    $counts = count($comments);
+
+    /* 
+    * Time shahid and Progress bar 
+    */
+
+    $start =  (new \Datetime())->format('Y-m-01 H:i:s');
+    $end =   (new \Datetime())->format('Y-m-30 H:i:s');
+
+    $look_videos = null;
+
+    $shahid = strtotime('i:s');
+
+    $shahid = date('H:i:s', $shahid);
+
+    $looks = null;
+                
+    /* 
+    * All videos by main_topic
+    */
+
+    $videos_haltcare = DB::Table('videos')->select('videos.*')
+                            ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
+                            ->join('users','users.id','videos.user_id')
+                            ->where('mainTopic_id', 1)
+                            ->whereNull('videos.deleted_at')
+                            ->get();
+
+    $videos_life = DB::Table('videos')->select('videos.*')
+    ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
+    ->join('users','users.id','videos.user_id')
+    ->where('mainTopic_id', 2)
+    ->whereNull('videos.deleted_at')
+    ->get();
+
+    $videos_health = DB::Table('videos')->select('videos.*')
+    ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
+    ->join('users','users.id','videos.user_id')
+    ->where('mainTopic_id', 3)
+    ->whereNull('videos.deleted_at')
+    ->get();
+
+
+    $videos_business = DB::Table('videos')->select('videos.*')
+    ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
+    ->join('users','users.id','videos.user_id')
+    ->where('mainTopic_id', 4)
+    ->whereNull('videos.deleted_at')
+    ->get();
+
+    $videos_environnement = DB::Table('videos')->select('videos.*')
+    ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
+    ->join('users','users.id','videos.user_id')
+    ->where('mainTopic_id', 5)
+    ->whereNull('videos.deleted_at')
+    ->get();
+
+    $videos_education = DB::Table('videos')->select('videos.*')
+    ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
+    ->join('users','users.id','videos.user_id')
+    ->where('mainTopic_id', 6)
+    ->whereNull('videos.deleted_at')
+    ->get();
+
+    $inshaallah = DB::Table('videos')->select('videos.*')
+    ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
+    ->where('mainTopic_id', 7)
+    ->whereNull('videos.deleted_at')
+    ->OrderByDesc('videos.created_at', )
+    ->get();
+
+    return view('play', compact('user', 'video', 'comments', 'counts', 'reads', 'users', 'subtopics','looks','shahid','inshaallah','videos_haltcare','videos_life','videos_health','videos_business','videos_environnement','videos_education'));
+    
+    /* 
+        * end condition videos.id is shared
+    }
+    */
+
+        /* 
+        * end condition videos.id is shared
+        * return view login 
+        
+        else {
+        return view('login');
+    }
+    */
+
+})->where('n','[0-9]+')->name('share');
 
 // home page : list all videos [Online]
 Route::get('/choose', [App\Http\Controllers\ProfileController::class, 'choose'])->name('choose')->middleware('auth');
@@ -525,5 +655,7 @@ Route::post('/tarif', function(){
     session(['amount'=>$_POST['amount']]);
     return redirect(route('process'));
 })->name('tarif');
+
+
 
 
