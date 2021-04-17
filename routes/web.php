@@ -505,6 +505,7 @@ Route::post('/process', function(){
     } 
     else 
         Flash::error('Error occured &#x1F534; '.$result->errors->message );
+        // var_dump($result) );
 
     return redirect(route('payment'));
 })->name('payment');
