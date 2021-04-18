@@ -2,11 +2,10 @@
 <html lang="fr">
 <head>
     @section('css')
-    <link rel="stylesheet" href="node_modules/swiper/swiper.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="{{asset('css/menu.css')}}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.css" integrity="sha512-phGxLIsvHFArdI7IyLjv14dchvbVkEDaH95efvAae/y2exeWBQCQDpNFbOTdV1p4/pIa/XtbuDCnfhDEIXhvGQ==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     @endsection
@@ -21,7 +20,7 @@
     <div class="content-contenue1">
         <div class="contentParDefaut">
             <div class="linearColor"></div>
-            <div class="container-fluid position-relative">
+            <div class="container-fluid position-relative groupOne">
                 <div class="flexElement1">
                     <div class="fistElement">
                         <div class="videoParDefaut">
@@ -76,8 +75,24 @@
                     <div class="sousBlockTitle">
                         <div class="title-groupIcone">
                             <p class="text-title">{{__('Title of the video')}} : {{session('video')->main_title }}</p>
+                           <div class="imgMobileFleur">
+                               <img  src="{{ asset('img/Mu-feuille-ADDB982x.png') }}" alt="">
+                           </div>
                         </div>
-                        <div class="groupLOveUnlove">
+                        @php
+                        $months = ['01' => 'Jan', '02' => 'Feb', '03' => 'Mar', '04' => 'Apr', '05' => 'May', '06' => 'Jun', '07' => 'Jul', '08' => 'Aug', '09' => 'Sep', '10' => 'Oct', '11' => 'Nov', '12' => 'Dec' ];
+                        @endphp
+                        <div class="content12">
+                            <p class="datePublication">{{__('Published')}} :&nbsp;{{session('video')->created_at->format('d')}}&nbsp; {{ $months[session('video')->created_at->format('m')]}}. &nbsp;{{session('video')->created_at->format('Y')}} </p>
+                            <div class="d-flex textImgView">
+                                <p class="nbrView"> {{$reads}}</p>
+                                <div class="imgOeil"><img  src="{{ asset('img/icones/oeil.png') }}" alt=""></div>
+                            </div>
+                            <button class="blockPoint" data-toggle="modal" data-target="#exampleModal1">
+                                <div class="trois-point-noir">...</div>
+                            </button>
+                        </div>
+                        <div class="groupLOveUnlove groupLOveUnlove1">
                             <div class="blockLoveUnlove">
                                 <p class="nbrLove">{{ session('video')->likers()->count() }} </p>
                                 <div class="imgCoeur">
@@ -94,19 +109,7 @@
                                 </div>
                                 <p class="nbrLove">{{ session('video')->unlikes()->count() }}</p>
                             </div>
-                            <div class="blockImgPuliMobile">
-                                <img src="{{ asset('img/icones/more.png') }}" alt="">
-                            </div>
-                        </div>
-                        @php
-                        $months = ['01' => 'Jan', '02' => 'Feb', '03' => 'Mar', '04' => 'Apr', '05' => 'May', '06' => 'Jun', '07' => 'Jul', '08' => 'Aug', '09' => 'Sep', '10' => 'Oct', '11' => 'Nov', '12' => 'Dec' ];
-                        @endphp
-                        <div class="content12">
-                            <p class="datePublication">{{__('Published')}} :&nbsp;{{session('video')->created_at->format('d')}}&nbsp; {{ $months[session('video')->created_at->format('m')]}}. &nbsp;{{session('video')->created_at->format('Y')}} </p>
-                            <div class="d-flex textImgView">
-                                <p class="nbrView"> {{$reads}}</p>
-                                <div class="imgOeil"><img  src="{{ asset('img/icones/oeil.png') }}" alt=""></div>
-                            </div>
+
                         </div>
                     </div>
                     <div class="block-detail-commentaire">
@@ -133,54 +136,33 @@
                             <img src="{{ asset('img/icones/share.png') }}" alt="">
                             <p class="textShare">{{__('Share')}}</p>
                         </div>
-                        <div class=" shopBtn blockImgPuli bottomElement3">
+                        <button class="btn shopBtn blockImgPuli bottomElement3" type="button" data-toggle="modal" data-target="#exampleModal1">
                             <img src="{{ asset('img/panier.png') }}" alt="">
                             <p class="textShare">{{__('Shop')}}</p>
-                        </div>
+                        </button>
                         <div class="blockImgPuli">
                             <div class="trois-point-noir">...</div>
                         </div>
                     </div>
-                    <div class="block-shop">
-                        <div  class="offre-shop">
-                            <div class="div-block-322">
-                                <p class="text-block-318">{{__('Offer of the channel')}}</p>
-                                <div data-w-id="0a070e0d-57d5-30ba-c024-1a4991a71631" class="cross">
-                                    <div class="bar-cross"></div>
-                                    <div class="bar-cross-left"></div>
-                                </div>
-                            </div>
-                            <div class="div-block-319">
-                                <div class="div-block-318">
-                                    <div class="imgBullProfil">
-                                        <img src="{{ asset('img/Mu-bull-profil-logo-fitG.jpg') }}"  alt="">
-                                    </div>
-                                    <div class="text-block-320">{{__('Product name')}} / Formation</div>
-                                    <a href="#" class="link-block-38 w-inline-block">
-                                        <span class="text-block-319">{{__('Discover')}}</span>
-                                    </a>
-                                </div>
-                                <div class="div-block-318">
-                                    <div class="imgBullProfil">
-                                        <img src="{{ asset('img/Mu-bull-profil-logo-fitG.jpg') }}"  alt="">
-                                    </div>
-                                    <div class="text-block-320">{{__('Product name')}} 2</div>
-                                    <a href="#" class="link-block-38 w-inline-block">
-                                        <span class="text-block-319">{{__('Discover')}}</span>
-                                    </a>
-                                </div>
-                                <div class="div-block-318">
-                                    <div class="imgBullProfil">
-                                        <img src="{{ asset('img/Mu-bull-profil-logo-fitG.jpg') }}"  alt="">
-                                    </div>
-                                    <div class="text-block-320">{{__('Product name')}}...</div>
-                                    <a href="#" class="link-block-38 w-inline-block">
-                                        <span class="text-block-319">{{__('Discover')}}</span>
-                                    </a>
-                                </div>
-                            </div>
+                </div>
+                <div class="groupLOveUnlove groupLOveUnlove2">
+                    <div class="blockLoveUnlove">
+                        <p class="nbrLove">{{ session('video')->likers()->count() }} </p>
+                        <div class="imgCoeur">
+                            <a href="{{ route('likevideo',session('video')->id ) }}">
+                                <img src="{{ asset('img/icones/coeurRose.svg') }}" alt="">
+                            </a>
                         </div>
                     </div>
+                    <div class="blockLoveUnlove">
+                        <div class="imgCoeur">
+                            <a href="{{ route('dislikevideo',session('video')->id )}}">
+                                <img src="{{ asset('img/icones/loveRenverseGris.png') }}" alt="">
+                            </a>
+                        </div>
+                        <p class="nbrLove">{{ session('video')->unlikes()->count() }}</p>
+                    </div>
+
                 </div>
                 <div class="blockAuteur webElement">
                     <img class="imgBadge" src="{{ asset('img/icones/Badge.png') }}" alt="">
@@ -215,6 +197,10 @@
                                 <img src="{{ asset('img/Mu-cloche-blanc.png') }}" class="imgClocheAbonne" alt="">
                             </button></a>
                     </div>
+                </div>
+                <div class="pub-mob">
+                    <p class="etiquette-pub">Annoces</p>
+                    <img src="{{ asset('img/Mu-juz-app-hoz-ads-fleur.png') }}" alt="">
                 </div>
                     @php
                         $date = new hijri();
@@ -376,10 +362,6 @@
                 <div class="blockcomentaireAndButton">
                     <p class="commentaire">{{__('lown payment at confirmation of order and rest on factory dispatch date, Two years EU')}}</p>
                 </div>
-                <div class="moreContent">
-                    <button class="btn btnMore">{{__('More')}}</button>
-                    <img class="imgFleche" src="{{ asset('img/icones/fleche.svg') }}" alt="">
-                </div>
             </div>
             <div class="blockAuteur">
                 <img class="imgBadge" src="{{ asset('img/icones/Badge.png') }}" alt="">
@@ -499,8 +481,7 @@
                         <textarea class="inputCommentaire2" name="value" id=""></textarea>
 
                         <div class="div-block-332">
-                            <button class="btn btnAnnuler">{{__('')}}Annuler</button>
-                            <button type="submit" class="btn btnEnvoyer">{{__('')}}Envoyer</button>
+                            <button type="submit" class="btn btnEnvoyer">{{__('')}}Poster</button>
                         </div>
                     </form>
                     @for($i = 1; $i < count($comments); $i++)
@@ -575,8 +556,7 @@
                                 <textarea class="inputCommentaire" name="value" id="" rows="5"></textarea>
 
                                 <div class="div-block-332">
-                                    <div data-w-id="4b72083c-6fc6-243d-8a1a-20877dbe9b72" class="text-block-325">{{__('')}}Annuler</div>
-                                    <button type="submit" class="text-block-326 btn">{{__('')}}Envoyer</button>
+                                    <button type="submit" class="text-block-326 btn">{{__('')}}Poster</button>
                                 </div>
                             </form>
                             <div>
@@ -587,17 +567,111 @@
                            <p class="textTousCom">Voir tous les commentaires</p>
                            <button class="btn btnTous" data-toggle="modal" data-target="#exampleModal"><img class="imgTousCom" src="{{ asset('img/touscom.svg') }}" alt=""></button>
                            <!-- Modal -->
-                           <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                               <div class="modal-dialog" role="document">
+                           <div class="modal fade modalCommenraire" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                               <div class="modal-dialog modal-dialog2" role="document">
                                    <div class="modal-content">
-                                       <div class="modal-header">
-                                           <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                               <span aria-hidden="true">&times;</span>
-                                           </button>
-                                       </div>
-                                       <div class="modal-body">
-                                           ...
+                                       <div class="plus-comments-mob">
+                                            <div class="div-block-465">
+                                                <button data-dismiss="modal" class="btn flech-grey w-inline-block">
+                                                    <div class="fleche-up-grey"></div>
+                                                    <div class="fleche-down-grey"></div>
+                                                </button>
+                                            </div>
+                                           <div class="div-block-435">
+                                                <div class="ad-comment">
+                                                    @include('adminlte-templates::common.errors')
+                                                    <form method="POST" action="/comments">
+                                                        @csrf
+                                                        <input type="hidden" name="video_id" value="{{session('video')->id}}" id="">
+                                                        <textarea class="inputCommentaire2" name="value" id=""></textarea>
+                                                        <div class="div-block-332">
+                                                            <button type="submit" class="btn btnEnvoyer">{{__('')}}Poster</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                               <div>
+
+                                                   @for($i = 1; $i < count($comments); $i++)
+                                                   <div class="coment-1">
+                                                       <div class="div-block-325">
+                                                           <div class="div-block-329">
+
+                                                               <div class="div-block-327">
+
+                                                                   @if($users[$i]->age <= 15)
+                                                                   <img src="{{asset('images/kids_preloader.png')}}" style="width:45px; height:42px"  class="img-circle" alt="User Image"/>
+                                                                   @elseif($users[$i]->age > 15 && $users[$i]->sex == '1')
+                                                                   <img src="{{asset('images/flow_preloader.png')}}" style="width:45px; height:42px"  class="img-circle" alt="User Image"/>
+                                                                   @elseif($users[$i]->age > 15 && users[$i]->sex == '0')
+                                                                   <img src="{{asset('images/sista_preloader.png')}}" style="width:45px; height:42px"  class="img-circle" alt="User Image"/>
+                                                                   @endif
+                                                               </div>
+                                                               <div class="div-block-326" >
+                                                                   <p class="textblock326">{{$users[$i]->name}}</p>
+                                                                   <div class="text-block-322 showReadMore1" style="">{{$comments[$i]->value}}
+                                                                   </div>
+                                                               </div>
+                                                               <div class="text-block-Date">
+                                                                   @if(intval(abs(strtotime("now") - strtotime($comments[$i]->created_at))/ 86400) == 0)
+                                                                   @if(intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 3600) > 0)
+                                                                   {{intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/3600)}} hours ago
+                                                                   @else(intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 3600) == 0)
+                                                                   {{intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/60)}} minutes ago
+                                                                   @endif
+                                                                   @elseif(intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 86400) == 1)
+                                                                   Yesterday at {{strftime("%H:%M", strtotime( $comments[$i]->created_at))}}
+                                                                   @elseif(intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 86400) >= 2 && intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 86400) <= 27)
+                                                                   {{intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 86400)}} days ago
+                                                                   @else(intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 86400) > 27)
+                                                                   On {{strftime("%d/%m/%Y", strtotime( $comments[$i]->created_at))}}
+                                                                   @endif
+                                                               </div>
+                                                           </div>
+                                                           <div class="d-flex">
+                                                               <div class="d-flex">
+                                                                   <p class="commenter">Commenter</p>
+                                                                   <button  onclick="TestsFunction()"  class="message-2-messaage w-inline-block btn">
+                                                                       <img src="{{ asset('img/Mu-picto-comment-gris2x.png') }}" loading="lazy" width="33" alt="">
+                                                                   </button>
+                                                               </div>
+                                                               <div>
+                                                                   <div class="likes">
+                                                                       <div class="text-block-292"> {{\App\Models\Comment::find($comments[$i]->comment_id)->likers()->count()}}</div>
+                                                                       <div class="imgCoeur2">
+                                                                           <a href="{{ route('likecomment' , $comments[$i]->comment_id) }}">
+                                                                               <img src="{{ asset('img/icones/coeurRose.svg') }}" alt="">
+                                                                           </a>
+                                                                       </div>
+                                                                       <div class="disliker">
+                                                                           <a href="{{ route('dislikecomment' , $comments[$i]->comment_id) }}">
+                                                                               <img src="{{ asset('img/icones/loveRenverseGris.png') }}" alt="">
+                                                                           </a>
+                                                                       </div>
+                                                                       <div class="text-block-292"> {{\App\Models\Comment::find($comments[$i]->comment_id)->unlikes()->count()}} </div>
+                                                                   </div>
+                                                               </div>
+                                                           </div>
+                                                       </div>
+                                                       <div class="div-block-331" id="TestsDiv" style="display:none">
+
+                                                           @include('adminlte-templates::common.errors')
+                                                           <form method="POST" action="/comments">
+                                                               @csrf
+                                                               <input type="hidden" name="video_id" value="{{session('video')->id}}" id="">
+                                                               <textarea class="inputCommentaire" name="value" id="" rows="5"></textarea>
+
+                                                               <div class="div-block-332">
+                                                                   <button type="submit" class="text-block-326 btn">{{__('')}}Poster</button>
+                                                               </div>
+                                                           </form>
+                                                           <div>
+
+                                                           </div>
+                                                       </div>
+                                                   </div>
+                                                   @endfor
+                                               </div>
+                                           </div>
                                        </div>
                                    </div>
                                </div>
@@ -635,8 +709,7 @@
                             <textarea class="inputCommentaire" name="value" id=""></textarea>
 
                             <div class="div-block-332">
-                                <button class="btn btnAnnuler">{{__('')}}Annuler</button>
-                                <button type="submit" class="btn btnEnvoyer">{{__('')}}Envoyer</button>
+                                <button type="submit" class="btn btnEnvoyer">{{__('')}}Poster</button>
                             </div>
                         </form>
                     </div>
@@ -750,6 +823,9 @@
 
                                                 </div> -->
                                             </div>
+                                            <button class="blockPlayist">
+                                                <img src="{{asset('img/report-Orange.svg')}}" alt="">
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -762,9 +838,133 @@
     </div>
 </div>
 
+<div class="MobElementIn">
+    <div class="contentSwipeToday BlockInshaAlla">
+        <div class="barreLatraleNoir">
+            <div class="categorie-name">
+                <img src="{{ asset('img/Mu-fleur2.png') }}"  alt="">
+            </div>
+        </div>
+        <div class="sousElementInshaAlla ">
+            <div class="swipeTitle">
+                <div class="categorie-name1">
+                    <img src="{{ asset('img/Mu-fleur2.png') }}"  alt="">
+                </div>
+                <p class="text-inshaAlla">In sha Allah</p>
+            </div>
+            <div class="swiper-container swipeContainermodife1">
+                <div class="swiper-wrapper">
+                    @foreach($inshaallah as $video)
+                    <div class=" swiper-slide card-suggestionDay">
+                        <div class="elementCardSuggestionDay">
+                            @php
+                            $user = App\User::find($video->user_id);
+                            @endphp
+
+                            @if($video->thumbnail)
+                            <img class="imgElementCardSuggestionDay" src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" alt="">
+                            @elseif($user->age <= 15)
+                            <img class="imgElementCardSuggestionDay" src="{{asset('images/kids_preloader.png')}}" alt="">
+                            @elseif($user->age > 15 && $user->sex == '1')
+                            <img class="imgElementCardSuggestionDay" src="{{asset('images/flow_preloader.png')}}" alt=""/>
+                            @elseif($user->age > 15 && $user->sex == '0')
+                            <img class="imgElementCardSuggestionDay" src="{{asset('images/sista_preloader.png')}}" alt="">
+                            @endif
+                            <a href="{{route('play',[$video->id])}}" target="blank" class="contentFlyHeure">
+                                <p class="flyText">
+                                    @foreach($subtopics as $subtopic)
+                                    @if($video->subtopic_id == $subtopic->id)
+                                    {{ $subtopic->libelle }}
+                                    @endif
+                                    @endforeach
+                                </p>
+                                <p class="heureFly">
+                                    @php
+                                    $reports = DB::Table('reports')
+                                    ->where('video_id', $video->id)
+                                    ->count();
+
+                                    if ($video->duration){
+                                    $durations = explode(':', $video->duration);
+                                    if($durations[0] == "00")
+                                    echo $durations[1]. ':' .$durations[2];
+                                    else
+                                    echo $durations[0]. ':' .$durations[1]. ':' .$durations[2];
+                                    }
+                                    @endphp
+                                </p>
+                            </a>
+                        </div>
+                        <div class="contentCardSuggestionDay">
+                            <div class="d-flex justify-content-between">
+                                <a href="{{route('play', $video->id)}}"  style="text-decoration:none" class="libertiText">{{$video->main_title}}</a>
+                                <a href="{!! route('report',[$video->id]) !!}">
+                                    @if($reports < 2)
+                                    <img class="imgLiberti" src="{{asset('img/icones/Mu-badge22.png')}}" alt="Lune" data-toggle="tooltip" data-placement="top" title="Community-approved video">
+                                    @else
+                                    <img class="imgLiberti" src="{{asset('img/icones/Lune-bleu-rouge.jpg')}}" alt="Lune"  data-toggle="tooltip" data-placement="top" title="This video has been pointed out by members of the community as being unbearable">
+                                    @endif
+                                </a>
+                            </div>
+                            <div class="mindCard">
+                                @php
+                                $user = App\User::find($video->user_id);
+                                @endphp
+                                <div class="blockImgMind">
+                                    @if($user->photo)
+                                    <a href="{{route('play',[$video->id])}}"> <img class="" src="{{ asset('/img') }}/{{$user->photo}}" alt=""> </a>
+                                    @elseif($user->age <= 15)
+                                    <a href="{{route('play',[$video->id])}}"> <img class="" src="{{asset('images/kids_preloader.png')}}" alt=""> </a>
+                                    @elseif($user->age > 15 && $user->sex == '1')
+                                    <a href="{{route('play',[$video->id])}}"> <img class="img-circle" src="{{asset('images/flow_preloader.png')}}" alt=""/> </a>
+                                    @elseif($user->age > 15 && $user->sex == '0')
+                                    <a href="{{route('play',[$video->id])}}"> <img class="" src="{{asset('images/sista_preloader.png')}}" alt=""> </a>
+                                    @endif
+                                </div>
+                                <div class="block3">
+                                    @php
+                                    $channel = DB::Table('users')->select('channels.*')
+                                    ->join('channels', 'users.id', 'channels.user_id')
+                                    ->where('users.id', $video->user_id)
+                                    ->first();
+                                    @endphp
+                                    <a href="{{route('play',[$video->id])}}" style="text-decoration:none" class="mindText">{{$channel->name}}</a>
+
+                                    @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
+                                    @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
+                                    <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/3600)}} hours ago </p>
+                                    @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) == 0)
+                                    <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/60)}} minutes ago </p>
+                                    @endif
+                                    @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 1)
+                                    <p class="day">Yesterday at {{strftime("%H:%M", strtotime($video->created_at))}}</p>
+                                    @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) >= 2 && intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) <= 27)
+                                    <p class="day"> {{intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400)}} days ago </p>
+                                    @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) > 27)
+                                    <p class="day">On {{strftime("%d/%m/%Y", strtotime($video->created_at))}}</p>
+                                    @endif
+                                    <!--
+                                    <div class="d-flex justify-content-between">
+                                        <p class="numberviewsSuggestion">1230</p>
+                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
+
+                                    </div> -->
+                                </div>
+                                <button class="blockPlayist">
+                                    <img src="{{asset('img/report-gris.svg')}}" alt="">
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 @if(session('videos_haltcare'))
 @if(count(session('videos_haltcare')) > 0)
-<div class="content-Haltcare">
+<div class="content-Haltcare leftMobile">
     <div class="container-fluid">
         <div class="contentSwipeToday">
             <div class="barreLatraleNoir vertBarre">
@@ -874,6 +1074,9 @@
                                             <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
                                         </div>-->
                                     </div>
+                                    <button class="blockPlayist">
+                                        <img src="{{asset('img/report-gris.svg')}}" alt="">
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -890,7 +1093,7 @@
 
 @if(session('videos_life'))
 @if(count(session('videos_life')) > 0)
-<div class="content-life">
+<div class="content-life leftMobile">
     <div class="container-fluid">
         <div class="contentSwipeToday">
             <div class="barreLatraleNoir life">
@@ -1000,6 +1203,9 @@
                                             <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
                                         </div>-->
                                     </div>
+                                    <button class="blockPlayist">
+                                        <img src="{{asset('img/report-gris.svg')}}" alt="">
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -1016,7 +1222,7 @@
 
 @if(session('videos_health'))
 @if(count(session('videos_health')) > 0)
-<div class="content-Health">
+<div class="content-Health leftMobile">
     <div class="container-fluid">
         <div class="contentSwipeToday">
             <div class="barreLatraleNoir Health">
@@ -1126,6 +1332,9 @@
                                             <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
                                         </div>-->
                                     </div>
+                                    <button class="blockPlayist">
+                                        <img src="{{asset('img/report-gris.svg')}}" alt="">
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -1142,7 +1351,7 @@
 
 @if(session('videos_business'))
 @if(count(session('videos_business')) > 0)
-<div class="content-Business">
+<div class="content-Business leftMobile">
     <div class="container-fluid">
         <div class="contentSwipeToday">
             <div class="barreLatraleNoir Business">
@@ -1251,6 +1460,9 @@
 
                                         </div>-->
                                     </div>
+                                    <button class="blockPlayist">
+                                        <img src="{{asset('img/report-gris.svg')}}" alt="">
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -1267,7 +1479,7 @@
 
 @if(session('videos_education'))
 @if(count(session('videos_education')) > 0)
-<div class="content-Education">
+<div class="content-Education leftMobile">
     <div class="container-fluid">
         <div class="contentSwipeToday">
             <div class="barreLatraleNoir Education">
@@ -1378,6 +1590,9 @@
 
                                             </div>-->
                                         </div>
+                                        <button class="blockPlayist">
+                                            <img src="{{asset('img/report-gris.svg')}}" alt="">
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -1394,7 +1609,7 @@
 
 @if(session('videos_environnement'))
 @if(count(session('videos_environnement')) > 0)
-<div class="content-Evironnement">
+<div class="content-Evironnement leftMobile">
     <div class="container-fluid">
         <div class="contentSwipeToday">
             <div class="barreLatraleNoir Evironnement">
@@ -1519,11 +1734,185 @@
     </div>
 @endif
 @endif
+
 </div>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="node_modules/swiper/swiper-bundle.js"></script>
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- Modal1 -->
+    <div class="modal fade " id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modalModif1" role="document">
+            <div class="modal-content">
+                <div  class="offre-shop">
+                    <div class="cross" data-dismiss="modal">
+                        <div class="bar-cross"></div>
+                        <div class="bar-cross-left"></div>
+                    </div>
+                    <p class="text-title">{{__('Title of the video')}} : {{session('video')->main_title }}</p>
+                      <div class="d-flex block-objectif-mob">
+                          <p class="des-text">{{__('Objectives of the video')}} : </p>
+                          <p>{{ session('video')->motivation }}</p>
+                      </div>
+                    <div class="buttonFlech">
+                        <button class="btn btnFleche1 btnModalOpen">
+                            <img src="{{asset('img/close1.png')}}" alt="">
+                        </button>
+                        <button class="btn btnFleche1 btnModalClose ">
+                            <img src="{{asset('img/open2.png')}}" alt="">
+                        </button>
+                    </div>
+                   <div class="shopInModal">
+                       <div class="div-block-322">
+                           <img class="panier3" src="{{asset('img/panier.png')}}" alt="">
+                           <p class="text-block-318">{{__('Offer of the channel')}}</p>
+                       </div>
+                       <div class="div-block-319">
+                           <div class="div-block-318">
+                               <div class="imgBullProfil">
+                                   <img src="{{ asset('img/Mu-bull-profil-logo-fitG.jpg') }}"  alt="">
+                               </div>
+                               <div class="text-block-320">{{__('Product name')}} / Formation</div>
+                               <a href="#" class="link-block-38 w-inline-block">
+                                   <span class="text-block-319">{{__('Discover')}}</span>
+                               </a>
+                           </div>
+                           <div class="div-block-318">
+                               <div class="imgBullProfil">
+                                   <img src="{{ asset('img/Mu-bull-profil-logo-fitG.jpg') }}"  alt="">
+                               </div>
+                               <div class="text-block-320">{{__('Product name')}} 2</div>
+                               <a href="#" class="link-block-38 w-inline-block">
+                                   <span class="text-block-319">{{__('Discover')}}</span>
+                               </a>
+                           </div>
+                           <div class="div-block-318">
+                               <div class="imgBullProfil">
+                                   <img src="{{ asset('img/Mu-bull-profil-logo-fitG.jpg') }}"  alt="">
+                               </div>
+                               <div class="text-block-320">{{__('Product name')}}...</div>
+                               <a href="#" class="link-block-38 w-inline-block">
+                                   <span class="text-block-319">{{__('Discover')}}</span>
+                               </a>
+                           </div>
+                       </div>
+                       <div class="block319Mob">
+                           <div class="swiper-container swiper-shop">
+                               <div class="swiper-wrapper">
+                                   <div class=" swiper-slide swipeslideShop">
+                                       <div class="div-block-318">
+                                           <div class="imgBullProfil">
+                                               <img src="{{ asset('img/Mu-bull-profil-logo-fitG.jpg') }}"  alt="">
+                                           </div>
+                                           <div class="text-block-320">{{__('Product name')}} / Formation</div>
+                                           <a href="#" class="link-block-38 w-inline-block">
+                                               <span class="text-block-319">{{__('Discover')}}</span>
+                                           </a>
+                                       </div>
+                                   </div>
+                                   <div class=" swiper-slide swipeslideShop">
+                                       <div class="div-block-318">
+                                           <div class="imgBullProfil">
+                                               <img src="{{ asset('img/Mu-bull-profil-logo-fitG.jpg') }}"  alt="">
+                                           </div>
+                                           <div class="text-block-320">{{__('Product name')}} 2</div>
+                                           <a href="#" class="link-block-38 w-inline-block">
+                                               <span class="text-block-319">{{__('Discover')}}</span>
+                                           </a>
+                                       </div>
+                                   </div>
+                                   <div class=" swiper-slide swipeslideShop">
+                                       <div class="div-block-318">
+                                           <div class="imgBullProfil">
+                                               <img src="{{ asset('img/Mu-bull-profil-logo-fitG.jpg') }}"  alt="">
+                                           </div>
+                                           <div class="text-block-320">{{__('Product name')}}...</div>
+                                           <a href="#" class="link-block-38 w-inline-block">
+                                               <span class="text-block-319">{{__('Discover')}}</span>
+                                           </a>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+                    <div class="descrip-text">
+                        <p class="des-text vid-descrp ">{{__('Description of my video')}} : </p>
+                        <p class="text-block-427">{{ session('video')->description }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper('.swipeContainermodife1', {
+            slidesPerView: 3,
+            spaceBetween: 30
+        });
+    </script>
+
+    <script>
+        var swiper = new Swiper('.swiper-helatcare', {
+            slidesPerView: 4.4,
+            spaceBetween: 30,
+            // Responsive breakpoints
+            breakpoints: {
+
+                // when window width is <= 320px
+                320: {
+                    slidesPerView: 1.2,
+                    spaceBetween: 10
+                },
+                // when window width is <= 480px
+                480: {
+                    slidesPerView: 2.3,
+                    spaceBetween: 10
+                },
+                980: {
+                    slidesPerView: 3,
+                    spaceBetween: 10
+                },
+                1200: {
+                    slidesPerView: 4.4,
+                    spaceBetween: 10
+                },
+
+
+            }
+        });
+        if ($('.swiper-container .swiper-slide').length < 1) {
+            var swiper = new Swiper('.swiper-helatcare', {
+                // Optional parameters
+                direction: 'horizontal',
+                allowTouchMove: true,
+                slidesPerView: 'auto',
+                grabCursor: true,
+                preventClicks: true,
+                spaceBetween: 30,
+                keyboardControl: true,
+                speed: 1000,
+                pagination: {
+                    el: null
+                },
+                scrollbar: {
+                    el: '.swiper-scrollbar',
+                    draggable: true,
+                    hide: false,
+                    snapOnRelease: true
+                },
+                mousewheel: {
+                    enable: true
+                },
+                keyboard: {
+                    enabled: true
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev'
+                },
+
+            });
+        }
+    </script>
 
 <script>
     //My code not persuassive
@@ -1562,62 +1951,9 @@
     }
 </script>
 
-
-
-<script>
-    var swiper = new Swiper('.swipeContainermodife1', {
-
-
-        slidesPerView: 2.1,
-        spaceBetween: 30
-    });
-</script>
-
-
-<script>
-
-    var swiper = new Swiper('.swiper-helatcare', {
-        slidesPerView: 4,
-        spaceBetween: 30,
-        // Responsive breakpoints
-        breakpoints: {
-
-            // when window width is <= 320px
-            320: {
-                slidesPerView: 1.2,
-                spaceBetween: 10
-            },
-            // when window width is <= 480px
-            480: {
-                slidesPerView: 2.3,
-                spaceBetween: 10
-            },
-            980: {
-                slidesPerView: 3.3,
-                spaceBetween: 10
-            },
-            1200: {
-                slidesPerView: 4,
-                spaceBetween: 30
-            },
-
-
-        }
-    });
-    if ($('.swiper-container .swiper-slide').length < 1) {
-        var swiper = new Swiper('.swiper-helatcare', {
-
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev'
-            },
-
-        });
-    }
-</script>
 <script src="{{asset('js/menu.js')}}"></script>
-<!--    <script>
-        $(document).ready(function(){
+   <script>
+/*        $(document).ready(function(){
             //length in characters
             var maxLength = 10;
             var ellipsestext = "...";

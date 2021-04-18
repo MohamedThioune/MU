@@ -7,12 +7,12 @@
     </title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="target-densitydpi=device-dpi, initial-scale=1.0, user-scalable=no" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{asset('css/menu.css')}}">
     <link rel="stylesheet" href="../css/sidbarNavigation.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.css" integrity="sha512-phGxLIsvHFArdI7IyLjv14dchvbVkEDaH95efvAae/y2exeWBQCQDpNFbOTdV1p4/pIa/XtbuDCnfhDEIXhvGQ==" crossorigin="anonymous" />
-    <script src="https://kit.fontawesome.com/2def424b14.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.css"/>
     @yield('css')
     @php if(isset($_COOKIE['lang'])) App::setLocale($_COOKIE['lang']); @endphp
 </head>
@@ -133,6 +133,17 @@
                         </div>
                     </div>
 
+                </div>
+                <div class="barHead2">
+                    <div class="group17">
+                        <div class="div-block-422">
+                            <img src="{{ asset('img/Time-shahid.svg') }}" alt="">
+                        </div>
+                        <p class="textTimeShalied">26.3</p>
+                    </div>
+                    <a href="" class="clocheHead2">
+                        <img src="{{ asset('img/Mu-cloche-blanc.png') }}" alt="">
+                    </a>
                 </div>
 
                 <div class="bar-down">

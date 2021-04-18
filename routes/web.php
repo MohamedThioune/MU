@@ -355,3 +355,5 @@ Route::get('/playlist/{video}', [App\Http\Controllers\PlaylistController::class,
 Route::get('/playlist/delete/{video}', [App\Http\Controllers\PlaylistController::class, 'remove'])->name('playlist.remove');
 
 Route::resource('playlists', 'PlaylistController');
+
+Route::view('/flow2', 'flow2');

@@ -2,18 +2,20 @@
 <html lang="fr">
 <head>
     @section('css')
-    <link rel="stylesheet" href="css/menu.css">
-    <link rel="stylesheet" href="node_modules/swiper/swiper.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="{{asset('css/menu.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     @endsection
+
 </head>
 <body>
 @section('content-play-element')
 <div class="contentOneMonFlow">
 @if(session('videos_haltcare'))
 @if(count(session('videos_haltcare')) > 0)
-<div class="content-Haltcare">
+<div class="content-Haltcare leftMobile">
     <div class="container-fluid">
         <div class="contentSwipeToday">
             <div class="barreLatraleNoir vertBarre">
@@ -120,6 +122,9 @@
                                         </div>
                                         @endif
                                     </div>
+                                    <button class="blockPlayist">
+                                        <img src="{{asset('img/report-gris.svg')}}" alt="">
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -136,7 +141,7 @@
 
 @if(session('videos_life'))
 @if(count(session('videos_life')) > 0)
-<div class="content-life">
+<div class="content-life leftMobile">
     <div class="container-fluid">
         <div class="contentSwipeToday">
             <div class="barreLatraleNoir life">
@@ -243,6 +248,9 @@
                                         </div>
                                         @endif
                                     </div>
+                                    <button class="blockPlayist">
+                                        <img src="{{asset('img/report-gris.svg')}}" alt="">
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -259,7 +267,7 @@
 
 @if(session('videos_health'))
 @if(count(session('videos_health')) > 0)
-<div class="content-Health">
+<div class="content-Health leftMobile">
     <div class="container-fluid">
         <div class="contentSwipeToday">
             <div class="barreLatraleNoir Health">
@@ -367,6 +375,9 @@
                                         </div>
                                         @endif
                                     </div>
+                                    <button class="blockPlayist">
+                                        <img src="{{asset('img/report-gris.svg')}}" alt="">
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -383,7 +394,7 @@
 
 @if(session('videos_business'))
 @if(count(session('videos_business')) > 0)
-<div class="content-Business">
+<div class="content-Business leftMobile">
     <div class="container-fluid">
         <div class="contentSwipeToday">
             <div class="barreLatraleNoir Business">
@@ -488,6 +499,9 @@
                                         </div>
                                         @endif
                                     </div>
+                                    <button class="blockPlayist">
+                                        <img src="{{asset('img/report-gris.svg')}}" alt="">
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -504,7 +518,7 @@
 
 @if(session('videos_education'))
 @if(count(session('videos_education')) > 0)
-<div class="content-Education">
+<div class="content-Education leftMobile">
     <div class="container-fluid">
         <div class="contentSwipeToday">
             <div class="barreLatraleNoir Education">
@@ -611,6 +625,9 @@
                                             </div>
                                             @endif
                                         </div>
+                                        <button class="blockPlayist">
+                                            <img src="{{asset('img/report-gris.svg')}}" alt="">
+                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -627,7 +644,7 @@
 
 @if(session('videos_environnement'))
 @if(count(session('videos_environnement')) > 0)
- <div class="content-Evironnement">
+ <div class="content-Evironnement leftMobile">
     <div class="container-fluid">
         <div class="contentSwipeToday">
             <div class="barreLatraleNoir Evironnement">
@@ -735,6 +752,9 @@
                                         </div>
                                         @endif
                                     </div>
+                                    <button class="blockPlayist">
+                                        <img src="{{asset('img/report-gris.svg')}}" alt="">
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -748,9 +768,8 @@
 @endif
 @endif
 </div>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="node_modules/swiper/swiper-bundle.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script>
     var swiper = new Swiper('.swipeContainermodife1', {

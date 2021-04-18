@@ -23,12 +23,11 @@ $(document).ready(function() {
     });
 });
 $(document).ready(function() {
-    $( ".block-shop" ).hide(0.2);
-    $( ".shopBtn" ).click(function() {
-        $( ".block-shop" ).show();
+    $( ".btnModalClose" ).click(function() {
+        $( ".shopInModal" ).hide(0.9);
     });
-    $( ".cross" ).click(function() {
-        $( ".block-shop" ).hide();
+    $( ".btnModalOpen" ).click(function() {
+        $( ".shopInModal" ).show(0.9);
     });
 });
 
