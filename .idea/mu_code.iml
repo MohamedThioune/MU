@@ -106,6 +106,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/overtrue/laravel-like" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/overtrue/laravel-follow" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/arcanedev/arabic" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/braintree/braintree_php" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

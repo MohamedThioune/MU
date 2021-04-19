@@ -120,7 +120,7 @@
         <div class="div-block-394">
         @if($edit)
             @if(!$event)
-            <a class="btn btn-default" style="text-decoration:none;" href="{{route('events.create')}}" alt="">&#x267B; {{__('Refresh')}}}</a>
+            <a class="btn btn-default" style="text-decoration:none;" href="{{route('events.create')}}" alt="">&#x267B; {{__('Refresh')}}</a>
             @else
             <a class="btn btn-default" style="text-decoration:none;" href="{{route('events.edit', $event->id)}}" alt="">&#x267B; {{__('Refresh')}}}</a>
             @endif
@@ -174,13 +174,13 @@
                     @if(count($activities)>0)
                     <div>
                         <div class="infos-biz-chaine">
-                            <p class="text-block-343"><b style="color:black;">{{$visit->name}}</b>{{__('in outline ...')}}</p>
+                            <p class="text-block-343"><b style="color:black;">{{$visit->name}}</b> {{__('in outline ...')}}</p>
                         </div>
                         <div class="descrition-biz-chaine">
                             <p class="text-block-330">{{__('WHAT WE DO')}}  &#x1F680; : @foreach($activities as $activity) <br> - {{$activity->text}} @endforeach</p>
                         </div>
                         @if($edit)
-                        <a class="btn btn-default" style="text-decoration:none;margin-left:-15px" href="{{route('activities.create')}}" alt="">&#x267B; {{__('Refresh')}}}}</a>
+                        <a class="btn btn-default" style="text-decoration:none;margin-left:-15px" href="{{route('activities.create')}}" alt="">&#x267B; {{__('Refresh')}}</a>
                         @endif
                     </div>
                     @else
@@ -207,7 +207,7 @@
             @if(!$contact)
             <a class="btn btn-default" style="text-decoration:none;margin-left:-15px" href="{{route('contacts.create')}}" alt="">&#x267B; {{__('Refresh')}}</a>
             @else
-            <a class="btn btn-default" style="text-decoration:none;margin-left:-15px" href="{{route('contacts.edit', $contact->id)}}" alt="">&#x267B; {{__('Refresh')}}}</a>
+            <a class="btn btn-default" style="text-decoration:none;margin-left:-15px" href="{{route('contacts.edit', $contact->id)}}" alt="">&#x267B; {{__('Refresh')}}</a>
             @endif
         @endif
     </div>

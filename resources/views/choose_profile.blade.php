@@ -4,29 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="target-densitydpi=device-dpi, initial-scale=1.0, user-scalable=no" />
 
-
-    <!-- Bootstrap 3.3.7 -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Theme style -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.4.3/css/AdminLTE.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.4.3/css/skins/_all-skins.min.css">
-
-    <!-- iCheck -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.2/skins/square/_all.css">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css">
 
     <link rel="stylesheet" href="../css/mu-dev.css">
     <link rel="stylesheet" href="../css/webflow.css">
     <link rel="stylesheet" href="../css/normalize.css">
     <link rel="stylesheet" href="../css/mu-dev.webflow.css">
-
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
 
 </head>
 
@@ -60,12 +48,53 @@
                     </a>
                     <div class="text-block-emir"> {{$profil->name}} </div>
                     <div class="text-block-219">
-                        <a href="{{route('profiles.index')}}" class="link-4">Gérer les profils</a>
+                        @if(count($profiles) > 4)
+                        <button class="btn btn-add-profile link-4" data-toggle="modal" data-target="#exampleModal"style="color:white;">{{__('Add profile')}}</button>
+                        @endif
+                        <!-- <a href="{{route('profiles.index')}}" class="link-4">Gérer les profils</a> -->
+
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Add New Profil</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form method="POST" class="form-3" action="{{ route('register') }}" aria-label="{{ __('Register') }}">
+                                            @csrf
+                                            @include('adminlte-templates::common.errors')
+                                            <div class="">
+                                                <input id="name" type="text" class=" text-field-4 w-input form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="Nom au Complet" name="name" value="{{ old('name') }}" required>
+                                            </div>
+                                            <div class="">
+                                                <input id="email" type="email" placeholder="{{ __('register.email') }}" class="form-control text-field-3 w-input{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
+                                            </div>
+                                            <div>
+                                                <label for="sex" class="field-label-3">Sex </label>
+                                                <label class="radio-button-field w-radio"><input type="radio"  id="radio" name="sex" value="0" class="w-form-formradioinput radio-button-2 w-radio-input {{ $errors->has('sex') ? ' is-invalid' : '' }}" ><span class="radio-button-label w-form-label">{{__('register.femme')}}</span></label>
+                                                <label class="radio-button-field-2 w-radio"><input type="radio"  id="radio-2" name="sex" value="1" class="w-form-formradioinput radio-button w-radio-input {{ $errors->has('sex') ? ' is-invalid' : '' }}"><span class="radio-button-label-2 w-form-label">{{__('register.homme')}}</span></label>
+                                            </div>
+
+
+                                            <div class="">
+                                                <input id="age" type="number" class=" text-field-4 w-input form-control{{ $errors->has('age') ? ' is-invalid' : '' }}" placeholder="Age" name="age" value="{{ old('age') }}" required>
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn submit-button-2 w-button">Save</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <div>
-
                     <div class="div-block-23">
                         @foreach($profiles as $profile)
                         @php
@@ -90,7 +119,8 @@
         <img src="{{ asset('img/Mu-bull-gris-.png') }}"  width="111" alt="" class="image-8">
 
     </div>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="js/menu.js"></script>
     <script src="js/app.js"></script>
     <script src="js/webflow.js"></script>

@@ -33,17 +33,38 @@
                 </button>
             </div>
         </div>
-        <!-- <div class="imgPubBlock">
+      <div class="imgPubBlock">
             <img src="{{ asset('img/Mu-bandeau-Pub.jpg') }}" alt="">
-        </div> -->
+        </div>
     </div>
     <p class="text-block-350">{{__('All your information at a glance')}} &#x1F609;</p>
-    <div class="menu-content-business">
+    <div class="menu-content-business business-Web">
         <a href="#" class="link-26">Infos</a>
         <a href="#" class="link-26">Recents</a>
         <a href="{{route('flow')}}" class="link-26">{{__('All videos')}}</a>
         <a href="#" class="link-26">{{__('Offers')}}</a>
         <a href="#" class="link-26">Playlist</a>
+    </div>
+    <div class="business-MOb">
+        <div class="swiper-container swipeContainermodife3">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <a href="#" class="link-26">Infos</a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#" class="link-26">Recents</a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="{{route('flow')}}" class="link-26">{{__('All videos')}}</a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#" class="link-26">{{__('Offers')}}</a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#" class="link-26">Playlist</a>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="hotNotifications">
         <div class="blockTitle2">
@@ -140,7 +161,8 @@
                         </div>
                     </div>
                 </div>
-                <div class=" swiper-slide hot-notification">
+
+                <div class="swiper-slide hot-notification" style="background:white;">
                     <div class="div-block-391">
                         <div class="hot-green">
                             <img class="imgGrenn" src="{{ asset('img/Mu-hot-info.png') }}" loading="lazy">
@@ -164,7 +186,7 @@
                             <p class="text-block-385">Published on {{strftime("%d/%m/%Y", strtotime( $event->created_at))}}</p>
                             @endif
                             <div>
-                                <p class="text-block-384">{{$event->text}}</p>
+                                <p class="" style="color:8F8F8F;font-weight:bold;font-size:large" >{{$event->text}}</p>
                             </div>
                             </div>
                             <div class="like-notication">
@@ -174,6 +196,27 @@
                                 <button class="btn div-block-398">
                                     <img src="{{ asset('img/Image-6.png') }}" alt="">
                                 </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="swiper-slide hot-notification" style="background:white;">
+                    <div class="div-block-391">
+                        <div class="hot-green">
+                            <img class="imgGrenn" src="{{ asset('img/Mu-hot-info.png') }}" loading="lazy">
+                        </div>
+                        <div class="div-block-393">
+                            <div class="div-block-392">
+                                <img src="{{ asset('img/Mu-video-format-bike-girl.jpg') }}" loading="lazy" sizes="100vw" srcset="images/Mu-video-format-bike-girl-p-800.jpeg 800w, images/Mu-video-format-bike-girl.jpg 898w" alt="" class="image-130"></div>
+                            <div>
+                            <p class="text-block-383">{{__('Want to see more')}}</p>
+
+                            <p class="text-block-385">{{__('Discover even more interesting features')}}</p>
+                            <br>
+                            <div>
+                                <a href="{{route('tarifs')}}" style="text-decoration:none;" class="toutesNotifications">{{__('Switch to SMUUSE PRO')}}</a>
+                            </div>
                             </div>
                         </div>
                     </div>
@@ -267,8 +310,8 @@
     </div>
 
    @if($playlist)
-    <div class="suggestionFlow">
-        <p class="text-Playlist2">{{__('MY')}} Playlist</p>
+    <div class="playlist1">
+        <p class="titre-asso-video-all">{{__('MY')}} Playlist</p>
         <div class="swiper-container swipeContainermodife1">
             <div class="swiper-wrapper">
                 @foreach($playlists as $playlist)
@@ -356,7 +399,7 @@
             @php $user = App\User::find($channel_top->user_id); @endphp
             <p class="text-block-353-copy">{{__('Here is the most viewed channel at the moment')}}</p>
         </div>
-        <div class="div-block-367">
+        <div class="div-block-367 web367">
             <div class="bull-chaine">
                 @if($channel_top->logo)
                 <a href="{{route('channel.visitor', $channel_top->id)}}" style="text-decoration:none"> <img class="image-125" src="{{ asset('/img') }}/{{$channel->logo}}" alt=""> </a>
@@ -405,6 +448,43 @@
                         <div>{{__('Support us')}}</div>
                     </a>
                 </div>
+            </div>
+        </div>
+        <div class="div-block-367 mob367">
+             <div class="d-flex">
+                 <div class="bull-chaine">
+                     @if($channel_top->logo)
+                     <a href="{{route('channel.visitor', $channel_top->id)}}" style="text-decoration:none"> <img class="image-125" src="{{ asset('/img') }}/{{$channel->logo}}" alt=""> </a>
+                     @elseif($user->age <= 15)
+                     <a href="{{route('channel.visitor', $channel_top->id)}}" style="text-decoration:none"> <img class="image-125" src="{{asset('images/kids_preloader.png')}}" alt=""> </a>
+                     @elseif($user->age > 15 && $user->sex == '1')
+                     <a href="{{route('channel.visitor', $channel_top->id)}}" style="text-decoration:none"> <img class="image-125" src="{{asset('images/flow_preloader.png')}}" alt=""/> </a>
+                     @elseif($user->age > 15 && $user->sex == '0')
+                     <a href="{{route('channel.visitor', $channel_top->id)}}" style="text-decoration:none"> <img class="image-125" src="{{asset('images/sista_preloader.png')}}" alt=""> </a>
+                     @endif
+                 </div>
+                 <div class="div-block-368">
+                     <a href="{{route('channel.visitor', $channel_top->id)}}" style="text-decoration:none; color:black;" class="text-block-362">{{$channel_top->name}}</a>
+                     <div class="div-block-371">
+                         <p class="text-block-363">{{\App\Models\Channel::find($channel_top->id)->abonnees->count()}}</p>
+                         <p class="text-block-345">{{__('Subscribers')}}</p>
+                     </div>
+                     <p class="text-block-364">{{$videos_count}} Publications</p>
+                     <div class="text-block-366">
+                         <a href="{{route('channel.visitor', $channel_top->id)}}" class="link-28">{{__('See the channel')}}</a>
+                     </div>
+                 </div>
+             </div>
+            <div class="back-subscrib-bar">
+                <a class="btnSubscripeNotif" href="{{ route('suscribe',$channel_top->id) }}">
+                    <div class="div-block-386">
+                        <img src="{{ asset('img/Mu-coeur-blanc.svg') }}" class="imgCoeurBlanc" width="23" alt="">
+                    </div>
+                    <div>{{__('Subscribe')}}</div>
+                    <div class="alerte7">
+                        <img src="{{ asset('img/Mu-cloche-blanc.svg') }}" class="cloche3-1"  alt="">
+                    </div>
+                </a>
             </div>
         </div>
     </div>
@@ -703,6 +783,12 @@
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script>
     var swiper = new Swiper('.swipeContainermodife1', {
+        slidesPerView: 3,
+        spaceBetween: 30
+    });
+</script>
+<script>
+    var swiper = new Swiper('.swipeContainermodife3', {
         slidesPerView: 3,
         spaceBetween: 30
     });

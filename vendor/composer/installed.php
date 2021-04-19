@@ -1,12 +1,12 @@
 <?php return array (
   'root' => 
   array (
-    'pretty_version' => 'dev-louis_Farrakhan',
-    'version' => 'dev-louis_Farrakhan',
+    'pretty_version' => 'dev-master',
+    'version' => 'dev-master',
     'aliases' => 
     array (
     ),
-    'reference' => '8c0d66ce4f81e53211c8488104837fdaebb19fcb',
+    'reference' => '2b630d5f1d1eac83dabf249d070b410b07f64c3b',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -19,6 +19,15 @@
       array (
       ),
       'reference' => 'cc7dc9cdf41970e0aff39ea32f3f1cc23af310b3',
+    ),
+    'braintree/braintree_php' => 
+    array (
+      'pretty_version' => '6.0.0',
+      'version' => '6.0.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'e22dc11e5e92182999288d914d14640a3f50cd85',
     ),
     'caouecs/laravel-lang' => 
     array (
@@ -446,12 +455,12 @@
     ),
     'laravel/laravel' => 
     array (
-      'pretty_version' => 'dev-louis_Farrakhan',
-      'version' => 'dev-louis_Farrakhan',
+      'pretty_version' => 'dev-master',
+      'version' => 'dev-master',
       'aliases' => 
       array (
       ),
-      'reference' => '8c0d66ce4f81e53211c8488104837fdaebb19fcb',
+      'reference' => '2b630d5f1d1eac83dabf249d070b410b07f64c3b',
     ),
     'laravel/tinker' => 
     array (

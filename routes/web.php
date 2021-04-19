@@ -80,7 +80,7 @@ Route::get('/', function () {
     ->count();
 
 
-    $shahid = strtotime('i:s');
+    $shahid = null;
 
     foreach($look_videos as $look){
         $video = App\Models\Video::find($look->video_id);
@@ -172,6 +172,136 @@ Route::get('/play', function () {
 
 Route::get('/play/{n}', [App\Http\Controllers\HomeController::class, 'play'])->where('n','[0-9]+')->name('play')->middleware('auth');
 
+// share page : Play the current video shared [Online]
+Route::get('/share/{n}', function($id){
+
+    /*
+        *
+    */
+
+    /*
+        * Retrieve all videos shared $shared
+    */
+
+    /*
+    * Test if this video.id is already shared by check in table of videos shared
+
+    if($condition is true  ){
+
+    */
+
+    //State lecture of a video today
+    $state = false;
+
+    $video = App\Models\Video::find($id);
+    $user = App\User::find($video->user_id);
+    $users = array();
+
+    $subtopics = App\Models\SubTopic::all();
+
+    $reads = DB::Table('reads')
+    ->where('video_id', $id)
+    ->count();
+
+    $comments = DB::Table('comments')->select('comments.user_id','comments.value' ,'comments.id as comment_id' ,'comments.created_at')
+    ->where('comments.video_id', $id)
+    ->orderBy('comments.created_at', 'desc')
+    ->get();
+
+    foreach($comments as $comment){
+        $auth =  App\User::find($comment->user_id);
+        array_push($users, $auth);
+    };
+
+    $counts = count($comments);
+
+    /*
+    * Time shahid and Progress bar
+    */
+
+    $start =  (new \Datetime())->format('Y-m-01 H:i:s');
+    $end =   (new \Datetime())->format('Y-m-30 H:i:s');
+
+    $look_videos = null;
+
+    $shahid = strtotime('i:s');
+
+    $shahid = date('H:i:s', $shahid);
+
+    $looks = null;
+
+    /*
+    * All videos by main_topic
+    */
+
+    $videos_haltcare = DB::Table('videos')->select('videos.*')
+                            ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
+                            ->join('users','users.id','videos.user_id')
+                            ->where('mainTopic_id', 1)
+                            ->whereNull('videos.deleted_at')
+                            ->get();
+
+    $videos_life = DB::Table('videos')->select('videos.*')
+    ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
+    ->join('users','users.id','videos.user_id')
+    ->where('mainTopic_id', 2)
+    ->whereNull('videos.deleted_at')
+    ->get();
+
+    $videos_health = DB::Table('videos')->select('videos.*')
+    ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
+    ->join('users','users.id','videos.user_id')
+    ->where('mainTopic_id', 3)
+    ->whereNull('videos.deleted_at')
+    ->get();
+
+
+    $videos_business = DB::Table('videos')->select('videos.*')
+    ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
+    ->join('users','users.id','videos.user_id')
+    ->where('mainTopic_id', 4)
+    ->whereNull('videos.deleted_at')
+    ->get();
+
+    $videos_environnement = DB::Table('videos')->select('videos.*')
+    ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
+    ->join('users','users.id','videos.user_id')
+    ->where('mainTopic_id', 5)
+    ->whereNull('videos.deleted_at')
+    ->get();
+
+    $videos_education = DB::Table('videos')->select('videos.*')
+    ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
+    ->join('users','users.id','videos.user_id')
+    ->where('mainTopic_id', 6)
+    ->whereNull('videos.deleted_at')
+    ->get();
+
+    $inshaallah = DB::Table('videos')->select('videos.*')
+    ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
+    ->where('mainTopic_id', 7)
+    ->whereNull('videos.deleted_at')
+    ->OrderByDesc('videos.created_at', )
+    ->get();
+
+    return view('play', compact('user', 'video', 'comments', 'counts', 'reads', 'users', 'subtopics','looks','shahid','inshaallah','videos_haltcare','videos_life','videos_health','videos_business','videos_environnement','videos_education'));
+
+    /*
+        * end condition videos.id is shared
+    }
+    */
+
+        /*
+        * end condition videos.id is shared
+        * return view login
+
+        else {
+        return view('login');
+    }
+    */
+
+})->where('n','[0-9]+')->name('share');
+
 // home page : list all videos [Online]
 Route::get('/choose', [App\Http\Controllers\ProfileController::class, 'choose'])->name('choose')->middleware('auth');
 
@@ -193,10 +323,56 @@ Route::get('/flow', function () {
     ->get();
     $kids = false;
     $channel = DB::Table('users')->select('channels.*')
-        ->join('channels', 'users.id', 'channels.user_id')
-        ->where('users.id', Auth::id())
-        ->first();
-    return view('flow',compact('subtopics','kids','channel'));
+    ->join('channels', 'users.id', 'channels.user_id')
+    ->where('users.id', Auth::id())
+    ->first();
+
+    $videos_haltcare = DB::Table('videos')->select('videos.*')
+                                 ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
+                                 ->join('users','users.id','videos.user_id')
+                                 ->where('users.age','<',15)
+                                 ->where('mainTopic_id', 1)
+                                 ->whereNull('videos.deleted_at')
+                                 ->get();
+
+    $videos_life = DB::Table('videos')->select('videos.*')
+    ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
+    ->join('users','users.id','videos.user_id')
+    ->where('mainTopic_id', 2)
+    ->whereNull('videos.deleted_at')
+    ->get();
+
+    $videos_health = DB::Table('videos')->select('videos.*')
+    ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
+    ->join('users','users.id','videos.user_id')
+    ->where('mainTopic_id', 3)
+    ->whereNull('videos.deleted_at')
+    ->get();
+
+
+    $videos_business = DB::Table('videos')->select('videos.*')
+    ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
+    ->join('users','users.id','videos.user_id')
+    ->where('mainTopic_id', 4)
+    ->whereNull('videos.deleted_at')
+    ->get();
+
+    $videos_environnement = DB::Table('videos')->select('videos.*')
+    ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
+    ->join('users','users.id','videos.user_id')
+    ->where('mainTopic_id', 5)
+    ->whereNull('videos.deleted_at')
+    ->get();
+
+    $videos_education = DB::Table('videos')->select('videos.*')
+    ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
+    ->join('users','users.id','videos.user_id')
+    ->where('mainTopic_id', 6)
+    ->whereNull('videos.deleted_at')
+    ->get();
+
+    return view('flow',compact('subtopics','kids','channel','videos_haltcare','videos_life','videos_health','videos_business','videos_environnement','videos_education'));
+
 })->name('flow')->middleware('auth');
 
 // kids page : apercu
@@ -255,10 +431,7 @@ Route::get('/kids', function () {
     ->whereNull('videos.deleted_at')
     ->get();
 
-
-    session(['videos_haltcare' => $videos_haltcare, 'videos_life' => $videos_life, 'videos_health' => $videos_health, 'videos_business' => $videos_business, 'videos_environnement' => $videos_environnement, 'videos_education' => $videos_education]);
-
-    return view('flow',compact('subtopics','kids'));
+    return view('flow',compact('subtopics','kids','videos_haltcare','videos_life','videos_health','videos_business','videos_environnement','videos_education'));
 })->name('kids')->middleware('auth');
 
 Auth::routes();
@@ -356,4 +529,133 @@ Route::get('/playlist/delete/{video}', [App\Http\Controllers\PlaylistController:
 
 Route::resource('playlists', 'PlaylistController');
 
-Route::view('/flow2', 'flow2');
+Route::get('/process', function(){
+
+    $gateway = new Braintree\Gateway([
+        'environment' => 'sandbox',
+        'merchantId' => '2yw4qvsvxcr5fhyx',
+        'publicKey' => 'j2cqsvvdjnvs2v5w',
+        'privateKey' => '9605f4859f57d23d0ee40cedb88c834e'
+        ]);
+
+    $clientToken = $gateway->clientToken()->generate();
+
+    $channel = DB::Table('users')->select('channels.*')
+    ->join('channels', 'users.id', 'channels.user_id')
+    ->where('users.id', Auth::id())
+    ->first();
+    return view('process',compact('channel','clientToken'));
+})->name('process');
+
+Route::post('/process', function(){
+
+    //setting up braintree credentials.
+    Braintree_Configuration::environment('sandbox');
+    Braintree_Configuration::merchantId('2yw4qvsvxcr5fhyx');
+    Braintree_Configuration::publicKey('j2cqsvvdjnvs2v5w');
+    Braintree_Configuration::privateKey('9605f4859f57d23d0ee40cedb88c834e');
+
+    $result = Braintree_Transaction::sale([
+        'amount' => $_POST['amount'],
+        'customer' => ['firstName' => Auth::user()->name],
+        'paymentMethodNonce' => $_POST['payment_method_nonce'],
+        'options' => [
+            'submitForSettlement' => True
+        ]
+        ]);
+
+    if ($result->success === true) {
+        $facturation = DB::table('facturations')
+        ->select('facturations.*')
+        ->join('users', 'users.id', 'facturations.user_id')
+        ->where('users.id', Auth::id() )
+        ->orderByDesc('facturations.created_at')
+        ->first();
+
+        $start =  new \Datetime();
+        if($_POST['amount'] > 0)
+            if($_POST['amount'] == 120 || $_POST['amount'] == 60 ){
+                $type = "Annually";
+                if($_POST['amount'] == 120 ){
+                    $profile = "OUMMATI";
+                    DB::table('users')
+                    ->where('users.id',Auth::id())
+                    ->update(['type'=> $profile]);
+                }else{
+                    $profile = "SAHABA";
+                    DB::table('users')
+                    ->where('users.id',Auth::id())
+                    ->update(['type'=> $profile]);}
+            }
+            else{
+                $type = "Monthly";
+                if($_POST['amount'] == 12 ){
+                    $profile = "OUMMATI";
+                    DB::table('users')
+                    ->where('users.id',Auth::id())
+                    ->update(['type'=> $profile]);}
+                else{
+                    $profile = "SAHABA";
+                    DB::table('users')
+                    ->where('users.id',Auth::id())
+                    ->update(['type'=> $profile]);}
+            }
+
+        if(!$facturation){
+            $end =  new \Datetime();
+            if($type == "Monthly")
+                $end->add(new DateInterval('P1M'));
+            else
+                $end->add(new DateInterval('P12M'));
+        }else{
+            $end_at = new \Datetime($facturation->end_at);
+            if($type == "Monthly")
+                $end = $end_at->add(new DateInterval('P1M'));
+            else
+                $end = $end_at->add(new DateInterval('P12M'));
+        }
+
+        DB::table('facturations')->insert([
+            'amount' =>  $_POST['amount'],
+            'type' => $type,
+            'profile' => $profile,
+            'user_id' => Auth::id(),
+            'end_at' => $end,
+            'created_at' => now(),
+            'updated_at' => now()
+        ]);
+
+        $start = $start->format("d.m.Y");
+        $end = $end->format("d.m.Y");
+
+        Auth::user()->notify(new App\Notifications\InvoiceNotify());
+
+        Flash::success('Payment made successfully ! <br> ~ Valid from ' .$start.  " to " .$end. ".<br> <a href='"  .route('home'). "' class='btn btn-info'>Quitter et retourner à l'acceuil</a> ");
+
+    }
+    else
+        Flash::error('Error occured &#x1F534; '.$result->errors->message );
+        // var_dump($result) );
+
+    return redirect(route('payment'));
+})->name('payment');
+
+
+Route::resource('facturations', 'FacturationController');
+
+Route::get('/tarif', function(){
+    $channel = DB::Table('users')->select('channels.*')
+    ->join('channels', 'users.id', 'channels.user_id')
+    ->where('users.id', Auth::id())
+    ->first();
+    return view('tarif',compact('channel'));
+})->name('tarifs');
+
+Route::post('/tarif', function(){
+    session(['amount'=>$_POST['amount']]);
+    return redirect(route('process'));
+})->name('tarif');
+
+
+
+

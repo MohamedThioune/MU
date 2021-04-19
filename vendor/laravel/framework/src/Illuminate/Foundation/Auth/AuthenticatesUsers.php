@@ -22,6 +22,42 @@ trait AuthenticatesUsers
         return view('auth.login');
     }
 
+    //Method who checks status
+    protected function status(){
+
+        $id = Auth::id();
+
+        $facturation = DB::table('facturations')
+        ->select('facturations.created_at') 
+        ->join('users', 'users.id', 'facturations.user_id')
+        ->where('users.id', $id )
+        ->orderByDesc('facturations.created_at')
+        ->first();
+
+        if ($facturation){
+            if($facturation->end_at < now() && Auth::user()->state != 0){
+                DB::table('users')
+                ->where('users.id', $id)
+                ->update(['state' => 0]);
+
+                return view('play');
+
+            }else if ($facturation->end_at >= now() && Auth::user()->state == 0){
+                DB::table('users')
+                ->where('users.id', $id)
+                ->update(['state' => 1]);}      
+        }else{
+            return view('process');
+            /*
+            ** Other condition that we will be activate soon in order of new user who doesn't have invoice 
+            *
+            if(!$facturation && Auth::user()->state != 0)
+             DB::table('facturations')
+                ->where('user_id', Auth::id())
+                ->update(['state' => 0]);
+            */
+        }
+    }
     /**
      * Handle a login request to the application.
      *
@@ -32,8 +68,8 @@ trait AuthenticatesUsers
      */
     public function login(Request $request)
     {
-        $this->validateLogin($request);
-
+        $this->validateLogin($request);     
+        
         // If the class is using the ThrottlesLogins trait, we can automatically throttle
         // the login attempts for this application. We'll key this by the username and
         // the IP address of the client making these requests into this application.
@@ -44,6 +80,35 @@ trait AuthenticatesUsers
         }
 
         if ($this->attemptLogin($request)) {
+            $id = Auth::id();
+
+            $facturation = DB::table('facturations')
+            ->select('facturations.*') 
+            ->join('users', 'users.id', 'facturations.user_id')
+            ->where('users.id', $id )
+            ->orderByDesc('facturations.created_at')
+            ->first();
+
+            if ($facturation){
+                if($facturation->end_at < now() && Auth::user()->state != 0){
+                    DB::table('users')
+                    ->where('users.id', $id)
+                    ->update(['state' => 0]);
+
+                }else if ($facturation->end_at >= now() && Auth::user()->state == 0){
+                    DB::table('users')
+                    ->where('users.id', $id)
+                    ->update(['state' => 1]);}      
+            }else{
+                /*
+                ** Other condition that we will be activate soon in order of new user who doesn't have invoice 
+                *
+                if(!$facturation && Auth::user()->state != 0)
+                DB::table('facturations')
+                    ->where('user_id', Auth::id())
+                    ->update(['state' => 0]);
+                */
+            }
             return $this->sendLoginResponse($request);
         }
 
@@ -186,4 +251,5 @@ trait AuthenticatesUsers
     {
         return Auth::guard();
     }
+
 }

@@ -38,12 +38,33 @@
             <img src="{{ asset('img/Mu-bandeau-Pub.jpg') }}" alt="">
         </div>
     </div>
-    <div class="menu-content-business">
+    <div class="menu-content-business webBusiness">
         <a href="#" class="link-26">{{__('Account')}}</a>
         <a href="#" class="link-26">{{__('Personal info.')}}</a>
         <a href="#" class="link-26">{{__('Profile Management')}}</a>
         <a href="#" class="link-26">Facturations</a>
         <a href="#" class="link-26">{{__('Security')}}</a>
+    </div>
+    <div class="menu-content-business mobBusiness">
+        <div class="swiper-container swipeContainermodife1">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <a href="#" class="link-26">{{__('Account')}}</a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#" class="link-26">{{__('Personal info.')}}</a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#" class="link-26">{{__('Profile Management')}}</a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#" class="link-26">Facturations</a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#" class="link-26">{{__('Security')}}</a>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="div-block-201">
         <form action="{{route('users.parameter')}}" method="POST" class="infos">
@@ -111,23 +132,23 @@
             <center><button class="text-block-235" type="submit"><i class="fas fa-sync"></i>{{__('Refresh')}}</button></center>
             </div>
         </form>
-        @php 
+        @php
             $date = new hijri();
             $bismi = new hijri();
             $anniversary = strtotime(Auth::user()->date);
-    
+
             $hajj = explode(",",$date->hijriDate($anniversary));
             $hijri_year = trim($hajj[1]);
             $hijri_month =  explode(" ", $hajj[0])[6];
             $hijri_day = explode(" ", $hajj[0])[5];
             $hijri = $hijri_day ."-". $hijri_month ."-" . $hijri_year;
-    
+
             $gregorian = explode("-", Auth::user()->date);
-            
+
             $year =  explode("-", Auth::user()->date);
             $year = $year[0];
 
-            $age = idate('Y') - $year;  
+            $age = idate('Y') - $year;
 
             $muslim = explode(",",$bismi->date(null,2,false));
             $muslim_year = trim($muslim[1]);
@@ -168,8 +189,15 @@
 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
+<script src="node_modules/swiper/swiper-bundle.js"></script>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script src="{{asset('js/fixeElement.js')}}"></script>
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        slidesPerView: 2.7,
+        spaceBetween: 3
+    });
+</script>
 @endsection
 </body>
 
