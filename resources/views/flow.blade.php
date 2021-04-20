@@ -56,14 +56,20 @@
                                         ->where('video_id', $video->id)
                                         ->count();
 
-                                        if ($video->duration){
+                                            if ($video->duration){
                                         $durations = explode(':', $video->duration);
                                         if($durations[0] == "00")
                                         echo $durations[1]. ':' .$durations[2];
                                         else
                                         echo $durations[0]. ':' .$durations[1]. ':' .$durations[2];
                                         }
+
+                                        $playlist = DB::Table('playlists')->select('playlists.*')
+                                        ->where('playlists.user_id', Auth::id())
+                                        ->where('playlists.video_id', $video->id)
+                                        ->first();
                                         @endphp
+
                                     </p>
                                 </a>
                             </div>
@@ -118,6 +124,18 @@
                                             <p class="numberviewsSuggestion"></p>
                                             <img class="oeil-1" src="{{ asset('images/kids_preloader.png') }}" alt="">
                                         </div>
+                                        @endif
+
+                                        @if($playlist)
+                                        <div class="d-flex justify-content-between" >
+                                            <p class="numberviewsSuggestion"> </p>
+                                            <a class="oeil-1" href="{{route('playlist.remove', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Remove to my playlist"><img src="{{ asset('img/Groupe-972x.png') }}"  width="10" alt="Remove to my playlist"></a>
+                                        </div>
+                                        @else
+                                            <div class="d-flex justify-content-between" >
+                                                <p class="numberviewsSuggestion"> </p>
+                                                <a class="oeil-1" href="{{route('playlist.add', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Add to my playlist"><img src="{{ asset('img/icones/Like gris.png') }}"  width="10" alt="Add to my playlist"></a>
+                                            </div>
                                         @endif
                                     </div>
                                 </div>
@@ -179,13 +197,19 @@
                                         ->where('video_id', $video->id)
                                         ->count();
 
-                                        if ($video->duration){
+                                            if ($video->duration){
                                         $durations = explode(':', $video->duration);
                                         if($durations[0] == "00")
                                         echo $durations[1]. ':' .$durations[2];
                                         else
                                         echo $durations[0]. ':' .$durations[1]. ':' .$durations[2];
                                         }
+
+                                        $playlist = DB::Table('playlists')->select('playlists.*')
+                                        ->where('playlists.user_id', Auth::id())
+                                        ->where('playlists.video_id', $video->id)
+                                        ->first();
+                                      
                                         @endphp
                                     </p>
                                 </a>
@@ -236,11 +260,24 @@
                                         @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) > 27)
                                         <p class="day">On {{strftime("%d/%m/%Y", strtotime($video->created_at))}}</p>
                                         @endif
+
                                         @if($kids)
                                         <div class="d-flex justify-content-between" style="cursor:pointer" data-toggle="tooltip" data-placement="top" title="{{__('Videos for children')}}">
                                             <p class="numberviewsSuggestion"></p>
                                             <img class="oeil-1" src="{{ asset('images/kids_preloader.png') }}" alt="">
                                         </div>
+                                        @endif
+
+                                        @if($playlist)
+                                        <div class="d-flex justify-content-between" >
+                                            <p class="numberviewsSuggestion"> </p>
+                                            <a class="oeil-1" href="{{route('playlist.remove', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Remove to my playlist"><img src="{{ asset('img/Groupe-972x.png') }}"  width="10" alt="Remove to my playlist"></a>
+                                        </div>
+                                        @else
+                                            <div class="d-flex justify-content-between" >
+                                                <p class="numberviewsSuggestion"> </p>
+                                                <a class="oeil-1" href="{{route('playlist.add', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Add to my playlist"><img src="{{ asset('img/icones/Like gris.png') }}"  width="10" alt="Add to my playlist"></a>
+                                            </div>
                                         @endif
                                     </div>
                                 </div>
@@ -302,13 +339,18 @@
                                         ->where('video_id', $video->id)
                                         ->count();
 
-                                        if ($video->duration){
+                                            if ($video->duration){
                                         $durations = explode(':', $video->duration);
                                         if($durations[0] == "00")
                                         echo $durations[1]. ':' .$durations[2];
                                         else
                                         echo $durations[0]. ':' .$durations[1]. ':' .$durations[2];
                                         }
+
+                                        $playlist = DB::Table('playlists')->select('playlists.*')
+                                        ->where('playlists.user_id', Auth::id())
+                                        ->where('playlists.video_id', $video->id)
+                                        ->first();
                                         @endphp
                                     </p>
                                 </a>
@@ -365,6 +407,18 @@
                                             <p class="numberviewsSuggestion"></p>
                                             <img class="oeil-1" src="{{ asset('images/kids_preloader.png') }}" alt="">
                                         </div>
+                                        @endif
+
+                                        @if($playlist)
+                                            <div class="d-flex justify-content-between" >
+                                                <p class="numberviewsSuggestion"> </p>
+                                                <a class="oeil-1" href="{{route('playlist.remove', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Remove to my playlist"><img src="{{ asset('img/Groupe-972x.png') }}"  width="10" alt="Remove to my playlist"></a>
+                                            </div>
+                                        @else
+                                            <div class="d-flex justify-content-between" >
+                                                <p class="numberviewsSuggestion"> </p>
+                                                <a class="oeil-1" href="{{route('playlist.add', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Add to my playlist"><img src="{{ asset('img/icones/Like gris.png') }}"  width="10" alt="Add to my playlist"></a>
+                                            </div>
                                         @endif
                                     </div>
                                 </div>
@@ -432,6 +486,11 @@
                                         else
                                         echo $durations[0]. ':' .$durations[1]. ':' .$durations[2];
                                         }
+
+                                        $playlist = DB::Table('playlists')->select('playlists.*')
+                                        ->where('playlists.user_id', Auth::id())
+                                        ->where('playlists.video_id', $video->id)
+                                        ->first();
                                         @endphp
                                     </p>
                                 </a>
@@ -481,11 +540,24 @@
                                         @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) > 27)
                                         <p class="day">On {{strftime("%d/%m/%Y", strtotime($video->created_at))}}</p>
                                         @endif
+
                                         @if($kids)
                                         <div class="d-flex justify-content-between" style="cursor:pointer" data-toggle="tooltip" data-placement="top" title="{{__('Videos for children')}}">
                                             <p class="numberviewsSuggestion"></p>
                                             <img class="oeil-1" src="{{ asset('images/kids_preloader.png') }}" alt="">
                                         </div>
+                                        @endif
+
+                                        @if($playlist)
+                                        <div class="d-flex justify-content-between" >
+                                            <p class="numberviewsSuggestion"> </p>
+                                            <a class="oeil-1" href="{{route('playlist.remove', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Remove to my playlist"><img src="{{ asset('img/Groupe-972x.png') }}"  width="10" alt="Remove to my playlist"></a>
+                                        </div>
+                                        @else
+                                            <div class="d-flex justify-content-between" >
+                                                <p class="numberviewsSuggestion"> </p>
+                                                <a class="oeil-1" href="{{route('playlist.add', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Add to my playlist"><img src="{{ asset('img/icones/Like gris.png') }}"  width="10" alt="Add to my playlist"></a>
+                                            </div>
                                         @endif
                                     </div>
                                 </div>
@@ -553,6 +625,11 @@
                                             else
                                             echo $durations[0]. ':' .$durations[1]. ':' .$durations[2];
                                             }
+
+                                            $playlist = DB::Table('playlists')->select('playlists.*')
+                                            ->where('playlists.user_id', Auth::id())
+                                            ->where('playlists.video_id', $video->id)
+                                            ->first();
                                             @endphp
                                         </p>
                                     </a>
@@ -609,6 +686,18 @@
                                                 <p class="numberviewsSuggestion"></p>
                                                 <img class="oeil-1" src="{{ asset('images/kids_preloader.png') }}" alt="">
                                             </div>
+                                            @endif
+
+                                            @if($playlist)
+                                            <div class="d-flex justify-content-between" >
+                                                <p class="numberviewsSuggestion"> </p>
+                                                <a class="oeil-1" href="{{route('playlist.remove', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Remove to my playlist"><img src="{{ asset('img/Groupe-972x.png') }}"  width="10" alt="Remove to my playlist"></a>
+                                            </div>
+                                            @else
+                                                <div class="d-flex justify-content-between" >
+                                                    <p class="numberviewsSuggestion"> </p>
+                                                    <a class="oeil-1" href="{{route('playlist.add', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Add to my playlist"><img src="{{ asset('img/icones/Like gris.png') }}"  width="10" alt="Add to my playlist"></a>
+                                                </div>
                                             @endif
                                         </div>
                                     </div>
@@ -669,13 +758,18 @@
                                         ->where('video_id', $video->id)
                                         ->count();
 
-                                        if ($video->duration){
+                                            if ($video->duration){
                                         $durations = explode(':', $video->duration);
                                         if($durations[0] == "00")
                                         echo $durations[1]. ':' .$durations[2];
                                         else
                                         echo $durations[0]. ':' .$durations[1]. ':' .$durations[2];
                                         }
+
+                                        $playlist = DB::Table('playlists')->select('playlists.*')
+                                        ->where('playlists.user_id', Auth::id())
+                                        ->where('playlists.video_id', $video->id)
+                                        ->first();
                                         @endphp
                                     </p>
                                 </a>
@@ -733,6 +827,18 @@
                                             <p class="numberviewsSuggestion"></p>
                                             <img class="oeil-1" src="{{ asset('images/kids_preloader.png') }}" alt="">
                                         </div>
+                                        @endif
+
+                                        @if($playlist)
+                                            <div class="d-flex justify-content-between" >
+                                                <p class="numberviewsSuggestion"> </p>
+                                                <a class="oeil-1" href="{{route('playlist.remove', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Remove to my playlist"><img src="{{ asset('img/Groupe-972x.png') }}"  width="10" alt="Remove to my playlist"></a>
+                                            </div>
+                                        @else
+                                            <div class="d-flex justify-content-between" >
+                                                <p class="numberviewsSuggestion"> </p>
+                                                <a class="oeil-1" href="{{route('playlist.add', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Add to my playlist"><img src="{{ asset('img/icones/Like gris.png') }}"  width="10" alt="Add to my playlist"></a>
+                                            </div>
                                         @endif
                                     </div>
                                 </div>

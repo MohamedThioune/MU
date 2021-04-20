@@ -27,7 +27,7 @@
 
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
-
+    @php if(isset($_COOKIE['lang'])) App::setLocale($_COOKIE['lang']); @endphp
 </head>
 
 <body class="sidebar-mini">
@@ -42,10 +42,10 @@
             </div>
         </div>
 
-    </div>
+    </div> 
     <div class="section-7">
         <div class="w-container">
-            <div class="text-block-220">As Salamou&#x27;alaykoum,<br>choisis ton profil</div>
+            <div class="text-block-220">As Salamou&#x27;alaykoum,<br>{{__('choose your profile')}}</div>
 
             <div class="div-block-20">
                 <div class="big-bull">
@@ -54,13 +54,21 @@
                     ->join('profile', 'users.id', 'profile.user_id')
                     ->where('users.id', Auth::id())
                     ->first();
+
+                    $playlist = DB::Table('playlists')->select('playlists.*')
+                                        ->where('playlists.user_id', Auth::id())
+                                        ->where('playlists.video_id', $video->id)
+                                        ->first();
                     @endphp
                     <a href="{{ route('connected', [$profil->id])}}" class="link-block-2 w-inline-block">
                         <img src="" alt="">
                     </a>
                     <div class="text-block-emir"> {{$profil->name}} </div>
                     <div class="text-block-219">
-                        <a href="{{route('profiles.index')}}" class="link-4">Gérer les profils</a>
+                        @if(count($profiles) > 4)
+                        <a href="{{route('profiles.create')}}" class="btn btn-danger link-4" style="color:white;">{{__('Add profile')}}</a>
+                        @endif
+                        <!-- <a href="{{route('profiles.index')}}" class="link-4">Gérer les profils</a> -->
                     </div>
                 </div>
 

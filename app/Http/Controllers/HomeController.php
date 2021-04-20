@@ -172,11 +172,16 @@ class HomeController extends Controller
         $read_at = (new \Datetime($read_video->created_at))->format('d-m-Y');
         $day = (new \Datetime())->format('d-m-Y');
 
-        if($read_at == $day)
-            if($read_video->id != $video->id){
-                return redirect('/');
-            }else
+        if(Auth::user()->state == 0)
+            if($read_at == $day)
+                if($read_video->id != $video->id)
+                    return redirect('/');
+                else
+                    Read::create($inputs_read);
+            else
                 Read::create($inputs_read);
+        else
+            Read::create($inputs_read);
        
         $inshaallah = DB::Table('videos')->select('videos.*')
                     ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')

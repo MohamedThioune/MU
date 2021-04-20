@@ -565,7 +565,7 @@
                             </div>
                             <div class="d-flex">
                                 <div class="d-flex">
-                                    <p class="commenter">Commenter</p>
+                                    <p class="commenter">{{__('Comment')}}</p>
                                     <button  onclick="TestsFunction()"  class="message-2-messaage w-inline-block btn">
                                         <img src="{{ asset('img/Mu-picto-comment-gris2x.png') }}" loading="lazy" width="33" alt="">
                                     </button>
@@ -597,8 +597,8 @@
                                 <textarea class="inputCommentaire" name="value" id="" rows="5"></textarea>
 
                                 <div class="div-block-332">
-                                    <div data-w-id="4b72083c-6fc6-243d-8a1a-20877dbe9b72" class="text-block-325">{{__('')}}Annuler</div>
-                                    <button type="submit" class="text-block-326 btn">{{__('')}}Envoyer</button>
+                                    <div data-w-id="4b72083c-6fc6-243d-8a1a-20877dbe9b72" class="text-block-325">{{__('Reset')}}</div>
+                                    <button type="submit" class="text-block-326 btn">{{__('Send')}}</button>
                                 </div>
                             </form>
                             <div>
@@ -647,7 +647,7 @@
                     <div class="commentTitle">
                         <img class="commentImg" src="{{ asset('img/icones/commet.svg') }}" alt="">
                         <p class="nombreComment"></p>
-                        <p class="commentText">0 {{__('')}}Commentaire</p>
+                        <p class="commentText">0 {{__('Comment')}}</p>
                     </div>
                     <div class="div-block-331" >
                         @include('adminlte-templates::common.errors')
@@ -657,8 +657,8 @@
                             <textarea class="inputCommentaire" name="value" id=""></textarea>
 
                             <div class="div-block-332">
-                                <button class="btn btnAnnuler">{{__('')}}Annuler</button>
-                                <button type="submit" class="btn btnEnvoyer">{{__('')}}Envoyer</button>
+                                <button class="btn btnAnnuler">{{__('Reset')}}</button>
+                                <button type="submit" class="btn btnEnvoyer">{{__('Send')}}</button>
                             </div>
                         </form>
                     </div>
@@ -681,6 +681,11 @@
                                     <div class="elementCardSuggestionDay">
                                             @php
                                                 $user = App\User::find($video->user_id);
+
+                                                $playlist = DB::Table('playlists')->select('playlists.*')
+                                                ->where('playlists.user_id', Auth::id())
+                                                ->where('playlists.video_id', $video->id)
+                                                ->first();
                                             @endphp
 
                                             @if($video->thumbnail)
@@ -765,6 +770,18 @@
                                                 @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) > 27)
                                                 <p class="day">On {{strftime("%d/%m/%Y", strtotime($video->created_at))}}</p>
                                                 @endif
+
+                                                @if($playlist)
+                                                    <div class="d-flex justify-content-between" >
+                                                        <p class="numberviewsSuggestion"> </p>
+                                                        <a class="oeil-1" href="{{route('playlist.remove', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Remove to my playlist"><img src="{{ asset('img/Groupe-972x.png') }}"  width="10" alt="Remove to my playlist"></a>
+                                                    </div>
+                                                @else
+                                                    <div class="d-flex justify-content-between" >
+                                                        <p class="numberviewsSuggestion"> </p>
+                                                        <a class="oeil-1" href="{{route('playlist.add', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Add to my playlist"><img src="{{ asset('img/icones/Like gris.png') }}"  width="10" alt="Add to my playlist"></a>
+                                                    </div>
+                                                @endif
                                                 <!--
                                                 <div class="d-flex justify-content-between">
                                                     <p class="numberviewsSuggestion">1230</p>
@@ -808,6 +825,11 @@
                             <div class="elementCardSuggestionDay">
                                 @php
                                     $user = App\User::find($video->user_id);
+
+                                    $playlist = DB::Table('playlists')->select('playlists.*')
+                                        ->where('playlists.user_id', Auth::id())
+                                        ->where('playlists.video_id', $video->id)
+                                        ->first();
                                 @endphp
 
                                 @if($video->thumbnail)
@@ -890,6 +912,18 @@
                                         <p class="day"> {{intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400)}} days ago </p>
                                         @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) > 27)
                                         <p class="day">On {{strftime("%d/%m/%Y", strtotime($video->created_at))}}</p>
+                                        @endif
+
+                                        @if($playlist)
+                                            <div class="d-flex justify-content-between" >
+                                                <p class="numberviewsSuggestion"> </p>
+                                                <a class="oeil-1" href="{{route('playlist.remove', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Remove to my playlist"><img src="{{ asset('img/Groupe-972x.png') }}"  width="10" alt="Remove to my playlist"></a>
+                                            </div>
+                                        @else
+                                            <div class="d-flex justify-content-between" >
+                                                <p class="numberviewsSuggestion"> </p>
+                                                <a class="oeil-1" href="{{route('playlist.add', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Add to my playlist"><img src="{{ asset('img/icones/Like gris.png') }}"  width="10" alt="Add to my playlist"></a>
+                                            </div>
                                         @endif
                                       <!--  <div class="d-flex justify-content-between">
                                             <p class="numberviewsSuggestion">1230</p>
@@ -934,6 +968,11 @@
                         <div class="elementCardSuggestionDay">
                                 @php
                                     $user = App\User::find($video->user_id);
+
+                                    $playlist = DB::Table('playlists')->select('playlists.*')
+                                        ->where('playlists.user_id', Auth::id())
+                                        ->where('playlists.video_id', $video->id)
+                                        ->first();
                                 @endphp
 
                                 @if($video->thumbnail)
@@ -1016,6 +1055,18 @@
                                         <p class="day"> {{intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400)}} days ago </p>
                                         @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) > 27)
                                         <p class="day">On {{strftime("%d/%m/%Y", strtotime($video->created_at))}}</p>
+                                        @endif
+
+                                        @if($playlist)
+                                            <div class="d-flex justify-content-between" >
+                                                <p class="numberviewsSuggestion"> </p>
+                                                <a class="oeil-1" href="{{route('playlist.remove', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Remove to my playlist"><img src="{{ asset('img/Groupe-972x.png') }}"  width="10" alt="Remove to my playlist"></a>
+                                            </div>
+                                        @else
+                                            <div class="d-flex justify-content-between" >
+                                                <p class="numberviewsSuggestion"> </p>
+                                                <a class="oeil-1" href="{{route('playlist.add', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Add to my playlist"><img src="{{ asset('img/icones/Like gris.png') }}"  width="10" alt="Add to my playlist"></a>
+                                            </div>
                                         @endif
                                        <!-- <div class="d-flex justify-content-between">
                                             <p class="numberviewsSuggestion">1230</p>
@@ -1060,6 +1111,11 @@
                         <div class="elementCardSuggestionDay">
                                 @php
                                     $user = App\User::find($video->user_id);
+
+                                    $playlist = DB::Table('playlists')->select('playlists.*')
+                                        ->where('playlists.user_id', Auth::id())
+                                        ->where('playlists.video_id', $video->id)
+                                        ->first();
                                 @endphp
 
                                 @if($video->thumbnail)
@@ -1143,6 +1199,18 @@
                                         @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) > 27)
                                         <p class="day">On {{strftime("%d/%m/%Y", strtotime($video->created_at))}}</p>
                                         @endif
+
+                                        @if($playlist)
+                                            <div class="d-flex justify-content-between" >
+                                                <p class="numberviewsSuggestion"> </p>
+                                                <a class="oeil-1" href="{{route('playlist.remove', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Remove to my playlist"><img src="{{ asset('img/Groupe-972x.png') }}"  width="10" alt="Remove to my playlist"></a>
+                                            </div>
+                                        @else
+                                            <div class="d-flex justify-content-between" >
+                                                <p class="numberviewsSuggestion"> </p>
+                                                <a class="oeil-1" href="{{route('playlist.add', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Add to my playlist"><img src="{{ asset('img/icones/Like gris.png') }}"  width="10" alt="Add to my playlist"></a>
+                                            </div>
+                                        @endif
                                        <!-- <div class="d-flex justify-content-between">
                                             <p class="numberviewsSuggestion">1230</p>
                                             <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
@@ -1186,6 +1254,11 @@
                             <div class="elementCardSuggestionDay">
                                 @php
                                     $user = App\User::find($video->user_id);
+
+                                    $playlist = DB::Table('playlists')->select('playlists.*')
+                                        ->where('playlists.user_id', Auth::id())
+                                        ->where('playlists.video_id', $video->id)
+                                        ->first();
                                 @endphp
 
                                 @if($video->thumbnail)
@@ -1267,6 +1340,18 @@
                                         @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) > 27)
                                         <p class="day">On {{strftime("%d/%m/%Y", strtotime($video->created_at))}}</p>
                                         @endif
+
+                                        @if($playlist)
+                                            <div class="d-flex justify-content-between" >
+                                                <p class="numberviewsSuggestion"> </p>
+                                                <a class="oeil-1" href="{{route('playlist.remove', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Remove to my playlist"><img src="{{ asset('img/Groupe-972x.png') }}"  width="10" alt="Remove to my playlist"></a>
+                                            </div>
+                                        @else
+                                            <div class="d-flex justify-content-between" >
+                                                <p class="numberviewsSuggestion"> </p>
+                                                <a class="oeil-1" href="{{route('playlist.add', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Add to my playlist"><img src="{{ asset('img/icones/Like gris.png') }}"  width="10" alt="Add to my playlist"></a>
+                                            </div>
+                                        @endif
                                      <!--   <div class="d-flex justify-content-between">
                                             <p class="numberviewsSuggestion">1230</p>
                                             <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
@@ -1311,6 +1396,11 @@
                                 <div class="elementCardSuggestionDay">
                                     @php
                                         $user = App\User::find($video->user_id);
+
+                                        $playlist = DB::Table('playlists')->select('playlists.*')
+                                        ->where('playlists.user_id', Auth::id())
+                                        ->where('playlists.video_id', $video->id)
+                                        ->first();
                                     @endphp
 
                                     @if($video->thumbnail)
@@ -1394,6 +1484,18 @@
                                             @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) > 27)
                                             <p class="day">On {{strftime("%d/%m/%Y", strtotime($video->created_at))}}</p>
                                             @endif
+
+                                            @if($playlist)
+                                                <div class="d-flex justify-content-between" >
+                                                    <p class="numberviewsSuggestion"> </p>
+                                                    <a class="oeil-1" href="{{route('playlist.remove', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Remove to my playlist"><img src="{{ asset('img/Groupe-972x.png') }}"  width="10" alt="Remove to my playlist"></a>
+                                                </div>
+                                            @else
+                                                <div class="d-flex justify-content-between" >
+                                                    <p class="numberviewsSuggestion"> </p>
+                                                    <a class="oeil-1" href="{{route('playlist.add', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Add to my playlist"><img src="{{ asset('img/icones/Like gris.png') }}"  width="10" alt="Add to my playlist"></a>
+                                                </div>
+                                            @endif
                                          <!--   <div class="d-flex justify-content-between">
                                                 <p class="numberviewsSuggestion">1230</p>
                                                 <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
@@ -1438,6 +1540,11 @@
                             <div class="elementCardSuggestionDay">
                                     @php
                                         $user = App\User::find($video->user_id);
+
+                                        $playlist = DB::Table('playlists')->select('playlists.*')
+                                        ->where('playlists.user_id', Auth::id())
+                                        ->where('playlists.video_id', $video->id)
+                                        ->first();
                                     @endphp
 
                                     @if($video->thumbnail)
@@ -1521,6 +1628,18 @@
                                         <p class="day"> {{intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400)}} days ago </p>
                                         @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) > 27)
                                         <p class="day">On {{strftime("%d/%m/%Y", strtotime($video->created_at))}}</p>
+                                        @endif
+
+                                        @if($playlist)
+                                            <div class="d-flex justify-content-between" >
+                                                <p class="numberviewsSuggestion"> </p>
+                                                <a class="oeil-1" href="{{route('playlist.remove', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Remove to my playlist"><img src="{{ asset('img/Groupe-972x.png') }}"  width="10" alt="Remove to my playlist"></a>
+                                            </div>
+                                        @else
+                                            <div class="d-flex justify-content-between" >
+                                                <p class="numberviewsSuggestion"> </p>
+                                                <a class="oeil-1" href="{{route('playlist.add', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Add to my playlist"><img src="{{ asset('img/icones/Like gris.png') }}"  width="10" alt="Add to my playlist"></a>
+                                            </div>
                                         @endif
                                         <!--
                                         <div class="d-flex justify-content-between">
