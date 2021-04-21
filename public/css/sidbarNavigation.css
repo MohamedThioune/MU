@@ -6232,7 +6232,8 @@
     line-height: 20px;
     color: #333;
     font-size: 14px;
-    font-family: "Ubuntu-Bold";
+    font-family: "Ubuntu-Regular";
+    margin-left: 30px;
 }
 .div-block-329 {
     display: -webkit-box;
@@ -9087,10 +9088,6 @@ element.style {
 
     .text-block-323 {
         font-weight: 500;
-    }
-
-    .div-block-326 {
-        width: 60%;
     }
 
     .div-block-327 {

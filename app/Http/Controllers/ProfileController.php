@@ -69,13 +69,14 @@ class ProfileController extends AppBaseController
             return redirect('/');
 
         $input = $request->all();
+        $input['user_id'] = Auth::id();
 
         /** @var Profile $profile */
         $profile = Profile::create($input);
 
         Flash::success('Profile saved successfully.');
 
-        return redirect(route('profiles.index'));
+        return redirect(route('choose'));
     }
 
     /**

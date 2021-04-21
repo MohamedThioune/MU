@@ -20,7 +20,7 @@ setcookie('lang', session('lang'), time() + 365*24*3600, null, null, false, true
             </a>
             @endif
             @endif
-       
+
     </div>
 <div class="section-2">
     <div class="container-6 w-container">
@@ -35,7 +35,7 @@ setcookie('lang', session('lang'), time() + 365*24*3600, null, null, false, true
 </div>
 <div class="pad">
     <div class="container-2 w-container">
-        <div class="block-element1">
+        <div class="block-element1 block-element1-1">
             <img src="{{ asset('img/Mu-3-pad-3d-mix2x.png') }}" >
         </div>
         <div class="div-block-4">
@@ -217,7 +217,7 @@ setcookie('lang', session('lang'), time() + 365*24*3600, null, null, false, true
                         <p class="faq-answer-text">{{__('Yes! In sha Allah! By producing content that is appreciated by other users. This way you can combine and multiply your intentions to earn both here and in the hereafter. You will find all the elements in the remuneration section, once the platform is active.')}}</p>
                     </div>
                 </div>
-               
+
                 <div class="faq-wrapper">
                     <div class="faq-question">
                         <div class="faq-q-text"><strong class="bold-text-5">{{__('Does Smuuse filter content ?')}}</strong></div>
@@ -385,7 +385,7 @@ setcookie('lang', session('lang'), time() + 365*24*3600, null, null, false, true
 </div>
 @endif
 <script>
-    
+
     $("#accordion").on("hide.bs.collapse show.bs.collapse", e => {
         $(e.target)
             .prev()

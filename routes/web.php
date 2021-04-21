@@ -47,7 +47,7 @@ Route::get('/', function () {
     ->join('videos','videos.id','reads.video_id')
     ->where('reads.user_id',Auth::id())
     ->whereNull('videos.deleted_at')
-    ->where('reads.created_at', '>=', $start) 
+    ->where('reads.created_at', '>=', $start)
     ->where('reads.created_at', '<', $end)
     ->select(DB::raw('count(*) as views, reads.video_id'))
     ->groupBy('reads.video_id')
@@ -175,26 +175,26 @@ Route::get('/play/{n}', [App\Http\Controllers\HomeController::class, 'play'])->w
 // share page : Play the current video shared [Online]
 Route::get('/share/{n}', function($id){
 
-    /* 
-        * 
+    /*
+        *
     */
 
-    /* 
+    /*
         * Retrieve all videos shared $shared
     */
-    
-    /* 
-    * Test if this video.id is already shared by check in table of videos shared 
-    
+
+    /*
+    * Test if this video.id is already shared by check in table of videos shared
+
     if($condition is true  ){
-    
+
     */
 
     //State lecture of a video today
     $state = false;
 
     $video = App\Models\Video::find($id);
-    $user = App\User::find($video->user_id); 
+    $user = App\User::find($video->user_id);
     $users = array();
 
     $subtopics = App\Models\SubTopic::all();
@@ -215,8 +215,8 @@ Route::get('/share/{n}', function($id){
 
     $counts = count($comments);
 
-    /* 
-    * Time shahid and Progress bar 
+    /*
+    * Time shahid and Progress bar
     */
 
     $start =  (new \Datetime())->format('Y-m-01 H:i:s');
@@ -229,8 +229,8 @@ Route::get('/share/{n}', function($id){
     $shahid = date('H:i:s', $shahid);
 
     $looks = null;
-                
-    /* 
+
+    /*
     * All videos by main_topic
     */
 
@@ -285,16 +285,16 @@ Route::get('/share/{n}', function($id){
     ->get();
 
     return view('play', compact('user', 'video', 'comments', 'counts', 'reads', 'users', 'subtopics','looks','shahid','inshaallah','videos_haltcare','videos_life','videos_health','videos_business','videos_environnement','videos_education'));
-    
-    /* 
+
+    /*
         * end condition videos.id is shared
     }
     */
 
-        /* 
+        /*
         * end condition videos.id is shared
-        * return view login 
-        
+        * return view login
+
         else {
         return view('login');
     }
@@ -372,7 +372,7 @@ Route::get('/flow', function () {
     ->get();
 
     return view('flow',compact('subtopics','kids','channel','videos_haltcare','videos_life','videos_health','videos_business','videos_environnement','videos_education'));
-    
+
 })->name('flow')->middleware('auth');
 
 // kids page : apercu
@@ -537,9 +537,9 @@ Route::get('/process', function(){
         'publicKey' => 'j2cqsvvdjnvs2v5w',
         'privateKey' => '9605f4859f57d23d0ee40cedb88c834e'
         ]);
-    
+
     $clientToken = $gateway->clientToken()->generate();
-    
+
     $channel = DB::Table('users')->select('channels.*')
     ->join('channels', 'users.id', 'channels.user_id')
     ->where('users.id', Auth::id())
@@ -566,13 +566,13 @@ Route::post('/process', function(){
 
     if ($result->success === true) {
         $facturation = DB::table('facturations')
-        ->select('facturations.*') 
+        ->select('facturations.*')
         ->join('users', 'users.id', 'facturations.user_id')
         ->where('users.id', Auth::id() )
         ->orderByDesc('facturations.created_at')
         ->first();
 
-        $start =  new \Datetime(); 
+        $start =  new \Datetime();
         if($_POST['amount'] > 0)
             if($_POST['amount'] == 120 || $_POST['amount'] == 60 ){
                 $type = "Annually";
@@ -600,18 +600,18 @@ Route::post('/process', function(){
                     ->where('users.id',Auth::id())
                     ->update(['type'=> $profile]);}
             }
- 
+
         if(!$facturation){
             $end =  new \Datetime();
             if($type == "Monthly")
                 $end->add(new DateInterval('P1M'));
-            else 
+            else
                 $end->add(new DateInterval('P12M'));
         }else{
             $end_at = new \Datetime($facturation->end_at);
             if($type == "Monthly")
                 $end = $end_at->add(new DateInterval('P1M'));
-            else 
+            else
                 $end = $end_at->add(new DateInterval('P12M'));
         }
 
@@ -628,12 +628,12 @@ Route::post('/process', function(){
         $start = $start->format("d.m.Y");
         $end = $end->format("d.m.Y");
 
-        Auth::user()->notify(new App\Notifications\InvoiceNotify()); 
+        Auth::user()->notify(new App\Notifications\InvoiceNotify());
 
         Flash::success('Payment made successfully ! <br> ~ Valid from ' .$start.  " to " .$end. ".<br> <a href='"  .route('home'). "' class='btn btn-info'>Quitter et retourner à l'acceuil</a> ");
-        
-    } 
-    else 
+
+    }
+    else
         Flash::error('Error occured &#x1F534; '.$result->errors->message );
         // var_dump($result) );
 

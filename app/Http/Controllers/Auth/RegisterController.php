@@ -70,18 +70,14 @@ class RegisterController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'firstName' => $data['firstName'],
+            'lastName' => $data['lastName'],
             'sex' => $data['sex'],
             'age' => $data['age'],
+            'pays' => $data['pays'],
             'photo' => "Mu-bull-gris-.png",
             'password' => bcrypt($data['password']),
             'status' => "contributor",
-            'vids_post' => 0,
-            'vids_approved' => 0,
-            'subscribers' => 0,
-            'can_upload' => 1,
-            'is_valid' => 0,
-            'is_confirmed' => 0,
-
         ]);
     }
 }

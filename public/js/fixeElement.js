@@ -1,6 +1,12 @@
 $(document).ready(function() {
+    $( ".group9" ).addClass('mobileVisiblite');
     $( ".sidebar-format" ).removeClass('invisible').addClass('indexElement') ;
-
+    $(".IconeRose").click(function(){
+        $( ".group9" ).addClass('mobileVisiblite');
+     });
+    $(".IconeBlanc").click(function(){
+        $( ".group9" ).removeClass('mobileVisiblite');
+     });
     //toogle des éléments du sidbar
     $("#monFlow").click(function(){
         $("#sousBlockMonFlow").toggle();

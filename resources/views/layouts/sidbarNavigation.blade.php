@@ -7,12 +7,12 @@
     </title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="target-densitydpi=device-dpi, initial-scale=1.0, user-scalable=no" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{asset('css/menu.css')}}">
     <link rel="stylesheet" href="../css/sidbarNavigation.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.css" integrity="sha512-phGxLIsvHFArdI7IyLjv14dchvbVkEDaH95efvAae/y2exeWBQCQDpNFbOTdV1p4/pIa/XtbuDCnfhDEIXhvGQ==" crossorigin="anonymous" />
-    <script src="https://kit.fontawesome.com/2def424b14.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.css"/>
     @yield('css')
     @php if(isset($_COOKIE['lang'])) App::setLocale($_COOKIE['lang']); @endphp
 </head>
@@ -80,25 +80,39 @@
 
                                             @if(!session('profile'))
                                             <span class="btnCommunaute" style="background:none; box-shadow: 4px 4px 15px white;font-weight:bold">
-                                                        @php
-                                                            $profile = DB::Table('users')->select('profile.*')
-                                                                                        ->join('profile', 'users.id', 'profile.user_id')
-                                                                                        ->where('users.id', Auth::id())
-                                                                                        ->first();
+                                            <a style="color:white;font-size:15px;text-decoration:none;" href="{{route('choose')}}">
+                                                @php
+                                                    $profile = DB::Table('users')->select('profile.*')
+                                                                                ->join('profile', 'users.id', 'profile.user_id')
+                                                                                ->where('users.id', Auth::id())
+                                                                                ->first();
 
-                                                            echo $profile->name;
-                                                        @endphp
-                                                        &nbsp;&nbsp;
-                                                        <a style="color:white;font-size:19px;" href="{{route('choose')}}"><i class="fas fa-caret-down"></i></a>
-                                                    </span>
+                                                    echo $profile->name;
+                                                @endphp
+                                                &nbsp;&nbsp;
+                                                 &#x2B07;</a>
+                                            </span>
                                             @elseif(session('profile')["age"] <= 15)
-                                            <span class="btnCommunaute" style="background:none; box-shadow: 4px 4px 15px #e9d22e;font-weight:bold"> {{session('profile')["name"]}} &nbsp;&nbsp;<a style="color:#e9d22e;font-size:19px;" href="{{route('choose')}}"><i class="fas fa-caret-down"></i></a></span>
+                                            <span class="btnCommunaute" style="background:none; box-shadow: 4px 4px 15px #e9d22e;font-weight:bold"> {{session('profile')["name"]}} &nbsp;&nbsp;<a style="color:#e9d22e;font-size:19px;" href="{{route('choose')}}"><i class="fas fa-caret-down"></i>&#x2B07;</a></span>
                                             @elseif(session('profile')["age"] > 15 && session('profile')["sex"] == '1')
-                                            <span class="btnCommunaute" style="background:none; box-shadow: 4px 4px 15px #3eacec;font-weight:bold"> {{session('profile')["name"]}} &nbsp;&nbsp;<a href="{{route('choose')}}"><i class="fas fa-caret-down"></i></a></span>
+                                            <span class="btnCommunaute" style="background:none; box-shadow: 4px 4px 15px #3eacec;font-weight:bold"> {{session('profile')["name"]}} &nbsp;&nbsp;<a href="{{route('choose')}}"><i class="fas fa-caret-down"></i>&#x2B07;</a></span>
                                             @elseif(session('profile')["age"] > 15 && session('profile')["sex"] == '0')
-                                            <span class="btnCommunaute" style="background:none; box-shadow: 4px 4px 15px #d14f94;font-weight:bold"> {{session('profile')["name"]}} &nbsp;&nbsp;<a style="color:#d14f94;font-size:19px;" href="{{route('choose')}}"><i class="fas fa-caret-down"></i></a><span>
-                                                    @endif
+                                            <span class="btnCommunaute" style="background:none; box-shadow: 4px 4px 15px #d14f94;font-weight:bold"> {{session('profile')["name"]}} &nbsp;&nbsp;<a style="color:#d14f94;font-size:19px;" href="{{route('choose')}}"><i class="fas fa-caret-down"></i>&#x2B07;<</a><span>
+                                            @endif
                                         </li>
+                                    @else
+                                    <li class="nav-item nav-modife">
+                                        <span class="btnCommunaute" style="background:none; box-shadow: 4px 4px 15px white;font-weight:bold">
+                                            @php
+                                                $profile = DB::Table('users')->select('profile.*')
+                                                                            ->join('profile', 'users.id', 'profile.user_id')
+                                                                            ->where('users.id', Auth::id())
+                                                                            ->first();
+
+                                                echo $profile->name;
+                                            @endphp
+                                        </span>
+                                    </li>    
                                     @endif
                                 @endif
                             @endif
@@ -120,7 +134,7 @@
                 <!-- navbar Mobile-->
                 <div class="bar-up webMobile">
                     <div class="nav-up-right">
-                        <a data-w-id="85409373-dce4-fdcf-64c5-c0ed0fa665a1" href="#" class="_4-points w-inline-block">
+                        <a  href="#" class="_4-points w-inline-block IconeBlanc">
                             <div class="_2points">
                                 <div class="point-1x4"></div>
                                 <div class="point-1x4"></div>
@@ -139,6 +153,17 @@
                         </div>
                     </div>
 
+                </div>
+                <div class="barHead2">
+                    <div class="group17">
+                        <div class="div-block-422">
+                            <img src="{{ asset('img/Time-shahid.svg') }}" alt="">
+                        </div>
+                        <p class="textTimeShalied">26.3</p>
+                    </div>
+                    <a href="" class="clocheHead2">
+                        <img src="{{ asset('img/Mu-cloche-blanc.png') }}" alt="">
+                    </a>
                 </div>
 
                 <div class="bar-down">
@@ -166,13 +191,13 @@
                     </div>
                 </div>
             </div>
-            <div class="d-flex">
+            <div class="d-flex group9">
                <div class="contentSidElement">
                    <div class="sidebar-format invisible">
                        <div class="sidenavbar">
                            <div class="sidenavbar-up">
                                <div>
-                                   <a href="#" class="_4-points-closed w-inline-block">
+                                   <a href="#" class="_4-points-closed w-inline-block IconeRose">
                                        <div class="_2points">
                                            <div class="point-1x4-pr"></div>
                                            <div class="point-1x4-pr2"></div>

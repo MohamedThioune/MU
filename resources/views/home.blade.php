@@ -33,12 +33,12 @@
                 </button>
             </div>
         </div>
-        <!-- <div class="imgPubBlock">
+      <div class="imgPubBlock">
             <img src="{{ asset('img/Mu-bandeau-Pub.jpg') }}" alt="">
-        </div> -->
+        </div>
     </div>
     <p class="text-block-350">{{__('All your information at a glance')}} &#x1F609;</p>
-    <div class="menu-content-business">
+    <div class="menu-content-business business-Web">
         <a href="#" class="link-26">Infos</a>
         <a href="#" class="link-26">Recents</a>
         <a href="{{route('flow')}}" class="link-26">{{__('All videos')}}</a>
@@ -51,6 +51,27 @@
             <a href="{{route('tarifs')}}" style="text-decoration:none;" class="btn btn-info">{{__('Click here')}}</a>
         </center>
         @endif
+    <div class="business-MOb">
+        <div class="swiper-container swipeContainermodife3">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <a href="#" class="link-26">Infos</a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#" class="link-26">Recents</a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="{{route('flow')}}" class="link-26">{{__('All videos')}}</a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#" class="link-26">{{__('Offers')}}</a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#" class="link-26">Playlist</a>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="hotNotifications">
         <div class="blockTitle2">
             <div class="d-flex">
@@ -131,18 +152,18 @@
                                     <p class="day">On {{strftime("%d/%m/%Y", strtotime($video->created_at))}}</p>
                                     @endif
 
-                                    @if($playlist)
-                                        <div class="d-flex justify-content-between" >
-                                            <p class="numberviewsSuggestion"> </p>
-                                            <a class="oeil-1" href="{{route('playlist.remove', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Remove to my playlist"><img src="{{ asset('img/Groupe-972x.png') }}"  width="10" alt="Remove to my playlist"></a>
-                                        </div>
-                                    @else
-                                        <div class="d-flex justify-content-between" >
-                                            <p class="numberviewsSuggestion"> </p>
-                                            <a class="oeil-1" href="{{route('playlist.add', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Add to my playlist"><img src="{{ asset('img/icones/Like gris.png') }}"  width="10" alt="Add to my playlist"></a>
-                                        </div>
-                                    @endif
                             </div>
+                            @if($playlist)
+                                <div class="d-flex justify-content-between blockPlayist" >
+                                    <p class="numberviewsSuggestion"> </p>
+                                    <a  href="{{route('playlist.remove', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Remove to my playlist"><img src="{{ asset('img/report-Orange.svg') }}"  alt="Remove to my playlist"></a>
+                                </div>
+                            @else
+                                <div class="d-flex justify-content-between blockPlayist" >
+                                    <p class="numberviewsSuggestion"> </p>
+                                    <a href="{{route('playlist.add', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Add to my playlist"><img src="{{ asset('img/report-gris.svg') }}"  alt="Add to my playlist"></a>
+                                </div>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -192,11 +213,11 @@
                             <img class="imgGrenn" src="{{ asset('img/Mu-hot-info.png') }}" loading="lazy">
                         </div>
                         <div class="div-block-393">
-                            <div class="div-block-392"> 
+                            <div class="div-block-392">
                                 <img src="{{ asset('img/Mu-video-format-bike-girl.jpg') }}" loading="lazy" sizes="100vw" srcset="images/Mu-video-format-bike-girl-p-800.jpeg 800w, images/Mu-video-format-bike-girl.jpg 898w" alt="" class="image-130"></div>
                             <div>
                             <p class="text-block-383">{{__('Want to see more')}}</p>
-                           
+
                             <p class="text-block-385">{{__('Discover even more interesting features')}}</p>
                             <br>
                             <div>
@@ -284,18 +305,6 @@
                                     @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) > 27)
                                     <p class="day">On {{strftime("%d/%m/%Y", strtotime($video->created_at))}}</p>
                                     @endif
-
-                                    @if($playlist)
-                                        <div class="d-flex justify-content-between" >
-                                            <p class="numberviewsSuggestion"> </p>
-                                            <a class="oeil-1" href="{{route('playlist.remove', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Remove to my playlist"><img src="{{ asset('img/Groupe-972x.png') }}"  width="10" alt="Remove to my playlist"></a>
-                                        </div>
-                                    @else
-                                        <div class="d-flex justify-content-between" >
-                                            <p class="numberviewsSuggestion"> </p>
-                                            <a class="oeil-1" href="{{route('playlist.add', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Add to my playlist"><img src="{{ asset('img/icones/Like gris.png') }}"  width="10" alt="Add to my playlist"></a>
-                                        </div>
-                                    @endif
                                     <!--                                     
                                          <div class="d-flex justify-content-between">
                                             <p class="numberviewsSuggestion">1230</p>
@@ -303,6 +312,17 @@
                                         </div>
                                     -->                                        
                             </div>
+                            @if($playlist)
+                                <div class="d-flex justify-content-between blockPlayist" >
+                                    <p class="numberviewsSuggestion"> </p>
+                                    <a  href="{{route('playlist.remove', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Remove to my playlist"><img src="{{ asset('img/report-Orange.svg') }}"  alt="Remove to my playlist"></a>
+                                </div>
+                            @else
+                                <div class="d-flex justify-content-between blockPlayist" >
+                                    <p class="numberviewsSuggestion"> </p>
+                                    <a href="{{route('playlist.add', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Add to my playlist"><img src="{{ asset('img/report-gris.svg') }}"  alt="Add to my playlist"></a>
+                                </div>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -313,8 +333,8 @@
 
    @if($playlists)
    @if(count($playlists) > 0)
-    <div class="suggestionFlow">
-        <p class="text-Playlist2">{{__('MY')}} Playlist</p>
+    <div class="playlist1">
+        <p class="titre-asso-video-all">{{__('MY')}} Playlist</p>
         <div class="swiper-container swipeContainermodife1">
             <div class="swiper-wrapper">
                 @foreach($playlists as $playlist)
@@ -382,10 +402,6 @@
                                     @else(intval(abs(strtotime("now") - strtotime($playlist->created_at))/ 86400) > 27)
                                     <p class="day">On {{strftime("%d/%m/%Y", strtotime($playlist->created_at))}}</p>
                                     @endif
-                                    <div class="d-flex justify-content-between" >
-                                        <p class="numberviewsSuggestion"> </p>
-                                        <a class="oeil-1" href="{{route('playlist.remove', $playlist->id)}}" data-toggle="tooltip" data-placement="top" title="Remove to my playlist"><img src="{{ asset('img/Groupe-972x.png') }}"  width="10" alt="Remove to my playlist"></a>
-                                    </div>
                                 <!--                                     
                                     <div class="d-flex justify-content-between">
                                         <p class="numberviewsSuggestion">1230</p>
@@ -393,6 +409,11 @@
                                     </div>
                                 -->                                        
                             </div>
+                           
+                                <div class="d-flex justify-content-between blockPlayist" >
+                                    <p class="numberviewsSuggestion"> </p>
+                                    <a  href="{{route('playlist.remove', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Remove to my playlist"><img src="{{ asset('img/report-Orange.svg') }}"  alt="Remove to my playlist"></a>
+                                </div>
                         </div>
                     </div>
                 </div>
@@ -408,7 +429,7 @@
             @php $user = App\User::find($channel_top->user_id); @endphp
             <p class="text-block-353-copy">{{__('Here is the most viewed channel at the moment')}}</p>
         </div>
-        <div class="div-block-367">
+        <div class="div-block-367 web367">
             <div class="bull-chaine">
                 @if($channel_top->logo)
                 <a href="{{route('channel.visitor', $channel_top->id)}}" style="text-decoration:none"> <img class="image-125" src="{{ asset('/img') }}/{{$channel->logo}}" alt=""> </a>
@@ -457,6 +478,43 @@
                         <div>{{__('Support us')}}</div>
                     </a>
                 </div>
+            </div>
+        </div>
+        <div class="div-block-367 mob367">
+             <div class="d-flex">
+                 <div class="bull-chaine">
+                     @if($channel_top->logo)
+                     <a href="{{route('channel.visitor', $channel_top->id)}}" style="text-decoration:none"> <img class="image-125" src="{{ asset('/img') }}/{{$channel->logo}}" alt=""> </a>
+                     @elseif($user->age <= 15)
+                     <a href="{{route('channel.visitor', $channel_top->id)}}" style="text-decoration:none"> <img class="image-125" src="{{asset('images/kids_preloader.png')}}" alt=""> </a>
+                     @elseif($user->age > 15 && $user->sex == '1')
+                     <a href="{{route('channel.visitor', $channel_top->id)}}" style="text-decoration:none"> <img class="image-125" src="{{asset('images/flow_preloader.png')}}" alt=""/> </a>
+                     @elseif($user->age > 15 && $user->sex == '0')
+                     <a href="{{route('channel.visitor', $channel_top->id)}}" style="text-decoration:none"> <img class="image-125" src="{{asset('images/sista_preloader.png')}}" alt=""> </a>
+                     @endif
+                 </div>
+                 <div class="div-block-368">
+                     <a href="{{route('channel.visitor', $channel_top->id)}}" style="text-decoration:none; color:black;" class="text-block-362">{{$channel_top->name}}</a>
+                     <div class="div-block-371">
+                         <p class="text-block-363">{{\App\Models\Channel::find($channel_top->id)->abonnees->count()}}</p>
+                         <p class="text-block-345">{{__('Subscribers')}}</p>
+                     </div>
+                     <p class="text-block-364">{{$videos_count}} Publications</p>
+                     <div class="text-block-366">
+                         <a href="{{route('channel.visitor', $channel_top->id)}}" class="link-28">{{__('See the channel')}}</a>
+                     </div>
+                 </div>
+             </div>
+            <div class="back-subscrib-bar">
+                <a class="btnSubscripeNotif" href="{{ route('suscribe',$channel_top->id) }}">
+                    <div class="div-block-386">
+                        <img src="{{ asset('img/Mu-coeur-blanc.svg') }}" class="imgCoeurBlanc" width="23" alt="">
+                    </div>
+                    <div>{{__('Subscribe')}}</div>
+                    <div class="alerte7">
+                        <img src="{{ asset('img/Mu-cloche-blanc.svg') }}" class="cloche3-1"  alt="">
+                    </div>
+                </a>
             </div>
         </div>
     </div>
@@ -755,6 +813,12 @@
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script>
     var swiper = new Swiper('.swipeContainermodife1', {
+        slidesPerView: 3,
+        spaceBetween: 30
+    });
+</script>
+<script>
+    var swiper = new Swiper('.swipeContainermodife3', {
         slidesPerView: 3,
         spaceBetween: 30
     });

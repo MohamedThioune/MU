@@ -104,6 +104,7 @@
       <path value="$PROJECT_DIR$/vendor/overtrue/laravel-follow" />
       <path value="$PROJECT_DIR$/vendor/arcanedev/arabic" />
       <path value="$PROJECT_DIR$/vendor/caouecs/laravel-lang" />
+      <path value="$PROJECT_DIR$/vendor/braintree/braintree_php" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.1">

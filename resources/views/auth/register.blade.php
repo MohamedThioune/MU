@@ -32,30 +32,48 @@
                     @include('adminlte-templates::common.errors')
                     <div class="">
                         <input id="email" type="email" placeholder="{{ __('register.email') }}" class="form-control text-field-3 w-input{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
-
                         @if ($errors->has('email'))
                         <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
+                            <strong>{{ $errors->first('email') }}</strong>
+                        </span>
                         @endif
                     </div>
+
                     <div>
                         <label for="sex" class="field-label-3">{{__('register.ami')}} </label>
                         <label class="radio-button-field w-radio"><input type="radio"  id="radio" name="sex" value="0" class="w-form-formradioinput radio-button-2 w-radio-input {{ $errors->has('sex') ? ' is-invalid' : '' }}" ><span class="radio-button-label w-form-label">{{__('register.femme')}}</span></label>
                         <label class="radio-button-field-2 w-radio"><input type="radio"  id="radio-2" name="sex" value="1" class="w-form-formradioinput radio-button w-radio-input {{ $errors->has('sex') ? ' is-invalid' : '' }}"><span class="radio-button-label-2 w-form-label">{{__('register.homme')}}</span></label>
                         @if ($errors->has('sex'))
                         <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('sex') }}</strong>
-                                    </span>
+                            <strong>{{ $errors->first('sex') }}</strong>
+                        </span>
                         @endif
                     </div>
-                    <div class="">
-                        <input id="name" type="text" class=" text-field-4 w-input form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="Nom au Complet" name="name" value="{{ old('name') }}" required>
 
+                    <div class="">
+                        <input id="name" type="text" class=" text-field-4 w-input form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" placeholder="{{__('Pseudonyme')}}" name="name" value="{{ old('name') }}" required>
                         @if ($errors->has('name'))
                         <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
+                            <strong>{{ $errors->first('name') }}</strong>
+                        </span>
+                        @endif
+                    </div>
+
+                    <div class="">
+                        <input id="name" type="text" class=" text-field-4 w-input form-control{{ $errors->has('firstName') ? ' is-invalid' : '' }}" placeholder="{{__('First name')}}" name="firstName" value="{{ old('firstName') }}" required>
+                        @if ($errors->has('firstName'))
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->first('firstName') }}</strong>
+                        </span>
+                        @endif
+                    </div>
+
+                    <div class="">
+                        <input id="name" type="text" class=" text-field-4 w-input form-control{{ $errors->has('lastName') ? ' is-invalid' : '' }}" placeholder="{{__('Last name')}}" name="lastName" value="{{ old('lastName') }}" required>
+                        @if ($errors->has('lastName'))
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->first('lastName') }}</strong>
+                        </span>
                         @endif
                     </div>
 

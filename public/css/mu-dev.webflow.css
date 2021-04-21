@@ -2061,6 +2061,24 @@
 .image-34 {
   margin-top: 27px;
 }
+
+.btn-add-profile{
+  border-radius: 5px;
+  background-color: #34c1f5;
+  font-size: 16px;
+  font-weight: 500;
+}
+.btn-add-profile:hover{
+ color: #FFFFFF !important;
+}
+.form-3 {
+  width: 300px;
+  margin: 0 auto;
+}
+.submit-button-2 {
+  width: auto !important;
+  margin-right: 95px !important;
+}
 @media screen and (min-width: 1280px) {
   .section-5 {
     margin-top: 40px;
