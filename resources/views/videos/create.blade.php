@@ -4,6 +4,7 @@
 <script>(function(e,t,n){var r=e.querySelectorAll("html")[0];r.className=r.className.replace(/(^|\s)no-js(\s|$)/,"$1js$2")})(document,window,0);</script>
 <link rel="stylesheet" type="text/css" href="../css/component.css" />
 <link rel="stylesheet" type="text/css" href="../css/video.css" />
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 @php if(isset($_COOKIE['lang'])) App::setLocale($_COOKIE['lang']); @endphp
 @endsection
 
@@ -61,7 +62,7 @@
                         <!-- <p class="text-ref-fichier">Ref : mu/…</p> -->
                     </div>
                     <div class="div-block-239">
-                        <div class="content2">
+                        <div class="content2-2">
                             <label class="label-22" for="input">
                                 <img src="{{ asset('img/Mu-Vignette-video-400x250-plato.jpg') }}" class="image-98">
                             </label>
@@ -85,48 +86,116 @@
                         <div class="form-group titre-video">
                             <label class="text-title-video">{{__('Objectives of the video')}}</label>
                             <p class="text-block-263">{{__('\'Acts are only as good as their intentions\' so be clear about your goals. And remember that the first intention is to please your Creator. May the Most Merciful reward you for this.')}}</p>
-                            <div class="div-block-310">
-                                <div class="divChekElement">
-                                    <input type="checkbox" name="motivation" value="informer" class="btn-check" id="btn-check-2-outlined" checked autocomplete="off">
-                                    <label class="btn text-block-311" for="btn-check-2-outlined">{{__('Inform')}}</label>
+                            <div class="btnCategorieWeb">
+                                <div class="div-block-310">
+                                    <div class="divChekElement">
+                                        <input type="checkbox" name="informer" value="informer" class="btn-check" id="informer"  autocomplete="off">
+                                        <label class="btn text-block-311" for="informer">{{__('Inform')}}</label>
+                                    </div>
+                                    <div class="divChekElement">
+                                        <input type="checkbox" name="partager" value="partager" class="btn-check" id="partager"  autocomplete="off">
+                                        <label class="btn text-block-311" for="partager">{{__('Share')}}</label>
+                                    </div>
+                                    <div class="divChekElement">
+                                        <input type="checkbox" name="faire-rire" value="faire-rire" class="btn-check" id="faire-rire"  autocomplete="off">
+                                        <label class="btn text-block-311" for="faire-rire">{{__('Making you laugh')}}</label>
+                                    </div>
+                                    <div class="divChekElement">
+                                        <input type="checkbox" name="sensibiliser" value="sensibiliser" class="btn-check" id="sensibiliser"  autocomplete="off">
+                                        <label class="btn text-block-311" for="sensibiliser">{{__('Sensitize')}}</label>
+                                    </div>
+                                    <div class="divChekElement">
+                                        <input type="checkbox" name="inspirer" value="inspirer" class="btn-check" id="inspirer"  autocomplete="off">
+                                        <label class="btn text-block-311" for="inspirer">{{__('Inspire')}}</label>
+                                    </div>
                                 </div>
-                                <div class="divChekElement">
-                                    <input type="checkbox" name="motivation" value="partager" class="btn-check" id="btn-check-2-outlined"  autocomplete="off">
-                                    <label class="btn text-block-311" for="btn-check-2-outlined">{{__('Share')}}</label>
-                                </div>
-                                <div class="divChekElement">
-                                    <input type="checkbox" name="motivation" value="faire-rire" class="btn-check" id="btn-check-2-outlined"  autocomplete="off">
-                                    <label class="btn text-block-311" for="btn-check-2-outlined">{{__('Making you laugh')}}</label>
-                                </div>
-                                <div class="divChekElement">
-                                    <input type="checkbox" name="motivation" value="sensibiliser" class="btn-check" id="btn-check-2-outlined"  autocomplete="off">
-                                    <label class="btn text-block-311" for="btn-check-2-outlined">{{__('Sensitize')}}</label>
-                                </div>
-                                <div class="divChekElement">
-                                    <input type="checkbox" name="motivation" value="inspirer" class="btn-check" id="btn-check-2-outlined"  autocomplete="off">
-                                    <label class="btn text-block-311" for="btn-check-2-outlined">{{__('Inspire')}}</label>
+                                <div class="div-block-310">
+                                    <div class="divChekElement">
+                                        <input type="checkbox" name="avertir" value="avertir" class="btn-check" id="avertir"  autocomplete="off">
+                                        <label class="btn text-block-311" for="avertir">{{__('Notify')}}</label>
+                                    </div>
+                                    <div class="divChekElement">
+                                        <input type="checkbox" name="soutenir" value="soutenir" class="btn-check" id="soutenir"  autocomplete="off">
+                                        <label class="btn text-block-311" for="soutenir">{{__('Support')}}</label>
+                                    </div>
+                                    <div class="divChekElement">
+                                        <input type="checkbox" name="vendre" value="vendre" class="btn-check" id="vendre"  autocomplete="off">
+                                        <label class="btn text-block-311" for="vendre">{{__('Sell')}}</label>
+                                    </div>
+                                    <div class="divChekElement">
+                                        <input type="checkbox" name="rappeler" value="rappeler" class="btn-check" id="rappeler"  autocomplete="off">
+                                        <label class="btn text-block-311" for="rappeler">{{__('Call back')}}</label>
+                                    </div>
+                                    <div class="divChekElement">
+                                        <input type="checkbox" name="expliquer" value="expliquer" class="btn-check" id="expliquer"  autocomplete="off">
+                                        <label class="btn text-block-311" for="expliquer">{{__('Explain')}}</label>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="div-block-310">
-                                <div class="divChekElement">
-                                    <input type="checkbox" name="motivation" value="avertir" class="btn-check" id="btn-check-2-outlined"  autocomplete="off">
-                                    <label class="btn text-block-311" for="btn-check-2-outlined">{{__('Notify')}}</label>
-                                </div>
-                                <div class="divChekElement">
-                                    <input type="checkbox" name="motivation" value="soutenir" class="btn-check" id="btn-check-2-outlined"  autocomplete="off">
-                                    <label class="btn text-block-311" for="btn-check-2-outlined">{{__('Support')}}</label>
-                                </div>
-                                <div class="divChekElement">
-                                    <input type="checkbox" name="motivation" value="vendre" class="btn-check" id="btn-check-2-outlined"  autocomplete="off">
-                                    <label class="btn text-block-311" for="btn-check-2-outlined">{{__('Sell')}}</label>
-                                </div>
-                                <div class="divChekElement">
-                                    <input type="checkbox" name="motivation" value="rappeler" class="btn-check" id="btn-check-2-outlined"  autocomplete="off">
-                                    <label class="btn text-block-311" for="btn-check-2-outlined">{{__('Call back')}}</label>
-                                </div>
-                                <div class="divChekElement">
-                                    <input type="checkbox" name="motivation" value="expliquer" class="btn-check" id="btn-check-2-outlined"  autocomplete="off">
-                                    <label class="btn text-block-311" for="btn-check-2-outlined">{{__('Explain')}}</label>
+                            <div class="btnCategorieMobile">
+                                <div class="swiper-container swipeContainermodife1">
+                                    <div class="swiper-wrapper">
+                                        <div class=" swiper-slide ">
+                                            <div class="divChekElement">
+                                                <input type="checkbox" name="informer" value="informer" class="btn-check" id="informer"  autocomplete="off">
+                                                <label class="btn text-block-311" for="informer">{{__('Inform')}}</label>
+                                            </div>
+                                        </div>
+                                        <div class=" swiper-slide ">
+                                            <div class="divChekElement">
+                                                <input type="checkbox" name="partager" value="partager" class="btn-check" id="partager"  autocomplete="off">
+                                                <label class="btn text-block-311" for="partager">{{__('Share')}}</label>
+                                            </div>
+                                        </div>
+                                        <div class=" swiper-slide ">
+                                            <div class="divChekElement">
+                                                <input type="checkbox" name="faire-rire" value="faire-rire" class="btn-check" id="faire-rire"  autocomplete="off">
+                                                <label class="btn text-block-311" for="faire-rire">{{__('Making you laugh')}}</label>
+                                            </div>
+                                        </div>
+                                        <div class=" swiper-slide ">
+                                            <div class="divChekElement">
+                                                <input type="checkbox" name="sensibiliser" value="sensibiliser" class="btn-check" id="sensibiliser"  autocomplete="off">
+                                                <label class="btn text-block-311" for="sensibiliser">{{__('Sensitize')}}</label>
+                                            </div>
+                                        </div>
+                                        <div class=" swiper-slide ">
+                                            <div class="divChekElement">
+                                                <input type="checkbox" name="inspirer" value="inspirer" class="btn-check" id="inspirer"  autocomplete="off">
+                                                <label class="btn text-block-311" for="inspirer">{{__('Inspire')}}</label>
+                                            </div>
+                                        </div>
+                                        <div class=" swiper-slide ">
+                                            <div class="divChekElement">
+                                                <input type="checkbox" name="avertir" value="avertir" class="btn-check" id="avertir"  autocomplete="off">
+                                                <label class="btn text-block-311" for="avertir">{{__('Notify')}}</label>
+                                            </div>
+                                        </div>
+                                        <div class=" swiper-slide ">
+                                            <div class="divChekElement">
+                                                <input type="checkbox" name="soutenir" value="soutenir" class="btn-check" id="soutenir"  autocomplete="off">
+                                                <label class="btn text-block-311" for="soutenir">{{__('Support')}}</label>
+                                            </div>
+                                        </div>
+                                        <div class=" swiper-slide ">
+                                            <div class="divChekElement">
+                                                <input type="checkbox" name="vendre" value="vendre" class="btn-check" id="vendre"  autocomplete="off">
+                                                <label class="btn text-block-311" for="vendre">{{__('Sell')}}</label>
+                                            </div>
+                                        </div>
+                                        <div class=" swiper-slide ">
+                                            <div class="divChekElement">
+                                                <input type="checkbox" name="rappeler" value="rappeler" class="btn-check" id="rappeler"  autocomplete="off">
+                                                <label class="btn text-block-311" for="rappeler">{{__('Call back')}}</label>
+                                            </div>
+                                        </div>
+                                        <div class=" swiper-slide ">
+                                            <div class="divChekElement">
+                                                <input type="checkbox" name="expliquer" value="expliquer" class="btn-check" id="expliquer"  autocomplete="off">
+                                                <label class="btn text-block-311" for="expliquer">{{__('Explain')}}</label>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -291,7 +360,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="div-block-261">
                 <div>
                     <p class="text-la-video2">{{__('Date of publication')}}</p>
@@ -351,7 +420,14 @@
                 </div>
             </div>
         </div>
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+        <script>
+            var swiper = new Swiper('.swipeContainermodife1', {
+                slidesPerView: 3.1,
+                spaceBetween: 10,
 
+            });
+        </script>
 @endsection
 @section('scripts')
 

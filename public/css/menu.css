@@ -1370,7 +1370,7 @@ video{
     justify-content: end;
 }
 .text-block-318 {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     padding-left: 0px;
     font-weight: 700;
     font-family: "Ubuntu-Bold";
@@ -2257,7 +2257,7 @@ video{
     width: 141px;
 }
 .webMobile{
-    display: none;
+    display: none !important;
 }
 .categorie-name1{
     display: none;
@@ -2302,7 +2302,8 @@ video{
 }
 .panier3{
     width: 22px;
-    margin-right: 20px;
+    margin-right: 13px;
+    margin-left: 20px;
 }
 .plus-comments-mob {
     padding: 0px 0px 20px;
@@ -2398,9 +2399,62 @@ video{
 .mobBusiness{
     display: none;
 }
+.link-block-40 {
+    width: unset;
+    padding-right: 0px;
+    padding-left: 15px;
+    border-radius: 30px 0px 0px 30px;
+    background-color: #f5740a;
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
+}
+.btnSubscripeNotif {
+    display: flex;
+    background: #f27539;
+    width: fit-content;
+    padding: 0px 14px 0px 1px;
+    border-radius: 25px;
+    color: white;
+    align-items: center;
+    margin-left: 0;
+}
+.btnSubscripeNotif:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+.div-block-386 {
+    height: 35px;
+    padding-top: 11px;
+    margin-right: 0;
+}
+.imgCoeurBlanc {
+    width: 17px;
+}
+.alerte7 {
+    padding-left: 14px;
+    margin-left: 10px;
+    border-left: 1px solid white;
+    height: 35px;
+    padding-top: -2px;
+    background: unset !important;
+    border-top: unset !important;
+    border-right: unset !important;
+    border-bottom: unset !important;
+}
+.cloche3-1 {
+    width: 10px;
+    padding-top: 2px;
+}
+.v1{
+    display: none !important;
+}
 @media all and (min-width: 300px) and (max-width: 767px){
     body{
         overflow-x: hidden;
+    }
+    .shopInModal {
+        display: none;
     }
     .modalModif1{
         max-width: 100% !important;
@@ -2430,6 +2484,10 @@ video{
     }
     .leftMobile{
         margin-left: -15px !important;
+    }
+    .div-block-386 {
+        padding-right: 12px;
+        padding-left: 15px;
     }
     .navbar-toggler {
         display: none;
@@ -2534,7 +2592,7 @@ video{
         width: 50%;
     }
     .groupLOveUnlove {
-        width: 63%;
+        display: none !important;
     }
     .blockImgPuliMobile {
         display: block;
@@ -2566,6 +2624,7 @@ video{
     }
     .flyText{
         font-size: 16px;
+        display: none;
     }
     .heureFly {
         padding: 3px 15px;
@@ -2637,6 +2696,7 @@ video{
     }
     .div-block-322{
         justify-content: center;
+        margin-top: 30px;
     }
     .nombreComment {
         padding-right: 6px;
@@ -2654,8 +2714,9 @@ video{
         display: none;
     }
     .swipeslideShop {
-         width: 65%;
+        width: 52%;
          margin-right: 30px;
+        border-radius: 12px;
      }
     .div-block-318 {
         display: -webkit-box;
@@ -2859,7 +2920,7 @@ video{
         display: none !important;
     }
     .webMobile{
-        display: flex;
+        display: flex !important;
     }
     .flexElement1 {
         display: flex;
@@ -2945,9 +3006,6 @@ video{
     .block-detail-commentaire {
         display: none;
     }
-    .groupLOveUnlove1{
-        display: none;
-    }
     .groupLOveUnlove2{
         display: flex;
         padding: 15px 15px 2px;
@@ -2955,12 +3013,15 @@ video{
         opacity: 1;
     }
     .sousBlockTitle {
-        min-height: unset;
+        min-height: 98px;
     }
     .pub-mob{
         display: block;
         position: relative;
-        height: 250px;
+        height: 255px;
+    }
+    .trois-point-noir {
+        margin-top: -37px;
     }
     .pub-mob img{
       width: 100%;
@@ -3037,7 +3098,7 @@ video{
         width: 330px !important;
     }
     .text-block-383 {
-        font-size: 23px;
+        font-size: 20px;
     }
     .div-block-367{
         display: flex;
@@ -3057,20 +3118,34 @@ video{
         padding: 16px;
     }
     .resume-activitee {
-        margin-right: 25px;
-        padding-right: 25px;
+        margin-right: 0;
+        padding-right: 0;
+        width: 100%;
+        border-right: 0;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: inherit;
+        justify-content: start;
     }
     .nombre-de {
         padding-left: 0;
+        width: 28%;
+        margin-right: 16px;
     }
     .time-mon-flow {
         display: block;
     }
     .text-block-353-copy {
         font-size: 16px;
+        margin-bottom: 10px;
+    }
+    .text-block-351 {
+        margin-top: 0;
+        margin-bottom: 10px;
+        font-size: 12px;
     }
     .shadid103 {
-        width: 59px;
+        width: 105px;
         margin: 0 auto;
     }
     .div-block-342 {
@@ -3078,9 +3153,10 @@ video{
         text-align: center;
     }
     .time-mon-flow {
-        display: block;
+        display: flex;
         width: 100%;
         margin-top: 20px;
+        justify-content: space-around;
     }
     .div-block-343 {
         margin-right: 0;
@@ -3135,35 +3211,15 @@ video{
         text-decoration: none;
     }
     .btnSubscripeNotif {
-        display: flex;
-        background: #f27539;
-        width: fit-content;
-        padding: 0px 20px;
-        border-radius: 25px;
-        color: white;
-        align-items: center;
         margin-left: 100px;
+        padding: 0px 7px 0 0;
     }
     .btnSubscripeNotif:hover {
         color: #fff;
         text-decoration: underline;
     }
-    .div-block-386 {
-        margin-right: 10px;
-        border-right: 1px solid;
-        padding-right: 10px;
-        height: 35px;
-        padding-top: 11px;
-    }
     .imgCoeurBlanc {
         width: 17px;
-    }
-    .alerte7 {
-        padding-left: 10px;
-        margin-left: 10px;
-        border-left: 1px solid;
-        height: 35px;
-        padding-top: 7px;
     }
     .cloche3-1 {
         width: 10px;
@@ -3215,6 +3271,67 @@ video{
     .playlist1 {
         padding-left: 15px;
     }
+    .div-block-352 {
+        display: block;
+    }
+    .barreLatraleNoir {
+        width: 12px;
+    }
+    .sidenavbar-up {
+        width: 57% !important;
+    }
+    .chaineAbonneBlockHead {
+        background-position: 50% 50%;
+    }
+   .heading-45 {
+        font-size: 20px !important;
+        line-height: 22px;
+        margin-top: 23px;
+    }
+    .business-now {
+        padding: 1px 15px 20px 15px;
+        display: block;
+    }
+    .video-sadakatia-asso {
+        margin-right: 0;
+    }
+    .video-sadakatia-asso a img{
+        width: 100%;
+    }
+    .text-block-334 {
+        margin-bottom: 10px;
+        margin-top: 20px;
+    }
+    .text-block-336 {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    .chaine-description {
+        padding: 20px 15px 0px 15px;
+    }
+    .div-block-335 {
+        margin-right: 0;
+    }
+    .text-block-330 {
+        margin-top: 0px;
+        margin-right: 0;
+        margin-bottom: 0;
+    }
+    .coordonne {
+        display: block;
+        padding: 15px;
+    }
+    .derniersNouvelles {
+        width: 100%;
+        padding-left: 0;
+    }
+    .offre-de-la-chaine {
+        padding: 20px 15px 15px;
+    }
+    .playlist2 {
+        padding-left: 0;
+    }
+
 
 }
 @media all and (min-width: 768px) and (max-width: 1023px){
@@ -3256,8 +3373,8 @@ video{
         font-size: 20px;
     }
     .blockDetail {
-        width: 63%;
-        padding: 13px 20px;
+        width: 68%;
+        padding: 13px 18px 0px;
     }
     .content12 {
         display: flex;
@@ -3278,7 +3395,8 @@ video{
         display: none !important;
     }
     .blockPoint{
-        margin-top: 30px;
+        margin-top: -25px;
+        padding: 0;
     }
 
     .blockgeneralTablette{
@@ -3291,13 +3409,11 @@ video{
         justify-content: space-between;
     }
     .blockAuteur {
-        width: 36%;
-        display: flex;
-        justify-content: space-around;
-        flex-wrap: wrap;
-        align-items: center;
-        height: 163px;
+        width: 30%;
+        display: block;
+        height: auto;
         margin-top: 13px;
+        padding-bottom: 9px;
     }
     .groupLOveTablette{
         display: flex;
@@ -3326,7 +3442,7 @@ video{
     }
     .blockgeneral {
         margin-bottom: 0px;
-        padding: 5px 10px;
+        padding: 10px 20px;
     }
     .content-contenue1 {
         margin-bottom: 0;
@@ -3412,14 +3528,9 @@ video{
         background: unset;
     }
     .groupLOveUnlove1 {
-        display: none;
+
     }
-    .block-detail-commentaire{
-        display: none;
-    }
-    .blockshareAndComments {
-        display: none;
-    }
+
     .swiper-container-android .swiper-slide, .swiper-wrapper {
         transform: translate3d(0px,0,0);
     }
@@ -3473,17 +3584,18 @@ video{
         }
         .elementImgAuteur {
             margin-top: 15px;
-            margin-left: 0;
+            margin-left: auto;
             width: 71px;
         }
        .GroupAuteur8{
-            width: 76%;
-            text-align: start;
-            padding-left: 10px;
+           text-align: center;
+           padding-left: 0;
+           margin-left: auto;
+           margin-right: auto;
         }
         .nameAuteur {
             font-size: 15px;
-            margin-top: 30px;
+            margin-top: 0px;
         }
         .nbreAbonnees {
             font-size: 14px;
@@ -3501,7 +3613,8 @@ video{
             margin-top: 4px;
         }
         .time-mon-flow {
-            display: block;
+            display: flex;
+            justify-content: space-around;
         }
         .shadid103 {
             width: 110px;
@@ -3516,6 +3629,57 @@ video{
         }
         .link-26 {
             padding: 3px 25px;
+        }
+        .nav-up-left {
+            width: 33%;
+        }
+        .content12 {
+            justify-content: unset;
+            margin-bottom: 10px;
+        }
+        .datePublication {
+            width: auto;
+        }
+        .textImgView {
+            width: 64%;
+        }
+        .sousBlockTitle {
+            padding: 20px 20px 0px 20px;
+            min-height: 134px;
+        }
+        .des-text span {
+            width: 66%;
+        }
+        .des-text {
+            font-size: 14px;
+            max-width: 545px;
+            margin-bottom: 10px;
+        }
+        .block-detail-commentaire {
+            background: #efefef;
+            margin: 0px -18px;
+            padding: 6px 18px 0px;
+            min-height: 93px;
+        }
+        .bottomElement2 {
+            display: none;
+        }
+        .shopBtn {
+            display: none;
+        }
+        .trois-point-noir {
+            display: none;
+        }
+        .blockPoint .trois-point-noir {
+            display: block;
+        }
+        .blockImgPuli img {
+            width: auto;
+            min-height: 33px;
+            margin-top: 7px;
+        }
+        .sidenavbar-up {
+            width: 22%;
         }
 
 

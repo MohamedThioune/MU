@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/sidbarDasboard.css">
     <link rel="stylesheet" href="../css/mu-dev.webflow.css">
+    <link rel="stylesheet" href="{{asset('css/menu.css')}}">
     <script src="https://kit.fontawesome.com/2def424b14.js" crossorigin="anonymous"></script>
     @yield('head')
     @php if(isset($_COOKIE['lang'])) App::setLocale($_COOKIE['lang']); @endphp
@@ -18,122 +19,305 @@
 
 <body>
 
-<div class="content-section-sibBar">
-    <div class="d-flex">
-        <div class="content-sidbar">
-            <div class="sidebar sideBarModife">
-                <div class="head-slidebar">
-                    <div class="text-ma-chaine">{{$channel->name}}</div>
-                    <div class="text-fonction">{{__('Individuals')}}</div>
-                    <div class="profil-photo">
-                        <img src="{{asset('img')}}/{{Auth::user()->photo}}" alt="" class="image-94">
-                    </div>
+<div class="position-relative">
+    <div class="griscolor"></div>
+    <div class="content-element-page">
+        <div class="nav-bar">
+            <!-- navbar web-->
+            <div class="bar-up webUp">
+                <div class="nav-up-right">
+                    <a data-w-id="85409373-dce4-fdcf-64c5-c0ed0fa665a1" href="#" class="_4-points w-inline-block">
+                        <div class="_2points">
+                            <div class="point-1x4"></div>
+                            <div class="point-1x4"></div>
+                        </div>
+                        <div class="_2points">
+                            <div class="point-1x4"></div>
+                            <div class="point-1x4"></div>
+                        </div>
+                    </a>
+                    <a  href="{{route('home')}}" class="mu-logo w-inline-block">
+                        <img src="{{ asset('img/logo-MU.png') }}" class="imgLogo22" alt="">
+                    </a>
+                </div>
+                <div class="search-bar">
+                    <img src="{{ asset('img/Loupe.png') }}" class="loupe">
+                    <div class="text-block-281">{{__('search')}}</div>
+                </div>
+                <div class="nav-up-left">
+                    <ul class="ulModife1">
+                        @if(Auth::guest())
+                        <li class="nav-item nav-modife">
+                            <a href="{{route('register')}}" class="oumma w-button">{{__('Joining the Ummah')}}</a>
+                        </li>
+                        <li class="nav-item nav-modife" style="margin-top:5px;">
+                            <img src="{{ asset('img/icones/login.svg') }}" alt="">
+                            <a class="nav-link" href="{{route('login')}}">{{__('Log in')}}</a>
+                        </li>
+                        @else
+                        <!--  <li class="nav-item nav-modife">
+                              @if(Auth::user()->timeout)
+                              @if(intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/ 86400) == 0)
+                              @if(intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/ 3600) > 0)
+                              <p class="day" style="font-size:18px; color:white">Last login - <span style="color:#c22d84">{{intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/3600)}} hours ago</span></p>
+                              @else(intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/ 3600) == 0)
+                              <p class="day"style="font-size:18px; color:white">Last login - <span style="color:#c22d84">{{intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/60)}} minutes ago</span></p>
+                              @endif
+                              @elseif(intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/ 86400) == 1)
+                              <p class="day" style="font-size:18px; color:white">Last login - <span style="color:#c22d84">Yesterday at {{strftime("%H:%M", strtotime(Auth::user()->timeout))}}</span></p>
+                              @elseif(intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/ 86400) >= 2 && intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/ 86400) <= 27)
+                              <p class="day"style="font-size:18px; color:white">Last login - <span style="color:#c22d84">{{intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/ 86400)}} days ago</span></p>
+                              @else(intval(abs(strtotime("now") - strtotime(Auth::user()->timeout))/ 86400) > 27)
+                              <p class="day" style="font-size:18px; color:white">Last login - <span style="color:#c22d84">On {{strftime("%d/%m/%Y", strtotime(Auth::user()->timeout))}}</span></p>
+                              @endif
+                              @else
+                              <p class="day" style="font-size:18px; color:#f4de39">WELCOME <span style="color:white"> TO</span> <span style="color:#c22d84"> MU</span></p>
+                              @endif
+                          </li>-->
+                        @if(Auth::user())
+                        @if(Auth::user()->type)
+                        @if(Auth::user()->type == "OUMMATI")
+                        <li class="nav-item nav-modife">
 
-                </div>
-                <div class="faq-wrapper">
-                    <div class="faq-question" id="monFlow">
-                        <div class="indentification">
-                            <div class="sidebar-icon">
-                                <img src="{{ asset('img/baseline-brightness_2-24px2x.png') }}" alt="">
-                            </div>
-                            <a href="{{route('home')}}" class="faq-q-text"><strong class="bold-text-5">{{__('Flownishh')}}</strong></a>
+                            @if(!session('profile'))
+                            <span class="btnCommunaute" style="background:none; box-shadow: 4px 4px 15px white;font-weight:bold">
+                                                        @php
+                                                            $profile = DB::Table('users')->select('profile.*')
+                                                                                        ->join('profile', 'users.id', 'profile.user_id')
+                                                                                        ->where('users.id', Auth::id())
+                                                                                        ->first();
+
+                                                            echo $profile->name;
+                                                        @endphp
+                                                        &nbsp;&nbsp;
+                                                        <a style="color:white;font-size:19px;" href="{{route('choose')}}"><i class="fas fa-caret-down"></i></a>
+                                                    </span>
+                            @elseif(session('profile')["age"] <= 15)
+                            <span class="btnCommunaute" style="background:none; box-shadow: 4px 4px 15px #e9d22e;font-weight:bold"> {{session('profile')["name"]}} &nbsp;&nbsp;<a style="color:#e9d22e;font-size:19px;" href="{{route('choose')}}"><i class="fas fa-caret-down"></i></a></span>
+                            @elseif(session('profile')["age"] > 15 && session('profile')["sex"] == '1')
+                            <span class="btnCommunaute" style="background:none; box-shadow: 4px 4px 15px #3eacec;font-weight:bold"> {{session('profile')["name"]}} &nbsp;&nbsp;<a href="{{route('choose')}}"><i class="fas fa-caret-down"></i></a></span>
+                            @elseif(session('profile')["age"] > 15 && session('profile')["sex"] == '0')
+                            <span class="btnCommunaute" style="background:none; box-shadow: 4px 4px 15px #d14f94;font-weight:bold"> {{session('profile')["name"]}} &nbsp;&nbsp;<a style="color:#d14f94;font-size:19px;" href="{{route('choose')}}"><i class="fas fa-caret-down"></i></a><span>
+                                                    @endif
+                        </li>
+                        @endif
+                        @endif
+                        @endif
+                        <div class="btn connexion">
+                                    <span class="div-block-272">
+                                        <img src="{{ asset('img/Mu-login-blanc.svg') }}" alt="" class="image-101">
+                                    </span>
+                            <form action="{{ route('logout') }}" class="nav-modife formModife" method="POST">
+                                @csrf
+                                <button class="nav-link btnLogOut" type="submit" >{{__('Log out')}}</button>
+                            </form>
                         </div>
-                    </div>
-                    <div class="faq-answer" id="sousBlockMonFlow">
-                        <a class="" href="">{{__('Alert')}}</a>
-                        <a class="faq-answer-text" href="">Playlist</a>
-                        <a class="faq-answer-text" href="">{{__('Subscriptions')}}</a>
-                    </div>
-                </div>
-                <div class="faq-wrapper">
-                    <div class="faq-question" id="maChaines">
-                        <div class="indentification">
-                            <div class="sidebar-icon">
-                                <img class="machaineImg" src="{{ asset('img/Mu-tv-icone2x.png') }}"  alt="">
-                            </div>
-                            <a href="{{route('channel.visitor', $channel->id)}}" class="faq-q-text"><strong class="bold-text-5">{{__('My channel')}}</strong></a>
-                        </div>
-                    </div>
-                    <div class="faq-answer" id="sousBlockChaines">
-                        <a href="{{route('channel.visitor', $channel->name)}}" class="link-block-36 w-inline-block">
-                            <div class="text-block-261">{{__('Dashboard')}}</div>
-                        </a>
-                        <a href="ma-chaine-publier.html" class="link-block-36 w-inline-block w--current">
-                            <p class="text-block-261">{{__('Publish')}}</p>
-                        </a>
-                        <a href="{{route('videos.create')}}" class="faq-answer-text">{{__('Dashboard')}}</a>
-                        <a href="{{route('videos.index')}}"  class="faq-answer-text">{{__('My videos')}}</a>
-                        <a href="" class="faq-answer-text">{{__('Comments')}}</a>
-                        <a href="" class="faq-answer-text">Audiences</a>
-                        <a href="" class="faq-answer-text">{{__('Subscribers')}}</a>
-                        <a href="{{route('flow')}}" class="faq-answer-text">{{__('Monetization')}}</a>
-                    </div>
-                </div>
-                <div class="faq-wrapper">
-                    <div class="faq-question" id="timeChield">
-                        <div class="indentification">
-                            <div class="sidebar-icon">
-                                <img src="{{ asset('img/baseline-brightness_2-24px2x.png') }}"  alt="">
-                            </div>
-                            <p class="faq-q-text"><strong class="bold-text-5">Time Shaid</strong></p>
-                        </div>
-                    </div>
-                    <div class="faq-answer" id="sousBlockTimeChield">
-                        <a href="{{route('home')}}" class="faq-answer-text">Smuuse</a>
-                        <a href="" class="faq-answer-text">‍</a>
-                    </div>
-                </div>
-                <div class="faq-wrapper">
-                    <div class="faq-question" id="hassanates">
-                        <div class="indentification">
-                            <div class="sidebar-icon">
-                                <img src="{{ asset('img/baseline-brightness_2-24px2x.png') }}" alt="">
-                            </div>
-                            <p class="faq-q-text"><strong class="bold-text-5">Hassanates P.</strong></p>
-                        </div>
-                    </div>
-                    <div class="faq-answer"id="sousBlockHassanates">
-                        <a href="" class="faq-answer-text">Time Sahid</a>
-                        <a href="" class="faq-answer-text">Sadakatiya</a>
-                        <a href="" class="faq-answer-text">Hassanates Party</a>
-                    </div>
-                </div>
-                <div class="faq-wrapper">
-                    <div class="faq-question" id="sadaka">
-                        <div class="indentification">
-                            <div class="sidebar-icon">
-                                <img src="{{ asset('img/Mu-menu-4-balls-blanc2x.png') }}" alt="">
-                            </div>
-                            <p class="faq-q-text"><strong class="bold-text-5">Sadakatiya</strong></p>
-                        </div>
-                    </div>
-                    <div class="faq-answer" id="sousBlockSadaka">
-                        <a href="" class="faq-answer-text">Smuuse - {{__('will be available in a later version')}}</a>
-                        <a href="" class="faq-answer-text">‍</a>
-                    </div>
-                </div>
-                <div class="faq-wrapper">
-                    <div class="faq-question" id="compte">
-                        <div class="indentification">
-                            <div class="sidebar-icon">
-                                <img src="{{ asset('img/Mu-menu-4-balls-blanc2x.png') }}" alt="">
-                            </div>
-                            <p class="faq-q-text"><strong class="bold-text-5">{{__('')}}MON COMPTE</strong></p>
-                        </div>
-                    </div>
-                    <div class="faq-answer" id="sousBlockCompte">
-                        <a href="{{route('users.parameter')}}" class="faq-answer-text">Parametres</a>
-                        <a href="" class="faq-answer-text">‍</a>
-                    </div>
+                        @endif
+                    </ul>
+
                 </div>
             </div>
 
+            <!-- navbar Mobile-->
+            <div class="bar-up webMobile">
+                <div class="nav-up-right">
+                    <a  href="#" class="_4-points w-inline-block IconeBlanc">
+                        <div class="_2points">
+                            <div class="point-1x4"></div>
+                            <div class="point-1x4"></div>
+                        </div>
+                        <div class="_2points">
+                            <div class="point-1x4"></div>
+                            <div class="point-1x4"></div>
+                        </div>
+                    </a>
+                    <a  href="{{route('home')}}" class="mu-logo w-inline-block">
+                        <img src="{{ asset('img/logo-MU.png') }}" class="imgLogo22" alt="">
+                    </a>
+                    <div class="search-bar">
+                        <img src="{{ asset('img/Loupe.png') }}" class="loupe">
+                        <div class="text-block-281">{{__('search')}}</div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="barHead2">
+                <div class="group17">
+                    <div class="div-block-422">
+                        <img src="{{ asset('img/Time-shahid.svg') }}" alt="">
+                    </div>
+                    <p class="textTimeShalied">26.3</p>
+                </div>
+                <a href="" class="clocheHead2">
+                    <img src="{{ asset('img/Mu-cloche-blanc.png') }}" alt="">
+                </a>
+            </div>
+
+            <div class="bar-down">
+                <div class="div-block-268">
+                    <img src="{{ asset('img/Smuuse-logo-blanc-SB-2021-80x22.png') }}" alt="" class="image-102">
+                </div>
+                <div class="d-flex">
+                    <a href="{{route('flow')}}" class="div-block-281 w-inline-block">
+                        <p class="text-block-286">Flow</p>
+                    </a>
+                    <a href="{{route('kids')}}" class="div-block-282 w-inline-block">
+                        <p class="text-block-286">Kids</p>
+                    </a>
+                    <a href="#" class="div-block-283 w-inline-block">
+                        <p class="text-block-286">Sista&#x27;s</p>
+                    </a>
+                </div>
+                <div class="publish-notif">
+                    <a href="{{route('videos.create')}}" class="cam-publier w-inline-block">
+                        <img src="{{ asset('img/Mu-upload-cloud-blanc2x.png') }}" class="imgCloud2" alt="">
+                    </a>
+                    <a href="{{route('notification')}}" class="cloche w-inline-block">
+                        <img src="{{ asset('img/Mu-cloche-blanc.png') }}" class="imgCloche" alt="">
+                    </a>
+                </div>
+            </div>
         </div>
-        <div class="content22">
-            @yield ('content-sidbar-element')
+        <div class="d-flex group9 mobileVisiblite">
+            <div class="content-section-sibBar-2 ">
+                <div class="">
+                    <div class="content-sidbar">
+                        <div class="sidebar sideBarModife ">
+                            <div class="sidenavbar">
+                                <div class="sidenavbar-up">
+                                    <div>
+                                        <a href="#" class="_4-points-closed w-inline-block IconeRose">
+                                            <div class="_2points">
+                                                <div class="point-1x4-pr"></div>
+                                                <div class="point-1x4-pr2"></div>
+                                            </div>
+                                            <div class="_2points">
+                                                <div class="point-1x4-pr3"></div>
+                                                <div class="point-1x4-pr4"></div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <a  href="{{route('home')}}" class="mu-logo w-inline-block">
+                                        <img src="{{ asset('img/Mu-full-white-00.png') }}" class="imgMUfull" alt=""></a>
+                                </div>
+                            </div>
+                            <div class="head-slidebar">
+                                <div class="text-ma-chaine">{{$channel->name}}</div>
+                                <div class="text-fonction">{{__('Individuals')}}</div>
+                                <div class="profil-photo">
+                                    <img src="{{asset('img')}}/{{Auth::user()->photo}}" alt="" class="image-94">
+                                </div>
+
+                            </div>
+                            <div class="faq-wrapper">
+                                <div class="faq-question" id="monFlow">
+                                    <div class="indentification">
+                                        <div class="sidebar-icon">
+                                            <img src="{{ asset('img/baseline-brightness_2-24px2x.png') }}" alt="">
+                                        </div>
+                                        <a href="{{route('home')}}" class="faq-q-text"><strong class="bold-text-5">{{__('Flownishh')}}</strong></a>
+                                    </div>
+                                </div>
+                                <div class="faq-answer" id="sousBlockMonFlow">
+                                    <a class="" href="">{{__('Alert')}}</a>
+                                    <a class="faq-answer-text" href="">Playlist</a>
+                                    <a class="faq-answer-text" href="">{{__('Subscriptions')}}</a>
+                                </div>
+                            </div>
+                            <div class="faq-wrapper">
+                                <div class="faq-question" id="maChaines">
+                                    <div class="indentification">
+                                        <div class="sidebar-icon">
+                                            <img class="machaineImg" src="{{ asset('img/Mu-tv-icone2x.png') }}"  alt="">
+                                        </div>
+                                        <a href="{{route('channel.visitor', $channel->id)}}" class="faq-q-text"><strong class="bold-text-5">{{__('My channel')}}</strong></a>
+                                    </div>
+                                </div>
+                                <div class="faq-answer" id="sousBlockChaines">
+                                    <a href="{{route('channel.visitor', $channel->name)}}" class="link-block-36 w-inline-block">
+                                        <div class="text-block-261">{{__('Dashboard')}}</div>
+                                    </a>
+                                    <a href="ma-chaine-publier.html" class="link-block-36 w-inline-block w--current">
+                                        <p class="text-block-261">{{__('Publish')}}</p>
+                                    </a>
+                                    <a href="{{route('videos.create')}}" class="faq-answer-text">{{__('Dashboard')}}</a>
+                                    <a href="{{route('videos.index')}}"  class="faq-answer-text">{{__('My videos')}}</a>
+                                    <a href="" class="faq-answer-text">{{__('Comments')}}</a>
+                                    <a href="" class="faq-answer-text">Audiences</a>
+                                    <a href="" class="faq-answer-text">{{__('Subscribers')}}</a>
+                                    <a href="{{route('flow')}}" class="faq-answer-text">{{__('Monetization')}}</a>
+                                </div>
+                            </div>
+                            <div class="faq-wrapper">
+                                <div class="faq-question" id="timeChield">
+                                    <div class="indentification">
+                                        <div class="sidebar-icon">
+                                            <img src="{{ asset('img/baseline-brightness_2-24px2x.png') }}"  alt="">
+                                        </div>
+                                        <p class="faq-q-text"><strong class="bold-text-5">Time Shaid</strong></p>
+                                    </div>
+                                </div>
+                                <div class="faq-answer" id="sousBlockTimeChield">
+                                    <a href="{{route('home')}}" class="faq-answer-text">Smuuse</a>
+                                    <a href="" class="faq-answer-text">‍</a>
+                                </div>
+                            </div>
+                            <div class="faq-wrapper">
+                                <div class="faq-question" id="hassanates">
+                                    <div class="indentification">
+                                        <div class="sidebar-icon">
+                                            <img src="{{ asset('img/baseline-brightness_2-24px2x.png') }}" alt="">
+                                        </div>
+                                        <p class="faq-q-text"><strong class="bold-text-5">Hassanates P.</strong></p>
+                                    </div>
+                                </div>
+                                <div class="faq-answer"id="sousBlockHassanates">
+                                    <a href="" class="faq-answer-text">Time Sahid</a>
+                                    <a href="" class="faq-answer-text">Sadakatiya</a>
+                                    <a href="" class="faq-answer-text">Hassanates Party</a>
+                                </div>
+                            </div>
+                            <div class="faq-wrapper">
+                                <div class="faq-question" id="sadaka">
+                                    <div class="indentification">
+                                        <div class="sidebar-icon">
+                                            <img src="{{ asset('img/Mu-menu-4-balls-blanc2x.png') }}" alt="">
+                                        </div>
+                                        <p class="faq-q-text"><strong class="bold-text-5">Sadakatiya</strong></p>
+                                    </div>
+                                </div>
+                                <div class="faq-answer" id="sousBlockSadaka">
+                                    <a href="" class="faq-answer-text">Smuuse - {{__('will be available in a later version')}}</a>
+                                    <a href="" class="faq-answer-text">‍</a>
+                                </div>
+                            </div>
+                            <div class="faq-wrapper">
+                                <div class="faq-question" id="compte">
+                                    <div class="indentification">
+                                        <div class="sidebar-icon">
+                                            <img src="{{ asset('img/Mu-menu-4-balls-blanc2x.png') }}" alt="">
+                                        </div>
+                                        <p class="faq-q-text"><strong class="bold-text-5">{{__('')}}MON COMPTE</strong></p>
+                                    </div>
+                                </div>
+                                <div class="faq-answer" id="sousBlockCompte">
+                                    <a href="{{route('users.parameter')}}" class="faq-answer-text">Parametres</a>
+                                    <a href="" class="faq-answer-text">‍</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contentOneMonFlow">
+                @yield ('content-sidbar-element')
+            </div>
         </div>
+
     </div>
 </div>
+
+
 
 
 <!-- AdminLTE App -->

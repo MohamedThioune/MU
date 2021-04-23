@@ -615,6 +615,13 @@ a:hover {
   font-weight: 500;
   margin-top: 15px;
 }
+
+.modal-header {
+  border-bottom: 0px !important;
+}
+.modal-footer {
+  border-top: 0px !important;
+}
 @media screen and (max-width: 991px) {
   .text-block-3 {
     line-height: 25px;

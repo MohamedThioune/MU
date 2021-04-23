@@ -4219,11 +4219,9 @@
     height: 26px;
     margin-right: 10px;
 }
-
 .div-block-283 {
     height: 26px;
 }
-
 .block-next-video {
     width: 259px;
     margin-top: 20px;
@@ -8181,6 +8179,10 @@
 }
 
 .sidenavbar-up {
+    position: fixed;
+    width: 15%;
+}
+.sidenavbar-up {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -8193,6 +8195,9 @@
     -ms-flex-align: center;
     align-items: center;
     background-color: #242323;
+}
+.head-slidebar {
+    margin-top: 50px;
 }
 
 .sidenavbar {
