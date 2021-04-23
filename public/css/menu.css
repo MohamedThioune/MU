@@ -3331,6 +3331,25 @@ video{
     .playlist2 {
         padding-left: 0;
     }
+    .image-135 {
+        border-radius: 5px;
+        width: 74px;
+    }
+    .div-block-406 {
+        padding: 10px 15px;
+    }
+    .div-block-414 {
+        justify-content: space-between;
+    }
+    .vignette {
+        display: none;
+    }
+    .div-block-412 {
+        width: 80%;
+    }
+    .div-block-410 {
+        margin-right: 0;
+    }
 
 
 }
