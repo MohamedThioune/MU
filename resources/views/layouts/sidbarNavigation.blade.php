@@ -8,7 +8,6 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{asset('css/menu.css')}}">
     <link rel="stylesheet" href="../css/sidbarNavigation.css">
@@ -191,9 +190,9 @@
                     </div>
                 </div>
             </div>
-            <div class="d-flex group9">
+            <div class="d-flex group9 ">
                <div class="contentSidElement">
-                   <div class="sidebar-format invisible">
+                   <div class="sidebar-format indexElement">
                        <div class="sidenavbar">
                            <div class="sidenavbar-up">
                                <div>
@@ -331,7 +330,6 @@
                </div>
                 @yield('content-play-element')
             </div>
-
         </div>
     </div>
 </body>

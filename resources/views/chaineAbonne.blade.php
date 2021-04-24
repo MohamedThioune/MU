@@ -1,18 +1,17 @@
 @extends('layouts.sidbarNavigation')
+<html lang="fr">
 <head>
     @section('css')
-    <meta name="viewport" content="target-densitydpi=device-dpi, initial-scale=1.0, user-scalable=no" />
-    <link rel="stylesheet" href="css/menu.css">
-    <link rel="stylesheet" href="node_modules/swiper/swiper.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="{{asset('css/menu.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     @endsection
-    @php if(isset($_COOKIE['lang'])) App::setLocale($_COOKIE['lang']); @endphp
 
 </head>
 <body>
 @section('content-play-element')
-
 <div class="business-content">
     <div class="bando-name">
         <div class="business-bandeau-chaine chaineAbonneBlockHead">
@@ -73,13 +72,35 @@
             @endif
         </div>
     </div>
-    <div class="menu-content-business">
+    <div class="menu-content-business business-Web">
         <a href="#" class="link-26">Infos</a>
         <a href="#" class="link-26">Recents</a>
         <a href="{{route('flow')}}" class="link-26">{{__('All videos')}}</a>
         <a href="#" class="link-26">{{__('Offers')}}</a>
         <a href="#" class="link-26">Playlist</a>
     </div>
+    <div class="menu-content-business business-MOb">
+        <div class="swiper-container swiper-Infos">
+            <div class="swiper-wrapper">
+                <div class=" swiper-slide">
+                    <a href="#" class="link-26">Infos</a>
+                </div>
+                <div class=" swiper-slide">
+                    <a href="#" class="link-26">Recents</a>
+                </div>
+                <div class=" swiper-slide">
+                    <a href="{{route('flow')}}" class="link-26">{{__('All videos')}}</a>
+                </div>
+                <div class=" swiper-slide">
+                    <a href="#" class="link-26">{{__('Offers')}}</a>
+                </div>
+                <div class=" swiper-slide">
+                    <a href="#" class="link-26">Playlist</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     @if($events)
     @if(count($events)>1)
     <div class="infos-hot">
@@ -317,6 +338,45 @@
                 </a>
             </div>
         </div>
+        <div class="block319Mob">
+            <div class="swiper-container swiper-shop">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide swipeslideShop">
+                        <div class="div-block-318">
+                            <div class="imgBullProfil">
+                                <img src="{{ asset('img/Mu-bull-profil-logo-fitG.jpg') }}"  alt="">
+                            </div>
+                            <div class="text-block-320">{{__('Product name')}} / Formation</div>
+                            <a href="#" class="link-block-38 w-inline-block">
+                                <span class="text-block-319">{{__('Discover')}}</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class=" swiper-slide swipeslideShop">
+                        <div class="div-block-318">
+                            <div class="imgBullProfil">
+                                <img src="{{ asset('img/Mu-bull-profil-logo-fitG.jpg') }}"  alt="">
+                            </div>
+                            <div class="text-block-320">{{__('Product name')}} 2</div>
+                            <a href="#" class="link-block-38 w-inline-block">
+                                <span class="text-block-319">{{__('Discover')}}</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class=" swiper-slide swipeslideShop">
+                        <div class="div-block-318">
+                            <div class="imgBullProfil">
+                                <img src="{{ asset('img/Mu-bull-profil-logo-fitG.jpg') }}"  alt="">
+                            </div>
+                            <div class="text-block-320">{{__('Product name')}}...</div>
+                            <a href="#" class="link-block-38 w-inline-block">
+                                <span class="text-block-319">{{__('Discover')}}</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="">
         <div class="playlist2">
@@ -483,15 +543,24 @@
         </div>
     </div>
 </div>
-
-
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="node_modules/swiper/swiper-bundle.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script>
     var swiper = new Swiper('.swipeContainermodife1', {
         slidesPerView: 3,
+        spaceBetween: 30
+    });
+</script>
+<script>
+    var swiper = new Swiper('.swiper-Infos', {
+        slidesPerView: 3,
+        spaceBetween: 30
+    });
+</script>
+<script>
+    var swiper = new Swiper('.swiper-shop', {
+        slidesPerView: 1.5,
         spaceBetween: 30
     });
 </script>
@@ -529,13 +598,32 @@
         var swiper = new Swiper('.swiper-helatcare', {
             // Optional parameters
             direction: 'horizontal',
-            loop: false,
-            //autoplay: 6500,
-            autoplayDisableOnInteraction: false,
-
+            allowTouchMove: true,
+            slidesPerView: 'auto',
+            grabCursor: true,
+            preventClicks: true,
+            spaceBetween: 30,
             keyboardControl: true,
-            mousewheelControl: true,
-            paginationClickable: true,
+            speed: 1000,
+            pagination: {
+                el: null
+            },
+            scrollbar: {
+                el: '.swiper-scrollbar',
+                draggable: true,
+                hide: false,
+                snapOnRelease: true
+            },
+            mousewheel: {
+                enable: true
+            },
+            keyboard: {
+                enabled: true
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev'
+            },
 
         });
     }
@@ -543,4 +631,3 @@
 <script src="{{asset('js/fixeElement.js')}}"></script>
 @endsection
 </body>
-

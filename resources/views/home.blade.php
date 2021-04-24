@@ -454,15 +454,16 @@
             </div>
             <div class="back-subscrib-bar">
                 <div class="chaine">
-                    <a href="#" class="link-block-40 w-inline-block">
-                        <div class="div-block-386">
+                    <a class="btnSubscripeNotif" href="{{ route('suscribe',$channel_top->id) }}">
+                        <div class="btn div-block-386">
                             <img src="{{ asset('img/Mu-coeur-blanc.svg') }}" class="imgCoeurBlanc" width="23" alt="">
                         </div>
-                        <a class="text-block-380" style="color:white; background: #F57409; padding:5px 0; text-decoration:none;" href="{{ route('suscribe',$channel_top->id) }}"><div>{{__('Subscribe')}}</div></a>
+                        <div>{{__('Subscribe')}}</div>
+                        <button class="alerte7">
+                            <img src="{{ asset('img/Mu-cloche-blanc.svg') }}" class="cloche3-1"  alt="">
+                        </button>
                     </a>
-                    <div class="alerte">
-                        <img src="{{ asset('img/Mu-cloche-blanc.svg') }}" class="cloche3"  alt="">
-                    </div>
+
                     <div class="more-seting">
                         <div class="div-block-399"></div>
                         <div class="div-block-399"></div>
@@ -511,9 +512,9 @@
                         <img src="{{ asset('img/Mu-coeur-blanc.svg') }}" class="imgCoeurBlanc" width="23" alt="">
                     </div>
                     <div>{{__('Subscribe')}}</div>
-                    <div class="alerte7">
+                    <button class="btn alerte7">
                         <img src="{{ asset('img/Mu-cloche-blanc.svg') }}" class="cloche3-1"  alt="">
-                    </div>
+                    </button>
                 </a>
             </div>
         </div>
@@ -585,8 +586,8 @@
     <div id="resume" class="resume-flow">
         <div class="div-block-343">
             <div class="div-block-352">
+                <p class="text-block-353-copy">{{__('This month')}}</p>
                 <div class="resume-activitee">
-                    <p class="text-block-353-copy">{{__('This month')}}</p>
                     <div class="nombre-de">
                         <p class="text-block-351">{{__('Videos viewed')}}</p>
                         <div class="div-block-344">

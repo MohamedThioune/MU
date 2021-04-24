@@ -1,17 +1,26 @@
 $(document).ready(function() {
+    $( ".v1" ).hide(0) ;
     $( ".contentSidElement" ).addClass('v1') ;
     $( "._4-points" ).click(function() {
         $( ".sidebar-format" ).removeClass('invisible').addClass('visible') ;
+        $( ".content-section-sibBar" ).removeClass('invisible').addClass('visible') ;
         $( ".nav-up-right" ).addClass('opacityElement') ;
         $( ".griscolor" ).addClass('grisElement') ;
         $( ".contentSidElement" ).removeClass('v1') ;
     });
     $( "._4-points-closed" ).click(function() {
         $( ".sidebar-format" ).removeClass('visible').addClass('invisible') ;
+        $( ".content-section-sibBar" ).removeClass('visible').addClass('invisible') ;
         $( ".nav-up-right" ).removeClass('opacityElement') ;
         $( ".griscolor" ).removeClass('grisElement') ;
         $( ".contentSidElement" ).addClass('v1') ;
 
+    });
+    $(".IconeRose").click(function(){
+        $( ".group9" ).addClass('mobileVisiblite');
+    });
+    $(".IconeBlanc").click(function(){
+        $( ".group9" ).removeClass('mobileVisiblite');
     });
 });
 $(document).ready(function() {

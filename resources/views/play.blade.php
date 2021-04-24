@@ -87,9 +87,6 @@
                                 <p class="nbrView"> {{$reads}}</p>
                                 <div class="imgOeil"><img  src="{{ asset('img/icones/oeil.png') }}" alt=""></div>
                             </div>
-                            <button class="blockPoint" data-toggle="modal" data-target="#exampleModal1">
-                                <div class="trois-point-noir">...</div>
-                            </button>
                         </div>
                         <div class="groupLOveUnlove groupLOveUnlove1">
                             <div class="blockLoveUnlove">
@@ -112,13 +109,14 @@
                                 <img src="{{ asset('img/icones/more.png') }}" alt="">
                             </div>
                         </div>
-
                     </div>
                     <div class="block-detail-commentaire">
                         <p class="des-text">{{__('Description of my video')}} : <span class="">{{ $video->description }}</span>      </p>
                         <p class="des-text">{{__('Objectives of the video')}} : {{ $video->motivation }}</p>
                     </div>
-
+                    <button class="blockPoint" data-toggle="modal" data-target="#exampleModal1">
+                        <div class="trois-point-noir">...</div>
+                    </button>
                     <div class="blockshareAndComments">
                         @php
                         $reports = DB::Table('reports')
@@ -383,7 +381,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </div>
@@ -447,7 +444,6 @@
                         <textarea class="inputCommentaire2" name="value" id=""></textarea>
 
                         <div class="div-block-332">
-                            <button type="reset" class="btn btnAnnuler" @if(Auth::guest()) disabled @endif>{{__('Reset')}}</button>
                             <button type="submit" class="btn btnEnvoyer" @if(Auth::guest()) disabled @endif>{{__('Send')}}</button>
                         </div>
                     </form>
@@ -971,7 +967,12 @@
                         </div>
                     </div>
                     <div class="swiper-slide swipe2">
-                        <p class="text-hel">Healthcares</p>
+                        <div class="swipeTitle">
+                            <div class="categorie-name1">
+                                <img src="{{ asset('img/Mu-feuille-noir2x.png') }}"  alt="">
+                            </div>
+                            <p class="text-hel">Healthcares</p>
+                        </div>
                         <div class="swiper-container swiper-helatcare">
                             <div class="swiper-wrapper">
                                 @foreach($videos_haltcare as $video)
@@ -1104,7 +1105,12 @@
                         </div>
                     </div>
                     <div class="swiper-slide swipe2">
-                        <p class="text-life">Life</p>
+                        <div class="swipeTitle">
+                            <div class="categorie-name1">
+                                <img src="{{ asset('img/Mu-fleur2.png') }}"  alt="">
+                            </div>
+                            <p class="text-life">Life</p>
+                        </div>
                         <div class="swiper-container swiper-helatcare">
                             <div class="swiper-wrapper">
                                 @foreach($videos_life as $video)
@@ -1237,7 +1243,12 @@
                         </div>
                     </div>
                     <div class="swiper-slide swipe2">
-                        <p class="text-health">Health</p>
+                        <div class="swipeTitle">
+                            <div class="categorie-name1">
+                                <img src="{{ asset('img/Mu-fleur2.png') }}"  alt="">
+                            </div>
+                            <p class="text-health">Health</p>
+                        </div>
                         <div class="swiper-container swiper-helatcare">
                             <div class="swiper-wrapper">
                                 @foreach($videos_health as $video)
@@ -1370,7 +1381,12 @@
                         </div>
                     </div>
                     <div class="swiper-slide swipe2">
-                        <p class="text-business">Business</p>
+                        <div class="swipeTitle">
+                            <div class="categorie-name1">
+                                <img src="{{ asset('img/Mu-fleur2.png') }}"  alt="">
+                            </div>
+                            <p class="text-business">Business</p>
+                        </div>
                         <div class="swiper-container swiper-helatcare">
                             <div class="swiper-wrapper">
                                 @foreach($videos_business as $video)
@@ -1501,7 +1517,12 @@
                         </div>
                     </div>
                     <div class="swiper-slide swipe2">
-                        <p class="text-education">Education</p>
+                        <div class="swipeTitle">
+                            <div class="categorie-name1">
+                                <img src="{{ asset('img/Mu-fleur2.png') }}"  alt="">
+                            </div>
+                            <p class="text-education">Education</p>
+                        </div>
                         <div class="swiper-container swiper-helatcare">
                             <div class="swiper-wrapper">
                                 @foreach($videos_education as $video)
@@ -1634,7 +1655,12 @@
                         </div>
                     </div>
                     <div class="swiper-slide swipe2">
-                        <p class="text-environnement">Environnement</p>
+                        <div class="swipeTitle">
+                            <div class="categorie-name1">
+                                <img src="{{ asset('img/Mu-fleur2.png') }}"  alt="">
+                            </div>
+                            <p class="text-environnement">Environnement</p>
+                        </div>
                         <div class="swiper-container swiper-helatcare">
                             <div class="swiper-wrapper">
                                 @foreach($videos_environnement as $video)
@@ -1769,18 +1795,20 @@
                         <p>{{ $video->motivation }}</p>
                     </div>
                     <div class="buttonFlech">
-                        <button class="btn btnFleche1 btnModalOpen">
-                            <img src="{{asset('img/close1.png')}}" alt="">
-                        </button>
-                        <button class="btn btnFleche1 btnModalClose ">
-                            <img src="{{asset('img/open2.png')}}" alt="">
-                        </button>
-                    </div>
-                    <div class="shopInModal">
+                        <div class="d-flex">
+                            <button class="btn btnFleche1 btnModalOpen">
+                                <img src="{{asset('img/close1.png')}}" alt="">
+                            </button>
+                            <button class="btn btnFleche1 btnModalClose ">
+                                <img src="{{asset('img/open2.png')}}" alt="">
+                            </button>
+                        </div>
                         <div class="div-block-322">
                             <img class="panier3" src="{{asset('img/panier.png')}}" alt="">
                             <p class="text-block-318">{{__('Offer of the channel')}}</p>
                         </div>
+                    </div>
+                    <div class="shopInModal">
                         <div class="div-block-319">
                             <div class="div-block-318">
                                 <div class="imgBullProfil">

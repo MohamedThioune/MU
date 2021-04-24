@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    $( ".alerte7" ).hide() ;
     $( ".group9" ).addClass('mobileVisiblite');
     $( ".sidebar-format" ).removeClass('invisible').addClass('indexElement') ;
     $(".IconeRose").click(function(){
@@ -7,6 +8,7 @@ $(document).ready(function() {
     $(".IconeBlanc").click(function(){
         $( ".group9" ).removeClass('mobileVisiblite');
      });
+
     //toogle des éléments du sidbar
     $("#monFlow").click(function(){
         $("#sousBlockMonFlow").toggle();
@@ -31,6 +33,9 @@ $(document).ready(function() {
     });
     $("#parametre").click(function(){
         $("#sousBlockParametre").toggle();
+    });
+    $(".btnSubscripeNotif").click(function(){
+        $( ".alerte7" ).show() ;
     });
 });
 
