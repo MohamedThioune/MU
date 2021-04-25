@@ -71,7 +71,7 @@
                                 @else
                                 <p class="day" style="font-size:18px; color:#f4de39">WELCOME <span style="color:white"> TO</span> <span style="color:#c22d84"> MU</span></p>
                                 @endif
-                            </li>-->
+                            </li>-->                            
                             @if(Auth::user())
                                 @if(Auth::user()->type)
                                     @if(Auth::user()->type == "OUMMATI")
@@ -113,17 +113,19 @@
                                         </span>
                                     </li>    
                                     @endif
-                                @endif
-                            @endif
-                                <div class="btn connexion">
-                                    <span class="div-block-272">
-                                        <img src="{{ asset('img/Mu-login-blanc.svg') }}" alt="" class="image-101">
-                                    </span>
                                     <form action="{{ route('logout') }}" class="nav-modife formModife" method="POST">
-                                        @csrf
-                                        <button class="nav-link btnLogOut" type="submit" >{{__('Log out')}}</button>
+                                    <div class="btn connexion">
+                                        <button class="nav-link btnLogOut" style="cursor:pointer"type="submit" > 
+                                            <center><span class="div-block-272">
+                                                <img src="{{ asset('img/Mu-login-blanc.svg') }}" style="margin-top:15px;" alt="" class="image-101">
+                                            </span></center>  
+                                            {{__('Log out')}}        
+                                        </button>
+                                    </div>
+                                    @csrf
                                     </form>
-                                </div>
+                            @endif
+                            @endif
                             @endif
                         </ul>
 

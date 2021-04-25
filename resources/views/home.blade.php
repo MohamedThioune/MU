@@ -47,7 +47,7 @@
     </div>
         @if(Auth::user()->state == 0)
         <center>
-            <p class="text-block-350" style="font-size:1em;" >{{__('You are now in evaluation mode, you can only access one video per day.')}} <br>{{__('To remedy this, we advise you to pay the monthly fees to be able to take full advantage of the community.')}} &#x1F609;</p>
+            <p class="text-block-350" style="font-size:1em;" >{{__('You are now in evaluation mode, you can only access one video per day.')}} <br>{{__('To remedy this, we advise you to pay the monthly fees to be able to take full advantage of the community or .')}} <br> {{__('If you have already done so, simply log in again to make your payment active')}} &#x1F609;</p>
             <a href="{{route('tarifs')}}" style="text-decoration:none;" class="btn btn-info">{{__('Click here')}}</a>
         </center>
         @endif
