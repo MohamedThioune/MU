@@ -574,9 +574,9 @@ Route::post('/process', function(){
 
         $start =  new \Datetime();
         if($_POST['amount'] > 0)
-            if($_POST['amount'] == 120 || $_POST['amount'] == 60 ){
+            if($_POST['amount'] == 100 || $_POST['amount'] == 50 ){
                 $type = "Annually";
-                if($_POST['amount'] == 120 ){
+                if($_POST['amount'] == 100 ){
                     $profile = "OUMMATI";
                     DB::table('users')
                     ->where('users.id',Auth::id())
@@ -589,7 +589,7 @@ Route::post('/process', function(){
             }
             else{
                 $type = "Monthly";
-                if($_POST['amount'] == 12 ){
+                if($_POST['amount'] == 10 ){
                     $profile = "OUMMATI";
                     DB::table('users')
                     ->where('users.id',Auth::id())
