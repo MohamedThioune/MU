@@ -267,6 +267,7 @@
                 </form>
             </div>
         </div>
+        <center><a href="{{route('home')}}" class="link-block-8 w-inline-block" style="text-decoration:none;color:F7A356; width:160px;height:120px;" ><span style="font-weight:bold;">{{__('Switch to homepage')}}</span></a><br><br></center>
     </div>
     <div class="picing-mobil">
         <div class="sahaba-mobil w-container">
