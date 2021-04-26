@@ -1,10 +1,10 @@
 @extends('../layouts.sidbarNavigation')
 <head>
     @section('css')
-    <link rel="stylesheet" href="css/menu.css">
-    <link rel="stylesheet" href="node_modules/swiper/swiper.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="{{asset('bootstrap/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/menu.css')}}">
+    <link rel="stylesheet" href="{{asset('css/animate.css')}}">
+    <link rel="stylesheet" href="{{asset('swiper/swiper-bundle.min.css')}}">
     @endsection
 </head>
 <body>
@@ -187,10 +187,9 @@
     </div>
 </div>
 
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="node_modules/swiper/swiper-bundle.js"></script>
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="{{asset('js/jquery.min.js')}}"></script>
+<script src="{{asset('bootstrap/bootstrap.min.js')}}"></script>
+<script src="{{asset('swiper/swiper-bundle.min.js')}}"></script>
 <script src="{{asset('js/fixeElement.js')}}"></script>
 <script>
     var swiper = new Swiper('.swiper-container', {

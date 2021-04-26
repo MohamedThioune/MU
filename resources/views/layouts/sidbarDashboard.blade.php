@@ -8,9 +8,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="target-densitydpi=device-dpi, initial-scale=1.0, user-scalable=no" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/sidbarDasboard.css">
-    <link rel="stylesheet" href="../css/mu-dev.webflow.css">
+    <link rel="stylesheet" href="{{asset('bootstrap/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/sidbarDasboard.css')}}">
+    <link rel="stylesheet" href="{{asset('css/mu-dev.webflow.css')}}">
     <link rel="stylesheet" href="{{asset('css/menu.css')}}">
     <script src="https://kit.fontawesome.com/2def424b14.js" crossorigin="anonymous"></script>
     @yield('head')
@@ -321,8 +321,8 @@
 
 
 <!-- AdminLTE App -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="{{asset('js/jquery.min.js')}}"></script>
+<script src="{{asset('bootstrap/bootstrap.min.js')}}"></script>
 <script src="{{asset('js/menu.js')}}"></script>
 <script>
     $(function(){

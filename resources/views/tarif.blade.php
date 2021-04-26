@@ -3,14 +3,11 @@
     <meta content="TARIF" property="og:title">
     <meta content="TARIF" property="twitter:title">
     <meta content="width=device-width, initial-scale=1" name="viewport">
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="{{asset('bootstrap/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('swiper/swiper-bundle.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/menu.css')}}">
     <link rel="stylesheet" href="{{asset('css/tarif.css')}}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <script type="text/javascript">WebFont.load({  google: {    families: ["Ubuntu:300,300italic,400,400italic,500,500italic,700,700italic","Oswald:200,300,400,500,600,700","Open Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic","Exo:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic"]  }});</script>
-    <!-- [if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" type="text/javascript"></script><![endif] -->
-    <script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="{{asset('css/animate.css')}}">
     @php if(isset($_COOKIE['lang'])) App::setLocale($_COOKIE['lang']); @endphp
 </head>
 <body class="body-15">
@@ -161,7 +158,7 @@
                         </div>
                         <p>/mo</p>
                     </div>
-                    
+
                         @csrf
                         <section>
                             <label for="amount">
@@ -171,9 +168,9 @@
                                 </div>
                             </label>
                         </section>
-         
+
                 </div>
-                </button> 
+                </button>
                 </form>
             </div>
             <div class="sahab-mensuel">
@@ -202,7 +199,7 @@
                                     </div>
                                 </label>
                             </section>
-                        </button> 
+                        </button>
                     </form>
                 </div>
             </div>
@@ -230,7 +227,7 @@
                                     </div>
                                 </label>
                             </section>
-                        </button> 
+                        </button>
                     </form>
                 </div>
             </div>
@@ -263,7 +260,7 @@
                                     </label>
                                 </section>
                         </div>
-                    </button> 
+                    </button>
                 </form>
             </div>
         </div>
@@ -299,7 +296,7 @@
                                 </div>
                             </label>
                         </section>
-                    </button> 
+                    </button>
                 </form>
             </div>
         </div>
@@ -332,7 +329,7 @@
                                     </div>
                                 </label>
                             </section>
-                        </button> 
+                        </button>
                     </form>
                 </div>
             </div>
@@ -363,7 +360,7 @@
                                     </div>
                                 </label>
                             </section>
-                        </button> 
+                        </button>
                     </form>
                 </div>
             </div>
@@ -424,7 +421,7 @@
                                 </div>
                             </label>
                         </section>
-                    </button> 
+                    </button>
                 </form>
             </div>
             <p class="text-block-431">{{__('*Promotional offer')}} 99.95 {{__('instead of')}} 119.40</p>
@@ -483,13 +480,11 @@
             <p class="text-block-223">© 2021 Smuuse. {{__('All Rights reserved.')}}</p>
         </div>
     </footer>
-    <script src="js/webflow.js" type="text/javascript"></script>
-    <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
+
 </div>
 
-
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="{{asset('js/jquery.min.js')}}"></script>
+<script src="{{asset('bootstrap/bootstrap.min.js')}}"></script>
 <script src="{{asset('js/tarif.js')}}"></script>
-
+<script src="js/webflow.js" type="text/javascript"></script>
 </body>

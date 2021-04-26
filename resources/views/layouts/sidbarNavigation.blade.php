@@ -8,10 +8,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{asset('bootstrap/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/menu.css')}}">
-    <link rel="stylesheet" href="../css/sidbarNavigation.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.css"/>
+    <link rel="stylesheet" href="{{asset('css/animate.css')}}">
+    <link rel="stylesheet" href="{{asset('css/sidbarNavigation.css')}}">
     @yield('css')
     @php if(isset($_COOKIE['lang'])) App::setLocale($_COOKIE['lang']); @endphp
 </head>
@@ -71,7 +71,7 @@
                                 @else
                                 <p class="day" style="font-size:18px; color:#f4de39">WELCOME <span style="color:white"> TO</span> <span style="color:#c22d84"> MU</span></p>
                                 @endif
-                            </li>-->                            
+                            </li>-->
                             @if(Auth::user())
                                 @if(Auth::user()->type)
                                     @if(Auth::user()->type == "OUMMATI")
@@ -111,15 +111,15 @@
                                                 echo $profile->name;
                                             @endphp
                                         </span>
-                                    </li>    
+                                    </li>
                                     @endif
                                     <form action="{{ route('logout') }}" class="nav-modife formModife" method="POST">
                                     <div class="btn connexion">
-                                        <button class="nav-link btnLogOut" style="cursor:pointer"type="submit" > 
+                                        <button class="nav-link btnLogOut" style="cursor:pointer"type="submit" >
                                             <center><span class="div-block-272">
                                                 <img src="{{ asset('img/Mu-login-blanc.svg') }}" style="margin-top:15px;" alt="" class="image-101">
-                                            </span></center>  
-                                            {{__('Log out')}}        
+                                            </span></center>
+                                            {{__('Log out')}}
                                         </button>
                                     </div>
                                     @csrf
@@ -193,7 +193,7 @@
                 </div>
             </div>
             <div class="d-flex group9 ">
-               <div class="contentSidElement">
+               <div class="contentSidElement v1">
                    <div class="sidebar-format indexElement">
                        <div class="sidenavbar">
                            <div class="sidenavbar-up">

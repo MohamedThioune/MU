@@ -1,9 +1,9 @@
 @extends('layouts.sidbarNavigation')
 <head>
     @section('css')
-    <link rel="stylesheet" href="css/menu.css">
-    <link rel="stylesheet" href="node_modules/swiper/swiper.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="{{asset('bootstrap/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/menu.css')}}">
+    <link rel="stylesheet" href="{{asset('swiper/swiper-bundle.min.css')}}">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     @endsection
 </head>
@@ -305,12 +305,12 @@
                                     @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) > 27)
                                     <p class="day">On {{strftime("%d/%m/%Y", strtotime($video->created_at))}}</p>
                                     @endif
-                                    <!--                                     
+                                    <!--
                                          <div class="d-flex justify-content-between">
                                             <p class="numberviewsSuggestion">1230</p>
                                             <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
                                         </div>
-                                    -->                                        
+                                    -->
                             </div>
                             @if($playlist)
                                 <div class="d-flex justify-content-between blockPlayist" >
@@ -402,14 +402,14 @@
                                     @else(intval(abs(strtotime("now") - strtotime($playlist->created_at))/ 86400) > 27)
                                     <p class="day">On {{strftime("%d/%m/%Y", strtotime($playlist->created_at))}}</p>
                                     @endif
-                                <!--                                     
+                                <!--
                                     <div class="d-flex justify-content-between">
                                         <p class="numberviewsSuggestion">1230</p>
                                         <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
                                     </div>
-                                -->                                        
+                                -->
                             </div>
-                           
+
                                 <div class="d-flex justify-content-between blockPlayist" >
                                     <p class="numberviewsSuggestion"> </p>
                                     <a  href="{{route('playlist.remove', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Remove to my playlist"><img src="{{ asset('img/report-Orange.svg') }}"  alt="Remove to my playlist"></a>
@@ -808,10 +808,9 @@
     </div>
     @endif
 
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="node_modules/swiper/swiper-bundle.js"></script>
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="{{asset('js/jquery.min.js')}}"></script>
+    <script src="{{asset('bootstrap/bootstrap.min.js')}}"></script>
+    <script src="{{asset('swiper/swiper-bundle.min.js')}}"></script>
 <script>
     var swiper = new Swiper('.swipeContainermodife1', {
         slidesPerView: 3,

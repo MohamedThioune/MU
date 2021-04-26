@@ -3,10 +3,9 @@
 <head>
     @section('css')
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="{{asset('swiper/swiper-bundle.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/menu.css')}}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="{{asset('css/home.css')}}">
     @endsection
     @php if(isset($_COOKIE['lang'])) App::setLocale($_COOKIE['lang']); @endphp
 </head>
@@ -787,7 +786,7 @@
                                                 <p class="day">On {{strftime("%d/%m/%Y", strtotime($video->created_at))}}</p>
                                                 @endif
 
-                                               
+
                                                 <!--
                                                 <div class="d-flex justify-content-between">
                                                     <p class="numberviewsSuggestion">1230</p>
@@ -1890,9 +1889,10 @@
 
 </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="{{asset('js/jquery.min.js')}}"></script>
+    <script src="{{asset('bootstrap/bootstrap.min.js')}}"></script>
+    <script src="{{asset('swiper/swiper-bundle.min.js')}}"></script>
+    <script src="{{asset('js/menu.js')}}"></script>
     <script>
         var swiper = new Swiper('.swipeContainermodife1', {
             slidesPerView: 3,
@@ -1934,7 +1934,7 @@
                 },
                 1200: {
                     slidesPerView: 4.4,
-                    spaceBetween: 10
+                    spaceBetween: 20
                 },
 
 
@@ -2012,51 +2012,7 @@
         }
     </script>
 
-    <script src="{{asset('js/menu.js')}}"></script>
-    <!--     <script>
-          $(document).ready(function(){
-                //length in characters
-                var maxLength = 10;
-                var ellipsestext = "...";
-                var moretext = "Read more";
-                var lesstext = "Read less";
-                $(".showReadMore1").each(function(){
-                    //get the text of paragraph or div
-                    var myStr = $(this).text();
 
-                    // check if it exceeds the maxLength limit
-                    if($.trim(myStr).length > maxLength){
-                        //get only limited string firts to show text on page load
-                        var newStr = myStr.substring(0, maxLength);
-
-                        //get remaining string
-                        var removedStr = myStr.substr(maxLength, $.trim(myStr).length - maxLength);
-                        // now append the newStr + "..."+ hidden remaining string
-                        var Newhtml = newStr + '<span class="moreellipses">' + ellipsestext+ '</span><span class="morecontent"><span>' + removedStr + '</span>&nbsp;&nbsp;<a href="javascript:void(0)" class="ReadMore">' + moretext + '</a></span>';
-
-                        $(this).html(Newhtml);
-
-                    }
-                });
-
-                //function to show/hide remaining text on ReadMore button click
-                $(".ReadMore").click(function(){
-
-                    if($(this).hasClass("less")) {
-                        $(this).removeClass("less");
-                        $(this).html(moretext);
-                    }
-                    else {
-                        $(this).addClass("less");
-                        $(this).html(lesstext);
-                    }
-
-                    $(this).parent().prev().toggle();
-                    $(this).prev().toggle();
-                    return false;
-                });
-            });
-        </script>-->
 @endsection
 
 </body>

@@ -3,10 +3,8 @@
 <head>
     @section('css')
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="{{asset('swiper/swiper-bundle.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/menu.css')}}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     @endsection
 
 </head>
@@ -543,9 +541,9 @@
         </div>
     </div>
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="{{asset('js/jquery.min.js')}}"></script>
+<script src="{{asset('bootstrap/bootstrap.min.js')}}"></script>
+<script src="{{asset('swiper/swiper-bundle.min.js')}}"></script>
 <script>
     var swiper = new Swiper('.swipeContainermodife1', {
         slidesPerView: 3,

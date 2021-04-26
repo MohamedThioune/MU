@@ -683,9 +683,11 @@ video{
     display: flex;
     justify-content: center;
     width: 100%;
-    margin-top: 40px;
+    margin-top: 0px;
     position: absolute;
     bottom: 10px;
+    top: 0px;
+    left: -10px;
 }
 .blockAuteur{
     background: #ffffff;
@@ -1039,8 +1041,11 @@ video{
     width: 90%;
 }
 .readMore {
-    float: right;
-    color: #34C1F5;
+    color: #f47e7e !important;
+    position: absolute;
+    top: -7px;
+    font-size: 14px;
+    font-family: 'Ubuntu-Regular';
 }
 .blockLick {
     display: flex;
@@ -1671,7 +1676,9 @@ video{
     font-weight: 500;
 }
 .text-block-322{
-    width: 100%;
+    width: 287px !important;
+    text-overflow: ellipsis;
+    position: relative;
 }
 .message-2-messaage {
     margin-top: -9px;
@@ -1871,9 +1878,6 @@ video{
 }
 .accrocheskateImg {
     width: 49px;
-}
-.v1{
-    width: unset !important;
 }
 .morecontent span {
     display: none;
@@ -2445,9 +2449,6 @@ video{
 .cloche3-1 {
     width: 10px;
     padding-top: 2px;
-}
-.v1{
-    display: none !important;
 }
 @media all and (min-width: 300px) and (max-width: 767px){
     body{
