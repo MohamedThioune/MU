@@ -10410,11 +10410,10 @@
 }
 
 .text-block-151 {
-    margin-top: 5px;
-    margin-bottom: 0;
-
+    margin-top: 1px;
+    margin-bottom: 12px;
     font-size: 30px;
-    font-weight: 700;
+    font-family: "Ubuntu-Bold";
 }
 
 .first-name {
@@ -10550,6 +10549,8 @@
     font-size: 20px;
     font-family: 'Ubuntu-Bold';
     text-align: center;
+    color: #03518f;
+
 }
 
 .text-block-63 {
@@ -10638,14 +10639,25 @@
     font-family: 'Ubuntu-Bold';
     color: #fff;
     font-size: 40px;
-    margin-bottom: 15px;
+    margin-bottom: 0px;
 }
 
 .text-block-58 {
-    margin-top: 10px;
-
+    margin-top: 7px;
     color: #fff;
     text-align: center;
+    margin-bottom: 10px;
+}
+.title2{
+    font-size: 20px !important;
+    margin-top: 17px !important;
+}
+.subscribe2{
+    margin-top: 2px !important;
+    line-height: 16px;
+    width: max-content;
+    text-align: center;
+    margin-left: -10px;
 }
 
 .text-block-52 {
@@ -10700,7 +10712,7 @@
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    margin-top: 22px;
+    margin-top:0px;
     margin-right: 3px;
     padding-right: 0px;
     -webkit-box-align: center;
@@ -10721,7 +10733,7 @@
     display: flex;
     width: 100%;
     height: 100%;
-    margin-top: 10px;
+    margin-top: 6px;
     padding-bottom: 0px;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -10742,7 +10754,7 @@
     background-position: 50% 50%;
     background-size: contain;
     background-repeat: no-repeat;
-
+    padding: 31px;
     text-align: center;
     text-decoration: none;
 }
@@ -10752,7 +10764,7 @@
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    width: 130px;
+    width: auto;
     margin-top: 0px;
     margin-bottom: 0px;
     -webkit-box-pack: center;
@@ -10761,46 +10773,13 @@
     justify-content: center;
     font-family: 'Ubuntu-Bold';
     color: #03518f;
-    font-size: 20px;
+    font-size: 25px;
     text-align: center;
 }
 
 .soutenir {
     margin-top: 30px;
     margin-bottom: 100px;
-}
-
-.link-block-8 {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    width: 100%;
-    height: 100%;
-    margin-top: 10px;
-    padding-bottom: 0px;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-    border-radius: 5px;
-    background-color: transparent;
-    background-image: url("../img/Mu-petal-blc-5002x.png");
-    background-position: 50% 50%;
-    background-size: contain;
-    background-repeat: no-repeat;
-
-    text-align: center;
-    text-decoration: none;
 }
 
 ._49-up {
@@ -10891,7 +10870,7 @@
 
 .heading-21 {
     margin-top: -1px;
-
+    margin-bottom: 15px;
     color: #fff;
     font-size: 30px;
     font-weight: 700;
@@ -10902,7 +10881,7 @@
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    margin-top: 16px;
+    margin-top: -15px;
 }
 
 .link-block-10 {
@@ -11101,7 +11080,7 @@
     list-style: none;
 }
 .text-block-157 {
-    margin-top: 0px;
+    margin-top: -5px;
     font-family: 'Ubuntu-Regular';
     color: #03518f;
     margin-bottom: 0;
@@ -11171,7 +11150,7 @@
 }
 
 .text-block-56 {
-    margin-top: 30px;
+    margin-top: 10px;
     margin-bottom: 25px;
     color: #fff;
     font-weight: 400;
@@ -11194,7 +11173,8 @@
 }
 
 .text-block-64 {
-    margin-top: -11px;
+    margin-top: 0;
+    margin-bottom: 0;
     font-family: 'Ubuntu-Regular';
     color: #fff;
     text-align: center;
@@ -11206,7 +11186,7 @@
 
 .heading-24 {
     margin-top: 0px;
-    margin-bottom: 15px;
+    margin-bottom: 0;
     font-family: 'Ubuntu-Bold';
     color: #fff;
     font-size: 23px;
@@ -11895,9 +11875,7 @@
     }
 
     .link-block-8 {
-        width: 200px;
-        height: 50px;
-        margin-top: 57px;
+        margin-top: 10px;
         padding-bottom: 0px;
     }
 
@@ -12106,9 +12084,10 @@
     }
 
     .text-block-81 {
-        margin-bottom: 3px;
-        font-size: 23px;
+        font-size: 20px;
         font-weight: 700;
+        margin-top: -3px;
+        margin-bottom: 0;
     }
 
     .div-block-176 {
@@ -12192,8 +12171,9 @@
         display: -webkit-flex;
         display: -ms-flexbox;
         display: flex;
-        width: 300px;
-        height: 160px;
+        width: unset;
+        height: 200px;
+        margin: 0 10px;
         padding: 10px;
         border-style: solid;
         border-width: 0px;
@@ -12201,7 +12181,7 @@
         border-radius: 10px;
         background-color: #f8c323;
         box-shadow: 1px 1px 3px 0 #cac8c8;
-
+        align-items: center;
     }
 
     .text-block-72 {
@@ -14649,10 +14629,6 @@
         align-items: center;
     }
 
-    .link-block-8 {
-        margin-top: 51px;
-    }
-
     ._49-up {
         width: 200px;
         -webkit-box-orient: vertical;
@@ -14668,6 +14644,13 @@
 
     .text-block-60 {
         color: #03518f;
+        margin-top: -23px;
+        width: max-content;
+        text-align: center;
+    }
+
+    .text-block-167 {
+        margin-top: -20px;
     }
 
     ._4-95-up {
@@ -14799,11 +14782,6 @@
         margin-top: 0;
         margin-bottom: 8px;
     }
-    .text-block-81 {
-        color: #fff;
-        margin-top: 3px;
-        margin-bottom: 0;
-    }
 
     .div-block-176 {
         display: -webkit-box;
@@ -14848,17 +14826,6 @@
 
     .text-block-92 {
         font-size: 19px;
-    }
-
-    .div-block-123 {
-        width: 280px;
-        height: 160px;
-        -webkit-box-align: center;
-        -webkit-align-items: center;
-        -ms-flex-align: center;
-        align-items: center;
-        background-color: #f8c323;
-        box-shadow: none;
     }
 
     .text-block-145 {
@@ -14980,14 +14947,6 @@
         color: #fff;
     }
 
-    .div-block-105 {
-        width: 280px;
-        height: 130px;
-        padding: 10px;
-        background-image: linear-gradient(230deg, #f8cf23 17%, #f01cc6);
-        box-shadow: none;
-    }
-
     .text-block-86 {
         margin-bottom: 4px;
         color: #fff;
@@ -15035,7 +14994,8 @@
     }
 
     .div-block-107 {
-        width: 250px;
+        width: 150px;
+        margin-left: 13px;
     }
 
     .div-block-118 {
@@ -15048,7 +15008,7 @@
 
     .text-block-79 {
         color: #fff;
-        font-size: 40px;
+        font-size: 25px;
     }
 
     .link-block-20 {

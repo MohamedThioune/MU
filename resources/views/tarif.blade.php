@@ -187,8 +187,8 @@
                     <div class="div-block-94">
                         <p class="text-block-56">/mo</p>
                     </div>
-                    <form method="post" id="payment-form" action="{{route('tarif')}}">
-                        <button data-w-id="9aaa5bff-a04d-f507-a188-f2f1a250650b" style="border:none;cursor:pointer;height:80%;width:100%;margin-top:-60px;" type="submit" class="link-block-10 w-inline-block">
+                    <form method="post"  class="link-block-8 w-inline-block" id="payment-form" action="{{route('tarif')}}">
+                        <button data-w-id="9aaa5bff-a04d-f507-a188-f2f1a250650b"  type="submit" class="btn w-inline-block">
                             <h1 class="heading-22">Bismillah<br></h1>
                             <p class="text-block-157">{{__('I subscribe')}}</p>
                             @csrf
@@ -215,10 +215,10 @@
                     <div>
                         <div class="text-block-58">/mo</div>
                     </div>
-                    <form method="post" id="payment-form" action="{{route('tarif')}}">
-                        <button data-w-id="9aaa5bff-a04d-f507-a188-f2f1a250650b" style="border:none;cursor:pointer;height:80%;width:100%;margin-top:-60px;" type="submit" class="link-block-10 w-inline-block">
-                            <h1 class="heading-22">Bismillah<br></h1>
-                            <p class="text-block-157">{{__('We subscribe')}}</p>
+                    <form method="post" class="link-block-8 w-inline-block" id="payment-form" action="{{route('tarif')}}">
+                        <button data-w-id="9aaa5bff-a04d-f507-a188-f2f1a250650b" style="border:none;cursor:pointer;height:80%;width:100%;margin-top:-60px;" type="submit" class="btn w-inline-block">
+                            <h1 class="heading-22 title2">Bismillah<br></h1>
+                            <p class="text-block-157 subscribe2">{{__('We subscribe')}}</p>
                             @csrf
                             <section>
                                 <label for="amount">
@@ -233,7 +233,7 @@
             </div>
             <div class="mahaba-annuel">
                 <form method="post" id="payment-form" action="{{route('tarif')}}">
-                    <button data-w-id="9aaa5bff-a04d-f507-a188-f2f1a250650b" style="border:none;cursor:pointer;height:65%;width:100%;" type="submit" class="link-block-9 w-inline-block">
+                    <button data-w-id="9aaa5bff-a04d-f507-a188-f2f1a250650b" style="border:none;cursor:pointer;height:65%;width:100%;" type="submit" class="btn w-inline-block">
                         <div data-w-id="" class="_99-up">
                         <p class="text-block-174" style="font-weight:bold">{{__('Annual')}}</p>
                             <div style="opacity:0.6" class="div-block-184">
@@ -318,7 +318,7 @@
                         </div>
                     </div>
                     <form method="post" id="payment-form" action="{{route('tarif')}}">
-                        <button data-w-id="9aaa5bff-a04d-f507-a188-f2f1a250650b" style="border:none;cursor:pointer;height:80%;width:100%;" type="submit" class="link-block-8 w-inline-block">
+                        <button data-w-id="9aaa5bff-a04d-f507-a188-f2f1a250650b" style="border:none;cursor:pointer;height:80%;width:100%;" type="submit" class="btn link-block-8 w-inline-block">
                             <p class="text-block-167">Bismillah</p>
                             <p class="text-block-60">Je m&#x27;abonne</p><img src="images/Tracé-262x_2Tracé-262x.png" loading="lazy" alt="" class="image-69">
                             @csrf
@@ -349,7 +349,7 @@
                         <p class="text-block-82">/mo</p>
                     </div>
                     <form method="post" id="payment-form" action="{{route('tarif')}}">
-                        <button data-w-id="9aaa5bff-a04d-f507-a188-f2f1a250650b" style="border:none;cursor:pointer;height:80%;width:100%;" type="submit" class="link-block-8 w-inline-block">
+                        <button data-w-id="9aaa5bff-a04d-f507-a188-f2f1a250650b" type="submit"  class="btn link-block-8 w-inline-block">
                             <p class="text-block-167">Bismillah</p>
                             <p class="text-block-60">On s&#x27;abonne</p><img src="images/Tracé-262x_2Tracé-262x.png" loading="lazy" alt="" class="image-69">
                             @csrf
