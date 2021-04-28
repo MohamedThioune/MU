@@ -1930,7 +1930,7 @@
     <script>
         var swiper = new Swiper('.swipeContainermodife1', {
             slidesPerView: 3,
-            spaceBetween: 10,
+            spaceBetween: 30,
             breakpoints: {
                 980: {
                     slidesPerView: 1.2,
@@ -1938,7 +1938,7 @@
                 },
                 1200: {
                     slidesPerView: 1.2,
-                    spaceBetween: 10
+                    spaceBetween: 30
                 },
             }
 
@@ -1968,7 +1968,7 @@
                 },
                 1200: {
                     slidesPerView: 4.4,
-                    spaceBetween: 20
+                    spaceBetween: 30
                 },
 
 

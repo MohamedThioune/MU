@@ -847,7 +847,7 @@
             },
             1200: {
                 slidesPerView: 4.4,
-                spaceBetween: 10
+                spaceBetween: 30
             },
 
 
