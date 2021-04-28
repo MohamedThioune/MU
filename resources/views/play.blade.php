@@ -244,7 +244,40 @@
 
                     @if($looks > 0)
                         <div class="elementBarreText" style="transform: rotate(-180deg); height:50px; margin-top:40px">
-
+                            <div class="contentBarreText">
+                                @php
+                                    $variant = DB::table('videos')
+                                            ->join('reads','videos.id','reads.video_id')
+                                            ->join('sub_topics','sub_topics.id','videos.subtopic_id')
+                                            ->join('main_topics','main_topics.id','sub_topics.mainTopic_id')
+                                            ->where('reads.user_id', Auth::id())
+                                            ->where('reads.created_at', '>=', $start)
+                                            ->where('reads.created_at', '<', $end)
+                                            ->where('reads.user_id', Auth::id())
+                                            ->where('main_topics.id', 1)
+                                            ->whereNull('videos.deleted_at')
+                                            ->count();
+                                @endphp
+                                <p class="lettre" style="transform: rotate(180deg);">N</p>
+                                <div class="progress-bar" role="progressbar bg-info" style="width:18px; height:{{$variant != 0 ?(($variant/$looks)*100):'0'}}%; border-radius:10px; background:#4A4A4A;" aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <div class="contentBarreText">
+                                @php
+                                    $variant = DB::table('videos')
+                                            ->join('reads','videos.id','reads.video_id')
+                                            ->join('sub_topics','sub_topics.id','videos.subtopic_id')
+                                            ->join('main_topics','main_topics.id','sub_topics.mainTopic_id')
+                                            ->where('reads.user_id', Auth::id())
+                                            ->where('reads.created_at', '>=', $start)
+                                            ->where('reads.created_at', '<', $end)
+                                            ->where('reads.user_id', Auth::id())
+                                            ->where('main_topics.id', 6)
+                                            ->whereNull('videos.deleted_at')
+                                            ->count();
+                                @endphp
+                                <p class="lettre" style="transform: rotate(180deg);">T</p>
+                                <div class="progress-bar" role="progressbar bg-info" style="width:18px; height:{{$variant != 0 ?(($variant/$looks)*100):'0'}}%; border-radius:10px; background:#4A4A4A;" aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
                             <div class="contentBarreText e">
                                 @php
                                     $variant = DB::table('videos')
@@ -273,7 +306,7 @@
                                             ->where('reads.created_at', '>=', $start)
                                             ->where('reads.created_at', '<', $end)
                                             ->where('reads.user_id', Auth::id())
-                                            ->where('main_topics.id', 6)
+                                            ->where('main_topics.id', 7)
                                             ->whereNull('videos.deleted_at')
                                             ->count();
                                 @endphp
@@ -328,13 +361,14 @@
                                             ->where('reads.created_at', '>=', $start)
                                             ->where('reads.created_at', '<', $end)
                                             ->where('reads.user_id', Auth::id())
-                                            ->where('main_topics.id', 1)
+                                            ->where('main_topics.id', 4)
                                             ->whereNull('videos.deleted_at')
                                             ->count();
                                 @endphp
                                 <p class="lettre" style="transform: rotate(180deg);">B</p>
                                 <div class="progress-bar" role="progressbar bg-info" style="width:18px; height:{{$variant != 0 ?(($variant/$looks)*100):'0'}}%; border-radius:10px; background:#4A4A4A;" aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
+
                         </div>
                     @endif
                 @endif
