@@ -213,96 +213,92 @@
                                 <div class="faq-question" id="monFlow">
                                     <div class="indentification">
                                         <div class="sidebar-icon">
-                                            <img src="{{ asset('img/baseline-brightness_2-24px2x.png') }}" alt="">
-                                        </div>
-                                        <a href="{{route('home')}}" class="faq-q-text"><strong class="bold-text-5">{{__('Flownishh')}}</strong></a>
+                                            <img src="{{ asset('img/Mu-flow-picto-bull.svg') }}" alt="" class="image-120"></div>
+                                        <div class="faq-q-text" ><strong class="bold-text-5">{{__('Flownish')}}</strong></div>
                                     </div>
                                 </div>
                                 <div class="faq-answer" id="sousBlockMonFlow">
-                                    <a class="" href="">{{__('Alert')}}</a>
-                                    <a class="faq-answer-text" href="">Playlist</a>
-                                    <a class="faq-answer-text" href="">{{__('Subscriptions')}}</a>
+                                    <div data-w-id="3ebc1e8b-4c8a-0be6-ba36-5e829586b776" class="text-block-257">
+                                        <a href="{{route('home')}}" class="link-27">{{__('Flownish')}}</a><br>
+                                    </div>
+                                    <div data-w-id="3ebc1e8b-4c8a-0be6-ba36-5e829586b77a" class="text-block-257">
+                                        <a href="{{route('notification')}}" class="link-27">{{__('My notifications')}}</a><br>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="faq-wrapper">
+                                <div class="faq-question" id="mesKiffes">
+                                    <div class="indentification">
+                                        <div class="sidebar-icon">
+                                            <img src="{{ asset('img/Mu-coeur-gris.svg') }}" class="imgCoeurGris" alt="">
+                                        </div>
+                                        <div class="faq-q-text" ><strong class="bold-text-5">{{__('My likes')}}</strong></div>
+                                    </div>
+                                </div>
+                                <div id="sousBlockKiffes" class="faq-answer">
+                                    <p class="text-block-257">{{__('My likes')}}<br></p>
+                                    <p class="text-block-257">Associations<br></p>
+                                    <p class="text-block-257">Business<br></p>
+                                    <p class="text-block-257">{{__('All')}}<br></p>
                                 </div>
                             </div>
                             <div class="faq-wrapper">
                                 <div class="faq-question" id="maChaines">
                                     <div class="indentification">
                                         <div class="sidebar-icon">
-                                            <img class="machaineImg" src="{{ asset('img/Mu-tv-icone2x.png') }}"  alt="">
+                                            <img src="{{ asset('img/Mu-tV-chanel-play-gris.svg') }}" class="imgMuGris" alt="">
                                         </div>
-                                        <a href="{{route('channel.visitor', $channel->id)}}" class="faq-q-text"><strong class="bold-text-5">{{__('My channel')}}</strong></a>
+                                        <div class="faq-q-text" ><strong class="bold-text-5">{{__('My channel')}}</strong></div>
                                     </div>
                                 </div>
                                 <div class="faq-answer" id="sousBlockChaines">
-                                    <a href="{{route('channel.visitor', $channel->name)}}" class="link-block-36 w-inline-block">
-                                        <div class="text-block-261">{{__('Dashboard')}}</div>
+                                    @if($channel)
+                                    <a data-w-id="3ebc1e8b-4c8a-0be6-ba36-5e829586b79c" href="{{route('channel.visitor', [$channel->id])}}" class="link-block-36 w-inline-block">
+                                        <p class="text-block-257">{{__('Dashboard')}}<br></p>
                                     </a>
-                                    <a href="ma-chaine-publier.html" class="link-block-36 w-inline-block w--current">
-                                        <p class="text-block-261">{{__('Publish')}}</p>
+                                    @else if($canal)
+                                    <a data-w-id="3ebc1e8b-4c8a-0be6-ba36-5e829586b79c" href="{{route('channel.visitor', [$canal->id])}}" class="link-block-36 w-inline-block">
+                                        <p class="text-block-257">{{__('Dashboard')}}<br></p>
                                     </a>
-                                    <a href="{{route('videos.create')}}" class="faq-answer-text">{{__('Dashboard')}}</a>
-                                    <a href="{{route('videos.index')}}"  class="faq-answer-text">{{__('My videos')}}</a>
-                                    <a href="" class="faq-answer-text">{{__('Comments')}}</a>
-                                    <a href="" class="faq-answer-text">Audiences</a>
-                                    <a href="" class="faq-answer-text">{{__('Subscribers')}}</a>
-                                    <a href="{{route('flow')}}" class="faq-answer-text">{{__('Monetization')}}</a>
+                                    @endif
+                                    <a data-w-id="3ebc1e8b-4c8a-0be6-ba36-5e829586b7a0" href="{{route('videos.create')}}" class="link-block-36 w-inline-block">
+                                        <p class="text-block-257">{{__('Publish')}}<br></p>
+                                    </a>
+                                    <!-- <p class="faq-answer-text">{{__('My videos')}}<br>{{__('Comments')}}<br>Audiences <br>{{__('Subscribers')}}<br>{{__('Monetization')}}<br></p> -->
                                 </div>
                             </div>
-                            <div class="faq-wrapper">
-                                <div class="faq-question" id="timeChield">
+                            <div class="faq-wrapper" id="timeChield">
+                                <div class="time-shahid-onglet">
                                     <div class="indentification">
                                         <div class="sidebar-icon">
-                                            <img src="{{ asset('img/baseline-brightness_2-24px2x.png') }}"  alt="">
+                                            <img src="{{ asset('img/Time-shahid.png') }}" class="imgTimeShalid" alt="">
                                         </div>
-                                        <p class="faq-q-text"><strong class="bold-text-5">Time Shaid</strong></p>
+                                        <div class="faq-q-text" ><strong class="titre-onglet-time">Time Shahid</strong></div>
                                     </div>
-                                </div>
-                                <div class="faq-answer" id="sousBlockTimeChield">
-                                    <a href="{{route('home')}}" class="faq-answer-text">Smuuse</a>
-                                    <a href="" class="faq-answer-text">‍</a>
                                 </div>
                             </div>
                             <div class="faq-wrapper">
                                 <div class="faq-question" id="hassanates">
                                     <div class="indentification">
                                         <div class="sidebar-icon">
-                                            <img src="{{ asset('img/baseline-brightness_2-24px2x.png') }}" alt="">
-                                        </div>
-                                        <p class="faq-q-text"><strong class="bold-text-5">Hassanates P.</strong></p>
+                                            <img src="{{ asset('img/Mu-etoile-gris-.svg') }}" class="imgEtoile" alt=""></div>
+                                        <div class="faq-q-text" ><strong class="bold-text-5">Hassanates</strong></div>
                                     </div>
                                 </div>
-                                <div class="faq-answer"id="sousBlockHassanates">
-                                    <a href="" class="faq-answer-text">Time Sahid</a>
-                                    <a href="" class="faq-answer-text">Sadakatiya</a>
-                                    <a href="" class="faq-answer-text">Hassanates Party</a>
+                                <div class="faq-answer" id="sousBlockHassanates">
+                                    <p class="faq-answer-text">Time Sahid<br>Sadakatiya<br>Hassanates Party<br></p>
                                 </div>
                             </div>
                             <div class="faq-wrapper">
-                                <div class="faq-question" id="sadaka">
+                                <div class="faq-question" id="parametre">
                                     <div class="indentification">
                                         <div class="sidebar-icon">
-                                            <img src="{{ asset('img/Mu-menu-4-balls-blanc2x.png') }}" alt="">
-                                        </div>
-                                        <p class="faq-q-text"><strong class="bold-text-5">Sadakatiya</strong></p>
+                                            <img src="{{ asset('img/Mu-engrenage-gris2x.png') }}" class="imgMuEngrenage" alt=""></div>
+                                        <div class="faq-q-text" ><a href="{{route('parametre')}}" class="bold-text-5">{{__('Parameters')}}</a></div>
                                     </div>
                                 </div>
-                                <div class="faq-answer" id="sousBlockSadaka">
-                                    <a href="" class="faq-answer-text">Smuuse - {{__('will be available in a later version')}}</a>
-                                    <a href="" class="faq-answer-text">‍</a>
-                                </div>
-                            </div>
-                            <div class="faq-wrapper">
-                                <div class="faq-question" id="compte">
-                                    <div class="indentification">
-                                        <div class="sidebar-icon">
-                                            <img src="{{ asset('img/Mu-menu-4-balls-blanc2x.png') }}" alt="">
-                                        </div>
-                                        <p class="faq-q-text"><strong class="bold-text-5">{{__('')}}MON COMPTE</strong></p>
-                                    </div>
-                                </div>
-                                <div class="faq-answer" id="sousBlockCompte">
-                                    <a href="{{route('users.parameter')}}" class="faq-answer-text">Parametres</a>
-                                    <a href="" class="faq-answer-text">‍</a>
+                                <div class="faq-answer" id="sousBlockParametre">
+                                    <p class="faq-answer-text">Smuuse<br>‍<br></p>
                                 </div>
                             </div>
                         </div>

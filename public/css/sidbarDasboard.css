@@ -4082,7 +4082,25 @@
 .webMobile{
   display: none !important;
 }
-
+.image-120 {
+  width: 22px;
+}
+.imgMuGris {
+  width: 24px;
+}
+.imgEtoile {
+  width: 26px;
+}
+.imgMuEngrenage {
+  width: 24px;
+}
+.imgTimeShalid {
+  width: 32px;
+}
+.bold-text-5 {
+  color: #333;
+  font-family: "Ubuntu-Medium";
+}
 @media screen and (min-width: 1280px) {
   .image-3 {
     margin-top: 27px;

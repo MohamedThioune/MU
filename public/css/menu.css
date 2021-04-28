@@ -62,6 +62,9 @@ body {
     flex: 0 0 31.5% !important;
     max-width: 31.5% !important;
 }
+.blockGeneralContent {
+    width: 100% !important;
+}
 .container-modife {
     width: 100%;
     padding: 0 20px;
