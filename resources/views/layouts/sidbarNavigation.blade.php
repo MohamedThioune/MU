@@ -145,7 +145,7 @@
                                 <div class="point-1x4"></div>
                             </div>
                         </a>
-                        <a  href="{{route('home')}}" class="mu-logo w-inline-block">
+                        <a  href="{{route('flow')}}" class="mu-logo w-inline-block">
                             <img src="{{ asset('img/logo-MU.png') }}" class="imgLogo22" alt="">
                         </a>
                         <div class="search-bar">
@@ -209,7 +209,7 @@
                                        </div>
                                    </a>
                                </div>
-                               <a  href="{{route('home')}}" class="mu-logo w-inline-block">
+                               <a  href="{{route('flow')}}" class="mu-logo w-inline-block">
                                    <img src="{{ asset('img/Mu-full-white-00.png') }}" class="imgMUfull" alt=""></a>
                            </div>
                            <div class="div-block-387">
@@ -221,7 +221,7 @@
                        @if(!Auth::guest())
                             @if($channel)
                                 <p class='text-block-242'>{{$channel->name}}</p>
-                            @else if($canal)
+                            @else
                                 <p class='text-block-242'>{{$canal->name}}</p>
                             @endif
                         @endif
@@ -283,13 +283,16 @@
                                <a data-w-id="3ebc1e8b-4c8a-0be6-ba36-5e829586b79c" href="{{route('channel.visitor', [$channel->id])}}" class="link-block-36 w-inline-block">
                                    <p class="text-block-257">{{__('Dashboard')}}<br></p>
                                </a>
-                               @else if($canal)
+                               @else
                                <a data-w-id="3ebc1e8b-4c8a-0be6-ba36-5e829586b79c" href="{{route('channel.visitor', [$canal->id])}}" class="link-block-36 w-inline-block">
                                    <p class="text-block-257">{{__('Dashboard')}}<br></p>
                                </a>
                                @endif
                                <a data-w-id="3ebc1e8b-4c8a-0be6-ba36-5e829586b7a0" href="{{route('videos.create')}}" class="link-block-36 w-inline-block">
                                    <p class="text-block-257">{{__('Publish')}}<br></p>
+                               </a>
+                               <a data-w-id="3ebc1e8b-4c8a-0be6-ba36-5e829586b7a0" href="{{route('videos.index')}}" class="link-block-36 w-inline-block">
+                                   <p class="text-block-257">{{__('My videos')}}<br></p>
                                </a>
                                <!-- <p class="faq-answer-text">{{__('My videos')}}<br>{{__('Comments')}}<br>Audiences <br>{{__('Subscribers')}}<br>{{__('Monetization')}}<br></p> -->
                            </div>
@@ -324,9 +327,7 @@
                                    <div class="faq-q-text" ><a href="{{route('parametre')}}" class="bold-text-5">{{__('Parameters')}}</a></div>
                                </div>
                            </div>
-                           <div class="faq-answer" id="sousBlockParametre">
-                               <p class="faq-answer-text">Smuuse<br>‍<br></p>
-                           </div>
+                          
                        </div>
                    </div>
                </div>
