@@ -136,7 +136,7 @@
                                         ->where('playlists.video_id', $video->id)
                                         ->first();
                                 @endphp
-                                <a href="{{route('play', $video->id)}}" class="libertiText" style="text-decoration:none">{{$channel->name}}</a>
+                                <a href="{{route('channel.visitor', $channel->id)}}" style="color:#333333" class="nameAuteur contentweb azer">{{$channel->name}}</a>
                                  <!-- Date creation relative -->
                                     @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
                                     @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
@@ -290,7 +290,7 @@
                                         ->where('users.id', $video->user_id)
                                         ->first();
                                 @endphp
-                                <a href="{{route('play',[$video->id])}}" style="text-decoration:none" class="mindText">{{$channel->name}}</a>
+                                <a href="{{route('channel.visitor', $channel->id)}}" style="color:#333333" class="nameAuteur contentweb azer">{{$channel->name}}</a>
                                  <!-- Date creation relative -->
                                     @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
                                     @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
@@ -387,7 +387,7 @@
                                         ->where('users.id', $video->user_id)
                                         ->first();
                                 @endphp
-                                <a href="{{route('play',[$playlist->id])}}" style="text-decoration:none" class="mindText">{{$channel->name}}</a>
+                                <a href="{{route('channel.visitor', $channel->id)}}" style="color:#333333" class="nameAuteur contentweb azer">{{$channel->name}}</a>
                                  <!-- Date creation relative -->
                                     @if(intval(abs(strtotime("now") - strtotime($playlist->created_at))/ 86400) == 0)
                                     @if(intval(abs(strtotime("now") - strtotime($playlist->created_at))/ 3600) > 0)

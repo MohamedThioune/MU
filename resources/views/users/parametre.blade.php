@@ -12,7 +12,7 @@
 @php if(isset($_COOKIE['lang'])) App::setLocale($_COOKIE['lang']); @endphp
 
 <div class="globalParametre">
-    <div class="pub-bando-connect">
+    <!-- <div class="pub-bando-connect">
         <div class="info-pub-bando">
             <div class="accroche">
                 <a class="accrocheskate" href="">
@@ -37,7 +37,7 @@
         <div class="imgPubBlock">
             <img src="{{ asset('img/Mu-bandeau-Pub.jpg') }}" alt="">
         </div>
-    </div>
+    </div> -->
     <div class="menu-content-business webBusiness">
         <a href="#" class="link-26">{{__('Account')}}</a>
         <a href="#" class="link-26">{{__('Personal info.')}}</a>
@@ -51,18 +51,18 @@
                 <div class="swiper-slide">
                     <a href="#" class="link-26">{{__('Account')}}</a>
                 </div>
-                <div class="swiper-slide">
+                <!-- <div class="swiper-slide">
                     <a href="#" class="link-26">{{__('Personal info.')}}</a>
-                </div>
+                </div> -->
                 <div class="swiper-slide">
                     <a href="#" class="link-26">{{__('Profile Management')}}</a>
                 </div>
                 <div class="swiper-slide">
                     <a href="#" class="link-26">Facturations</a>
                 </div>
-                <div class="swiper-slide">
+                <!-- <div class="swiper-slide">
                     <a href="#" class="link-26">{{__('Security')}}</a>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -73,9 +73,22 @@
             @csrf
             <div class="box-infos">
                 <div class="infos-nom">
-                    <p class="text-block-228">{{__('NAME')}}</p>
+                    <p class="text-block-228">{{__('Pseudo')}}</p>
                     <div class="div-block-209">
                         <input type="text" name="name" class="form-control  text-block-229" id="nom"  placeholder="{{Auth::user()->name}}">
+                    </div>
+                </div>
+                <div class="infos-nom">
+                    <p class="text-block-228">{{__('First name')}}</p>
+                    <div class="div-block-209">
+                        <input type="text" name="firstName" class="form-control  text-block-229" id="nom"  placeholder="{{Auth::user()->firstName}}">
+                    </div><br>
+                </div>
+
+                <div class="infos-nom">
+                <p class="text-block-228">{{__('Last name')}}</p>
+                    <div class="div-block-209">
+                        <input type="text" name="lastName" class="form-control  text-block-229" id="nom"  placeholder="{{Auth::user()->LastName}}">
                     </div>
                 </div>
                 <!-- <div class="infos-1">
@@ -102,12 +115,12 @@
                     </div>
                     @endif
                 </div>
-                <div class="infos-1">
+                <!-- <div class="infos-1">
                     <p class="text-block-228">{{__('PASSWORD')}}</p>
                     <div class="div-block-209">
                         <input type="password" name="password" class="form-control  text-block-229" id="dateNaissance"  placeholder="......">
                     </div>
-                </div>
+                </div> -->
             </div>
             <div class="photo-profil">
                 <div>

@@ -149,7 +149,7 @@ Route::get('/', function () {
     ->join('videos', 'videos.id', 'playlists.video_id')
     ->whereNull('playlists.deleted_at')
     ->where('playlists.user_id', Auth::id())
-    ->get();
+    ->get(); 
 
     session(['videos_haltcare' => $videos_haltcare, 'videos_life' => $videos_life, 'videos_health' => $videos_health, 'videos_business' => $videos_business, 'videos_environnement' => $videos_environnement, 'videos_education' => $videos_education]);
 

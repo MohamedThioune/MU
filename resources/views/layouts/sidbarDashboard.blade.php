@@ -161,11 +161,11 @@
                     <a href="{{route('flow')}}" class="div-block-281 w-inline-block">
                         <p class="text-block-286">Flow</p>
                     </a>
-                    <a href="{{route('kids')}}" class="div-block-282 w-inline-block">
+                    <!-- <a href="{{route('kids')}}" class="div-block-282 w-inline-block">
                         <p class="text-block-286">Kids</p>
-                    </a>
+                    </a> -->
                     <a href="#" class="div-block-283 w-inline-block">
-                        <p class="text-block-286">Sista&#x27;s</p>
+                        <p class="text-block-286" data-toggle="tooltip" data-placement="top" title="{{Auth::user()->sex == 1 ? 'Vous ne pourrez pas accéder a cette partie compte tenu de votre profil' : 'Vous ne pourrez acceeder a cette page automatiquement une fois quelle sera disponible 😉' }}">Sista&#x27;s</p>
                     </a>
                 </div>
                 <div class="publish-notif">
@@ -235,12 +235,12 @@
                                         <div class="faq-q-text" ><strong class="bold-text-5">{{__('My likes')}}</strong></div>
                                     </div>
                                 </div>
-                                <div id="sousBlockKiffes" class="faq-answer">
+                                <!-- <div id="sousBlockKiffes" class="faq-answer">
                                     <p class="text-block-257">{{__('My likes')}}<br></p>
                                     <p class="text-block-257">Associations<br></p>
                                     <p class="text-block-257">Business<br></p>
                                     <p class="text-block-257">{{__('All')}}<br></p>
-                                </div>
+                                </div> -->
                             </div>
                             <div class="faq-wrapper">
                                 <div class="faq-question" id="maChaines">
@@ -264,6 +264,9 @@
                                     <a data-w-id="3ebc1e8b-4c8a-0be6-ba36-5e829586b7a0" href="{{route('videos.create')}}" class="link-block-36 w-inline-block">
                                         <p class="text-block-257">{{__('Publish')}}<br></p>
                                     </a>
+                                    <a data-w-id="3ebc1e8b-4c8a-0be6-ba36-5e829586b7a0" href="{{route('videos.index')}}" class="link-block-36 w-inline-block">
+                                        <p class="text-block-257">{{__('My videos')}}<br></p>
+                                    </a>
                                     <!-- <p class="faq-answer-text">{{__('My videos')}}<br>{{__('Comments')}}<br>Audiences <br>{{__('Subscribers')}}<br>{{__('Monetization')}}<br></p> -->
                                 </div>
                             </div>
@@ -285,8 +288,8 @@
                                         <div class="faq-q-text" ><strong class="bold-text-5">Hassanates</strong></div>
                                     </div>
                                 </div>
-                                <div class="faq-answer" id="sousBlockHassanates">
-                                    <p class="faq-answer-text">Time Sahid<br>Sadakatiya<br>Hassanates Party<br></p>
+                                <div class="faq-answer" id="sousBlockHassanates" data-toggle="tooltip" data-placement="right" title="Restez connecté sera disponible dans une deuxieme version"> 
+                                    <!-- <p class="faq-answer-text">Time Sahid<br>Sadakatiya<br>Hassanates Party<br></p> -->
                                 </div>
                             </div>
                             <div class="faq-wrapper">

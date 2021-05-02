@@ -189,7 +189,7 @@
                        <p class="nbreAbonnees contentweb"> {{\App\Models\Channel::find($channel->id)->abonnees->count()}} {{__('Subscribers')}}</p>
                    </div>
                     <div class="contentMobile">
-                        <p class="nameAuteur">{{$channel->name}}</p>
+                        <a href="{{route('channel.visitor', $channel->id)}}" style="color:#333333" class="nameAuteur contentweb azer">{{$channel->name}}</a>
                     <!-- <p class="nbreAbonnees"> {{\App\Models\Channel::find($channel->id)->abonnees->count()}} Abonnes</p>  -->
                     </div>
                     <div class="elementBtnSouscrire">
@@ -804,7 +804,7 @@
                                                                                 ->where('users.id', $video->user_id)
                                                                                 ->first();
                                                 @endphp
-                                                <a href="{{route('play',[$video->id])}}" style="text-decoration:none" class="mindText">{{$channel->name}}</a>
+                                                <a href="{{route('channel.visitor', $channel->id)}}" style="color:#333333" class="nameAuteur contentweb azer">{{$channel->name}}</a>
 
                                                 @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
                                                 @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
@@ -946,7 +946,7 @@
                                     ->where('users.id', $video->user_id)
                                     ->first();
                                     @endphp
-                                    <a href="{{route('play',[$video->id])}}" style="text-decoration:none" class="mindText">{{$channel->name}}</a>
+                                    <a href="{{route('channel.visitor', $channel->id)}}" style="color:#333333" class="nameAuteur contentweb azer">{{$channel->name}}</a>
 
                                     @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
                                     @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
@@ -1085,7 +1085,7 @@
                                                 ->where('users.id', $video->user_id)
                                                 ->first();
                                                 @endphp
-                                                <a href="{{route('play',[$video->id])}}" style="text-decoration:none" class="mindText">{{$channel->name}}</a>
+                                                <a href="{{route('channel.visitor', $channel->id)}}" style="color:#333333" class="nameAuteur contentweb azer">{{$channel->name}}</a>
                                                 <!-- Date creation relative -->
                                                 @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
                                                 @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
@@ -1223,7 +1223,7 @@
                                                 ->where('users.id', $video->user_id)
                                                 ->first();
                                                 @endphp
-                                                <a href="{{route('play',[$video->id])}}" style="text-decoration:none" class="mindText">{{$channel->name}}</a>
+                                                <a href="{{route('channel.visitor', $channel->id)}}" style="color:#333333" class="nameAuteur contentweb azer">{{$channel->name}}</a>
                                                 <!-- Date creation relative -->
                                                 @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
                                                 @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
@@ -1361,7 +1361,7 @@
                                                 ->where('users.id', $video->user_id)
                                                 ->first();
                                                 @endphp
-                                                <a href="{{route('play',[$video->id])}}" style="text-decoration:none" class="mindText">{{$channel->name}}</a>
+                                                <a href="{{route('channel.visitor', $channel->id)}}" style="color:#333333" class="nameAuteur contentweb azer">{{$channel->name}}</a>
                                                 <!-- Date creation relative -->
                                                 @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
                                                 @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
@@ -1498,7 +1498,7 @@
                                                 ->where('users.id', $video->user_id)
                                                 ->first();
                                                 @endphp
-                                                <a href="{{route('play',[$video->id])}}" style="text-decoration:none" class="mindText">{{$channel->name}}</a>
+                                                <a href="{{route('channel.visitor', $channel->id)}}" style="color:#333333" class="nameAuteur contentweb azer">{{$channel->name}}</a>
                                                 @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
                                                 @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
                                                 <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/3600)}} hours ago </p>
@@ -1636,7 +1636,7 @@
                                                 ->where('users.id', $video->user_id)
                                                 ->first();
                                                 @endphp
-                                                <a href="{{route('play',[$video->id])}}" style="text-decoration:none" class="mindText">{{$channel->name}}</a>
+                                                <a href="{{route('channel.visitor', $channel->id)}}" style="color:#333333" class="nameAuteur contentweb azer">{{$channel->name}}</a>
                                                 @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
                                                 @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
                                                 <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/3600)}} hours ago </p>
@@ -1774,7 +1774,7 @@
                                                 ->where('users.id', $video->user_id)
                                                 ->first();
                                                 @endphp
-                                                <a href="{{route('play',[$video->id])}}" style="text-decoration:none" class="mindText">{{$channel->name}}</a>
+                                                <a href="{{route('channel.visitor', $channel->id)}}" style="color:#333333" class="nameAuteur contentweb azer">{{$channel->name}}</a>
 
                                                 @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
                                                 @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
