@@ -168,8 +168,11 @@ class HomeController extends Controller
                     ->whereNull('videos.deleted_at')
                     ->orderByDesc('reads.created_at')
                     ->first();
-
-        $read_at = (new \Datetime($read_video->created_at))->format('d-m-Y');
+        if($read_video)
+            $read_at =(new \Datetime($read_video->created_at))->format('d-m-Y');
+        else
+            $read_at = null;
+        
         $day = (new \Datetime())->format('d-m-Y');
 
         if(Auth::user()->state == 0)
