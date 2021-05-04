@@ -658,6 +658,7 @@ Route::post('/tarif', function(){
     return redirect(route('process'));
 })->name('tarif');
 
+Route::view('time_shahid','time')->name('time_shahid')->middleware('auth');
 
 
 

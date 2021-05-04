@@ -74,70 +74,26 @@
                             </li>-->
                             @if(Auth::user())
                                 @if(Auth::user()->type)
-                                    @if(Auth::user()->type == "OUMMATI")
-                                        <li class="nav-item nav-modife">
-                                                @if(!Auth::guest())
-                                                <button type="button" class="btnImgUser">
-                                                    <img src="{{ asset('img') }}/{{Auth::user()->photo}}" width="69" alt="" class="image-94Nav">
-                                                </button>
-                                                <!-- Modal -->
-                                                <div class="modalNavUp">
-                                                    <a href="#" class="dropdownItemNavText">LogOut</a>
-                                                    <a href="#" class="dropdownItemNavText">Changer le profil</a>
-                                                    <a href="#" class="dropdownItemNavText">Infos perso</a>
-                                                    <a href="#" class="dropdownItemNavText">Abonnement</a>
-
-                                                </div>
-
-                                                @endif
-                                            <!--@if(!session('profile'))
-                                            <span class="btnCommunaute" style="background:none; box-shadow: 4px 4px 15px white;font-weight:bold">
-                                            <a style="color:white;font-size:15px;text-decoration:none;" href="{{route('choose')}}">
-                                                @php
-                                                    $profile = DB::Table('users')->select('profile.*')
-                                                                                ->join('profile', 'users.id', 'profile.user_id')
-                                                                                ->where('users.id', Auth::id())
-                                                                                ->first();
-
-                                                    echo $profile->name;
-                                                @endphp
-                                                &nbsp;&nbsp;
-                                                 &#x2B07;</a>
-                                            </span>
-                                            @elseif(session('profile')["age"] <= 15)
-                                            <span class="btnCommunaute" style="background:none; box-shadow: 4px 4px 15px #e9d22e;font-weight:bold"> {{session('profile')["name"]}} &nbsp;&nbsp;<a style="color:#e9d22e;font-size:19px;" href="{{route('choose')}}"><i class="fas fa-caret-down"></i>&#x2B07;</a></span>
-                                            @elseif(session('profile')["age"] > 15 && session('profile')["sex"] == '1')
-                                            <span class="btnCommunaute" style="background:none; box-shadow: 4px 4px 15px #3eacec;font-weight:bold"> {{session('profile')["name"]}} &nbsp;&nbsp;<a href="{{route('choose')}}"><i class="fas fa-caret-down"></i>&#x2B07;</a></span>
-                                            @elseif(session('profile')["age"] > 15 && session('profile')["sex"] == '0')
-                                            <span class="btnCommunaute" style="background:none; box-shadow: 4px 4px 15px #d14f94;font-weight:bold"> {{session('profile')["name"]}} &nbsp;&nbsp;<a style="color:#d14f94;font-size:19px;" href="{{route('choose')}}"><i class="fas fa-caret-down"></i>&#x2B07;<</a><span>
-                                            @endif-->
-                                        </li>
-                                    @else
                                     <li class="nav-item nav-modife">
-                                        <span class="btnCommunaute" style="background:none; box-shadow: 4px 4px 15px white;font-weight:bold">
-                                            @php
-                                                $profile = DB::Table('users')->select('profile.*')
-                                                                            ->join('profile', 'users.id', 'profile.user_id')
-                                                                            ->where('users.id', Auth::id())
-                                                                            ->first();
+                                            <p style="color:white; margin-top:20px;margin-right:15px">{{Auth::user()->name}}</p>
+                                            <button type="button" class="btnImgUser">
+                                                <img src="{{ asset('img') }}/{{Auth::user()->photo}}" width="69" alt="" class="image-94Nav">
+                                            </button>
+                                            <!-- Modal -->
+                                            <div class="modalNavUp">
+                                            <form action="{{ route('logout') }}" class="nav-modife formModife" method="POST">
+                                                <button class="dropdownItemNavText">{{__('Log out')}} </button>
+                                                @csrf
+                                                </form>
+                                                @if(Auth::user()->type == "OUMMATI")
+                                                <a href="{{route('choose')}}" class="dropdownItemNavText">Changer le profil</a>
+                                                @endif
+                                                <a href="{{route('parametre')}}" class="dropdownItemNavText">Infos perso</a>
+                                                <a href="{{route('tarifs')}}" class="dropdownItemNavText">Abonnement</a>
 
-                                                echo $profile->name;
-                                            @endphp
-                                        </span>
+                                            </div>
                                     </li>
-                                    @endif
-<!--                                    <form action="{{ route('logout') }}" class="nav-modife formModife" method="POST">
-                                    <div class="btn connexion">
-                                        <button class="nav-link btnLogOut" style="cursor:pointer"type="submit" >
-                                            <center><span class="div-block-272">
-                                                <img src="{{ asset('img/Mu-login-blanc.svg') }}" style="margin-top:15px;" alt="" class="image-101">
-                                            </span></center>
-                                            {{__('Log out')}}
-                                        </button>
-                                    </div>
-                                    @csrf
-                                    </form>-->
-                            @endif
+                                @endif
                             @endif
                             @endif
                         </ul>
@@ -188,11 +144,11 @@
                         <a href="{{route('flow')}}" class="div-block-281 w-inline-block">
                             <p class="text-block-286">Flow</p>
                         </a>
-                        <!-- <a href="{{route('kids')}}" class="div-block-282 w-inline-block">
+                        <a href="{{route('kids')}}" class="div-block-282 w-inline-block">
                             <p class="text-block-286">Kids</p>
-                        </a> -->
+                        </a>
                         <a href="#" class="div-block-283 w-inline-block">
-                            <p class="text-block-286" data-toggle="tooltip" data-placement="top" title="{{Auth::user()->sex == 1 ? 'Vous ne pourrez pas accéder a cette partie compte tenu de votre profil' : 'Vous ne pourrez acceeder a cette page automatiquement une fois quelle sera disponible 😉' }}">Sista&#x27;s</p>
+                            <p class="text-block-286">Sista&#x27;s</p>
                         </a>
                     </div>
                     <div class="publish-notif">
@@ -232,15 +188,15 @@
                            </div>
                        </div>
                        <div class="head-slidebar-user">
-                       @php 
-                           $live = DB::Table('users')->select('channels.*')
-                                        ->join('channels', 'users.id', 'channels.user_id')
-                                        ->where('users.id', Auth::id())
-                                        ->first();
-                       @endphp
+                            @php
+                                $channel = DB::Table('users')->select('channels.*')
+                                                ->join('channels', 'users.id', 'channels.user_id')
+                                                ->where('users.id', Auth::id())
+                                                ->first();
+                            @endphp
                        @if(!Auth::guest())
-                            @if($live)
-                                <p class='text-block-242'>{{$live->name}}</p>
+                            @if($channel)
+                                <p class='text-block-242'>{{$channel->name}}</p>
                             @else
                                 <p class='text-block-242'>{{$canal->name}}</p>
                             @endif
@@ -282,12 +238,12 @@
                                    <div class="faq-q-text" ><strong class="bold-text-5">{{__('My likes')}}</strong></div>
                                </div>
                            </div>
-                           <!-- <div id="sousBlockKiffes" class="faq-answer">
+                           <div id="sousBlockKiffes" class="faq-answer">
                                <p class="text-block-257">{{__('My likes')}}<br></p>
                                <p class="text-block-257">Associations<br></p>
                                <p class="text-block-257">Business<br></p>
                                <p class="text-block-257">{{__('All')}}<br></p>
-                           </div> -->
+                           </div>
                        </div>
                        <div class="faq-wrapper">
                            <div class="faq-question" id="maChaines">
@@ -298,10 +254,10 @@
                                    <div class="faq-q-text" ><strong class="bold-text-5">{{__('My channel')}}</strong></div>
                                </div>
                            </div>
-                          
                            <div class="faq-answer" id="sousBlockChaines">
-                               @if($live)
-                               <a data-w-id="3ebc1e8b-4c8a-0be6-ba36-5e829586b79c" href="{{route('channel.visitor', [$live->id])}}" class="link-block-36 w-inline-block">
+                               
+                               @if($channel)
+                               <a data-w-id="3ebc1e8b-4c8a-0be6-ba36-5e829586b79c" href="{{route('channel.visitor', [$channel->id])}}" class="link-block-36 w-inline-block">
                                    <p class="text-block-257">{{__('Dashboard')}}<br></p>
                                </a>
                                @else
@@ -336,8 +292,8 @@
                                    <div class="faq-q-text" ><strong class="bold-text-5">Hassanates</strong></div>
                                </div>
                            </div>
-                           <div class="faq-answer" id="sousBlockHassanates" data-toggle="tooltip" data-placement="top" title="Restez connecté sera disponible dans une deuxieme version"> 
-                               <!-- <p class="faq-answer-text">Time Sahid<br>Sadakatiya<br>Hassanates Party<br></p> -->
+                           <div class="faq-answer" id="sousBlockHassanates">
+                               <p class="faq-answer-text">Time Sahid<br>Sadakatiya<br>Hassanates Party<br></p>
                            </div>
                        </div>
                        <div class="faq-wrapper">
