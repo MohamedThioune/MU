@@ -148,6 +148,7 @@
     </div>
     @endif
     @endif
+    @if($videos && count($videos) > 0)
     <div class="business-now">
         <div class="video-sadakatia-asso">
             <a href="{{route('play',$videos[0]->id)}}"><img src="{{ asset('img/Mu-Vignette-video-400x250-photographe.jpg') }}" alt=""></a>
@@ -183,6 +184,7 @@
             </div> -->
         </div>
     </div>
+    @endif
     <div class="chaine-description">
         <div class="chaine-desciption-all">
             <div class="div-block-335">

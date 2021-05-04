@@ -218,9 +218,15 @@
                            </div>
                        </div>
                        <div class="head-slidebar-user">
+                       @php 
+                           $live = DB::Table('users')->select('channels.*')
+                                        ->join('channels', 'users.id', 'channels.user_id')
+                                        ->where('users.id', Auth::id())
+                                        ->first();
+                       @endphp
                        @if(!Auth::guest())
-                            @if($channel)
-                                <p class='text-block-242'>{{$channel->name}}</p>
+                            @if($live)
+                                <p class='text-block-242'>{{$live->name}}</p>
                             @else
                                 <p class='text-block-242'>{{$canal->name}}</p>
                             @endif
@@ -241,12 +247,12 @@
                                <div class="indentification">
                                    <div class="sidebar-icon">
                                        <img src="{{ asset('img/Mu-flow-picto-bull.svg') }}" alt="" class="image-120"></div>
-                                   <div class="faq-q-text" ><strong class="bold-text-5">{{__('Flownish')}}</strong></div>
+                                   <div class="faq-q-text" ><strong class="bold-text-5">{{__('My flow')}}</strong></div>
                                </div>
                            </div>
                            <div class="faq-answer" id="sousBlockMonFlow">
                                <div data-w-id="3ebc1e8b-4c8a-0be6-ba36-5e829586b776" class="text-block-257">
-                                   <a href="{{route('home')}}" class="link-27">{{__('Flownish')}}</a><br>
+                                   <a href="{{route('home')}}" class="link-27">{{__('My flow')}}</a><br>
                                </div>
                                <div data-w-id="3ebc1e8b-4c8a-0be6-ba36-5e829586b77a" class="text-block-257">
                                    <a href="{{route('notification')}}" class="link-27">{{__('My notifications')}}</a><br>
@@ -278,9 +284,10 @@
                                    <div class="faq-q-text" ><strong class="bold-text-5">{{__('My channel')}}</strong></div>
                                </div>
                            </div>
+                          
                            <div class="faq-answer" id="sousBlockChaines">
-                               @if($channel)
-                               <a data-w-id="3ebc1e8b-4c8a-0be6-ba36-5e829586b79c" href="{{route('channel.visitor', [$channel->id])}}" class="link-block-36 w-inline-block">
+                               @if($live)
+                               <a data-w-id="3ebc1e8b-4c8a-0be6-ba36-5e829586b79c" href="{{route('channel.visitor', [$live->id])}}" class="link-block-36 w-inline-block">
                                    <p class="text-block-257">{{__('Dashboard')}}<br></p>
                                </a>
                                @else

@@ -40,10 +40,10 @@
     </div> -->
     <div class="menu-content-business webBusiness">
         <a href="#" class="link-26">{{__('Account')}}</a>
-        <a href="#" class="link-26">{{__('Personal info.')}}</a>
+        <!-- <a href="#" class="link-26">{{__('Personal info.')}}</a> -->
         <a href="#" class="link-26">{{__('Profile Management')}}</a>
         <a href="#" class="link-26">Facturations</a>
-        <a href="#" class="link-26">{{__('Security')}}</a>
+        <!-- <a href="#" class="link-26">{{__('Security')}}</a> -->
     </div>
     <div class="menu-content-business mobBusiness">
         <div class="swiper-container swipeContainermodife1">
@@ -148,24 +148,31 @@
         @php
             $date = new hijri();
             $bismi = new hijri();
-            $anniversary = strtotime(Auth::user()->date);
+            if(Auth::user()->date){
+                $anniversary = strtotime(Auth::user()->date);
+                $hajj = explode(",",$date->hijriDate($anniversary));
+                $hijri_year = trim($hajj[1]);
+                $hijri_month =  explode(" ", $hajj[0])[6];
+                $hijri_day = explode(" ", $hajj[0])[5];
+                $hijri = $hijri_day ."-". $hijri_month ."-" . $hijri_year;
 
-            $hajj = explode(",",$date->hijriDate($anniversary));
-            $hijri_year = trim($hajj[1]);
-            $hijri_month =  explode(" ", $hajj[0])[6];
-            $hijri_day = explode(" ", $hajj[0])[5];
-            $hijri = $hijri_day ."-". $hijri_month ."-" . $hijri_year;
+                $muslim = explode(",",$bismi->date(null,2,false));
+                $muslim_year = trim($muslim[1]);
 
-            $gregorian = explode("-", Auth::user()->date);
+                $gregorian = explode("-", Auth::user()->date);
 
-            $year =  explode("-", Auth::user()->date);
-            $year = $year[0];
+                $year =  explode("-", Auth::user()->date);
+                $year = $year[0];
 
-            $age = idate('Y') - $year;
+                $age = idate('Y') - $year;
+                
+                $hegir = $muslim_year - $hijri_year;
+            }
+            
+               
+           
 
-            $muslim = explode(",",$bismi->date(null,2,false));
-            $muslim_year = trim($muslim[1]);
-            $hegir = $muslim_year - $hijri_year;
+            
 
         @endphp
         <div class="div-block-212">
@@ -174,18 +181,26 @@
                 <div class="div-block-210">
                     <div class="div-block-208">
                         <p class="text-block-231">{{__('Gregorian')}} </p>
+                        @if(isset($gregorian))
                         <p class="text-block-231">{{$gregorian[2]}}-{{$gregorian[1]}}-{{$gregorian[0]}}</p>
+                        @else
+                        <p class="text-block-231">To match it with your birthday</p>
+                        @endif
                         <p class="text-block-233">Age</p>
                         <div>
-                            <p class="text-block-234">{{$age}}</p>
+                            <p class="text-block-234">{{isset($age) ? $age : 'null'}}</p>
                         </div>
                     </div>
                     <div class="div-block-208">
                         <p class="text-block-230">{{__('Hegierian')}} </p>
+                        @if(isset($hijri))
                         <p class="text-block-230" style="width:200px">{{$hijri}}</p>
+                        @else
+                        <p class="text-block-230">Fill the case anniversary </p>
+                        @endif
                         <p class="text-block-233">Age</p>
                         <div>
-                            <p class="text-block-234">{{$hegir}}</p>
+                            <p class="text-block-234">{{isset($hegir) ? $hegir : 'null'}}</p>
                         </div>
                     </div>
                 </div>

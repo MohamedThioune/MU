@@ -214,12 +214,12 @@
                                     <div class="indentification">
                                         <div class="sidebar-icon">
                                             <img src="{{ asset('img/Mu-flow-picto-bull.svg') }}" alt="" class="image-120"></div>
-                                        <div class="faq-q-text" ><strong class="bold-text-5">{{__('Flownish')}}</strong></div>
+                                        <div class="faq-q-text" ><strong class="bold-text-5">{{__('My flow')}}</strong></div>
                                     </div>
                                 </div>
                                 <div class="faq-answer" id="sousBlockMonFlow">
                                     <div data-w-id="3ebc1e8b-4c8a-0be6-ba36-5e829586b776" class="text-block-257">
-                                        <a href="{{route('home')}}" class="link-27">{{__('Flownish')}}</a><br>
+                                        <a href="{{route('home')}}" class="link-27">{{__('My flow')}}</a><br>
                                     </div>
                                     <div data-w-id="3ebc1e8b-4c8a-0be6-ba36-5e829586b77a" class="text-block-257">
                                         <a href="{{route('notification')}}" class="link-27">{{__('My notifications')}}</a><br>
