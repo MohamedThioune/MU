@@ -12,7 +12,7 @@
 @php if(isset($_COOKIE['lang'])) App::setLocale($_COOKIE['lang']); @endphp
 
 <div class="globalParametre">
-    <!-- <div class="pub-bando-connect">
+<!--    <div class="pub-bando-connect">
         <div class="info-pub-bando">
             <div class="accroche">
                 <a class="accrocheskate" href="">
@@ -37,7 +37,7 @@
         <div class="imgPubBlock">
             <img src="{{ asset('img/Mu-bandeau-Pub.jpg') }}" alt="">
         </div>
-    </div> -->
+    </div>-->
     <div class="menu-content-business webBusiness">
         <a href="#" class="link-26">{{__('Account')}}</a>
         <!-- <a href="#" class="link-26">{{__('Personal info.')}}</a> -->
@@ -141,6 +141,12 @@
                     </div>
                 </div>
             </div><br>
+            <div class="defails-box">
+                <div class="div-block-213">
+                    <button class="text-block-235">{{__('Man')}}</button>
+                    <button class="text-block-236">{{__('Woman')}}</button>
+                </div>
+            </div>
             <div class="box-infos" style="border:none;">
             <center><button class="text-block-235" type="submit"><i class="fas fa-sync"></i>{{__('Refresh')}}</button></center>
             </div>
@@ -169,11 +175,7 @@
                 $hegir = $muslim_year - $hijri_year;
             }
             
-               
-           
-
             
-
         @endphp
         <div class="div-block-212">
             <div class="defails-box">
@@ -203,12 +205,6 @@
                             <p class="text-block-234">{{isset($hegir) ? $hegir : 'null'}}</p>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="defails-box">
-                <div class="div-block-213">
-                    <button class="text-block-235">{{__('Man')}}</button>
-                    <button class="text-block-236">{{__('Woman')}}</button>
                 </div>
             </div>
         </div>

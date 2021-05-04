@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     @endsection
-
 </head>
 <body>
 @section('content-play-element')
@@ -889,7 +888,7 @@
             },
             1200: {
                 slidesPerView: 4.4,
-                spaceBetween: 10
+                spaceBetween: 30
             },
 
 

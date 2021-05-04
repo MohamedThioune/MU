@@ -12,6 +12,7 @@ $(document).ready(function() {
     //toogle des éléments du sidbar
     $("#monFlow").click(function(){
         $("#sousBlockMonFlow").toggle();
+        $("#monFlow").addClass('active');
     });
     $("#mesKiffes").click(function(){
         $("#sousBlockKiffes").toggle();

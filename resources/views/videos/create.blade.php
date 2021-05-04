@@ -1,7 +1,6 @@
 
 @extends('layouts.sidbarDashboard')
 @section('head')
-<script>(function(e,t,n){var r=e.querySelectorAll("html")[0];r.className=r.className.replace(/(^|\s)no-js(\s|$)/,"$1js$2")})(document,window,0);</script>
 <link rel="stylesheet" type="text/css" href="{{asset('css/component.css')}}" />
 <link rel="stylesheet" type="text/css" href="{{asset('css/video.css')}}" />
 <link rel="stylesheet" href="{{asset('swiper/swiper-bundle.min.css')}}">

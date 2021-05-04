@@ -78,8 +78,20 @@
                         @if(Auth::user()->type)
                         @if(Auth::user()->type == "OUMMATI")
                         <li class="nav-item nav-modife">
+                            @if(!Auth::guest())
+                            <button type="button" class="btnImgUser">
+                                <img src="{{ asset('img') }}/{{Auth::user()->photo}}" width="69" alt="" class="image-94Nav">
+                            </button>
+                            <!-- Modal -->
+                            <div class="modalNavUp">
+                                <a href="#" class="dropdownItemNavText">LogOut</a>
+                                <a href="#" class="dropdownItemNavText">Changer le profil</a>
+                                <a href="#" class="dropdownItemNavText">Infos perso</a>
+                                <a href="#" class="dropdownItemNavText">Abonnement</a>
+                            </div>
 
-                            @if(!session('profile'))
+                            @endif
+                          <!--  @if(!session('profile'))
                             <span class="btnCommunaute" style="background:none; box-shadow: 4px 4px 15px white;font-weight:bold">
                                                         @php
                                                             $profile = DB::Table('users')->select('profile.*')
@@ -98,12 +110,12 @@
                             <span class="btnCommunaute" style="background:none; box-shadow: 4px 4px 15px #3eacec;font-weight:bold"> {{session('profile')["name"]}} &nbsp;&nbsp;<a href="{{route('choose')}}"><i class="fas fa-caret-down"></i></a></span>
                             @elseif(session('profile')["age"] > 15 && session('profile')["sex"] == '0')
                             <span class="btnCommunaute" style="background:none; box-shadow: 4px 4px 15px #d14f94;font-weight:bold"> {{session('profile')["name"]}} &nbsp;&nbsp;<a style="color:#d14f94;font-size:19px;" href="{{route('choose')}}"><i class="fas fa-caret-down"></i></a><span>
-                            @endif
+                            @endif-->
                         </li>
                         @endif
                         @endif
                         @endif
-                        <div class="btn connexion">
+                    <!--    <div class="btn connexion">
                                     <span class="div-block-272">
                                         <img src="{{ asset('img/Mu-login-blanc.svg') }}" alt="" class="image-101">
                                     </span>
@@ -112,7 +124,7 @@
                                 <button class="nav-link btnLogOut" type="submit" >{{__('Log out')}}</button>
                             </form>
                         </div>
-                        @endif
+                        @endif-->
                     </ul>
 
                 </div>
@@ -201,8 +213,13 @@
                                         <img src="{{ asset('img/Mu-full-white-00.png') }}" class="imgMUfull" alt=""></a>
                                 </div>
                             </div>
-                            <div class="head-slidebar">
-                                <div class="text-ma-chaine">{{$channel->name}}</div>
+                            <div class="div-block-387">
+                                <div class="logo-txt-sidebar">
+                                    <img src="{{ asset('img/Smuuse-logo-blanc-SB-2021-80x22.png') }}"  class="imgSumse">
+                                </div>
+                            </div>
+                            <div class="head-slidebar ">
+                                <div class="text-ma-chaine"></div>
                                 <div class="text-fonction">{{__('Individuals')}}</div>
                                 <div class="profil-photo">
                                     <img src="{{asset('img')}}/{{Auth::user()->photo}}" alt="" class="image-94">
@@ -294,11 +311,11 @@
                             </div>
                             <div class="faq-wrapper">
                                 <div class="faq-question" id="parametre">
-                                    <div class="indentification">
+                                    <a href="{{route('parametre')}}" class="indentification">
                                         <div class="sidebar-icon">
                                             <img src="{{ asset('img/Mu-engrenage-gris2x.png') }}" class="imgMuEngrenage" alt=""></div>
-                                        <div class="faq-q-text" ><a href="{{route('parametre')}}" class="bold-text-5">{{__('Parameters')}}</a></div>
-                                    </div>
+                                        <div class="faq-q-text" ><p class="bold-text-5">{{__('Parameters')}}</p></div>
+                                    </a>
                                 </div>
                                 <div class="faq-answer" id="sousBlockParametre">
                                     <p class="faq-answer-text">Smuuse<br>‍<br></p>
@@ -323,6 +340,14 @@
 <script src="{{asset('js/jquery.min.js')}}"></script>
 <script src="{{asset('bootstrap/bootstrap.min.js')}}"></script>
 <script src="{{asset('js/menu.js')}}"></script>
+<script>
+    $(".btnImgUser").click(function(){
+        $(".modalNavUp").toggle();
+    });
+    $(".group9").click(function(){
+        $(".modalNavUp").hide();
+    });
+</script>
 <script>
     $(function(){
         var container = $('.bandeau-chaine1'), inputFile = $('#file2'), img, btn, txt = 'Modifier mon bandeau', txtAfter = 'Modifier mon bandeau';
@@ -394,6 +419,6 @@
         });
     });
 </script>
-@stack('scripts')
+@yield('scripts')
 </body>
 </html>

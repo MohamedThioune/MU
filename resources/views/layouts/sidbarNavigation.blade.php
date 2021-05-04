@@ -76,8 +76,21 @@
                                 @if(Auth::user()->type)
                                     @if(Auth::user()->type == "OUMMATI")
                                         <li class="nav-item nav-modife">
+                                                @if(!Auth::guest())
+                                                <button type="button" class="btnImgUser">
+                                                    <img src="{{ asset('img') }}/{{Auth::user()->photo}}" width="69" alt="" class="image-94Nav">
+                                                </button>
+                                                <!-- Modal -->
+                                                <div class="modalNavUp">
+                                                    <a href="#" class="dropdownItemNavText">LogOut</a>
+                                                    <a href="#" class="dropdownItemNavText">Changer le profil</a>
+                                                    <a href="#" class="dropdownItemNavText">Infos perso</a>
+                                                    <a href="#" class="dropdownItemNavText">Abonnement</a>
 
-                                            @if(!session('profile'))
+                                                </div>
+
+                                                @endif
+                                            <!--@if(!session('profile'))
                                             <span class="btnCommunaute" style="background:none; box-shadow: 4px 4px 15px white;font-weight:bold">
                                             <a style="color:white;font-size:15px;text-decoration:none;" href="{{route('choose')}}">
                                                 @php
@@ -97,7 +110,7 @@
                                             <span class="btnCommunaute" style="background:none; box-shadow: 4px 4px 15px #3eacec;font-weight:bold"> {{session('profile')["name"]}} &nbsp;&nbsp;<a href="{{route('choose')}}"><i class="fas fa-caret-down"></i>&#x2B07;</a></span>
                                             @elseif(session('profile')["age"] > 15 && session('profile')["sex"] == '0')
                                             <span class="btnCommunaute" style="background:none; box-shadow: 4px 4px 15px #d14f94;font-weight:bold"> {{session('profile')["name"]}} &nbsp;&nbsp;<a style="color:#d14f94;font-size:19px;" href="{{route('choose')}}"><i class="fas fa-caret-down"></i>&#x2B07;<</a><span>
-                                            @endif
+                                            @endif-->
                                         </li>
                                     @else
                                     <li class="nav-item nav-modife">
@@ -113,7 +126,7 @@
                                         </span>
                                     </li>
                                     @endif
-                                    <form action="{{ route('logout') }}" class="nav-modife formModife" method="POST">
+<!--                                    <form action="{{ route('logout') }}" class="nav-modife formModife" method="POST">
                                     <div class="btn connexion">
                                         <button class="nav-link btnLogOut" style="cursor:pointer"type="submit" >
                                             <center><span class="div-block-272">
@@ -123,7 +136,7 @@
                                         </button>
                                     </div>
                                     @csrf
-                                    </form>
+                                    </form>-->
                             @endif
                             @endif
                             @endif
@@ -212,9 +225,10 @@
                                <a  href="{{route('flow')}}" class="mu-logo w-inline-block">
                                    <img src="{{ asset('img/Mu-full-white-00.png') }}" class="imgMUfull" alt=""></a>
                            </div>
-                           <div class="div-block-387">
-                               <div class="logo-txt-sidebar">
-                                   <img src="{{ asset('img/Smuuse-logo-blanc-SB-2021-80x22.png') }}"  class="imgSumse"></div>
+                       </div>
+                       <div class="div-block-387">
+                           <div class="logo-txt-sidebar">
+                               <img src="{{ asset('img/Smuuse-logo-blanc-SB-2021-80x22.png') }}"  class="imgSumse">
                            </div>
                        </div>
                        <div class="head-slidebar-user">
@@ -328,13 +342,13 @@
                        </div>
                        <div class="faq-wrapper">
                            <div class="faq-question" id="parametre">
-                               <div class="indentification">
+                               <a href="{{route('parametre')}}" class="indentification">
                                    <div class="sidebar-icon">
                                        <img src="{{ asset('img/Mu-engrenage-gris2x.png') }}" class="imgMuEngrenage" alt=""></div>
-                                   <div class="faq-q-text" ><a href="{{route('parametre')}}" class="bold-text-5">{{__('Parameters')}}</a></div>
-                               </div>
+                                   <div class="faq-q-text" ><p class="bold-text-5">{{__('Parameters')}}</p></div>
+                               </a>
                            </div>
-                          
+
                        </div>
                    </div>
                </div>
@@ -342,5 +356,13 @@
             </div>
         </div>
     </div>
+    <script>
+        $(".btnImgUser").click(function(){
+            $(".modalNavUp").toggle();
+        });
+        $(".group9").click(function(){
+            $(".modalNavUp").hide();
+        });
+    </script>
 </body>
 </html>
