@@ -87,25 +87,72 @@
                                 <div class="imgOeil"><img  src="{{ asset('img/icones/oeil.png') }}" alt=""></div>
                             </div>
                         </div>
-                        <div class="groupLOveUnlove groupLOveUnlove1">
-                            <div class="blockLoveUnlove">
-                                <p class="nbrLove">{{ $video->likers()->count() }} </p>
-                                <div class="imgCoeur">
-                                    <a href="{{ route('likevideo',$video->id ) }}">
-                                        <img src="{{ asset('img/icones/coeurRose.svg') }}" alt="">
-                                    </a>
+                        <div class="blockLikeEval">
+                            <div class="groupLOveUnlove groupLOveUnlove1">
+                                <div class="blockLoveUnlove">
+                                    <p class="nbrLove">{{ $video->likers()->count() }} </p>
+                                    <div class="imgCoeur">
+                                        <a href="{{ route('likevideo',$video->id ) }}">
+                                            <img src="{{ asset('img/icones/coeurRose.svg') }}" alt="">
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="blockLoveUnlove">
+                                    <div class="imgCoeur">
+                                        <a href="{{ route('dislikevideo',$video->id )}}">
+                                            <img src="{{ asset('img/icones/loveRenverseGris.png') }}" alt="">
+                                        </a>
+                                    </div>
+                                    <p class="nbrLove">{{ $video->unlikes()->count() }}</p>
+                                </div>
+                                <div class="blockImgPuliMobile">
+                                    <img src="{{ asset('img/icones/more.png') }}" alt="">
                                 </div>
                             </div>
-                            <div class="blockLoveUnlove">
-                                <div class="imgCoeur">
-                                    <a href="{{ route('dislikevideo',$video->id )}}">
-                                        <img src="{{ asset('img/icones/loveRenverseGris.png') }}" alt="">
-                                    </a>
+                            <div class="evalution">
+                                <div class="formEval" >
+                                    <button id="alert" class="btn btnEval">
+                                        <img id="alertImg" src="{{asset('img/Mu-interdit.svg')}}">
+                                    </button>
+                                    <div id="actifBlockSignaler" class="actifEvalAlert btnEval">
+                                        <p class="TextActif">Signaler</p>
+                                        <img class="actifElement" src="{{asset('img/Mu-interdit-actif.svg')}}">
+                                    </div>
+
+                                    <button id="interdit" class="btn btnEval">
+                                        <img id="interditImg" class="imgInterdit" src="{{asset('img/Mu-eval.svg')}}">
+                                    </button>
+                                    <div id="blockBuzz" class="actifEvalAlert ">
+                                        <p class="TextActif">Pour le buzz</p>
+                                        <img class="actifElement imgInterdit" src="{{asset('img/Mu-eval-actif.svg')}}">
+                                    </div>
+
+
+                                    <button id="soleil" class="btn btnEval">
+                                        <img id="soleilImg1" class="soleilImg" src="{{asset('img/Mu-soleil.svg')}}">
+                                    </button>
+                                    <div id="blockFun" class="actifEvalAlert ">
+                                        <p class="TextActif">Fun</p>
+                                        <img class="actifElement soleilImg" src="{{asset('img/Mu-soleil-actif.svg')}}">
+                                    </div>
+
+
+                                    <button id="lunette" class="btn btnEval">
+                                        <img class="lunetteImg" src="{{asset('img/Mu-lunette.svg')}}">
+                                    </button>
+                                    <div id="blockLunette" class="actifEvalAlert">
+                                        <p class="TextActif"> Instructif</p>
+                                        <img class="actifElement lunetteImg" src="{{asset('img/Mu-lunette-actif.svg')}}">
+                                    </div>
+
+                                    <button id="lune" class="btn btnEval">
+                                        <img class="luneImg" src="{{asset('img/Mu-lune.svg')}}">
+                                    </button>
+                                    <div id="blockLune" class="actifEvalAlert">
+                                        <p class="TextActif">Inspirant</p>
+                                        <img class="actifElement luneImg" src="{{asset('img/Mu-lune-actif.svg')}}">
+                                    </div>
                                 </div>
-                                <p class="nbrLove">{{ $video->unlikes()->count() }}</p>
-                            </div>
-                            <div class="blockImgPuliMobile">
-                                <img src="{{ asset('img/icones/more.png') }}" alt="">
                             </div>
                         </div>
                     </div>

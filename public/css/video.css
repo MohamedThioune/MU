@@ -1474,7 +1474,7 @@ body{
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  border-top: 1px solid #ebebeb;
+  border-top: 0px solid #ebebeb;
   color: #333;
   font-size: 18px;
   font-weight: 600;
@@ -6762,7 +6762,7 @@ bandeau-chaine1 {
   display: -ms-flexbox;
   display: flex;
   width: auto;
-  height: 200px;
+  height: 191px;
   margin-top: 0px;
   padding: 10px 10px 0px 0px;
   -webkit-box-orient: vertical;
@@ -7964,12 +7964,6 @@ bandeau-chaine1 {
   margin-right: 20px;
 }
 
-.div-block-385 {
-  padding: 5px;
-  border-radius: 10px;
-  background-color: hsla(0, 0%, 100%, 0.32);
-}
-
 .div-block-386 {
   margin-right: 10px;
 }
@@ -8114,10 +8108,6 @@ bandeau-chaine1 {
 .sidenavbar-up {
   position: fixed;
   width: 15%;
-}
-
-.head-slidebar {
-  margin-top: 50px;
 }
 .mobileVisiblite .contentSidElement {
   display: block !important;
@@ -8857,7 +8847,7 @@ bandeau-chaine1 {
   }
 
   .business-bandeau-chaine {
-    height: 200px;
+    height: 191px;
     background-position: 50% 100%;
     background-size: cover;
     background-repeat: no-repeat;

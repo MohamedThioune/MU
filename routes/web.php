@@ -478,6 +478,8 @@ Route::resource('contacts', 'ContactController');
 
 Route::resource('products', 'productController');
 
+Route::view('timeShield', 'time');
+
 
 Route::view('/chaineAbonne', 'chaineAbonne');
 

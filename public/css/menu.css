@@ -38,6 +38,11 @@
     src: url("../font/Ubuntu-Regular.woff2") format("woff2"),
     url("../font/Ubuntu-Regular.woff") format("woff");
 }
+
+html {
+    padding: 0 !important;
+    margin: 0px !important;
+}
 body {
     background: #FFFFFF;
     font-family: "Ubuntu-Regular";
@@ -564,9 +569,12 @@ video{
     background: #efefef;
     margin: 0px -18px;
     padding: 20px 18px 10px;
-    min-height: 153px;
+    min-height: 124px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
+}
+.blockLikeEval{
+    display: flex;
 }
 .des-text{
     color: #8f8f8f;
@@ -600,7 +608,7 @@ video{
 .groupLOveUnlove {
      display: flex;
      justify-content: end;
-     width: 100%;
+     width: 16%;
      margin-top: 3px;
  }
 .blockLoveUnlove{
@@ -638,6 +646,19 @@ video{
 .content12{
     display: flex;
     width: 80%;
+    margin-bottom: 8px;
+}
+.btnEval img{
+    width: 20px;
+    margin-top: -3px;
+}
+.btnEval{
+   text-align: center;
+    padding: 0 !important;
+    width: 50px;
+}
+.formEval{
+    display: flex;
 }
 .blockDetail {
     width: 64%;
@@ -704,6 +725,32 @@ video{
 }
 #exampleModal1{
     padding-right: 0 !important;
+}
+.imgInterdit{
+    width: 23px;
+}
+.lunetteImg{
+    width: 31px !important;
+}
+.luneImg{
+    width: 15px !important;
+}
+.soleilImg{
+    width: 22px !important;
+}
+.TextActif {
+    font-size: 13px;
+    font-family: "Ubuntu-Regular";
+    margin-bottom: 7px;
+    margin-top: -16px;
+}
+.actifEvalAlert{
+    display: none;
+    text-align: center;
+    width: 73px;
+}
+.actifElement {
+    cursor: pointer;
 }
 .imgBadge {
     right: 12px;
@@ -2330,6 +2377,7 @@ video{
     -ms-transform-origin: 0% 50%;
     transform-origin: 0% 50%;
 }
+
 .fleche-up-grey {
     background-color: #6c757d;
     width: 30px;

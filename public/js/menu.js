@@ -20,6 +20,8 @@ $(document).ready(function() {
     $(".IconeBlanc").click(function(){
         $( ".group9" ).removeClass('mobileVisiblite');
     });
+
+
 });
 $(document).ready(function() {
     $( ".flow" ).click(function() {
@@ -84,6 +86,54 @@ $(document).ready(function(){
             $(this).html(Newhtml);
 
         }
+    });
+
+    //POur l'avaluation
+    $(document).ready(function() {
+        $( "#alert" ).click(function() {
+            $( "#alert" ).hide();
+            $( "#actifBlockSignaler" ).show();
+        });
+        $( ".actifElement" ).click(function() {
+            $( ".actifEvalAlert" ).hide();
+            $( "#alert" ).show();
+        });
+
+        $( "#interdit" ).click(function() {
+            $( "#interdit" ).hide();
+            $( "#blockBuzz" ).show();
+        });
+        $( "#blockBuzz" ).click(function() {
+            $( "#blockBuzz" ).hide();
+            $( "#interdit" ).show();
+        });
+
+        $( "#lunette" ).click(function() {
+            $( "#lunette" ).hide();
+            $( "#blockLunette" ).show();
+        });
+        $( "#blockLunette" ).click(function() {
+            $( "#blockLunette" ).hide();
+            $( "#lunette" ).show();
+        });
+
+        $( "#lune" ).click(function() {
+            $( "#lune" ).hide();
+            $( "#blockLune" ).show();
+        });
+        $( "#blockLune" ).click(function() {
+            $( "#blockLune" ).hide();
+            $( "#lune" ).show();
+        });
+
+        $( "#soleil" ).click(function() {
+            $( "#soleil" ).hide();
+            $( "#blockFun" ).show();
+        });
+        $( "#blockFun" ).click(function() {
+            $( "#blockFun" ).hide();
+            $( "#soleil" ).show();
+        });
     });
 
     /*   $(".ReadMore").click(function(){

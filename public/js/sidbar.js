@@ -1,6 +1,7 @@
 //toogle des éléments du sidbar
 $("#monFlow").click(function(){
     $("#sousBlockMonFlow").toggle();
+
 });
 $("#maChaines").click(function(){
     $("#sousBlockChaines").toggle();

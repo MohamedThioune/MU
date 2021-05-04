@@ -1,39 +1,48 @@
-@extends('layouts.sidbarNavigation')
-<html lang="fr">
-<head>
-    @section('css')
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <link rel="stylesheet" href="{{asset('swiper/swiper-bundle.min.css')}}">
-    <link rel="stylesheet" href="{{asset('css/menu.css')}}">
-    @endsection
 
-</head>
-<body>
-@section('content-play-element')
+@extends('layouts.sidbarDashboard')
+@section('head')
+<link rel="stylesheet" type="text/css" href="{{asset('css/component.css')}}" />
+<link rel="stylesheet" type="text/css" href="{{asset('css/video.css')}}" />
+<link rel="stylesheet" href="{{asset('swiper/swiper-bundle.min.css')}}">
+@php if(isset($_COOKIE['lang'])) App::setLocale($_COOKIE['lang']); @endphp
+@endsection
+
+@section('content-sidbar-element')
 <div class="business-content">
     <div class="bando-name">
         <div class="business-bandeau-chaine chaineAbonneBlockHead">
             <div class="div-block-385">
+
                 <div class="chaine">
-                    <a href="#" class="link-block-40 w-inline-block">
-                        <div class="div-block-386">
-                            <img src="{{ asset('img/Mu-coeur-blanc.svg') }}" loading="lazy" width="23" alt="">
+                    <a class="btnSubscripeNotif" href="">
+                        <div class="btn div-block-386">
+                            <img src="{{ asset('img/Mu-coeur-blanc.svg') }}" class="imgCoeurBlanc" width="23" alt="">
                         </div>
-                        <a class="text-block-380" style="color:white; background: #F57409; padding:5px 0;" href="{{ route('suscribe',$visit->id) }}"><div>{{__('Subscribe')}}</div></a>
+                        <div>{{__('Subscribe')}}</div>
+                        <button class="alerte7">
+                            <img src="{{ asset('img/Mu-cloche-blanc.svg') }}" class="cloche3-1"  alt="">
+                        </button>
                     </a>
-                    <div class="alerte">
-                        <img src="{{ asset('img/Mu-cloche-blanc.svg') }}" loading="lazy" width="11" alt="">
+
+                    <div class="more-seting">
+                        <div class="div-block-399"></div>
+                        <div class="div-block-399"></div>
+                        <div class="div-block-399"></div>
                     </div>
-                    <div class="div-block-370">
-                        <img src="{{ asset('img/Share-blanc.svg') }}" loading="lazy" width="29" alt="" class="image-126">
+                    <div class="share-blanc">
+                        <img src="{{ asset('img/Share-blanc.svg') }}" alt="" class="image-12Blanc">
                     </div>
-                    <a href="#Offre-business" class="link-block-42 w-inline-block">
-                        <img src="{{ asset('img/Mu-panier2x_1.png') }}" loading="lazy" width="27" alt="">
+                    <a href="#" class="link-block-42 w-inline-block">
+                        <img src="{{ asset('img/Mu-panier2x_1.png') }}" class="panier2" width="27" alt="">
                     </a>
-                    <a href="#" class="link-block-41 w-inline-block">
+                    <a href="#" class="link-block-41 w-inline-block" style="text-decoration:none;color:white">
                         <div>{{__('Support us')}}</div>
                     </a>
                 </div>
+
+
+
+
             </div>
 
         </div>
@@ -541,8 +550,10 @@
         </div>
     </div>
 </div>
-<script src="{{asset('js/jquery.min.js')}}"></script>
-<script src="{{asset('bootstrap/bootstrap.min.js')}}"></script>
+@endsection
+
+
+@section('scripts')
 <script src="{{asset('swiper/swiper-bundle.min.js')}}"></script>
 <script>
     var swiper = new Swiper('.swipeContainermodife1', {
@@ -626,6 +637,8 @@
         });
     }
 </script>
-<script src="{{asset('js/fixeElement.js')}}"></script>
 @endsection
-</body>
+@section('scripts')
+
+@endsection
+

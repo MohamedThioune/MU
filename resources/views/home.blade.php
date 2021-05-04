@@ -11,7 +11,7 @@
 @section('content-play-element')
 @php if(isset($_COOKIE['lang'])) App::setLocale($_COOKIE['lang']); @endphp
 <div class="contentOneMonFlow">
-    <div class="pub-bando-connect">
+<!--    <div class="pub-bando-connect">
         <div class="info-pub-bando">
             <div class="accroche">
                 <a class="accrocheskate" href="">
@@ -33,11 +33,11 @@
                 </button>
             </div>
         </div>
-        <!-- <div class="imgPubBlock">
+        <div class="imgPubBlock">
             <img src="{{ asset('img/Mu-bandeau-Pub.jpg') }}" alt="">
-        </div> -->
+        </div>
     </div>
-    <p class="text-block-350">{{__('All your information at a glance')}} &#x1F609;</p>
+-->    <p class="text-block-350">{{__('All your information at a glance')}} &#x1F609;</p>
     <div class="menu-content-business business-Web">
         <a href="#" class="link-26">Infos</a>
         <a href="#" class="link-26">Recents</a>
