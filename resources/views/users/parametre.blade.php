@@ -41,7 +41,9 @@
     <div class="menu-content-business webBusiness">
         <a href="#" class="link-26">{{__('Account')}}</a>
         <!-- <a href="#" class="link-26">{{__('Personal info.')}}</a> -->
+        @if(Auth::user()->type == "OUMMATI")
         <a href="#" class="link-26">{{__('Profile Management')}}</a>
+        @endif
         <a href="#" class="link-26">Facturations</a>
         <!-- <a href="#" class="link-26">{{__('Security')}}</a> -->
     </div>
@@ -172,8 +174,8 @@
             </div><br>
             <div class="defails-box">
                 <div class="div-block-213">
-                    <button class="{{ Auth::user()->sex == 1 ? 'text-block-236' : 'text-block-235' }}" disabled>{{__('Man')}}</button>
-                    <button class="{{ Auth::user()->sex == 0 ? 'text-block-236' : 'text-block-235' }}" disabled>{{__('Woman')}}</button>
+                    <button class="{{ Auth::user()->sex == 1 ? 'text-block-236' : 'text-block-235' }}" disabled>{{__('Man')}} {{Auth::user()->sex}}</button>
+                    <button class="{{ Auth::user()->sex <> 1 ? 'text-block-235' : 'text-block-236' }}" disabled>{{__('Woman')}}</button>
                 </div>
             </div>
             <div class="box-infos" style="border:none;">
@@ -227,7 +229,7 @@
                         @if(isset($hijri))
                         <p class="text-block-230" style="width:200px">{{$hijri}}</p>
                         @else
-                        <p class="text-block-230">Fill the case anniversary </p>
+                        <p class="text-block-230">Fill the case anniversary to corresponds </p>
                         @endif
                         <p class="text-block-233">Age</p>
                         <div>
