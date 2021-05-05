@@ -321,7 +321,7 @@ Route::get('/apercu/{n}', ['middleware'=>'auth', 'uses'=>'channelController@over
 Route::get('/flow', function () {
     $subtopics = DB::Table('sub_topics')->select('*')
     ->get();
-    $kids = false;
+    $sistas = false;
     $channel = DB::Table('users')->select('channels.*')
     ->join('channels', 'users.id', 'channels.user_id')
     ->where('users.id', Auth::id())
@@ -330,8 +330,8 @@ Route::get('/flow', function () {
     $videos_haltcare = DB::Table('videos')->select('videos.*')
                                  ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
                                  ->join('users','users.id','videos.user_id')
-                                 ->where('users.age','<',15)
                                  ->where('mainTopic_id', 1)
+                                 ->where('videos.sistas', 0)
                                  ->whereNull('videos.deleted_at')
                                  ->get();
 
@@ -339,6 +339,7 @@ Route::get('/flow', function () {
     ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
     ->join('users','users.id','videos.user_id')
     ->where('mainTopic_id', 2)
+    ->where('videos.sistas', 0)
     ->whereNull('videos.deleted_at')
     ->get();
 
@@ -346,6 +347,7 @@ Route::get('/flow', function () {
     ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
     ->join('users','users.id','videos.user_id')
     ->where('mainTopic_id', 3)
+    ->where('videos.sistas', 0)
     ->whereNull('videos.deleted_at')
     ->get();
 
@@ -354,6 +356,7 @@ Route::get('/flow', function () {
     ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
     ->join('users','users.id','videos.user_id')
     ->where('mainTopic_id', 4)
+    ->where('videos.sistas', 0)
     ->whereNull('videos.deleted_at')
     ->get();
 
@@ -361,6 +364,7 @@ Route::get('/flow', function () {
     ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
     ->join('users','users.id','videos.user_id')
     ->where('mainTopic_id', 5)
+    ->where('videos.sistas', 0)
     ->whereNull('videos.deleted_at')
     ->get();
 
@@ -368,24 +372,24 @@ Route::get('/flow', function () {
     ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
     ->join('users','users.id','videos.user_id')
     ->where('mainTopic_id', 6)
+    ->where('videos.sistas', 0)
     ->whereNull('videos.deleted_at')
     ->get();
 
-    return view('flow',compact('subtopics','kids','channel','videos_haltcare','videos_life','videos_health','videos_business','videos_environnement','videos_education'));
+    return view('flow',compact('subtopics','channel','videos_haltcare','videos_life','videos_health','videos_business','videos_environnement','videos_education'));
 
 })->name('flow')->middleware('auth');
 
 // kids page : apercu
-Route::get('/kids', function () {
+Route::get('/sistas', function () {
     $subtopics = DB::Table('sub_topics')->select('*')
     ->get();
-
-    $kids = true;
 
     $videos_haltcare = DB::Table('videos')->select('videos.*')
                                  ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
                                  ->join('users','users.id','videos.user_id')
                                  ->where('users.age','<',15)
+                                 ->where('videos.sistas', 1)
                                  ->where('mainTopic_id', 1)
                                  ->whereNull('videos.deleted_at')
                                  ->get();
@@ -394,6 +398,7 @@ Route::get('/kids', function () {
     ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
     ->join('users','users.id','videos.user_id')
     ->where('users.age','<',15)
+    ->where('videos.sistas', 1)
     ->where('mainTopic_id', 2)
     ->whereNull('videos.deleted_at')
     ->get();
@@ -402,6 +407,7 @@ Route::get('/kids', function () {
     ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
     ->join('users','users.id','videos.user_id')
     ->where('users.age','<',15)
+    ->where('videos.sistas', 1)
     ->where('mainTopic_id', 3)
     ->whereNull('videos.deleted_at')
     ->get();
@@ -411,6 +417,7 @@ Route::get('/kids', function () {
     ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
     ->join('users','users.id','videos.user_id')
     ->where('users.age','<',15)
+    ->where('videos.sistas', 1)
     ->where('mainTopic_id', 4)
     ->whereNull('videos.deleted_at')
     ->get();
@@ -418,7 +425,8 @@ Route::get('/kids', function () {
     $videos_environnement = DB::Table('videos')->select('videos.*')
     ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
     ->join('users','users.id','videos.user_id')
-     ->where('users.age','<',15)
+    ->where('users.age','<',15)
+    ->where('videos.sistas', 1)
     ->where('mainTopic_id', 5)
     ->whereNull('videos.deleted_at')
     ->get();
@@ -427,12 +435,13 @@ Route::get('/kids', function () {
     ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
     ->join('users','users.id','videos.user_id')
     ->where('users.age','<',15)
+    ->where('videos.sistas', 1)
     ->where('mainTopic_id', 6)
     ->whereNull('videos.deleted_at')
     ->get();
 
-    return view('flow',compact('subtopics','kids','videos_haltcare','videos_life','videos_health','videos_business','videos_environnement','videos_education'));
-})->name('kids')->middleware('auth');
+    return view('flow',compact('subtopics','videos_haltcare','videos_life','videos_health','videos_business','videos_environnement','videos_education'));
+})->name('sistas')->middleware('auth');
 
 Auth::routes();
 

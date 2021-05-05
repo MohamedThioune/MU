@@ -81,15 +81,15 @@
                                             </button>
                                             <!-- Modal -->
                                             <div class="modalNavUp">
-                                            <form action="{{ route('logout') }}" class="nav-modife formModife" method="POST">
-                                                <button class="dropdownItemNavText">{{__('Log out')}} </button>
-                                                @csrf
-                                                </form>
                                                 @if(Auth::user()->type == "OUMMATI")
                                                 <a href="{{route('choose')}}" class="dropdownItemNavText">Changer le profil</a>
                                                 @endif
                                                 <a href="{{route('parametre')}}" class="dropdownItemNavText">Infos perso</a>
                                                 <a href="{{route('tarifs')}}" class="dropdownItemNavText">Abonnement</a>
+                                                <form action="{{ route('logout') }}" class="nav-modife formModife" method="POST">
+                                                <button class="dropdownItemNavText">{{__('Log out')}} </button>
+                                                @csrf
+                                                </form>
 
                                             </div>
                                     </li>
@@ -144,11 +144,9 @@
                         <a href="{{route('flow')}}" class="div-block-281 w-inline-block">
                             <p class="text-block-286">Flow</p>
                         </a>
-                        <a href="{{route('kids')}}" class="div-block-282 w-inline-block">
-                            <p class="text-block-286">Kids</p>
-                        </a>
-                        <a href="#" class="div-block-283 w-inline-block">
-                            <p class="text-block-286">Sista&#x27;s</p>
+                       
+                        <a href="{{Auth::user()->sex == 0 ? route('sistas') : '#'}}" class="div-block-283 w-inline-block">
+                            <p class="text-block-286" data-toggle="tooltip" data-placement="top" title="{{Auth::user()->sex == 1 ? 'Vous ne pourrez pas accéder a cette partie compte tenu de votre profil' : 'Rubrique destiné aux videos de nos soeurs' }}">Sista&#x27;s</p>
                         </a>
                     </div>
                     <div class="publish-notif">

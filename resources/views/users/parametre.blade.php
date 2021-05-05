@@ -88,7 +88,14 @@
                 <div class="infos-nom">
                 <p class="text-block-228">{{__('Last name')}}</p>
                     <div class="div-block-209">
-                        <input type="text" name="lastName" class="form-control  text-block-229" id="nom"  placeholder="{{Auth::user()->LastName}}">
+                        <input type="text" name="lastName" class="form-control  text-block-229" id="nom"  placeholder="{{Auth::user()->lastName}}">
+                    </div>
+                </div>
+
+                <div class="infos-nom">
+                <p class="text-block-228">{{__('Phone')}}</p>
+                    <div class="div-block-209">
+                        <input type="text" name="phone" class="form-control  text-block-229" id="phone"  placeholder="{{Auth::user()->phone}}">
                     </div>
                 </div>
                 <!-- <div class="infos-1">
@@ -135,16 +142,38 @@
             </div>
             <div class="box-infos">
                 <div class="infos-1">
-                    <p class="text-block-228">{{__('ADDRESS')}}</p>
+                    <p class="text-block-228">{{__('Country')}}</p>
                     <div class="div-block-209">
-                        <input type="text" name="adresse" class="form-control  text-block-229" id="dateNaissance"  placeholder="{{Auth::user()->adresse ? Auth::user()->adresse : 'Rue France - Brocante, 7 r Patriarches 75005 Paris'  }}">
+                        <input type="text" name="pays" class="form-control  text-block-229" id="dateNaissance"  placeholder="{{Auth::user()->pays ? Auth::user()->pays : 'Ex : France'  }}">
                     </div>
                 </div>
+
+                <div class="infos-1">
+                    <p class="text-block-228">{{__('Town')}}</p>
+                    <div class="div-block-209">
+                        <input type="text" name="town" class="form-control  text-block-229" id="dateNaissance"  placeholder="{{Auth::user()->town ? Auth::user()->town : 'Ex : Paris'  }}">
+                    </div>
+                </div>
+
+                <div class="infos-1">
+                    <p class="text-block-228">{{__('ADDRESS')}}</p>
+                    <div class="div-block-209">
+                        <input type="text" name="adresse" class="form-control  text-block-229" id="dateNaissance"  placeholder="{{Auth::user()->adresse ? Auth::user()->adresse : 'Rue France - Brocante, 7 r Patriarches 75005'  }}">
+                    </div>
+                </div>
+
+                <div class="infos-1">
+                    <p class="text-block-228">{{__('Postal code')}}</p>
+                    <div class="div-block-209">
+                        <input type="text" name="postalCode" class="form-control  text-block-229" id="dateNaissance"  placeholder="{{Auth::user()->postalCode ? Auth::user()->postalCode : 'Ex : 21170'  }}">
+                    </div>
+                </div>
+
             </div><br>
             <div class="defails-box">
                 <div class="div-block-213">
-                    <button class="text-block-235">{{__('Man')}}</button>
-                    <button class="text-block-236">{{__('Woman')}}</button>
+                    <button class="{{ Auth::user()->sex == 1 ? 'text-block-236' : 'text-block-235' }}" disabled>{{__('Man')}}</button>
+                    <button class="{{ Auth::user()->sex == 0 ? 'text-block-236' : 'text-block-235' }}" disabled>{{__('Woman')}}</button>
                 </div>
             </div>
             <div class="box-infos" style="border:none;">

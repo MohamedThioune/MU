@@ -247,14 +247,20 @@ class UserController extends AppBaseController
 
         $last_name =  $input['lastName'] ? $input['lastName'] : $user->lastName;
 
+        $phone =  $input['phone'] ? $input['phone'] : $user->phone;
+
         $date =  $input['date'] ? $input['date'] : $user->date;
+
+        $postal_code =  $input['postalCode'] ? $input['postalCode'] : $user->postalCode;
 
         $adresse =  $input['adresse'] ? $input['adresse'] : $user->adresse;
 
-        $password = $input['name'] ? bcrypt($input['password']) : $user->password ;
+        $town =  $input['town'] ? $input['town'] : $user->town;
+
+        $country =  $input['pays'] ? $input['pays'] : $user->pays;
 
         User::where('id', Auth::id())
-            ->update(['name' => $name,'firstName' => $first_name, 'LastName' => $last_name, 'password' => $password, 'date' => $date, 'adresse' => $adresse]);
+            ->update(['name' => $name,'firstName' => $first_name, 'lastName' => $last_name,'date' => $date, 'adresse' => $adresse, 'phone' => $phone, 'postalCode' => $postal_code, 'pays' => $country, 'town' => $town]);
         
         Flash::success('Information user updated successfully.');
         

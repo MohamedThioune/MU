@@ -120,12 +120,7 @@
                                         @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) > 27)
                                         <p class="day">On {{strftime("%d/%m/%Y", strtotime($video->created_at))}}</p>
                                         @endif
-                                        @if($kids)
-                                        <!-- <div class="d-flex justify-content-between" style="cursor:pointer" data-toggle="tooltip" data-placement="top" title="{{__('Videos for children')}}">
-                                            <p class="numberviewsSuggestion"></p>
-                                            <img class="oeil-1" src="{{ asset('images/kids_preloader.png') }}" alt="">
-                                        </div>-->
-                                        @endif
+                                        
 
                                     </div>
                                     @if($playlist)
@@ -262,12 +257,6 @@
                                         <p class="day">On {{strftime("%d/%m/%Y", strtotime($video->created_at))}}</p>
                                         @endif
 
-                                        @if($kids)
-                                        <!-- <div class="d-flex justify-content-between" style="cursor:pointer" data-toggle="tooltip" data-placement="top" title="{{__('Videos for children')}}">
-                                            <p class="numberviewsSuggestion"></p>
-                                            <img class="oeil-1" src="{{ asset('images/kids_preloader.png') }}" alt="">
-                                        </div>-->
-                                        @endif
 
                                     </div>
                                     @if($playlist)
@@ -403,12 +392,7 @@
                                         <p class="day">On {{strftime("%d/%m/%Y", strtotime($video->created_at))}}</p>
                                         @endif
 
-                                        @if($kids)
-                                        <!-- <div class="d-flex justify-content-between" style="cursor:pointer" data-toggle="tooltip" data-placement="top" title="{{__('Videos for children')}}">
-                                            <p class="numberviewsSuggestion"></p>
-                                            <img class="oeil-1" src="{{ asset('images/kids_preloader.png') }}" alt="">
-                                        </div>-->
-                                        @endif
+                                       
 
                                     </div>
                                     @if($playlist)
@@ -542,12 +526,6 @@
                                         <p class="day">On {{strftime("%d/%m/%Y", strtotime($video->created_at))}}</p>
                                         @endif
 
-                                        @if($kids)
-                                        <!-- <div class="d-flex justify-content-between" style="cursor:pointer" data-toggle="tooltip" data-placement="top" title="{{__('Videos for children')}}">
-                                            <p class="numberviewsSuggestion"></p>
-                                            <img class="oeil-1" src="{{ asset('images/kids_preloader.png') }}" alt="">
-                                        </div>-->
-                                        @endif
 
                                     </div>
                                     @if($playlist)
@@ -682,13 +660,7 @@
                                             @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) > 27)
                                             <p class="day">On {{strftime("%d/%m/%Y", strtotime($video->created_at))}}</p>
                                             @endif
-                                            @if($kids)
-                                            <div class="d-flex justify-content-between" style="cursor:pointer" data-toggle="tooltip" data-placement="top" title="{{__('Videos for children')}}">
-                                                <p class="numberviewsSuggestion"></p>
-                                                <img class="oeil-1" src="{{ asset('images/kids_preloader.png') }}" alt="">
-                                            </div>
-                                            @endif
-
+                                           
                                         </div>
                                         @if($playlist)
                                             <div class="d-flex justify-content-between blockPlayist" >
@@ -822,12 +794,6 @@
                                         <p class="day"> {{intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400)}} days ago </p>
                                         @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) > 27)
                                         <p class="day">On {{strftime("%d/%m/%Y", strtotime($video->created_at))}}</p>
-                                        @endif
-                                        @if($kids)
-                                        <!-- <div class="d-flex justify-content-between" style="cursor:pointer" data-toggle="tooltip" data-placement="top" title="{{__('Videos for children')}}">
-                                            <p class="numberviewsSuggestion"></p>
-                                            <img class="oeil-1" src="{{ asset('images/kids_preloader.png') }}" alt="">
-                                        </div>-->
                                         @endif
 
                                     </div>
