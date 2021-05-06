@@ -2171,6 +2171,7 @@
     border-color: #c4c4c4;
     border-radius: 5px;
     text-align: center;
+    background: #d6d6d638;
 }
 
 .image-91 {
@@ -3933,6 +3934,8 @@
     border-radius: 20px;
     background-color: #333;
     color: #4d4d4d;
+    border: unset;
+
 }
 
 .text-block-281 {
@@ -8582,8 +8585,6 @@
     line-height: 14px;
 }
 
-element.style {
-}
 .div-block-370 {
     display: -webkit-box;
     display: -webkit-flex;
@@ -8611,7 +8612,9 @@ element.style {
 .contentSidElement{
     width: 15%;
 }
-
+.active .indentification .faq-q-text .bold-text-5 {
+    color: #f59546;
+}
 @media screen and (min-width: 1280px) {
     .image-3 {
         margin-top: 27px;

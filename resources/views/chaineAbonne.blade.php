@@ -159,7 +159,11 @@
     @endif
     <div class="business-now">
         <div class="video-sadakatia-asso">
-            <a href="{{route('play',$videos[0]->id)}}"><img src="{{ asset('img/Mu-Vignette-video-400x250-photographe.jpg') }}" alt=""></a>
+            <video class="videoChaine7" autoplay>
+                <source src="{{ asset('vids/video-principale.mp4')}}" type="video/mp4;charset=UTF-8">
+                <source src="{{ asset('vids/video-principale.mp4')}}" type='video/webm; codecs="vp8, vorbis"' />
+                <source src="{{ asset('vids/video-principale.mp4')}}" type='video/ogg; codecs="theora, vorbis"' />
+            </video>
         </div>
         <div class="sadaka-txt">
             <p class="text-block-334">{{$videos[0]->main_title}}</p>

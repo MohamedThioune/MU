@@ -44,6 +44,17 @@
                     <img src="{{ asset('img/Loupe.png') }}" class="loupe">
                     <div class="text-block-281">{{__('search')}}</div>
                 </div>
+                <div class="modalNavUp2">
+                    <a href="#" class="dropdownItemNavText">In sha Allah</a>
+                    <a href="#" class="dropdownItemNavText">Din</a>
+                    <a href="#" class="dropdownItemNavText">Business</a>
+                    <a href="#" class="dropdownItemNavText">Health</a>
+                    <a href="#" class="dropdownItemNavText">Sport Fit</a>
+                    <a href="#" class="dropdownItemNavText">Life</a>
+                    <a href="#" class="dropdownItemNavText">Tech et science</a>
+                    <a href="#" class="dropdownItemNavText">Education</a>
+                    <a href="#" class="dropdownItemNavText">News</a>
+                </div>
                 <div class="nav-up-left">
                     <ul class="ulModife1">
                         @if(Auth::guest())
@@ -149,6 +160,17 @@
                     <div class="search-bar">
                         <img src="{{ asset('img/Loupe.png') }}" class="loupe">
                         <div class="text-block-281">{{__('search')}}</div>
+                    </div>
+                    <div class="modalNavUp2">
+                        <a href="#" class="dropdownItemNavText">In sha Allah</a>
+                        <a href="#" class="dropdownItemNavText">Din</a>
+                        <a href="#" class="dropdownItemNavText">Business</a>
+                        <a href="#" class="dropdownItemNavText">Health</a>
+                        <a href="#" class="dropdownItemNavText">Sport Fit</a>
+                        <a href="#" class="dropdownItemNavText">Life</a>
+                        <a href="#" class="dropdownItemNavText">Tech et science</a>
+                        <a href="#" class="dropdownItemNavText">Education</a>
+                        <a href="#" class="dropdownItemNavText">News</a>
                     </div>
                 </div>
 
@@ -417,6 +439,14 @@
 
 
         });
+    });
+</script>
+<script>
+    $(".search-bar").click(function(){
+        $(".modalNavUp2").toggle();
+    });
+    $(".group9").click(function(){
+        $(".modalNavUp2").hide();
     });
 </script>
 @yield('scripts')

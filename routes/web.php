@@ -480,6 +480,8 @@ Route::resource('products', 'productController');
 
 Route::view('timeShield', 'time');
 
+Route::view('profil-management', 'profil-management');
+
 
 Route::view('/chaineAbonne', 'chaineAbonne');
 

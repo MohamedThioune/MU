@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     @endsection
 </head>
-<body>
+<body class="home-body">
 @section('content-play-element')
 <div class="contentOneMonFlow">
 @if($videos_haltcare)

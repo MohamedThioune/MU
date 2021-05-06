@@ -123,7 +123,7 @@
                                         <img id="interditImg" class="imgInterdit" src="{{asset('img/Mu-eval.svg')}}">
                                     </button>
                                     <div id="blockBuzz" class="actifEvalAlert ">
-                                        <p class="TextActif">Pour le buzz</p>
+                                        <p class="TextActif" id="textBuzz">Pour le buzz</p>
                                         <img class="actifElement imgInterdit" src="{{asset('img/Mu-eval-actif.svg')}}">
                                     </div>
 
