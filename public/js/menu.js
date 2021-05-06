@@ -92,43 +92,91 @@ $(document).ready(function(){
     $(document).ready(function() {
         $( "#alert" ).click(function() {
             $( "#alert" ).hide();
+            $( "#blockBuzz" ).hide();
+            $( "#blockLunette" ).hide();
+            $( "#blockLune" ).hide();
+            $( "#blockFun" ).hide();
             $( "#actifBlockSignaler" ).show();
+            $( "#interdit" ).show();
+            $( "#lunette" ).show();
+            $( "#lune" ).show();
+            $( "#soleil" ).show();
         });
-        $( ".actifElement" ).click(function() {
-            $( ".actifEvalAlert" ).hide();
+        $( "#actifBlockSignaler" ).click(function() {
+            $( "#actifBlockSignaler" ).hide();
             $( "#alert" ).show();
         });
+
+
 
         $( "#interdit" ).click(function() {
             $( "#interdit" ).hide();
             $( "#blockBuzz" ).show();
+            $( "#alert" ).show();
+            $( "#blockLunette" ).hide();
+            $( "#blockLune" ).hide();
+            $( "#blockFun" ).hide();
+            $( "#lunette" ).show();
+            $( "#lune" ).show();
+            $( "#soleil" ).show();
+            $( "#actifBlockSignaler" ).hide();
+
         });
         $( "#blockBuzz" ).click(function() {
             $( "#blockBuzz" ).hide();
             $( "#interdit" ).show();
         });
 
+
         $( "#lunette" ).click(function() {
             $( "#lunette" ).hide();
             $( "#blockLunette" ).show();
+            $( "#alert" ).show();
+            $( "#blockBuzz" ).hide();
+            $( "#blockLune" ).hide();
+            $( "#blockFun" ).hide();
+            $( "#interdit" ).show();
+            $( "#lune" ).show();
+            $( "#soleil" ).show();
+            $( "#actifBlockSignaler" ).hide();
         });
         $( "#blockLunette" ).click(function() {
             $( "#blockLunette" ).hide();
             $( "#lunette" ).show();
         });
 
+
+
         $( "#lune" ).click(function() {
             $( "#lune" ).hide();
             $( "#blockLune" ).show();
+            $( "#alert" ).show();
+            $( "#blockBuzz" ).hide();
+            $( "#blockLunette" ).hide();
+            $( "#blockFun" ).hide();
+            $( "#interdit" ).show();
+            $( "#lunette" ).show();
+            $( "#soleil" ).show();
+            $( "#actifBlockSignaler" ).hide();
         });
         $( "#blockLune" ).click(function() {
             $( "#blockLune" ).hide();
             $( "#lune" ).show();
         });
 
+
+
         $( "#soleil" ).click(function() {
             $( "#soleil" ).hide();
             $( "#blockFun" ).show();
+            $( "#alert" ).show();
+            $( "#blockBuzz" ).hide();
+            $( "#blockLunette" ).hide();
+            $( "#blockLune" ).hide();
+            $( "#interdit" ).show();
+            $( "#lunette" ).show();
+            $( "#lune" ).show();
+            $( "#actifBlockSignaler" ).hide();
         });
         $( "#blockFun" ).click(function() {
             $( "#blockFun" ).hide();

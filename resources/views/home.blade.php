@@ -7,7 +7,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     @endsection
 </head>
-<body>
+<body class="home-body">
 @section('content-play-element')
 @php if(isset($_COOKIE['lang'])) App::setLocale($_COOKIE['lang']); @endphp
 <div class="contentOneMonFlow">

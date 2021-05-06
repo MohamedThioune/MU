@@ -9,32 +9,32 @@
 <body>
 @section('content-play-element')
 <div class="contentOneMonFlow">
-    <div class="pub-bando-connect">
-        <div class="info-pub-bando">
-            <div class="accroche">
-                <a class="accrocheskate" href="">
-                    <img class="accrocheskateImg" src="{{ asset('img/Nuage-rose.png') }}" alt="">
-                    <p class="link-212">Trouves ton skate</p>
-                </a>
-            </div>
-            <div class="annonces">
-                <p class="text-block-294">Annonces</p>
-                <p class="link-229">www.pub-link</p>
-                <a href="" class="go w-inline-block text-block-295">Go!</a>
-            </div>
-            <div class="like-notication2">
-                <button class="btn btnNote">
-                    <img src="{{ asset('img/Image-5.png') }}" alt="">
-                </button>
-                <button class="btn btnNote">
-                    <img src="{{ asset('img/Image-6.png') }}" alt="">
-                </button>
-            </div>
-        </div>
-        <!-- <div class="imgPubBlock">
-            <img src="{{ asset('img/Mu-bandeau-Pub.jpg') }}" alt="">
-        </div> -->
-    </div>
+    <div class="pub-bando-connect d-block">
+        <!--  <div class="info-pub-bando">
+             <div class="accroche">
+                 <a class="accrocheskate" href="">
+                     <img class="accrocheskateImg" src="{{ asset('img/Nuage-rose.png') }}" alt="">
+                     <p class="link-212">Trouves ton skate</p>
+                 </a>
+             </div>
+             <div class="annonces">
+                 <p class="text-block-294">Annonces</p>
+                 <p class="link-229">www.pub-link</p>
+                 <a href="" class="go w-inline-block text-block-295">Go!</a>
+             </div>
+             <div class="like-notication2">
+                 <button class="btn btnNote">
+                     <img src="{{ asset('img/Image-5.png') }}" alt="">
+                 </button>
+                 <button class="btn btnNote">
+                     <img src="{{ asset('img/Image-6.png') }}" alt="">
+                 </button>
+             </div>
+         </div>
+         <div class="imgPubBlock">
+             <img src="{{ asset('img/Mu-bandeau-Pub.jpg') }}" alt="">
+         </div>
+     </div> -->
     <p class="text-block-350">{{count($follows) > 0 ? " notifications" : "0 notification ". __('- you have to follow a chain to get it.') }} </p>
     <div class="div-block-406">
         @foreach($follows as $box)

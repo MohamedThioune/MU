@@ -655,7 +655,7 @@ video{
 .btnEval{
    text-align: center;
     padding: 0 !important;
-    width: 50px;
+    width: 40px;
 }
 .formEval{
     display: flex;
@@ -664,6 +664,11 @@ video{
     width: 64%;
     padding: 0 20px;
     position: relative;
+}
+.textBuzz{
+    width: 73px;
+    margin-left: -11px;
+    margin-bottom: 3px;
 }
 .blockImgPuli {
     width: 90%;
@@ -727,10 +732,11 @@ video{
     padding-right: 0 !important;
 }
 .imgInterdit{
-    width: 23px;
+    width: 20px;
 }
 .lunetteImg{
     width: 31px !important;
+    margin-top: 3px !important;
 }
 .luneImg{
     width: 15px !important;
@@ -741,13 +747,17 @@ video{
 .TextActif {
     font-size: 13px;
     font-family: "Ubuntu-Regular";
-    margin-bottom: 7px;
+    bottom: 7px;
     margin-top: -16px;
+    position: absolute;
+    left: 0;
+    right: 0;
+
 }
 .actifEvalAlert{
     display: none;
     text-align: center;
-    width: 73px;
+    width: 40px;
 }
 .actifElement {
     cursor: pointer;
@@ -1917,10 +1927,15 @@ video{
 .sidebar-format::-webkit-scrollbar {
     display: none !important;
 }
+#textBuzz{
+    width: 72px !important;
+    margin-left: -16px;
+}
 .contentOneMonFlow {
     width: 85%;
     display: block;
     margin-top: 90px;
+    zoom: 93%;
 }
 .accrocheskate {
     display: flex;
@@ -2262,6 +2277,8 @@ video{
     display: -ms-flexbox;
     display: flex;
     padding-left: 60px;
+    justify-content: space-between;
+    padding-right: 60px;
 }
 .div-block-202 {
     display: -webkit-box;
@@ -2377,7 +2394,9 @@ video{
     -ms-transform-origin: 0% 50%;
     transform-origin: 0% 50%;
 }
-
+.evalution{
+    margin-top: 5px;
+}
 .fleche-up-grey {
     background-color: #6c757d;
     width: 30px;
@@ -2500,6 +2519,40 @@ video{
 .cloche3-1 {
     width: 10px;
     padding-top: 2px;
+}
+.actifEvalAlert{
+    position: relative;
+}/*
+.home-body{
+    zoom: 90%;
+}
+.home-body .position-relative .content-element-page .group9 .contentSidElement .sidebar-format{
+    height: 112vh;
+}
+.home-body .position-relative .content-element-page .group9 .contentSidElement{
+    width: 13%;
+}*/
+.videoChaine7{
+    width: 400px;
+}
+.modalNavUp2{
+    display: none;
+    position: absolute;
+    z-index: 11;
+    top: 38px;
+    right: 564px;
+    box-shadow: 2px 2px 3px 2px #00000012;
+    min-width: 9rem;
+    padding: .5rem 0;
+    margin: .125rem 0 0;
+    font-size: 1rem;
+    color: #212529;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: .25rem;
 }
 @media all and (min-width: 300px) and (max-width: 767px){
     body{
@@ -3311,6 +3364,7 @@ video{
     .div-block-201 {
         display: block;
         padding-left: 15px;
+        padding-right: 0;
     }
     .div-block-208 {
         width: auto;
@@ -3493,7 +3547,7 @@ video{
         width: 40%;
     }
     .groupLOveUnlove {
-        width: 90%;
+        width: 21%;
     }
     .blockImgPuli img {
         width: 25px;
@@ -3598,9 +3652,7 @@ video{
         border: none;
         background: unset;
     }
-    .groupLOveUnlove1 {
 
-    }
 
     .swiper-container-android .swiper-slide, .swiper-wrapper {
         transform: translate3d(0px,0,0);
@@ -3716,7 +3768,7 @@ video{
         }
         .sousBlockTitle {
             padding: 20px 20px 0px 20px;
-            min-height: 134px;
+            min-height: 145px;
         }
         .des-text span {
             width: 66%;
