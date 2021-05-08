@@ -290,7 +290,7 @@
                     </div>
 
                     @if($looks > 0)
-                        <div class="elementBarreText" style="transform: rotate(-180deg); height:50px; margin-top:40px">
+                        <div class="elementBarreText" style="transform: rotate(-180deg); height:35px; margin-top:50px">
                             <div class="contentBarreText">
                                 @php
                                     $variant = DB::table('videos')

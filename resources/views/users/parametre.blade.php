@@ -174,8 +174,8 @@
             </div><br>
             <div class="defails-box">
                 <div class="div-block-213">
-                    <button class="{{ Auth::user()->sex == 1 ? 'text-block-236' : 'text-block-235' }}" disabled>{{__('Man')}} {{Auth::user()->sex}}</button>
-                    <button class="{{ Auth::user()->sex <> 1 ? 'text-block-235' : 'text-block-236' }}" disabled>{{__('Woman')}}</button>
+                    <button class="{{ Auth::user()->sex == 1 ? 'text-block-236' : 'text-block-235' }}" disabled>{{__('Man')}}</button>
+                    <button class="{{ Auth::user()->sex == 0 ? 'text-block-236' : 'text-block-235' }}" disabled>{{__('Woman')}}</button>
                 </div>
             </div>
             <div class="box-infos" style="border:none;">

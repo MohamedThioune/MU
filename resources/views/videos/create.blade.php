@@ -17,17 +17,19 @@
                 <div class="nom-de-la-chaine">
                     <h1 class="text-name-title-creator">{{$channel->name}}</h1>
                 </div>
+                @if(Auth::user()->sex == 1)
                 <div class="div-block-220">
                     <div class="div-block-224">
                         <label class="switch">
                             <input type="checkbox" checked>
                             <span class="slider round"></span>
                         </label>
-
+                        
                         <p class="text-publier-cette-video">{{__('Publish this video only on Sista 2 Sista')}}</p>
                         <input type="hidden" name="sistas" value="1">
                     </div>
                 </div>
+                @endif
             </div>
             <div class="div-block-235">
                 <p class=" text-title-video">{{__('Download a video')}}</p>
