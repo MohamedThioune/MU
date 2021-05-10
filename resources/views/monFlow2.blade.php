@@ -13,12 +13,30 @@
 @section('content-play-element')
 <div class="contentOneMonFlow">
     <p class="text-block-350">Tous tes informations en un clin d&#x27;œil </p>
-    <div class="menu-content-business-copy">
+    <div class="menu-content-business-copy business-Web">
         <a href="#" class="link-26">Infos</a>
         <a href="#event" class="link-26">Events.</a>
         <a href="#resume" class="link-26">Résumé</a>
         <a href="#Playlist-flow" class="link-26">Playlist</a>
         <a href="#" class="link-26">Offres</a>
+    </div>
+    <div class="business-MOb">
+        <div class="swiper-container swipeContainermodife3">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <a href="#" class="link-26">Infos</a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#" class="link-26">Events.</a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="{{route('flow')}}" class="link-26">Résumé</a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="#" class="link-26">Offres</a>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="hot-notification-block">
         <div class="div-block-403">
@@ -517,6 +535,36 @@
             // when window width is <= 320px
             320: {
                 slidesPerView: 1.2,
+                spaceBetween: 10
+            },
+            // when window width is <= 480px
+            480: {
+                slidesPerView: 2.3,
+                spaceBetween: 10
+            },
+            980: {
+                slidesPerView: 3,
+                spaceBetween: 10
+            },
+            1200: {
+                slidesPerView: 4.4,
+                spaceBetween: 30
+            },
+
+
+        }
+    });
+</script>
+<script>
+    var swiper = new Swiper('.swipeContainermodife3', {
+        slidesPerView: 4,
+        spaceBetween: 10,
+        // Responsive breakpoints
+        breakpoints: {
+
+            // when window width is <= 320px
+            320: {
+                slidesPerView: 3.6,
                 spaceBetween: 10
             },
             // when window width is <= 480px
