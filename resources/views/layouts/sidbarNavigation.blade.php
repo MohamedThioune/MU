@@ -1,3 +1,9 @@
+@php
+$channel = DB::Table('users')->select('channels.*')
+->join('channels', 'users.id', 'channels.user_id')
+->where('users.id', Auth::id())
+->first();
+@endphp
 <!DOCTYPE html>
 <html>
 <head>
@@ -218,8 +224,6 @@
                        @if(!Auth::guest())
                             @if($channel)
                                 <p class='text-block-242'>{{$channel->name}}</p>
-                            @else
-                                <p class='text-block-242'>{{$canal->name}}</p>
                             @endif
                         @endif
 
@@ -279,10 +283,6 @@
                                
                                @if($channel)
                                <a data-w-id="3ebc1e8b-4c8a-0be6-ba36-5e829586b79c" href="{{route('channel.visitor', [$channel->id])}}" class="link-block-36 w-inline-block">
-                                   <p class="text-block-257">{{__('Dashboard')}}<br></p>
-                               </a>
-                               @else
-                               <a data-w-id="3ebc1e8b-4c8a-0be6-ba36-5e829586b79c" href="{{route('channel.visitor', [$canal->id])}}" class="link-block-36 w-inline-block">
                                    <p class="text-block-257">{{__('Dashboard')}}<br></p>
                                </a>
                                @endif
