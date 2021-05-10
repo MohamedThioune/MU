@@ -482,6 +482,8 @@ Route::view('timeShield', 'time');
 
 Route::view('profil-management', 'profil-management');
 
+Route::view('monFlow2', 'monFlow2');
+
 
 Route::view('/chaineAbonne', 'chaineAbonne');
 

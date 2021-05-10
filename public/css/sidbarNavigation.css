@@ -1450,6 +1450,7 @@
 .bold-text-5 {
     color: #333;
     font-family: "Ubuntu-Medium";
+    font-weight: 500;
 }
 
 .container-53 {
@@ -2394,8 +2395,8 @@
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
     margin-bottom: 15px;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -2410,14 +2411,12 @@
     -webkit-align-items: center;
     -ms-flex-align: center;
     align-items: center;
+    border-radius: 100%;
+    overflow: hidden;
 }
 
 .image-94 {
-    width: 69px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    border: none !important;
-    border-radius: 50px;
+    width: 100%;
 }
 .image-94Nav {
     width: 34px !important;
@@ -2654,7 +2653,8 @@
 }
 
 .text-block-243 {
-    margin-bottom: -10px;
+    display: flex;
+    margin-bottom: 10px;
     padding-bottom: 0px;
     color: #fff;
     font-size: 14px;
@@ -6880,7 +6880,6 @@
 .titre-asso-video-all {
     margin-top: 10px;
     padding-left: 20px;
-    font-family: Ubuntu, Helvetica, sans-serif;
     color: #8f8f8f;
     font-size: 16px;
     font-weight: 700;
@@ -6961,11 +6960,11 @@
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
-    display: flex;
+    display: block;
     height: 380px;
     padding-top: 0px;
     padding-bottom: 0px;
-    padding-left: 20px;
+    padding-left: 40px;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
     -webkit-flex-direction: row;
@@ -6982,6 +6981,7 @@
     border-top: 20px solid #fff;
     border-bottom: 1px solid #fff;
     background-color: #f1f0f0;
+    margin-bottom: 20px;
 }
 
 .offre-de-la-chaine {
@@ -7386,6 +7386,7 @@
     color: #8f8f8f;
     font-size: 18px;
     font-weight: 500;
+    font-family: "Ubuntu-Medium";
 }
 
 .resume-activitee {
@@ -7903,12 +7904,11 @@
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
-    margin-bottom: 5px;
+    margin-bottom: 0px;
     -webkit-box-pack: justify;
     -webkit-justify-content: space-between;
     -ms-flex-pack: justify;
     justify-content: space-between;
-    margin-bottom: 0;
 }
 
 .text-block-370 {
@@ -7960,6 +7960,7 @@
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
+    height: 25px;
 }
 
 .text-block-374 {
@@ -7969,6 +7970,7 @@
 
 .text-block-375 {
     color: #c4c4c4;
+    margin-bottom: 0;
 }
 
 .text-block-376 {
@@ -7977,6 +7979,7 @@
     display: -ms-flexbox;
     display: flex;
     color: #c4c4c4;
+    margin-bottom: 0;
 }
 
 .text-block-377 {
@@ -7988,6 +7991,7 @@
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
+    height: 25px;
 }
 
 .div-block-379 {
@@ -8084,6 +8088,7 @@
     font-size: 12px;
     line-height: 18px;
     font-weight: 500;
+    margin-bottom: 0;
 }
 
 .publication-info-recom {
