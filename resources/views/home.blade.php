@@ -1,56 +1,26 @@
 @extends('layouts.sidbarNavigation')
-<head>
+<html lang="fr">
+<head> 
     @section('css')
-    <link rel="stylesheet" href="{{asset('bootstrap/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{asset('css/menu.css')}}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link rel="stylesheet" href="{{asset('swiper/swiper-bundle.min.css')}}">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="{{asset('css/menu.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     @endsection
 </head>
 <body class="home-body">
-@section('content-play-element')
 @php if(isset($_COOKIE['lang'])) App::setLocale($_COOKIE['lang']); @endphp
+@section('content-play-element')
 <div class="contentOneMonFlow">
-<!--    <div class="pub-bando-connect">
-        <div class="info-pub-bando">
-            <div class="accroche">
-                <a class="accrocheskate" href="">
-                    <img class="accrocheskateImg" src="{{ asset('img/Nuage-rose.png') }}" alt="">
-                    <p class="link-212"></p>
-                </a>
-            </div>
-            <div class="annonces">
-                <p class="text-block-294">Annonces</p>
-                <p class="link-229">www.pub-link</p>
-                <a href="" class="go w-inline-block text-block-295">{{__('Go !')}}</a>
-            </div>
-            <div class="like-notication2">
-                <button class="btn btnNote">
-                    <img src="{{ asset('img/Image-5.png') }}" alt="">
-                </button>
-                <button class="btn btnNote">
-                    <img src="{{ asset('img/Image-6.png') }}" alt="">
-                </button>
-            </div>
-        </div>
-        <div class="imgPubBlock">
-            <img src="{{ asset('img/Mu-bandeau-Pub.jpg') }}" alt="">
-        </div>
-    </div>
--->    <p class="text-block-350">{{__('All your information at a glance')}} &#x1F609;</p>
-    <div class="menu-content-business business-Web">
+    <p class="text-block-350" style="font-size: 1.5em;">{{__('All your information at a glance')}}</p>
+    <div class="menu-content-business-copy business-Web">
         <a href="#" class="link-26">Infos</a>
-        <a href="#" class="link-26">Recents</a>
-        <a href="{{route('flow')}}" class="link-26">{{__('All videos')}}</a>
+        <a href="#event" class="link-26">Events.</a>
+        <a href="#resume" class="link-26">Resume</a>
+        <a href="#Playlist-flow" class="link-26">Playlist</a>
         <a href="#" class="link-26">{{__('Offers')}}</a>
-        <a href="#" class="link-26">Playlist</a>
     </div>
-        @if(Auth::user()->state == 0)
-        <center>
-            <p class="text-block-350" style="font-size:1em;" >{{__('You are now in evaluation mode, you can only access one video per day.')}} <br>{{__('To remedy this, we advise you to pay the monthly fees to be able to take full advantage of the community or .')}} <br> {{__('If you have already done so, simply log in again to make your payment active')}} &#x1F609;</p>
-            <a href="{{route('tarifs')}}" style="text-decoration:none;" class="btn btn-info">{{__('Click here')}}</a>
-        </center>
-        @endif
     <div class="business-MOb">
         <div class="swiper-container swipeContainermodife3">
             <div class="swiper-wrapper">
@@ -58,126 +28,117 @@
                     <a href="#" class="link-26">Infos</a>
                 </div>
                 <div class="swiper-slide">
-                    <a href="#" class="link-26">Recents</a>
+                    <a href="#" class="link-26">Events.</a>
                 </div>
                 <div class="swiper-slide">
-                    <a href="{{route('flow')}}" class="link-26">{{__('All videos')}}</a>
+                    <a href="{{route('flow')}}" class="link-26">Resume</a>
                 </div>
                 <div class="swiper-slide">
                     <a href="#" class="link-26">{{__('Offers')}}</a>
                 </div>
-                <div class="swiper-slide">
-                    <a href="#" class="link-26">Playlist</a>
-                </div>
             </div>
         </div>
     </div>
-    <div class="hotNotifications">
-        <div class="blockTitle2">
-            <div class="d-flex">
-                <img src="{{ asset('img/Mu-flow-picto-bull.svg') }}"  alt="" class="image-bull1">
-                <p class="text-Playlist">{{__('Hot notifications')}}</p>
-            </div>
-         <div class="paddignElement8">
-             <a href="{{route('notification')}}" class="toutesNotifications">{{__('All notifications')}}</a>
-         </div>
+    <div class="hot-notification-block">
+        <div class="div-block-403">
+            <p class="text-block-428">{{__('Hot notifications')}}</p>
+            <a href="{{route('notification')}}" class="text-block-392">{{__('All notifications')}}</a>
         </div>
-        <div class="swiper-container swipeContainermodife1">
-            <div class="swiper-wrapper">
-                <div class=" swiper-slide card-suggestionDay">
-                    @php $user = App\User::find($video->user_id); @endphp
-                    <div class="elementCardSuggestionDay">
-                        @if($video->thumbnail)
-                            <img class="imgElementCardSuggestionDay" src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" alt="">
-                        @elseif($user->age <= 15)
-                            <img class="imgElementCardSuggestionDay" src="{{asset('images/kids_preloader.png')}}" alt="">
-                        @elseif($user->age > 15 && $user->sex == '1')
-                            <img class="imgElementCardSuggestionDay" src="{{asset('images/flow_preloader.png')}}" alt=""/>
-                        @elseif($user->age > 15 && $user->sex == '0')
-                            <img class="imgElementCardSuggestionDay" src="{{asset('images/sista_preloader.png')}}" alt="">
-                        @endif
-                        <a href="{{route('play',[$video->id])}}" class="contentFlyHeure">
-                            <p class="flyText">
-                            @foreach($subtopics as $subtopic)
-                                @if($video->subtopic_id == $subtopic->id)
-                                    {{ $subtopic->libelle }}
-                                @endif
-                            @endforeach
-                            </p>
-                            <p class="heureFly" style="color:white;">{{$video->duration}}</p>
-                        </a>
-                    </div>
-                    <div class="contentCardSuggestionDay">
-                        <div class="d-flex justify-content-between">
-                           <a href="{{route('play', $video->id)}}" class="libertiText" style="text-decoration:none">{{$video->main_title}}</a>
-                            <img class="imgLiberti" src="{{ asset('img/icones/Mu-badge22.png') }}" alt="">
-                        </div>
-                        <div class="mindCard">
-                            <div class="blockImgMind">
-                                @if($user->photo)
-                                <a href="{{route('play',$video->id)}}"><img class="" src="{{ asset('/img') }}/{{$user->photo}}" alt=""></a>
-                                @elseif($user->age <= 15)
-                                <a href="{{route('play',$video->id)}}"><img class="" src="{{asset('images/kids_preloader.png')}}" alt=""></a>
-                                @elseif($user->age > 15 && $user->sex == '1')
-                                <a href="{{route('play',$video->id)}}"><img class="img-circle" src="{{asset('images/flow_preloader.png')}}" alt=""/></a>
-                                @elseif($user->age > 15 && $user->sex == '0')
-                                <a href="{{route('play',$video->id)}}>"><img class="" src="{{asset('images/sista_preloader.png')}} /{{$user->photo}}" alt=""></a>
-                                @endif
+        <div class="div-block-367">
+            @if(Auth::user()->state == 0)
+                <div class="div-block-476">
+                    <div class="div-block-391-copy">
+                        <div class="div-block-393">
+                            <div class="div-block-392">
+                                <img src="{{asset('img/Mu-video-format-bike-girl.jpg')}}"class="image-130">
                             </div>
-                            <div class="block3">
-                                @php
-                                    $channel = DB::Table('users')->select('channels.*')
-                                        ->join('channels', 'users.id', 'channels.user_id')
-                                        ->where('users.id', $video->user_id)
-                                        ->first();
+                            <div class="text-hot-flow">
+                                <div>
+                                    <p class="hot-flow-description-txt-2-copy">Je m&#x27;implique dans ma oumma</p>
+                                    <p class="mb-0">J&#x27;active mon abonnement</p>
+                                    <div class="like-notication"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#" class="button-35 w-button">Bismillah</a>
+                        <p class="text-block-427">Pourquoi activé mon abonnement ?</p>
+                    </div>
+                </div>
+            @endif
 
-                                    $playlist = DB::Table('playlists')->select('playlists.*')
-                                        ->where('playlists.user_id', Auth::id())
-                                        ->where('playlists.video_id', $video->id)
-                                        ->first();
-                                @endphp
-                                <a href="{{route('channel.visitor', $channel->id)}}" style="color:#333333" class="nameAuteur contentweb azer">{{$channel->name}}</a>
-                                 <!-- Date creation relative -->
+            <div class="recondation-video-card">
+                @php $user = App\User::find($video->user_id); @endphp
+                <a href="{{route('play', $video->id)}}" class="video-vignette-recom">
+                    @if($video->thumbnail)
+                        <img src="{{asset('vids/thumbnails/') }}/{{$video->thumbnail}}" class="vignette-video-sugg">
+                    @else
+                        <img src="{{asset('img/grille.png')}}" class="vignette-video-sugg">
+                    @endif
+                </a>
+                <div class="vignette-vid-info-recom">
+                    <div class="div-block-295">
+                        <a href="{{route('play',$video->id)}}" class="titre-v-c-recom">{{$video->main_title}}</a>
+                        <div class="badge-eval">
+                            <img src="{{asset('img/Mu-badge-vide2x.png')}}" class="image-111">
+                        </div>
+                    </div>
+                    <div class="resume-vigne-stat">
+                        <div class="bull-name-stat">
+                            @php
+                                $channel = DB::Table('users')->select('channels.*')
+                                    ->join('channels', 'users.id', 'channels.user_id')
+                                    ->where('users.id', $video->user_id)
+                                    ->first();
+
+                                $playlist = DB::Table('playlists')->select('playlists.*')
+                                    ->where('playlists.user_id', Auth::id())
+                                    ->where('playlists.video_id', $video->id)
+                                    ->first();
+                            @endphp
+                            <a href="{{route('channel.visitor', $channel->id)}}" class="bull-id-acount-recom w-inline-block">
+                                <img src="{{ asset('/img') }}/{{$channel->logo}}" class="image-109">
+                            </a>
+                            <div class="div-block-292">
+                                <a href="{{route('channel.visitor', $channel->id)}}" class="smuusin-name-recom">{{$channel->name}}</a>
+                                <div>
+                                    <!-- Date creation relative -->
                                     @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
                                     @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
-                                    <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/3600)}} hours ago </p>
+                                    <p class="publication-info-recom">{{intval(abs(strtotime("now") - strtotime($video->created_at))/3600)}} hours ago </p>
                                     @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) == 0)
-                                    <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/60)}} minutes ago </p>
+                                    <p class="publication-info-recom">{{intval(abs(strtotime("now") - strtotime($video->created_at))/60)}} minutes ago </p>
                                     @endif
                                     @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 1)
-                                    <p class="day">Yesterday at {{strftime("%H:%M", strtotime($video->created_at))}}</p>
+                                    <p class="publication-info-recom">Yesterday at {{strftime("%H:%M", strtotime($video->created_at))}}</p>
                                     @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) >= 2 && intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) <= 27)
-                                    <p class="day"> {{intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400)}} days ago </p>
+                                    <p class="publication-info-recom"> {{intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400)}} days ago </p>
                                     @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) > 27)
-                                    <p class="day">On {{strftime("%d/%m/%Y", strtotime($video->created_at))}}</p>
+                                    <p class="publication-info-recom">On {{strftime("%d/%m/%Y", strtotime($video->created_at))}}</p>
                                     @endif
-
+                                </div>
+                               
+                                <div class="div-block-294">
+                                    <p class="text-block-301">100k</p>
+                                    <div class="div-block-293">
+                                        <img src="{{asset('img/Mu-eye-lune-3333332x.png')}}" class="image-110">
+                                    </div>
+                                </div>
                             </div>
-                            @if($playlist)
-                                <div class="d-flex justify-content-between blockPlayist" >
-                                    <p class="numberviewsSuggestion"> </p>
-                                    <a  href="{{route('playlist.remove', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Remove to my playlist"><img src="{{ asset('img/report-Orange.svg') }}"  alt="Remove to my playlist"></a>
-                                </div>
-                            @else
-                                <div class="d-flex justify-content-between blockPlayist" >
-                                    <p class="numberviewsSuggestion"> </p>
-                                    <a href="{{route('playlist.add', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Add to my playlist"><img src="{{ asset('img/report-gris.svg') }}"  alt="Add to my playlist"></a>
-                                </div>
-                            @endif
                         </div>
                     </div>
                 </div>
-
-                <div class="swiper-slide hot-notification" style="background:white;">
-                    <div class="div-block-391">
-                        <div class="hot-green">
-                            <img class="imgGrenn" src="{{ asset('img/Mu-hot-info.png') }}" loading="lazy">
+            </div>
+            <div class="hot-notification-copy-copy-copy">
+                <div class="hot-green">
+                    <img src="{{asset('img/Mu-hot-info.png')}}" class="image-131">
+                </div>
+                <div class="div-block-391">
+                    <div class="div-block-393">
+                        <div class="div-block-392">
+                            <img src="{{asset('img/Mu-video-format-bike-girl.jpg')}}" class="image-130">
                         </div>
-                        <div class="div-block-393">
-                            <div class="div-block-392">
-                                <img src="{{ asset('img/Mu-video-format-bike-girl.jpg') }}" loading="lazy" sizes="100vw" srcset="images/Mu-video-format-bike-girl-p-800.jpeg 800w, images/Mu-video-format-bike-girl.jpg 898w" alt="" class="image-130"></div>
-                            <div>
-                            <p class="text-block-383">{{$event->libelle}}</p>
+                        <div class="text-hot-flow">
+                            <p class="text-block-383">{{$event->libelle}}...</p>
                             @if(intval(abs(strtotime("now") - strtotime($event->created_at))/ 86400) == 0)
                                 @if(intval(abs(strtotime("now") - strtotime( $event->created_at))/ 3600) > 0)
                                 <p class="text-block-385">Published {{intval(abs(strtotime("now") - strtotime( $event->created_at))/3600)}} hours ago</p>
@@ -192,37 +153,11 @@
                             <p class="text-block-385">Published on {{strftime("%d/%m/%Y", strtotime( $event->created_at))}}</p>
                             @endif
                             <div>
-                                <p class="" style="color:8F8F8F;font-weight:bold;font-size:large" >{{$event->text}}</p>
-                            </div>
-                            </div>
-                            <div class="like-notication">
-                                <button class="btn div-block-398">
-                                    <img src="{{ asset('img/Image-5.png') }}" alt="">
-                                </button>
-                                <button class="btn div-block-398">
-                                    <img src="{{ asset('img/Image-6.png') }}" alt="">
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="swiper-slide hot-notification" style="background:white;">
-                    <div class="div-block-391">
-                        <div class="hot-green">
-                            <img class="imgGrenn" src="{{ asset('img/Mu-hot-info.png') }}" loading="lazy">
-                        </div>
-                        <div class="div-block-393">
-                            <div class="div-block-392">
-                                <img src="{{ asset('img/Mu-video-format-bike-girl.jpg') }}" loading="lazy" sizes="100vw" srcset="images/Mu-video-format-bike-girl-p-800.jpeg 800w, images/Mu-video-format-bike-girl.jpg 898w" alt="" class="image-130"></div>
-                            <div>
-                            <p class="text-block-383">{{__('Want to see more')}}</p>
-
-                            <p class="text-block-385">{{__('Discover even more interesting features')}}</p>
-                            <br>
-                            <div>
-                                <a href="{{route('tarifs')}}" style="text-decoration:none;" class="toutesNotifications">{{__('Switch to SMUUSE PRO')}}</a>
-                            </div>
+                                <p class="hot-flow-txt-description">{{$event->text}}</p>
+                                <div class="like-notication">
+                                    <div class="div-block-398"><img src="{{asset('img/Image-5.png')}}" loading="lazy" alt=""></div>
+                                    <div><img src="{{asset('img/Image-6.png')}}" loading="lazy" width="28" alt=""></div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -230,13 +165,12 @@
             </div>
         </div>
     </div>
-
-    <div class="suggestionFlow">
-        <p class="text-Playlist2">Suggestions</p>
-        <div class="swiper-container swipeContainermodife1">
+    <div class="recommandation">
+        <p class="titre-recommandation">Suggestions</p>
+        <div class="swiper-container swipeSuggestion">
             <div class="swiper-wrapper">
                 @foreach($last as $vid)
-                <div class=" swiper-slide card-suggestionDay">
+                <div class=" swiper-slide suggestionSwipe">
                     @php
                         $video = App\Models\Video::find($vid->video_id);
                         $user = App\User::find($video->user_id);
@@ -245,175 +179,71 @@
                                         ->where('playlists.video_id', $video->id)
                                         ->first();
                     @endphp
-                    <div class="elementCardSuggestionDay">
-                        @if($video->thumbnail)
-                            <a href="{{route('play',[$video->id])}}" style="text-decoration:none"> <img class="imgElementCardSuggestionDay" src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" alt=""> </a>
-                        @elseif($user->age <= 15)
-                            <a href="{{route('play',[$video->id])}}" style="text-decoration:none"> <img class="imgElementCardSuggestionDay" src="{{asset('images/kids_preloader.png')}}" alt=""> </a>
-                        @elseif($user->age > 15 && $user->sex == '1')
-                            <a href="{{route('play',[$video->id])}}" style="text-decoration:none"> <img class="imgElementCardSuggestionDay" src="{{asset('images/flow_preloader.png')}}" alt=""> </a>
-                        @elseif($user->age > 15 && $user->sex == '0')
-                            <a href="{{route('play',[$video->id])}}" style="text-decoration:none"> <img class="imgElementCardSuggestionDay" src="{{asset('images/sista_preloader.png')}}" alt=""> </a>
-                        @endif
-                        <a href="{{route('play',[$video->id])}}" style="text-decoration:none" target="" class="contentFlyHeure">
-                            <p class="flyText">
-                            @foreach($subtopics as $subtopic)
-                                @if($video->subtopic_id == $subtopic->id)
-                                    {{ $subtopic->libelle }}
-                                @endif
-                            @endforeach
-                            </p>
-                            <p class="heureFly" style="color:white;">{{$video->duration}}</p>
-                        </a>
-                    </div>
-                    <div class="contentCardSuggestionDay">
-                        <div class="d-flex justify-content-between">
-                           <a href="{{route('play', $video->id)}}"  style="text-decoration:none" class="libertiText">{{$video->main_title}}</a>
-                            <img class="imgLiberti" src="{{ asset('img/icones/Mu-badge22.png') }}" alt="">
-                        </div>
-                        <div class="mindCard">
-                            <div class="blockImgMind">
-                                @if($user->photo)
-                                <a href="{{route('play',[$video->id])}}"> <img class="" src="{{ asset('/img') }}/{{$user->photo}}" alt=""> </a>
-                                @elseif($user->age <= 15)
-                                <a href="{{route('play',[$video->id])}}"> <img class="" src="{{asset('images/kids_preloader.png')}}" alt=""> </a>
-                                @elseif($user->age > 15 && $user->sex == '1')
-                                <a href="{{route('play',[$video->id])}}"> <img class="img-circle" src="{{asset('images/flow_preloader.png')}}" alt=""/> </a>
-                                @elseif($user->age > 15 && $user->sex == '0')
-                                <a href="{{route('play',[$video->id])}}"> <img class="" src="{{asset('images/sista_preloader.png')}}" alt=""> </a>
-                                @endif
-                            </div>
-                            <div class="block3">
-                                @php
-                                    $channel = DB::Table('users')->select('channels.*')
-                                        ->join('channels', 'users.id', 'channels.user_id')
-                                        ->where('users.id', $video->user_id)
-                                        ->first();
-                                @endphp
-                                <a href="{{route('channel.visitor', $channel->id)}}" style="color:#333333" class="nameAuteur contentweb azer">{{$channel->name}}</a>
-                                 <!-- Date creation relative -->
-                                    @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
-                                    @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
-                                    <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/3600)}} hours ago </p>
-                                    @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) == 0)
-                                    <p class="day">{{intval(abs(strtotime("now") - strtotime($video->created_at))/60)}} minutes ago </p>
-                                    @endif
-                                    @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 1)
-                                    <p class="day">Yesterday at {{strftime("%H:%M", strtotime($video->created_at))}}</p>
-                                    @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) >= 2 && intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) <= 27)
-                                    <p class="day"> {{intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400)}} days ago </p>
-                                    @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) > 27)
-                                    <p class="day">On {{strftime("%d/%m/%Y", strtotime($video->created_at))}}</p>
-                                    @endif
-                                    <!--
-                                         <div class="d-flex justify-content-between">
-                                            <p class="numberviewsSuggestion">1230</p>
-                                            <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
-                                        </div>
-                                    -->
-                            </div>
-                            @if($playlist)
-                                <div class="d-flex justify-content-between blockPlayist" >
-                                    <p class="numberviewsSuggestion"> </p>
-                                    <a  href="{{route('playlist.remove', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Remove to my playlist"><img src="{{ asset('img/report-Orange.svg') }}"  alt="Remove to my playlist"></a>
-                                </div>
+                    <div class="recondation-video-card">
+                        <div class="video-vignette-recom">
+                            @if($video->thumbnail)
+                                <a href="{{route('play',[$video->id])}}" style="text-decoration:none"><img src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" class="vignette-video-sugg"></a>
                             @else
-                                <div class="d-flex justify-content-between blockPlayist" >
-                                    <p class="numberviewsSuggestion"> </p>
-                                    <a href="{{route('playlist.add', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Add to my playlist"><img src="{{ asset('img/report-gris.svg') }}"  alt="Add to my playlist"></a>
-                                </div>
+                                <a href="{{route('play',[$video->id])}}" style="text-decoration:none"><img src="{{asset('img/grille.png')}}" class="vignette-video-sugg"></a>
                             @endif
                         </div>
-                    </div>
-                </div>
-                @endforeach
-            </div>
-        </div>
-    </div>
-
-   @if($playlists)
-   @if(count($playlists) > 0)
-    <div class="playlist1">
-        <p class="titre-asso-video-all">{{__('MY')}} Playlist</p>
-        <div class="swiper-container swipeContainermodife1">
-            <div class="swiper-wrapper">
-                @foreach($playlists as $playlist)
-                <div class=" swiper-slide card-suggestionDay">
-                    @php
-                        $user = App\User::find($playlist->user_id);
-                    @endphp
-                    <div class="elementCardSuggestionDay">
-                        @if($playlist->thumbnail)
-                            <a href="{{route('play',[$playlist->id])}}" style="text-decoration:none"> <img class="imgElementCardSuggestionDay" src="{{ asset('vids/thumbnails/') }}/{{$playlist->thumbnail}}" alt=""> </a>
-                        @elseif($user->age <= 15)
-                            <a href="{{route('play',[$playlist->id])}}" style="text-decoration:none"> <img class="imgElementCardSuggestionDay" src="{{asset('images/kids_preloader.png')}}" alt=""> </a>
-                        @elseif($user->age > 15 && $user->sex == '1')
-                            <a href="{{route('play',[$playlist->id])}}" style="text-decoration:none"> <img class="imgElementCardSuggestionDay" src="{{asset('images/flow_preloader.png')}}" alt=""> </a>
-                        @elseif($user->age > 15 && $user->sex == '0')
-                            <a href="{{route('play',[$playlist->id])}}" style="text-decoration:none"> <img class="imgElementCardSuggestionDay" src="{{asset('images/sista_preloader.png')}}" alt=""> </a>
-                        @endif
-                        <a href="{{route('play',[$video->id])}}" style="text-decoration:none" target="" class="contentFlyHeure">
-                            <p class="flyText">
-                            @foreach($subtopics as $subtopic)
-                                @if($playlist->subtopic_id == $subtopic->id)
-                                    {{ $subtopic->libelle }}
-                                @endif
-                            @endforeach
-                            </p>
-                            <p class="heureFly" style="color:white;">{{$playlist->duration}}</p>
-                        </a>
-                    </div>
-                    <div class="contentCardSuggestionDay">
-                        <div class="d-flex justify-content-between">
-                           <a href="{{route('play', $video->id)}}"  style="text-decoration:none" class="libertiText">{{$playlist->main_title}}</a>
-                            <img class="imgLiberti" src="{{ asset('img/icones/Mu-badge22.png') }}" alt="">
-                        </div>
-                        <div class="mindCard">
-                            <div class="blockImgMind">
-                                @if($user->photo)
-                                <a href="{{route('play',[$video->id])}}"> <img class="" src="{{ asset('/img') }}/{{$user->photo}}" alt=""> </a>
-                                @elseif($user->age <= 15)
-                                <a href="{{route('play',[$video->id])}}"> <img class="" src="{{asset('images/kids_preloader.png')}}" alt=""> </a>
-                                @elseif($user->age > 15 && $user->sex == '1')
-                                <a href="{{route('play',[$video->id])}}"> <img class="img-circle" src="{{asset('images/flow_preloader.png')}}" alt=""/> </a>
-                                @elseif($user->age > 15 && $user->sex == '0')
-                                <a href="{{route('play',[$video->id])}}"> <img class="" src="{{asset('images/sista_preloader.png')}}" alt=""> </a>
-                                @endif
+                        <div class="vignette-vid-info-recom">
+                            <div class="div-block-295">
+                                <a href="{{route('play',[$video->id])}}" class="titre-v-c-recom">{{$video->main_title}}</a>
+                                <div class="badge-eval">
+                                    <img src="{{asset('img/Mu-badge-vide2x.png')}}" loading="lazy" alt="" class="image-111">
+                                </div>
                             </div>
-                            <div class="block3">
+                            <div class="resume-vigne-stat">
                                 @php
                                     $channel = DB::Table('users')->select('channels.*')
                                         ->join('channels', 'users.id', 'channels.user_id')
                                         ->where('users.id', $video->user_id)
                                         ->first();
                                 @endphp
-                                <a href="{{route('channel.visitor', $channel->id)}}" style="color:#333333" class="nameAuteur contentweb azer">{{$channel->name}}</a>
-                                 <!-- Date creation relative -->
-                                    @if(intval(abs(strtotime("now") - strtotime($playlist->created_at))/ 86400) == 0)
-                                    @if(intval(abs(strtotime("now") - strtotime($playlist->created_at))/ 3600) > 0)
-                                    <p class="day">{{intval(abs(strtotime("now") - strtotime($playlist->created_at))/3600)}} hours ago </p>
-                                    @else(intval(abs(strtotime("now") - strtotime($playlist->created_at))/ 3600) == 0)
-                                    <p class="day">{{intval(abs(strtotime("now") - strtotime($playlist->created_at))/60)}} minutes ago </p>
-                                    @endif
-                                    @elseif(intval(abs(strtotime("now") - strtotime($playlist->created_at))/ 86400) == 1)
-                                    <p class="day">Yesterday at {{strftime("%H:%M", strtotime($playlist->created_at))}}</p>
-                                    @elseif(intval(abs(strtotime("now") - strtotime($playlist->created_at))/ 86400) >= 2 && intval(abs(strtotime("now") - strtotime($playlist->created_at))/ 86400) <= 27)
-                                    <p class="day"> {{intval(abs(strtotime("now") - strtotime($playlist->created_at))/ 86400)}} days ago </p>
-                                    @else(intval(abs(strtotime("now") - strtotime($playlist->created_at))/ 86400) > 27)
-                                    <p class="day">On {{strftime("%d/%m/%Y", strtotime($playlist->created_at))}}</p>
-                                    @endif
-                                <!--
-                                    <div class="d-flex justify-content-between">
-                                        <p class="numberviewsSuggestion">1230</p>
-                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
-                                    </div>
-                                -->
-                            </div>
+                                <div class="bull-name-stat">
+                                    <a href="{{route('channel.visitor', $channel->id)}}" class="bull-id-acount-recom w-inline-block">
+                                        <img src="{{ asset('/img') }}/{{$channel->logo}}" class="image-109">
+                                    </a>
+                                    <div class="div-block-292">
 
-                                <div class="d-flex justify-content-between blockPlayist" >
-                                    <p class="numberviewsSuggestion"> </p>
-                                    <a  href="{{route('playlist.remove', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Remove to my playlist"><img src="{{ asset('img/report-Orange.svg') }}"  alt="Remove to my playlist"></a>
+                                        <p class="smuusin-name-recom">{{$channel->name}}</p>
+                                        <div>
+                                            <!-- Date creation relative -->
+                                            @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
+                                            @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
+                                            <p class="publication-info-recom">{{intval(abs(strtotime("now") - strtotime($video->created_at))/3600)}} hours ago </p>
+                                            @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) == 0)
+                                            <p class="publication-info-recom">{{intval(abs(strtotime("now") - strtotime($video->created_at))/60)}} minutes ago </p>
+                                            @endif
+                                            @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 1)
+                                            <p class="publication-info-recom">Yesterday at {{strftime("%H:%M", strtotime($video->created_at))}}</p>
+                                            @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) >= 2 && intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) <= 27)
+                                            <p class="publication-info-recom"> {{intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400)}} days ago </p>
+                                            @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) > 27)
+                                            <p class="publication-info-recom">On {{strftime("%d/%m/%Y", strtotime($video->created_at))}}</p>
+                                            @endif
+                                        </div>
+                                        @if($playlist)
+                                            <div class="d-flex justify-content-between blockPlayist" >
+                                                <p class="numberviewsSuggestion"> </p>
+                                                <a  href="{{route('playlist.remove', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Remove to my playlist"><img src="{{ asset('img/report-Orange.svg') }}"  alt="Remove to my playlist"></a>
+                                            </div>
+                                        @else
+                                            <div class="d-flex justify-content-between blockPlayist" >
+                                                <p class="numberviewsSuggestion"> </p>
+                                                <a href="{{route('playlist.add', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Add to my playlist"><img src="{{ asset('img/report-gris.svg') }}"  alt="Add to my playlist"></a>
+                                            </div>
+                                        @endif
+                                        <div class="div-block-294">
+                                            <p class="text-block-301">100k</p>
+                                            <div class="div-block-293">
+                                                <img src="{{asset('img/Mu-eye-lune-3333332x.png')}}" class="image-110">
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -421,28 +251,84 @@
             </div>
         </div>
     </div>
-   @endif
-   @endif
-
+    <div id="Playlist-flow" class="playlist">
+        <div>
+            <p class="titre-asso-video-all">{{__('The')}} playlist</p>
+        </div>
+        <div class="swiper-container swipeSuggestion">
+            <div class="swiper-wrapper">
+                @foreach($playlists as $playlist)
+                    <div class=" swiper-slide suggestionSwipe">
+                        <div class="recondation-video-card">
+                            <div class="video-vignette-recom">
+                                @if($playlist->thumbnail)
+                                    <a href="{{route('play',[$playlist->id])}}" style="text-decoration:none"><img src="{{ asset('vids/thumbnails/') }}/{{$playlist->thumbnail}}" class="vignette-video-sugg"></a>
+                                @else
+                                    <a href="{{route('play',[$playlist->id])}}" style="text-decoration:none"><img src="{{asset('img/grille.png')}}" class="vignette-video-sugg"></a>
+                                @endif
+                            </div>
+                            <div class="vignette-vid-info-recom">
+                                <div class="div-block-295">
+                                    <a href="{{route('play',[$playlist->id])}}" class="titre-v-c-recom">{{$playlist->main_title}}</a>
+                                    <div class="badge-eval">
+                                        <img src="{{asset('img/Mu-badge-vide2x.png')}}" loading="lazy" alt="" class="image-111">
+                                    </div>
+                                </div>
+                                <div class="resume-vigne-stat">
+                                    @php
+                                        $channel = DB::Table('users')->select('channels.*')
+                                            ->join('channels', 'users.id', 'channels.user_id')
+                                            ->where('users.id', $video->user_id)
+                                            ->first();
+                                    @endphp
+                                    <div class="bull-name-stat">
+                                        <div class="bull-id-acount-recom">
+                                            <a href="{{route('channel.visitor', $channel->id)}}"><img src="{{ asset('/img') }}/{{$channel->logo}}" class="image-109"></a>
+                                        </div>
+                                        <div class="div-block-292">
+                                            <p class="smuusin-name-recom">{{$channel->name}}</p>
+                                            <div>
+                                                 <!-- Date creation relative -->
+                                                @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
+                                                @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
+                                                <p class="publication-info-recom">{{intval(abs(strtotime("now") - strtotime($video->created_at))/3600)}} hours ago </p>
+                                                @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) == 0)
+                                                <p class="publication-info-recom">{{intval(abs(strtotime("now") - strtotime($video->created_at))/60)}} minutes ago </p>
+                                                @endif
+                                                @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 1)
+                                                <p class="publication-info-recom">Yesterday at {{strftime("%H:%M", strtotime($video->created_at))}}</p>
+                                                @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) >= 2 && intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) <= 27)
+                                                <p class="publication-info-recom"> {{intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400)}} days ago </p>
+                                                @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) > 27)
+                                                <p class="publication-info-recom">On {{strftime("%d/%m/%Y", strtotime($video->created_at))}}</p>
+                                                @endif
+                                            </div>
+                                            <div class="div-block-294">
+                                                <p class="text-block-301">100k</p>
+                                                <div class="div-block-293">
+                                                    <img src="{{asset('img/Mu-eye-lune-3333332x.png')}}" class="image-110">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
     <div class="chaine-vu">
         <div>
-            @php $user = App\User::find($channel_top->user_id); @endphp
             <p class="text-block-353-copy">{{__('Here is the most viewed channel at the moment')}}</p>
         </div>
-        <div class="div-block-367 web367">
-            <div class="bull-chaine">
-                @if($channel_top->logo)
-                <a href="{{route('channel.visitor', $channel_top->id)}}" style="text-decoration:none"> <img class="image-125" src="{{ asset('/img') }}/{{$channel->logo}}" alt=""> </a>
-                @elseif($user->age <= 15)
-                <a href="{{route('channel.visitor', $channel_top->id)}}" style="text-decoration:none"> <img class="image-125" src="{{asset('images/kids_preloader.png')}}" alt=""> </a>
-                @elseif($user->age > 15 && $user->sex == '1')
-                <a href="{{route('channel.visitor', $channel_top->id)}}" style="text-decoration:none"> <img class="image-125" src="{{asset('images/flow_preloader.png')}}" alt=""/> </a>
-                @elseif($user->age > 15 && $user->sex == '0')
-                <a href="{{route('channel.visitor', $channel_top->id)}}" style="text-decoration:none"> <img class="image-125" src="{{asset('images/sista_preloader.png')}}" alt=""> </a>
-                @endif
-            </div>
+        <div class="div-block-367-copy">
+            <a href="{{route('channel.visitor', $channel_top->id)}}" style="text-decoration:none" class="bull-chaine">
+                <img src="{{ asset('/img') }}/{{$channel_top->logo}}" class="image-125">
+            </a>
             <div class="div-block-368">
-                <a href="{{route('channel.visitor', $channel_top->id)}}" style="text-decoration:none; color:black;" class="text-block-362">{{$channel_top->name}}</a>
+                <p class="text-block-362">{{$channel_top->name}}</p>
                 <div class="div-block-371">
                     <p class="text-block-363">{{\App\Models\Channel::find($channel_top->id)->abonnees->count()}}</p>
                     <p class="text-block-345">{{__('Subscribers')}}</p>
@@ -481,53 +367,14 @@
                 </div>
             </div>
         </div>
-        <div class="div-block-367 mob367">
-             <div class="d-flex">
-                 <div class="bull-chaine">
-                     @if($channel_top->logo)
-                     <a href="{{route('channel.visitor', $channel_top->id)}}" style="text-decoration:none"> <img class="image-125" src="{{ asset('/img') }}/{{$channel->logo}}" alt=""> </a>
-                     @elseif($user->age <= 15)
-                     <a href="{{route('channel.visitor', $channel_top->id)}}" style="text-decoration:none"> <img class="image-125" src="{{asset('images/kids_preloader.png')}}" alt=""> </a>
-                     @elseif($user->age > 15 && $user->sex == '1')
-                     <a href="{{route('channel.visitor', $channel_top->id)}}" style="text-decoration:none"> <img class="image-125" src="{{asset('images/flow_preloader.png')}}" alt=""/> </a>
-                     @elseif($user->age > 15 && $user->sex == '0')
-                     <a href="{{route('channel.visitor', $channel_top->id)}}" style="text-decoration:none"> <img class="image-125" src="{{asset('images/sista_preloader.png')}}" alt=""> </a>
-                     @endif
-                 </div>
-                 <div class="div-block-368">
-                     <a href="{{route('channel.visitor', $channel_top->id)}}" style="text-decoration:none; color:black;" class="text-block-362">{{$channel_top->name}}</a>
-                     <div class="div-block-371">
-                         <p class="text-block-363">{{\App\Models\Channel::find($channel_top->id)->abonnees->count()}}</p>
-                         <p class="text-block-345">{{__('Subscribers')}}</p>
-                     </div>
-                     <p class="text-block-364">{{$videos_count}} Publications</p>
-                     <div class="text-block-366">
-                         <a href="{{route('channel.visitor', $channel_top->id)}}" class="link-28">{{__('See the channel')}}</a>
-                     </div>
-                 </div>
-             </div>
-            <div class="back-subscrib-bar">
-                <a class="btnSubscripeNotif" href="{{ route('suscribe',$channel_top->id) }}">
-                    <div class="div-block-386">
-                        <img src="{{ asset('img/Mu-coeur-blanc.svg') }}" class="imgCoeurBlanc" width="23" alt="">
-                    </div>
-                    <div>{{__('Subscribe')}}</div>
-                    <button class="btn alerte7">
-                        <img src="{{ asset('img/Mu-cloche-blanc.svg') }}" class="cloche3-1"  alt="">
-                    </button>
-                </a>
-            </div>
-        </div>
     </div>
     <div id="event" class="big-event">
-        <p class="text-block-353-copy">{{__('Upcoming events')}}</p>
+        <div class="text-block-353">{{__('Upcoming events')}}</div>
         <div class="div-block-375">
             <div class="div-block-373">
                 <div class="div-block-372">
-                    <img src="{{ asset('img/Groupe-9262x.png') }}"  alt="" class="img127">
+                    <img src="{{asset('img/Groupe-9262x.png')}}" class="image-127">
                 </div>
-
-
                 <div class="div-block-374">
                     <div class="date-indicator">
                         <p class="text-block-371">{{__('month')}}</p>
@@ -535,7 +382,7 @@
                     </div>
                     <div>
                         @php
-                        $date = new hijri();
+                            $date = new hijri();
                         @endphp
                         <div class="div-block-376">
                             <div class="div-block-378">
@@ -543,8 +390,8 @@
                                 <p class="text-block-374">{{__('in')}}</p>
                             </div>
                             <div class="div-block-377">
-                                <p class="text-block-370"></p>
-                                <p class="text-block-372"></p>
+                                <p class="text-block-370">1</p>
+                                <p class="text-block-372">15</p>
                             </div>
                         </div>
                         <div class="div-block-376">
@@ -553,8 +400,8 @@
                                 <p class="text-block-375">{{__('in')}}</p>
                             </div>
                             <div class="div-block-377">
-                                <p class="text-block-370"></p>
-                                <p class="text-block-372"></p>
+                                <p class="text-block-370">2</p>
+                                <p class="text-block-372">15</p>
                             </div>
                         </div>
                         <div class="div-block-376">
@@ -563,18 +410,18 @@
                                 <p class="text-block-376">{{__('in')}}</p>
                             </div>
                             <div class="div-block-377">
-                                <p class="text-block-370"></p>
-                                <p class="text-block-372"></p>
+                                <p class="text-block-370">6</p>
+                                <p class="text-block-372">02</p>
                             </div>
                         </div>
                         <div class="div-block-376">
                             <div class="div-block-381">
                                 <p class="text-block-368">Aïd el Kabir</p>
-                                <p class="text-block-377">{{__('in')}}</p>
+                                <p class="text-block-377">dans </p>
                             </div>
                             <div class="div-block-377">
-                                <p class="text-block-370"></p>
-                                <p class="text-block-372"></p>
+                                <p class="text-block-370">11</p>
+                                <p class="text-block-372">02</p>
                             </div>
                         </div>
                     </div>
@@ -582,6 +429,7 @@
             </div>
         </div>
     </div>
+    <!--   Party time-shield-->
     @if(!Auth::guest())
     <div id="resume" class="resume-flow">
         <div class="div-block-343">
@@ -808,26 +656,13 @@
     </div>
     @endif
 
-    <script src="{{asset('js/jquery.min.js')}}"></script>
-    <script src="{{asset('bootstrap/bootstrap.min.js')}}"></script>
-    <script src="{{asset('swiper/swiper-bundle.min.js')}}"></script>
+<script src="{{asset('js/jquery.min.js')}}"></script>
+<script src="{{asset('bootstrap/bootstrap.min.js')}}"></script>
+<script src="{{asset('swiper/swiper-bundle.min.js')}}"></script>
 <script>
-    var swiper = new Swiper('.swipeContainermodife1', {
-        slidesPerView: 3,
-        spaceBetween: 30
-    });
-</script>
-<script>
-    var swiper = new Swiper('.swipeContainermodife3', {
-        slidesPerView: 3,
-        spaceBetween: 30
-    });
-</script>
-
-<script>
-    var swiper = new Swiper('.swiper-helatcare', {
-        slidesPerView: 4.4,
-        spaceBetween: 30,
+    var swiper = new Swiper('.swipeSuggestion', {
+        slidesPerView: 4,
+        spaceBetween: 10,
         // Responsive breakpoints
         breakpoints: {
 
@@ -854,6 +689,37 @@
         }
     });
 </script>
-    <script src="{{asset('js/fixeElement.js')}}"></script>
-    @endsection
+<script>
+    var swiper = new Swiper('.swipeContainermodife3', {
+        slidesPerView: 4,
+        spaceBetween: 10,
+        // Responsive breakpoints
+        breakpoints: {
+
+            // when window width is <= 320px
+            320: {
+                slidesPerView: 3.6,
+                spaceBetween: 10
+            },
+            // when window width is <= 480px
+            480: {
+                slidesPerView: 2.3,
+                spaceBetween: 10
+            },
+            980: {
+                slidesPerView: 3,
+                spaceBetween: 10
+            },
+            1200: {
+                slidesPerView: 4.4,
+                spaceBetween: 30
+            },
+
+
+        }
+    });
+</script>
+
+<script src="{{asset('js/fixeElement.js')}}"></script>
+@endsection
 </body>
