@@ -173,10 +173,15 @@ $channel = DB::Table('users')->select('channels.*')
                         <a href="{{route('flow')}}" class="div-block-281 w-inline-block">
                             <p class="text-block-286">Flow</p>
                         </a>
-                       
+                     @if(Auth::user())  
                         <a href="{{Auth::user()->sex == 0 ? route('sistas') : '#'}}" class="div-block-283 w-inline-block">
                             <p class="text-block-286" data-toggle="tooltip" data-placement="top" title="{{Auth::user()->sex == 1 ? 'Vous ne pourrez pas accéder a cette partie compte tenu de votre profil' : 'Rubrique destiné aux videos de nos soeurs' }}">Sista&#x27;s</p>
                         </a>
+                    @else
+                        <a href="" class="div-block-283 w-inline-block">
+                            <p class="text-block-286" data-toggle="tooltip" data-placement="top" title="">Sista&#x27;s</p>
+                        </a>
+                    @endif
                     </div>
                     <div class="publish-notif">
                         <a href="{{route('videos.create')}}" class="cam-publier w-inline-block">
