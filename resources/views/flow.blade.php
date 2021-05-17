@@ -12,25 +12,29 @@
 <body class="home-body">
 @section('content-play-element')
 <div class="contentOneMonFlow">
-    <div class="abo-now">
-        <div class="div-block-477">
-            <p class="text-block-429">Bienvenue sur la version gratuite </p>
-            <p class="text-block-430"> tu peux regarder</p>
-            <p class="text-block-431"> 1 vidéo Gratuitement chaque jour</p>
+    @if(!Auth::guest())
+        @if(Auth::user()->state == 0)
+        <div class="abo-now">
+            <div class="div-block-477">
+                <p class="text-block-429">Bienvenue sur la version gratuite </p>
+                <p class="text-block-430"> tu peux regarder</p>
+                <p class="text-block-431"> 1 vidéo Gratuitement chaque jour</p>
+            </div>
+            <div class="div-block-479">
+                <img src="{{asset('img/Doobl-buble2x.png')}}" loading="lazy"  alt="">
+            </div>
+            <div class="div-block-478">
+                <p class="text-block-433">Active ton abonnement</p>
+                <p class="text-block-432">pour profite de tous les services</p>
+                <p class="text-block-432">et implique toi d&#x27;avantage dans la oumma</p>
+                <a href="#" class="button-35 w-button">Bismillah</a>
+            </div>
+            <div>
+                <img class="imgGris7" src="{{asset('img/Mu-bull-gris-.png')}}" loading="lazy"  alt="">
+            </div>
         </div>
-        <div class="div-block-479">
-            <img src="{{asset('img/Doobl-buble2x.png')}}" loading="lazy"  alt="">
-        </div>
-        <div class="div-block-478">
-            <p class="text-block-433">Active ton abonnement</p>
-            <p class="text-block-432">pour profite de tous les services</p>
-            <p class="text-block-432">et implique toi d&#x27;avantage dans la oumma</p>
-            <a href="#" class="button-35 w-button">Bismillah</a>
-        </div>
-        <div>
-            <img class="imgGris7" src="{{asset('img/Mu-bull-gris-.png')}}" loading="lazy"  alt="">
-        </div>
-    </div>
+        @endif
+    @endif
 @if($videos_haltcare)
 @if(count($videos_haltcare) > 0)
 <div class="content-Haltcare content-Block-slide">

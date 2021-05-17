@@ -22,7 +22,7 @@
                 <div class="flexElement1">
                     <div class="fistElement">
                         <div class="videoParDefaut">
-                            <video poster="{{ asset('images/sista_preloader.png')}}" class="elementVideoParDefaut" onplay="start()" controls>
+                            <video poster="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" class="elementVideoParDefaut" onplay="start()" controls>
                                 <source src="{{ asset('vids/uploads')}}/{{$video->vid}}" type="video/mp4;charset=UTF-8">
                                 <source src="{{ asset('vids/uploads')}}/{{$video->vid}}" type='video/webm; codecs="vp8, vorbis"' />
                                 <source src="{{ asset('vids/uploads')}}/{{$video->vid}}" type='video/ogg; codecs="theora, vorbis"' />
