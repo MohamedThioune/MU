@@ -1,6 +1,6 @@
 @extends('layouts.sidbarNavigation')
 <html lang="fr">
-<head> 
+<head>
     @section('css')
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <link rel="stylesheet" href="{{asset('swiper/swiper-bundle.min.css')}}">
@@ -39,7 +39,7 @@
             </div>
         </div>
     </div>
-    <div class="hot-notification-block">
+    <div class="hot-notification-block spaceElementFlow">
         <div class="div-block-403">
             <p class="text-block-428">{{__('Hot notifications')}}</p>
             <a href="{{route('notification')}}" class="text-block-392">{{__('All notifications')}}</a>
@@ -65,7 +65,6 @@
                     </div>
                 </div>
             @endif
-
             <div class="recondation-video-card">
                 @php $user = App\User::find($video->user_id); @endphp
                 <a href="{{route('play', $video->id)}}" class="video-vignette-recom">
@@ -116,7 +115,7 @@
                                     <p class="publication-info-recom">On {{strftime("%d/%m/%Y", strtotime($video->created_at))}}</p>
                                     @endif
                                 </div>
-                               
+
                                 <div class="div-block-294">
                                     <p class="text-block-301">100k</p>
                                     <div class="div-block-293">
@@ -132,40 +131,34 @@
                 <div class="hot-green">
                     <img src="{{asset('img/Mu-hot-info.png')}}" class="image-131">
                 </div>
-                <div class="div-block-391">
-                    <div class="div-block-393">
-                        <div class="div-block-392">
-                            <img src="{{asset('img/Mu-video-format-bike-girl.jpg')}}" class="image-130">
-                        </div>
-                        <div class="text-hot-flow">
-                            <p class="text-block-383">{{$event->libelle}}...</p>
-                            @if(intval(abs(strtotime("now") - strtotime($event->created_at))/ 86400) == 0)
-                                @if(intval(abs(strtotime("now") - strtotime( $event->created_at))/ 3600) > 0)
-                                <p class="text-block-385">Published {{intval(abs(strtotime("now") - strtotime( $event->created_at))/3600)}} hours ago</p>
-                                @else(intval(abs(strtotime("now") - strtotime( $event->created_at))/ 3600) == 0)
-                                <p class="text-block-385">Published {{intval(abs(strtotime("now") - strtotime( $event->created_at))/60)}} minutes ago</p>
-                                @endif
-                            @elseif(intval(abs(strtotime("now") - strtotime( $event->created_at))/ 86400) == 1)
-                            <p class="text-block-385">Yesterday at {{strftime("%H:%M", strtotime( $event->created_at))}}
+                <div class="BlockTimeTrush">
+                    <p class="text-block-383">{{$event->libelle}}...</p>
+                    <div>
+                        @if(intval(abs(strtotime("now") - strtotime($event->created_at))/ 86400) == 0)
+                        @if(intval(abs(strtotime("now") - strtotime( $event->created_at))/ 3600) > 0)
+                        <p class="text-block-385">Published {{intval(abs(strtotime("now") - strtotime( $event->created_at))/3600)}} hours ago</p>
+                        @else(intval(abs(strtotime("now") - strtotime( $event->created_at))/ 3600) == 0)
+                        <p class="text-block-385">Published {{intval(abs(strtotime("now") - strtotime( $event->created_at))/60)}} minutes ago</p>
+                        @endif
+                        @elseif(intval(abs(strtotime("now") - strtotime( $event->created_at))/ 86400) == 1)
+                        <p class="text-block-385">Yesterday at {{strftime("%H:%M", strtotime( $event->created_at))}}</p>
                             @elseif(intval(abs(strtotime("now") - strtotime( $event->created_at))/ 86400) >= 2 && intval(abs(strtotime("now") - strtotime( $event->created_at))/ 86400) <= 27)
-                            <p class="text-block-385">Published {{intval(abs(strtotime("now") - strtotime( $event->created_at))/ 86400)}} days ago</p>
-                            @else(intval(abs(strtotime("now") - strtotime( $event->created_at))/ 86400) > 27)
-                            <p class="text-block-385">Published on {{strftime("%d/%m/%Y", strtotime( $event->created_at))}}</p>
-                            @endif
-                            <div>
-                                <p class="hot-flow-txt-description">{{$event->text}}</p>
-                                <div class="like-notication">
-                                    <div class="div-block-398"><img src="{{asset('img/Image-5.png')}}" loading="lazy" alt=""></div>
-                                    <div><img src="{{asset('img/Image-6.png')}}" loading="lazy" width="28" alt=""></div>
-                                </div>
-                            </div>
-                        </div>
+                        <p class="text-block-385">Published {{intval(abs(strtotime("now") - strtotime( $event->created_at))/ 86400)}} days ago</p>
+                        @else(intval(abs(strtotime("now") - strtotime( $event->created_at))/ 86400) > 27)
+                        <p class="text-block-385">Published on {{strftime("%d/%m/%Y", strtotime( $event->created_at))}}</p>
+                        @endif
+                    </div>
+                    <p class="hot-flow-txt-description">{{$event->text}}</p>
+                    <div class="like-notication">
+                        <div class="div-block-398"><img src="{{asset('img/Image-5.png')}}" loading="lazy" alt=""></div>
+                        <div><img src="{{asset('img/Image-6.png')}}" loading="lazy" width="28" alt=""></div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
-    <div class="recommandation">
+    <div class="recommandation spaceElementFlow">
         <p class="titre-recommandation">Suggestions</p>
         <div class="swiper-container swipeSuggestion">
             <div class="swiper-wrapper">
@@ -182,7 +175,8 @@
                     <div class="recondation-video-card">
                         <div class="video-vignette-recom">
                             @if($video->thumbnail)
-                                <a href="{{route('play',[$video->id])}}" style="text-decoration:none"><img src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" class="vignette-video-sugg"></a>
+                                <a href="{{route('play',[$video->id])}}" style="text-decoration:none">
+                                    <img src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" class="vignette-video-sugg"></a>
                             @else
                                 <a href="{{route('play',[$video->id])}}" style="text-decoration:none"><img src="{{asset('img/grille.png')}}" class="vignette-video-sugg"></a>
                             @endif
@@ -224,17 +218,6 @@
                                             <p class="publication-info-recom">On {{strftime("%d/%m/%Y", strtotime($video->created_at))}}</p>
                                             @endif
                                         </div>
-                                        @if($playlist)
-                                            <div class="d-flex justify-content-between blockPlayist" >
-                                                <p class="numberviewsSuggestion"> </p>
-                                                <a  href="{{route('playlist.remove', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Remove to my playlist"><img src="{{ asset('img/report-Orange.svg') }}"  alt="Remove to my playlist"></a>
-                                            </div>
-                                        @else
-                                            <div class="d-flex justify-content-between blockPlayist" >
-                                                <p class="numberviewsSuggestion"> </p>
-                                                <a href="{{route('playlist.add', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Add to my playlist"><img src="{{ asset('img/report-gris.svg') }}"  alt="Add to my playlist"></a>
-                                            </div>
-                                        @endif
                                         <div class="div-block-294">
                                             <p class="text-block-301">100k</p>
                                             <div class="div-block-293">
@@ -251,14 +234,14 @@
             </div>
         </div>
     </div>
-    <div id="Playlist-flow" class="playlist">
+    <div id="Playlist-flow" class="playlist spaceElementFlow">
         <div>
             <p class="titre-asso-video-all">{{__('The')}} playlist</p>
         </div>
         <div class="swiper-container swipeSuggestion">
             <div class="swiper-wrapper">
                 @foreach($playlists as $playlist)
-                    <div class=" swiper-slide suggestionSwipe">
+                    <div class="swiper-slide suggestionSwipe">
                         <div class="recondation-video-card">
                             <div class="video-vignette-recom">
                                 @if($playlist->thumbnail)
@@ -319,7 +302,7 @@
             </div>
         </div>
     </div>
-    <div class="chaine-vu">
+    <div class="chaine-vu spaceElementFlow">
         <div>
             <p class="text-block-353-copy">{{__('Here is the most viewed channel at the moment')}}</p>
         </div>
@@ -368,7 +351,7 @@
             </div>
         </div>
     </div>
-    <div id="event" class="big-event">
+    <div id="event" class="big-event spaceElementFlow">
         <div class="text-block-353">{{__('Upcoming events')}}</div>
         <div class="div-block-375">
             <div class="div-block-373">
@@ -431,7 +414,7 @@
     </div>
     <!--   Party time-shield-->
     @if(!Auth::guest())
-    <div id="resume" class="resume-flow">
+    <div id="resume" class="resume-flow spaceElementFlow">
         <div class="div-block-343">
             <div class="div-block-352">
                 <p class="text-block-353-copy">{{__('This month')}}</p>
