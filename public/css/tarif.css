@@ -8198,7 +8198,6 @@
 
 .titre-recommandation {
     overflow: visible;
-    margin-top: 20px;
     margin-bottom: 0px;
     color: #fff;
     font-size: 18px;
@@ -8539,16 +8538,7 @@
 }
 
 .div-block-391 {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    margin-right: 40px;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
+
 }
 
 .text-block-381 {
