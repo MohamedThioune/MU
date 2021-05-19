@@ -13,7 +13,7 @@
 @php if(isset($_COOKIE['lang'])) App::setLocale($_COOKIE['lang']); @endphp
 @section('content-play-element')
 <div class="contentOneMonFlow">
-    <p class="text-block-350" style="font-size: 1.5em;">{{__('All your information at a glance')}}</p>
+    <p class="text-block-350" style="font-size: 1.4em;">{{__('All your information at a glance')}}</p>
     <div class="menu-content-business-copy business-Web">
         <a href="#" class="link-26">Infos</a>
         <a href="#event" class="link-26">Events.</a>
@@ -111,8 +111,10 @@
                                     <p class="publication-info-recom">Yesterday at {{strftime("%H:%M", strtotime($video->created_at))}}</p>
                                     @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) >= 2 && intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) <= 27)
                                     <p class="publication-info-recom"> {{intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400)}} days ago </p>
-                                    @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) > 27)
-                                    <p class="publication-info-recom">On {{strftime("%d/%m/%Y", strtotime($video->created_at))}}</p>
+                                    @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) > 30)
+                                    <p class="publication-info-recom">{{intval(abs(strtotime("now") - strtotime($video->created_at))/ 2592000) }} months ago</p>
+                                    @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 2592000) > 12)
+                                    <p class="publication-info-recom">{{intval(abs(strtotime("now") - strtotime($video->created_at))/ 2592000 * 12) }} years ago</p>
                                     @endif
                                 </div>
 
@@ -203,7 +205,7 @@
 
                                         <p class="smuusin-name-recom">{{$channel->name}}</p>
                                         <div>
-                                            <!-- Date creation relative -->
+                                           <!-- Date creation relative -->
                                             @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
                                             @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
                                             <p class="publication-info-recom">{{intval(abs(strtotime("now") - strtotime($video->created_at))/3600)}} hours ago </p>
@@ -214,8 +216,10 @@
                                             <p class="publication-info-recom">Yesterday at {{strftime("%H:%M", strtotime($video->created_at))}}</p>
                                             @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) >= 2 && intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) <= 27)
                                             <p class="publication-info-recom"> {{intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400)}} days ago </p>
-                                            @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) > 27)
-                                            <p class="publication-info-recom">On {{strftime("%d/%m/%Y", strtotime($video->created_at))}}</p>
+                                            @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) > 30)
+                                            <p class="publication-info-recom">{{intval(abs(strtotime("now") - strtotime($video->created_at))/ 2592000) }} months ago</p>
+                                            @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 2592000) > 12)
+                                            <p class="publication-info-recom">{{intval(abs(strtotime("now") - strtotime($video->created_at))/ 2592000 * 12) }} years ago</p>
                                             @endif
                                         </div>
                                         <div class="div-block-294">
@@ -271,7 +275,7 @@
                                         <div class="div-block-292">
                                             <p class="smuusin-name-recom">{{$channel->name}}</p>
                                             <div>
-                                                 <!-- Date creation relative -->
+                                                <!-- Date creation relative -->
                                                 @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
                                                 @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
                                                 <p class="publication-info-recom">{{intval(abs(strtotime("now") - strtotime($video->created_at))/3600)}} hours ago </p>
@@ -282,8 +286,10 @@
                                                 <p class="publication-info-recom">Yesterday at {{strftime("%H:%M", strtotime($video->created_at))}}</p>
                                                 @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) >= 2 && intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) <= 27)
                                                 <p class="publication-info-recom"> {{intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400)}} days ago </p>
-                                                @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) > 27)
-                                                <p class="publication-info-recom">On {{strftime("%d/%m/%Y", strtotime($video->created_at))}}</p>
+                                                @elseif(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) > 30)
+                                                <p class="publication-info-recom">{{intval(abs(strtotime("now") - strtotime($video->created_at))/ 2592000) }} months ago</p>
+                                                @else(intval(abs(strtotime("now") - strtotime($video->created_at))/ 2592000) > 12)
+                                                <p class="publication-info-recom">{{intval(abs(strtotime("now") - strtotime($video->created_at))/ 2592000 * 12) }} years ago</p>
                                                 @endif
                                             </div>
                                             <div class="div-block-294">
