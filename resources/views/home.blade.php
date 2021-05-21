@@ -76,7 +76,7 @@
                 </a>
                 <div class="vignette-vid-info-recom">
                     <div class="div-block-295">
-                        <a href="{{route('play',$video->id)}}" class="titre-v-c-recom">{{$video->main_title}}</a>
+                        <a href="{{route('play',$video->id)}}" class="titre-v-c-recom" style="text-decoration:none">{{$video->main_title}}</a>
                         <div class="badge-eval">
                             <img src="{{asset('img/Mu-badge-vide2x.png')}}" class="image-111">
                         </div>
@@ -185,7 +185,7 @@
                         </div>
                         <div class="vignette-vid-info-recom">
                             <div class="div-block-295">
-                                <a href="{{route('play',[$video->id])}}" class="titre-v-c-recom">{{$video->main_title}}</a>
+                                <a href="{{route('play',[$video->id])}}" class="titre-v-c-recom" style="text-decoration:none">{{$video->main_title}}</a>
                                 <div class="badge-eval">
                                     <img src="{{asset('img/Mu-badge-vide2x.png')}}" loading="lazy" alt="" class="image-111">
                                 </div>
@@ -203,7 +203,7 @@
                                     </a>
                                     <div class="div-block-292">
 
-                                        <p class="smuusin-name-recom">{{$channel->name}}</p>
+                                        <a href="{{route('channel.visitor', $channel->id)}}" style="text-decoration:none" class="smuusin-name-recom">{{$channel->name}}</a>
                                         <div>
                                            <!-- Date creation relative -->
                                             @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
@@ -256,7 +256,7 @@
                             </div>
                             <div class="vignette-vid-info-recom">
                                 <div class="div-block-295">
-                                    <a href="{{route('play',[$playlist->id])}}" class="titre-v-c-recom">{{$playlist->main_title}}</a>
+                                    <a href="{{route('play',[$playlist->id])}}" class="titre-v-c-recom" style="text-decoration:none">{{$playlist->main_title}}</a>
                                     <div class="badge-eval">
                                         <img src="{{asset('img/Mu-badge-vide2x.png')}}" loading="lazy" alt="" class="image-111">
                                     </div>
@@ -273,7 +273,7 @@
                                             <a href="{{route('channel.visitor', $channel->id)}}"><img src="{{ asset('/img') }}/{{$channel->logo}}" class="image-109"></a>
                                         </div>
                                         <div class="div-block-292">
-                                            <p class="smuusin-name-recom">{{$channel->name}}</p>
+                                            <a href="{{route('channel.visitor', $channel->id)}}" style="text-decoration:none" class="smuusin-name-recom">{{$channel->name}}</a>
                                             <div>
                                                 <!-- Date creation relative -->
                                                 @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)

@@ -221,6 +221,7 @@
                     <div>
                         <div class="infos-biz-chaine">
                             <p class="text-block-343"><b style="color:black;">{{$visit->name}}</b>{{__('')}} la pour vous &#x1F60E; ...</p>
+                            <span class="text-block-320" style="margin-left:-300px"><br><br><br>* Reste non-renseigné pour l'instant</span>
                         </div>
                     </div>
                     @endif
@@ -311,12 +312,6 @@
                                 <p class="day">Published on {{strftime("%d/%m/%Y", strtotime($top->created_at))}}</p>
                                 @endif
 
-                                <!--
-                                    <div class="d-flex justify-content-between">
-                                        <p class="numberviewsSuggestion">1230</p>
-                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
-                                    </div>
-                                -->
                             </div>
                         </div>
                     </div>

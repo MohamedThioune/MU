@@ -59,6 +59,8 @@ class VideoController extends AppBaseController
                     $duration = $durations[0]. ':' .$durations[1]. ':' .$durations[2];
             }
         }
+
+        $_COOKIE['state'] = "channel";
         
         return view('videos.index', compact('videos', 'subtopics', 'channel'));
     }
@@ -114,6 +116,9 @@ class VideoController extends AppBaseController
                                                         ->join('channels', 'users.id', 'channels.user_id')
                                                         ->where('users.id', Auth::id())
                                                         ->first();
+
+        $_COOKIE['state'] = "channel";
+
         return view('videos.create',compact('subtopics_health', 'subtopics_life', 'subtopics_healthcare', 'subtopics_business', 'subtopics_education', 'subtopics_new', 'subtopics_inshaallah', 'subtopics', 'channel'));
     }
 

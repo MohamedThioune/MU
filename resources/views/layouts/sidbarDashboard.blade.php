@@ -291,7 +291,11 @@
                                         <div class="sidebar-icon">
                                             <img src="{{ asset('img/Mu-tV-chanel-play-gris.svg') }}" class="imgMuGris" alt="">
                                         </div>
-                                        <div class="faq-q-text" ><strong class="bold-text-5">{{__('My channel')}}</strong></div>
+                                        @if(isset($_COOKIE['state']))
+                                            <div class="faq-q-text"><p class="bold-text-5" style="{{ $_COOKIE['state'] == 'channel' ? 'color:#F59546' : ''}}" >{{__('My channel')}}</p></div>
+                                        @else 
+                                            <div class="faq-q-text"><strong class="bold-text-5">{{__('My channel')}}</strong></div>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="faq-answer" id="sousBlockChaines">

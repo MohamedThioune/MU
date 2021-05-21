@@ -152,7 +152,8 @@ Route::get('/', function () {
     ->get();
 
     session(['videos_haltcare' => $videos_haltcare, 'videos_life' => $videos_life, 'videos_health' => $videos_health, 'videos_business' => $videos_business, 'videos_environnement' => $videos_environnement, 'videos_education' => $videos_education]);
-
+    
+    $_COOKIE['state'] = "home";
     return view('home', compact('subtopics','channel','event', 'video','last','channel_top','videos_count','look_videos','like_videos','follows', 'looks','shahid','playlists'));
 
 })->name('home')->middleware('auth');
@@ -509,6 +510,8 @@ Route::get('/notification', function(){
     ->where('abonne_channel.user_id', Auth::id())
     ->get();
 
+    $_COOKIE['state'] = "home";
+
     return view('notification',compact('channel','follows'));
 })->name('notification');
 
@@ -517,7 +520,11 @@ Route::get('/parametre', function () {
     ->join('channels', 'users.id', 'channels.user_id')
     ->where('users.id', Auth::id())
     ->first();
+    
+        $_COOKIE['state'] = "parameter";
+
     return view('users.parametre',compact('channel'));
+
 })->name('parametre')->middleware('auth');
 
 Route::get('/parametrePhoto', function () {

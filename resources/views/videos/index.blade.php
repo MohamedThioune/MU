@@ -48,7 +48,7 @@
             </a>
 
             <div class="text-block-253">
-                <a href="{{route('play',[$video->id])}}" class="link-18">{{$video->description}}</a><br>
+                <a href="{{route('play',[$video->id])}}" class="link-18" style="color:#212529">{{$video->description}}</a><br>
             </div>
             @php
 
