@@ -74,9 +74,14 @@
                         <img src="{{asset('img/grille.png')}}" class="vignette-video-sugg">
                     @endif
                 </a>
+                @php 
+                    $date = explode(":",$video->duration);
+                    if($date[0] == "00")
+                        $video->duration =  $date[1]. ":" .$date[2];
+                @endphp
                 <div class="vignette-vid-info-recom">
                     <div class="div-block-295">
-                        <a href="{{route('play',$video->id)}}" class="titre-v-c-recom" style="text-decoration:none">{{$video->main_title}}</a>
+                        <a href="{{route('play',$video->id)}}" class="titre-v-c-recom" style="text-decoration:none">{{$video->main_title}}  - {{$video->duration}}</a>
                         <div class="badge-eval">
                             <img src="{{asset('img/Mu-badge-vide2x.png')}}" class="image-111">
                         </div>
@@ -183,6 +188,11 @@
                                 <a href="{{route('play',[$video->id])}}" style="text-decoration:none"><img src="{{asset('img/grille.png')}}" class="vignette-video-sugg"></a>
                             @endif
                         </div>
+                        @php 
+                            $date = explode(":",$video->duration);
+                            if($date[0] == "00")
+                                $video->duration =  $date[1]. ":" .$date[2];
+                        @endphp
                         <div class="vignette-vid-info-recom">
                             <div class="div-block-295">
                                 <a href="{{route('play',[$video->id])}}" class="titre-v-c-recom" style="text-decoration:none">{{$video->main_title}}</a>
@@ -254,6 +264,11 @@
                                     <a href="{{route('play',[$playlist->id])}}" style="text-decoration:none"><img src="{{asset('img/grille.png')}}" class="vignette-video-sugg"></a>
                                 @endif
                             </div>
+                            @php 
+                                $date = explode(":",$video->duration);
+                                if($date[0] == "00")
+                                    $video->duration =  $date[1]. ":" .$date[2];
+                            @endphp
                             <div class="vignette-vid-info-recom">
                                 <div class="div-block-295">
                                     <a href="{{route('play',[$playlist->id])}}" class="titre-v-c-recom" style="text-decoration:none">{{$playlist->main_title}}</a>

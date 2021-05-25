@@ -1539,7 +1539,7 @@
                                             <img src="{{asset('images/kids_preloader.png')}}" class="vignette-video-sugg">
                                         </a>
                                         @elseif($user->age > 15 && $user->sex == '1')
-                                        <a href="{{route('play',[$video->id])}}""  style="text-decoration:none">
+                                        <a href="{{route('play',[$video->id])}}"  style="text-decoration:none">
                                         <img src="{{asset('images/flow_preloader.png')}}" class="vignette-video-sugg">
                                         </a>
                                         @elseif($user->age > 15 && $user->sex == '0')
