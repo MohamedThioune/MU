@@ -1,0 +1,10 @@
+.v1{
+    display: none !important;
+}
+.mobileVisiblite .v1{
+    display: none !important;
+}
+.blockGeneralContent {
+    display: block!important;
+    width: 100%;
+}

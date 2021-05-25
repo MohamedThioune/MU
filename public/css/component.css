@@ -1,0 +1,111 @@
+.inputFile1 {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+.formpublier{
+    width: 87%;
+}
+.inputfile + label {
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    margin-top: 13px;
+    /* 10px 20px */
+}
+
+.
+.no-js .inputfile + label {
+    display: none;
+}
+
+.inputfile + label img {
+    width: 1em;
+    height: 1em;
+    vertical-align: middle;
+    fill: currentColor;
+    margin-top: -0.25em;
+    margin-right: 0.25em;
+}
+.inputfile-4 + label figure {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 10px;
+    padding: 15px;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    border-radius: 50px;
+    background-color: #ebebeb;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.inputfile-4 + label img {
+    width: 100%;
+    height: 100%;
+
+}
+
+.inputfile-5 + label figure {
+    width: 100px;
+    height: 135px;
+    display: block;
+    position: relative;
+    padding: 30px;
+    margin: 0 auto 10px;
+}
+
+.inputfile-5 + label figure::before,
+.inputfile-5 + label figure::after {
+    width: 0;
+    height: 0;
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.inputfile-5 + label img {
+    width: 100%;
+    height: 100%;
+}
+
+
+.inputfile-6 + label span,
+.inputfile-6 + label strong {
+    padding: 0.625rem 1.25rem;
+    /* 10px 20px */
+}
+
+.inputfile-6 + label span {
+    width: 200px;
+    min-height: 2em;
+    display: inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    vertical-align: top;
+}
+
+.inputfile-6 + label strong {
+    height: 100%;
+    display: inline-block;
+}
+
+
+
+@media screen and (max-width: 50em) {
+	.inputfile-6 + label strong {
+		display: block;
+	}
+}

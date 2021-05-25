@@ -1,0 +1,6 @@
+.idea/
+_arcanedev/
+examples/
+vendor/
+composer.phar
+composer.lock

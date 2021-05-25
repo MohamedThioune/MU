@@ -1,0 +1,35 @@
+{
+    "A fresh verification link has been sent to your email address.": "A fresh verification link has been sent to your email address.",
+    "All rights reserved.": "All rights reserved.",
+
+    "Welcome":"Welcome",
+    "Welcome.synopsis" : "We welcome you to your first Muslim community platform designed to provide you with videos that conform to the Muslim charters while having an instructive, entertaining or simply a platform for fellowship among Muslim brothers.",
+    "Welcome.credentials": "Your login details :",
+    "Welcome.username": "User name",
+    "Welcome.password": "The one you entered when you logged in",
+    "Welcome.faith": "Faith",
+    "Welcome.control": "Control",    
+    "Welcome.block1": "Promote your religion with appropriate content.",
+    "Welcome.block2": "A platform dedicated to you, the women.",
+    "Welcome.block3": "Safe content for the whole family ☺️.",
+    "Learn More": "Learn more",
+    "Looking forward to seeing you again": "Looking forward to seeing you again !!",
+    "unsubscribe": "This e-mail has been sent to",
+
+
+    "register.create": "Create your account",
+    "register.hassanate": "and multiply your hassanates",
+    "register.ami": "I am",
+    "register.email": "Email Address",
+    "register.femme": "a woman",
+    "register.homme": "a man",
+    "register.name": "Full name",
+
+    "reset.faith" : "There is no God but Allah",
+    "reset.parole" : "This is the most beautiful of words",
+    "reset.instruction 1" : "Enter your email address ",
+    "reset.instruction 2" : "and receive instructions ",
+    "reset.instruction 3" : "to reset your password"
+
+
+}

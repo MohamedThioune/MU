@@ -1,0 +1,10 @@
+{
+    "nasc-touchbar.commentLine": true,
+    "nasc-touchbar.addCursorBelow": false,
+    "nasc-touchbar.copyLineDown": true,
+    "nasc-touchbar.goToDefinition": false,
+    "nasc-touchbar.rename": false,
+    "nasc-touchbar.goToNext": true,
+    "nasc-touchbar.toggleSidebar": true,
+    "editor.formatOnSave": true
+}
