@@ -184,7 +184,7 @@ $channel = DB::Table('users')->select('channels.*')
                     @endif
                     </div>
                     <div class="publish-notif">
-                        <a href="{{route('videos.create')}}" class="cam-publier w-inline-block">
+                        <a href="{{route('video.create')}}" class="cam-publier w-inline-block">
                             <img src="{{ asset('img/Mu-upload-cloud-blanc2x.png') }}" class="imgCloud2" alt="">
                         </a>
                         <a href="{{route('notification')}}" class="cloche w-inline-block">
@@ -291,10 +291,10 @@ $channel = DB::Table('users')->select('channels.*')
                                    <p class="text-block-257">{{__('Dashboard')}}<br></p>
                                </a>
                                @endif
-                               <a data-w-id="3ebc1e8b-4c8a-0be6-ba36-5e829586b7a0" href="{{route('videos.create')}}" class="link-block-36 w-inline-block">
+                               <a data-w-id="3ebc1e8b-4c8a-0be6-ba36-5e829586b7a0" href="{{route('video.create')}}" class="link-block-36 w-inline-block">
                                    <p class="text-block-257">{{__('Publish')}}<br></p>
                                </a>
-                               <a data-w-id="3ebc1e8b-4c8a-0be6-ba36-5e829586b7a0" href="{{route('videos.index')}}" class="link-block-36 w-inline-block">
+                               <a data-w-id="3ebc1e8b-4c8a-0be6-ba36-5e829586b7a0" href="{{route('video.index')}}" class="link-block-36 w-inline-block">
                                    <p class="text-block-257">{{__('My videos')}}<br></p>
                                </a>
                                <!-- <p class="faq-answer-text">{{__('My videos')}}<br>{{__('Comments')}}<br>Audiences <br>{{__('Subscribers')}}<br>{{__('Monetization')}}<br></p> -->

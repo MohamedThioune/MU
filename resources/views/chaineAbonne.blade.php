@@ -248,7 +248,7 @@
     </div>
     @endif
     @php $bool = false; @endphp
-    <div class="derniersNouvelles">
+    <!-- <div class="derniersNouvelles">
         <p class="text-Playlist">{{__('The videos that have been viewed the most ...')}}</p>
         <div class="swiper-container swipeContainermodife1">
             <div class="swiper-wrapper">
@@ -312,13 +312,6 @@
                                 @else(intval(abs(strtotime("now") - strtotime($top->created_at))/ 86400) > 27)
                                 <p class="day">Published on {{strftime("%d/%m/%Y", strtotime($top->created_at))}}</p>
                                 @endif
-
-                                <!--
-                                    <div class="d-flex justify-content-between">
-                                        <p class="numberviewsSuggestion">1230</p>
-                                        <img class="oeil-1" src="{{ asset('img/icones/oeil-1.png') }}" alt="">
-                                    </div>
-                                -->
                             </div>
                         </div>
                     </div>
@@ -328,7 +321,7 @@
                @if(!$bool) {{__('No videos can be uploaded for this channel at this time')}} &#x1F625;  @endif
             </div>
         </div>
-    </div>
+    </div> -->
     <div id="Offre-business" class="offre-de-la-chaine">
         <p class="text-block-342">Les offres</p>
         <div class="div-block-319">

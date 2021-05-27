@@ -461,7 +461,7 @@ Route::resource('subTopics', 'SubTopicController')->middleware('auth');
 
 Route::resource('mainTopics', 'MainTopicController')->middleware('auth');
 
-Route::resource('videos', 'VideoController')->middleware('auth');
+Route::resource('video', 'VideoController')->middleware('auth');
 Route::get('likevideo/{video_id}','VideoController@likeVideo')->name('likevideo')->middleware('auth');
 Route::get('dislikevideo/{video_id}','VideoController@dislikeVideo')->name('dislikevideo')->middleware('auth');
 
