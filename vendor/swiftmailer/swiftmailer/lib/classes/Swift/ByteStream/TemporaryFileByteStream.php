@@ -39,6 +39,7 @@ class Swift_ByteStream_TemporaryFileByteStream extends Swift_ByteStream_FileByte
             @unlink($this->getPath());
         }
     }
+<<<<<<< HEAD
 
     public function __sleep()
     {
@@ -49,4 +50,6 @@ class Swift_ByteStream_TemporaryFileByteStream extends Swift_ByteStream_FileByte
     {
         throw new \BadMethodCallException('Cannot unserialize '.__CLASS__);
     }
+=======
+>>>>>>> 939cabb5 (commit with cpanel)
 }

@@ -18,6 +18,11 @@ interface Swift_Events_EventDispatcher
     /**
      * Create a new SendEvent for $source and $message.
      *
+<<<<<<< HEAD
+=======
+     * @param Swift_Mime_SimpleMessage
+     *
+>>>>>>> 939cabb5 (commit with cpanel)
      * @return Swift_Events_SendEvent
      */
     public function createSendEvent(Swift_Transport $source, Swift_Mime_SimpleMessage $message);

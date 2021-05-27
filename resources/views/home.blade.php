@@ -74,6 +74,12 @@
                         <img src="{{asset('img/grille.png')}}" class="vignette-video-sugg">
                     @endif
                 </a>
+                @php 
+                    $date = explode(":",$video->duration);
+                    
+                    if ($date[0] = "00")
+                        $video->duration = $date[1] . ":" . $date[2];
+                @endphp
                 <p class="durationVideo2">{{$video->duration}}</p>
                 <div class="vignette-vid-info-recom">
                     <div class="div-block-295">
@@ -182,6 +188,12 @@
                                 <a href="{{route('play',[$video->id])}}" style="text-decoration:none"><img src="{{asset('img/grille.png')}}" class="vignette-video-sugg"></a>
                             @endif
                         </div>
+                        @php 
+                            $date = explode(":",$video->duration);
+                            
+                            if ($date[0] = "00")
+                                $video->duration = $date[1] . ":" . $date[2];
+                        @endphp
                         <p class="durationVideo2">{{$video->duration}}</p>
                         <div class="vignette-vid-info-recom">
                             <div class="div-block-295">
@@ -252,6 +264,12 @@
                                     <a href="{{route('play',[$playlist->id])}}" style="text-decoration:none"><img src="{{asset('img/grille.png')}}" class="vignette-video-sugg"></a>
                                 @endif
                             </div>
+                            @php 
+                                $date = explode(":",$playlist->duration);
+                                
+                                if ($date[0] = "00")
+                                    $video->duration = $date[1] . ":" . $date[2];
+                            @endphp
                             <p class="durationVideo2">{{$video->duration}}</p>
                             <div class="vignette-vid-info-recom">
                                 <div class="div-block-295">

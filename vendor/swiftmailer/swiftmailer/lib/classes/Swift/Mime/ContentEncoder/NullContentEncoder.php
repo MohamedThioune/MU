@@ -21,7 +21,11 @@ class Swift_Mime_ContentEncoder_NullContentEncoder implements Swift_Mime_Content
      *
      * @var string
      */
+<<<<<<< HEAD
     private $name;
+=======
+    private $_name;
+>>>>>>> 939cabb5 (commit with cpanel)
 
     /**
      * Creates a new NullContentEncoder with $name (probably 7bit or 8bit).
@@ -30,7 +34,11 @@ class Swift_Mime_ContentEncoder_NullContentEncoder implements Swift_Mime_Content
      */
     public function __construct($name)
     {
+<<<<<<< HEAD
         $this->name = $name;
+=======
+        $this->_name = $name;
+>>>>>>> 939cabb5 (commit with cpanel)
     }
 
     /**
@@ -67,7 +75,11 @@ class Swift_Mime_ContentEncoder_NullContentEncoder implements Swift_Mime_Content
      */
     public function getName()
     {
+<<<<<<< HEAD
         return $this->name;
+=======
+        return $this->_name;
+>>>>>>> 939cabb5 (commit with cpanel)
     }
 
     /**

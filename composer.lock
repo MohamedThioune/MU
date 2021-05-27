@@ -4,6 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "content-hash": "6b859d6f3e7cf8cfeffd5d025963b5bf",
     "packages": [
         {
@@ -149,6 +150,11 @@
             "time": "2019-03-17T10:36:46+00:00"
         },
         {
+=======
+    "content-hash": "bf3c948f982e4ea5ec2fcaef27270719",
+    "packages": [
+        {
+>>>>>>> 939cabb5 (commit with cpanel)
             "name": "dnoegel/php-xdg-base-dir",
             "version": "v0.1.1",
             "source": {
@@ -182,6 +188,7 @@
             "time": "2019-12-04T15:06:13+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "doctrine/annotations",
             "version": "1.11.1",
             "source": {
@@ -253,6 +260,8 @@
             "time": "2020-10-26T10:28:16+00:00"
         },
         {
+=======
+>>>>>>> 939cabb5 (commit with cpanel)
             "name": "doctrine/inflector",
             "version": "1.4.3",
             "source": {
@@ -328,6 +337,23 @@
                 "uppercase",
                 "words"
             ],
+<<<<<<< HEAD
+=======
+            "funding": [
+                {
+                    "url": "https://www.doctrine-project.org/sponsorship.html",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://www.patreon.com/phpdoctrine",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/doctrine%2Finflector",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> 939cabb5 (commit with cpanel)
             "time": "2020-05-29T07:19:59+00:00"
         },
         {
@@ -390,6 +416,23 @@
                 "parser",
                 "php"
             ],
+<<<<<<< HEAD
+=======
+            "funding": [
+                {
+                    "url": "https://www.doctrine-project.org/sponsorship.html",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://www.patreon.com/phpdoctrine",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/doctrine%2Flexer",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> 939cabb5 (commit with cpanel)
             "time": "2020-05-25T17:44:05+00:00"
         },
         {
@@ -444,6 +487,15 @@
                 "cron",
                 "schedule"
             ],
+<<<<<<< HEAD
+=======
+            "funding": [
+                {
+                    "url": "https://github.com/dragonmantank",
+                    "type": "github"
+                }
+            ],
+>>>>>>> 939cabb5 (commit with cpanel)
             "time": "2020-10-13T00:52:37+00:00"
         },
         {
@@ -502,6 +554,15 @@
                 "validation",
                 "validator"
             ],
+<<<<<<< HEAD
+=======
+            "funding": [
+                {
+                    "url": "https://github.com/egulias",
+                    "type": "github"
+                }
+            ],
+>>>>>>> 939cabb5 (commit with cpanel)
             "time": "2020-12-29T14:50:06+00:00"
         },
         {
@@ -605,6 +666,7 @@
             "time": "2020-10-22T13:48:01+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "infyomlabs/adminlte-templates",
             "version": "5.6.x-dev",
             "source": {
@@ -766,6 +828,8 @@
             "time": "2020-12-19T07:28:40+00:00"
         },
         {
+=======
+>>>>>>> 939cabb5 (commit with cpanel)
             "name": "jakub-onderka/php-console-color",
             "version": "v0.2",
             "source": {
@@ -856,6 +920,7 @@
             "time": "2018-09-29T18:48:56+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "james-heinrich/getid3",
             "version": "v1.9.20",
             "source": {
@@ -964,6 +1029,8 @@
             "time": "2016-01-25T15:38:17+00:00"
         },
         {
+=======
+>>>>>>> 939cabb5 (commit with cpanel)
             "name": "kylekatarnls/update-helper",
             "version": "1.2.1",
             "source": {
@@ -978,6 +1045,7 @@
                 "shasum": ""
             },
             "require": {
+<<<<<<< HEAD
                 "composer-plugin-api": "^1.1.0 || ^2.0.0",
                 "php": ">=5.3.0"
             },
@@ -1048,6 +1116,24 @@
                 "files": [
                     "src/Laracasts/Flash/functions.php"
                 ]
+=======
+                "composer-plugin-api": "^1.1.0 || ^2.0.0",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "codeclimate/php-test-reporter": "dev-master",
+                "composer/composer": "2.0.x-dev || ^2.0.0-dev",
+                "phpunit/phpunit": ">=4.8.35 <6.0"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "UpdateHelper\\ComposerPlugin"
+            },
+            "autoload": {
+                "psr-0": {
+                    "UpdateHelper\\": "src/"
+                }
+>>>>>>> 939cabb5 (commit with cpanel)
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -1055,12 +1141,35 @@
             ],
             "authors": [
                 {
+<<<<<<< HEAD
                     "name": "Jeffrey Way",
                     "email": "jeffrey@laracasts.com"
                 }
             ],
             "description": "Easy flash notifications",
             "time": "2020-09-07T13:25:35+00:00"
+=======
+                    "name": "Kyle",
+                    "email": "kylekatarnls@gmail.com"
+                }
+            ],
+            "description": "Update helper",
+            "funding": [
+                {
+                    "url": "https://github.com/kylekatarnls",
+                    "type": "github"
+                },
+                {
+                    "url": "https://opencollective.com/Carbon",
+                    "type": "open_collective"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/nesbot/carbon",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-04-07T20:44:10+00:00"
+>>>>>>> 939cabb5 (commit with cpanel)
         },
         {
             "name": "laravel/framework",
@@ -1265,6 +1374,7 @@
             "time": "2019-08-07T15:10:45+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "laravelcollective/html",
             "version": "v5.6",
             "source": {
@@ -1333,6 +1443,8 @@
             "time": "2018-02-08T16:16:30+00:00"
         },
         {
+=======
+>>>>>>> 939cabb5 (commit with cpanel)
             "name": "league/flysystem",
             "version": "1.1.3",
             "source": {
@@ -1415,6 +1527,15 @@
                 "sftp",
                 "storage"
             ],
+<<<<<<< HEAD
+=======
+            "funding": [
+                {
+                    "url": "https://offset.earth/frankdejonge",
+                    "type": "other"
+                }
+            ],
+>>>>>>> 939cabb5 (commit with cpanel)
             "time": "2020-08-23T07:39:11+00:00"
         },
         {
@@ -1456,6 +1577,19 @@
                 }
             ],
             "description": "Mime-type detection for Flysystem",
+<<<<<<< HEAD
+=======
+            "funding": [
+                {
+                    "url": "https://github.com/frankdejonge",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/league/flysystem",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> 939cabb5 (commit with cpanel)
             "time": "2020-10-18T11:50:25+00:00"
         },
         {
@@ -1528,6 +1662,19 @@
                 "logging",
                 "psr-3"
             ],
+<<<<<<< HEAD
+=======
+            "funding": [
+                {
+                    "url": "https://github.com/Seldaek",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/monolog/monolog",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> 939cabb5 (commit with cpanel)
             "time": "2020-12-14T12:56:38+00:00"
         },
         {
@@ -1639,6 +1786,7 @@
             "time": "2020-12-20T10:01:03+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "overtrue/laravel-follow",
             "version": "2.2.1",
             "source": {
@@ -1767,6 +1915,8 @@
             "time": "2020-09-14T08:57:15+00:00"
         },
         {
+=======
+>>>>>>> 939cabb5 (commit with cpanel)
             "name": "paragonie/random_compat",
             "version": "v9.99.99",
             "source": {
@@ -1812,6 +1962,7 @@
             "time": "2018-07-02T15:55:56+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "prettus/l5-repository",
             "version": "2.7.4",
             "source": {
@@ -1921,6 +2072,8 @@
             "time": "2020-09-21T20:20:45+00:00"
         },
         {
+=======
+>>>>>>> 939cabb5 (commit with cpanel)
             "name": "psr/container",
             "version": "1.0.0",
             "source": {
@@ -2227,6 +2380,7 @@
         },
         {
             "name": "swiftmailer/swiftmailer",
+<<<<<<< HEAD
             "version": "v6.2.5",
             "source": {
                 "type": "git",
@@ -2237,6 +2391,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/698a6a9f54d7eb321274de3ad19863802c879fb7",
                 "reference": "698a6a9f54d7eb321274de3ad19863802c879fb7",
+=======
+            "version": "v6.2.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/swiftmailer/swiftmailer.git",
+                "reference": "56f0ab23f54c4ccbb0d5dcc67ff8552e0c98d59e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/56f0ab23f54c4ccbb0d5dcc67ff8552e0c98d59e",
+                "reference": "56f0ab23f54c4ccbb0d5dcc67ff8552e0c98d59e",
+>>>>>>> 939cabb5 (commit with cpanel)
                 "shasum": ""
             },
             "require": {
@@ -2284,10 +2450,13 @@
                 "mail",
                 "mailer"
             ],
+<<<<<<< HEAD
             "support": {
                 "issues": "https://github.com/swiftmailer/swiftmailer/issues",
                 "source": "https://github.com/swiftmailer/swiftmailer/tree/v6.2.5"
             },
+=======
+>>>>>>> 939cabb5 (commit with cpanel)
             "funding": [
                 {
                     "url": "https://github.com/fabpot",
@@ -2298,7 +2467,11 @@
                     "type": "tidelift"
                 }
             ],
+<<<<<<< HEAD
             "time": "2021-01-12T09:35:59+00:00"
+=======
+            "time": "2020-12-08T18:02:06+00:00"
+>>>>>>> 939cabb5 (commit with cpanel)
         },
         {
             "name": "symfony/console",
@@ -2370,6 +2543,23 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> 939cabb5 (commit with cpanel)
             "time": "2020-12-18T07:41:31+00:00"
         },
         {
@@ -2408,6 +2598,7 @@
                     "email": "fabien@symfony.com"
                 },
                 {
+<<<<<<< HEAD
                     "name": "Jean-François Simon",
                     "email": "jeanfrancois.simon@sensiolabs.com"
                 },
@@ -2418,6 +2609,32 @@
             ],
             "description": "Symfony CssSelector Component",
             "homepage": "https://symfony.com",
+=======
+                    "name": "Jean-François Simon",
+                    "email": "jeanfrancois.simon@sensiolabs.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony CssSelector Component",
+            "homepage": "https://symfony.com",
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> 939cabb5 (commit with cpanel)
             "time": "2020-12-08T17:02:38+00:00"
         },
         {
@@ -2470,6 +2687,23 @@
             ],
             "description": "Symfony Debug Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> 939cabb5 (commit with cpanel)
             "time": "2020-12-10T16:34:26+00:00"
         },
         {
@@ -2520,6 +2754,23 @@
             ],
             "description": "A generic function and convention to trigger deprecation notices",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> 939cabb5 (commit with cpanel)
             "time": "2020-09-07T11:33:47+00:00"
         },
         {
@@ -2572,6 +2823,23 @@
             ],
             "description": "Symfony ErrorHandler Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> 939cabb5 (commit with cpanel)
             "time": "2020-12-09T11:15:38+00:00"
         },
         {
@@ -2638,6 +2906,23 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> 939cabb5 (commit with cpanel)
             "time": "2020-12-18T07:41:31+00:00"
         },
         {
@@ -2700,6 +2985,23 @@
                 "interoperability",
                 "standards"
             ],
+<<<<<<< HEAD
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> 939cabb5 (commit with cpanel)
             "time": "2020-07-06T13:19:58+00:00"
         },
         {
@@ -2744,6 +3046,23 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> 939cabb5 (commit with cpanel)
             "time": "2020-12-08T16:59:59+00:00"
         },
         {
@@ -2806,6 +3125,23 @@
                 "interoperability",
                 "standards"
             ],
+<<<<<<< HEAD
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> 939cabb5 (commit with cpanel)
             "time": "2020-10-14T17:08:19+00:00"
         },
         {
@@ -2857,6 +3193,23 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> 939cabb5 (commit with cpanel)
             "time": "2020-12-18T07:41:31+00:00"
         },
         {
@@ -2944,6 +3297,23 @@
             ],
             "description": "Symfony HttpKernel Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> 939cabb5 (commit with cpanel)
             "time": "2020-12-18T13:32:33+00:00"
         },
         {
@@ -3007,6 +3377,23 @@
                 "mime",
                 "mime-type"
             ],
+<<<<<<< HEAD
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> 939cabb5 (commit with cpanel)
             "time": "2020-12-09T18:54:12+00:00"
         },
         {
@@ -3069,6 +3456,23 @@
                 "polyfill",
                 "portable"
             ],
+<<<<<<< HEAD
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> 939cabb5 (commit with cpanel)
             "time": "2021-01-07T16:49:33+00:00"
         },
         {
@@ -3132,6 +3536,23 @@
                 "portable",
                 "shim"
             ],
+<<<<<<< HEAD
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> 939cabb5 (commit with cpanel)
             "time": "2021-01-07T16:49:33+00:00"
         },
         {
@@ -3202,6 +3623,23 @@
                 "portable",
                 "shim"
             ],
+<<<<<<< HEAD
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> 939cabb5 (commit with cpanel)
             "time": "2021-01-07T16:49:33+00:00"
         },
         {
@@ -3269,6 +3707,23 @@
                 "portable",
                 "shim"
             ],
+<<<<<<< HEAD
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> 939cabb5 (commit with cpanel)
             "time": "2021-01-07T17:09:11+00:00"
         },
         {
@@ -3332,6 +3787,23 @@
                 "portable",
                 "shim"
             ],
+<<<<<<< HEAD
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> 939cabb5 (commit with cpanel)
             "time": "2021-01-07T16:49:33+00:00"
         },
         {
@@ -3391,6 +3863,23 @@
                 "portable",
                 "shim"
             ],
+<<<<<<< HEAD
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> 939cabb5 (commit with cpanel)
             "time": "2021-01-07T16:49:33+00:00"
         },
         {
@@ -3453,6 +3942,23 @@
                 "portable",
                 "shim"
             ],
+<<<<<<< HEAD
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> 939cabb5 (commit with cpanel)
             "time": "2021-01-07T16:49:33+00:00"
         },
         {
@@ -3519,6 +4025,23 @@
                 "portable",
                 "shim"
             ],
+<<<<<<< HEAD
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> 939cabb5 (commit with cpanel)
             "time": "2021-01-07T16:49:33+00:00"
         },
         {
@@ -3563,6 +4086,23 @@
             ],
             "description": "Symfony Process Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> 939cabb5 (commit with cpanel)
             "time": "2020-12-08T16:59:59+00:00"
         },
         {
@@ -3634,6 +4174,23 @@
                 "uri",
                 "url"
             ],
+<<<<<<< HEAD
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> 939cabb5 (commit with cpanel)
             "time": "2020-12-08T16:59:59+00:00"
         },
         {
@@ -3696,6 +4253,23 @@
                 "interoperability",
                 "standards"
             ],
+<<<<<<< HEAD
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> 939cabb5 (commit with cpanel)
             "time": "2020-09-07T11:33:47+00:00"
         },
         {
@@ -3767,6 +4341,23 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> 939cabb5 (commit with cpanel)
             "time": "2020-12-08T16:59:59+00:00"
         },
         {
@@ -3828,6 +4419,23 @@
                 "interoperability",
                 "standards"
             ],
+<<<<<<< HEAD
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> 939cabb5 (commit with cpanel)
             "time": "2020-09-28T13:05:58+00:00"
         },
         {
@@ -3900,6 +4508,7 @@
                 "debug",
                 "dump"
             ],
+<<<<<<< HEAD
             "time": "2020-12-08T16:59:59+00:00"
         },
         {
@@ -3958,6 +4567,8 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
+=======
+>>>>>>> 939cabb5 (commit with cpanel)
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -3972,7 +4583,11 @@
                     "type": "tidelift"
                 }
             ],
+<<<<<<< HEAD
             "time": "2020-12-08T17:02:38+00:00"
+=======
+            "time": "2020-12-08T16:59:59+00:00"
+>>>>>>> 939cabb5 (commit with cpanel)
         },
         {
             "name": "tijsverkoyen/css-to-inline-styles",
@@ -4083,6 +4698,7 @@
                 "env",
                 "environment"
             ],
+<<<<<<< HEAD
             "time": "2020-07-14T17:54:18+00:00"
         },
         {
@@ -4151,6 +4767,19 @@
                 "service discovery"
             ],
             "time": "2020-09-03T20:18:43+00:00"
+=======
+            "funding": [
+                {
+                    "url": "https://github.com/GrahamCampbell",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/vlucas/phpdotenv",
+                    "type": "tidelift"
+                }
+            ],
+            "time": "2020-07-14T17:54:18+00:00"
+>>>>>>> 939cabb5 (commit with cpanel)
         }
     ],
     "packages-dev": [
@@ -4203,6 +4832,23 @@
                 "constructor",
                 "instantiate"
             ],
+<<<<<<< HEAD
+=======
+            "funding": [
+                {
+                    "url": "https://www.doctrine-project.org/sponsorship.html",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://www.patreon.com/phpdoctrine",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/doctrine%2Finstantiator",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> 939cabb5 (commit with cpanel)
             "time": "2020-11-10T18:47:58+00:00"
         },
         {
@@ -4475,6 +5121,15 @@
                 "object",
                 "object graph"
             ],
+<<<<<<< HEAD
+=======
+            "funding": [
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/myclabs/deep-copy",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> 939cabb5 (commit with cpanel)
             "time": "2020-11-13T09:40:50+00:00"
         },
         {
@@ -4960,6 +5615,15 @@
                 "filesystem",
                 "iterator"
             ],
+<<<<<<< HEAD
+=======
+            "funding": [
+                {
+                    "url": "https://github.com/sebastianbergmann",
+                    "type": "github"
+                }
+            ],
+>>>>>>> 939cabb5 (commit with cpanel)
             "time": "2020-11-30T08:25:21+00:00"
         },
         {
@@ -5050,6 +5714,15 @@
             "keywords": [
                 "timer"
             ],
+<<<<<<< HEAD
+=======
+            "funding": [
+                {
+                    "url": "https://github.com/sebastianbergmann",
+                    "type": "github"
+                }
+            ],
+>>>>>>> 939cabb5 (commit with cpanel)
             "time": "2020-11-30T08:20:02+00:00"
         },
         {
@@ -5099,6 +5772,15 @@
             "keywords": [
                 "tokenizer"
             ],
+<<<<<<< HEAD
+=======
+            "funding": [
+                {
+                    "url": "https://github.com/sebastianbergmann",
+                    "type": "github"
+                }
+            ],
+>>>>>>> 939cabb5 (commit with cpanel)
             "abandoned": true,
             "time": "2020-11-30T08:38:46+00:00"
         },
@@ -5229,6 +5911,15 @@
             ],
             "description": "Looks up which function or method a line of code belongs to",
             "homepage": "https://github.com/sebastianbergmann/code-unit-reverse-lookup/",
+<<<<<<< HEAD
+=======
+            "funding": [
+                {
+                    "url": "https://github.com/sebastianbergmann",
+                    "type": "github"
+                }
+            ],
+>>>>>>> 939cabb5 (commit with cpanel)
             "time": "2020-11-30T08:15:22+00:00"
         },
         {
@@ -5293,6 +5984,15 @@
                 "compare",
                 "equality"
             ],
+<<<<<<< HEAD
+=======
+            "funding": [
+                {
+                    "url": "https://github.com/sebastianbergmann",
+                    "type": "github"
+                }
+            ],
+>>>>>>> 939cabb5 (commit with cpanel)
             "time": "2020-11-30T08:04:30+00:00"
         },
         {
@@ -5349,6 +6049,15 @@
                 "unidiff",
                 "unified diff"
             ],
+<<<<<<< HEAD
+=======
+            "funding": [
+                {
+                    "url": "https://github.com/sebastianbergmann",
+                    "type": "github"
+                }
+            ],
+>>>>>>> 939cabb5 (commit with cpanel)
             "time": "2020-11-30T07:59:04+00:00"
         },
         {
@@ -5402,6 +6111,15 @@
                 "environment",
                 "hhvm"
             ],
+<<<<<<< HEAD
+=======
+            "funding": [
+                {
+                    "url": "https://github.com/sebastianbergmann",
+                    "type": "github"
+                }
+            ],
+>>>>>>> 939cabb5 (commit with cpanel)
             "time": "2020-11-30T07:53:42+00:00"
         },
         {
@@ -5469,6 +6187,15 @@
                 "export",
                 "exporter"
             ],
+<<<<<<< HEAD
+=======
+            "funding": [
+                {
+                    "url": "https://github.com/sebastianbergmann",
+                    "type": "github"
+                }
+            ],
+>>>>>>> 939cabb5 (commit with cpanel)
             "time": "2020-11-30T07:47:53+00:00"
         },
         {
@@ -5567,6 +6294,15 @@
             ],
             "description": "Traverses array structures and object graphs to enumerate all referenced objects",
             "homepage": "https://github.com/sebastianbergmann/object-enumerator/",
+<<<<<<< HEAD
+=======
+            "funding": [
+                {
+                    "url": "https://github.com/sebastianbergmann",
+                    "type": "github"
+                }
+            ],
+>>>>>>> 939cabb5 (commit with cpanel)
             "time": "2020-11-30T07:40:27+00:00"
         },
         {
@@ -5612,6 +6348,15 @@
             ],
             "description": "Allows reflection of object attributes, including inherited and non-public ones",
             "homepage": "https://github.com/sebastianbergmann/object-reflector/",
+<<<<<<< HEAD
+=======
+            "funding": [
+                {
+                    "url": "https://github.com/sebastianbergmann",
+                    "type": "github"
+                }
+            ],
+>>>>>>> 939cabb5 (commit with cpanel)
             "time": "2020-11-30T07:37:18+00:00"
         },
         {
@@ -5665,6 +6410,15 @@
             ],
             "description": "Provides functionality to recursively process PHP variables",
             "homepage": "http://www.github.com/sebastianbergmann/recursion-context",
+<<<<<<< HEAD
+=======
+            "funding": [
+                {
+                    "url": "https://github.com/sebastianbergmann",
+                    "type": "github"
+                }
+            ],
+>>>>>>> 939cabb5 (commit with cpanel)
             "time": "2020-11-30T07:34:24+00:00"
         },
         {
@@ -5707,6 +6461,15 @@
             ],
             "description": "Provides a list of PHP built-in functions that operate on resources",
             "homepage": "https://www.github.com/sebastianbergmann/resource-operations",
+<<<<<<< HEAD
+=======
+            "funding": [
+                {
+                    "url": "https://github.com/sebastianbergmann",
+                    "type": "github"
+                }
+            ],
+>>>>>>> 939cabb5 (commit with cpanel)
             "time": "2020-11-30T07:30:19+00:00"
         },
         {
@@ -5793,6 +6556,23 @@
                 }
             ],
             "description": "Encourages sending ⭐ and 💵 to fellow PHP package maintainers (not limited to Symfony components)!",
+<<<<<<< HEAD
+=======
+            "funding": [
+                {
+                    "url": "https://symfony.com/sponsor",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/fabpot",
+                    "type": "github"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/symfony/symfony",
+                    "type": "tidelift"
+                }
+            ],
+>>>>>>> 939cabb5 (commit with cpanel)
             "time": "2020-10-14T17:47:37+00:00"
         },
         {
@@ -5833,6 +6613,15 @@
                 }
             ],
             "description": "A small library for converting tokenized PHP source code into XML and potentially other formats",
+<<<<<<< HEAD
+=======
+            "funding": [
+                {
+                    "url": "https://github.com/theseer",
+                    "type": "github"
+                }
+            ],
+>>>>>>> 939cabb5 (commit with cpanel)
             "time": "2020-07-12T23:59:07+00:00"
         },
         {
@@ -5887,17 +6676,25 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
+<<<<<<< HEAD
     "stability-flags": {
         "infyomlabs/adminlte-templates": 20,
         "infyomlabs/laravel-generator": 20,
         "infyomlabs/swagger-generator": 20,
         "jlapp/swaggervel": 20
     },
+=======
+    "stability-flags": [],
+>>>>>>> 939cabb5 (commit with cpanel)
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
         "php": ">=7.1.3"
     },
     "platform-dev": [],
+<<<<<<< HEAD
     "plugin-api-version": "2.0.0"
+=======
+    "plugin-api-version": "1.1.0"
+>>>>>>> 939cabb5 (commit with cpanel)
 }

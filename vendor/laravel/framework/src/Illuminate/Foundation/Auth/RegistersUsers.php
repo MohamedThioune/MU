@@ -35,6 +35,7 @@ trait RegistersUsers
      */
     public function register(Request $request)
     {
+<<<<<<< HEAD
 
         $this->validator($request->all())->validate();
         event(new Registered($user = $this->create($request->all())));
@@ -76,6 +77,14 @@ trait RegistersUsers
 
         $user->notify(new RegisterNotify());
 
+=======
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->create($request->all())));
+
+        $this->guard()->login($user);
+
+>>>>>>> 939cabb5 (commit with cpanel)
         return $this->registered($request, $user)
                         ?: redirect($this->redirectPath());
     }

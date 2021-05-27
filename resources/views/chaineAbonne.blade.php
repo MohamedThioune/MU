@@ -432,6 +432,15 @@
                             <img src="{{asset('images/sista_preloader.png')}}" class="vignette-video-sugg">
                         </a>
                         @endif
+
+                        @php 
+                            if($playlist->duration){ 
+                                $date = explode(":",$playlist->duration);
+                                
+                                if ($date[0] = "00")
+                                    $playlist->duration = $date[1] . ":" . $date[2];
+                                }
+                        @endphp
                         <p class="durationVideo">{{$playlist->duration}}</p>
                     </div>
                     <div class="vignette-vid-info-recom">
@@ -507,7 +516,7 @@
                                 <img src="{{asset('images/kids_preloader.png')}}" class="vignette-video-sugg">
                             </a>
                             @elseif($user->age > 15 && $user->sex == '1')
-                            <a href="{{route('play',[$video->id])}}""  style="text-decoration:none">
+                            <a href="{{route('play',[$video->id])}}"  style="text-decoration:none">
                             <img src="{{asset('images/flow_preloader.png')}}" class="vignette-video-sugg">
                             </a>
                             @elseif($user->age > 15 && $user->sex == '0')
@@ -515,6 +524,14 @@
                                 <img src="{{asset('images/sista_preloader.png')}}" class="vignette-video-sugg">
                             </a>
                             @endif
+                            @php 
+                                if($video->duration){ 
+                                    $date = explode(":",$video->duration);
+                                    
+                                    if ($date[0] = "00")
+                                        $video->duration = $date[1] . ":" . $date[2];
+                                    }
+                            @endphp
                             <p class="durationVideo">{{$video->duration}}</p>
                         </div>
                         <div class="vignette-vid-info-recom">

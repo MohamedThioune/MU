@@ -1,7 +1,11 @@
 Swift Mailer
 ------------
 
+<<<<<<< HEAD
 Swift Mailer is a component based mailing solution for PHP.
+=======
+Swift Mailer is a component based mailing solution for PHP 7.
+>>>>>>> 939cabb5 (commit with cpanel)
 It is released under the MIT license.
 
 Swift Mailer is highly object-oriented by design and lends itself
