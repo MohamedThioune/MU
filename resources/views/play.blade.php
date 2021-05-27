@@ -792,6 +792,17 @@
                                             </div>
                                         </div>
                                     </div>
+                                    @if($playlist)
+                                    <div class="d-flex justify-content-between blockPlayist" >
+                                        <p class="numberviewsSuggestion"> </p>
+                                        <a  href="{{route('playlist.remove', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Remove to my playlist"><img src="{{ asset('img/report-Orange.svg') }}"  alt="Remove to my playlist"></a>
+                                    </div>
+                                    @else
+                                    <div class="d-flex justify-content-between blockPlayist" >
+                                        <p class="numberviewsSuggestion"> </p>
+                                        <a href="{{route('playlist.add', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Add to my playlist"><img src="{{ asset('img/report-gris.svg') }}"  alt="Add to my playlist"></a>
+                                    </div>
+                                    @endif
                                 </div>
                                 @endforeach
                         </div>
@@ -996,6 +1007,17 @@
                                             </div>
                                         </div>
                                     </div>
+                                    @if($playlist)
+                                    <div class="d-flex justify-content-between blockPlayist" >
+                                        <p class="numberviewsSuggestion"> </p>
+                                        <a  href="{{route('playlist.remove', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Remove to my playlist"><img src="{{ asset('img/report-Orange.svg') }}"  alt="Remove to my playlist"></a>
+                                    </div>
+                                    @else
+                                    <div class="d-flex justify-content-between blockPlayist" >
+                                        <p class="numberviewsSuggestion"> </p>
+                                        <a href="{{route('playlist.add', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Add to my playlist"><img src="{{ asset('img/report-gris.svg') }}"  alt="Add to my playlist"></a>
+                                    </div>
+                                    @endif
                                 </div>
                                 @endforeach
                             </div>
@@ -1012,7 +1034,6 @@
                         </div>
                         @endif
                     </div>
-
                 </div>
             </div>
         </div>
@@ -1107,6 +1128,7 @@
                                                 </div>
                                             </div>
                                         </div>
+
                                     </div>
                                     @if($playlist)
                                     <div class="d-flex justify-content-between blockPlayist" >
@@ -1320,24 +1342,23 @@
 
                                             </div>
                                         </div>
+                                        @if($playlist)
+                                        <div class="d-flex justify-content-between blockPlayist" >
+                                            <p class="numberviewsSuggestion"> </p>
+                                            <a  href="{{route('playlist.remove', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Remove to my playlist"><img src="{{ asset('img/report-Orange.svg') }}"  alt="Remove to my playlist"></a>
+                                        </div>
+                                        @else
+                                        <div class="d-flex justify-content-between blockPlayist" >
+                                            <p class="numberviewsSuggestion"> </p>
+                                            <a href="{{route('playlist.add', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Add to my playlist"><img src="{{ asset('img/report-gris.svg') }}"  alt="Add to my playlist"></a>
+                                        </div>
+                                        @endif
                                     </div>
                                 </div>
                                 @endforeach
                             </div>
                         </div>
-                        @if($playlist)
-                        <div class="d-flex justify-content-between blockPlayist" >
-                            <p class="numberviewsSuggestion"> </p>
-                            <a  href="{{route('playlist.remove', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Remove to my playlist"><img src="{{ asset('img/report-Orange.svg') }}"  alt="Remove to my playlist"></a>
-                        </div>
-                        @else
-                        <div class="d-flex justify-content-between blockPlayist" >
-                            <p class="numberviewsSuggestion"> </p>
-                            <a href="{{route('playlist.add', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Add to my playlist"><img src="{{ asset('img/report-gris.svg') }}"  alt="Add to my playlist"></a>
-                        </div>
-                        @endif
                     </div>
-
                 </div>
             </div>
         </div>
@@ -1427,21 +1448,21 @@
                                             </div>
                                         </div>
                                     </div>
+                                    @if($playlist)
+                                    <div class="d-flex justify-content-between blockPlayist" >
+                                        <p class="numberviewsSuggestion"> </p>
+                                        <a  href="{{route('playlist.remove', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Remove to my playlist"><img src="{{ asset('img/report-Orange.svg') }}"  alt="Remove to my playlist"></a>
+                                    </div>
+                                    @else
+                                    <div class="d-flex justify-content-between blockPlayist" >
+                                        <p class="numberviewsSuggestion"> </p>
+                                        <a href="{{route('playlist.add', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Add to my playlist"><img src="{{ asset('img/report-gris.svg') }}"  alt="Add to my playlist"></a>
+                                    </div>
+                                    @endif
                                 </div>
                                 @endforeach
                             </div>
                         </div>
-                        @if($playlist)
-                        <div class="d-flex justify-content-between blockPlayist" >
-                            <p class="numberviewsSuggestion"> </p>
-                            <a  href="{{route('playlist.remove', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Remove to my playlist"><img src="{{ asset('img/report-Orange.svg') }}"  alt="Remove to my playlist"></a>
-                        </div>
-                        @else
-                        <div class="d-flex justify-content-between blockPlayist" >
-                            <p class="numberviewsSuggestion"> </p>
-                            <a href="{{route('playlist.add', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Add to my playlist"><img src="{{ asset('img/report-gris.svg') }}"  alt="Add to my playlist"></a>
-                        </div>
-                        @endif
                     </div>
 
                 </div>
@@ -1533,21 +1554,21 @@
                                             </div>
                                         </div>
                                     </div>
+                                    @if($playlist)
+                                    <div class="d-flex justify-content-between blockPlayist" >
+                                        <p class="numberviewsSuggestion"> </p>
+                                        <a  href="{{route('playlist.remove', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Remove to my playlist"><img src="{{ asset('img/report-Orange.svg') }}"  alt="Remove to my playlist"></a>
+                                    </div>
+                                    @else
+                                    <div class="d-flex justify-content-between blockPlayist" >
+                                        <p class="numberviewsSuggestion"> </p>
+                                        <a href="{{route('playlist.add', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Add to my playlist"><img src="{{ asset('img/report-gris.svg') }}"  alt="Add to my playlist"></a>
+                                    </div>
+                                    @endif
                                 </div>
                                 @endforeach
                             </div>
                         </div>
-                        @if($playlist)
-                        <div class="d-flex justify-content-between blockPlayist" >
-                            <p class="numberviewsSuggestion"> </p>
-                            <a  href="{{route('playlist.remove', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Remove to my playlist"><img src="{{ asset('img/report-Orange.svg') }}"  alt="Remove to my playlist"></a>
-                        </div>
-                        @else
-                        <div class="d-flex justify-content-between blockPlayist" >
-                            <p class="numberviewsSuggestion"> </p>
-                            <a href="{{route('playlist.add', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Add to my playlist"><img src="{{ asset('img/report-gris.svg') }}"  alt="Add to my playlist"></a>
-                        </div>
-                        @endif
                     </div>
                 </div>
             </div>
