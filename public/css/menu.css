@@ -2527,7 +2527,27 @@ video{
 .mobileVisiblite .contentSidElement{
     display: block !important;
 }
-.swiper-slide:hover .blockPlayist{
+.group10{
+    display: flex;
+    position: relative;
+}
+.dropdownBlock2{
+    position: absolute;
+    right: -13px;
+}
+.point2{
+    width: 4px;
+    height: 4px;
+    background: #242323;
+    border-radius: 100%;
+    margin-bottom: 2px;
+}
+
+.btnModalNotification {
+    margin-top: -5px;
+    position: relative;
+}
+.recondation-video-card:hover .blockPlayist{
     opacity: 1;
 }
 .playlist1{
@@ -2626,6 +2646,25 @@ video{
     border: 1px solid rgba(0,0,0,.15);
     border-radius: .25rem;
 }
+.modalNotification{
+    display: none;
+    position: absolute;
+    z-index: 11;
+    top: 26px;
+    left: 0px;
+    box-shadow: 1px 1px 2px 1px #00000012;
+    min-width: 9rem;
+    padding: .5rem 0;
+    margin: .125rem 0 0;
+    font-size: 1rem;
+    color: #212529;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: .25rem;
+}
 .hot-notification-block {
     display: -webkit-box;
     display: -webkit-flex;
@@ -2639,7 +2678,19 @@ video{
     border-bottom: 20px solid #fff;
     background: #f8f8f8;
 }
-
+.dropdownItemNavText2 {
+    display: block;
+    padding: .25rem 1.5rem;
+    clear: both;
+    font-weight: 400;
+    color: #212529;
+    text-align: inherit;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+    font-size: 15px;
+    font-family: "Ubuntu-Regular";
+}
 .div-block-403 {
     display: -webkit-box;
     display: -webkit-flex;
