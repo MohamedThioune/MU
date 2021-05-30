@@ -247,15 +247,19 @@ $channel = DB::Table('users')->select('channels.*')
                                <div class="indentification">
                                    <div class="sidebar-icon">
                                        <img src="{{ asset('img/Mu-flow-picto-bull.svg') }}" alt="" class="image-120"></div>
-                                   <div class="faq-q-text" ><strong class="bold-text-5">{{__('My flow')}}</strong></div>
+                                        @if(isset($_COOKIE['state']))
+                                            <div class="faq-q-text"><p class="bold-text-5" style="{{ $_COOKIE['state'] == 'home' ? 'color:F59546' : ''}}" >{{__('My flow')}}</p></div>
+                                        @else 
+                                            <div class="faq-q-text"><strong class="bold-text-5">{{__('My flow')}}</strong></div>
+                                        @endif
                                </div>
                            </div>
                            <div class="faq-answer" id="sousBlockMonFlow">
                                <div data-w-id="3ebc1e8b-4c8a-0be6-ba36-5e829586b776" class="text-block-257">
-                                   <a href="{{route('home')}}" class="link-27">{{__('My flow')}}</a><br>
+                                   <a href="{{route('home')}}" style="text-decoration:none" class="link-27">{{__('My flow')}}</a><br>
                                </div>
                                <div data-w-id="3ebc1e8b-4c8a-0be6-ba36-5e829586b77a" class="text-block-257">
-                                   <a href="{{route('notification')}}" class="link-27">{{__('My notifications')}}</a><br>
+                                   <a href="{{route('notification')}}" style="text-decoration:none" class="link-27">{{__('My notifications')}}</a><br>
                                </div>
                            </div>
                        </div>
@@ -268,12 +272,12 @@ $channel = DB::Table('users')->select('channels.*')
                                    <div class="faq-q-text" ><strong class="bold-text-5">{{__('My likes')}}</strong></div>
                                </div>
                            </div>
-                           <div id="sousBlockKiffes" class="faq-answer">
+                           <!-- <div id="sousBlockKiffes" class="faq-answer">
                                <p class="text-block-257">{{__('My likes')}}<br></p>
                                <p class="text-block-257">Associations<br></p>
                                <p class="text-block-257">Business<br></p>
                                <p class="text-block-257">{{__('All')}}<br></p>
-                           </div>
+                           </div> -->
                        </div>
                        <div class="faq-wrapper">
                            <div class="faq-question" id="maChaines">
@@ -287,14 +291,14 @@ $channel = DB::Table('users')->select('channels.*')
                            <div class="faq-answer" id="sousBlockChaines">
                                
                                @if($channel)
-                               <a data-w-id="3ebc1e8b-4c8a-0be6-ba36-5e829586b79c" href="{{route('channel.visitor', [$channel->id])}}" class="link-block-36 w-inline-block">
+                               <a data-w-id="3ebc1e8b-4c8a-0be6-ba36-5e829586b79c" href="{{route('channel.visitor', [$channel->id])}}" style="text-decoration:none" class="link-block-36 w-inline-block">
                                    <p class="text-block-257">{{__('Dashboard')}}<br></p>
                                </a>
                                @endif
-                               <a data-w-id="3ebc1e8b-4c8a-0be6-ba36-5e829586b7a0" href="{{route('video.create')}}" class="link-block-36 w-inline-block">
+                               <a data-w-id="3ebc1e8b-4c8a-0be6-ba36-5e829586b7a0" href="{{route('video.create')}}" style="text-decoration:none" class="link-block-36 w-inline-block">
                                    <p class="text-block-257">{{__('Publish')}}<br></p>
                                </a>
-                               <a data-w-id="3ebc1e8b-4c8a-0be6-ba36-5e829586b7a0" href="{{route('video.index')}}" class="link-block-36 w-inline-block">
+                               <a data-w-id="3ebc1e8b-4c8a-0be6-ba36-5e829586b7a0" href="{{route('video.index')}}" style="text-decoration:none" class="link-block-36 w-inline-block">
                                    <p class="text-block-257">{{__('My videos')}}<br></p>
                                </a>
                                <!-- <p class="faq-answer-text">{{__('My videos')}}<br>{{__('Comments')}}<br>Audiences <br>{{__('Subscribers')}}<br>{{__('Monetization')}}<br></p> -->
@@ -327,7 +331,12 @@ $channel = DB::Table('users')->select('channels.*')
                                <a href="{{route('parametre')}}" class="indentification">
                                    <div class="sidebar-icon">
                                        <img src="{{ asset('img/Mu-engrenage-gris2x.png') }}" class="imgMuEngrenage" alt=""></div>
-                                   <div class="faq-q-text" ><p class="bold-text-5">{{__('Parameters')}}</p></div>
+                                   @if(isset($_COOKIE['state']))
+                                   <div class="faq-q-text" ><p class="bold-text-5" style="{{ $_COOKIE['state'] =='parameter' ? 'color:F59546' : ''}}" >{{__('Parameters')}}</p></div>
+                                   @else 
+                                   <div class="faq-q-text" ><p class="bold-text-5" >{{__('Parameters')}}</p></div>
+                                   @endif
+
                                </a>
                            </div>
 
@@ -338,7 +347,8 @@ $channel = DB::Table('users')->select('channels.*')
             </div>
         </div>
     </div>
-    <script>
+    <script>                                    <div class="faq-q-text" ><p class="bold-text-5" >{{__('Parameters')}}</p></div>
+
         $(".btnImgUser").click(function(){
             $(".modalNavUp").toggle();
         });
