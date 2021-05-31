@@ -1,4 +1,4 @@
-@extends('layouts.sidbarNavigation')
+<!-- @extends('layouts.sidbarNavigation')
 <html lang="fr">
 <head>
     @section('css')
@@ -108,7 +108,7 @@
                             <div class="div-block-292">
                                 <a href="{{route('channel.visitor', $channel->id)}}" style="text-decoration:none" class="smuusin-name-recom">{{$channel->name}}</a>
                                 <div>
-                                     <!-- Date creation relative -->
+                                     
                                     @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
                                     @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
                                     <p class="publication-info-recom">{{intval(abs(strtotime("now") - strtotime($video->created_at))/3600)}} hours ago </p>
@@ -156,7 +156,7 @@
                 <div class="BlockTimeTrush">
                     <p class="text-block-383">{{$event->libelle}}...</p>
                     <div>
-                         <!-- Date creation relative -->
+                       
                                     @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
                                     @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
                                     <p class="publication-info-recom">{{intval(abs(strtotime("now") - strtotime($video->created_at))/3600)}} hours ago </p>
@@ -235,7 +235,7 @@
                                     <div class="div-block-292">
                                     <a href="{{route('channel.visitor', $channel->id)}}" style="text-decoration:none" class="smuusin-name-recom">{{$channel->name}}</a>
                                         <div>
-                                            <!-- Date creation relative -->
+                                           
                                             @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
                                                 @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
                                                 <p class="publication-info-recom">{{intval(abs(strtotime("now") - strtotime($video->created_at))/3600)}} hours ago </p>
@@ -326,7 +326,7 @@
                                         <div class="div-block-292">
                                              <a href="{{route('channel.visitor', $channel->id)}}" style="text-decoration:none" class="smuusin-name-recom">{{$channel->name}}</a>
                                             <div>
-                                                 <!-- Date creation relative -->
+                                                 
                                                 @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
                                                 @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
                                                 <p class="publication-info-recom">{{intval(abs(strtotime("now") - strtotime($video->created_at))/3600)}} hours ago </p>
@@ -371,7 +371,7 @@
         </div>
     </div>
     @endif
-    
+
     <div class="chaine-vu spaceElementFlow">
         <div>
             <p class="text-block-353-copy">{{__('Here is the most viewed channel at the moment')}}</p>
@@ -481,7 +481,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!--   Party time-shield-->
     @if(!Auth::guest())
     <div id="resume" class="resume-flow spaceElementFlow">
@@ -775,4 +775,4 @@
 
 <script src="{{asset('js/fixeElement.js')}}"></script>
 @endsection
-</body>
+</body> -->
