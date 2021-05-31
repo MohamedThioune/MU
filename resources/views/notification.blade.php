@@ -105,12 +105,17 @@
     <script src="{{asset('swiper/swiper-bundle.min.js')}}"></script>
     <script src="{{asset('js/fixeElement.js')}}"></script>
         <script>
-            $(".btnModalNotification").click(function(){
+            $(".btnModalNotification").click(function(event){
                 $(".modalNotification").show();
                 $(".modalNotification").addClass('abc');
                 $('.modalNotification'+$(this).attr('target')).hide();
                 // $('#' + $(this).val()).show();
             });
+
+
+
         </script>
+
+
     @endsection
 </body>
