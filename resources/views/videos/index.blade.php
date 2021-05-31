@@ -81,7 +81,7 @@
         @else
             <center><br>
             <div class="publish-notif" style="border-radius: 8px;">
-                <a href="{{route('videos.create')}}" class="cam-publier w-inline-block" style="font-size:1.1em; border-radius: 8px; padding:15px; color:white;background: black;margin-bottom:-18px">
+                <a href="{{route('videocreate')}}" class="cam-publier w-inline-block" style="font-size:1.1em; border-radius: 8px; padding:15px; color:white;background: black;margin-bottom:-18px">
                     {{__('Publish your first videos and share them with our community')}}&nbsp;&nbsp;&nbsp;<img src="{{ asset('img/Mu-upload-cloud-blanc2x.png') }}" class="imgCloud2" alt="">
                 </a>
             </div>

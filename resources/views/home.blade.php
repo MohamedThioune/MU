@@ -77,8 +77,9 @@
                 @php 
                     $date = explode(":",$video->duration);
                     
-                    if ($date[0] = "00")
-                        $video->duration = $date[1] . ":" . $date[2];
+                    if($date[0] = "00")
+                        if($date[1] && $date[2])
+                            $video->duration = $date[1] . ":" . $date[2];
                 @endphp
                 <p class="durationVideo2">{{$video->duration}}</p>
                 <div class="vignette-vid-info-recom">
@@ -182,6 +183,7 @@
             </div>
         </div>
     </div>
+    @if($last && count($last) > 0)
     <div class="recommandation spaceElementFlow">
         <p class="titre-recommandation">Suggestions</p>
         <div class="swiper-container swipeSuggestion">
@@ -277,7 +279,9 @@
             </div>
         </div>
     </div>
-    @if($playlist)
+    @endif
+
+    @if($playlist && count($playlist) > 0)
     <div id="Playlist-flow" class="playlist spaceElementFlow">
         <div>
             <p class="titre-asso-video-all">{{__('The')}} playlist</p>
@@ -367,6 +371,7 @@
         </div>
     </div>
     @endif
+    
     <div class="chaine-vu spaceElementFlow">
         <div>
             <p class="text-block-353-copy">{{__('Here is the most viewed channel at the moment')}}</p>
