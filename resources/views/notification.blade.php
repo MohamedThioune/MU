@@ -81,17 +81,20 @@
                     <div class="text-block-395">{{$box->name}}</div>
                 </div>
             </div>
-            <div class="dropdownBlock2">
-                <button class="btn btnModalNotification">
+            <div class="dropdownBlock2 popup_main">
+                <button class="btn btnModalNotification ">
                     <div class="point2"></div>
                     <div class="point2"></div>
                     <div class="point2"></div>
                 </button>
                 <!--                               début modal notification-->
                 <div class="modalNotification">
+                    <div class="popup_back"></div>
+                    <div class="popup_contain">
                     <a href="#" class="dropdownItemNavText2">Supprimer</a>
                     <a href="#" class="dropdownItemNavText2">Désinscription</a>
                     <a href="#" class="dropdownItemNavText2">FlowChannel</a>
+                    </div>
                 </div>
 
                 <!--                               début modal-->
@@ -105,15 +108,15 @@
     <script src="{{asset('swiper/swiper-bundle.min.js')}}"></script>
     <script src="{{asset('js/fixeElement.js')}}"></script>
         <script>
-            $(".btnModalNotification").click(function(event){
-                $(".modalNotification").show();
-                $(".modalNotification").addClass('abc');
-                $('.modalNotification'+$(this).attr('target')).hide();
-                // $('#' + $(this).val()).show();
+            $(".btnModalNotification").click(function () {
+                $(this).parent(".popup_main").children(".modalNotification").addClass("modalNotification_show");
             });
-
-
-
+            $(".popup_close").click(function () {
+                $(".modalNotification").removeClass("modalNotification_show");
+            });
+            $(".popup_back").click(function () {
+                $(".modalNotification").removeClass("modalNotification_show");
+            });
         </script>
 
 
