@@ -999,7 +999,7 @@ video{
 .content-commentaire {
     margin-bottom: 0 20px;
     display: block !important;
-    padding: 0 5px;
+    padding: 0;
 }
 .commentOne {
     display: block;
@@ -1314,7 +1314,6 @@ video{
     display: block;
 }
 .content-Haltcare {
-    border: 1px solid #FFFFFF;
     margin-bottom: 20px;
     background: #eeffe9;
 }
@@ -1370,7 +1369,6 @@ video{
 }
 .content-Evironnement{
     background: #fffdef;
-    border: 1px solid #FFFFFF;
 }
 .Evironnement{
     background: #F4A82F 0% 0% no-repeat padding-box;
@@ -1396,6 +1394,17 @@ video{
 }
 .btnSearchMobile{
     display: none;
+}
+.blockCopyright{
+    text-align: center;
+    width: 100%;
+    padding: 15px 0;
+    margin-top: 20px;
+}
+.textCopyright{
+    font-size: 14px;
+    font-family: "Ubuntu-Light";
+    color: #707070;
 }
 .header2Web {
     display: block;
@@ -1671,7 +1680,7 @@ video{
 }
 .colModife7{
     padding-right: 0 !important;
-    margin-left: -5px;
+
 }
 .div-block-325 {
     display: -webkit-box;
@@ -2534,12 +2543,12 @@ video{
 }
 .dropdownBlock2{
     position: absolute;
-    right: -13px;
+    right: 40px;
 }
 .point2{
     width: 4px;
     height: 4px;
-    background: #242323;
+    background: #707070;
     border-radius: 100%;
     margin-bottom: 2px;
 }
@@ -2592,7 +2601,7 @@ video{
 }
 .div-block-386 {
     height: 35px;
-    padding-top: 3px;
+    padding-top: 10px;
     margin-right: 0;
 }
 .imgCoeurBlanc {
@@ -2652,7 +2661,7 @@ video{
     position: absolute;
     z-index: 11;
     top: 26px;
-    left: 0px;
+    left: -100px;
     box-shadow: 1px 1px 2px 1px #00000012;
     min-width: 9rem;
     padding: .5rem 0;

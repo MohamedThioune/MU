@@ -30,11 +30,11 @@
 
                         </div>
                         <div id="blessings" class="animate__animated animate__bounceInUp" >
-                            <center><span>👋🏾 Bismillah !</span>
+                            <center><span>Bismillahi Rahmani Rahim / Au nom d’Allah le Clément le Miséricordieux </span>
                             <input type="hidden" name="barometer" id="barometer" value="">
                         </div>
                         <div id="prays" class="animate__animated animate__zoomInDown">
-                            <center><span>Alhamdoulilah &#x1F4FF;!</span></center>                        </div>
+                            <center><span>Oh Allah ! Accorde-moi le bien qu’il y a en ceci et préserve de son mal !</span></center>                        </div>
                         </div>
                     <div class="secondElement">
                         <img class="pubCap" src="{{ asset('img/pub-cap.png')}}" alt="">
