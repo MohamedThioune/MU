@@ -2660,7 +2660,6 @@ video{
     position: absolute;
     z-index: 11;
     top: 26px;
-    left: -100px;
     box-shadow: 1px 1px 2px 1px #00000012;
     min-width: 9rem;
     padding: .5rem 0;
@@ -2673,6 +2672,7 @@ video{
     background-clip: padding-box;
     border: 1px solid rgba(0,0,0,.15);
     border-radius: .25rem;
+    right: 0;
 }
 .hot-notification-block {
     display: -webkit-box;
@@ -3385,6 +3385,33 @@ video{
 .modal-content{
  border-radius: 10px !important;
 }
+
+.modalNotification .popup_contain{
+    position: relative;
+    z-index: 111;
+}
+.modalNotification_show{
+    display:block;
+    -webkit-transition: 300ms;
+    -moz-transition: 300ms;
+    -o-transition: 300ms;
+    -ms-transition: 300ms;
+    transition: 300ms;
+}
+.popup_back{
+    background: unset;
+    position: fixed;
+    left:0;right:0;top:0;bottom:0;
+}
+
+
+
+
+
+
+
+
+
 @media all and (min-width: 300px) and (max-width: 767px){
     body{
         overflow-x: hidden;
@@ -4324,10 +4351,17 @@ video{
         display: none;
     }
     .div-block-412 {
-        width: 80%;
+        width: 50% !important;
+    }
+    .div-block-413 {
+        width: 65% !important;
+    }
+    .dropdownBlock2 {
+        right: 0px;
     }
     .div-block-410 {
         margin-right: 0;
+        width: 100%;
     }
     .hot-notification-block {
         padding: 15px 20px 0px;
