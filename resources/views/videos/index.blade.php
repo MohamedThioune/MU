@@ -26,7 +26,8 @@
         <form action="{{route('deletes.videos')}}" method="POST">
         @csrf
         <input name="checkboxes[]" type="hidden" value="null" class="div-block-232" id="element1" >
-
+        
+        @if($videos && count($videos)) 
         @foreach($videos as $video)
         @if(!$video->deleted_at)
         <div class="div-block-229">
@@ -66,22 +67,24 @@
 
             @endphp
             <p class="text-block-254">{{$maintopic[0]->libelle}}</p>
+            @if($day && count($day) && $created count($created))
             <p class="text-block-254">{{$day[0]}}/{{$created[1]}}/{{$created[0]}} </p>
+            @endif
 
             <p class="text-block-254">{{$read}}</p>
             <p class="text-block-254">0</p>
             <p class="text-block-254">Behavior (0%)</p>
         </div>
         @endif
-
         @endforeach
+        @endif
         <br>
         <button type="submit" stylle="margin-right:-30px;" class="btn btnSupprimer" onclick="return confirm('Etes vous sure de vouloir supprimer cette sélection')">Supprimer</button>
         </form>
         @else
             <center><br>
             <div class="publish-notif" style="border-radius: 8px;">
-                <a href="{{route('videocreate')}}" class="cam-publier w-inline-block" style="font-size:1.1em; border-radius: 8px; padding:15px; color:white;background: black;margin-bottom:-18px">
+                <a href="{{route('video.create')}}" class="cam-publier w-inline-block" style="font-size:1.1em; border-radius: 8px; padding:15px; color:white;background: black;margin-bottom:-18px">
                     {{__('Publish your first videos and share them with our community')}}&nbsp;&nbsp;&nbsp;<img src="{{ asset('img/Mu-upload-cloud-blanc2x.png') }}" class="imgCloud2" alt="">
                 </a>
             </div>
@@ -115,6 +118,7 @@
     @csrf
     <input name="checkboxes[]" type="hidden" value="null" class="div-block-232" id="element1" >
 
+    @if($videos && count($videos))
     @foreach($videos as $video)
     @if(!$video->deleted_at)
     <div class="div-block-229">
@@ -155,7 +159,9 @@
         @endphp
         <div class="contentMesVideos">
             <p class="text-block-254">{{$maintopic[0]->libelle}}</p>
+            @if($day && count($day) && $created count($created))
             <p class="text-block-254">{{$day[0]}}.{{$created[1]}}.{{$created[0]}} </p>
+            @endif
 
             <p class="text-block-254">{{$read}}</p>
             <p class="text-block-254">0</p>
