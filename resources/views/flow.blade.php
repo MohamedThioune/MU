@@ -609,7 +609,11 @@
     </div>
 @endif
 @endif
+    <div class="blockCopyright">
+        <p class="textCopyright">© 2021 Smuuse  All rights reserved.</p>
+    </div>
 </div>
+
 <script src="{{asset('js/jquery.min.js')}}"></script>
 <script src="{{asset('bootstrap/bootstrap.min.js')}}"></script>
 <script src="{{asset('swiper/swiper-bundle.min.js')}}"></script>

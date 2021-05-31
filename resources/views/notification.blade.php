@@ -58,21 +58,6 @@
                     <div class="div-block-410">
                         <div class="group10">
                             <p class="text-block-394">{{$video->description}}</p>
-                            <div class="dropdownBlock2">
-                                <button class="btn btnModalNotification">
-                                    <div class="point2"></div>
-                                    <div class="point2"></div>
-                                    <div class="point2"></div>
-                                </button>
-<!--                               début modal notification-->
-                                <div class="modalNotification">
-                                    <a href="#" class="dropdownItemNavText2">Supprimer</a>
-                                    <a href="#" class="dropdownItemNavText2">Désinscription</a>
-                                    <a href="#" class="dropdownItemNavText2">FlowChannel</a>
-                                </div>
-
-                                <!--                               début modal-->
-                            </div>
                         </div>
                         @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
                         @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
@@ -96,17 +81,27 @@
                     <div class="text-block-395">{{$box->name}}</div>
                 </div>
             </div>
-            <!-- <button class="points-vertical">
-                <div class="div-block-411"></div>
-                <div class="div-block-411"></div>
-                <div class="div-block-411"></div>
-            </button> -->
+            <div class="dropdownBlock2">
+                <button class="btn btnModalNotification">
+                    <div class="point2"></div>
+                    <div class="point2"></div>
+                    <div class="point2"></div>
+                </button>
+                <!--                               début modal notification-->
+                <div class="modalNotification">
+                    <a href="#" class="dropdownItemNavText2">Supprimer</a>
+                    <a href="#" class="dropdownItemNavText2">Désinscription</a>
+                    <a href="#" class="dropdownItemNavText2">FlowChannel</a>
+                </div>
+
+                <!--                               début modal-->
+            </div>
         </div>
         @endforeach
     </div>
 
     <script src="{{asset('js/jquery.min.js')}}"></script>
-    <script src="{{asset('bootstrap/bootstrap.min.js')}}"></script>
+        <script src="{{asset('bootstrap/bootstrap.min.js')}}"></script>
     <script src="{{asset('swiper/swiper-bundle.min.js')}}"></script>
     <script src="{{asset('js/fixeElement.js')}}"></script>
         <script>
@@ -114,10 +109,8 @@
                 $(".modalNotification").show();
                 $(".modalNotification").addClass('abc');
                 $('.modalNotification'+$(this).attr('target')).hide();
-
                 // $('#' + $(this).val()).show();
             });
-
         </script>
     @endsection
 </body>
