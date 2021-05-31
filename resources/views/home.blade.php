@@ -79,6 +79,7 @@
                     $gregorian =  (new \Datetime())->format('d.m.Y');
                 @endphp
 
+                @if($date)
                     <div class="time-mon-flow">
                         <div class="div-block-342"><img src="{{ asset('img/Time-shahid.svg') }}"  alt="" class="shadid103"></div>
                         <div class="div-block-341">
@@ -89,6 +90,7 @@
                             <p class="text-block-329" style="font-size:0.8em">{{$gregorian}}</p>
                         </div>
                     </div>
+                @endif
                     @php
                         $start =  (new \Datetime())->format('Y-m-01 H:i:s');
                         $end =   (new \Datetime())->format('Y-m-30 H:i:s');
