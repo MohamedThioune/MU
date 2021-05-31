@@ -277,6 +277,7 @@
             </div>
         </div>
     </div>
+    @if($playlist)
     <div id="Playlist-flow" class="playlist spaceElementFlow">
         <div>
             <p class="titre-asso-video-all">{{__('The')}} playlist</p>
@@ -365,6 +366,7 @@
             </div>
         </div>
     </div>
+    @endif
     <div class="chaine-vu spaceElementFlow">
         <div>
             <p class="text-block-353-copy">{{__('Here is the most viewed channel at the moment')}}</p>
