@@ -347,8 +347,7 @@ $channel = DB::Table('users')->select('channels.*')
             </div>
         </div>
     </div>
-    <script>                                    <div class="faq-q-text" ><p class="bold-text-5" >{{__('Parameters')}}</p></div>
-
+    <script>                                    
         $(".btnImgUser").click(function(){
             $(".modalNavUp").toggle();
         });

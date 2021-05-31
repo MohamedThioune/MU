@@ -463,6 +463,17 @@
         $(".modalNavUp2").hide();
     });
 </script>
+
+<script>                                    
+    $(".btnImgUser").click(function(){
+        $(".modalNavUp").toggle();
+    });
+    $(".group9").click(function(){
+        $(".modalNavUp").hide();
+    });
+</script>
+
+
 @yield('scripts')
 </body>
 </html>
