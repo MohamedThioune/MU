@@ -102,7 +102,7 @@
                                     ->where('playlists.video_id', $video->id)
                                     ->first();
                             @endphp
-                            if($channel)
+                            @if($channel)
                             <a href="{{route('channel.visitor', $channel->id)}}" class="bull-id-acount-recom w-inline-block">
                                 <img src="{{ asset('/img') }}/{{$channel->logo}}" class="image-109">
                             </a>
@@ -187,7 +187,7 @@
             </div>
         </div>
     </div>
-    
+
     @if($last && count($last) > 0)
     <div class="recommandation spaceElementFlow">
         <p class="titre-recommandation">Suggestions</p>
