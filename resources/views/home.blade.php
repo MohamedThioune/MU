@@ -488,7 +488,7 @@
                 </div>
             </div>
         </div>
-    </div> -->
+    </div> 
     <!--   Party time-shield-->
     @if(!Auth::guest())
     <div id="resume" class="resume-flow spaceElementFlow">
