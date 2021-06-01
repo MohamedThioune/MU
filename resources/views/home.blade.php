@@ -786,4 +786,4 @@
 
 <script src="{{asset('js/fixeElement.js')}}"></script>
 @endsection
-</body> -->
+</body>
