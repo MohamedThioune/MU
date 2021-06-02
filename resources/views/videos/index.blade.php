@@ -67,7 +67,7 @@
 
             @endphp
             <p class="text-block-254">{{$maintopic[0]->libelle}}</p>
-            @if($day && count($day) && $created count($created))
+            @if($day && count($day) && $created && count($created))
             <p class="text-block-254">{{$day[0]}}/{{$created[1]}}/{{$created[0]}} </p>
             @endif
 
@@ -159,7 +159,7 @@
         @endphp
         <div class="contentMesVideos">
             <p class="text-block-254">{{$maintopic[0]->libelle}}</p>
-            @if($day && count($day) && $created count($created))
+            @if($day && count($day) && $created && count($created))
             <p class="text-block-254">{{$day[0]}}.{{$created[1]}}.{{$created[0]}} </p>
             @endif
 
@@ -169,8 +169,8 @@
         </div>
     </div>
     @endif
-
     @endforeach
+    @endif
     <br>
     <button type="submit" stylle="margin-right:-30px;" class="btn btnSupprimer" onclick="return confirm('Etes vous sure de vouloir supprimer cette sélection')">Supprimer</button>
     </form>

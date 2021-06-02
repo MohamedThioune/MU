@@ -245,7 +245,9 @@
                                 </div>
                             </div>
                             <div class="head-slidebar ">
-                                <div class="text-ma-chaine"></div>
+                                @if(!Auth::guest())
+                                    <div class="text-ma-chaine">{{Auth::user()->name}}</div>
+                                @endif
                                 <div class="text-fonction">{{__('Individuals')}}</div>
                                 <div class="profil-photo">
                                     <img src="{{asset('img')}}/{{Auth::user()->photo}}" alt="" class="image-94">
@@ -292,7 +294,7 @@
                                             <img src="{{ asset('img/Mu-tV-chanel-play-gris.svg') }}" class="imgMuGris" alt="">
                                         </div>
                                         @if(isset($_COOKIE['state']))
-                                            <div class="faq-q-text"><p class="bold-text-5" style="{{ $_COOKIE['state'] == 'channel' ? 'color:#F59546' : ''}}" >{{__('My channel')}}</p></div>
+                                            <div class="faq-q-text"><p class="bold-text-5" style="{{ $_COOKIE['state'] == 'Channel' ? 'color:#F59546' : ''}}" >{{__('My channel')}}</p></div>
                                         @else 
                                             <div class="faq-q-text"><strong class="bold-text-5">{{__('My channel')}}</strong></div>
                                         @endif

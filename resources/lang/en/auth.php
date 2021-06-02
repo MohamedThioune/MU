@@ -13,11 +13,7 @@ return [
     |
     */
 
-<<<<<<< HEAD
-    'failed' => 'These credentials do not match our records. Please check your credentials or the payment status',
-=======
     'failed' => 'These credentials do not match our records.',
->>>>>>> 939cabb5 (commit with cpanel)
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
 
 ];

@@ -188,7 +188,7 @@
         </div>
     </div>
 
-    @if($last && count($last) > 0)
+    @if($last)
     <div class="recommandation spaceElementFlow">
         <p class="titre-recommandation">Suggestions</p>
         <div class="swiper-container swipeSuggestion">
@@ -286,7 +286,7 @@
     </div>
     @endif
 
-    @if($playlist && count($playlist) > 0)
+    @if($playlist)
     <div id="Playlist-flow" class="playlist spaceElementFlow">
         <div>
             <p class="titre-asso-video-all">{{__('The')}} playlist</p>
@@ -500,7 +500,7 @@
                         <p class="text-block-351">{{__('Videos viewed')}}</p>
                         <div class="div-block-344">
                             <div class="div-block-345">
-                            @if($look_videos && count($look_videos) > 0)
+                            @if($look_videos)
                                 <p class="text-block-352">{{count($look_videos)}}</p>
                             @endif
                             </div>
@@ -513,7 +513,7 @@
                         <p class="text-block-351">{{__('Favourite videos')}}</p>
                         <div class="div-block-344">
                             <div class="div-block-345">
-                                @if($like_videos && count($like_videos) > 0)
+                                @if($like_videos)
                                 <p class="text-block-352">{{$like_videos->likes}} </p>
                                 @else
                                 <p class="text-block-352">0</p>

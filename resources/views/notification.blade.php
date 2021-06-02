@@ -87,17 +87,15 @@
                     <div class="point2"></div>
                     <div class="point2"></div>
                 </button>
-                <!--                               début modal notification-->
+                <!-- Start modal notification-->
                 <div class="modalNotification">
                     <div class="popup_back"></div>
                     <div class="popup_contain">
                     <a href="#" class="dropdownItemNavText2">Supprimer</a>
                     <a href="#" class="dropdownItemNavText2">Désinscription</a>
-                    <a href="#" class="dropdownItemNavText2">FlowChannel</a>
+                    <!-- <a href="#" class="dropdownItemNavText2">FlowChannel</a> -->
                     </div>
                 </div>
-
-                <!--                               début modal-->
             </div>
         </div>
         @endforeach

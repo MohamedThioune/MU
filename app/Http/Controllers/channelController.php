@@ -250,6 +250,9 @@ class channelController extends AppBaseController
             $bool = false;
             $edit = false;
         }
+
+        $_COOKIE['state'] = 'Channel';
+
         return view('chaineAbonne', compact('canal','channel','visit', 'videos','subtopics','bool', 'admin','edit','events','activities','contact', 'videos_top'));
 
     }
@@ -311,6 +314,7 @@ class channelController extends AppBaseController
                                         ->join('channels', 'users.id', 'channels.user_id')
                                         ->where('users.id', Auth::id())
                                         ->first();
+        $_COOKIE['state'] = 'Channel';
 
         if($channel->id == $visit->id)
             return view('chaineAbonne', compact('channel','visit', 'videos','videos_top', 'events', 'activities', 'contact', 'subtopics', 'bool','edit','admin'));

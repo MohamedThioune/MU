@@ -220,16 +220,9 @@ $channel = DB::Table('users')->select('channels.*')
                            </div>
                        </div>
                        <div class="head-slidebar-user">
-                            @php
-                                $channel = DB::Table('users')->select('channels.*')
-                                                ->join('channels', 'users.id', 'channels.user_id')
-                                                ->where('users.id', Auth::id())
-                                                ->first();
-                            @endphp
+                            
                        @if(!Auth::guest())
-                            @if($channel)
-                                <p class='text-block-242'>{{$channel->name}}</p>
-                            @endif
+                            <p class='text-block-242'>{{Auth::user()->name}}</p>
                         @endif
 
 
@@ -299,7 +292,7 @@ $channel = DB::Table('users')->select('channels.*')
                                    <p class="text-block-257">{{__('Publish')}}<br></p>
                                </a>
                                <a data-w-id="3ebc1e8b-4c8a-0be6-ba36-5e829586b7a0" href="{{route('video.index')}}" style="text-decoration:none" class="link-block-36 w-inline-block">
-                                   <p class="text-block-257">{{__('My videos')}}<br></p>
+                                   <p class="text-block-257">{{__('My videos')}}<br></p> 
                                </a>
                                <!-- <p class="faq-answer-text">{{__('My videos')}}<br>{{__('Comments')}}<br>Audiences <br>{{__('Subscribers')}}<br>{{__('Monetization')}}<br></p> -->
                            </div>

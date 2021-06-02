@@ -262,6 +262,7 @@ class UserController extends AppBaseController
         User::where('id', Auth::id())
             ->update(['name' => $name,'firstName' => $first_name, 'lastName' => $last_name,'date' => $date, 'adresse' => $adresse, 'phone' => $phone, 'postalCode' => $postal_code, 'pays' => $country, 'town' => $town]);
         
+        
         Flash::success('Information user updated successfully.');
         
         return redirect(route('parametre'));
