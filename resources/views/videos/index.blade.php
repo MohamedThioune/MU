@@ -9,12 +9,20 @@
     @include('flash::message')
     @if($videos)
         @if(count($videos) > 0)
-        <div class="div-block-229">
+        <div class="div-block-229 popup_main">
             <div class="more-oiunt">
                 <div class="div-block-233"></div>
                 <div class="div-block-233"></div>
                 <div class="div-block-233"></div>
             </div>
+            <!--                               début modal notification-->
+            <div class="modalSelection modal2">
+                <div class="popup_back"></div>
+                <div class="popup_contain">
+                    <label class="dropdownItemInput"><input  type="checkbox" class="select-all" />Choose all</label>
+                </div>
+            </div>
+            <!--            fin modal-->
             <p class="text-block-256">Mes vidéos</p>
             <p class="text-block-254">Catégorie</p>
             <p class="text-block-254">date</p>
@@ -93,16 +101,24 @@
     <div class="mobileVideoContent" style="width:100%" >
     @include('flash::message')
     <div class="div-block-229 fixeElement2">
-        <div class="blockVideo1">
-            <div class="more-oiunt">
+        <div class="blockVideo1 popup_main">
+            <div class="more-oiunt ">
                 <div class="div-block-233"></div>
                 <div class="div-block-233"></div>
                 <div class="div-block-233"></div>
             </div>
+            <!--                               début modal notification-->
+            <div class="modalSelection modal2">
+                <div class="popup_back"></div>
+                <div class="popup_contain">
+                    <label class="dropdownItemInput"><input  type="checkbox" class="select-all" />Choose all</label>
+                </div>
+            </div>
+<!--            fin modal-->
             <p class="text-block-256">Mes vidéos</p>
         </div>
         <div class="blockVideo2">
-            <p class="text-block-254">Cat</p>
+            <p class="text-block-254 cat">Cat</p>
             <p class="text-block-254">date</p>
             <p class="text-block-254">Vues</p>
             <p class="text-block-254">Like</p>
@@ -188,6 +204,18 @@
         }
     });
 </script>
+<script>
+    $(".more-oiunt").click(function () {
+        $(this).parent(".popup_main").children(".modalSelection ").addClass("modalNotification_show");
+    });
+    $(".popup_close").click(function () {
+        $(".modalSelection ").removeClass("modalNotification_show");
+    });
+    $(".popup_back").click(function () {
+        $(".modalSelection ").removeClass("modalNotification_show");
+    });
+</script>
+
 @endsection
 
 

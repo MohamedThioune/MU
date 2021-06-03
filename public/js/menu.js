@@ -14,6 +14,14 @@ $(document).ready(function() {
         $( ".contentSidElement" ).addClass('v1') ;
 
     });
+    $( ".griscolor" ).click(function() {
+        $( ".sidebar-format" ).removeClass('visible').addClass('invisible') ;
+        $( ".content-section-sibBar" ).removeClass('visible').addClass('invisible') ;
+        $( ".nav-up-right" ).removeClass('opacityElement') ;
+        $( ".griscolor" ).removeClass('grisElement') ;
+        $( ".contentSidElement" ).addClass('v1') ;
+
+    });
     $(".IconeRose").click(function(){
         $( ".group9" ).addClass('mobileVisiblite');
     });
@@ -21,7 +29,9 @@ $(document).ready(function() {
         $( ".group9" ).removeClass('mobileVisiblite');
     });
 
-
+    $(".btnSubscribe").click(function(){
+        $(".btnClocheNot").toggle();
+    });
 });
 $(document).ready(function() {
     $( ".flow" ).click(function() {
@@ -202,4 +212,21 @@ $(document).ready(function(){
            $(this).prev().toggle();
            return false;
        });*/
+    var selectAllItems = ".select-all";
+    var checkboxItem = ":checkbox";
+
+    $(selectAllItems).click(function() {
+
+        if (this.checked) {
+            $(checkboxItem).each(function() {
+                this.checked = true;
+            });
+        } else {
+            $(checkboxItem).each(function() {
+                this.checked = false;
+            });
+        }
+
+    });
+
 });

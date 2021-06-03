@@ -2829,6 +2829,7 @@ bandeau-chaine1 {
   -ms-flex-align: center;
   align-items: center;
   border-bottom: 1px solid #e2dcdc;
+  position: relative;
 }
 
 .div-block-230 {
@@ -2879,6 +2880,7 @@ bandeau-chaine1 {
   font-family: "Ubuntu-Regular";
   margin-bottom: 0;
   font-size: 14px;
+  width: 89px;
 }
 
 .text-block-255 {
@@ -2886,7 +2888,7 @@ bandeau-chaine1 {
 }
 
 .text-block-256 {
-  width: 300px;
+  width: 274px;
   margin-right: 131px;
   font-family: "Ubuntu-Bold";
   margin-bottom: 0;
@@ -2920,6 +2922,7 @@ bandeau-chaine1 {
 .more-oiunt {
   margin-top: 0px;
   padding: 10px;
+  cursor: pointer;
 }
 
 .link-18 {
@@ -9571,6 +9574,9 @@ input:checked + .slider:before {
     width: 100%;
     text-align: center;
   }
+  .blockVideo1{
+    display: flex;
+  }
 
 
 
@@ -9583,8 +9589,41 @@ input:checked + .slider:before {
   .content-section-sibBar-2 {
     width: 23%;
   }
+  .cat {
+    width: 80px;
+  }
+  .blockVideo2 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    height: auto;
+    padding: 20px 35px;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border-bottom: 1px solid #e2dcdc;
+    position: relative;
+  }
+  .blockVideo1{
+    display: flex;
+  }
+  .text-block-256 {
+    width: 326px;
+    margin-right: 0px;
+    font-family: "Ubuntu-Bold";
+    margin-bottom: 0;
+    margin-top: 11px;
+    margin-left: 48px;
+  }
   .contentOneMonFlow {
-    width: 79%;
+    width: 100%;
     display: block;
     margin-top: 91px;
   }
@@ -9597,4 +9636,18 @@ input:checked + .slider:before {
   .image-98 {
     width: 300px;
   }
+  .mobileVisiblite .content-sidbar{
+    display: none !important;
+  }
+  .contentMesVideos {
+    display: flex;
+  }
+  .text-block-253 {
+    width: 164px;
+    margin-left: 10px;
+  }
+  .content-section-sibBar-2 {
+    width: 0;
+  }
+
 }
