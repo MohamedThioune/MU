@@ -189,7 +189,7 @@
                             <img src="{{ asset('img/panier.png') }}" alt="">
                             <p class="textShare">{{__('Shop')}}</p>
                         </button>
-                        <div class="blockImgPuli btn" type="button" data-toggle="modal" data-target="#exampleModal1">
+                        <div class="blockImgPuli" data-toggle="modal" data-target="#exampleModal1">
                             <div class="trois-point-noir">...</div>
                         </div>
                     </div>

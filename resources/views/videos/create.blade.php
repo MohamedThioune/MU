@@ -17,7 +17,7 @@
                 <div class="nom-de-la-chaine">
                     <h1 class="text-name-title-creator">{{$channel->name}}</h1>
                 </div>
-                @if(Auth::user()->sex == 1)
+                @if(Auth::user()->sex == 0)
                 <div class="div-block-220">
                     <div class="div-block-224">
                         <label class="switch">

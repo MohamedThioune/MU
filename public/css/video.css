@@ -2833,15 +2833,15 @@ bandeau-chaine1 {
 }
 
 .div-block-230 {
-  width: 100px;
-  height: auto;
+  width: 120px;
+  height: 70px;
   margin-right: 13px;
   border-radius: 5px;
   background-color: unset !important;
 }
 .ImgVideoSelect{
-  width: 120px;
-  height: 100px;
+  width: 100%;
+  height: inherit;
 }
 .text-block-248 {
   width: 250px;

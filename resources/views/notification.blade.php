@@ -35,7 +35,7 @@
              <img src="{{ asset('img/Mu-bandeau-Pub.jpg') }}" alt="">
          </div>
      </div> -->
-    <p class="text-block-350">{{count($follows) > 0 ? " notifications" : "0 notification ". __('- you have to follow a chain to get one.') }} </p>
+    <p class="text-block-350">{{count($follows) > 0 ?  count($follows). " notifications" : "0 notification ". __('- you have to follow a chain to get one.') }} </p>
     <div class="div-block-406">
         @foreach($follows as $box)
         <div class="div-block-407">

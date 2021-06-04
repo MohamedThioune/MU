@@ -374,6 +374,9 @@ button:focus {
 video{
     outline: -webkit-focus-ring-color auto 0 !important;
 }
+@media screen and (-webkit-min-device-pixel-ratio:0) {video {
+    outline: unset !important;
+    } }
 .elementVideoParDefaut {
     position: absolute;
     top: 0;
@@ -645,6 +648,7 @@ video{
     font-size: 24px;
     font-weight: 500;
     margin-top: -15px;
+    cursor: pointer;
 }
 .publicite{
     width: 100%;
@@ -1170,7 +1174,7 @@ video{
     padding-right: 7px;
 }
 
-.swiper-container {.globalParametre
+.swiper-container {
     width: 100%;
     height: auto;
 }
@@ -2614,8 +2618,8 @@ video{
 }
 .div-block-386 {
     height: 35px;
-    padding-top: 10px;
-    margin-right: 0;
+    padding-top: 5px;
+    margin-right: 0 !important;
 }
 .imgCoeurBlanc {
     width: 17px;

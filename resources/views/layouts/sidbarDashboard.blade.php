@@ -90,6 +90,7 @@
                         @if(Auth::user()->type == "OUMMATI")
                         <li class="nav-item nav-modife">
                             @if(!Auth::guest())
+                            <p style="color:white; margin-top:20px;margin-right:15px">{{Auth::user()->name}}</p>
                             <button type="button" class="btnImgUser">
                                 <img src="{{ asset('img') }}/{{Auth::user()->photo}}" width="69" alt="" class="image-94Nav">
                             </button>
@@ -376,8 +377,6 @@
 
 <!-- AdminLTE App -->
 <script src="{{asset('js/jquery.min.js')}}"></script>
-<script src="{{asset('bootstrap/bootstrap.min.js')}}"></script>
-<script src="{{asset('js/menu.js')}}"></script>
 <script>
     $(".btnImgUser").click(function(){
         $(".modalNavUp").toggle();
@@ -466,15 +465,9 @@
     });
 </script>
 
-<script>                                    
-    $(".btnImgUser").click(function(){
-        $(".modalNavUp").toggle();
-    });
-    $(".group9").click(function(){
-        $(".modalNavUp").hide();
-    });
-</script>
 
+<script src="{{asset('bootstrap/bootstrap.min.js')}}"></script>
+<script src="{{asset('js/menu.js')}}"></script>
 
 @yield('scripts')
 </body>

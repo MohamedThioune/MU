@@ -13,13 +13,19 @@
 @php if(isset($_COOKIE['lang'])) App::setLocale($_COOKIE['lang']); @endphp
 @section('content-play-element')
 <div class="contentOneMonFlow">
+    @php
+        $can = DB::Table('users')->select('channels.*')
+        ->join('channels', 'users.id', 'channels.user_id')
+        ->where('users.id', Auth::id())
+        ->first();
+    @endphp
     <p class="text-block-350" style="font-size: 1.5em;">{{__('All your information at a glance')}}</p>
     <div class="menu-content-business-copy business-Web">
-        <a href="#" class="link-26">Infos</a>
+        <!-- <span class="link-26"  data-toggle="tooltip" data-placement="top" title="Vous avez acces a toutes vos infos sur cette page">Infos</span> -->
         <a href="#event" class="link-26">Events.</a>
         <a href="#resume" class="link-26">Resume</a>
         <a href="#Playlist-flow" class="link-26">Playlist</a>
-        <a href="#" class="link-26">{{__('Offers')}}</a>
+        <a href="{{route('channel.visitor',[$can->id])}}#Offre-business" class="link-26">{{__('Offers')}}</a>
     </div>
     <div class="business-MOb">
         <div class="swiper-container swipeContainermodife3">
@@ -40,7 +46,7 @@
         </div>
     </div>
 
-<div class="hot-notification-block spaceElementFlow">
+<div id="hot" class="hot-notification-block spaceElementFlow">
         <div class="div-block-403">
             <p class="text-block-428">{{__('Hot notifications')}}</p>
             <a href="{{route('notification')}}" class="text-block-392">{{__('All notifications')}}</a>
@@ -286,7 +292,7 @@
     </div>
     @endif
 
-    @if($playlist)
+    @if($playlists)
     <div id="Playlist-flow" class="playlist spaceElementFlow">
         <div>
             <p class="titre-asso-video-all">{{__('The')}} playlist</p>
