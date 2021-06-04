@@ -26,7 +26,7 @@
             <!-- navbar web-->
             <div class="bar-up webUp">
                 <div class="nav-up-right">
-                    <a data-w-id="85409373-dce4-fdcf-64c5-c0ed0fa665a1" href="#" class="_4-points w-inline-block">
+                    <a data-w-id="85409373-dce4-fdcf-64c5-c0ed0fa665a1" href="#" class="_4-points w-inline-block IconeBlanc">
                         <div class="_2points">
                             <div class="point-1x4"></div>
                             <div class="point-1x4"></div>
@@ -201,7 +201,7 @@
                     <a href="{{route('flow')}}" class="div-block-281 w-inline-block">
                         <p class="text-block-286">Flow</p>
                     </a>
-                  
+
                     <a href="{{Auth::user()->sex == 0 ? route('sistas') : '#'}}" class="div-block-283 w-inline-block">
                         <p class="text-block-286" data-toggle="tooltip" data-placement="top" title="{{Auth::user()->sex == 1 ? 'Vous ne pourrez pas accéder a cette partie compte tenu de votre profil' : 'Rubrique destiné aux videos de nos soeurs' }}">Sista&#x27;s</p>
                     </a>
@@ -343,7 +343,7 @@
                                         <div class="faq-q-text" ><strong class="bold-text-5">Hassanates</strong></div>
                                     </div>
                                 </div>
-                                <div class="faq-answer" id="sousBlockHassanates" data-toggle="tooltip" data-placement="right" title="Restez connecté sera disponible dans une deuxieme version"> 
+                                <div class="faq-answer" id="sousBlockHassanates" data-toggle="tooltip" data-placement="right" title="Restez connecté sera disponible dans une deuxieme version">
                                     <!-- <p class="faq-answer-text">Time Sahid<br>Sadakatiya<br>Hassanates Party<br></p> -->
                                 </div>
                             </div>

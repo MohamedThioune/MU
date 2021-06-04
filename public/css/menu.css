@@ -603,6 +603,10 @@ video{
     width: 74%;
     display: block;
     overflow: hidden;
+    margin-left: 6px;
+}
+.des-text span:hover{
+    cursor: pointer;
 }
 
 .imgCoeur {
@@ -815,6 +819,9 @@ video{
     width: 170px;
     margin: 0 auto;
 }
+.btnSubscribe:hover{
+    color: #FFFFFF;
+}
 .blockTime{
     background: #000000;
     width: 16%;
@@ -850,13 +857,16 @@ video{
     width: 100%;
     position: absolute;
     top: 45%;
+    left: 0px;
+    right: 0;
+    text-align: center;
 }
 
 .categorie-name img {
     width: 25px;
     height: 25px;
     margin-left: auto;
-    margin-right: 11px;
+    margin-right: auto;
 }
 .textTimeShalied {
     color: white;
@@ -1003,8 +1013,9 @@ video{
 }
 .commentOne {
     display: block;
-    height: 289px;
+    height: 290px;
     margin-bottom: 25px;
+    margin-left: 6px;
 }
 .formCommentairePlay {
     padding-left: 20px;
@@ -1140,6 +1151,7 @@ video{
 }
 .contentSwipeToday {
     display: flex;
+    margin-left: 5px;
 }
 .barreLatraleNoir{
     position: relative;
@@ -1319,6 +1331,7 @@ video{
 }
 .content-Haltcare .container-fluid .contentSwipeToday {
     padding: 0;
+    margin-left: 5px;
 }
 .vertBarre{
     color: #242323;
@@ -1790,7 +1803,6 @@ video{
 }
 .div-block-331 {
     padding-left: 0;
-    min-height: 306px;
 }
 .inputCommentaire{
     resize: none;
@@ -1804,7 +1816,7 @@ video{
     width: 96%;
     margin-top: -12px;
     margin-left: 10px;
-    min-height: 205px;
+    height: 145px;
     margin-bottom: 20px;
 }
 .text-block-264 {
@@ -1984,6 +1996,7 @@ video{
     padding-left: 8px;
     padding-top: 4px;
     width: 17%;
+    display: none;
 }
 .btnClocheNot img{
     width: 17px;
@@ -2675,6 +2688,25 @@ video{
     border-radius: .25rem;
     right: 0;
 }
+.modalSelection {
+    display: none;
+    position: absolute;
+    z-index: 11;
+    top: 68px;
+    box-shadow: 1px 1px 2px 1px #00000012;
+    min-width: 9rem;
+    padding: .5rem 0;
+    margin: .125rem 0 0;
+    font-size: 1rem;
+    color: #212529;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: .25rem;
+    left: 41px;
+}
 .hot-notification-block {
     display: -webkit-box;
     display: -webkit-flex;
@@ -2700,6 +2732,30 @@ video{
     border: 0;
     font-size: 15px;
     font-family: "Ubuntu-Regular";
+    z-index: 111111;
+    position: relative;
+}
+.dropdownItemInput input {
+    margin-top: 5px;
+    margin-right: 9px;
+}
+.modal2{
+    height: 48px;
+}
+.dropdownItemInput {
+    display: flex;
+    padding: .25rem 1.5rem;
+    clear: both;
+    font-weight: 400;
+    color: #212529;
+    text-align: inherit;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+    font-size: 15px;
+    font-family: "Ubuntu-Regular";
+    z-index: 111111;
+    position: relative;
 }
 .div-block-403 {
     display: -webkit-box;
@@ -3404,9 +3460,21 @@ video{
     position: fixed;
     left:0;right:0;top:0;bottom:0;
 }
-
-
-
+.blockObjectif{
+    display: flex;
+}
+.ojectifVideo{
+    margin-top: -2px;
+    padding: 2px 15px;
+    border-radius: 15px;
+    background-color: #e0dfdf;
+    font-size: 14px;
+    font-family: "Ubuntu-Regular";
+    color: #8f8f8f;
+    margin-bottom: 0;
+    height: 25px;
+    margin-left: 7px;
+}
 
 
 
@@ -3419,6 +3487,10 @@ video{
     }
     .shopInModal {
         display: none;
+    }
+    .modalSelection {
+        top: 51px;
+        left: 13px;
     }
     .contentSwipeToday {
         padding-left: unset;
@@ -4636,9 +4708,10 @@ video{
             display: none !important;
         }
         .contentOneMonFlow {
-            width: 99%;
+            width: 100%;
             display: block;
             margin-top: 91px;
+            margin-left: unset;
         }
         .imgMUfull {
             display: none;

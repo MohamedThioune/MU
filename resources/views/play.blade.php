@@ -158,8 +158,10 @@
                         </div>
                     </div>
                     <div class="block-detail-commentaire">
-                        <p class="des-text">{{__('Description of my video')}} : <span class="">{{ $video->description }}</span>      </p>
-                        <p class="des-text">{{__('Objectives of the video')}} : {{ $video->motivation }}</p>
+                        <p class="des-text">{{__('Description of my video')}} : <span class="" data-toggle="modal" data-target="#exampleModal1">{{ $video->description }}</span>      </p>
+                      <div class="blockObjectif">
+                          <p class="des-text">{{__('Objectives of the video')}} : </p> <p class="ojectifVideo">{{ $video->motivation }}</p>
+                      </div>
                     </div>
                     <button class="blockPoint" data-toggle="modal" data-target="#exampleModal1">
                         <div class="trois-point-noir">...</div>
@@ -187,7 +189,7 @@
                             <img src="{{ asset('img/panier.png') }}" alt="">
                             <p class="textShare">{{__('Shop')}}</p>
                         </button>
-                        <div class="blockImgPuli">
+                        <div class="blockImgPuli btn" type="button" data-toggle="modal" data-target="#exampleModal1">
                             <div class="trois-point-noir">...</div>
                         </div>
                     </div>
