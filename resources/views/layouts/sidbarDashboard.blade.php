@@ -245,8 +245,14 @@
                                 </div>
                             </div>
                             <div class="head-slidebar ">
+                                @php
+                                    $channel = DB::Table('users')->select('channels.*')
+                                            ->join('channels', 'users.id', 'channels.user_id')
+                                            ->where('users.id', Auth::id())
+                                            ->first();
+                                @endphp
                                 @if(!Auth::guest())
-                                    <div class="text-ma-chaine">{{Auth::user()->name}}</div>
+                                    <div class="text-ma-chaine">{{$channel->name}}</div>
                                 @endif
                                 <div class="text-fonction">{{__('Individuals')}}</div>
                                 <div class="profil-photo">
@@ -301,12 +307,6 @@
                                     </div>
                                 </div>
                                 <div class="faq-answer" id="sousBlockChaines">
-                                    @php
-                                    $channel = DB::Table('users')->select('channels.*')
-                                                ->join('channels', 'users.id', 'channels.user_id')
-                                                ->where('users.id', Auth::id())
-                                                ->first();
-                                    @endphp
                                     @if($channel)
                                     <a data-w-id="3ebc1e8b-4c8a-0be6-ba36-5e829586b79c" href="{{route('channel.visitor', [$channel->id])}}" style="text-decoration:none" class="link-block-36 w-inline-block">
                                         <p class="text-block-257">{{__('Dashboard')}}<br></p>

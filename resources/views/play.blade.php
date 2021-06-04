@@ -730,19 +730,15 @@
                                         <a href="{{route('play', $video->id)}}"  style="text-decoration:none">
                                             <img src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" class="vignette-video-sugg">
                                         </a>
-                                        @elseif($user->age <= 15)
-                                        <a href="{{route('play', $video->id)}}"  style="text-decoration:none">
-                                            <img src="{{asset('images/kids_preloader.png')}}" class="vignette-video-sugg">
-                                        </a>
-                                        @elseif($user->age > 15 && $user->sex == '1')
-                                        <a href="{{route('play', $video->id)}}"  style="text-decoration:none">
-                                            <img src="{{asset('images/flow_preloader.png')}}" class="vignette-video-sugg">
-                                        </a>
-                                        @elseif($user->age > 15 && $user->sex == '0')
-                                        <a href="{{route('play', $video->id)}}"  style="text-decoration:none">
-                                            <img src="{{asset('images/sista_preloader.png')}}" class="vignette-video-sugg">
-                                        </a>
                                         @endif
+                                        @php 
+                                            if($video->duration){ 
+                                                $date = explode(":",$video->duration);
+                                                
+                                                if ($date[0] = "00")
+                                                    $video->duration = $date[1] . ":" . $date[2];
+                                                }
+                                        @endphp
                                         <p class="durationVideo">{{$video->duration}}</p>
                                     </div>
                                     <div class="vignette-vid-info-recom">
@@ -830,15 +826,6 @@
             </div>
             <div class="swiper-container swipeContainermodife1">
                 <div class="swiper-wrapper">
-                    @php
-                    $user = App\User::find($video->user_id);
-
-                    $playlist = DB::Table('playlists')->select('playlists.*')
-                    ->where('playlists.user_id', Auth::id())
-                    ->where('playlists.video_id', $video->id)
-                    ->first();
-                    @endphp
-
                     @foreach($inshaallah as $video)
                     <div class=" swiper-slide recondation-video-card">
                         <div class="video-vignette-recom">
@@ -846,19 +833,14 @@
                             <a href="{{route('play',[$video->id])}}" style="text-decoration:none">
                                 <img src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" class="vignette-video-sugg">
                             </a>
-                            @elseif($user->age <= 15)
-                            <a href="{{route('play',[$video->id])}}" style="text-decoration:none">
-                                <img src="{{asset('images/kids_preloader.png')}}" class="vignette-video-sugg">
-                            </a>
-                            @elseif($user->age > 15 && $user->sex == '1')
-                            <a href="{{route('play',[$video->id])}}" style="text-decoration:none">
-                                <img src="{{asset('images/flow_preloader.png')}}" class="vignette-video-sugg">
-                            </a>
-                            @elseif($user->age > 15 && $user->sex == '0')
-                            <a href="{{route('play',[$video->id])}}" style="text-decoration:none">
-                                <img src="{{asset('images/sista_preloader.png')}}" class="vignette-video-sugg">
-                            </a>
                             @endif
+                           
+                            @php 
+                                $playlist = DB::Table('playlists')->select('playlists.*')
+                                ->where('playlists.user_id', Auth::id())
+                                ->where('playlists.video_id', $video->id)
+                                ->first();
+                            @endphp
                             <p class="durationVideo">{{$video->duration}}</p>
                         </div>
                         <div class="vignette-vid-info-recom">
@@ -956,19 +938,16 @@
                                         <a href="{{route('play', $video->id)}}"  style="text-decoration:none">
                                             <img src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" class="vignette-video-sugg">
                                         </a>
-                                        @elseif($user->age <= 15)
-                                        <a href="{{route('play', $video->id)}}"  style="text-decoration:none">
-                                            <img src="{{asset('images/kids_preloader.png')}}" class="vignette-video-sugg">
-                                        </a>
-                                        @elseif($user->age > 15 && $user->sex == '1')
-                                        <a href="{{route('play', $video->id)}}"  style="text-decoration:none">
-                                            <img src="{{asset('images/flow_preloader.png')}}" class="vignette-video-sugg">
-                                        </a>
-                                        @elseif($user->age > 15 && $user->sex == '0')
-                                        <a href="{{route('play', $video->id)}}"  style="text-decoration:none">
-                                            <img src="{{asset('images/sista_preloader.png')}}" class="vignette-video-sugg">
-                                        </a>
                                         @endif
+
+                                        @php 
+                                            if($video->duration){ 
+                                                $date = explode(":",$video->duration);
+                                                
+                                                if ($date[0] = "00")
+                                                    $video->duration = $date[1] . ":" . $date[2];
+                                                }
+                                        @endphp
                                         <p class="durationVideo">{{$video->duration}}</p>
                                     </div>
                                     <div class="vignette-vid-info-recom">
@@ -1069,7 +1048,6 @@
                                 @foreach($videos_life as $video)
                                 <div class=" swiper-slide recondation-video-card">
                                     @php
-                                    $user = App\User::find($video->user_id);
                                     $playlist = DB::Table('playlists')->select('playlists.*')
                                     ->where('playlists.user_id', Auth::id())
                                     ->where('playlists.video_id', $video->id)
@@ -1080,19 +1058,16 @@
                                         <a href="{{route('play',[$video->id])}}"  style="text-decoration:none">
                                             <img src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" class="vignette-video-sugg">
                                         </a>
-                                        @elseif($user->age <= 15)
-                                        <a href="{{route('play',[$video->id])}}"  style="text-decoration:none">
-                                            <img src="{{asset('images/kids_preloader.png')}}" class="vignette-video-sugg">
-                                        </a>
-                                        @elseif($user->age > 15 && $user->sex == '1')
-                                        <a href="{{route('play',[$video->id])}}""  style="text-decoration:none">
-                                            <img src="{{asset('images/flow_preloader.png')}}" class="vignette-video-sugg">
-                                        </a>
-                                        @elseif($user->age > 15 && $user->sex == '0')
-                                        <a href="{{route('play',[$video->id])}}"  style="text-decoration:none">
-                                            <img src="{{asset('images/sista_preloader.png')}}" class="vignette-video-sugg">
-                                        </a>
                                         @endif
+
+                                        @php 
+                                            if($video->duration){ 
+                                                $date = explode(":",$video->duration);
+                                                
+                                                if ($date[0] = "00")
+                                                    $video->duration = $date[1] . ":" . $date[2];
+                                                }
+                                        @endphp
                                         <p class="durationVideo">{{$video->duration}}</p>
                                     </div>
                                     <div class="vignette-vid-info-recom">
@@ -1188,19 +1163,16 @@
                                         <a href="{{route('play',[$video->id])}}"  style="text-decoration:none">
                                             <img src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" class="vignette-video-sugg">
                                         </a>
-                                        @elseif($user->age <= 15)
-                                        <a href="{{route('play',[$video->id])}}"  style="text-decoration:none">
-                                            <img src="{{asset('images/kids_preloader.png')}}" class="vignette-video-sugg">
-                                        </a>
-                                        @elseif($user->age > 15 && $user->sex == '1')
-                                        <a href="{{route('play',[$video->id])}}""  style="text-decoration:none">
-                                        <img src="{{asset('images/flow_preloader.png')}}" class="vignette-video-sugg">
-                                        </a>
-                                        @elseif($user->age > 15 && $user->sex == '0')
-                                        <a href="{{route('play',[$video->id])}}"  style="text-decoration:none">
-                                            <img src="{{asset('images/sista_preloader.png')}}" class="vignette-video-sugg">
-                                        </a>
                                         @endif
+
+                                        @php 
+                                            if($video->duration){ 
+                                                $date = explode(":",$video->duration);
+                                                
+                                                if ($date[0] = "00")
+                                                    $video->duration = $date[1] . ":" . $date[2];
+                                                }
+                                        @endphp
                                         <p class="durationVideo">{{$video->duration}}</p>
                                     </div>
                                     <div class="vignette-vid-info-recom">
@@ -1298,19 +1270,16 @@
                                         <a href="{{route('play',[$video->id])}}"  style="text-decoration:none">
                                             <img src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" class="vignette-video-sugg">
                                         </a>
-                                        @elseif($user->age <= 15)
-                                        <a href="{{route('play',[$video->id])}}"  style="text-decoration:none">
-                                            <img src="{{asset('images/kids_preloader.png')}}" class="vignette-video-sugg">
-                                        </a>
-                                        @elseif($user->age > 15 && $user->sex == '1')
-                                        <a href="{{route('play',[$video->id])}}"  style="text-decoration:none">
-                                        <img src="{{asset('images/flow_preloader.png')}}" class="vignette-video-sugg">
-                                        </a>
-                                        @elseif($user->age > 15 && $user->sex == '0')
-                                        <a href="{{route('play',[$video->id])}}"  style="text-decoration:none">
-                                            <img src="{{asset('images/sista_preloader.png')}}" class="vignette-video-sugg">
-                                        </a>
                                         @endif
+
+                                        @php 
+                                            if($video->duration){ 
+                                                $date = explode(":",$video->duration);
+                                                
+                                                if ($date[0] = "00")
+                                                    $video->duration = $date[1] . ":" . $date[2];
+                                                }
+                                        @endphp
                                         <p class="durationVideo">{{$video->duration}}</p>
                                     </div>
                                     <div class="vignette-vid-info-recom">
@@ -1406,19 +1375,16 @@
                                         <a href="{{route('play',[$video->id])}}"  style="text-decoration:none">
                                             <img src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" class="vignette-video-sugg">
                                         </a>
-                                        @elseif($user->age <= 15)
-                                        <a href="{{route('play',[$video->id])}}"  style="text-decoration:none">
-                                            <img src="{{asset('images/kids_preloader.png')}}" class="vignette-video-sugg">
-                                        </a>
-                                        @elseif($user->age > 15 && $user->sex == '1')
-                                        <a href="{{route('play',[$video->id])}}""  style="text-decoration:none">
-                                        <img src="{{asset('images/flow_preloader.png')}}" class="vignette-video-sugg">
-                                        </a>
-                                        @elseif($user->age > 15 && $user->sex == '0')
-                                        <a href="{{route('play',[$video->id])}}"  style="text-decoration:none">
-                                            <img src="{{asset('images/sista_preloader.png')}}" class="vignette-video-sugg">
-                                        </a>
                                         @endif
+                                        
+                                        @php 
+                                            if($video->duration){ 
+                                                $date = explode(":",$video->duration);
+                                                
+                                                if ($date[0] = "00")
+                                                    $video->duration = $date[1] . ":" . $date[2];
+                                                }
+                                        @endphp
                                         <p class="durationVideo">{{$video->duration}}</p>
                                     </div>
                                     <div class="vignette-vid-info-recom">
@@ -1515,19 +1481,16 @@
                                         <a href="{{route('play',[$video->id])}}"  style="text-decoration:none">
                                             <img src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" class="vignette-video-sugg">
                                         </a>
-                                        @elseif($user->age <= 15)
-                                        <a href="{{route('play',[$video->id])}}"  style="text-decoration:none">
-                                            <img src="{{asset('images/kids_preloader.png')}}" class="vignette-video-sugg">
-                                        </a>
-                                        @elseif($user->age > 15 && $user->sex == '1')
-                                        <a href="{{route('play',[$video->id])}}""  style="text-decoration:none">
-                                        <img src="{{asset('images/flow_preloader.png')}}" class="vignette-video-sugg">
-                                        </a>
-                                        @elseif($user->age > 15 && $user->sex == '0')
-                                        <a href="{{route('play',[$video->id])}}"  style="text-decoration:none">
-                                            <img src="{{asset('images/sista_preloader.png')}}" class="vignette-video-sugg">
-                                        </a>
                                         @endif
+                                        
+                                        @php 
+                                            if($video->duration){ 
+                                                $date = explode(":",$video->duration);
+                                                
+                                                if ($date[0] = "00")
+                                                    $video->duration = $date[1] . ":" . $date[2];
+                                                }
+                                        @endphp
                                         <p class="durationVideo">{{$video->duration}}</p>
                                     </div>
                                     <div class="vignette-vid-info-recom">
@@ -1813,14 +1776,14 @@
         }
 
         function start(){
-            if(video_play.readyState > video_play.HAVE_METADATA){
+            if(video_play.readyState > video_play.HAVE_METADATA && barometer.value == "" ){
                 blessings.style.display = "block";
                 barometer.value = "1";
-                setTimeout(toggle, 10000);
+                setTimeout(toggle, 5000);
                 var duration = video_play.duration;
-                wait = (duration - 18)*1000;
+                wait = (duration - 5)*1000;
                 setTimeout(end, wait);
-                setTimeout(endof, 10000);
+                setTimeout(endof, 5000);
             }
         }
 

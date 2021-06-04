@@ -315,7 +315,7 @@ Route::get('/connected/{n}', [App\Http\Controllers\HomeController::class, 'conne
 // channel page : mode visiteur
 Route::get('/chaine_visiteur/{n}', ['middleware'=>'auth', 'uses'=>'channelController@visit'])->where('n','[0-9]+')->name('channel.visitor');
 
-// channel page : apercu
+// channel page : apercu 
 Route::get('/apercu/{n}', ['middleware'=>'auth', 'uses'=>'channelController@overview'])->where('n','[0-9]+')->name('channel.fly');
 
 // flow page : apercu

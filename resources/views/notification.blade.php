@@ -48,16 +48,16 @@
             @endphp
             <div class="div-block-414" style="width:100%">
                 <div class="div-block-412" style="width:40%">
-                    <div class="vignette">
+                    <a href="{{route('play',[$video->id])}}" class="vignette">
                         @if($video->thumbnail)
                             <img class="image-135" src="{{ asset('vids/thumbnails/') }}/{{$video->thumbnail}}" alt="">
                         @else
                             <img src="{{ asset('img/grille.png') }}" class="image-135">
                         @endif
-                    </div>
+                    </a>
                     <div class="div-block-410">
                         <div class="group10">
-                            <p class="text-block-394">{{$video->description}}</p>
+                            <a href="{{route('play',[$video->id])}}" style="text-decoration:none;color:212529" class="text-block-394">{{$video->description}}</a>
                         </div>
                         @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) == 0)
                         @if(intval(abs(strtotime("now") - strtotime($video->created_at))/ 3600) > 0)
@@ -75,10 +75,10 @@
                     </div>
                 </div>
                 <div class="div-block-413" style="width:55%">
-                    <div class="div-block-409">
+                    <a href="{{route('channel.visitor', [$box->id])}}" class="div-block-409">
                         <img src="{{asset('img')}}/{{$box->logo}} " alt="" class="image-136">
-                    </div>
-                    <div class="text-block-395">{{$box->name}}</div>
+                    </a>
+                    <a href="{{route('channel.visitor', [$box->id])}}" style="text-decoration:none;color:#212529" class="text-block-395">{{$box->name}}</a>
                 </div>
             </div>
             <div class="dropdownBlock2 popup_main">

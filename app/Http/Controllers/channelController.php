@@ -241,7 +241,12 @@ class channelController extends AppBaseController
                                     ->orderByDesc('videos.created_at')
                                     ->limit(3)
                                     ->get();
-        
+
+        $playlists = DB::Table('playlists')->select('videos.*')
+                    ->join('videos', 'videos.id', 'playlists.video_id')
+                    ->whereNull('playlists.deleted_at')
+                    ->where('playlists.user_id', $visit->user_id)
+                    ->get();
                                     
         if($canal->id == $visit->id){
             $admin = true;
@@ -253,7 +258,7 @@ class channelController extends AppBaseController
 
         $_COOKIE['state'] = 'Channel';
 
-        return view('chaineAbonne', compact('canal','channel','visit', 'videos','subtopics','bool', 'admin','edit','events','activities','contact', 'videos_top'));
+        return view('chaineAbonne', compact('canal','channel','visit', 'videos','subtopics','bool', 'admin','edit','events','activities','contact', 'videos_top', 'playlists'));
 
     }
 
@@ -262,7 +267,7 @@ class channelController extends AppBaseController
         $bool = true;
         $admin = false;
         $edit=false;
-
+ 
         /** @var Event $event */
         $events = DB::Table('channels')->select('events.*')
                                       ->join('events', 'channels.id', 'events.channel_id')
@@ -305,6 +310,12 @@ class channelController extends AppBaseController
                                     ->limit(3)
                                     ->get();
 
+        $playlists = DB::Table('playlists')->select('videos.*')
+                    ->join('videos', 'videos.id', 'playlists.video_id')
+                    ->whereNull('playlists.deleted_at')
+                    ->where('playlists.user_id', $visit->user_id)
+                    ->get();
+
         /** @var subtopic $subtopics */
         $subtopics = Subtopic::all();
 
@@ -317,8 +328,8 @@ class channelController extends AppBaseController
         $_COOKIE['state'] = 'Channel';
 
         if($channel->id == $visit->id)
-            return view('chaineAbonne', compact('channel','visit', 'videos','videos_top', 'events', 'activities', 'contact', 'subtopics', 'bool','edit','admin'));
+            return view('chaineAbonne', compact('channel','visit', 'videos','videos_top', 'events', 'activities', 'contact', 'subtopics', 'bool','edit','admin','playlists'));
         else
-            return view('chaineAbonne', compact('channel', 'visit', 'videos','videos_top', 'events', 'activities', 'contact', 'subtopics'));
+            return view('chaineAbonne', compact('channel', 'visit', 'videos','videos_top', 'events', 'activities', 'contact', 'subtopics','bool','playlists'));
     }
 }
