@@ -41,7 +41,7 @@
     </div>
     <div class="hot-notification-block spaceElementFlow">
         <div class="div-block-403">
-            <p class="text-block-428">{{__('Hot notifications')}}</p>
+            <p class="titre-recommandation ">{{__('Hot notifications')}}</p>
             <a href="{{route('notification')}}" class="text-block-392">{{__('All notifications')}}</a>
         </div>
         <div class="div-block-367">
@@ -261,7 +261,7 @@
     </div>
     <div id="Playlist-flow" class="playlist spaceElementFlow">
         <div>
-            <p class="titre-asso-video-all">{{__('The')}} playlist</p>
+            <p class="titre-recommandation ">{{__('The')}} playlist</p>
         </div>
         <div class="swiper-container swipeSuggestion">
             <div class="swiper-wrapper">
@@ -341,7 +341,7 @@
     </div>
     <div class="chaine-vu spaceElementFlow">
         <div>
-            <p class="text-block-353-copy">{{__('Here is the most viewed channel at the moment')}}</p>
+            <p class="titre-recommandation ">{{__('Here is the most viewed channel at the moment')}}</p>
         </div>
         <div class="div-block-367-copy">
             <a href="{{route('channel.visitor', $channel_top->id)}}" style="text-decoration:none" class="bull-chaine">
@@ -389,7 +389,7 @@
         </div>
     </div>
     <div id="event" class="big-event spaceElementFlow">
-        <div class="text-block-353">{{__('Upcoming events')}}</div>
+        <div class="titre-recommandation ">{{__('Upcoming events')}}</div>
         <div class="div-block-375">
             <div class="div-block-373">
                 <div class="div-block-372">
@@ -454,7 +454,7 @@
     <div id="resume" class="resume-flow spaceElementFlow">
         <div class="div-block-343">
             <div class="div-block-352">
-                <p class="text-block-353-copy">{{__('This month')}}</p>
+                <p class="titre-recommandation ">{{__('This month')}}</p>
                 <div class="resume-activitee">
                     <div class="nombre-de">
                         <p class="text-block-351">{{__('Videos viewed')}}</p>
