@@ -303,7 +303,7 @@ $channel = DB::Table('users')->select('channels.*')
                                    <div class="sidebar-icon">
                                        <img src="{{ asset('img/Time-shahid.png') }}" class="imgTimeShalid" alt="">
                                    </div>
-                                   <div class="faq-q-text" ><strong class="titre-onglet-time">Time Shahid</strong></div>
+                                   <a href="{{route('time_shahid')}}" style="text-decoration:none" class="faq-q-text" ><strong class="titre-onglet-time">Time Shahid</strong></a>
                                </div>
                            </div>
                        </div>

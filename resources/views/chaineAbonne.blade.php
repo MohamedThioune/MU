@@ -389,11 +389,11 @@
             </div>
         </div>
     </div>
+    @if($playlists)
+    @if(count($playlists) > 0)
     <div class="">
         <div id="playlist" class="playlist2">
             <p class="text-block-428">{{__('MY')}} playlist ...</p>
-            @if($playlists)
-                @if(count($playlists) > 0)
                     <div class="swiper-container swipeContainermodife1">
                         <div class="swiper-wrapper">
                         @foreach($playlists as $playl)

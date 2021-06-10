@@ -231,7 +231,7 @@
                             <img class="img-circle" src="{{asset('images/flow_preloader.png')}}" alt=""/>
                             @elseif($user->age > 15 && $user->sex == '0')
                             <img class="" src="{{asset('images/sista_preloader.png')}}" alt="">
-                            @endif
+                            @endif 
                         </a>
                     </div>
                    <div class="GroupAuteur8">
@@ -246,6 +246,7 @@
                         @if(!Auth::guest())
                         <a href="{{ route('suscribe',$channel->id) }}" class="btn btnSubscribe" >{{__('Subscribe')}}
                             <button class="btn btnClocheNot">
+                                <br>
                                 <img src="{{ asset('img/Mu-cloche-blanc.png') }}" class="imgClocheAbonne" alt="">
                             </button>
                         </a>
