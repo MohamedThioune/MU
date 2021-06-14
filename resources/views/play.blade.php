@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{{asset('css/home.css')}}">
     @endsection
     @php if(isset($_COOKIE['lang'])) App::setLocale($_COOKIE['lang']); @endphp
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
 
@@ -27,7 +28,12 @@
                                 <source src="{{ asset('vids/uploads')}}/{{$video->vid}}" type='video/webm; codecs="vp8, vorbis"' />
                                 <source src="{{ asset('vids/uploads')}}/{{$video->vid}}" type='video/ogg; codecs="theora, vorbis"' />
                             </video>
-
+                            <form method="POST" id="post_share" action="/shares">
+                                <input type="hidden" id="token" name="_token" value="{{ csrf_token() }}" />
+                                <input type="hidden" id="user" value="{{ Auth::id() }}">
+                                <input type="hidden" id="video" value="{{ $video->id }}">
+                            </form>
+                            
                         </div>
                         <div id="blessings" class="animate__animated animate__bounceInUp" >
                             <center><span>Bismillahi Rahmani Rahim / Au nom d’Allah le Clément le Miséricordieux </span>
@@ -181,9 +187,9 @@
                                 @endif
                             </a>
                         </div>
-                        <div class="blockImgPuli bottomElement2">
+                        <div id="share" class="blockImgPuli bottomElement2" style="cursor: pointer" onclick="share()">
                             <img src="{{ asset('img/icones/share.png') }}" alt="">
-                            <p class="textShare">{{__('Share')}}</p>
+                            <a class="textShare">{{__('Share')}}</a>
                         </div>
                         <button class="btn shopBtn blockImgPuli bottomElement3" type="button" data-toggle="modal" data-target="#exampleModal1">
                             <img src="{{ asset('img/panier.png') }}" alt="">
@@ -244,12 +250,31 @@
                     </div>
                     <div class="elementBtnSouscrire">
                         @if(!Auth::guest())
-                        <a href="{{ route('suscribe',$channel->id) }}" class="btn btnSubscribe" >{{__('Subscribe')}}
-                            <button class="btn btnClocheNot">
-                                <br>
-                                <img src="{{ asset('img/Mu-cloche-blanc.png') }}" class="imgClocheAbonne" alt="">
-                            </button>
-                        </a>
+                        @php
+                            $subscribe = DB::Table('users')->select('channels.id')
+                            ->join('channels', 'users.id', 'channels.user_id')
+                            ->where('users.id', Auth::id())
+                            ->first();
+                        @endphp
+                            @if($subscribe->id != $channel->id)
+                            @php
+                                $chain = DB::Table('abonne_channel')->select('abonne_channel.id')
+                                ->where('abonne_channel.user_id', Auth::id())
+                                ->where('abonne_channel.channel_id', $channel->id)
+                                ->first();
+                            @endphp
+                                <a href="{{ route('suscribe',$channel->id) }}" class="btn btnSubscribe" >
+                                    @if($chain) 
+                                        {{__('Unsubscribe')}} 
+                                    
+                                        <button class="btn btnCloche">
+                                            <img width="15" height="15" src="{{ asset('img/Mu-cloche-blanc.png') }}" class="imgClocheAbonne" alt="">
+                                        </button>
+                                    @else
+                                        {{__('Subscribe')}}
+                                    @endif
+                                </a>
+                            @endif
                         @else
                         <a href="#" class="btn btnSubscribe"  data-toggle="tooltip" data-placement="top" title="this feature is only available to community members"> {{__('Subscribe')}}
                             <button class="btn btnClocheNot">
@@ -1760,7 +1785,7 @@
     </script>
 
     <script>
-        //My code not persuassive
+        //My code not persuassive for play banner
         var video_play = document.querySelector(".elementVideoParDefaut");
         var blessings = document.getElementById("blessings");
         var prays = document.getElementById("prays");
@@ -1793,6 +1818,26 @@
         function end(){
             blessings.style.display = "none";
             prays.style.display = "block";
+        }
+
+        //My code not persuassive for share activity 
+        var element = document.getElementById('share');
+        var form_share = document.getElementById('post_share').action;
+        var user = $("#user").val();
+        var video = $("#video").val();
+        var token = $("#token").val();
+
+        function share(){
+            $.post(form_share,
+            {
+                user_id: user,
+                video_id: video,
+                _token: token
+            },
+            function(data, status){
+                console.log('data: ', data);
+                console.log('status: ', status);
+            });
         }
     </script>
 

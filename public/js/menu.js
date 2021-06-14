@@ -29,9 +29,6 @@ $(document).ready(function() {
         $( ".group9" ).removeClass('mobileVisiblite');
     });
 
-    $(".btnSubscribe").click(function(){
-        $(".btnClocheNot").toggle();
-    });
 });
 $(document).ready(function() {
     $( ".flow" ).click(function() {

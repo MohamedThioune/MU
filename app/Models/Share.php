@@ -28,7 +28,6 @@ class Share extends Model
 
 
     public $fillable = [
-        'url',
         'user_id',
         'video_id'
     ];
@@ -40,7 +39,6 @@ class Share extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'url' => 'string',
         'user_id' => 'integer',
         'video_id' => 'integer'
     ];
@@ -51,7 +49,6 @@ class Share extends Model
      * @var array
      */
     public static $rules = [
-        'url' => 'required',
         'user_id' => 'required',
         'video_id' => 'required'
     ];
