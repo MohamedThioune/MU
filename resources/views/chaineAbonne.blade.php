@@ -14,16 +14,33 @@
             <div class="div-block-385">
 
                 <div class="chaine">
-                    <a class="btnSubscripeNotif" style="text-decoration:none" href="#">
-                        <div class="btn div-block-386">
-                            <img src="{{ asset('img/Mu-coeur-blanc.svg') }}" class="imgCoeurBlanc" width="23" alt="">
-                        </div>
-                        <div>{{__('Subscribe')}}</div>
-                        <button class="alerte7">
-                            <img src="{{ asset('img/Mu-cloche-blanc.svg') }}" class="cloche3-1"  alt="">
-                        </button>
-                    </a>
-
+                    @php
+                        $subscribe = DB::Table('users')->select('channels.id')
+                        ->join('channels', 'users.id', 'channels.user_id')
+                        ->where('users.id', Auth::id())
+                        ->first();
+                    @endphp
+                    @if($subscribe->id != $visit->id)
+                        @php
+                            $chain = DB::Table('abonne_channel')->select('abonne_channel.id')
+                            ->where('abonne_channel.user_id', Auth::id())
+                            ->where('abonne_channel.channel_id', $visit->id)
+                            ->first();
+                        @endphp
+                            <a class="btnSubscripeNotif" href="{{ route('suscribe',$visit->id) }}" style="text-decoration:none">
+                                <div class="btn div-block-386">
+                                    <img src="{{ asset('img/Mu-coeur-blanc.svg') }}" class="imgCoeurBlanc" width="23" alt="">
+                                </div>
+                                @if($chain) 
+                                    {{__('Unsubscribe')}} 
+                                    <button class="btn btnCloche">
+                                        <img width="15" height="15" src="{{ asset('img/Mu-cloche-blanc.png') }}" class="imgClocheAbonne" alt="">
+                                    </button>
+                                @else
+                                    {{__('Subscribe')}}
+                                @endif
+                            </a>
+                    @endif
                     <div class="more-seting">
                         <div class="div-block-399"></div>
                         <div class="div-block-399"></div>

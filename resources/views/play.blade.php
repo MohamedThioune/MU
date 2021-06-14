@@ -9,6 +9,7 @@
     @endsection
     @php if(isset($_COOKIE['lang'])) App::setLocale($_COOKIE['lang']); @endphp
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v11.0&appId=597127187460666&autoLogAppEvents=1" nonce="niIdAzBU"></script>
 </head>
 <body>
 
@@ -168,6 +169,7 @@
                       <div class="blockObjectif">
                           <p class="des-text">{{__('Objectives of the video')}} : </p> <p class="ojectifVideo">{{ $video->motivation }}</p>
                       </div>
+                      <div class="fb-share-button" data-href="{{route('share',[$video->id])}}" data-layout="button_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
                     </div>
                     <button class="blockPoint" data-toggle="modal" data-target="#exampleModal1">
                         <div class="trois-point-noir">...</div>
@@ -230,7 +232,7 @@
                     <div class="elementImgAuteur">
                         <a class="" href="{{route('channel.visitor', $channel->id)}}"class="nameAuteur contentweb">
                             @if($channel->logo)
-                            <img class="" src="{{ asset('/img/') }}/{{$channel->logo}}" alt="">
+                            <img class="" src="{{ asset('/img') }}/{{$channel->logo}}" alt="">
                             @elseif($user->age <= 15)
                             <img class="" src="{{asset('images/kids_preloader.png')}}" alt="">
                             @elseif($user->age > 15 && $user->sex == '1')
@@ -257,23 +259,23 @@
                             ->first();
                         @endphp
                             @if($subscribe->id != $channel->id)
-                            @php
-                                $chain = DB::Table('abonne_channel')->select('abonne_channel.id')
-                                ->where('abonne_channel.user_id', Auth::id())
-                                ->where('abonne_channel.channel_id', $channel->id)
-                                ->first();
-                            @endphp
-                                <a href="{{ route('suscribe',$channel->id) }}" class="btn btnSubscribe" >
-                                    @if($chain) 
-                                        {{__('Unsubscribe')}} 
-                                    
-                                        <button class="btn btnCloche">
-                                            <img width="15" height="15" src="{{ asset('img/Mu-cloche-blanc.png') }}" class="imgClocheAbonne" alt="">
-                                        </button>
-                                    @else
-                                        {{__('Subscribe')}}
-                                    @endif
-                                </a>
+                                @php
+                                    $chain = DB::Table('abonne_channel')->select('abonne_channel.id')
+                                    ->where('abonne_channel.user_id', Auth::id())
+                                    ->where('abonne_channel.channel_id', $channel->id)
+                                    ->first();
+                                @endphp
+                                    <a href="{{ route('suscribe',$channel->id) }}" class="btn btnSubscribe" >
+                                        @if($chain) 
+                                            {{__('Unsubscribe')}} 
+                                        
+                                            <button class="btn btnCloche">
+                                                <img width="15" height="15" src="{{ asset('img/Mu-cloche-blanc.png') }}" class="imgClocheAbonne" alt="">
+                                            </button>
+                                        @else
+                                            {{__('Subscribe')}}
+                                        @endif
+                                    </a>
                             @endif
                         @else
                         <a href="#" class="btn btnSubscribe"  data-toggle="tooltip" data-placement="top" title="this feature is only available to community members"> {{__('Subscribe')}}
@@ -539,11 +541,10 @@
     <div class="container-fluid">
         <div class="row ">
             <div class="col-md-5  col-lg-5 col-sm-12">
-                @if(count($comments) > 0)
                 <div class="commentOne commentBlock">
                     <button class="commentTitle btn" data-toggle="modal" data-target="#exampleModal">
                         <p class="nombreComment">{{count($comments)}}</p>
-                        <p class="commentText">{{__('Comments')}}</p>
+                        <p class="commentText">{{count($comments) > 0 ? __('Comments') : __('Comment')}}</p>
                         <img class="commentImg" src="{{ asset('img/icones/commet.svg') }}" alt="">
                     </button>
                     @include('adminlte-templates::common.errors')
@@ -556,181 +557,142 @@
                             <button type="submit" class="btn btnEnvoyer" @if(Auth::guest()) disabled @endif>{{__('Send')}}</button>
                         </div>
                     </form>
+
                     @for($i = 1; $i < count($comments); $i++)
+                        <div class="coment-1">
+                            <div class="div-block-331" id="TestsDiv" style="display:none">
+                                @include('adminlte-templates::common.errors')
+                                <form method="POST"  action="/comments">
+                                    @csrf
+                                    <input type="hidden" name="video_id" value="{{$video->id}}" id="">
+                                    <textarea class="inputCommentaire" name="value" id="" rows="5"></textarea>
 
+                                    <div class="div-block-332">
+                                        <div data-w-id="4b72083c-6fc6-243d-8a1a-20877dbe9b72" class="text-block-325">{{__('Reset')}}</div>
+                                        <button type="submit" class="text-block-326 btn">{{__('Send')}}</button>
+                                    </div>
+                                </form>
+                                <div>
 
-                    <div class="coment-1">
-
-                        <div class="div-block-331" id="TestsDiv" style="display:none">
-
-                            @include('adminlte-templates::common.errors')
-                            <form method="POST"  action="/comments">
-                                @csrf
-                                <input type="hidden" name="video_id" value="{{$video->id}}" id="">
-                                <textarea class="inputCommentaire" name="value" id="" rows="5"></textarea>
-
-                                <div class="div-block-332">
-                                    <div data-w-id="4b72083c-6fc6-243d-8a1a-20877dbe9b72" class="text-block-325">{{__('Reset')}}</div>
-                                    <button type="submit" class="text-block-326 btn">{{__('Send')}}</button>
                                 </div>
-                            </form>
-                            <div>
+                            </div>
+                            <div class="d-flex group11">
+                                <p class="textTousCom">{{__('See all comments')}}</p>
+                                <button class="btn btnTous" data-toggle="modal" data-target="#exampleModal"><img class="imgTousCom" src="{{ asset('img/touscom.svg') }}" alt=""></button>
+                                <!-- Modal -->
+                                <div class="modal fade modalCommenraire" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog2" role="document">
+                                        <div class="modal-content">
+                                            <div class="plus-comments-mob">
+                                                    <div class="div-block-465">
+                                                        <button data-dismiss="modal" class="btn flech-grey w-inline-block">
+                                                            <div class="fleche-up-grey"></div>
+                                                            <div class="fleche-down-grey"></div>
+                                                        </button>
+                                                    </div>
+                                                <div class="div-block-435">
+                                                        <div class="ad-comment">
+                                                            @include('adminlte-templates::common.errors')
+                                                            <form method="POST" action="/comments">
+                                                                @csrf
+                                                                <input type="hidden" name="video_id" value="{{$video->id}}" id="">
+                                                                <textarea class="inputCommentaire2" name="value" id=""></textarea>
+                                                                <div class="div-block-332">
+                                                                    <button type="submit" class="btn btnEnvoyer">{{__('Post')}}</button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    <div>
 
+                                                        @for($i = 1; $i < count($comments); $i++)
+                                                        <div class="coment-1">
+                                                            <div class="div-block-325">
+                                                                <div class="div-block-329">
+
+                                                                    <div class="div-block-327">
+
+                                                                        @if($users[$i]->age <= 15)
+                                                                        <img src="{{asset('images/kids_preloader.png')}}" style="width:45px; height:42px"  class="img-circle" alt="User Image"/>
+                                                                        @elseif($users[$i]->age > 15 && $users[$i]->sex == '1')
+                                                                        <img src="{{asset('images/flow_preloader.png')}}" style="width:45px; height:42px"  class="img-circle" alt="User Image"/>
+                                                                        @elseif($users[$i]->age > 15 && users[$i]->sex == '0')
+                                                                        <img src="{{asset('images/sista_preloader.png')}}" style="width:45px; height:42px"  class="img-circle" alt="User Image"/>
+                                                                        @endif
+                                                                    </div>
+                                                                    <div class="div-block-326" >
+                                                                        <p class="textblock326">{{$users[$i]->name}}</p>
+                                                                        <div class="text-block-322 showReadMore1" style="">{{$comments[$i]->value}}
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="text-block-Date">
+                                                                        @if(intval(abs(strtotime("now") - strtotime($comments[$i]->created_at))/ 86400) == 0)
+                                                                        @if(intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 3600) > 0)
+                                                                        {{intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/3600)}} hours ago
+                                                                        @else(intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 3600) == 0)
+                                                                        {{intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/60)}} minutes ago
+                                                                        @endif
+                                                                        @elseif(intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 86400) == 1)
+                                                                        Yesterday at {{strftime("%H:%M", strtotime( $comments[$i]->created_at))}}
+                                                                        @elseif(intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 86400) >= 2 && intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 86400) <= 27)
+                                                                        {{intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 86400)}} days ago
+                                                                        @else(intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 86400) > 27)
+                                                                        On {{strftime("%d/%m/%Y", strtotime( $comments[$i]->created_at))}}
+                                                                        @endif
+                                                                    </div>
+                                                                </div>
+                                                                <div class="d-flex">
+                                                                    <div class="d-flex">
+                                                                        <p class="commenter">{{__('Answer')}}</p>
+                                                                        <button  onclick="TestsFunction()"  class="message-2-messaage w-inline-block btn">
+                                                                            <img src="{{ asset('img/Mu-picto-comment-gris2x.png') }}" loading="lazy" width="33" alt="">
+                                                                        </button>
+                                                                    </div>
+                                                                    <div>
+                                                                        <div class="likes">
+                                                                            <div class="text-block-292"> {{\App\Models\Comment::find($comments[$i]->comment_id)->likers()->count()}}</div>
+                                                                            <div class="imgCoeur2">
+                                                                                <a href="{{ route('likecomment' , $comments[$i]->comment_id) }}">
+                                                                                    <img src="{{ asset('img/icones/coeurRose.svg') }}" alt="">
+                                                                                </a>
+                                                                            </div>
+                                                                            <div class="disliker">
+                                                                                <a href="{{ route('dislikecomment' , $comments[$i]->comment_id) }}">
+                                                                                    <img src="{{ asset('img/icones/loveRenverseGris.png') }}" alt="">
+                                                                                </a>
+                                                                            </div>
+                                                                            <div class="text-block-292"> {{\App\Models\Comment::find($comments[$i]->comment_id)->unlikes()->count()}} </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="div-block-331" id="TestsDiv" style="display:none">
+
+                                                                @include('adminlte-templates::common.errors')
+                                                                <form method="POST" action="/comments">
+                                                                    @csrf
+                                                                    <input type="hidden" name="video_id" value="{{$video->id}}" id="">
+                                                                    <textarea class="inputCommentaire" name="value" id="" rows="5"></textarea>
+
+                                                                    <div class="div-block-332">
+                                                                        <button type="submit" class="text-block-326 btn">{{__('')}}Poster</button>
+                                                                    </div>
+                                                                </form>
+                                                                <div>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        @endfor
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                       <div class="d-flex group11">
-                           <p class="textTousCom">{{__('See all comments')}}</p>
-                           <button class="btn btnTous" data-toggle="modal" data-target="#exampleModal"><img class="imgTousCom" src="{{ asset('img/touscom.svg') }}" alt=""></button>
-                           <!-- Modal -->
-                           <div class="modal fade modalCommenraire" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                               <div class="modal-dialog modal-dialog2" role="document">
-                                   <div class="modal-content">
-                                       <div class="plus-comments-mob">
-                                            <div class="div-block-465">
-                                                <button data-dismiss="modal" class="btn flech-grey w-inline-block">
-                                                    <div class="fleche-up-grey"></div>
-                                                    <div class="fleche-down-grey"></div>
-                                                </button>
-                                            </div>
-                                           <div class="div-block-435">
-                                                <div class="ad-comment">
-                                                    @include('adminlte-templates::common.errors')
-                                                    <form method="POST" action="/comments">
-                                                        @csrf
-                                                        <input type="hidden" name="video_id" value="{{$video->id}}" id="">
-                                                        <textarea class="inputCommentaire2" name="value" id=""></textarea>
-                                                        <div class="div-block-332">
-                                                            <button type="submit" class="btn btnEnvoyer">{{__('Post')}}</button>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                               <div>
-
-                                                   @for($i = 1; $i < count($comments); $i++)
-                                                   <div class="coment-1">
-                                                       <div class="div-block-325">
-                                                           <div class="div-block-329">
-
-                                                               <div class="div-block-327">
-
-                                                                   @if($users[$i]->age <= 15)
-                                                                   <img src="{{asset('images/kids_preloader.png')}}" style="width:45px; height:42px"  class="img-circle" alt="User Image"/>
-                                                                   @elseif($users[$i]->age > 15 && $users[$i]->sex == '1')
-                                                                   <img src="{{asset('images/flow_preloader.png')}}" style="width:45px; height:42px"  class="img-circle" alt="User Image"/>
-                                                                   @elseif($users[$i]->age > 15 && users[$i]->sex == '0')
-                                                                   <img src="{{asset('images/sista_preloader.png')}}" style="width:45px; height:42px"  class="img-circle" alt="User Image"/>
-                                                                   @endif
-                                                               </div>
-                                                               <div class="div-block-326" >
-                                                                   <p class="textblock326">{{$users[$i]->name}}</p>
-                                                                   <div class="text-block-322 showReadMore1" style="">{{$comments[$i]->value}}
-                                                                   </div>
-                                                               </div>
-                                                               <div class="text-block-Date">
-                                                                   @if(intval(abs(strtotime("now") - strtotime($comments[$i]->created_at))/ 86400) == 0)
-                                                                   @if(intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 3600) > 0)
-                                                                   {{intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/3600)}} hours ago
-                                                                   @else(intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 3600) == 0)
-                                                                   {{intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/60)}} minutes ago
-                                                                   @endif
-                                                                   @elseif(intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 86400) == 1)
-                                                                   Yesterday at {{strftime("%H:%M", strtotime( $comments[$i]->created_at))}}
-                                                                   @elseif(intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 86400) >= 2 && intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 86400) <= 27)
-                                                                   {{intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 86400)}} days ago
-                                                                   @else(intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 86400) > 27)
-                                                                   On {{strftime("%d/%m/%Y", strtotime( $comments[$i]->created_at))}}
-                                                                   @endif
-                                                               </div>
-                                                           </div>
-                                                           <div class="d-flex">
-                                                               <div class="d-flex">
-                                                                   <p class="commenter">Commenter</p>
-                                                                   <button  onclick="TestsFunction()"  class="message-2-messaage w-inline-block btn">
-                                                                       <img src="{{ asset('img/Mu-picto-comment-gris2x.png') }}" loading="lazy" width="33" alt="">
-                                                                   </button>
-                                                               </div>
-                                                               <div>
-                                                                   <div class="likes">
-                                                                       <div class="text-block-292"> {{\App\Models\Comment::find($comments[$i]->comment_id)->likers()->count()}}</div>
-                                                                       <div class="imgCoeur2">
-                                                                           <a href="{{ route('likecomment' , $comments[$i]->comment_id) }}">
-                                                                               <img src="{{ asset('img/icones/coeurRose.svg') }}" alt="">
-                                                                           </a>
-                                                                       </div>
-                                                                       <div class="disliker">
-                                                                           <a href="{{ route('dislikecomment' , $comments[$i]->comment_id) }}">
-                                                                               <img src="{{ asset('img/icones/loveRenverseGris.png') }}" alt="">
-                                                                           </a>
-                                                                       </div>
-                                                                       <div class="text-block-292"> {{\App\Models\Comment::find($comments[$i]->comment_id)->unlikes()->count()}} </div>
-                                                                   </div>
-                                                               </div>
-                                                           </div>
-                                                       </div>
-                                                       <div class="div-block-331" id="TestsDiv" style="display:none">
-
-                                                           @include('adminlte-templates::common.errors')
-                                                           <form method="POST" action="/comments">
-                                                               @csrf
-                                                               <input type="hidden" name="video_id" value="{{$video->id}}" id="">
-                                                               <textarea class="inputCommentaire" name="value" id="" rows="5"></textarea>
-
-                                                               <div class="div-block-332">
-                                                                   <button type="submit" class="text-block-326 btn">{{__('')}}Poster</button>
-                                                               </div>
-                                                           </form>
-                                                           <div>
-
-                                                           </div>
-                                                       </div>
-                                                   </div>
-                                                   @endfor
-                                               </div>
-                                           </div>
-                                       </div>
-                                   </div>
-                               </div>
-                           </div>
-                       </div>
-                    </div>
-                    @php
-                    if($i == 1)
-                    break;
-                    @endphp
                     @endfor
-
-                    @for($i = 0; $i < count($comments); $i++)
-
-
                 </div>
-
-                @php
-                if($i == 0)
-                break;
-                @endphp
-                @endfor
-                @else
-                <div class="commentOne commentBlock">
-                    <button class="commentTitle btn" data-toggle="modal" data-target="#exampleModal">
-                        <img class="commentImg" src="{{ asset('img/icones/commet.svg') }}" alt="">
-                        <p class="nombreComment"></p>
-                        <p class="commentText">0 {{__('Comment')}}</p>
-                    </button>
-                    <div class="div-block-331" >
-                        @include('adminlte-templates::common.errors')
-                        <form method="POST" action="/comments">
-                            @csrf
-                            <input type="hidden" name="video_id" value="{{$video->id}}" id="">
-                            <textarea class="inputCommentaire" name="value" id=""></textarea>
-
-                            <div class="div-block-332">
-                                <button class="btn btnAnnuler">{{__('Reset')}}</button>
-                                <button type="submit" class="btn btnEnvoyer">{{__('Send')}}</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                @endif
             </div>
             <div class="col-md-7 col-lg-7 colModife7">
                 <div class="contentSwipeToday BlockInshaAlla swiperBlackMob">
@@ -1822,7 +1784,7 @@
 
         //My code not persuassive for share activity 
         var element = document.getElementById('share');
-        var form_share = document.getElementById('post_share').action;
+        var form_share = document.getElementById('post_share').actionu;
         var user = $("#user").val();
         var video = $("#video").val();
         var token = $("#token").val();
