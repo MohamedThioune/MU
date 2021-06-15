@@ -10,6 +10,8 @@
     @php if(isset($_COOKIE['lang'])) App::setLocale($_COOKIE['lang']); @endphp
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v11.0&appId=597127187460666&autoLogAppEvents=1" nonce="niIdAzBU"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.0/clipboard.min.js"></script>
+    <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=60c523f44e53590012531479&product=inline-follow-buttons' async='async'></script>
 </head>
 <body>
 
@@ -171,7 +173,12 @@
                       </div>
                       <div class="fb-share-button" data-href="{{route('share',[$video->id])}}" data-layout="button" data-size="large">
                           <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">{{__('FACEBOOK SHARE')}}</a>
-                       </div>
+                      </div>
+                       {{-- <input id="post-shortlink" value="{{route('share',[$video->id])}}"> --}}
+                       {{-- <button class="button" id="copy-button" data-clipboard-target="#post-shortlink" onclick="alert('Copy done ✅')">Copy</button> --}}
+                       <!-- ShareThis BEGIN -->
+                            <div class="sharethis-inline-follow-buttons"></div>
+                       <!-- ShareThis END -->
                     </div>
                     <button class="blockPoint" data-toggle="modal" data-target="#exampleModal1">
                         <div class="trois-point-noir">...</div>
@@ -1803,6 +1810,10 @@
                 console.log('status: ', status);
             });
         }
+
+        (function(){
+            new Clipboard('#copy-button');
+        })();
     </script>
 
 
