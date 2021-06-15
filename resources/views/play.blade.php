@@ -165,11 +165,13 @@
                         </div>
                     </div>
                     <div class="block-detail-commentaire">
-                        <p class="des-text">{{__('Description of my video')}} : <span class="" data-toggle="modal" data-target="#exampleModal1">{{ $video->description }}</span>      </p>
+                          <p class="des-text">{{__('Description of my video')}} : <span class="" data-toggle="modal" data-target="#exampleModal1">{{ $video->description }}</span>      </p>
                       <div class="blockObjectif">
                           <p class="des-text">{{__('Objectives of the video')}} : </p> <p class="ojectifVideo">{{ $video->motivation }}</p>
                       </div>
-                      <div class="fb-share-button" data-href="{{route('share',[$video->id])}}" data-layout="button_count" data-size="large"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Share</a></div>
+                      <div class="fb-share-button" data-href="{{route('share',[$video->id])}}" data-layout="button" data-size="large">
+                          <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">{{__('FACEBOOK SHARE')}}</a>
+                       </div>
                     </div>
                     <button class="blockPoint" data-toggle="modal" data-target="#exampleModal1">
                         <div class="trois-point-noir">...</div>
@@ -1784,7 +1786,7 @@
 
         //My code not persuassive for share activity 
         var element = document.getElementById('share');
-        var form_share = document.getElementById('post_share').actionu;
+        var form_share = document.getElementById('post_share').action;
         var user = $("#user").val();
         var video = $("#video").val();
         var token = $("#token").val();
