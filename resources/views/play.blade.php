@@ -167,7 +167,7 @@
                         </div>
                     </div>
                     <div class="block-detail-commentaire">
-                          <p class="des-text">{{__('Description of my video')}} : <span class="" data-toggle="modal" data-target="#exampleModal1">{{ $video->description }}</span>      </p>
+                          <p class="des-text">{{__('Description of my video')}} :<span class="" data-toggle="modal" data-target="#exampleModal1">{{ $video->description }}</span>      </p>
                       <div class="blockObjectif">
                           <p class="des-text">{{__('Objectives of the video')}} : </p> <p class="ojectifVideo">{{ $video->motivation }}</p>
                       </div>
@@ -176,7 +176,7 @@
                             <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">{{__('FACEBOOK SHARE')}}</a>
                         </div>
                        
-                        <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text={{route('share',[$video->id])}}" data-size="large">
+                        <a class="twitter-share-button" target="blank" href="https://twitter.com/intent/tweet?text={{route('share',[$video->id])}}" data-size="large">
                             <img class="" width="23" height="23"  style="margin-bottom:4px;" src="{{asset('img/twitter-share-button.png')}}" alt="">
                             <span style="background: #00B6F2; color:white; padding: 2px 5px; margin-left: -5px; ">share<span>
                         </a>
@@ -186,10 +186,10 @@
                             <span style="background: #08EB48; color:white; padding: 4px 5px; margin-left: -5px;">share<span>
                         </a>
                         &nbsp;
-                        <script type="IN/Share" data-url="{{route('share',['$video->id'])}}"></script><br><br>
+                        <script type="IN/Share" data-url="smuuse.com/share/{{$video->id}}"></script><br><br>
                         
-                        {{-- <input id="post-shortlink" value="{{route('share',[$video->id])}}"> --}}
-                        {{-- <button class="button" id="copy-button" data-clipboard-target="#post-shortlink" onclick="alert('Copy done ✅')">Copy</button> --}}
+                        <input id="post-shortlink" value="{{route('share',[$video->id])}}"> --}}
+                        <button class="button" id="copy-button" data-clipboard-target="#post-shortlink" onclick="alert('Copy done ✅')">Copy</button>
                       </div>
                     </div>
                     <button class="blockPoint" data-toggle="modal" data-target="#exampleModal1">
