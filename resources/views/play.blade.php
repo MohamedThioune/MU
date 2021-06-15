@@ -280,7 +280,7 @@
                                     </a>
                             @endif
                         @else
-                        <a href="#" class="btn btnSubscribe"  data-toggle="tooltip" data-placement="top" title="this feature is only available to community members"> {{__('Subscribe')}}
+                        <a href="{{route('login')}}" class="btn btnSubscribe"  data-toggle="tooltip" data-placement="top" title="this feature is only available to community members"> {{__('Subscribe')}}
                             <button class="btn btnClocheNot">
                                 <img src="{{ asset('img/Mu-cloche-blanc.png') }}" class="imgClocheAbonne" alt="">
                             </button>
