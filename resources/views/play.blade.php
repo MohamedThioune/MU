@@ -11,7 +11,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v11.0&appId=597127187460666&autoLogAppEvents=1" nonce="niIdAzBU"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.0/clipboard.min.js"></script>
-    <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=60c523f44e53590012531479&product=inline-follow-buttons' async='async'></script>
+    <script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
 </head>
 <body>
 
@@ -171,14 +171,26 @@
                       <div class="blockObjectif">
                           <p class="des-text">{{__('Objectives of the video')}} : </p> <p class="ojectifVideo">{{ $video->motivation }}</p>
                       </div>
-                      <div class="fb-share-button" data-href="{{route('share',[$video->id])}}" data-layout="button" data-size="large">
-                          <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">{{__('FACEBOOK SHARE')}}</a>
+                      <div class="need-help">
+                        <div class="fb-share-button" data-href="{{route('share',[$video->id])}}" data-layout="button" data-size="large">
+                            <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">{{__('FACEBOOK SHARE')}}</a>
+                        </div>
+                       
+                        <a class="twitter-share-button" href="https://twitter.com/intent/tweet?text={{route('share',[$video->id])}}" data-size="large">
+                            <img class="" width="23" height="23"  style="margin-bottom:4px;" src="{{asset('img/twitter-share-button.png')}}" alt="">
+                            <span style="background: #00B6F2; color:white; padding: 2px 5px; margin-left: -5px; ">share<span>
+                        </a>
+                        &nbsp;                    
+                        <a class="whatsapp-share-button" href="whatsapp://send?text={{route('share',['$video->id'])}}">
+                            <img class="" width="28" height="26" style="margin-bottom:3px;" src="{{asset('img/whatsapp-share-button.png')}}" alt="">
+                            <span style="background: #08EB48; color:white; padding: 4px 5px; margin-left: -5px;">share<span>
+                        </a>
+                        &nbsp;
+                        <script type="IN/Share" data-url="{{route('share',['$video->id'])}}"></script><br><br>
+                        
+                        {{-- <input id="post-shortlink" value="{{route('share',[$video->id])}}"> --}}
+                        {{-- <button class="button" id="copy-button" data-clipboard-target="#post-shortlink" onclick="alert('Copy done ✅')">Copy</button> --}}
                       </div>
-                       {{-- <input id="post-shortlink" value="{{route('share',[$video->id])}}"> --}}
-                       {{-- <button class="button" id="copy-button" data-clipboard-target="#post-shortlink" onclick="alert('Copy done ✅')">Copy</button> --}}
-                       <!-- ShareThis BEGIN -->
-                            <div class="sharethis-inline-follow-buttons"></div>
-                       <!-- ShareThis END -->
                     </div>
                     <button class="blockPoint" data-toggle="modal" data-target="#exampleModal1">
                         <div class="trois-point-noir">...</div>
