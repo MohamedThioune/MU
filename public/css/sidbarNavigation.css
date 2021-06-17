@@ -3921,24 +3921,37 @@
     height: 456px;
     margin-left: 0px;
 }
+.blockSearch{
+    position: relative;
+    display: flex;
+}
+
+.catBtn {
+    background: #333333 !important;
+    color: white !important;
+    font-size: 14px;
+    border: none !important;
+    border-radius: 15px !important;
+    padding: 2px 15px !important;
+    margin-left: 11px;
+}
+.blockInput{
+    position: relative;
+}
 
 .search-bar {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    width: 200px;
+    width: 210px;
     height: 28px;
-    margin-left: 68px;
+    margin-left: 0;
     padding: 3px 15px;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
     border-radius: 20px;
     background-color: #333;
-    color: #4d4d4d;
+    color: #ffffff;
     border: unset;
+}
+
+.search-bar:focus-visible {
+    outline: -webkit-focus-ring-color auto 0px !important;
 
 }
 
@@ -3953,8 +3966,10 @@
 }
 
 .loupe {
-    margin-right: 8px;
     width: 13px;
+    position: absolute;
+    top: 7px;
+    right: 15px;
 }
 
 .oumma {
@@ -9569,8 +9584,12 @@
         margin-left: 0px;
     }
     .search-bar {
-        width: auto;
+        width: 143px;
         margin-left: 0;
+    }
+    .catBtn {
+        font-size: 13px;
+        height: 28px;
     }
     .mu-logo{
      margin-left: 0px;

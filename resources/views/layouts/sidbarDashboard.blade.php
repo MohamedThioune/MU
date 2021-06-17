@@ -40,9 +40,12 @@
                         <img src="{{ asset('img/logo-MU.png') }}" class="imgLogo22" alt="">
                     </a>
                 </div>
-                <div class="search-bar">
-                    <img src="{{ asset('img/Loupe.png') }}" class="loupe">
-                    <div class="text-block-281">{{__('search')}}</div>
+                <div class="blockSearch">
+                    <div class="blockInput">
+                        <input type="search" class="search-bar" placeholder="{{__('search')}}">
+                        <img src="{{ asset('img/Loupe.png') }}" class="loupe">
+                    </div>
+                    <button class="catBtn">Catégories</button>
                 </div>
                 <div class="modalNavUp2">
                     <a href="#" class="dropdownItemNavText">In sha Allah</a>
@@ -163,9 +166,12 @@
                     <a  href="{{route('home')}}" class="mu-logo w-inline-block">
                         <img src="{{ asset('img/logo-MU.png') }}" class="imgLogo22" alt="">
                     </a>
-                    <div class="search-bar">
-                        <img src="{{ asset('img/Loupe.png') }}" class="loupe">
-                        <div class="text-block-281">{{__('search')}}</div>
+                    <div class="blockSearch">
+                        <div class="blockInput">
+                            <input type="search" class="search-bar" placeholder="{{__('search')}}">
+                            <img src="{{ asset('img/Loupe.png') }}" class="loupe">
+                        </div>
+                        <button class="catBtn">Catégories</button>
                     </div>
                     <div class="modalNavUp2">
                         <a href="#" class="dropdownItemNavText">In sha Allah</a>
@@ -452,7 +458,7 @@
     });
 </script>
 <script>
-    $(".search-bar").click(function(){
+    $(".catBtn").click(function(){
         $(".modalNavUp2").toggle();
     });
     $(".group9").click(function(){
