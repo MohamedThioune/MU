@@ -20,6 +20,7 @@ $(document).ready(function() {
         $( ".nav-up-right" ).removeClass('opacityElement') ;
         $( ".griscolor" ).removeClass('grisElement') ;
         $( ".contentSidElement" ).addClass('v1') ;
+        $( ".group9" ).addClass('mobileVisiblite') ;
 
     });
     $(".IconeRose").click(function(){

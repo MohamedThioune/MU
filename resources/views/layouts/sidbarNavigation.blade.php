@@ -44,10 +44,13 @@ $channel = DB::Table('users')->select('channels.*')
                             <img src="{{ asset('img/logo-MU.png') }}" class="imgLogo22" alt="">
                         </a>
                     </div>
-                    <button class="search-bar">
-                        <img src="{{ asset('img/Loupe.png') }}" class="loupe">
-                        <div class="text-block-281">{{__('search')}}</div>
-                    </button>
+                    <div class="blockSearch">
+                        <div class="blockInput">
+                            <input type="search" class="search-bar" placeholder="{{__('search')}}">
+                            <img src="{{ asset('img/Loupe.png') }}" class="loupe">
+                        </div>
+                        <button class="catBtn">Catégories</button>
+                    </div>
                     <div class="modalNavUp2">
                         <a href="#" class="dropdownItemNavText">In sha Allah</a>
                         <a href="#" class="dropdownItemNavText">Din</a>
@@ -135,9 +138,12 @@ $channel = DB::Table('users')->select('channels.*')
                         <a  href="{{route('flow')}}" class="mu-logo w-inline-block">
                             <img src="{{ asset('img/logo-MU.png') }}" class="imgLogo22" alt="">
                         </a>
-                        <div class="search-bar">
-                            <img src="{{ asset('img/Loupe.png') }}" class="loupe">
-                            <div class="text-block-281">{{__('search')}}</div>
+                        <div class="blockSearch">
+                            <div class="blockInput">
+                                <input type="search" class="search-bar" placeholder="{{__('search')}}">
+                                <img src="{{ asset('img/Loupe.png') }}" class="loupe">
+                            </div>
+                            <button class="catBtn">Catégories</button>
                         </div>
                         <div class="modalNavUp2">
                             <a href="#" class="dropdownItemNavText">In sha Allah</a>
@@ -173,7 +179,7 @@ $channel = DB::Table('users')->select('channels.*')
                         <a href="{{route('flow')}}" class="div-block-281 w-inline-block">
                             <p class="text-block-286">Flow</p>
                         </a>
-                     @if(Auth::user())  
+                     @if(Auth::user())
                         <a href="{{Auth::user()->sex == 0 ? route('sistas') : '#'}}" class="div-block-283 w-inline-block">
                             <p class="text-block-286" data-toggle="tooltip" data-placement="top" title="{{Auth::user()->sex == 1 ? 'Vous ne pourrez pas accéder a cette partie compte tenu de votre profil' : 'Rubrique destiné aux videos de nos soeurs' }}">Sista&#x27;s</p>
                         </a>
@@ -282,7 +288,7 @@ $channel = DB::Table('users')->select('channels.*')
                                </div>
                            </div>
                            <div class="faq-answer" id="sousBlockChaines">
-                               
+
                                @if($channel)
                                <a data-w-id="3ebc1e8b-4c8a-0be6-ba36-5e829586b79c" href="{{route('channel.visitor', [$channel->id])}}" style="text-decoration:none" class="link-block-36 w-inline-block">
                                    <p class="text-block-257">{{__('Dashboard')}}<br></p>
@@ -349,7 +355,7 @@ $channel = DB::Table('users')->select('channels.*')
         });
     </script>
     <script>
-        $(".search-bar").click(function(){
+        $(".catBtn").click(function(){
             $(".modalNavUp2").toggle();
         });
         $(".group9").click(function(){

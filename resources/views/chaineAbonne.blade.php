@@ -106,7 +106,7 @@
     </div>
     <div class="menu-content-business business-MOb">
         <div class="swiper-container swiper-Infos">
-            <div class="swiper-wrapper">
+            <div class="swiper-wrapper swiperModife2">
                 <div class=" swiper-slide">
                     <a href="#" class="link-26">Infos</a>
                 </div>
@@ -335,7 +335,7 @@
                 </div>
                 @endif
                 @endforeach
-               @if(!$bool) {{__('No videos can be uploaded for this channel at this time')}} &#x1F625;  @endif
+               @if(!$bool) <p class="NoVideo1">{{__('No videos can be uploaded for this channel at this time')}} &#x1F625; </p>  @endif
             </div>
         </div>
     </div> -->
@@ -371,34 +371,31 @@
                 <div class="swiper-wrapper">
                     <div class="swiper-slide swipeslideShop">
                         <div class="div-block-318">
-                            <div class="imgBullProfil">
-                                <img src="{{ asset('img/Mu-bull-profil-logo-fitG.jpg') }}"  alt="">
-                            </div>
-                            <div class="text-block-320">{{__('Product name')}} / Formation</div>
+                            <div>
+                                <img src="{{ asset('img/Nuage-rose.png') }}" width="52" alt=""></div>
+                            <p class="text-block-320">{{__('Product name')}}</p>
                             <a href="#" class="link-block-38 w-inline-block">
-                                <span class="text-block-319">{{__('Discover')}}</span>
+                                <div class="text-block-319">{{__('Discover')}}</div>
                             </a>
                         </div>
                     </div>
                     <div class=" swiper-slide swipeslideShop">
                         <div class="div-block-318">
-                            <div class="imgBullProfil">
-                                <img src="{{ asset('img/Mu-bull-profil-logo-fitG.jpg') }}"  alt="">
-                            </div>
-                            <div class="text-block-320">{{__('Product name')}} 2</div>
+                            <div>
+                                <img src="{{ asset('img/Nuage-rose.png') }}" width="52" alt=""></div>
+                            <p class="text-block-320">{{__('Product name')}}</p>
                             <a href="#" class="link-block-38 w-inline-block">
-                                <span class="text-block-319">{{__('Discover')}}</span>
+                                <div class="text-block-319">{{__('Discover')}}</div>
                             </a>
                         </div>
                     </div>
                     <div class=" swiper-slide swipeslideShop">
                         <div class="div-block-318">
-                            <div class="imgBullProfil">
-                                <img src="{{ asset('img/Mu-bull-profil-logo-fitG.jpg') }}"  alt="">
-                            </div>
-                            <div class="text-block-320">{{__('Product name')}}...</div>
+                            <div>
+                                <img src="{{ asset('img/Nuage-rose.png') }}" width="52" alt=""></div>
+                            <p class="text-block-320">{{__('Product name')}}</p>
                             <a href="#" class="link-block-38 w-inline-block">
-                                <span class="text-block-319">{{__('Discover')}}</span>
+                                <div class="text-block-319">{{__('Discover')}}</div>
                             </a>
                         </div>
                     </div>

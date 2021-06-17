@@ -2424,6 +2424,15 @@
   border: unset;
   background: unset;
 }
+.catBtn {
+  background: #333333 !important;
+  color: white !important;
+  font-size: 14px;
+  border: none !important;
+  border-radius: 15px !important;
+  padding: 2px 15px !important;
+  margin-left: 11px;
+}
 .modalNavUp{
   display: none;
   position: absolute;
@@ -3971,7 +3980,21 @@
   border-radius: 10px;
   background-color: #db087c;
 }
+.search-bar {
+  width: 210px;
+  height: 28px;
+  margin-left: 0;
+  padding: 3px 15px;
+  border-radius: 20px;
+  background-color: #333;
+  color: #ffffff;
+  border: unset;
+}
 
+.search-bar:focus-visible {
+  outline: -webkit-focus-ring-color auto 0px !important;
+
+}
 ._4-points-closed {
   display: -webkit-box;
   display: -webkit-flex;
@@ -4818,6 +4841,14 @@
   }
   .webMobile {
     display: flex;
+  }
+  .search-bar {
+    width: 143px;
+    margin-left: 0;
+  }
+  .catBtn {
+    font-size: 13px;
+    height: 28px;
   }
 }
 

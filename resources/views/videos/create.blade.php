@@ -24,7 +24,7 @@
                             <input type="checkbox" checked>
                             <span class="slider round"></span>
                         </label>
-                        
+
                         <p class="text-publier-cette-video">{{__('Publish this video only on Sista 2 Sista')}}</p>
                         <input type="hidden" name="sistas" value="1">
                     </div>
@@ -75,8 +75,7 @@
                     <div class="div-block-249">
                         <div class="form-group titre-video">
                             <label class="text-la-video2">{{__('Description of my video')}}</label>
-                            <textarea class="form-control div-block-240" name="description" id="description" cols="30" rows="5">
-                            </textarea>
+                            <textarea class="form-control div-block-240" name="description" id="description" cols="30" rows="5"></textarea>
                         </div>
                         <div class="form-group titre-video">
                             <label class="text-title-video">{{__('Objectives of the video')}}</label>

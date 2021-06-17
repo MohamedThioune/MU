@@ -46,7 +46,7 @@
 @if($videos_haltcare)
 @if(count($videos_haltcare) > 0)
 <div class="content-Haltcare content-Block-slide">
-    <div class="contentSwipeToday">
+    <div class="contentSwipeToday contentswip2">
         <div class="barreLatraleNoir vertBarre">
             <div class="categorie-name">
                 <img src="{{ asset('img/Mu-feuille-noir2x.png') }}"  alt="">
@@ -143,7 +143,7 @@
 @if($videos_life)
 @if(count($videos_life) > 0)
     <div class="content-life content-Block-slide">
-        <div class="contentSwipeToday">
+        <div class="contentSwipeToday contentswip2">
             <div class="barreLatraleNoir life">
                 <div class="categorie-name">
                     <img src="{{ asset('img/Mu-fleur2.png') }}" alt="">
@@ -252,7 +252,7 @@
 @if($videos_health)
 @if(count($videos_health) > 0)
     <div class="content-Health content-Block-slide">
-        <div class="contentSwipeToday">
+        <div class="contentSwipeToday contentswip2">
             <div class="barreLatraleNoir Health">
                 <div class="categorie-name">
                     <img src="{{ asset('img/Mu-fleur2.png') }}"  alt="">
@@ -354,7 +354,7 @@
 @if($videos_business)
 @if(count($videos_business) > 0)
     <div class="content-Business content-Block-slide">
-        <div class="contentSwipeToday">
+        <div class="contentSwipeToday contentswip2">
             <div class="barreLatraleNoir Business">
                 <div class="categorie-name">
                     <img src="{{ asset('img/Mu-fleur2.png') }}"  alt="">
@@ -456,7 +456,7 @@
 @if($videos_education)
 @if(count($videos_education) > 0)
     <div class="content-Education content-Block-slide">
-        <div class="contentSwipeToday">
+        <div class="contentSwipeToday contentswip2">
             <div class="barreLatraleNoir Education">
                 <div class="categorie-name">
                     <img src="{{ asset('img/Mu-fleur2.png') }}"  alt="">
@@ -559,7 +559,7 @@
 @if($videos_environnement)
 @if(count($videos_environnement) > 0)
     <div class="content-Evironnement content-Block-slide">
-        <div class="contentSwipeToday">
+        <div class="contentSwipeToday contentswip2">
             <div class="barreLatraleNoir Evironnement">
                 <div class="categorie-name">
                     <img src="{{ asset('img/Mu-fleur2.png') }}"  alt="">

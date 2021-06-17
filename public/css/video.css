@@ -2909,6 +2909,7 @@ bandeau-chaine1 {
   border-color: #c4c4c4;
   border-radius: 5px;
   background-color: #ebebeb;
+  margin-right: 20px;
 }
 
 .div-block-233 {
@@ -8117,7 +8118,7 @@ bandeau-chaine1 {
 
 .sidenavbar-up {
   position: fixed;
-  width: 15%;
+  width: 35%;
 }
 .mobileVisiblite .contentSidElement {
   display: block !important;
@@ -9089,6 +9090,7 @@ input:checked + .slider:before {
   height: 220px;
   margin-top: -23px;
   display: block;
+  height: auto;
 }
 .titre-video{
   width: auto;
@@ -9102,11 +9104,47 @@ input:checked + .slider:before {
   .text-block-3 {
     line-height: 25px;
   }
-
+  .link-26{
+    margin-right: 8px;
+    font-size: 14px;
+  }
+  .business-now {
+    padding: 35px 15px 40px 15px;
+    display: block;
+  }
+  .swiperModife2{
+   background-color: white;
+  }
+  .div-block-318 {
+    margin-right: 0 !important;
+    padding: 10px;
+    width: 100%;
+    height: 126px;
+  }
+  .NoVideo1{
+    padding-left: 15px;
+  }
+  .text-Playlist {
+    margin-left: 15px;
+  }
+  .playlist2 {
+    padding-left: 15px;
+  }
   .mobileVisiblite .content-sidbar{
     display: none !important;
   }
-
+  .div-block-319{
+    display: none;
+  }
+  .offre-de-la-chaine {
+    padding: 20px 15px 20px;
+    border-top: 20px solid #fff;
+  }
+  .block319Mob {
+    display: block;
+    margin-left: 0px !important;
+    margin-bottom: 15px !important;
+  }
   .image-98 {
     width: inherit;
   }
@@ -9615,7 +9653,7 @@ input:checked + .slider:before {
     display: flex;
   }
   .text-block-256 {
-    width: 326px;
+    width: 195px;
     margin-right: 0px;
     font-family: "Ubuntu-Bold";
     margin-bottom: 0;
@@ -9643,11 +9681,14 @@ input:checked + .slider:before {
     display: flex;
   }
   .text-block-253 {
-    width: 164px;
-    margin-left: 10px;
+    width: 180px;
+    margin-left: 20px;
   }
   .content-section-sibBar-2 {
     width: 0;
+  }
+  .business-MOb{
+    display: none !important;
   }
 
 }
