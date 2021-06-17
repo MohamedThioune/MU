@@ -8,7 +8,7 @@
 @endsection
 
 @section('content-sidbar-element')
-    <form action="/videos" method="POST" class="formpublier2" enctype="multipart/form-data">
+    <form action="/video" method="POST" class="formpublier2" enctype="multipart/form-data">
         @csrf
         @include('adminlte-templates::common.errors')
         <div class="mes-videos">
