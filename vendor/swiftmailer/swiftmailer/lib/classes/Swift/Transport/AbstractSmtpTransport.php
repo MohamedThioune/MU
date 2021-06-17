@@ -543,7 +543,6 @@ abstract class Swift_Transport_AbstractSmtpTransport implements Swift_Transport
         } catch (Exception $e) {
         }
     }
-<<<<<<< HEAD
 
     public function __sleep()
     {
@@ -554,6 +553,4 @@ abstract class Swift_Transport_AbstractSmtpTransport implements Swift_Transport
     {
         throw new \BadMethodCallException('Cannot unserialize '.__CLASS__);
     }
-=======
->>>>>>> 939cabb5 (commit with cpanel)
 }

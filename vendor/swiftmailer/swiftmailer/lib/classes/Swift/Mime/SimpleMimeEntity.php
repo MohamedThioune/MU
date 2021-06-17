@@ -817,13 +817,10 @@ class Swift_Mime_SimpleMimeEntity implements Swift_Mime_CharsetObserver, Swift_M
         }
         $this->setChildren($children);
     }
-<<<<<<< HEAD
 
     public function __wakeup()
     {
         $this->cacheKey = bin2hex(random_bytes(16)); // set 32 hex values
         $this->cache = new Swift_KeyCache_ArrayKeyCache(new Swift_KeyCache_SimpleKeyCacheInputStream());
     }
-=======
->>>>>>> 939cabb5 (commit with cpanel)
 }

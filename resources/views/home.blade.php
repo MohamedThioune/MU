@@ -293,6 +293,7 @@
     @endif
 
     @if($playlists)
+    @if(count($playlists) > 0)
     <div id="Playlist-flow" class="playlist spaceElementFlow">
         <div>
             <p class="titre-asso-video-all">{{__('The')}} playlist</p>
@@ -381,6 +382,7 @@
             </div>
         </div>
     </div>
+    @endif
     @endif
 
     @if($channel_top)
