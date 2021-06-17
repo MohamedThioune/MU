@@ -1,3 +1,4 @@
+<?php phpinfo()?>
 @extends('layouts.sidbarNavigation')
 <html lang="fr">
 <head>
