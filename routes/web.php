@@ -396,7 +396,7 @@ Route::get('/sistas', function () {
                                  ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
                                  ->join('users','users.id','videos.user_id')
                                  ->where('users.age','<',15)
-                                 ->where('videos.sistas', 1)
+                                 ->where('videos.sistas', '<>', 0)
                                  ->where('mainTopic_id', 1)
                                  ->whereNull('videos.deleted_at')
                                  ->get();
@@ -405,7 +405,7 @@ Route::get('/sistas', function () {
     ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
     ->join('users','users.id','videos.user_id')
     ->where('users.age','<',15)
-    ->where('videos.sistas', 1)
+    ->where('videos.sistas', '<>', 0)
     ->where('mainTopic_id', 2)
     ->whereNull('videos.deleted_at')
     ->get();
@@ -414,7 +414,7 @@ Route::get('/sistas', function () {
     ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
     ->join('users','users.id','videos.user_id')
     ->where('users.age','<',15)
-    ->where('videos.sistas', 1)
+    ->where('videos.sistas', '<>', 0)
     ->where('mainTopic_id', 3)
     ->whereNull('videos.deleted_at')
     ->get();
@@ -424,7 +424,7 @@ Route::get('/sistas', function () {
     ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
     ->join('users','users.id','videos.user_id')
     ->where('users.age','<',15)
-    ->where('videos.sistas', 1)
+    ->where('videos.sistas', '<>', 0)
     ->where('mainTopic_id', 4)
     ->whereNull('videos.deleted_at')
     ->get();
@@ -433,7 +433,7 @@ Route::get('/sistas', function () {
     ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
     ->join('users','users.id','videos.user_id')
     ->where('users.age','<',15)
-    ->where('videos.sistas', 1)
+    ->where('videos.sistas', '<>', 0)
     ->where('mainTopic_id', 5)
     ->whereNull('videos.deleted_at')
     ->get();
@@ -442,7 +442,7 @@ Route::get('/sistas', function () {
     ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
     ->join('users','users.id','videos.user_id')
     ->where('users.age','<',15)
-    ->where('videos.sistas', 1)
+    ->where('videos.sistas', '<>', 0)
     ->where('mainTopic_id', 6)
     ->whereNull('videos.deleted_at')
     ->get();
