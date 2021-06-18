@@ -89,7 +89,7 @@
                         </div>
                         <div class="vignette-vid-info-recom">
                             <div class="div-block-295">
-                            <a href="{{route('play',$video->id)}}" class="titre-v-c-recom" style="text-decoration:none">{{$video->main_title}} | sistas -> {{$video->sistas}}</a>
+                            <a href="{{route('play',$video->id)}}" class="titre-v-c-recom" style="text-decoration:none">{{$video->main_title}}</a>
                                 <div class="badge-eval">
                                     <img src="{{asset('img/Mu-badge-vide2x.png')}}" loading="lazy" alt="" class="image-111">
                                 </div>
@@ -197,7 +197,7 @@
                             </div>
                             <div class="vignette-vid-info-recom">
                                 <div class="div-block-295">
-                                <a href="{{route('play',$video->id)}}" class="titre-v-c-recom" style="text-decoration:none">{{$video->main_title}} | sistas -> {{$video->sistas}}</a>
+                                <a href="{{route('play',$video->id)}}" class="titre-v-c-recom" style="text-decoration:none">{{$video->main_title}}</a>
                                     <div class="badge-eval">
                                         <img src="{{asset('img/Mu-badge-vide2x.png')}}" loading="lazy" alt="" class="image-111">
                                     </div>
@@ -299,7 +299,7 @@
                             </div>
                             <div class="vignette-vid-info-recom">
                                 <div class="div-block-295">
-                                <a href="{{route('play',$video->id)}}" class="titre-v-c-recom" style="text-decoration:none">{{$video->main_title}} | sistas -> {{$video->sistas}}</a>
+                                <a href="{{route('play',$video->id)}}" class="titre-v-c-recom" style="text-decoration:none">{{$video->main_title}}</a>
                                     <div class="badge-eval">
                                         <img src="{{asset('img/Mu-badge-vide2x.png')}}" loading="lazy" alt="" class="image-111">
                                     </div>
@@ -401,7 +401,7 @@
                             </div>
                             <div class="vignette-vid-info-recom">
                                 <div class="div-block-295">
-                                <a href="{{route('play',$video->id)}}" class="titre-v-c-recom" style="text-decoration:none">{{$video->main_title}} | sistas -> {{$video->sistas}}</a>
+                                <a href="{{route('play',$video->id)}}" class="titre-v-c-recom" style="text-decoration:none">{{$video->main_title}}</a>
                                     <div class="badge-eval">
                                         <img src="{{asset('img/Mu-badge-vide2x.png')}}" loading="lazy" alt="" class="image-111">
                                     </div>
@@ -504,7 +504,7 @@
                             </div>
                             <div class="vignette-vid-info-recom">
                                 <div class="div-block-295">
-                                <a href="{{route('play',$video->id)}}" class="titre-v-c-recom" style="text-decoration:none">{{$video->main_title}} | sistas -> {{$video->sistas}}</a>
+                                <a href="{{route('play',$video->id)}}" class="titre-v-c-recom" style="text-decoration:none">{{$video->main_title}}</a>
                                     <div class="badge-eval">
                                         <img src="{{asset('img/Mu-badge-vide2x.png')}}" loading="lazy" alt="" class="image-111">
                                     </div>
@@ -604,7 +604,7 @@
                             </div>
                             <div class="vignette-vid-info-recom">
                                 <div class="div-block-295">
-                                <a href="{{route('play',$video->id)}}" class="titre-v-c-recom" style="text-decoration:none">{{$video->main_title}} | sistas -> {{$video->sistas}}</a>
+                                <a href="{{route('play',$video->id)}}" class="titre-v-c-recom" style="text-decoration:none">{{$video->main_title}}</a>
                                     <div class="badge-eval">
                                         <img src="{{asset('img/Mu-badge-vide2x.png')}}" loading="lazy" alt="" class="image-111">
                                     </div>
