@@ -286,12 +286,9 @@ class Swift_KeyCache_DiskKeyCache implements Swift_KeyCache
             $this->clearAll($nsKey);
         }
     }
-<<<<<<< HEAD
 
     public function __wakeup()
     {
         $this->keys = [];
     }
-=======
->>>>>>> 939cabb5 (commit with cpanel)
 }

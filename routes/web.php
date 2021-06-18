@@ -239,6 +239,7 @@ Route::get('/share/{n}', function($id){
                             ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
                             ->join('users','users.id','videos.user_id')
                             ->where('mainTopic_id', 1)
+                            ->where('videos.sistas', 0)
                             ->whereNull('videos.deleted_at')
                             ->get();
 
@@ -246,6 +247,7 @@ Route::get('/share/{n}', function($id){
     ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
     ->join('users','users.id','videos.user_id')
     ->where('mainTopic_id', 2)
+    ->where('videos.sistas', 0)
     ->whereNull('videos.deleted_at')
     ->get();
 
@@ -253,6 +255,7 @@ Route::get('/share/{n}', function($id){
     ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
     ->join('users','users.id','videos.user_id')
     ->where('mainTopic_id', 3)
+    ->where('videos.sistas', 0)
     ->whereNull('videos.deleted_at')
     ->get();
 
@@ -261,6 +264,7 @@ Route::get('/share/{n}', function($id){
     ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
     ->join('users','users.id','videos.user_id')
     ->where('mainTopic_id', 4)
+    ->where('videos.sistas', 0)
     ->whereNull('videos.deleted_at')
     ->get();
 
@@ -268,6 +272,7 @@ Route::get('/share/{n}', function($id){
     ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
     ->join('users','users.id','videos.user_id')
     ->where('mainTopic_id', 5)
+    ->where('videos.sistas', 0)
     ->whereNull('videos.deleted_at')
     ->get();
 
@@ -275,12 +280,14 @@ Route::get('/share/{n}', function($id){
     ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
     ->join('users','users.id','videos.user_id')
     ->where('mainTopic_id', 6)
+    ->where('videos.sistas', 0)
     ->whereNull('videos.deleted_at')
     ->get();
 
     $inshaallah = DB::Table('videos')->select('videos.*')
     ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
     ->where('mainTopic_id', 7)
+    ->where('videos.sistas', 0)
     ->whereNull('videos.deleted_at')
     ->OrderByDesc('videos.created_at', )
     ->get();
@@ -383,8 +390,7 @@ Route::get('/flow', function () {
 
 // kids page : apercu
 Route::get('/sistas', function () {
-    $subtopics = DB::Table('sub_topics')->select('*')
-    ->get();
+    $subtopics = DB::Table('sub_topics')->select('*')->get();
 
     $videos_haltcare = DB::Table('videos')->select('videos.*')
                                  ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
