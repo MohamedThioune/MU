@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="{{asset('css/home.css')}}">
     @endsection
     @php if(isset($_COOKIE['lang'])) App::setLocale($_COOKIE['lang']); @endphp
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v11.0&appId=597127187460666&autoLogAppEvents=1" nonce="niIdAzBU"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.4.0/clipboard.min.js"></script>
+    <script src="https://platform.linkedin.com/in.js" type="text/javascript">lang: en_US</script>
 </head>
 <body>
 
@@ -27,14 +31,19 @@
                                 <source src="{{ asset('vids/uploads')}}/{{$video->vid}}" type='video/webm; codecs="vp8, vorbis"' />
                                 <source src="{{ asset('vids/uploads')}}/{{$video->vid}}" type='video/ogg; codecs="theora, vorbis"' />
                             </video>
+                            <form method="POST" id="post_share" action="/shares">
+                                <input type="hidden" id="token" name="_token" value="{{ csrf_token() }}" />
+                                <input type="hidden" id="user" value="{{ Auth::id() }}">
+                                <input type="hidden" id="video" value="{{ $video->id }}">
+                            </form>
 
                         </div>
                         <div id="blessings" class="animate__animated animate__bounceInUp" >
-                            <center><span>👋🏾 Bismillah !</span>
+                            <center><span>Bismillahi Rahmani Rahim / Au nom d’Allah le Clément le Miséricordieux </span>
                             <input type="hidden" name="barometer" id="barometer" value="">
                         </div>
                         <div id="prays" class="animate__animated animate__zoomInDown">
-                            <center><span>Alhamdoulilah &#x1F4FF;!</span></center>                        </div>
+                            <center><span>Oh Allah ! Accorde-moi le bien qu’il y a en ceci et préserve de son mal !</span></center>                        </div>
                         </div>
                     <div class="secondElement">
                         <img class="pubCap" src="{{ asset('img/pub-cap.png')}}" alt="">
@@ -158,8 +167,10 @@
                         </div>
                     </div>
                     <div class="block-detail-commentaire">
-                        <p class="des-text">{{__('Description of my video')}} : <span class="">{{ $video->description }}</span>      </p>
-                        <p class="des-text">{{__('Objectives of the video')}} : {{ $video->motivation }}</p>
+                        <p class="des-text">{{__('Description of my video')}} : <span class="" data-toggle="modal" data-target="#exampleModal1">{{ $video->description }}</span>      </p>
+                      <div class="blockObjectif">
+                          <p class="des-text">{{__('Objectives of the video')}} : </p> <p class="ojectifVideo">{{ $video->motivation }}</p>
+                      </div>
                     </div>
                     <button class="blockPoint" data-toggle="modal" data-target="#exampleModal1">
                         <div class="trois-point-noir">...</div>
@@ -179,15 +190,69 @@
                                 @endif
                             </a>
                         </div>
-                        <div class="blockImgPuli bottomElement2">
+                        <div id="share" class="blockImgPuli bottomElement2" style="cursor: pointer" onclick="share()" data-toggle="modal" data-target="#exampleModalCenter">
                             <img src="{{ asset('img/icones/share.png') }}" alt="">
-                            <p class="textShare">{{__('Share')}}</p>
+                            <a class="textShare">{{__('Share')}}</a>
                         </div>
+<!--                     début modal share-->
+                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLongTitle">Share</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="need-help">
+                                            <div class="reauxBlock" data-href="{{route('share',[$video->id])}}" data-layout="button">
+                                                <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">
+                                                   <div class="imgResauxBlock">
+                                                       <img class="imgResaux" src="{{asset('img/facebook.svg')}}" alt="">
+                                                   </div>
+                                                </a>
+                                                <p class="resauxText">Facebook</p>
+                                            </div>
+                                            <div class="reauxBlock">
+                                                <a class="twitter-share-button" target="blank" href="https://twitter.com/intent/tweet?text={{route('share',[$video->id])}}" data-size="large">
+                                                   <div class="imgResauxBlock">
+                                                       <img class="imgResaux" src="{{asset('img/twitter.svg')}}" alt="">
+                                                   </div>
+                                                </a>
+                                                <p class="resauxText">Twitter</p>
+                                            </div>
+                                            <div class="reauxBlock">
+                                                <a class="whatsapp-share-button" href="whatsapp://send?text={{route('share',['$video->id'])}}">
+                                                   <div class="imgResauxBlock whatsApp">
+                                                       <img class="imgResaux" src="{{asset('img/whatsapp.svg')}}" alt="">
+                                                   </div>
+                                                </a>
+                                                <p class="resauxText">WhatsApp</p>
+                                            </div>
+                                            <div class="reauxBlock">
+                                               <div class="imgResauxBlock">
+                                                   <script type="IN/share" data-url="smuuse.com/share/{{$video->id}}">
+                                                   </script>
+                                               </div>
+                                                <p class="resauxText">Linkedin</p>
+                                            </div>
+                                            <div class="reauxInput">
+                                                <input id="post-shortlink" value="{{route('share',[$video->id])}}">
+                                                <button class="btn btn-secondary" id="copy-button" data-clipboard-target="#post-shortlink" onclick="alert('Copy done ✅')">Copy</button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+<!--                        fin modal share-->
                         <button class="btn shopBtn blockImgPuli bottomElement3" type="button" data-toggle="modal" data-target="#exampleModal1">
                             <img src="{{ asset('img/panier.png') }}" alt="">
                             <p class="textShare">{{__('Shop')}}</p>
                         </button>
-                        <div class="blockImgPuli">
+                        <div class="blockImgPuli btn" type="button" data-toggle="modal" data-target="#exampleModal1">
                             <div class="trois-point-noir">...</div>
                         </div>
                     </div>
@@ -548,122 +613,119 @@
                             </form>
                             <div>
 
+                                </div>
+                            </div>
+                            <div class="d-flex group11">
+                                <p class="textTousCom">{{__('See all comments')}}</p>
+                                <button class="btn btnTous" data-toggle="modal" data-target="#exampleModal"><img class="imgTousCom" src="{{ asset('img/touscom.svg') }}" alt=""></button>
+                                <!-- Modal -->
+                                <div class="modal fade modalCommenraire" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog2" role="document">
+                                        <div class="modal-content">
+                                            <div class="plus-comments-mob">
+                                                    <div class="div-block-465">
+                                                        <button data-dismiss="modal" class="btn flech-grey w-inline-block">
+                                                            <div class="fleche-up-grey"></div>
+                                                            <div class="fleche-down-grey"></div>
+                                                        </button>
+                                                    </div>
+                                                <div class="div-block-435">
+                                                        <div class="ad-comment">
+                                                            @include('adminlte-templates::common.errors')
+                                                            <form method="POST" action="/comments">
+                                                                @csrf
+                                                                <input type="hidden" name="video_id" value="{{$video->id}}" id="">
+                                                                <textarea class="inputCommentaire2" name="value" id=""></textarea>
+                                                                <div class="div-block-332">
+                                                                    <button type="submit" class="btn btnEnvoyer">{{__('Post')}}</button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    <div>
+
+                                                        @for($i = 1; $i < count($comments); $i++)
+                                                        <div class="coment-1">
+                                                            <div class="div-block-325">
+                                                                <div class="div-block-329">
+
+                                                                    <div class="div-block-327">
+
+                                                                        @if($users[$i]->age <= 15)
+                                                                        <img src="{{asset('images/kids_preloader.png')}}" style="width:45px; height:42px"  class="img-circle" alt="User Image"/>
+                                                                        @elseif($users[$i]->age > 15 && $users[$i]->sex == '1')
+                                                                        <img src="{{asset('images/flow_preloader.png')}}" style="width:45px; height:42px"  class="img-circle" alt="User Image"/>
+                                                                        @elseif($users[$i]->age > 15 && users[$i]->sex == '0')
+                                                                        <img src="{{asset('images/sista_preloader.png')}}" style="width:45px; height:42px"  class="img-circle" alt="User Image"/>
+                                                                        @endif
+                                                                    </div>
+                                                                    <div class="div-block-326" >
+                                                                        <p class="textblock326">{{$users[$i]->name}}</p>
+                                                                        <div class="text-block-322 showReadMore1" style="">{{$comments[$i]->value}}
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="text-block-Date">
+                                                                        @if(intval(abs(strtotime("now") - strtotime($comments[$i]->created_at))/ 86400) == 0)
+                                                                        @if(intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 3600) > 0)
+                                                                        {{intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/3600)}} hours ago
+                                                                        @else(intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 3600) == 0)
+                                                                        {{intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/60)}} minutes ago
+                                                                        @endif
+                                                                        @elseif(intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 86400) == 1)
+                                                                        Yesterday at {{strftime("%H:%M", strtotime( $comments[$i]->created_at))}}
+                                                                        @elseif(intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 86400) >= 2 && intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 86400) <= 27)
+                                                                        {{intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 86400)}} days ago
+                                                                        @else(intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 86400) > 27)
+                                                                        On {{strftime("%d/%m/%Y", strtotime( $comments[$i]->created_at))}}
+                                                                        @endif
+                                                                    </div>
+                                                                </div>
+                                                                <div class="d-flex">
+                                                                    <div class="d-flex">
+                                                                        <p class="commenter">{{__('Answer')}}</p>
+                                                                        <button  onclick="TestsFunction()"  class="message-2-messaage w-inline-block btn">
+                                                                            <img src="{{ asset('img/Mu-picto-comment-gris2x.png') }}" loading="lazy" width="33" alt="">
+                                                                        </button>
+                                                                    </div>
+                                                                    <div>
+                                                                        <div class="likes">
+                                                                            <div class="text-block-292"> {{\App\Models\Comment::find($comments[$i]->comment_id)->likers()->count()}}</div>
+                                                                            <div class="imgCoeur2">
+                                                                                <a href="{{ route('likecomment' , $comments[$i]->comment_id) }}">
+                                                                                    <img src="{{ asset('img/icones/coeurRose.svg') }}" alt="">
+                                                                                </a>
+                                                                            </div>
+                                                                            <div class="disliker">
+                                                                                <a href="{{ route('dislikecomment' , $comments[$i]->comment_id) }}">
+                                                                                    <img src="{{ asset('img/icones/loveRenverseGris.png') }}" alt="">
+                                                                                </a>
+                                                                            </div>
+                                                                            <div class="text-block-292"> {{\App\Models\Comment::find($comments[$i]->comment_id)->unlikes()->count()}} </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="div-block-331" id="TestsDiv" style="display:none">
+
+                                                            @include('adminlte-templates::common.errors')
+                                                            <form method="POST" action="/comments">
+                                                                @csrf
+                                                                <input type="hidden" name="video_id" value="{{$video->id}}" id="">
+                                                                <textarea class="inputCommentaire" name="value" id="" rows="5"></textarea>
+
+                                                                <div class="div-block-332">
+                                                                    <button type="submit" class="text-block-326 btn">{{__('')}}Poster</button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                    @endfor
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                       <div class="d-flex group11">
-                           <p class="textTousCom">{{__('See all comments')}}</p>
-                           <button class="btn btnTous" data-toggle="modal" data-target="#exampleModal"><img class="imgTousCom" src="{{ asset('img/touscom.svg') }}" alt=""></button>
-                           <!-- Modal -->
-                           <div class="modal fade modalCommenraire" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                               <div class="modal-dialog modal-dialog2" role="document">
-                                   <div class="modal-content">
-                                       <div class="plus-comments-mob">
-                                            <div class="div-block-465">
-                                                <button data-dismiss="modal" class="btn flech-grey w-inline-block">
-                                                    <div class="fleche-up-grey"></div>
-                                                    <div class="fleche-down-grey"></div>
-                                                </button>
-                                            </div>
-                                           <div class="div-block-435">
-                                                <div class="ad-comment">
-                                                    @include('adminlte-templates::common.errors')
-                                                    <form method="POST" action="/comments">
-                                                        @csrf
-                                                        <input type="hidden" name="video_id" value="{{$video->id}}" id="">
-                                                        <textarea class="inputCommentaire2" name="value" id=""></textarea>
-                                                        <div class="div-block-332">
-                                                            <button type="submit" class="btn btnEnvoyer">{{__('Post')}}</button>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                               <div>
-
-                                                   @for($i = 1; $i < count($comments); $i++)
-                                                   <div class="coment-1">
-                                                       <div class="div-block-325">
-                                                           <div class="div-block-329">
-
-                                                               <div class="div-block-327">
-
-                                                                   @if($users[$i]->age <= 15)
-                                                                   <img src="{{asset('images/kids_preloader.png')}}" style="width:45px; height:42px"  class="img-circle" alt="User Image"/>
-                                                                   @elseif($users[$i]->age > 15 && $users[$i]->sex == '1')
-                                                                   <img src="{{asset('images/flow_preloader.png')}}" style="width:45px; height:42px"  class="img-circle" alt="User Image"/>
-                                                                   @elseif($users[$i]->age > 15 && users[$i]->sex == '0')
-                                                                   <img src="{{asset('images/sista_preloader.png')}}" style="width:45px; height:42px"  class="img-circle" alt="User Image"/>
-                                                                   @endif
-                                                               </div>
-                                                               <div class="div-block-326" >
-                                                                   <p class="textblock326">{{$users[$i]->name}}</p>
-                                                                   <div class="text-block-322 showReadMore1" style="">{{$comments[$i]->value}}
-                                                                   </div>
-                                                               </div>
-                                                               <div class="text-block-Date">
-                                                                   @if(intval(abs(strtotime("now") - strtotime($comments[$i]->created_at))/ 86400) == 0)
-                                                                   @if(intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 3600) > 0)
-                                                                   {{intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/3600)}} hours ago
-                                                                   @else(intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 3600) == 0)
-                                                                   {{intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/60)}} minutes ago
-                                                                   @endif
-                                                                   @elseif(intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 86400) == 1)
-                                                                   Yesterday at {{strftime("%H:%M", strtotime( $comments[$i]->created_at))}}
-                                                                   @elseif(intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 86400) >= 2 && intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 86400) <= 27)
-                                                                   {{intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 86400)}} days ago
-                                                                   @else(intval(abs(strtotime("now") - strtotime( $comments[$i]->created_at))/ 86400) > 27)
-                                                                   On {{strftime("%d/%m/%Y", strtotime( $comments[$i]->created_at))}}
-                                                                   @endif
-                                                               </div>
-                                                           </div>
-                                                           <div class="d-flex">
-                                                               <div class="d-flex">
-                                                                   <p class="commenter">Commenter</p>
-                                                                   <button  onclick="TestsFunction()"  class="message-2-messaage w-inline-block btn">
-                                                                       <img src="{{ asset('img/Mu-picto-comment-gris2x.png') }}" loading="lazy" width="33" alt="">
-                                                                   </button>
-                                                               </div>
-                                                               <div>
-                                                                   <div class="likes">
-                                                                       <div class="text-block-292"> {{\App\Models\Comment::find($comments[$i]->comment_id)->likers()->count()}}</div>
-                                                                       <div class="imgCoeur2">
-                                                                           <a href="{{ route('likecomment' , $comments[$i]->comment_id) }}">
-                                                                               <img src="{{ asset('img/icones/coeurRose.svg') }}" alt="">
-                                                                           </a>
-                                                                       </div>
-                                                                       <div class="disliker">
-                                                                           <a href="{{ route('dislikecomment' , $comments[$i]->comment_id) }}">
-                                                                               <img src="{{ asset('img/icones/loveRenverseGris.png') }}" alt="">
-                                                                           </a>
-                                                                       </div>
-                                                                       <div class="text-block-292"> {{\App\Models\Comment::find($comments[$i]->comment_id)->unlikes()->count()}} </div>
-                                                                   </div>
-                                                               </div>
-                                                           </div>
-                                                       </div>
-                                                       <div class="div-block-331" id="TestsDiv" style="display:none">
-
-                                                           @include('adminlte-templates::common.errors')
-                                                           <form method="POST" action="/comments">
-                                                               @csrf
-                                                               <input type="hidden" name="video_id" value="{{$video->id}}" id="">
-                                                               <textarea class="inputCommentaire" name="value" id="" rows="5"></textarea>
-
-                                                               <div class="div-block-332">
-                                                                   <button type="submit" class="text-block-326 btn">{{__('')}}Poster</button>
-                                                               </div>
-                                                           </form>
-                                                           <div>
-
-                                                           </div>
-                                                       </div>
-                                                   </div>
-                                                   @endfor
-                                               </div>
-                                           </div>
-                                       </div>
-                                   </div>
-                               </div>
-                           </div>
-                       </div>
                     </div>
                     @php
                     if($i == 1)
@@ -688,7 +750,7 @@
                         <p class="nombreComment"></p>
                         <p class="commentText">0 {{__('Comment')}}</p>
                     </button>
-                    <div class="div-block-331" >
+                    <div class="div-block-331 ab" >
                         @include('adminlte-templates::common.errors')
                         <form method="POST" action="/comments">
                             @csrf
@@ -792,6 +854,17 @@
                                             </div>
                                         </div>
                                     </div>
+                                    @if($playlist)
+                                    <div class="d-flex justify-content-between blockPlayist" >
+                                        <p class="numberviewsSuggestion"> </p>
+                                        <a  href="{{route('playlist.remove', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Remove to my playlist"><img src="{{ asset('img/report-Orange.svg') }}"  alt="Remove to my playlist"></a>
+                                    </div>
+                                    @else
+                                    <div class="d-flex justify-content-between blockPlayist" >
+                                        <p class="numberviewsSuggestion"> </p>
+                                        <a href="{{route('playlist.add', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Add to my playlist"><img src="{{ asset('img/report-gris.svg') }}"  alt="Add to my playlist"></a>
+                                    </div>
+                                    @endif
                                 </div>
                                 @endforeach
                         </div>
@@ -996,6 +1069,17 @@
                                             </div>
                                         </div>
                                     </div>
+                                    @if($playlist)
+                                    <div class="d-flex justify-content-between blockPlayist" >
+                                        <p class="numberviewsSuggestion"> </p>
+                                        <a  href="{{route('playlist.remove', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Remove to my playlist"><img src="{{ asset('img/report-Orange.svg') }}"  alt="Remove to my playlist"></a>
+                                    </div>
+                                    @else
+                                    <div class="d-flex justify-content-between blockPlayist" >
+                                        <p class="numberviewsSuggestion"> </p>
+                                        <a href="{{route('playlist.add', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Add to my playlist"><img src="{{ asset('img/report-gris.svg') }}"  alt="Add to my playlist"></a>
+                                    </div>
+                                    @endif
                                 </div>
                                 @endforeach
                             </div>
@@ -1012,7 +1096,6 @@
                         </div>
                         @endif
                     </div>
-
                 </div>
             </div>
         </div>
@@ -1107,6 +1190,7 @@
                                                 </div>
                                             </div>
                                         </div>
+
                                     </div>
                                     @if($playlist)
                                     <div class="d-flex justify-content-between blockPlayist" >
@@ -1320,24 +1404,23 @@
 
                                             </div>
                                         </div>
+                                        @if($playlist)
+                                        <div class="d-flex justify-content-between blockPlayist" >
+                                            <p class="numberviewsSuggestion"> </p>
+                                            <a  href="{{route('playlist.remove', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Remove to my playlist"><img src="{{ asset('img/report-Orange.svg') }}"  alt="Remove to my playlist"></a>
+                                        </div>
+                                        @else
+                                        <div class="d-flex justify-content-between blockPlayist" >
+                                            <p class="numberviewsSuggestion"> </p>
+                                            <a href="{{route('playlist.add', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Add to my playlist"><img src="{{ asset('img/report-gris.svg') }}"  alt="Add to my playlist"></a>
+                                        </div>
+                                        @endif
                                     </div>
                                 </div>
                                 @endforeach
                             </div>
                         </div>
-                        @if($playlist)
-                        <div class="d-flex justify-content-between blockPlayist" >
-                            <p class="numberviewsSuggestion"> </p>
-                            <a  href="{{route('playlist.remove', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Remove to my playlist"><img src="{{ asset('img/report-Orange.svg') }}"  alt="Remove to my playlist"></a>
-                        </div>
-                        @else
-                        <div class="d-flex justify-content-between blockPlayist" >
-                            <p class="numberviewsSuggestion"> </p>
-                            <a href="{{route('playlist.add', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Add to my playlist"><img src="{{ asset('img/report-gris.svg') }}"  alt="Add to my playlist"></a>
-                        </div>
-                        @endif
                     </div>
-
                 </div>
             </div>
         </div>
@@ -1427,21 +1510,21 @@
                                             </div>
                                         </div>
                                     </div>
+                                    @if($playlist)
+                                    <div class="d-flex justify-content-between blockPlayist" >
+                                        <p class="numberviewsSuggestion"> </p>
+                                        <a  href="{{route('playlist.remove', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Remove to my playlist"><img src="{{ asset('img/report-Orange.svg') }}"  alt="Remove to my playlist"></a>
+                                    </div>
+                                    @else
+                                    <div class="d-flex justify-content-between blockPlayist" >
+                                        <p class="numberviewsSuggestion"> </p>
+                                        <a href="{{route('playlist.add', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Add to my playlist"><img src="{{ asset('img/report-gris.svg') }}"  alt="Add to my playlist"></a>
+                                    </div>
+                                    @endif
                                 </div>
                                 @endforeach
                             </div>
                         </div>
-                        @if($playlist)
-                        <div class="d-flex justify-content-between blockPlayist" >
-                            <p class="numberviewsSuggestion"> </p>
-                            <a  href="{{route('playlist.remove', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Remove to my playlist"><img src="{{ asset('img/report-Orange.svg') }}"  alt="Remove to my playlist"></a>
-                        </div>
-                        @else
-                        <div class="d-flex justify-content-between blockPlayist" >
-                            <p class="numberviewsSuggestion"> </p>
-                            <a href="{{route('playlist.add', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Add to my playlist"><img src="{{ asset('img/report-gris.svg') }}"  alt="Add to my playlist"></a>
-                        </div>
-                        @endif
                     </div>
 
                 </div>
@@ -1533,21 +1616,21 @@
                                             </div>
                                         </div>
                                     </div>
+                                    @if($playlist)
+                                    <div class="d-flex justify-content-between blockPlayist" >
+                                        <p class="numberviewsSuggestion"> </p>
+                                        <a  href="{{route('playlist.remove', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Remove to my playlist"><img src="{{ asset('img/report-Orange.svg') }}"  alt="Remove to my playlist"></a>
+                                    </div>
+                                    @else
+                                    <div class="d-flex justify-content-between blockPlayist" >
+                                        <p class="numberviewsSuggestion"> </p>
+                                        <a href="{{route('playlist.add', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Add to my playlist"><img src="{{ asset('img/report-gris.svg') }}"  alt="Add to my playlist"></a>
+                                    </div>
+                                    @endif
                                 </div>
                                 @endforeach
                             </div>
                         </div>
-                        @if($playlist)
-                        <div class="d-flex justify-content-between blockPlayist" >
-                            <p class="numberviewsSuggestion"> </p>
-                            <a  href="{{route('playlist.remove', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Remove to my playlist"><img src="{{ asset('img/report-Orange.svg') }}"  alt="Remove to my playlist"></a>
-                        </div>
-                        @else
-                        <div class="d-flex justify-content-between blockPlayist" >
-                            <p class="numberviewsSuggestion"> </p>
-                            <a href="{{route('playlist.add', $video->id)}}" data-toggle="tooltip" data-placement="top" title="Add to my playlist"><img src="{{ asset('img/report-gris.svg') }}"  alt="Add to my playlist"></a>
-                        </div>
-                        @endif
                     </div>
                 </div>
             </div>
