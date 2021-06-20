@@ -36,7 +36,6 @@
                                 <input type="hidden" id="user" value="{{ Auth::id() }}">
                                 <input type="hidden" id="video" value="{{ $video->id }}">
                             </form>
-                            
                         </div>
                         <div id="blessings" class="animate__animated animate__bounceInUp" >
                             <center><span>Bismillahi Rahmani Rahim / Au nom d’Allah le Clément le Miséricordieux </span>
@@ -167,29 +166,9 @@
                         </div>
                     </div>
                     <div class="block-detail-commentaire">
-                          <p class="des-text">{{__('Description of my video')}} :<span class="" data-toggle="modal" data-target="#exampleModal1">{{ $video->description }}</span>      </p>
+                        <p class="des-text">{{__('Description of my video')}} : <span class="" data-toggle="modal" data-target="#exampleModal1">{{ $video->description }}</span>      </p>
                       <div class="blockObjectif">
                           <p class="des-text">{{__('Objectives of the video')}} : </p> <p class="ojectifVideo">{{ $video->motivation }}</p>
-                      </div>
-                      <div class="need-help">
-                        <div class="fb-share-button" data-href="{{route('share',[$video->id])}}" data-layout="button" data-size="large">
-                            <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">{{__('FACEBOOK SHARE')}}</a>
-                        </div>
-                       
-                        <a class="twitter-share-button" target="blank" href="https://twitter.com/intent/tweet?text={{route('share',[$video->id])}}" data-size="large">
-                            <img class="" width="23" height="23"  style="margin-bottom:4px;" src="{{asset('img/twitter-share-button.png')}}" alt="">
-                            <span style="background: #00B6F2; color:white; padding: 2px 5px; margin-left: -5px; ">share<span>
-                        </a>
-                        &nbsp;                    
-                        <a class="whatsapp-share-button" href="whatsapp://send?text={{route('share',['$video->id'])}}">
-                            <img class="" width="28" height="26" style="margin-bottom:3px;" src="{{asset('img/whatsapp-share-button.png')}}" alt="">
-                            <span style="background: #08EB48; color:white; padding: 4px 5px; margin-left: -5px;">share<span>
-                        </a>
-                        &nbsp;
-                        <script type="IN/Share" data-url="smuuse.com/share/{{$video->id}}"></script><br><br>
-                        
-                        <input id="post-shortlink" value="{{route('share',[$video->id])}}"> --}}
-                        <button class="button" id="copy-button" data-clipboard-target="#post-shortlink" onclick="alert('Copy done ✅')">Copy</button>
                       </div>
                     </div>
                     <button class="blockPoint" data-toggle="modal" data-target="#exampleModal1">
@@ -210,15 +189,69 @@
                                 @endif
                             </a>
                         </div>
-                        <div id="share" class="blockImgPuli bottomElement2" style="cursor: pointer" onclick="share()">
+                        <div id="share" class="blockImgPuli bottomElement2" style="cursor: pointer" onclick="share()" data-toggle="modal" data-target="#exampleModalCenter">
                             <img src="{{ asset('img/icones/share.png') }}" alt="">
                             <a class="textShare">{{__('Share')}}</a>
                         </div>
+<!--                     début modal share-->
+                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLongTitle">Share</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="need-help">
+                                            <div class="reauxBlock" data-layout="button">
+                                                <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{route('share',[$video->id])}}" class="fb-xfbml-parse-ignore">
+                                                   <div class="imgResauxBlock">
+                                                       <img class="imgResaux" src="{{asset('img/facebook.svg')}}" alt="">
+                                                   </div>
+                                                </a>
+                                                <p class="resauxText">Facebook</p>
+                                            </div>
+                                            <div class="reauxBlock">
+                                                <a class="twitter-share-button" target="blank" href="https://twitter.com/intent/tweet?text={{route('share',[$video->id])}}" data-size="large">
+                                                   <div class="imgResauxBlock">
+                                                       <img class="imgResaux" src="{{asset('img/twitter.svg')}}" alt="">
+                                                   </div>
+                                                </a>
+                                                <p class="resauxText">Twitter</p>
+                                            </div>
+                                            <div class="reauxBlock">
+                                                <a class="whatsapp-share-button" href="whatsapp://send?text={{route('share',['$video->id'])}}">
+                                                   <div class="imgResauxBlock whatsApp">
+                                                       <img class="imgResaux" src="{{asset('img/whatsapp.svg')}}" alt="">
+                                                   </div>
+                                                </a>
+                                                <p class="resauxText">WhatsApp</p>
+                                            </div>
+                                            <div class="reauxBlock">
+                                               <div class="imgResauxBlock">
+                                                   <script type="IN/share" data-url="smuuse.com/share/{{$video->id}}">
+                                                   </script>
+                                               </div>
+                                                <p class="resauxText">Linkedin</p>
+                                            </div>
+                                            <div class="reauxInput">
+                                                <input id="post-shortlink" value="{{route('share',[$video->id])}}">
+                                                <button class="btn btn-secondary" id="copy-button" data-clipboard-target="#post-shortlink" onclick="alert('Copy done ✅')">Copy</button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+<!--                        fin modal share-->
                         <button class="btn shopBtn blockImgPuli bottomElement3" type="button" data-toggle="modal" data-target="#exampleModal1">
                             <img src="{{ asset('img/panier.png') }}" alt="">
                             <p class="textShare">{{__('Shop')}}</p>
                         </button>
-                        <div class="blockImgPuli" data-toggle="modal" data-target="#exampleModal1">
+                        <div class="blockImgPuli btn" type="button" data-toggle="modal" data-target="#exampleModal1">
                             <div class="trois-point-noir">...</div>
                         </div>
                     </div>
@@ -594,6 +627,10 @@
                                     </div>
                                 </form>
                                 <div>
+
+                                </div>
+                            </form>
+                            <div>
 
                                 </div>
                             </div>

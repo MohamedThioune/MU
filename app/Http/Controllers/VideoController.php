@@ -61,7 +61,7 @@ class VideoController extends AppBaseController
         }
         $_COOKIE['state'] = 'Channel';
 
-        return view('video.index', compact('videos', 'subtopics', 'channel'));
+        return view('videos.index', compact('videos', 'subtopics', 'channel'));
     }
 
     /**
@@ -118,7 +118,7 @@ class VideoController extends AppBaseController
                                                     
         $_COOKIE['state'] = 'Channel';
 
-        return view('video.create',compact('subtopics_health', 'subtopics_life', 'subtopics_healthcare', 'subtopics_business', 'subtopics_education', 'subtopics_new', 'subtopics_inshaallah', 'subtopics', 'channel'));
+        return view('videos.create',compact('subtopics_health', 'subtopics_life', 'subtopics_healthcare', 'subtopics_business', 'subtopics_education', 'subtopics_new', 'subtopics_inshaallah', 'subtopics', 'channel'));
     }
 
     /**
