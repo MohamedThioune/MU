@@ -165,6 +165,7 @@
             <div class="hot-green">
                 <img src="{{asset('img/Mu-hot-info.png')}}" class="image-131">
             </div>
+            @if($event)
             <div class="BlockTimeTrush">
                 <p class="text-block-383">{{$event->libelle}}...</p>
                 <div>
@@ -190,6 +191,7 @@
                     <div><img src="{{asset('img/Image-6.png')}}" loading="lazy" width="28" alt=""></div>
                 </div>
             </div>
+            @endif
 
         </div>
     </div>
