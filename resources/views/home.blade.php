@@ -385,6 +385,377 @@
     @endif
     @endif
 
+    @if($channel_top)
+    <div class="chaine-vu spaceElementFlow">
+        <div>
+            <p class="titre-recommandation ">{{__('Here is the most viewed channel at the moment')}}</p>
+        </div>
+        <div class="div-block-367-copy">
+            <a href="{{route('channel.visitor', $channel_top->id)}}" style="text-decoration:none" class="bull-chaine">
+                <img src="{{ asset('/img') }}/{{$channel_top->logo}}" class="image-125">
+            </a>
+            <div class="div-block-368">
+                <p class="text-block-362">{{$channel_top->name}}</p>
+                <div class="div-block-371">
+                    <p class="text-block-363">{{\App\Models\Channel::find($channel_top->id)->abonnees->count()}}</p>
+                    <p class="text-block-345">{{__('Subscribers')}}</p>
+                </div>
+                <p class="text-block-364">{{$videos_count}} Publications</p>
+                <div class="text-block-366">
+                    <a href="{{route('channel.visitor', $channel_top->id)}}" class="link-28">{{__('See the channel')}}</a>
+                </div>
+            </div>
+            <div class="back-subscrib-bar">
+                <div class="chaine">
+                    @php
+                        $subscribe = DB::Table('users')->select('channels.id')
+                        ->join('channels', 'users.id', 'channels.user_id')
+                        ->where('users.id', Auth::id())
+                        ->first();
+                    @endphp
+                    @if($subscribe)
+                        @if($subscribe->id != $channel_top->id)
+                            @php
+                                $chain = DB::Table('abonne_channel')->select('abonne_channel.id')
+                                ->where('abonne_channel.user_id', Auth::id())
+                                ->where('abonne_channel.channel_id', $channel_top->id)
+                                ->first();
+                            @endphp
+                                <a class="btnSubscripeNotif" href="{{ route('suscribe',$channel_top->id) }}" style="text-decoration:none">
+                                    <div class="btn div-block-386">
+                                        <img src="{{ asset('img/Mu-coeur-blanc.svg') }}" class="imgCoeurBlanc" width="23" alt="">
+                                    </div>
+                                    @if($chain) 
+                                        {{__('Unsubscribe')}} 
+                                    
+                                        <button class="btn btnCloche">
+                                            <img width="15" height="15" src="{{ asset('img/Mu-cloche-blanc.png') }}" class="imgClocheAbonne" alt="">
+                                        </button>
+                                    @else
+                                        {{__('Subscribe')}}
+                                    @endif
+                                </a>
+                        @endif
+                    @else 
+                      <a class="btnSubscripeNotif" href="{{ route('suscribe',$channel_top->id) }}" style="text-decoration:none">
+                           <div class="btn div-block-386">
+                                 <img src="{{ asset('img/Mu-coeur-blanc.svg') }}" class="imgCoeurBlanc" width="23" alt="">
+                           </div>
+                             {{__('Subscribe')}}
+                      </a>     
+                  
+
+                    <div class="more-seting">
+                        <div class="div-block-399"></div>
+                        <div class="div-block-399"></div>
+                        <div class="div-block-399"></div>
+                    </div>
+                    <div class="share-blanc">
+                        <img src="{{ asset('img/Share-blanc.svg') }}" alt="" class="image-12Blanc">
+                    </div>
+                    <a href="#" class="link-block-42 w-inline-block">
+                        <img src="{{ asset('img/Mu-panier2x_1.png') }}" class="panier2" width="27" alt="">
+                    </a>
+                    <a href="#" class="link-block-41 w-inline-block" style="text-decoration:none;color:white">
+                        <div>{{__('Support us')}}</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endif
+    <div id="event" class="big-event spaceElementFlow">
+        <div class="titre-recommandation ">{{__('Upcoming events')}}</div>
+        <div class="div-block-375">
+            <div class="div-block-373">
+                <div class="div-block-372">
+                    <img src="{{asset('img/Groupe-9262x.png')}}" class="image-127">
+                </div>
+                <div class="div-block-374">
+                    <div class="date-indicator">
+                        <p class="text-block-371">{{__('month')}}</p>
+                        <p class="text-block-373">{{__('days')}}</p>
+                    </div>
+                    <div>
+                        @php
+                            $date = new hijri();
+                        @endphp
+                        <div class="div-block-376">
+                            <div class="div-block-378">
+                                <p class="text-block-368">Ramadan</p>
+                                <p class="text-block-374">{{__('in')}}</p>
+                            </div>
+                            <div class="div-block-377">
+                                <p class="text-block-370">1</p>
+                                <p class="text-block-372">15</p>
+                            </div>
+                        </div>
+                        <div class="div-block-376">
+                            <div class="div-block-379">
+                                <p class="text-block-368">Aïd el fitre</p>
+                                <p class="text-block-375">{{__('in')}}</p>
+                            </div>
+                            <div class="div-block-377">
+                                <p class="text-block-370">2</p>
+                                <p class="text-block-372">15</p>
+                            </div>
+                        </div>
+                        <div class="div-block-376">
+                            <div class="div-block-380">
+                                <p class="text-block-368">Hajj</p>
+                                <p class="text-block-376">{{__('in')}}</p>
+                            </div>
+                            <div class="div-block-377">
+                                <p class="text-block-370">6</p>
+                                <p class="text-block-372">02</p>
+                            </div>
+                        </div>
+                        <div class="div-block-376">
+                            <div class="div-block-381">
+                                <p class="text-block-368">Aïd el Kabir</p>
+                                <p class="text-block-377">dans </p>
+                            </div>
+                            <div class="div-block-377">
+                                <p class="text-block-370">11</p>
+                                <p class="text-block-372">02</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+    <!--   Party time-shield-->
+    @if(!Auth::guest())
+    <div id="resume" class="resume-flow spaceElementFlow">
+        <div class="div-block-343">
+            <div class="div-block-352">
+                <p class="titre-recommandation ">{{__('This month')}}</p>
+                <div class="resume-activitee">
+                    <div class="nombre-de">
+                        <p class="text-block-351">{{__('Videos viewed')}}</p>
+                        <div class="div-block-344">
+                            <div class="div-block-345">
+                            @if($look_videos)
+                                <p class="text-block-352">{{count($look_videos)}}</p>
+                            @endif
+                            </div>
+                            <div class="div-block-347">
+                                <img src="{{ asset('img/Mu-video-regarder2x.png') }}" class="imgRegarde" width="61" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nombre-de">
+                        <p class="text-block-351">{{__('Favourite videos')}}</p>
+                        <div class="div-block-344">
+                            <div class="div-block-345">
+                                @if($like_videos)
+                                <p class="text-block-352">{{$like_videos->likes}} </p>
+                                @else
+                                <p class="text-block-352">0</p>
+                                @endif
+                            </div>
+                            <div class="div-block-348">
+                                <img src="{{ asset('img/Mu-video-likee2x.png') }}" class="imgVideoLike"  alt=""></div>
+                        </div>
+                    </div>
+                    <div class="nombre-de">
+                        <p class="text-block-351">{{__('Shared videos')}}</p>
+                        <div class="div-block-344">
+                            <div class="div-block-345">
+                                <p class="text-block-352">0 </p>
+                            </div>
+                            <div class="div-block-349">
+                                <img src="{{ asset('img/Mu-nbr-de-partage2x.png') }}" class="imgVideoLike" alt=""></div>
+                        </div>
+                    </div>
+                    <div class="nombre-de">
+                        <p class="text-block-351">{{__('Sadakatiyas supported')}}</p>
+                        <div class="div-block-344">
+                            <div class="div-block-345">
+                                <p class="text-block-352">0</p>
+                            </div>
+                            <div class="div-block-350">
+                                <img src="{{ asset('img/Mu-sadaka-support2x.png') }}" class="imgVideoLike" alt=""></div>
+                        </div>
+                    </div>
+                    <div class="nombre-de">
+                        <p class="text-block-351">{{__('Channels followed')}}</p>
+                        <div class="div-block-344">
+                            <div class="div-block-345">
+                            @if($follows)
+                                @if($follows->trends)
+                                    <p class="text-block-352">{{$follows->trends}} </p>
+                                @endif
+                            @else
+                                <p class="text-block-352">0</p>
+                            @endif
+                            </div>
+                            <div class="div-block-351">
+                                <img src="{{ asset('img/Mu-chaine-follow-gris2x.png') }}"  class="imgVideoLike"></div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                @php
+                    $date = explode(",",$date->date(null,2,false));
+                    if($date && count($date) > 0){
+                        $hijri_year = $date[1];
+                        $hijri_month =  explode(" ", $date[0])[6];
+                        $hijri_day = explode(" ", $date[0])[5];
+                    }
+                    $gregorian =  (new \Datetime())->format('d.m.Y');
+                @endphp
+
+                @if($date)
+                    <div class="time-mon-flow">
+                        <div class="div-block-342"><img src="{{ asset('img/Time-shahid.svg') }}"  alt="" class="shadid103"></div>
+                        <div class="div-block-341">
+                            <p class="text-block-290">Time shahid</p>
+                            @php $shahid = explode(":",$shahid); if($shahid[0] == "00") $shahid[0] = "0"; @endphp
+                            @if($shahid && count($shahid) > 0)<p class="temps-tsha">{{$shahid[0]}}h {{$shahid[1]}} mn</p>@endif
+                            <p class="text-block-329" style="font-size:1.0em">{{$hijri_day}} {{$hijri_month}} {{$hijri_year}}</p>
+                            <p class="text-block-329" style="font-size:0.8em">{{$gregorian}}</p>
+                        </div>
+                    </div>
+                @endif
+                    @php
+                        $start =  (new \Datetime())->format('Y-m-01 H:i:s');
+                        $end =   (new \Datetime())->format('Y-m-30 H:i:s');
+                    @endphp
+                    @if($looks > 0)
+                    <div class="div-block-364">
+                        <div class="div-block-354">
+                        @php
+                            $variant = DB::table('videos')
+                                    ->join('reads','videos.id','reads.video_id')
+                                    ->join('sub_topics','sub_topics.id','videos.subtopic_id')
+                                    ->join('main_topics','main_topics.id','sub_topics.mainTopic_id')
+                                    ->where('reads.created_at', '>=', $start)
+                                    ->where('reads.created_at', '<', $end)
+                                    ->where('reads.user_id', Auth::id())
+                                    ->where('main_topics.id', 7)
+                                    ->whereNull('videos.deleted_at')
+                                    ->count();
+                            @endphp
+                            <p class="text-block-354">In sha Allah</p>
+
+                            <div class="progress-bar" role="progressbar bg-info" style="width:{{$variant != 0 ?(($variant/$looks)*100):'0'}}%; height:15px; border-radius:10px; background:#ebebeb; " aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <div class="div-block-354">
+                            @php
+                            $variant = DB::table('videos')
+                                    ->join('reads','videos.id','reads.video_id')
+                                    ->join('sub_topics','sub_topics.id','videos.subtopic_id')
+                                    ->join('main_topics','main_topics.id','sub_topics.mainTopic_id')
+                                    ->where('reads.user_id', Auth::id())
+                                    ->where('reads.created_at', '>=', $start)
+                                    ->where('reads.created_at', '<', $end)
+                                    ->where('reads.user_id', Auth::id())
+                                    ->where('main_topics.id', 6)
+                                    ->whereNull('videos.deleted_at')
+                                    ->count();
+                            @endphp
+                            <p class="text-block-355">Din</p>
+                            <div class="progress-bar" role="progressbar bg-info" style="width:{{$variant != 0 ?(($variant/$looks)*100):'0'}}%; height:15px; border-radius:10px; background:#ebebeb; " aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <div class="div-block-354">
+                            @php
+                            $variant = DB::table('videos')
+                                    ->join('reads','videos.id','reads.video_id')
+                                    ->join('sub_topics','sub_topics.id','videos.subtopic_id')
+                                    ->join('main_topics','main_topics.id','sub_topics.mainTopic_id')
+                                    ->where('reads.user_id', Auth::id())
+                                    ->where('reads.created_at', '>=', $start)
+                                    ->where('reads.created_at', '<', $end)
+                                    ->where('reads.user_id', Auth::id())
+                                    ->where('main_topics.id', 4)
+                                    ->whereNull('videos.deleted_at')
+                                    ->count();
+                            @endphp
+                            <p class="text-block-356">Business </p>
+                            <div class="progress-bar" role="progressbar bg-info" style="width:{{$variant != 0 ?(($variant/$looks)*100):'0'}}%; height:15px; border-radius:10px; background:#ebebeb; " aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <div class="div-block-354">
+                            @php
+                            $variant = DB::table('videos')
+                                    ->join('reads','videos.id','reads.video_id')
+                                    ->join('sub_topics','sub_topics.id','videos.subtopic_id')
+                                    ->join('main_topics','main_topics.id','sub_topics.mainTopic_id')
+                                    ->where('reads.created_at', '>=', $start)
+                                    ->where('reads.created_at', '<', $end)
+                                    ->where('reads.user_id', Auth::id())
+                                    ->where('main_topics.id', 1)
+                                    ->whereNull('videos.deleted_at')
+                                    ->count();
+                            @endphp
+                            <p class="text-block-357">Health</p>
+                            <div class="progress-bar" role="progressbar bg-info" style="width:{{$variant != 0 ?(($variant/$looks)*100):'0'}}%; height:15px; border-radius:15px; background:#ebebeb; " aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <div class="div-block-354">
+                            @php
+                            $variant = DB::table('videos')
+                                    ->join('reads','videos.id','reads.video_id')
+                                    ->join('sub_topics','sub_topics.id','videos.subtopic_id')
+                                    ->join('main_topics','main_topics.id','sub_topics.mainTopic_id')
+                                    ->where('reads.created_at', '>=', $start)
+                                    ->where('reads.created_at', '<', $end)
+                                    ->where('reads.user_id', Auth::id())
+                                    ->where('main_topics.id', 3)
+                                    ->whereNull('videos.deleted_at')
+                                    ->count();
+                            @endphp
+                            <p class="text-block-359">Sport Fit</p>
+                            <div class="progress-bar" role="progressbar bg-info" style="width:{{$variant != 0 ?(($variant/$looks)*100):'0'}}%; height:15px; border-radius:10px; background:#ebebeb; " aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <div class="div-block-354">
+                            @php
+                            $variant = DB::table('videos')
+                                    ->join('reads','videos.id','reads.video_id')
+                                    ->join('sub_topics','sub_topics.id','videos.subtopic_id')
+                                    ->join('main_topics','main_topics.id','sub_topics.mainTopic_id')
+                                    ->where('reads.created_at', '>=', $start)
+                                    ->where('reads.created_at', '<', $end)
+                                    ->where('reads.user_id', Auth::id())
+                                    ->where('main_topics.id', 2)
+                                    ->whereNull('videos.deleted_at')
+                                    ->count();
+                            @endphp
+                            <p class="text-block-367">Life </p>
+                            <div class="progress-bar" role="progressbar bg-info" style="width:{{$variant != 0 ?(($variant/$looks)*100):'0'}}%; height:15px; border-radius:10px; background:#ebebeb; " aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <div class="div-block-354">
+                            @php
+                            $variant = DB::table('videos')
+                                    ->join('reads','videos.id','reads.video_id')
+                                    ->join('sub_topics','sub_topics.id','videos.subtopic_id')
+                                    ->join('main_topics','main_topics.id','sub_topics.mainTopic_id')
+                                    ->where('reads.created_at', '>=', $start)
+                                    ->where('reads.created_at', '<', $end)
+                                    ->where('reads.user_id', Auth::id())
+                                    ->where('main_topics.id', 5)
+                                    ->whereNull('videos.deleted_at')
+                                    ->count();
+                            @endphp
+                            <p class="text-block-361">Tech et science </p>
+                            <div class="progress-bar" role="progressbar bg-info" style="width:{{$variant != 0 ?(($variant/$looks)*100):'0'}}%; height:15px; border-radius:10px; background:#ebebeb; " aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <div class="div-block-354">
+                            <p class="text-block-358">Education</p>
+                            <!-- <div class="progress-bar" role="progressbar bg-info" style="width:{{$variant != 0 ?(($variant/$looks)*100):'0'}}%; height:15px; border-radius:10px; background:#ebebeb; " aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div> -->
+                        </div>
+                        <div class="div-block-354">
+                            <p class="text-block-360">News</p>
+                            <!-- <div class="progress-bar" role="progressbar bg-info" style="width:{{$looks != 0 & $variant != 0 ?(($variant/$looks)*100):'0'}}%; height:15px; border-radius:10px; background:#ebebeb; " aria-valuenow="{{($variant/$looks)*100}}" aria-valuemin="0" aria-valuemax="100"></div> -->
+                        </div>
+                    </div>
+                    @endif
+                </div>
+            </div>
+        </div>
+    </div>
+    @endif
+
 <script src="{{asset('js/jquery.min.js')}}"></script>
 <script src="{{asset('bootstrap/bootstrap.min.js')}}"></script>
 <script src="{{asset('swiper/swiper-bundle.min.js')}}"></script>

@@ -312,6 +312,7 @@
                             ->where('users.id', Auth::id())
                             ->first();
                         @endphp
+                        @if($subscribe)
                             @if($subscribe->id != $channel->id)
                                 @php
                                     $chain = DB::Table('abonne_channel')->select('abonne_channel.id')
@@ -332,11 +333,12 @@
                                     </a>
                             @endif
                         @else
-                        <a href="{{route('login')}}" class="btn btnSubscribe"  data-toggle="tooltip" data-placement="top" title="this feature is only available to community members"> {{__('Subscribe')}}
-                            <button class="btn btnClocheNot">
-                                <img src="{{ asset('img/Mu-cloche-blanc.png') }}" class="imgClocheAbonne" alt="">
-                            </button>
-                        </a>
+                            <a href="{{route('login')}}" class="btn btnSubscribe"  data-toggle="tooltip" data-placement="top" title="this feature is only available to community members"> {{__('Subscribe')}}
+                                <button class="btn btnClocheNot">
+                                    <img src="{{ asset('img/Mu-cloche-blanc.png') }}" class="imgClocheAbonne" alt="">
+                                </button>
+                                {{__('Subscribe')}}
+                            </a>
                         @endif
 
                     </div>
