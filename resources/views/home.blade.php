@@ -77,33 +77,7 @@
             <div class="hot-green">
                 <img src="{{asset('img/Mu-hot-info.png')}}" class="image-131">
             </div>
-            @if($event)
-            <div class="BlockTimeTrush">
-                <p class="text-block-383">{{$event->libelle}}...</p>
-                <div>
-                    @if(intval(abs(strtotime("now") - strtotime($event->created_at))/ 86400) == 0)
-                        @if(intval(abs(strtotime("now") - strtotime($event->created_at))/ 3600) > 0)
-                            <p class="publication-info-recom">{{intval(abs(strtotime("now") - strtotime($event->created_at))/3600)}} hours ago </p>
-                            @else(intval(abs(strtotime("now") - strtotime($event->created_at))/ 3600) == 0)
-                            <p class="publication-info-recom">{{intval(abs(strtotime("now") - strtotime($event->created_at))/60)}} minutes ago </p>
-                        @endif
-                    @elseif(intval(abs(strtotime("now") - strtotime($event->created_at))/ 86400) == 1)
-                    <p class="publication-info-recom">Yesterday at {{strftime("%H:%M", strtotime($event->created_at))}}</p>
-                    @elseif(intval(abs(strtotime("now") - strtotime($event->created_at))/ 86400) >= 2 && intval(abs(strtotime("now") - strtotime($event->created_at))/ 86400) <= 27)
-                    <p class="publication-info-recom"> {{intval(abs(strtotime("now") - strtotime($event->created_at))/ 86400)}} days ago </p>
-                    @elseif(intval(abs(strtotime("now") - strtotime($event->created_at))/ 86400) > 30)
-                    <p class="publication-info-recom">{{intval(abs(strtotime("now") - strtotime($event->created_at))/ 2592000) }} months ago</p>
-                    @else(intval(abs(strtotime("now") - strtotime($event->created_at))/ 2592000) > 12)
-                    <p class="publication-info-recom">{{intval(abs(strtotime("now") - strtotime($event->created_at))/ 2592000 * 12) }} years ago</p>
-                    @endif
-                </div>
-                <p class="hot-flow-txt-description">{{$event->text}}</p>
-                <div class="like-notication">
-                    <div class="div-block-398"><img src="{{asset('img/Image-5.png')}}" loading="lazy" alt=""></div>
-                    <div><img src="{{asset('img/Image-6.png')}}" loading="lazy" width="28" alt=""></div>
-                </div>
-            </div>
-            @endif
+          
 
         </div>
     </div>
