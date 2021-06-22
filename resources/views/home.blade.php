@@ -72,7 +72,7 @@
                 </div>
             </div>
         @endif
-        @if($video && count($video) > 0)
+        @if($video)
             <div class="recondation-video-card">
                 <a href="{{route('play', $video->id)}}" class="video-vignette-recom">
                     @if($video->thumbnail)
