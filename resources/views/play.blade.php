@@ -312,33 +312,40 @@
                             ->where('users.id', Auth::id())
                             ->first();
                         @endphp
-                        @if($subscribe)
-                            @if($subscribe->id != $channel->id)
-                                @php
-                                    $chain = DB::Table('abonne_channel')->select('abonne_channel.id')
-                                    ->where('abonne_channel.user_id', Auth::id())
-                                    ->where('abonne_channel.channel_id', $channel->id)
-                                    ->first();
-                                @endphp
-                                    <a href="{{ route('suscribe',$channel->id) }}" class="btn btnSubscribe" >
-                                        @if($chain) 
-                                            {{__('Unsubscribe')}} 
-                                        
-                                            <button class="btn btnCloche">
-                                                <img width="15" height="15" src="{{ asset('img/Mu-cloche-blanc.png') }}" class="imgClocheAbonne" alt="">
-                                            </button>
-                                        @else
-                                            {{__('Subscribe')}}
-                                        @endif
-                                    </a>
+                            @if($subscribe)
+                                @if($subscribe->id != $channel->id)
+                                    @php
+                                        $chain = DB::Table('abonne_channel')->select('abonne_channel.id')
+                                        ->where('abonne_channel.user_id', Auth::id())
+                                        ->where('abonne_channel.channel_id', $channel->id)
+                                        ->first();
+                                    @endphp
+                                        <a href="{{ route('suscribe',$channel->id) }}" class="btn btnSubscribe" >
+                                            @if($chain) 
+                                                {{__('Unsubscribe')}} 
+                                            
+                                                <button class="btn btnCloche">
+                                                    <img width="15" height="15" src="{{ asset('img/Mu-cloche-blanc.png') }}" class="imgClocheAbonne" alt="">
+                                                </button>
+                                            @else
+                                                {{__('Subscribe')}}
+                                            @endif
+                                        </a>
+                                @endif
+                            @else
+                                <a class="btnSubscripeNotif" href="{{ route('suscribe',$channel_top->id) }}" style="text-decoration:none">
+                                    <div class="btn div-block-386">
+                                        <img src="{{ asset('img/Mu-coeur-blanc.svg') }}" class="imgCoeurBlanc" width="23" alt="">
+                                    </div>
+                                    {{__('Subscribe')}}
+                                </a>    
                             @endif
                         @else
-                            <a href="{{route('login')}}" class="btn btnSubscribe"  data-toggle="tooltip" data-placement="top" title="this feature is only available to community members"> {{__('Subscribe')}}
-                                <button class="btn btnClocheNot">
-                                    <img src="{{ asset('img/Mu-cloche-blanc.png') }}" class="imgClocheAbonne" alt="">
-                                </button>
-                                {{__('Subscribe')}}
-                            </a>
+                        <a href="{{route('login')}}" class="btn btnSubscribe"  data-toggle="tooltip" data-placement="top" title="this feature is only available to community members"> {{__('Subscribe')}}
+                            <button class="btn btnClocheNot">
+                                <img src="{{ asset('img/Mu-cloche-blanc.png') }}" class="imgClocheAbonne" alt="">
+                            </button>
+                        </a>
                         @endif
 
                     </div>
