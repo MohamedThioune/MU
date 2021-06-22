@@ -12,9 +12,9 @@
 <body class="home-body">
 @php if(isset($_COOKIE['lang'])) App::setLocale($_COOKIE['lang']); @endphp
 @section('content-play-element')
-<div class="contentOneMonFlow">
+<div class="contentOneMonFlow"></div>
     @php
-        $can = DB::Table('users')->select('channels.*')
+        $link = DB::Table('users')->select('channels.*')
         ->join('channels', 'users.id', 'channels.user_id')
         ->where('users.id', Auth::id())
         ->first();
@@ -25,7 +25,7 @@
         <a href="#event" class="link-26">Events.</a>
         <a href="#resume" class="link-26">Resume</a>
         <a href="#Playlist-flow" class="link-26">Playlist</a>
-        <a href="{{route('channel.visitor',[$can->id])}}#Offre-business" class="link-26">{{__('Offers')}}</a>
+        <a href="{{route('channel.visitor',[$link->id])}}#Offre-business" class="link-26">{{__('Offers')}}</a>
     </div>
     <div class="business-MOb">
         <div class="swiper-container swipeContainermodife3">
@@ -72,7 +72,7 @@
                 </div>
             </div>
         @endif
-        @if($video)
+        @if($video && count($video) > 0)
             <div class="recondation-video-card">
                 <a href="{{route('play', $video->id)}}" class="video-vignette-recom">
                     @if($video->thumbnail)
@@ -83,7 +83,6 @@
                 </a>
                 @php 
                     $date = explode(":",$video->duration);
-                    
                     if($date && count($date) > 0)
                         if($date[0] = "00")
                             $video->duration = $date[1] . ":" . $date[2];
@@ -177,7 +176,7 @@
                     @endif
                     @elseif(intval(abs(strtotime("now") - strtotime($event->created_at))/ 86400) == 1)
                     <p class="publication-info-recom">Yesterday at {{strftime("%H:%M", strtotime($event->created_at))}}</p>
-                    @elseif(intval(abs(strtotime("now") - strtotime($event->created_at))/ 86400) >= 2 && intval(abs(strtotime("now") - strtotime($video->created_at))/ 86400) <= 27)
+                    @elseif(intval(abs(strtotime("now") - strtotime($event->created_at))/ 86400) >= 2 && intval(abs(strtotime("now") - strtotime($event->created_at))/ 86400) <= 27)
                     <p class="publication-info-recom"> {{intval(abs(strtotime("now") - strtotime($event->created_at))/ 86400)}} days ago </p>
                     @elseif(intval(abs(strtotime("now") - strtotime($event->created_at))/ 86400) > 30)
                     <p class="publication-info-recom">{{intval(abs(strtotime("now") - strtotime($event->created_at))/ 2592000) }} months ago</p>
