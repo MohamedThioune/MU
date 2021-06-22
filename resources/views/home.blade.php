@@ -442,7 +442,8 @@
                                  <img src="{{ asset('img/Mu-coeur-blanc.svg') }}" class="imgCoeurBlanc" width="23" alt="">
                            </div>
                              {{__('Subscribe')}}
-                      </a>     
+                      </a>
+                    @endif     
                   
 
                     <div class="more-seting">
