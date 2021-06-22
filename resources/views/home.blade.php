@@ -372,6 +372,7 @@
                                 <p class="numberviewsSuggestion"> </p>
                                 <a  href="{{route('playlist.remove', $playlist->id)}}" data-toggle="tooltip" data-placement="top" title="Remove to my playlist"><img src="{{ asset('img/report-Orange.svg') }}"  alt="Remove to my playlist"></a>
                             </div>
+                            @endif
                         </div>
                     </div>
                 @endforeach
