@@ -13,7 +13,7 @@
 
 Route::get('/', function () {
 
-    $video = DB::Table('videos')->select('videos.*')
+    $rookie = DB::Table('videos')->select('videos.*')
                                  ->whereNull('videos.deleted_at')
                                  ->orderByDesc('videos.created_at')
                                  ->first();
@@ -93,8 +93,9 @@ Route::get('/', function () {
     $shahid = date('H:i:s', $shahid);
 
     /** @var Event $event */
-    $event = DB::Table('events')->select('events.*')
-                                   ->first();
+    $event = DB::Table('events')
+                ->select('events.*')
+                ->first();
 
     $channel = DB::Table('users')->select('channels.*')
     ->join('channels', 'users.id', 'channels.user_id')
@@ -154,7 +155,7 @@ Route::get('/', function () {
     session(['videos_haltcare' => $videos_haltcare, 'videos_life' => $videos_life, 'videos_health' => $videos_health, 'videos_business' => $videos_business, 'videos_environnement' => $videos_environnement, 'videos_education' => $videos_education]);
     
     $_COOKIE['state'] = "home";
-    return view('home', compact('subtopics','channel','event', 'video','last','channel_top','videos_count','look_videos','like_videos','follows', 'looks','shahid','playlists'));
+    return view('home', compact('subtopics','channel','event', 'rookie','last','channel_top','videos_count','look_videos','like_videos','follows', 'looks','shahid','playlists'));
 
 })->name('home')->middleware('auth');
 
