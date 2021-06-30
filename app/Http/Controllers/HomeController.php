@@ -164,8 +164,10 @@ class HomeController extends Controller
         };
 
         $counts = count($comments);
-        $inputs_read = ['video_id' => $id, 'user_id' => Auth::id()];
 
+        /* 
+        ** Read video */
+        
         //Check if the user have read a video today 
         $read_video = DB::table('reads')
                     ->select('videos.id','reads.created_at')
@@ -174,6 +176,9 @@ class HomeController extends Controller
                     ->whereNull('videos.deleted_at')
                     ->orderByDesc('reads.created_at')
                     ->first();
+
+        $inputs_read = ['video_id' => $id, 'user_id' => Auth::id()];
+
         if($read_video)
             $read_at =(new \Datetime($read_video->created_at))->format('d-m-Y');
         else
@@ -191,7 +196,8 @@ class HomeController extends Controller
                 Read::create($inputs_read);
         else
             Read::create($inputs_read);
-       
+        /* end */
+
         $inshaallah = DB::Table('videos')->select('videos.*')
                     ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
                     ->where('mainTopic_id', 7)

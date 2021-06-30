@@ -95,20 +95,32 @@
                                 <div class="imgOeil"><img  src="{{ asset('img/icones/oeil.png') }}" alt=""></div>
                             </div>
                         </div>
+                        @php
+                            $like = DB::Table('likes')->select('likes.id')
+                                    ->where('likeable_type', "App\Models\Video")
+                                    ->where('user_id', Auth::id())
+                                    ->where('likeable_id', $video->id)
+                                    ->first();
+        
+                            $unlike = DB::Table('unlikes')->select('unlikes.id')
+                                    ->where('user_id', Auth::id())
+                                    ->where('video_id', $video->id)
+                                    ->first();
+                        @endphp
                         <div class="blockLikeEval">
                             <div class="groupLOveUnlove groupLOveUnlove1">
                                 <div class="blockLoveUnlove">
                                     <p class="nbrLove">{{ $video->likers()->count() }} </p>
                                     <div class="imgCoeur">
                                         <a href="{{ route('likevideo',$video->id ) }}">
-                                            <img src="{{ asset('img/icones/coeurRose.svg') }}" alt="">
+                                            <img src="{{ $like ? asset('img/icones/coeurRose.svg') : asset('img/trace-72502x.png') }}" alt="">
                                         </a>
                                     </div>
                                 </div>
                                 <div class="blockLoveUnlove">
                                     <div class="imgCoeur">
                                         <a href="{{ route('dislikevideo',$video->id )}}">
-                                            <img src="{{ asset('img/icones/loveRenverseGris.png') }}" alt="">
+                                            <img src="{{ $unlike ? asset('img/icones/Dislike color.png') : asset('img/icones/loveRenverseGris.png') }}" alt="">
                                         </a>
                                     </div>
                                     <p class="nbrLove">{{ $video->unlikes()->count() }}</p>
@@ -1857,6 +1869,20 @@
         var token = $("#token").val();
 
         function share(){
+            $.post(form_share,
+            {
+                user_id: user,
+                video_id: video,
+                _token: token
+            },
+            function(data, status){
+                console.log('data: ', data);
+                console.log('status: ', status);
+            });
+        }
+        
+        //My futur code still not persuassive for play activity
+        function starting(){
             $.post(form_share,
             {
                 user_id: user,

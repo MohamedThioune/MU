@@ -18,14 +18,25 @@ Route::get('/', function () {
                                  ->orderByDesc('videos.created_at')
                                  ->first();
 
-    $last = DB::table('videos', 'views')
-    ->join('reads', 'videos.id', 'reads.video_id')
-    ->whereNull('videos.deleted_at')
-    ->select(DB::raw('count(*) as views, reads.video_id'))
-    ->groupBy('reads.video_id')
-    ->orderByDesc('views')
-    ->limit(3)
-    ->get();
+    if(Auth::user()->sex == "1")
+        $last = DB::table('videos', 'views')
+        ->join('reads', 'videos.id', 'reads.video_id')
+        ->whereNull('videos.deleted_at')
+        ->where('videos.sistas',1)
+        ->select(DB::raw('count(*) as views, reads.video_id'))
+        ->groupBy('reads.video_id')
+        ->orderByDesc('views')
+        ->limit(3)
+        ->get();
+    else
+        $last = DB::table('videos', 'views')
+        ->join('reads', 'videos.id', 'reads.video_id')
+        ->whereNull('videos.deleted_at')
+        ->select(DB::raw('count(*) as views, reads.video_id'))
+        ->groupBy('reads.video_id')
+        ->orderByDesc('views')
+        ->limit(3)
+        ->get();
 
     $vimeo = App\Models\Video::find($last[0]->video_id);
 
