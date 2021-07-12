@@ -12,6 +12,7 @@ class ComposerStaticInit8485fb7189a64a9c5667f31bce03e74b
         '25072dd6e2470089de65ae7bf11d3109' => __DIR__ . '/..' . '/symfony/polyfill-php72/bootstrap.php',
         'e69f7f6ee287b969198c3c9d6777bd38' => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer/bootstrap.php',
         'f598d06aa772fa33d905e87be6398fb1' => __DIR__ . '/..' . '/symfony/polyfill-intl-idn/bootstrap.php',
+        '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
         '0d59ee240a4cd96ddbb4ff164fccea4d' => __DIR__ . '/..' . '/symfony/polyfill-php73/bootstrap.php',
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
@@ -23,10 +24,10 @@ class ComposerStaticInit8485fb7189a64a9c5667f31bce03e74b
         'e23faeee409e941dc9b4c80386209c39' => __DIR__ . '/..' . '/laracasts/flash/src/Laracasts/Flash/functions.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         '801c31d8ed748cfa537fa45402288c95' => __DIR__ . '/..' . '/psy/psysh/src/functions.php',
-        '0ccdf99b8f62f02c52cba55802e0c2e7' => __DIR__ . '/..' . '/zircote/swagger-php/src/functions.php',
         '3b0f16c0762a22ffed787d705a1c68b3' => __DIR__ . '/..' . '/arcanedev/arabic/src/helpers.php',
         'a28599dc506da421718fad75955a4b9d' => __DIR__ . '/..' . '/infyomlabs/laravel-generator/src/helpers.php',
         'f18cc91337d49233e5754e93f3ed9ec3' => __DIR__ . '/..' . '/laravelcollective/html/src/helpers.php',
+        '0ccdf99b8f62f02c52cba55802e0c2e7' => __DIR__ . '/..' . '/zircote/swagger-php/src/functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -482,13 +483,6 @@ class ComposerStaticInit8485fb7189a64a9c5667f31bce03e74b
                 0 => __DIR__ . '/..' . '/laracasts/flash/src',
             ),
         ),
-        'J' => 
-        array (
-            'Jlapp\\Swaggervel' => 
-            array (
-                0 => __DIR__ . '/..' . '/jlapp/swaggervel/src',
-            ),
-        ),
     );
 
     public static $classMap = array (
@@ -497,6 +491,7 @@ class ComposerStaticInit8485fb7189a64a9c5667f31bce03e74b
         'AVCSequenceParameterSetReader' => __DIR__ . '/..' . '/james-heinrich/getid3/getid3/module.audio-video.flv.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Http\\Controllers\\API\\VideoAPIController' => __DIR__ . '/../..' . '/app/Http/Controllers/API/VideoAPIController.php',
         'App\\Http\\Controllers\\ActivityController' => __DIR__ . '/../..' . '/app/Http/Controllers/ActivityController.php',
         'App\\Http\\Controllers\\AppBaseController' => __DIR__ . '/../..' . '/app/Http/Controllers/AppBaseController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
@@ -513,6 +508,7 @@ class ComposerStaticInit8485fb7189a64a9c5667f31bce03e74b
         'App\\Http\\Controllers\\GuestController' => __DIR__ . '/../..' . '/app/Http/Controllers/GuestController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\MainTopicController' => __DIR__ . '/../..' . '/app/Http/Controllers/MainTopicController.php',
+        'App\\Http\\Controllers\\ManueController' => __DIR__ . '/../..' . '/app/Http/Controllers/ManueController.php',
         'App\\Http\\Controllers\\PlaylistController' => __DIR__ . '/../..' . '/app/Http/Controllers/PlaylistController.php',
         'App\\Http\\Controllers\\ProfileController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProfileController.php',
         'App\\Http\\Controllers\\ReadController' => __DIR__ . '/../..' . '/app/Http/Controllers/ReadController.php',
@@ -530,6 +526,8 @@ class ComposerStaticInit8485fb7189a64a9c5667f31bce03e74b
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Http\\Requests\\API\\CreateVideoAPIRequest' => __DIR__ . '/../..' . '/app/Http/Requests/API/CreateVideoAPIRequest.php',
+        'App\\Http\\Requests\\API\\UpdateVideoAPIRequest' => __DIR__ . '/../..' . '/app/Http/Requests/API/UpdateVideoAPIRequest.php',
         'App\\Http\\Requests\\CreateActivityRequest' => __DIR__ . '/../..' . '/app/Http/Requests/CreateActivityRequest.php',
         'App\\Http\\Requests\\CreateCategoryPrimaryRequest' => __DIR__ . '/../..' . '/app/Http/Requests/CreateCategoryPrimaryRequest.php',
         'App\\Http\\Requests\\CreateCategorySecondaryRequest' => __DIR__ . '/../..' . '/app/Http/Requests/CreateCategorySecondaryRequest.php',
@@ -589,6 +587,7 @@ class ComposerStaticInit8485fb7189a64a9c5667f31bce03e74b
         'App\\Models\\UnlikeComment' => __DIR__ . '/../..' . '/app/Models/UnlikeComment.php',
         'App\\Models\\Video' => __DIR__ . '/../..' . '/app/Models/Video.php',
         'App\\Models\\product' => __DIR__ . '/../..' . '/app/Models/product.php',
+        'App\\Notifications\\InvoiceNotify' => __DIR__ . '/../..' . '/app/Notifications/InvoiceNotify.php',
         'App\\Notifications\\RegisterNotify' => __DIR__ . '/../..' . '/app/Notifications/RegisterNotify.php',
         'App\\Profile' => __DIR__ . '/../..' . '/app/Profile.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
@@ -4593,6 +4592,7 @@ class ComposerStaticInit8485fb7189a64a9c5667f31bce03e74b
         'Symfony\\Thanks\\Command\\ThanksCommand' => __DIR__ . '/..' . '/symfony/thanks/src/Command/ThanksCommand.php',
         'Symfony\\Thanks\\GitHubClient' => __DIR__ . '/..' . '/symfony/thanks/src/GitHubClient.php',
         'Symfony\\Thanks\\Thanks' => __DIR__ . '/..' . '/symfony/thanks/src/Thanks.php',
+        'Tests\\APIs\\VideoApiTest' => __DIR__ . '/../..' . '/tests/APIs/VideoApiTest.php',
         'Tests\\ApiTestTrait' => __DIR__ . '/../..' . '/tests/ApiTestTrait.php',
         'Tests\\CreatesApplication' => __DIR__ . '/../..' . '/tests/CreatesApplication.php',
         'Tests\\Feature\\ExampleTest' => __DIR__ . '/../..' . '/tests/Feature/ExampleTest.php',

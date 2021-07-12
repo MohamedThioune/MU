@@ -21,7 +21,7 @@ use App\Models\Unlike;
 
 class VideoController extends AppBaseController
 {
-    /**
+    /** 
      * Display a listing of the videos.
      *
      * @param Request $request

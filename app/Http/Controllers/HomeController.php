@@ -115,7 +115,7 @@ class HomeController extends Controller
         ->select(DB::raw('count(*) as views, reads.video_id'))
         ->groupBy('reads.video_id')
         ->get();
-
+ 
         $shahid = strtotime('i:s');
 
         foreach($look_videos as $look){

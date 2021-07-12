@@ -15,10 +15,12 @@ $factory->define(Video::class, function (Faker $faker) {
         'vid' => $faker->word,
         'thumbnail' => $faker->word,
         'duration' => $faker->word,
+        'online' => $faker->word,
+        'sistas' => $faker->randomDigitNotNull,
         'request_monetize' => $faker->randomDigitNotNull,
         'is_monetize' => $faker->randomDigitNotNull,
         'user_id' => $faker->randomDigitNotNull,
-        'mainTopic_id' => $faker->randomDigitNotNull,
+        'subtopic_id' => $faker->randomDigitNotNull,
         'created_at' => $faker->date('Y-m-d H:i:s'),
         'updated_at' => $faker->date('Y-m-d H:i:s')
     ];

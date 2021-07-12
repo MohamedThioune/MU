@@ -18,7 +18,7 @@ Route::get('/', function () {
                                  ->orderByDesc('videos.created_at')
                                  ->first();
 
-    if(Auth::user()->sex == "1")
+    if(Auth::user()->sex == '1')
         $last = DB::table('videos', 'views')
         ->join('reads', 'videos.id', 'reads.video_id')
         ->whereNull('videos.deleted_at')

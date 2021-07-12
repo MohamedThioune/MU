@@ -6,7 +6,6 @@
     "type": "project",
     "require": {
         "php": ">=7.1.3",
-<<<<<<< HEAD
         "arcanedev/arabic": "^0.0.2",
         "braintree/braintree_php": "^6.0",
         "caouecs/laravel-lang": "~3.0",
@@ -21,11 +20,6 @@
         "laravelcollective/html": "5.6.0",
         "overtrue/laravel-follow": "^2.2",
         "overtrue/laravel-like": "2.0.1"
-=======
-        "fideloper/proxy": "~4.0",
-        "laravel/framework": "5.6.*",
-        "laravel/tinker": "~1.0"
->>>>>>> 939cabb5 (commit with cpanel)
     },
     "require-dev": {
         "filp/whoops": "~2.0",

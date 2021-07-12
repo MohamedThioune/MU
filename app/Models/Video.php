@@ -13,7 +13,7 @@ use Overtrue\LaravelLike\Traits\Likeable;
 /**
  * Class Video
  * @package App\Models
- * @version January 31, 2021, 9:58 pm UTC
+ * @version July 1, 2021, 6:28 pm UTC
  *
  * @property string main_title
  * @property string title
@@ -21,19 +21,24 @@ use Overtrue\LaravelLike\Traits\Likeable;
  * @property string motivation
  * @property string vid
  * @property string thumbnail
- * @property time duration
+ * @property string duration
+ * @property string online
+ * @property integer sistas
  * @property integer request_monetize
  * @property integer is_monetize
  * @property integer user_id
- * @property integer mainTopic_id
+ * @property integer subtopic_id
  */
 class Video extends Model
 {
-    use SoftDeletes, Likeable;
+    use SoftDeletes;
 
     public $table = 'videos';
     
+
     protected $dates = ['deleted_at'];
+
+
 
     public $fillable = [
         'main_title',
@@ -43,6 +48,8 @@ class Video extends Model
         'vid',
         'thumbnail',
         'duration',
+        'online',
+        'sistas',
         'request_monetize',
         'is_monetize',
         'user_id',
@@ -62,12 +69,13 @@ class Video extends Model
         'motivation' => 'string',
         'vid' => 'string',
         'thumbnail' => 'string',
-        'duration' => 'time',
-        'online' => 'integer',
+        'duration' => 'string',
+        'online' => 'string',
+        'sistas' => 'integer',
         'request_monetize' => 'integer',
         'is_monetize' => 'integer',
         'user_id' => 'integer',
-        'subtopic_id' => 'integer',
+        'subtopic_id' => 'integer'
     ];
 
     /**
@@ -88,7 +96,9 @@ class Video extends Model
         'main_title' => 'required',
         'title' => 'required',
         'description' => 'required',
-        'user_id' => 'required',
+        'motivation' => 'required',
+        'vid' => 'required',
+        'user_id' => 'required'
     ];
     public function mainTopic()
     {
@@ -104,9 +114,5 @@ class Video extends Model
     {
         return $this->hasMany(Unlike::class,'video_id');
     }
-
-    public function push()
-    {
-        return $this->belongsTo(User::class);   
-    }
+    
 }

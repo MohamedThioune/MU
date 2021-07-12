@@ -205,7 +205,7 @@
                             <img src="{{ asset('img/icones/share.png') }}" alt="">
                             <a class="textShare">{{__('Share')}}</a>
                         </div>
-<!--                     début modal share-->
+<!--  début modal share  -->
                         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
