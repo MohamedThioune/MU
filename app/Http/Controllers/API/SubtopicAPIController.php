@@ -76,7 +76,7 @@ class SubtopicAPIController extends AppBaseController
      *
      * @return Response
      */
-    public function create(CreateSubtopicAPIRequest $request)
+    public function store(CreateSubtopicAPIRequest $request)
     {
         $input = $request->all();
 
