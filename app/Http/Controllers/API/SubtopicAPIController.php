@@ -76,7 +76,7 @@ class SubtopicAPIController extends AppBaseController
      *
      * @return Response
      */
-    public function store(CreateSubtopicAPIRequest $request)
+    public function store(CreateSubTopicRequest $request)
     {
         $input = $request->all();
 
@@ -115,7 +115,7 @@ class SubtopicAPIController extends AppBaseController
      *
      * @return Response
      */
-    public function update($id, UpdateSubtopicAPIRequest $request)
+    public function update($id, UpdateSubTopicRequest $request)
     {
         /** @var Subtopic $subtopic */
         $subtopic = SubTopic::find($id);
