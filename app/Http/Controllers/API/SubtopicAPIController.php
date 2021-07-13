@@ -4,7 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Requests\API\CreateSubtopicAPIRequest;
 use App\Http\Requests\API\UpdateSubtopicAPIRequest;
-use App\Models\Subtopic;
+use App\Models\SubTopic;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AppBaseController;
 use Response;
@@ -81,7 +81,7 @@ class SubtopicAPIController extends AppBaseController
         $input = $request->all();
 
         /** @var Subtopic $subtopic */
-        $subtopic = Subtopic::create($input);
+        $subtopic = SubTopic::create($input);
 
         return $this->sendResponse($subtopic->toArray(), 'Subtopic saved successfully');
     }
@@ -97,7 +97,7 @@ class SubtopicAPIController extends AppBaseController
     public function show($id)
     {
         /** @var Subtopic $subtopic */
-        $subtopic = Subtopic::find($id);
+        $subtopic = SubTopic::find($id);
 
         if (empty($subtopic)) {
             return $this->sendError('Subtopic not found');
@@ -118,7 +118,7 @@ class SubtopicAPIController extends AppBaseController
     public function update($id, UpdateSubtopicAPIRequest $request)
     {
         /** @var Subtopic $subtopic */
-        $subtopic = Subtopic::find($id);
+        $subtopic = SubTopic::find($id);
 
         if (empty($subtopic)) {
             return $this->sendError('Subtopic not found');
@@ -141,7 +141,7 @@ class SubtopicAPIController extends AppBaseController
     public function destroy($id)
     {
         /** @var Subtopic $subtopic */
-        $subtopic = Subtopic::find($id);
+        $subtopic = SubTopic::find($id);
 
         if (empty($subtopic)) {
             return $this->sendError('Subtopic not found');
