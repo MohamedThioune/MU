@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Http\Requests\API\CreateSubtopicAPIRequest;
-use App\Http\Requests\API\UpdateSubtopicAPIRequest;
+use App\Http\Requests\CreateSubTopicRequest;
+use App\Http\Requests\UpdateSubTopicRequest;
 use App\Models\SubTopic;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AppBaseController;
