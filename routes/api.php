@@ -21,4 +21,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 Route::resource('videos', 'VideoAPIController');
-Route::get('videos_categories', [VideoAPIController::class, 'videos_categories'])->name('videos.categories');
+Route::get('videos_categories/{n}', [VideoAPIController::class, 'videos_categories'])->where('n','[0-1]')->name('videos.categories');
+
+
+Route::resource('subtopics', 'SubtopicAPIController');

@@ -3,23 +3,30 @@
 namespace App\Models;
 
 use Eloquent as Model;
-use App\Models\MainTopic;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class SubTopic
+ * Class Subtopic
  * @package App\Models
- * @version January 31, 2021, 9:51 pm UTC
+ * @version July 13, 2021, 1:05 am UTC
  *
  * @property string libelle
+ * @property unsignedInteger mainTopic_id
  */
-class SubTopic extends Model
+class Subtopic extends Model
 {
+    use SoftDeletes;
 
-    public $table = 'sub_topics';
-   
+    public $table = 'subtopics';
+    
+
+    protected $dates = ['deleted_at'];
+
+
+
     public $fillable = [
         'libelle',
-        'mainTopic_id',
+        'mainTopic_id'
     ];
 
     /**
@@ -29,8 +36,7 @@ class SubTopic extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'libelle' => 'string',
-        'mainTopic_id' => 'integer',
+        'libelle' => 'string'
     ];
 
     /**
@@ -40,13 +46,8 @@ class SubTopic extends Model
      */
     public static $rules = [
         'libelle' => 'required',
-        'mainTopic_id' => 'required',
+        'mainTopic_id' => 'required'
     ];
-
-    public function mainTopic()
-    {
-        return $this->belongsTo(MainTopic::class);
-    }
 
     
 }

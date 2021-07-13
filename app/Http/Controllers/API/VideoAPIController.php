@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Http\Requests\API\CreateVideoAPIRequest;
-use App\Http\Requests\API\UpdateVideoAPIRequest;
+use App\Http\Requests\CreateVideoRequest;
+use App\Http\Requests\UpdateVideoRequest;
 use App\Models\Video;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AppBaseController;
@@ -37,7 +37,7 @@ class VideoAPIController extends AppBaseController
         return $this->sendResponse($videos->toArray(), 'Videos retrieved successfully');
     }
 
-    function videos_categories(Request $request)
+    function videos_categories(Request $request, $sistas)
     {
         /* 
         * All videos by main_topic
@@ -46,7 +46,7 @@ class VideoAPIController extends AppBaseController
         $videos_haltcare = DB::Table('videos')->select('videos.*')
                                  ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
                                  ->join('users','users.id','videos.user_id')
-                                 ->where('videos.sistas', 0)
+                                 ->where('videos.sistas', $sistas)
                                  ->where('mainTopic_id', 1)
                                  ->whereNull('videos.deleted_at')
                                  ->get();
@@ -54,7 +54,7 @@ class VideoAPIController extends AppBaseController
         $videos_life = DB::Table('videos')->select('videos.*')
                                 ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
                                 ->join('users','users.id','videos.user_id')
-                                ->where('videos.sistas', 0)
+                                ->where('videos.sistas', $sistas)
                                 ->where('mainTopic_id', 2)
                                 ->whereNull('videos.deleted_at')
                                 ->get();
@@ -62,16 +62,15 @@ class VideoAPIController extends AppBaseController
         $videos_health = DB::Table('videos')->select('videos.*')
                                 ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
                                 ->join('users','users.id','videos.user_id')
-                                ->where('videos.sistas', 0)
+                                ->where('videos.sistas', $sistas)
                                 ->where('mainTopic_id', 3)
                                 ->whereNull('videos.deleted_at')
                                 ->get();
 
-
         $videos_business = DB::Table('videos')->select('videos.*')
                                 ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
                                 ->join('users','users.id','videos.user_id')
-                                ->where('videos.sistas', 0)
+                                ->where('videos.sistas', $sistas)
                                 ->where('mainTopic_id', 4)
                                 ->whereNull('videos.deleted_at')
                                 ->get();
@@ -79,7 +78,7 @@ class VideoAPIController extends AppBaseController
         $videos_environnement = DB::Table('videos')->select('videos.*')
                                 ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
                                 ->join('users','users.id','videos.user_id')
-                                ->where('videos.sistas', 0)
+                                ->where('videos.sistas', $sistas)
                                 ->where('mainTopic_id', 5)
                                 ->whereNull('videos.deleted_at')
                                 ->get();
@@ -87,16 +86,24 @@ class VideoAPIController extends AppBaseController
         $videos_education = DB::Table('videos')->select('videos.*')
                                 ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
                                 ->join('users','users.id','videos.user_id')
-                                ->where('videos.sistas', 0)
+                                ->where('videos.sistas', $sistas)
                                 ->where('mainTopic_id', 6)
                                 ->whereNull('videos.deleted_at')
                                 ->get();
 
-        $videos  = array('healthcare' => $videos_haltcare, 'life' => $videos_life, 'environnement' => $videos_environnement, 'education' => $videos_education);
+        $videos_inshaallah = DB::Table('videos')->select('videos.*')
+                                ->join('sub_topics', 'sub_topics.id','videos.subtopic_id')
+                                ->join('users','users.id','videos.user_id')
+                                ->where('videos.sistas', $sistas)
+                                ->where('mainTopic_id', 7)
+                                ->whereNull('videos.deleted_at')
+                                ->get();
+
+        $videos  = array('healthcare' => $videos_haltcare, 'life' => $videos_life, 'health' => $videos_health, 'business' => $videos_business, 'environnement' => $videos_environnement, 'education' => $videos_education, 'inshaallah' => $videos_inshaallah);
 
         return $this->sendResponse($videos, 'Videos retrieved successfully by main categories');
     }
-
+    
     /**
      * Store a newly created Video in storage.
      * POST /videos
@@ -105,7 +112,7 @@ class VideoAPIController extends AppBaseController
      *
      * @return Response
      */
-    public function store(CreateVideoAPIRequest $request)
+    public function store(CreateVideoRequest $request)
     {
         $input = $request->all();
 
@@ -144,7 +151,7 @@ class VideoAPIController extends AppBaseController
      *
      * @return Response
      */
-    public function update($id, UpdateVideoAPIRequest $request)
+    public function update($id, UpdateVideoRequest $request)
     {
         /** @var Video $video */
         $video = Video::find($id); 
