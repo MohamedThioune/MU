@@ -6,6 +6,7 @@ use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\MainTopic;
 use App\Models\Read;
+use App\Models\Like;
 use App\User;
 use Overtrue\LaravelLike\Traits\Likeable;
 

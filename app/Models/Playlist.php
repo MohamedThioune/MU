@@ -11,10 +11,10 @@ use App\Models\Video;
 /**
  * Class Playlist
  * @package App\Models
- * @version April 4, 2021, 6:53 pm UTC
+ * @version July 19, 2021, 12:41 pm UTC
  *
- * @property unsignedInteger user_id
- * @property unsignedInteger video_id
+ * @property integer user_id
+ * @property integer video_id
  */
 class Playlist extends Model
 {
@@ -38,7 +38,9 @@ class Playlist extends Model
      * @var array
      */
     protected $casts = [
-        'id' => 'integer'
+        'id' => 'integer',
+        'user_id' => 'integer',
+        'video_id' => 'integer'
     ];
 
     /**
@@ -50,16 +52,6 @@ class Playlist extends Model
         'user_id' => 'required',
         'video_id' => 'required'
     ];
-
-    public function playlisted()
-    {
-        return $this->belongsTo(Video::class);
-    }
-
-    public function playlist()
-    {
-        return $this->belongsTo(User::class);
-    }
 
     
 }

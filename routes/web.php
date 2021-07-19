@@ -90,7 +90,6 @@ Route::get('/', function () {
     ->whereNull('videos.deleted_at')
     ->count();
 
-
     $shahid = null;
 
     foreach($look_videos as $look){

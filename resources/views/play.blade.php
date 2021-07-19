@@ -110,7 +110,7 @@
                         <div class="blockLikeEval">
                             <div class="groupLOveUnlove groupLOveUnlove1">
                                 <div class="blockLoveUnlove">
-                                    <p class="nbrLove">{{ $video->likers()->count() }} </p>
+                                    <p class="nbrLove"></p>
                                     <div class="imgCoeur">
                                         <a href="{{ route('likevideo',$video->id ) }}">
                                             <img src="{{ $like ? asset('img/icones/coeurRose.svg') : asset('img/trace-72502x.png') }}" alt="">
@@ -270,7 +270,7 @@
                 </div>
                 <div class="groupLOveUnlove groupLOveUnlove2">
                     <div class="blockLoveUnlove">
-                        <p class="nbrLove">{{ $video->likers()->count() }} </p>
+                        <p class="nbrLove"></p>
                         <div class="imgCoeur">
                             <a href="{{ route('likevideo',$video->id ) }}">
                                 <img src="{{ asset('img/icones/coeurRose.svg') }}" alt="">
@@ -728,7 +728,7 @@
                                                                     </div>
                                                                     <div>
                                                                         <div class="likes">
-                                                                            <div class="text-block-292"> {{\App\Models\Comment::find($comments[$i]->comment_id)->likers()->count()}}</div>
+                                                                            <div class="text-block-292"> </div>
                                                                             <div class="imgCoeur2">
                                                                                 <a href="{{ route('likecomment' , $comments[$i]->comment_id) }}">
                                                                                     <img src="{{ asset('img/icones/coeurRose.svg') }}" alt="">

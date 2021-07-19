@@ -55,7 +55,7 @@ class CommentAPIController extends AppBaseController
 
         if($video){
             if($comments)
-                if(count($comments))
+                if(count($comments) > 0)
                     $message  = 'Comments retrieved successfully for video : '.$video->main_title;
                 else 
                     return $this->sendError('Nobody comment this video : '.$video->main_title);   
@@ -83,7 +83,7 @@ class CommentAPIController extends AppBaseController
 
         if($comment){
             if($response_comments)
-                if(count($response_comments))
+                if(count($response_comments) > 0)
                     $message  = 'Responses retrieved successfully for comment with :'.$comment->value;
                 else 
                     return $this->sendError('No response found for this comment : '.$comment->value);   
@@ -108,7 +108,7 @@ class CommentAPIController extends AppBaseController
 
         if($video){
             if($comments)
-                if(count($comments))
+                if(count($comments) > 0)
                     $message  = 'User comments retrieved successfully for video : '.$video->main_title;
                 else 
                     return $this->sendError('Nobody comment this video : '.$video->main_title);   

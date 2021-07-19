@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use App\Http\Controllers\API\VideoAPIController;
 use App\Http\Controllers\API\CommentAPIController;
+use App\Http\Controllers\API\PlaylistAPIController;
+use App\Http\Controllers\API\MonthAPIController;
 
 
 /*
@@ -32,3 +34,11 @@ Route::resource('comments', 'CommentAPIController');
 Route::get('comments/videos/{n}', [CommentAPIController::class, 'comments'])->name('comments.videos');
 Route::get('comments/response/{n}', [CommentAPIController::class, 'response_comments'])->name('comment.responses');
 Route::get('comments/users/{n}', [CommentAPIController::class, 'users_comments'])->name('comment.users');
+
+Route::resource('playlists', 'PlaylistAPIController');
+Route::get('playlists/users/{n}', [PlaylistAPIController::class, 'users'])->name('playlist.users');
+
+Route::get('time/month/{n}', [MonthAPIController::class, 'month'])->name('time.month');
+Route::get('time/hijri/{n}', [MonthAPIController::class, 'gregorianToHijri'])->name('time.gregorianToHijri');
+Route::get('time/toHijri', [MonthAPIController::class, 'todayToHijri'])->name('time.todayToHijri');
+Route::get('time/bar_topic/{n}', [MonthAPIController::class, 'barTopic'])->name('time.barTopic');
