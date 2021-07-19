@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\API\VideoAPIController;
+use App\Http\Controllers\API\CommentAPIController;
 
 
 /*
@@ -25,3 +26,9 @@ Route::get('videos_categories/{n}', [VideoAPIController::class, 'videos_categori
 
 
 Route::resource('subtopics', 'SubtopicAPIController');
+
+Route::resource('comments', 'CommentAPIController');
+
+Route::get('comments/videos/{n}', [CommentAPIController::class, 'comments'])->name('comments.videos');
+Route::get('comments/response/{n}', [CommentAPIController::class, 'response_comments'])->name('comment.responses');
+Route::get('comments/users/{n}', [CommentAPIController::class, 'users_comments'])->name('comment.users');

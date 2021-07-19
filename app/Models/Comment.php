@@ -4,20 +4,19 @@ namespace App\Models;
 
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Overtrue\LaravelLike\Traits\Likeable;
 
 /**
  * Class Comment
  * @package App\Models
- * @version February 21, 2021, 10:33 pm UTC
+ * @version July 17, 2021, 2:08 pm UTC
  *
- * @property unsignedInteger user_id
- * @property unsignedInteger video_id
+ * @property integer user_id
+ * @property integer video_id
  * @property string value
  */
 class Comment extends Model
 {
-    use SoftDeletes, Likeable;
+    use SoftDeletes;
 
     public $table = 'comments';
     
@@ -39,6 +38,7 @@ class Comment extends Model
      */
     protected $casts = [
         'id' => 'integer',
+        'user_id' => 'integer',
         'video_id' => 'integer',
         'value' => 'string'
     ];
@@ -49,15 +49,10 @@ class Comment extends Model
      * @var array
      */
     public static $rules = [
+        'user_id' => 'required',
         'video_id' => 'required',
         'value' => 'required'
     ];
 
-
-    public function unlikes()
-    {
-        return $this->hasMany(UnlikeComment::class,'comment_id');
-    }
-
-
+    
 }
