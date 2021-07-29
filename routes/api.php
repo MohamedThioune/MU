@@ -5,6 +5,8 @@ use App\Http\Controllers\API\VideoAPIController;
 use App\Http\Controllers\API\CommentAPIController;
 use App\Http\Controllers\API\PlaylistAPIController;
 use App\Http\Controllers\API\MonthAPIController;
+use App\Http\Controllers\API\UserAPIController;
+
 
 
 /*
@@ -42,3 +44,11 @@ Route::get('time/month/{n}', [MonthAPIController::class, 'month'])->name('time.m
 Route::get('time/hijri/{n}', [MonthAPIController::class, 'gregorianToHijri'])->name('time.gregorianToHijri');
 Route::get('time/toHijri', [MonthAPIController::class, 'todayToHijri'])->name('time.todayToHijri');
 Route::get('time/bar_topic/{n}', [MonthAPIController::class, 'barTopic'])->name('time.barTopic');
+
+
+Route::resource('users', 'UserAPIController');
+
+Route::post('auth_signin', [UserAPIController::class, 'auth_signin'])->name('auth.signin');
+Route::get('users/{id}/{token}', [UserAPIController::class, 'shows'])->name('auth.showoff');
+Route::get('auth_logout/{token}', [UserAPIController::class, 'auth_logout'])->name('auth.logout');
+

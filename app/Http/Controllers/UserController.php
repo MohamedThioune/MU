@@ -59,8 +59,6 @@ class UserController extends AppBaseController
         /** @var User $user */
         $user = User::create($input);
 
-        $user->notify(new RegisterNotify());
-
         Flash::success('User saved successfully.');
 
         return redirect(route('users.index'));
@@ -219,78 +217,4 @@ class UserController extends AppBaseController
 
         return redirect(route('users.index'));
     }
-
-    public function suscribe($channel_id)
-    {
-        $user = Auth::user();
-
-        $user->suscribeChannels()->toggle($channel_id);
-
-        return redirect()->back();
-    }
-
-    public function parameter(UpdateUserRequest $request){
-
-        $channel = DB::Table('users')->select('channels.*')
-                                    ->join('channels', 'users.id', 'channels.user_id')
-                                    ->where('users.id', Auth::id())
-                                    ->first();
-
-        $input = $request->all();
-
-        /** @var User $user */
-        $user = Auth::user();
-
-        $name =  $input['name'] ? $input['name'] : $user->name;
-
-        $first_name =  $input['firstName'] ? $input['firstName'] : $user->firstName;
-
-        $last_name =  $input['lastName'] ? $input['lastName'] : $user->lastName;
-
-        $phone =  $input['phone'] ? $input['phone'] : $user->phone;
-
-        $date =  $input['date'] ? $input['date'] : $user->date;
-
-        $postal_code =  $input['postalCode'] ? $input['postalCode'] : $user->postalCode;
-
-        $adresse =  $input['adresse'] ? $input['adresse'] : $user->adresse;
-
-        $town =  $input['town'] ? $input['town'] : $user->town;
-
-        $country =  $input['pays'] ? $input['pays'] : $user->pays;
-
-        User::where('id', Auth::id())
-            ->update(['name' => $name,'firstName' => $first_name, 'lastName' => $last_name,'date' => $date, 'adresse' => $adresse, 'phone' => $phone, 'postalCode' => $postal_code, 'pays' => $country, 'town' => $town]);
-        
-        
-        Flash::success('Information user updated successfully.');
-        
-        return redirect(route('parametre'));
-    }
-
-    public function picture($alpha){
-        $channel = DB::Table('users')->select('channels.*')
-        ->join('channels', 'users.id', 'channels.user_id')
-        ->where('users.id', Auth::id())
-        ->first();
-
-        User::where('id', Auth::id())
-        ->update(['photo' => $alpha]);
-    
-        Flash::success('Profile picture updated successfully.');
-
-        return redirect(route('parametre'));
-
-    }
-
-    public function choose_language($language){
-        if($language == 'fr')
-            session(['lang'=>'fr']);
-        else{
-            session(['lang'=>'en']);    
-        }
-        
-        return redirect('login');   
-    }
-
 }

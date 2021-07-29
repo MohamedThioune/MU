@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\User;
 
 class UpdateUserRequest extends FormRequest
 {
@@ -24,8 +25,7 @@ class UpdateUserRequest extends FormRequest
      */
     public function rules()
     {
-        $id = $this->route('user');
-        $rules = [];
+        $rules = User::$rules;
         
         return $rules;
     }

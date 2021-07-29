@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\API;
 
-use Illuminate\Foundation\Http\FormRequest;
-use App\User;
+use App\Models\User;
+use InfyOm\Generator\Request\APIRequest;
 
-class CreateUserRequest extends FormRequest
+class CreateUserAPIRequest extends APIRequest
 {
-
     /**
      * Determine if the user is authorized to make this request.
      *
